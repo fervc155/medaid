@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="container">
-	<div class="jumbotron">
-		<h1 align="center">Lista de médicos</h1> 
-		<p align="center">Aquí se encuentra una lista de todos los médicos del hospital. Puedes utilizar la barra de búsqueda para encontrar un médico en específico.</p> 
-	</div>
+	<div class="jumbotron" align="center">
+	    <h1>Lista de médicos</h1> 
+  	</div>
 
 
 	<form>
@@ -20,10 +19,12 @@
 <br>
 
 <div class="form-group" align="center">
-<a href="/doctor/create" role="button" class="btn btn-success">Agregar</a>
+	<a href="/doctor/create" role="button" class="btn btn-success">Agregar</a>
 </div>
 
 <div class="container">
+
+	@if(count($doctors) > 0)
 	<table class="table table-hover">
 		<thead>
 			<tr class="table-primary">
@@ -39,19 +40,24 @@
 		</thead>
 		<tbody>
 			@foreach ($doctors as $d)
-			<tr>
-				<th scope="row"> <a href="/doctor/{{$d->id}}"> {{ $d->id }} </a> </th>
-				<td>{{ $d->name }}</td>
-				<td>{{ $d->birthdate }}</td>
-				<td>{{ $d->telephoneNumber }}</td>
-				<td>{{ $d->turno }}</td>
-				<td>{{ $d->sexo }}</td>
-				<td>{{ $d->cedula }}</td>
-				<td>{{ $d->especialidad }}</td>
-			</tr>
+				<tr>
+					<th scope="row"> <a href="/doctor/{{$d->id}}"> {{ $d->id }} </a> </th>
+					<td>{{ $d->name }}</td>
+					<td>{{ $d->birthdate }}</td>
+					<td>{{ $d->telephoneNumber }}</td>
+					<td>{{ $d->turno }}</td>
+					<td>{{ $d->sexo }}</td>
+					<td>{{ $d->cedula }}</td>
+					<td>{{ $d->especialidad }}</td>
+				</tr>
 			@endforeach
+			{{ $doctors->links() }}
 		</tbody>
 	</table>
+
+	@else
+		<p>No se encontraron doctores. <a href="/doctor/create">¡Agrega uno!</a></p>
+	@endif
 </div>
 
 @endsection

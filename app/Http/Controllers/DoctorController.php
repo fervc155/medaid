@@ -14,7 +14,30 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::all();
+        /*
+        Otra opción es:
+        $doctors = Doctor::with('pacientes')
+        ->where('id','>', 6)
+        ->orWhere('cedula', ABC1234DEF)
+        ->limit(4)
+        ->has('pacientes')     ó
+        ->has('pacientes','<=', 3)
+        ->get();
+
+        ó
+
+        ->whereHas('pacientes', function($query) {
+            $query->('nombre', 'like', 'Javier%');
+        })
+        with vs where has ????
+        ->with(['alumnos' => function($query) {
+            $query->where('nombre', 'Prof. Maurice Olson');
+        }])
+
+        //LARAVEL FILTER QUERIES
+         */
+        
+        $doctors = Doctor::orderBy('id', 'asc')->paginate(10); //Para ordenar los doctores por orden alfabético
         return view('hospital.doctor.indexDoctors', compact('doctors'));
     }
 
@@ -57,7 +80,7 @@ class DoctorController extends Controller
         $doctor->especialidad = $request->input('especialidad');
         $doctor->save();
 
-        return redirect('/doctor');
+        return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
     }
 
     /**
