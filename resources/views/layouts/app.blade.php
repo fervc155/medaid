@@ -39,9 +39,12 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     @if (Auth::check())   <!-- Si el usuario ha iniciado sesión se mostrará esto: -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ action('DoctorController@index') }}">{{__('Doctores') }}</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action('DoctorController@index') }}">{{__('Doctores') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action('PatientController@index') }}">{{__('Pacientes') }}</a>
+                        </li>
                     @endif
                 </ul>
 

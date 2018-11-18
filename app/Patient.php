@@ -14,7 +14,7 @@ class Patient extends Model
     //Llave primaria
     public $primaryKey = 'dni';
 
-    public function doctors(){
+    public function doctor(){
         return $this->belongsTo('App\Doctor');
     }
 }

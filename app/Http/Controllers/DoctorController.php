@@ -91,7 +91,8 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        return view('hospital.doctor.showDoctor', compact('doctor'));
+        return view('hospital.doctor.showDoctor', compact('doctor'))
+                ->with('patients', $doctor->patients);
     }
 
     /**
@@ -147,6 +148,6 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {
         $doctor->delete();
-        return redirect('/doctor');
+        return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
     }
 }
