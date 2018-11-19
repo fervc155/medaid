@@ -126,7 +126,6 @@ class DoctorController extends Controller
         ]);
 
         //Editar médico
-        //$doctor = Doctor::find($doctor);    es así para editar?
         $doctor->name = $request->input('name');
         $doctor->birthdate = $request->input('birthdate');
         $doctor->telephoneNumber = $request->input('telephoneNumber');

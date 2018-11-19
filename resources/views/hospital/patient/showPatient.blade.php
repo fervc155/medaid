@@ -12,6 +12,7 @@
 	<p>Fecha de nacimiento: {{ $patient->birthdate }}</p>
 	<p>Teléfono: {{ $patient->telephoneNumber }}</p>
 	<p>Sexo: {{ $patient->sex }}</p>
+	<p>Domicilio: {{ $patient->address }}</p>
 	<p>C.P.: {{ $patient->postalCode }}</p>
 	<p>Ciudad: {{ $patient->city }}</p>
 	<p>País: {{ $patient->country }}</p>

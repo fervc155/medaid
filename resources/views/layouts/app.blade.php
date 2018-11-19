@@ -45,6 +45,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('PatientController@index') }}">{{__('Pacientes') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ action('OfficeController@index') }}">{{__('Consultorios') }}</a>
+                        </li>
                     @endif
                 </ul>
 

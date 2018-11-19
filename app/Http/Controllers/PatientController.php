@@ -111,7 +111,6 @@ class PatientController extends Controller
         ]);
 
         //Editar paciente
-        $patient = new Patient;
         $patient->name = $request->input('name');
         $patient->curp = $request->input('curp');
         $patient->birthdate = $request->input('birthdate');
