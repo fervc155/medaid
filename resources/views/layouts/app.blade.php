@@ -26,7 +26,7 @@
 <body>
 <div id="app">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 La Salud Es Primero
@@ -47,6 +47,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('OfficeController@index') }}">{{__('Consultorios') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{__('Citas') }}</a>
                         </li>
                     @endif
                 </ul>

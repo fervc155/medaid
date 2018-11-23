@@ -85,7 +85,8 @@ class OfficeController extends Controller
      */
     public function show(Office $office)
     {
-        return view('hospital.office.showOffice', compact('office'));
+        return view('hospital.office.showOffice', compact('office'))
+                ->with('doctors', $office->doctors);
     }
 
     /**

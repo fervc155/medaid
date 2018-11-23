@@ -92,7 +92,8 @@ class DoctorController extends Controller
     public function show(Doctor $doctor)
     {
         return view('hospital.doctor.showDoctor', compact('doctor'))
-                ->with('patients', $doctor->patients);
+                ->with('patients', $doctor->patients)
+                ->with('offices', $doctor->offices);
     }
 
     /**
