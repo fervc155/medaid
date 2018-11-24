@@ -159,10 +159,21 @@ class OfficeController extends Controller
     {
         if($office->image != 'noimage.png')
         {
-            //Eliminar la imagen
             Storage::delete('public/images/'.$office->image);
         }
         $office->delete();
         return redirect('/office')->with('success', 'El consultorio ha sido eliminado con éxito.');
+    }
+
+    public function deleteImage(Office $office)
+    {
+        if($office->image != 'noimage.png')
+        {
+            //Eliminar la imagen
+            Storage::delete('public/images/'.$office->image);
+            $office->image = 'noimage.png';
+            $office->save();
+        }
+        return redirect()->back();
     }
 }

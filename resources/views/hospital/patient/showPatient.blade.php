@@ -40,14 +40,14 @@
 		<table class="table table-striped table-responsive">
 			<thead>
 				<tr>
-					<th>ID</th>
-					<th>Fecha</th>
-					<th>Hora</th>
-					<th>Costo</th>
-					<th>Razón</th>
-					<th>ID del médico</th>
-					<th>ID del consultorio</th>
-					<th>Atender</th>
+					<th scope="col">ID</th>
+					<th scope="col">Fecha</th>
+					<th scope="col">Hora</th>
+					<th scope="col">Costo</th>
+					<th scope="col">Razón</th>
+					<th scope="col">ID del médico</th>
+					<th scope="col">ID del consultorio</th>
+					<th scope="col">Atender</th>
 				</tr>
 			</thead>
 			<tbody>

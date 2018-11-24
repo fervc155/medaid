@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('content')
 
@@ -12,6 +12,7 @@
 
     <div class="col-6">
       {!! Form::open(['action' => ['OfficeController@update', $office->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+      
       <div class="form-group">
        {{Form::label('name', 'Nombre:')}}
        {{Form::text('name', $office->name, ['class'=>'form-control', 'placeholder' => 'Nombre'] )}}

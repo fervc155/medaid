@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('content')
 
@@ -20,13 +20,20 @@
 		<p>País: {{ $office->country }}</p>
 
 		<div class="container" align="center">
-			<a role="button" class="btn btn-info" href="/office/{{$office->dni}}edit">Editar</a>
+			<a role="button" class="btn btn-info" href="/office/{{$office->id}}/edit">Editar</a>
 		</div><br>
 
 		<div class="container" align="center">
-			{!! Form::open(['action' => ['OfficeController@destroy', $office->dni], 'method' => 'POST']) !!}
+			{!! Form::open(['action' => ['OfficeController@destroy', $office->id], 'method' => 'POST']) !!}
 			{{ Form::hidden('_method', 'DELETE') }}
 			{{ Form::submit('Eliminar', ['class' => 'btn btn-danger']) }}
+			{!! Form::close() !!}
+		</div>
+
+		<div class="container" align="center">
+			{!! Form::open(['action' => ['OfficeController@deleteImage', $office->id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
+			{{ Form::hidden('_method', 'PATCH') }}
+			{{ Form::submit('Eliminar imagen', ['class' => 'btn btn-danger']) }}
 			{!! Form::close() !!}
 		</div>
 

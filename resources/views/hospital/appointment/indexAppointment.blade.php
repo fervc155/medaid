@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends ('layouts.nav')
 
 @section('content')
 <div class="container">
@@ -18,7 +18,7 @@
 	@if(count($appointments) > 0)
 	<table class="table table-hover">
 		<thead>
-			<tr class="table-primary">
+			<tr>
 				<th scope="col">ID</th>
 				<th scope="col">Fecha</th>
 				<th scope="col">Hora</th>

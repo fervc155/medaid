@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('patient', 'PatientController');
     Route::resource('office', 'OfficeController');
     Route::resource('appointment', 'AppointmentController');
+    Route::patch('/office', 'OfficeController@deleteImage');
 });
 
 

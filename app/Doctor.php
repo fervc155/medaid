@@ -25,4 +25,16 @@ class Doctor extends Model
     public function appointments() {
         return $this->hasMany('App\Appointment');
     }
+
+    //Accessor
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    //Mutator
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+    }
 }
