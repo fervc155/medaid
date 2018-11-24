@@ -49,7 +49,7 @@
                             <a class="nav-link" href="{{ action('OfficeController@index') }}">{{__('Consultorios') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{__('Citas') }}</a>
+                            <a class="nav-link" href="{{ action('AppointmentController@index') }}">{{__('Citas') }}</a>
                         </li>
                     @endif
                 </ul>

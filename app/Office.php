@@ -19,4 +19,8 @@ class Office extends Model
     	return $this->belongsToMany('App\Doctor')
                     ->withPivot('inTime', 'outTime');
     }
+
+    public function appointments() {
+        return $this->hasMany('App\Appointment');
+    }
 }

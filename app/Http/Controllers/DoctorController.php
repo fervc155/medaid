@@ -93,7 +93,8 @@ class DoctorController extends Controller
     {
         return view('hospital.doctor.showDoctor', compact('doctor'))
                 ->with('patients', $doctor->patients)
-                ->with('offices', $doctor->offices);
+                ->with('offices', $doctor->offices)
+                ->with('appointments', $doctor->appointments);
     }
 
     /**

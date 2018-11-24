@@ -13,7 +13,7 @@
 			<div class="card">
 				<div class="card-body">
 					
-					<h5 class="card-title">Datos</h5>
+					<h5 class="card-title">Datos del médico:</h5>
 					<table class="table-responsive">
 						<tbody>
 							<tr><th>ID:</th> <td>{{ $doctor->id }}</td></tr>
@@ -48,7 +48,7 @@
 		<div class="col">
 			<div class="card">
 				<div class="card-body">
-					<h5 class="card-title">Pacientes</h5>
+					<h5 class="card-title">Pacientes:</h5>
 					<table class="table table-striped table-responsive">
 						<thead>
 							<tr>
@@ -68,6 +68,44 @@
 		</div> <!--Col-->
 
 	</div> <!--Row-->
+
+	<hr>
+	<div class="row">
+		<div class="card">
+			<h5 class="card-title">Citas pendientes:</h5>
+			<table class="table table-striped table-responsive">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Fecha</th>
+						<th>Hora</th>
+						<th>Costo</th>
+						<th>Razón</th>
+						<th>ID del paciente</th>
+						<th>ID del consultorio</th>
+						<th>Atender</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach ($appointments as $a)
+					@if ($a->completed == false)
+					<tr>
+						<th scope="row"> <a href="/appointment/{{$a->id}}"> {{ $a->id }} </a> </th>
+						<td>{{ $a->date }}</td>
+						<td>{{ $a->time }}</td>
+						<td>{{ $a->cost }}</td>
+						<td>{{ $a->description }}</td>
+						<td>{{ $a->patient_dni }}</td>
+						<td>{{ $a->office_id }}</td>
+						<td><button>Jiji</button></td>
+					</tr>
+					@endif
+					@endforeach
+				</tbody>
+			</table>
+		</div> <!--Card-->
+	</div> <!--Row-->
+
 </div>
 
 @endsection
