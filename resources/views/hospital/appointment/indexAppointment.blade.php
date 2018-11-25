@@ -24,9 +24,9 @@
 				<th scope="col">Hora</th>
 				<th scope="col">Costo</th>
 				<th scope="col">Razón</th>
-				<th scope="col">ID del médico</th>
-				<th scope="col">ID del paciente</th>
-				<th scope="col">ID del consultorio</th>
+				<th scope="col">Médico</th>
+				<th scope="col">Paciente</th>
+				<th scope="col">Consultorio</th>
 				<th scope="col">¿Completada?</th>
 			</tr>
 		</thead>
@@ -36,11 +36,11 @@
 					<th scope="row"> <a href="/appointment/{{$a->id}}"> {{ $a->id }} </a> </th>
 					<td>{{ $a->date }}</td>
 					<td>{{ $a->time }}</td>
-					<td>{{ $a->cost }}</td>
+					<td>${{ $a->cost }} MXN</td>
 					<td>{{ $a->description }}</td>
-					<td>{{ $a->doctor_id }}</td>
-					<td>{{ $a->patient_dni }}</td>
-					<td>{{ $a->office_id }}</td>
+					<td><a href="/doctor/{{$a->doctor->id}}">{{ $a->doctor->name }} </a></td>
+					<td><a href="/patient/{{$a->patient->dni}}">{{ $a->patient->name }} </a></td>
+					<td><a href="/office/{{$a->office->id}}">{{ $a->office->name }} </a></td>
 					<td>{{ $a->completed }}</td>
 				</tr>
 			@endforeach

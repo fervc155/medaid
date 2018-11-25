@@ -14,7 +14,11 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::orderBy('dni', 'asc')->paginate(10);
+        //Además de recuperar a los pacientes, se seleccionarán los médicos que tengan pacientes
+        $patients = Patient::with(['doctor' => function ($query) {
+            $query->has('patients');
+        }])->paginate(10);
+
         return view('hospital.patient.indexPatients', compact('patients'));
     }
 
@@ -75,8 +79,8 @@ class PatientController extends Controller
     public function show(Patient $patient)
     {
         return view('hospital.patient.showPatient', compact('patient'))
-                    ->with('doctor', $patient->doctor)
-                    ->with('appointments', $patient->appointments);
+        ->with('doctor', $patient->doctor)
+        ->with('appointments', $patient->appointments);
     }
 
     /**

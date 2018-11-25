@@ -3,16 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
-    const UPDATED_AT=NULL;
-    const CREATED_AT=NULL;
+    use SoftDeletes;
 
     //Nombre de tabla
     protected $table = 'appointments';
     //Llave primaria
     public $primaryKey = 'id';
+
+    //Para Soft Deleting
+    protected $dates = ['deleted_at'];
 
     public function doctor(){
         return $this->belongsTo('App\Doctor');

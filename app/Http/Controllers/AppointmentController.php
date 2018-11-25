@@ -14,7 +14,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::orderBy('id', 'asc')->paginate(10);
+        $appointments = Appointment::with(['doctor:id,name', 'patient:dni,name', 'office:id,name'])->paginate(10);
+
         return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
 

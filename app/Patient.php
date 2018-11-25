@@ -23,4 +23,15 @@ class Patient extends Model
     public function appointments() {
         return $this->hasMany('App\Appointment');
     }
+
+    //Como para qué uso esto?
+    /*public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['first_name'] = strtolower($value);
+    }*/
 }

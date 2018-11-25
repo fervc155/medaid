@@ -27,7 +27,7 @@
 	@if(count($patients) > 0)
 	<table class="table table-hover">
 		<thead>
-			<tr class="table-primary">
+			<tr>
 				<th scope="col">DNI</th>
 				<th scope="col">Nombre</th>
 				<th scope="col">CURP</th>
@@ -38,7 +38,7 @@
 				<th scope="col">C.P.</th>
 				<th scope="col">Ciudad</th>
 				<th scope="col">País</th>
-				<th scope="col">ID de médico</th>
+				<th scope="col">Médico</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -54,7 +54,7 @@
 					<td>{{ $p->postalCode }}</td>
 					<td>{{ $p->city }}</td>
 					<td>{{ $p->country }}</td>
-					<td>{{ $p->doctor_id }}</td>
+					<td> <a href="/doctor/{{$p->doctor->id}}"> {{ $p->doctor->name }} </a></td>
 				</tr>
 			@endforeach
 			{{ $patients->links() }}
