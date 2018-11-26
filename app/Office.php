@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\CountryScope;
 
 class Office extends Model
 {
@@ -13,6 +14,13 @@ class Office extends Model
     protected $table = 'offices';
     //Llave primaria
     public $primaryKey = 'id';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new CountryScope);
+    }
 
     public function doctors()
     {

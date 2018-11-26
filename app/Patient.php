@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\CountryScope;
 
 class Patient extends Model
 {
@@ -16,7 +17,14 @@ class Patient extends Model
 
     protected $fillable = ['name', 'birthdate', 'sex', 'city', 'country'];
 
-    public function doctor(){
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new CountryScope);
+    }
+
+    public function doctor() {
         return $this->belongsTo('App\Doctor');
     }
 
