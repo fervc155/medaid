@@ -10,7 +10,6 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('patient', 'PatientController');
     Route::resource('appointment', 'AppointmentController');
-    Route::patch('/office', 'OfficeController@deleteImage');
 });
 
 //Página de inicio

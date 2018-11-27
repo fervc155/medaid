@@ -15,7 +15,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        $offices = Office::orderBy('id', 'asc')->paginate(10);
+        $offices = Office::orderBy('id', 'asc')->get();
         return view('hospital.office.indexOffice', compact('offices'));
     }
 
@@ -165,15 +165,4 @@ class OfficeController extends Controller
         return redirect('/office')->with('success', 'El consultorio ha sido eliminado con éxito.');
     }
 
-    public function deleteImage(Office $office)
-    {
-        if($office->image != 'noimage.png')
-        {
-            //Eliminar la imagen
-            Storage::delete('public/images/'.$office->image);
-            $office->image = 'noimage.png';
-            $office->save();
-        }
-        return redirect()->back();
-    }
 }

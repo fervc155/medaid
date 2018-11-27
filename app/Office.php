@@ -31,4 +31,10 @@ class Office extends Model
     public function appointments() {
         return $this->hasMany('App\Appointment');
     }
+
+    //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

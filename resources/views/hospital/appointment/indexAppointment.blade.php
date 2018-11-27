@@ -16,7 +16,7 @@
 <div class="container">
 
 	@if(count($appointments) > 0)
-	<table class="table table-hover">
+	<table class="table table-hover" id="data_table">
 		<thead>
 			<tr>
 				<th scope="col">ID</th>
@@ -44,7 +44,7 @@
 					<td>{{ $a->completed }}</td>
 				</tr>
 			@endforeach
-			{{ $appointments->links() }}
+			
 		</tbody>
 	</table>
 
@@ -54,3 +54,5 @@
 </div>
 
 @endsection
+
+@include('includes.dataTables')

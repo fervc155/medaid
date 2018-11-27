@@ -17,7 +17,7 @@ class PatientController extends Controller
         //Además de recuperar a los pacientes, se seleccionarán los médicos que tengan pacientes
         $patients = Patient::with(['doctor' => function ($query) {
             $query->has('patients');
-        }])->paginate(10);
+        }])->get();
 
         return view('hospital.patient.indexPatients', compact('patients'));
     }

@@ -17,6 +17,7 @@ class Patient extends Model
 
     protected $fillable = ['name', 'birthdate', 'sex', 'city', 'country'];
 
+    //Incluye el scope de países (CountryScope.php) para filtrar a pacientes y consultorios de India
     protected static function boot()
     {
         parent::boot();
@@ -40,6 +41,6 @@ class Patient extends Model
 
     public function setFirstNameAttribute($value)
     {
-        $this->attributes['first_name'] = strtolower($value);
+        $this->attributes['name'] = strtolower($value);
     }*/
 }

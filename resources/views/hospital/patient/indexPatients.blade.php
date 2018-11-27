@@ -5,16 +5,6 @@
 	<div class="jumbotron" align="center">
 	    <h1>Lista de pacientes</h1> 
   	</div>
-
-
-	<form>
-		<div class="form-group">
-			<label for="busqueda">Buscar</label>
-			<input type="text" class="form-control" id="busqueda" aria-describedby="nota" placeholder="¿A quién buscas?">
-			<small id="nota" class="form-text text-muted">Ingresa el nombre del paciente que buscas.</small>
-		</div>
-		<button type="submit" class="btn btn-primary">Buscar</button>
-	</form>
 </div>
 <br>
 
@@ -25,7 +15,7 @@
 <div class="container">
 
 	@if(count($patients) > 0)
-	<table class="table table-hover">
+	<table class="table table-hover" id="data_table">
 		<thead>
 			<tr>
 				<th scope="col">DNI</th>
@@ -57,7 +47,7 @@
 					<td> <a href="/doctor/{{$p->doctor->id}}"> {{ $p->doctor->name }} </a></td>
 				</tr>
 			@endforeach
-			{{ $patients->links() }}
+			
 		</tbody>
 	</table>
 
@@ -67,3 +57,5 @@
 </div>
 
 @endsection
+
+@include('includes.dataTables')

@@ -30,13 +30,6 @@
 			{!! Form::close() !!}
 		</div>
 
-		<div class="container" align="center">
-			{!! Form::open(['action' => ['OfficeController@deleteImage', $office->id], 'method' => 'PATCH', 'enctype' => 'multipart/form-data']) !!}
-			{{ Form::hidden('_method', 'PATCH') }}
-			{{ Form::submit('Eliminar imagen', ['class' => 'btn btn-danger']) }}
-			{!! Form::close() !!}
-		</div>
-
 	</div>
 </div>
 <hr>
