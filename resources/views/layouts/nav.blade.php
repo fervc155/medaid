@@ -8,10 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>La Salud Es Primero</title>
+    <title>MedAid</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('splash/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap core JavaScript -->
+    
 
     <!-- Íconos -->
     <link href="{{ asset('splash/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -33,7 +35,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    La Salud Es Primero
+                    MedAid
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -101,5 +103,7 @@
     </main>
 
 </div>
+
+</body>
 
 </html>

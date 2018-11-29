@@ -4,6 +4,9 @@
 
 <h1 align="center">Actualizar cita</h1>
 
+<!-- Se crea un formulario cuya información se envía el método "Update" del controlador,
+  utilizando el método PUT de HTTP-->
+
 <div class="container">
     <div class="row">
 
@@ -40,7 +43,7 @@
 
            <div class="form-group">
                {{Form::label('patient_dni', 'DNI del paciente:')}}
-               {{Form::text('patient_dni', $appointment->patient_id, ['class'=>'form-control', 'placeholder' => 'ID del paciente'] )}}
+               {{Form::text('patient_dni', $appointment->patient_dni, ['class'=>'form-control', 'placeholder' => 'ID del paciente'] )}}
            </div>
 
            <div class="form-group">
@@ -54,9 +57,8 @@
            </div>
 
            <div class="form-group">
-               {{Form::label('comments', '¿La cita ha sido completada?')}}
-               {{Form::radio('comments', 'false', true, ['class'=>'form-control'] )}}
-               {{Form::radio('comments', 'true', ['class'=>'form-control'])}}
+               {{Form::label('completed', '¿La cita ha sido completada?')}}
+               {{Form::select('completed', [true => 'Sí', false => 'No'])}}
            </div>
            
        {{ Form::hidden('_method','PUT')}}

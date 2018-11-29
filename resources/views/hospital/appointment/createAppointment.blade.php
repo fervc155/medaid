@@ -4,6 +4,9 @@
 
 <h1 align="center">Agregar cita</h1>
 
+<!-- Se crea un formulario cuya información se envía el método "Store" en el controlador
+  utilizando el método POST de HTPP-->
+
 <div class="container">
     <div class="row">
 

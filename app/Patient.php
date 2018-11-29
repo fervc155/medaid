@@ -25,22 +25,14 @@ class Patient extends Model
         static::addGlobalScope(new CountryScope);
     }
 
+    //Relación N:1 con doctores
     public function doctor() {
         return $this->belongsTo('App\Doctor');
     }
 
+    //Relación 1:N con citas
     public function appointments() {
         return $this->hasMany('App\Appointment');
     }
 
-    //Como para qué uso esto?
-    /*public function getNameAttribute($value)
-    {
-        return ucfirst($value);
-    }
-
-    public function setFirstNameAttribute($value)
-    {
-        $this->attributes['name'] = strtolower($value);
-    }*/
 }

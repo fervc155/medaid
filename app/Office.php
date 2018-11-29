@@ -15,6 +15,7 @@ class Office extends Model
     //Llave primaria
     public $primaryKey = 'id';
 
+    //Función para añadir Scope, que nos permite filtrar resultados
     protected static function boot()
     {
         parent::boot();
@@ -22,12 +23,14 @@ class Office extends Model
         static::addGlobalScope(new CountryScope);
     }
 
+    //Relación N:N con médicos, incluyendo la tabla pivote
     public function doctors()
     {
     	return $this->belongsToMany('App\Doctor')
                     ->withPivot('inTime', 'outTime');
     }
 
+    //Relación 1:N con citas
     public function appointments() {
         return $this->hasMany('App\Appointment');
     }

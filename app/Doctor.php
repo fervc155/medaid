@@ -14,14 +14,17 @@ class Doctor extends Model
     //Llave primaria
     public $primaryKey = 'id';
 
+    //Relación 1:N con pacientes
     public function patients() {
     	return $this->hasMany('App\Patient');
     }
 
+    //Relación N:N con consultorios
     public function offices() {
     	return $this->belongsToMany('App\Office');
     }
 
+    //Relación 1:N con citas
     public function appointments() {
         return $this->hasMany('App\Appointment');
     }

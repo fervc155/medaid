@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group">
 				{{Form::label('sexo', 'Sexo:')}}
-				{{Form::text('sexo', $doctor->sexo, ['class'=>'form-control', 'placeholder' => 'Sexo'] )}}
+				{{Form::select('sexo', ['M' => 'M', 'F' => 'F'])}}
 			</div>
 			<div class="form-group">
 				{{Form::label('cedula', 'Cedula:')}}

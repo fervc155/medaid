@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Lista de pacientes
     public function index()
     {
         //Además de recuperar a los pacientes, se seleccionarán los médicos que tengan pacientes
@@ -22,22 +18,13 @@ class PatientController extends Controller
         return view('hospital.patient.indexPatients', compact('patients'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Agregar paciente
     public function create()
     {
         return view('hospital.patient.createPatient');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Almacenar
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -70,12 +57,7 @@ class PatientController extends Controller
         return redirect('/patient')->with('success', '¡El paciente ha sido agregado con éxito!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Patient  $patient
-     * @return \Illuminate\Http\Response
-     */
+    //Información de paciente
     public function show(Patient $patient)
     {
         return view('hospital.patient.showPatient', compact('patient'))
@@ -83,24 +65,13 @@ class PatientController extends Controller
         ->with('appointments', $patient->appointments);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Patient  $patient
-     * @return \Illuminate\Http\Response
-     */
+    //Editar paciente
     public function edit(Patient $patient)
     {
         return view('hospital.patient.editPatient', compact('patient'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Patient  $patient
-     * @return \Illuminate\Http\Response
-     */
+    //Método update
     public function update(Request $request, Patient $patient)
     {
         $this->validate($request, [
@@ -131,12 +102,7 @@ class PatientController extends Controller
         return redirect('/patient')->with('success', '¡El paciente ha sido actualizado con éxito!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Patient  $patient
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminar paciente
     public function destroy(Patient $patient)
     {
         $patient->delete();

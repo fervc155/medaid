@@ -8,33 +8,20 @@ use Illuminate\Support\Facades\Storage;
 
 class OfficeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Lista de consultorios
     public function index()
     {
         $offices = Office::orderBy('id', 'asc')->get();
         return view('hospital.office.indexOffice', compact('offices'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Agregar consultorio
     public function create()
     {
         return view('hospital.office.createOffice');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Almacenar consultorio
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -77,36 +64,20 @@ class OfficeController extends Controller
         return redirect('/office')->with('success', '¡El consultorio ha sido agregado con éxito!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Office  $office
-     * @return \Illuminate\Http\Response
-     */
+    //Mostrar información
     public function show(Office $office)
     {
         return view('hospital.office.showOffice', compact('office'))
                 ->with('doctors', $office->doctors);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Office  $office
-     * @return \Illuminate\Http\Response
-     */
+    //Actualizar
     public function edit(Office $office)
     {
         return view('hospital.office.editOffice', compact('office'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Office  $office
-     * @return \Illuminate\Http\Response
-     */
+    //Método update
     public function update(Request $request, Office $office)
     {
         $this->validate($request, [
@@ -146,15 +117,10 @@ class OfficeController extends Controller
         }
         $office->save();
 
-        return redirect('/office')->with('success', '¡El consultorio ha sido agregado con éxito!');
+        return redirect('/office')->with('success', '¡El consultorio ha sido actualizado con éxito!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Office  $office
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminar consultorio
     public function destroy(Office $office)
     {
         if($office->image != 'noimage.png')

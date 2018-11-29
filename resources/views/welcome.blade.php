@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">Bienvenido a <i>La Salud es Primero</i>.</h1>
+            <h1 class="mb-5">Bienvenido a <i>MedAid</i>.</h1>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
                 <i class="icon-screen-desktop m-auto text-primary"></i>
               </div>
               <h3>Moderno</h3>
-              <p class="lead mb-0">Este hospital utiliza la mejor tecnología para garantizar tu satisfacción y comodidad.</p>
+              <p class="lead mb-0">Un sistema moderno para administrar tus consultorios de la manera más eficaz posible.</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -32,7 +32,7 @@
                 <i class="icon-layers m-auto text-primary"></i>
               </div>
               <h3>Completo</h3>
-              <p class="lead mb-0">En ningún lugar encontrarás un hospital con un servicio tan completo como el nuestro.</p>
+              <p class="lead mb-0">Todas las funciones que necesitas en una sola aplicación.</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -40,8 +40,8 @@
               <div class="features-icons-icon d-flex">
                 <i class="icon-check m-auto text-primary"></i>
               </div>
-              <h3>Excelente personal</h3>
-              <p class="lead mb-0">Contamos con el mejor personal del Estado, dispuesto a servirte.</p>
+              <h3>Rápido</h3>
+              <p class="lead mb-0">Agiliza el trabajo dentro de tu hospital con este gran sistema.</p>
             </div>
           </div>
         </div>

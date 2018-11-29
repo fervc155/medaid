@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Lista de citas
     public function index()
     {
         $appointments = Appointment::with(['doctor:id,name', 'patient:dni,name', 'office:id,name'])->get();
@@ -19,22 +15,13 @@ class AppointmentController extends Controller
         return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Agregar cita
     public function create()
     {
         return view('hospital.appointment.createAppointment');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //Método store, para almacenar cita
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -62,35 +49,19 @@ class AppointmentController extends Controller
         return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
+    //Información de cita
     public function show(Appointment $appointment)
     {
         return view('hospital.appointment.showAppointment', compact('appointment'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
+    //Actualizar cita
     public function edit(Appointment $appointment)
     {
         return view('hospital.appointment.editAppointment', compact('appointment'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
+    //Método update 
     public function update(Request $request, Appointment $appointment)
     {
         $this->validate($request, [
@@ -116,18 +87,22 @@ class AppointmentController extends Controller
         $appointment->completed = $request->input('completed');
         $appointment->save();
 
-        return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');
+        return redirect('/appointment')->with('success', '¡La cita ha sido actualizada con éxito!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Appointment  $appointment
-     * @return \Illuminate\Http\Response
-     */
+    //Eliminar cita
     public function destroy(Appointment $appointment)
     {
         $appointment->delete();
         return redirect('/appointment')->with('success', 'La cita ha sido eliminada con éxito.');
+    }
+
+    //Atender cita
+    public function complete(Appointment $appointment)
+    {
+        $appointment->completed = true;
+        $appointment->save();
+
+        return redirect('/appointment')->with('success', '¡La cita ha sido atendida con éxito!');
     }
 }

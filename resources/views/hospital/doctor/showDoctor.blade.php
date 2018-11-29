@@ -97,7 +97,7 @@
 						<td>{{ $a->description }}</td>
 						<td>{{ $a->patient_dni }}</td>
 						<td>{{ $a->office_id }}</td>
-						<td><button>Jiji</button></td>
+						<td><button class="btn btn-success">Jiji</button></td>
 					</tr>
 					@endif
 					@endforeach

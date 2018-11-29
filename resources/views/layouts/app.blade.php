@@ -8,10 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>La Salud Es Primero</title>
+    <title>MedAid</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('splash/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('splash/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -29,7 +32,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                La Salud Es Primero
+                MedAid
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -76,7 +79,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Cerrar sesión') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -90,9 +93,7 @@
     </div>
 </nav>
 
-<!-- Bootstrap core JavaScript -->
-<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
 
     <main class="py-4">
         @include('includes.messages')

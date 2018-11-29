@@ -17,14 +17,17 @@ class Appointment extends Model
     //Para Soft Deleting
     protected $dates = ['deleted_at'];
 
+    //Relación N:1 con doctor
     public function doctor(){
         return $this->belongsTo('App\Doctor');
     }
 
+    //Relación N:1 con paciente
     public function patient(){
         return $this->belongsTo('App\Patient');
     }
 
+    //Relación N:1 con consultorio
     public function office(){
         return $this->belongsTo('App\Office');
     }

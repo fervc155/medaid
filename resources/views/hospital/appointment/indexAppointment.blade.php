@@ -9,8 +9,11 @@
 </div>
 <br>
 
+<!-- Se muestran los datos de la entidad en una tabla, utilizando formato Blade de PHP para acceder
+	a cada atributo fácilmente -->
+
 <div class="form-group" align="center">
-	<a href="/appointment/create" role="button" class="btn btn-success">Agregar</a>
+	<a href="/appointment/create" role="button" class="btn btn-success">Agendar</a>
 </div>
 
 <div class="container">

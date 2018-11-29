@@ -10,24 +10,17 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    //Atributos modificables
     protected $fillable = [
         'name', 'is_admin', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    //Atributos ocultos
     protected $hidden = [
         'password', 'remember_token',
     ];
 
+    //Método para determinar si el usuario es de tipo administrador
     public function isAdmin()
     {
         return $this->is_admin;
