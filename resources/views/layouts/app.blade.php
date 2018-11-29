@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MedAid</title>
+    <title>La Salud es lo Primero</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('splash/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                MedAid
+                La Salud es lo Primero
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>

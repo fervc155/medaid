@@ -44,7 +44,13 @@
 					<td><a href="/doctor/{{$a->doctor->id}}">{{ $a->doctor->name }} </a></td>
 					<td><a href="/patient/{{$a->patient->dni}}">{{ $a->patient->name }} </a></td>
 					<td><a href="/office/{{$a->office->id}}">{{ $a->office->name }} </a></td>
-					<td>{{ $a->completed }}</td>
+					<td>
+						@if ($a->completed == true)
+							Sí
+						@else
+							No
+						@endif
+					</td>
 				</tr>
 			@endforeach
 			

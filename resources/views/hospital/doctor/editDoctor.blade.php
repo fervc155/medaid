@@ -26,7 +26,7 @@
 			</div>
 			<div class="form-group">
 				{{Form::label('turno', 'Turno:')}}
-				{{Form::text('turno', $doctor->turno, ['class'=>'form-control', 'placeholder' => 'Turno'] )}}
+				{{Form::select('turno', ['Vespertino' => 'Vespertino', 'Matutino' => 'Matutino'])}}
 			</div>
 			<div class="form-group">
 				{{Form::label('sexo', 'Sexo:')}}

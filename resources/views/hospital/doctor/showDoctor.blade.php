@@ -81,8 +81,8 @@
 						<th>Hora</th>
 						<th>Costo</th>
 						<th>Razón</th>
-						<th>ID del paciente</th>
-						<th>ID del consultorio</th>
+						<th>Paciente</th>
+						<th>Consultorio</th>
 						<th>Atender</th>
 					</tr>
 				</thead>
@@ -95,9 +95,14 @@
 						<td>{{ $a->time }}</td>
 						<td>{{ $a->cost }}</td>
 						<td>{{ $a->description }}</td>
-						<td>{{ $a->patient_dni }}</td>
-						<td>{{ $a->office_id }}</td>
-						<td><button class="btn btn-success">Jiji</button></td>
+						<td>{{ $a->patient->name }}</td>
+						<td><a href="/office/{{$a->office->id}}">{{ $a->office->name }}</a></td>
+						<td>
+							{!! Form::open(['action' => ['AppointmentController@complete', $a->id], 'method' => 'PATCH']) !!}
+							{{ Form::hidden('_method', 'PATCH') }}
+							{{ Form::submit('Atender', ['class' => 'btn btn-success']) }}
+							{!! Form::close() !!}
+						</td>
 					</tr>
 					@endif
 					@endforeach
