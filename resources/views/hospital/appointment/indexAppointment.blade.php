@@ -18,6 +18,7 @@
 
 <div class="container">
 
+	<!-- Si el número de citas es mayor a cero, se mostrarán los datos -->
 	@if(count($appointments) > 0)
 	<table class="table table-hover" id="data_table">
 		<thead>
@@ -57,6 +58,7 @@
 		</tbody>
 	</table>
 
+	<!-- Si no hay registros, el usuario será informado -->
 	@else
 		<p>No se encontraron citas. <a href="/appointment/create">¡Agenda una!</a></p>
 	@endif

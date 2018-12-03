@@ -14,6 +14,7 @@
         </div>
 
         <div class="col-6">
+        <!-- El contenido se enviará a 'update' con el método PUT -->
         {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}
 
             <div class="form-group">

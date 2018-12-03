@@ -14,6 +14,7 @@
         </div>
 
         <div class="col-6">
+        <!-- El contenido del formulario se enviará al método 'store' con el método POST -->
         {!! Form::open(['action' => 'AppointmentController@store', 'method' => 'POST']) !!}
 
             <div class="form-group">

@@ -21,7 +21,8 @@ class Doctor extends Model
 
     //Relación N:N con consultorios
     public function offices() {
-    	return $this->belongsToMany('App\Office');
+    	return $this->belongsToMany('App\Office')
+                    ->withPivot('inTime', 'outTime');
     }
 
     //Relación 1:N con citas

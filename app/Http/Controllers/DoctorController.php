@@ -44,6 +44,13 @@ class DoctorController extends Controller
         $doctor->especialidad = $request->input('especialidad');
         $doctor->save();
 
+        if($request->has(['office_id', 'inTime', 'outTime']))
+        {
+            $doctor->offices()->attach($request->input('office_id'), 
+                                        ['inTime' => $request->input('inTime'),
+                                         'outTime' => $request->input('outTime')]);
+        }
+
         return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
     }
 
@@ -84,6 +91,13 @@ class DoctorController extends Controller
         $doctor->cedula = $request->input('cedula');
         $doctor->especialidad = $request->input('especialidad');
         $doctor->save();
+
+        if($request->has(['office_id', 'inTime', 'outTime']))
+        {
+            $doctor->offices()->attach($request->input('office_id'), 
+                                        ['inTime' => $request->input('inTime'),
+                                         'outTime' => $request->input('outTime')]);
+        }
 
         return redirect('/doctor');
     }

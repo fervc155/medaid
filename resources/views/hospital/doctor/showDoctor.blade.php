@@ -58,8 +58,10 @@
 						</thead>
 						<tbody>
 							@foreach ($patients as $p)
-							<th scope="row"> <a href="/patient/{{$p->dni}}"> {{ $p->dni }} </a> </th>
-							<td> {{ $p->name }} </td>
+							<tr>
+								<th scope="row"> <a href="/patient/{{$p->dni}}"> {{ $p->dni }} </a> </th>
+								<td> {{ $p->name }} </td>
+							</tr>	
 							@endforeach
 						</tbody>
 					</table>

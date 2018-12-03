@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>La Salud es lo Primero</title>
+    <title>MedAid</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('splash/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -35,7 +35,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    La Salud es lo Primero
+                    MedAid
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,15 +45,23 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @if (Auth::check())   <!-- Si el usuario ha iniciado sesión se mostrará esto: -->
+
+                        @admin
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('DoctorController@index') }}">{{__('Doctores') }}</a>
                         </li>
+                        @endadmin
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('PatientController@index') }}">{{__('Pacientes') }}</a>
                         </li>
+
+                        @admin
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('OfficeController@index') }}">{{__('Consultorios') }}</a>
                         </li>
+                        @endadmin
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{ action('AppointmentController@index') }}">{{__('Citas') }}</a>
                         </li>

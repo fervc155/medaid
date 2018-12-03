@@ -111,6 +111,9 @@ class OfficeController extends Controller
         $office->postalCode = $request->input('postalCode');
         $office->city = $request->input('city');
         $office->country = $request->input('country');
+
+        //Si la petición contiene un archivo de imagen, ésta se asignará
+        //al consultorio, utilizando el nombre de archivo generado anteriormente
         if($request->hasFile('image'))
         {
             $office->image = $fileNameToStore;
@@ -123,6 +126,8 @@ class OfficeController extends Controller
     //Eliminar consultorio
     public function destroy(Office $office)
     {
+        //Si la imagen no es no 'noimage' (nuestra imagen predeterminada),
+        //entonces será eliminada del almacenamiento
         if($office->image != 'noimage.png')
         {
             Storage::delete('public/images/'.$office->image);

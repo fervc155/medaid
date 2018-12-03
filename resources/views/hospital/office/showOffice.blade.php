@@ -45,9 +45,11 @@
 	</thead>
 	<tbody>
 		@foreach ($doctors as $d)
-		<th scope="row"> <a href="/doctor/{{$d->id}}"> {{ $d->id }} </a> </th>
-		<td> {{ $d->name }} </td>
-		<td> {{ $d->pivot->inTime }} - {{ $d->pivot->outTime }} </td>
+		<tr>
+			<th scope="row"> <a href="/doctor/{{$d->id}}"> {{ $d->id }} </a> </th>
+			<td> {{ $d->name }} </td>
+			<td> {{ $d->pivot->inTime }} - {{ $d->pivot->outTime }} </td>
+		</tr>
 		@endforeach
 	</tbody>
 </table>
