@@ -24,8 +24,8 @@ class CreateAppointmentsTable extends Migration
 
             $table->integer('doctor_id')->unsigned();
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('patient_id')->unsigned();
-            $table->foreign('patient_id')->references('dni')->on('patients')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('patient_dni')->unsigned();
+            $table->foreign('patient_dni')->references('dni')->on('patients')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('office_id')->unsigned();
             $table->foreign('office_id')->references('id')->on('offices')->onDelete('cascade')->onUpdate('cascade');
         });
