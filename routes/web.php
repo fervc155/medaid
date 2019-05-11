@@ -18,7 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Página de inicio
 Route::get('/', function () {
-	User::find(1)->notify(new Prueba);
+	//User::find(1)->notify(new Prueba);
     return view('welcome');
 });
 

@@ -13,103 +13,115 @@
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('splash/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+ 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('splash/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('splash/vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('splash/landing-page.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('splash/landing-page.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-    <div id="app">
+    
+   <div id="app " class="container-fluid navegacion static-top bg-info py-3">
+          
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-md navbar-dark bg-info static-top">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    MedAid
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @if (Auth::check())   <!-- Si el usuario ha iniciado sesión se mostrará esto: -->
+                    
+                <nav class=" navbar navbar-expand-lg bg-transparent   ">
+                    <a class="navbar-brand py-3" href="{{ url('/') }}">
+                        <img src="{{ asset('splash/img/logowhite.png')}}" class="logo">
+                    </a>                
 
-                        <!-- Sólo los administradores pueden ´ver Doctores y Consultorios -->
-                        @admin
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action('DoctorController@index') }}">{{__('Doctores') }}</a>
-                        </li>
-                        @endadmin
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action('PatientController@index') }}">{{__('Pacientes') }}</a>
-                        </li>
-
-                        @admin
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action('OfficeController@index') }}">{{__('Consultorios') }}</a>
-                        </li>
-                        @endadmin
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ action('AppointmentController@index') }}">{{__('Citas') }}</a>
-                        </li>
-
-                        @endif
-                    </ul>
-
-                    <!-- Lado derecho de navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Auth -->
-                        @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            @if (Route::has('register'))
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                            @endif
-                        </li>
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                {{ __('Cerrar sesión') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endguest
-                </ul>
-            </div>
-        </div>
-    </nav>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon text-light"><i class="fas fa-bars"></i></span>
+                     </button>
 
 
 
-    <main class="py-4">
-        @include('includes.messages')
-        @yield('content')
-    </main>
-</div>
+                        <div class="collapse navbar-collapse text-center text-md-left" id="navbarSupportedContent">
+                            <!-- Left Side Of Navbar -->
+                            <ul class="navbar-nav  ml-md-auto">
+                                @if (Auth::check())   <!-- Si el usuario ha iniciado sesión se mostrará esto: -->
+
+                                <!-- Sólo los administradores pueden ´ver Doctores y Consultorios -->
+                                @admin
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('DoctorController@index') }}"><i class="icon fas fa-user-md"></i> {{__('Doctores') }}</a>
+                                </li>
+                                @endadmin
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fas fa-user-injured"></i> {{__('Pacientes') }}</a>
+                                </li>
+
+                                @admin
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('OfficeController@index') }}"><i class="icon fas fa-hospital"></i> {{__('Consultorios') }}</a>
+                                </li>
+                                @endadmin
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ action('AppointmentController@index') }}"><i icon class="fas fa-book"></i> {{__('Citas') }}</a>
+                                </li>
+
+                                @endif
+                            </ul>
+
+                            <!-- Lado derecho de navbar -->
+                            <ul class="navbar-nav ml-md-3">
+                                <!-- Auth -->
+                                @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}"><i class="fas icon fa-sign-in-alt"></i> {{__('Iniciar sesión') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}"><i class="fas icon fa-user-plus"></i> {{__('Registrarse') }}</a>
+                                    @endif
+                                </li>
+                                @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <i class="icon fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        <i class="fas icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            @endguest
+                        </ul>
+                    </div>
+
+                </nav>
+
+       
+    </div>
+
+
+        <main class="">
+            @include('includes.messages')
+            @yield('content')
+        </main>
+    </div>
+
+    <script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.min.css') }}"></script>
+
 </body>
 
 </html>
