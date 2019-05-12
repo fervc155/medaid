@@ -30,7 +30,9 @@
                  <div class="icon-form">
                     <i class="fas fa-birthday-cake"></i>
                 </div>
-                 {{Form::date('birthdate', '', ['class'=>'form-control', 'placeholder' => 'Fecha de nacimiento'] )}}
+               
+                   {{Form::text('birthdate', '', ['class'=>'form-control datepicker2 ','placeholder' => 'Fecha de nacimiento'] )}}
+
              </div>
 
             <div class="form-group form-inline ">
@@ -92,15 +94,16 @@
                     <i class="fas fa-clock"></i>
                 </div>
 
-                 {{Form::time('inTime', '', ['class'=>'form-control'] )}}
+                  {{Form::time('inTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+
              </div>
 
             <div class="form-group form-inline ">
                 <div class="icon-form">
                     <i class="fas fa-clock"></i>
                 </div>
+                {{Form::time('outTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
 
-                 {{Form::time('outTime', '', ['class'=>'form-control'] )}}
              </div>
 
 

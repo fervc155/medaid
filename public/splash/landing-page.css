@@ -6,8 +6,8 @@
   --principalxclaro:#A2D0FF;
 
 
-  --verde:#35AE6B;
-  --verdehover:#189B18;
+  --verde:#35C86B;
+  --verdehover:#35AE6B;
 
 
   --rojo:#C9302C;
@@ -18,11 +18,13 @@
 
   --oscuro:#0B3552;
 
+  --blanco:#f5f5f5;
+
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #f5f5f5;
+  background-color: var(--blanco);
 }
 
 h1,
@@ -87,6 +89,7 @@ a.link,
     background-color: #17A2B8 !important;
     border: 1px solid #17A2B8;
     font-size: 1rem !important;
+    transition: all 0.3s ease;
 }
 .btn-primary-alt
 {
@@ -95,6 +98,8 @@ a.link,
     color: var(--principal);
     font-size: 1rem !important;
     padding: 0.5rem 2rem;
+        transition: all 0.3s ease;
+
 }
 .btn-primary-alt:hover
 {
@@ -119,6 +124,8 @@ a.link,
     background-color: var(--rojo) !important;
     border: 1px solid var(--rojo);
     font-size: 1rem !important;
+        transition: all 0.3s ease;
+
 }
 
 .btn-danger:hover
@@ -142,6 +149,8 @@ a.link,
     border: 1px solid var(--verde);
 
     font-size: 1rem !important;
+        transition: all 0.3s ease;
+
 }
 
 
@@ -160,6 +169,7 @@ a.link,
     background-color: var(--principalclaro) !important;
     border: 1px solid var(--principalclaro);
     color: white;
+    transition: all 0.3s ease;
 
   
 }
@@ -176,6 +186,71 @@ a.link,
 
 }
 
+
+
+/*  PICKADATE */
+
+.picker__select--month,
+.picker__select--year {
+    height: auto !important;
+}
+
+.picker--time .picker__button--clear:focus, 
+.picker--time .picker__button--clear:hover {
+    background: var(--verde) !important;
+    border-color: none !important;
+}
+
+
+.picker--focused .picker__list-item--selected, 
+.picker__list-item--selected,
+.picker__list-item--selected:hover,
+.picker--focused .picker__day--selected,
+.picker__day--selected, 
+.picker__day--selected:hover 
+{
+    background-color:  var(--principal) !important;
+}
+
+.picker__list-item:hover 
+{
+  background-color: var(--principalxclaro) !important;
+}
+
+
+/* FULLCALENDAR */
+
+
+
+.fc-button-primary {
+    color: #fff;
+    background-color: var(--principalclaro) !important;
+    border-color: var(--blanco) !important;
+}
+
+.fc-button-primary:focus {
+    color: #fff;
+    background-color: var(--principalhover) !important;
+    border-color:  none!important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.fc-left h2
+{
+  color: var(--principal);
+  text-transform: capitalize;
+}
+ td.fc-today {
+    background-color: white !important;
+}
+
+
+.fc-event {
+  color:white !important;
+  background-color: var(--verde)!important;
+  border: none !important;
+  padding: 0.25rem !important;
+}
 /*  WELCOME */
 
 
@@ -317,14 +392,14 @@ footer.footer li:hover
 
 .navegacion img.logo
 {
-  height: 4rem;
+  height: 3.5rem;
   width: auto;
   transition: all 0.3s ease;
 }
 
 .navegacion img.logo:hover
 {
-  height: 4.5rem;
+  transform: scale(1.05);
   width: auto;
 
 }
@@ -470,18 +545,18 @@ footer.footer li:hover
 /* INDEX person */
 
 
-table thead
+table.datos thead
 {
    background-color: var(--principal);
    color: white;
 }
 
-table tr:hover
+table.datos tr:hover
 {
   background-color: var(--principalxclaro);
   color: white;
 }
-table tr a.link:hover
+table.datos tr a.link:hover
 {
   color:white;
 }
