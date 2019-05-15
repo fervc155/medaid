@@ -36,7 +36,7 @@ h6 {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
 
- 
+
 
 }
 
@@ -79,6 +79,14 @@ a.link,
 }
 
 
+.box-shadow
+{
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
+
+}
 .bg-primary
 {
   background-color: var(--principal)!important;
@@ -86,27 +94,27 @@ a.link,
 
 .btn-primary
 {
-    background-color: #17A2B8 !important;
-    border: 1px solid #17A2B8;
-    font-size: 1rem !important;
-    transition: all 0.3s ease;
+  background-color: #17A2B8 !important;
+  border: 1px solid #17A2B8;
+  font-size: 1rem !important;
+  transition: all 0.3s ease;
 }
 .btn-primary-alt
 {
-    background-color: white !important;
-    border: 1px solid white;
-    color: var(--principal);
-    font-size: 1rem !important;
-    padding: 0.5rem 2rem;
-        transition: all 0.3s ease;
+  background-color: white !important;
+  border: 1px solid white;
+  color: var(--principal);
+  font-size: 1rem !important;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s ease;
 
 }
 .btn-primary-alt:hover
 {
-    background-color: transparent !important;
-    border: 1px solid white;
-    color: white;
-    font-size: 1rem !important;
+  background-color: transparent !important;
+  border: 1px solid white;
+  color: white;
+  font-size: 1rem !important;
 }
 
 .color-verde
@@ -121,35 +129,35 @@ a.link,
 
 .btn-danger
 {
-    background-color: var(--rojo) !important;
-    border: 1px solid var(--rojo);
-    font-size: 1rem !important;
-        transition: all 0.3s ease;
+  background-color: var(--rojo) !important;
+  border: 1px solid var(--rojo);
+  font-size: 1rem !important;
+  transition: all 0.3s ease;
 
 }
 
 .btn-danger:hover
 {
-    background-color: var(--rojohover) !important;
-    border: 1px solid var(--rojohover);
-    font-size: 1rem !important;
+  background-color: var(--rojohover) !important;
+  border: 1px solid var(--rojohover);
+  font-size: 1rem !important;
 }
 
 
 .btn-primary:hover
 {
-    background-color: var(--principalhover) !important;
-    border: 1px solid var(--principalhover);
-    
+  background-color: var(--principalhover) !important;
+  border: 1px solid var(--principalhover);
+
 }
 
 .btn-secondary
 {
-    background-color: var(--verde) !important;
-    border: 1px solid var(--verde);
+  background-color: var(--verde) !important;
+  border: 1px solid var(--verde);
 
-    font-size: 1rem !important;
-        transition: all 0.3s ease;
+  font-size: 1rem !important;
+  transition: all 0.3s ease;
 
 }
 
@@ -157,8 +165,8 @@ a.link,
 
 .btn-secondary:hover
 {
-    background-color: var(--verdehover) !important;
-    border: 1px solid var(--verdehover);
+  background-color: var(--verdehover) !important;
+  border: 1px solid var(--verdehover);
 
 
 }
@@ -166,10 +174,10 @@ a.link,
 
 .btn-claro
 {
-    background-color: var(--principalclaro) !important;
-    border: 1px solid var(--principalclaro);
-    color: white;
-    transition: all 0.3s ease;
+  background-color: var(--principalclaro) !important;
+  border: 1px solid var(--principalclaro);
+  color: white;
+  transition: all 0.3s ease;
 
   
 }
@@ -177,12 +185,12 @@ a.link,
 
 .btn-claro:hover
 {
-    /* background-color: #12899B !important; */
-     border: 1px solid white ;
-     background-color: transparent !important;
-      color: white;
+  /* background-color: #12899B !important; */
+  border: 1px solid white ;
+  background-color: transparent !important;
+  color: white;
 
-   
+
 
 }
 
@@ -192,13 +200,13 @@ a.link,
 
 .picker__select--month,
 .picker__select--year {
-    height: auto !important;
+  height: auto !important;
 }
 
 .picker--time .picker__button--clear:focus, 
 .picker--time .picker__button--clear:hover {
-    background: var(--verde) !important;
-    border-color: none !important;
+  background: var(--verde) !important;
+  border-color: none !important;
 }
 
 
@@ -209,7 +217,7 @@ a.link,
 .picker__day--selected, 
 .picker__day--selected:hover 
 {
-    background-color:  var(--principal) !important;
+  background-color:  var(--principal) !important;
 }
 
 .picker__list-item:hover 
@@ -223,25 +231,25 @@ a.link,
 
 
 .fc-button-primary {
-    color: #fff;
-    background-color: var(--principalclaro) !important;
-    border-color: var(--blanco) !important;
+  color: #fff;
+  background-color: var(--principalclaro) !important;
+  border-color: var(--blanco) !important;
 }
 
 .fc-button-primary:focus {
-    color: #fff;
-    background-color: var(--principalhover) !important;
-    border-color:  none!important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+  color: #fff;
+  background-color: var(--principalhover) !important;
+  border-color:  none!important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 .fc-left h2
 {
   color: var(--principal);
   text-transform: capitalize;
 }
- td.fc-today {
-    background-color: white !important;
+td.fc-today {
+  background-color: white !important;
 }
 
 
@@ -308,15 +316,15 @@ a.link,
 }
 .iconos-caracteristicas2 .mb-5:hover
 {
-    background-color: white;
-    border-radius: 0.5rem;
-    -webkit-box-shadow: 0px 20px 0px 0px rgba(0,100,200,0.2);
+  background-color: white;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0px 20px 0px 0px rgba(0,100,200,0.2);
   box-shadow: 0px 0px 20px 0px rgba(0,100,200,0.2);
   transform: translateY(-10px);
 }
 .formulario  .form-control
 {
-   width: 95%;
+ width: 95%;
 
 }
 .formulario .icon-form
@@ -326,7 +334,7 @@ a.link,
 
 .form-control-claro
 {
-  
+
   background-color: transparent !important;
   border: none !important;
   border-bottom: 1px solid white !important;
@@ -363,10 +371,10 @@ footer.footer a
 }
 footer.footer li
 {
-    padding: 0.5rem; 
-   border-radius: 0.5rem;
-   transition: all 0.3s ease;
- 
+  padding: 0.5rem; 
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+
 }
 
 footer.footer .nav li:after
@@ -387,7 +395,7 @@ footer.footer li:hover
 
 .navegacion 
 {
-    background-color: #343a40;
+  background-color: #343a40;
 }
 
 .navegacion img.logo
@@ -406,7 +414,7 @@ footer.footer li:hover
 
 .navegacion .navbar a.nav-link
 {
-    color: white;
+  color: white;
 }
 
 .navegacion .navbar .nav-item:hover
@@ -415,8 +423,8 @@ footer.footer li:hover
 }
 .navegacion .navbar .nav-item:hover
 {
-    background-color: var(--principalclaro);
-    border-radius: 6px;
+  background-color: var(--principalclaro);
+  border-radius: 6px;
 }
 
 
@@ -431,7 +439,7 @@ footer.footer li:hover
 
 .navegacion .dropdown .dropdown-menu .dropdown-item
 {
-  
+
   color: white;
   transition:  all 0.2s ease;
 
@@ -491,14 +499,14 @@ footer.footer li:hover
 
 .tarjeta .form-control
 {
-    border-radius: 0px 5px 5px 0px;
-    width: 92%;
-    height: auto;
-    background-color: white;
-   border: none;
-   border-bottom: 1px solid white;
+  border-radius: 0px 5px 5px 0px;
+  width: 92%;
+  height: auto;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid white;
   border-radius: 0px;
- transition: all 0.2s ease;
+  transition: all 0.2s ease;
 
 }
 
@@ -516,7 +524,7 @@ footer.footer li:hover
 {
   -webkit-box-shadow: none;
   box-shadow: none;
-    border: 1px solid var(--principalxclaro)
+  border: 1px solid var(--principalxclaro)
 
 }
 
@@ -547,8 +555,8 @@ footer.footer li:hover
 
 table.datos thead
 {
-   background-color: var(--principal);
-   color: white;
+ background-color: var(--principal);
+ color: white;
 }
 
 table.datos tr:hover
@@ -587,17 +595,17 @@ table.datos tr a.link:hover
 }
 .contenedor-fondo
 {
-   position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,100,0.1);
-  z-index:33;
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,100,0.1);
+ z-index:33;
 }
 .contenedor-imagen img,
 {
-   
+
   width: 100%;
   background-position: center center;
 }
@@ -611,7 +619,7 @@ table.datos tr a.link:hover
   height: 100%;
   top: 0;
   left: 0;
- 
+
   color: white;
   
 
@@ -620,36 +628,58 @@ table.datos tr a.link:hover
 
 
 /*  SHOW */
-
-
-
 .contadores .caja
 {
-  text-align: center;
-  display: inline-block;
   background-color: white;
-  margin: 0;  
-  padding: 1.5rem;
-  border: 1px solid var(--principal);
+  padding: 1rem;
+
+  -webkit-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
 
 }
 
-.contadores h3
+
+.contadores .caja .texto p
 {
-  color: var(--verde);
+  color: var(--principalhover);
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  display: inline;
+
+
 }
 
-.contadores p
+.contadores .caja .texto
 {
-  color: var(--principalclaro);
-}
-
-.contadores .caja:first-child
-{
-  border-right:  none;
+  display: inline;
 
 }
 
+
+
+
+
+ .contadores .caja .texto h3
+  {
+    color: var(--principal);
+    font-size: rem;
+    padding: 0;
+    margin: 0;
+    display: inline;
+
+
+
+  }
+  .contadores .caja .fas
+  {
+    padding-right: 0.5rem;
+    font-size: 2rem;
+    color: var(--verde);
+    display: inline;
+
+  }
 
 .tabmenu
 {
@@ -675,9 +705,9 @@ table.datos tr a.link:hover
     margin-right: 1rem;
 
   }
- 
 
-.tabmenu span
+
+  .tabmenu span
   {
     display: inline;
   }
@@ -711,8 +741,8 @@ table.datos tr a.link:hover
 .tabmenu .nav-link
 {
   color:white;
-    padding:1rem;
-    border-bottom: 1px solid var(--principalxclaro);
+  padding:1rem;
+  border-bottom: 1px solid var(--principalxclaro);
   transition: all 0.3s ease;
 }
 

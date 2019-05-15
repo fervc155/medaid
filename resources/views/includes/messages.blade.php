@@ -1,19 +1,32 @@
+<script src="{{asset('splash/vendor/sweetalert/sweetalert.js')}}"></script>
+
 @if(count($errors) > 0)
 	@foreach($errors->all() as $error)
-		<div class="alert alert-danger lead mb-0">
-			{{ $error }}
-		</div>
+			
+
+			<script >
+					
+				swal("Error","{{ $error }}", 'error');
+				
+			</script>
 	@endforeach
 @endif
 
 @if(session('success'))
-	<div class="alert alert-success lead mb-0">
-		{{ session('success') }}
-	</div>
+
+			<script >
+					
+				swal("{{ $success }}","Bien", 'success');
+				
+			</script>
 @endif
 
 @if(session('error'))
-	<div class="alert alert-danger lead mb-0">
-		{{ session('error') }}
-	</div>
+	
+			<script >
+					
+				swal("{{ $error }}","No puedes Iniciar Sesion", 'error');
+				
+			</script>
+
 @endif

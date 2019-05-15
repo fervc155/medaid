@@ -35,11 +35,17 @@
 
     <link href="{{ asset('splash/default.date.css') }}" rel="stylesheet">
 
-  
-  <!--FULLCALDENDAR-->
+
+     <!-- FULLCALDENDAR-->
     <link href="{{asset('splash/vendor/fullcalendar/core/main.min.css')}}" rel='stylesheet' />
-    <link href="{{asset('splash/vendor/fullcalendar/daygrid/main.min.css')}}" rel='stylesheet' /> 
-    <link href="{{asset('splash/vendor/fullcalendar/timegrid/main.min.css')}}" rel='stylesheet' />
+    <link href="{{asset('splash/vendor/fullcalendar/daygrid/main.min.css')}}" rel='stylesheet' />
+
+<!-- SWEET ALERT -->
+    <link href="{{asset('splash/vendor/waitme/waitme.min.css')}}" rel='stylesheet' />
+
+
+
+
 </head>
 
 <body>
@@ -109,7 +115,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                            onclick="esperar(); event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="fas icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
                         </a>
@@ -142,14 +148,18 @@
 <script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('splash/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
-    <script src="{{asset('splash/vendor/fullcalendar/core/main.min.js')}}"></script>
+<script src="{{asset('splash/vendor/fullcalendar/core/main.min.js')}}"></script>
 
-    <script src="{{asset('splash/vendor/fullcalendar/daygrid/main.min.js')}}"></script>
-    <script src="{{asset('splash/vendor/fullcalendar/core/locales/es.js')}}"></script>
-    <script src="{{asset('splash/vendor/fullcalendar/moment/main.min.js')}}"></script>
-    <script src="{{asset('splash/vendor/fullcalendar/timegrid/main.min.js')}}"></script>
-    <script src="{{asset('splash/vendor/fullcalendar/interaction/main.min.js')}}"></script>
-    <script src="{{ asset('js/scripts.js') }}"></script>
+<script src="{{asset('splash/vendor/fullcalendar/daygrid/main.min.js')}}"></script>
+<script src="{{asset('splash/vendor/fullcalendar/core/locales/es.js')}}"></script>
+<script src="{{asset('splash/vendor/fullcalendar/moment/main.min.js')}}"></script>
+<script src="{{asset('splash/vendor/fullcalendar/timegrid/main.min.js')}}"></script>
+<script src="{{asset('splash/vendor/fullcalendar/interaction/main.min.js')}}"></script>
+
+<script src="{{asset('splash/vendor/waitme/waitme.min.js')}}"></script>
+
+<script src="{{ asset('js/scripts.js') }}"></script>
+
 
 </body>
 

@@ -31,9 +31,16 @@
     <link href="{{ asset('splash/default.time.css') }}" rel="stylesheet">
 
     <link href="{{ asset('splash/default.date.css') }}" rel="stylesheet">
-      <!--FULLCALDENDAR-->
+     <!-- FULLCALDENDAR-->
     <link href="{{asset('splash/vendor/fullcalendar/core/main.min.css')}}" rel='stylesheet' />
     <link href="{{asset('splash/vendor/fullcalendar/daygrid/main.min.css')}}" rel='stylesheet' />
+
+<!-- SWEET ALERT -->
+    <link href="{{asset('splash/vendor/waitme/waitme.min.css')}}" rel='stylesheet' />
+
+
+
+
 
 <body>
   
@@ -87,11 +94,11 @@
                     <!-- Auth -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}"><i class="fas icon fa-sign-in-alt"></i> {{__('Iniciar sesión') }}</a>
+                        <a class="nav-link" onclick="esperar()" href="{{ route('login') }}"><i class="fas icon fa-sign-in-alt"></i> {{__('Iniciar sesión') }}</a>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                        <a class="nav-link" href="{{ route('register') }}"><i class="fas icon fa-user-plus"></i> {{__('Registrarse') }}</a>
+                        <a class="nav-link" onclick="esperar()" href="{{ route('register') }}"><i class="fas icon fa-user-plus"></i> {{__('Registrarse') }}</a>
                         @endif
                     </li>
                     @else
@@ -102,7 +109,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
+                            onclick="esperar(); event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i class="fas icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
                         </a>
@@ -140,8 +147,11 @@
           <script src="{{asset('splash/vendor/fullcalendar/core/moment/main.min.js')}}"></script>
     <script src="{{asset('splash/vendor/fullcalendar/interaction/main.min.js')}}"></script>
 
+<script src="{{asset('splash/vendor/waitme/waitme.min.js')}}"></script>
+
 <script src="{{ asset('js/scripts.js') }}"></script>
 
+  
 </body>
 
 </html>

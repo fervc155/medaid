@@ -46,56 +46,124 @@ $('.timepicker').pickatime({
 
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-
-
-	var calendarEl = document.getElementById('calendar');
-
-	
-	var calendar = new FullCalendar.Calendar(calendarEl, {
-		plugins: [ 'dayGrid', ],
+document.addEventListener('DOMContentLoaded',
+	function() {
 
 
-		customButtons: {
-			myCustomButton: {
-				text: 'custom!',
-				click: function() {
+		var calendarEl = document.getElementById('calendar');
+
+
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			plugins: [ 'dayGrid', ],
+
+
+			customButtons: {
+				myCustomButton: {
+					text: 'custom!',
+					click: function() {
+					}
 				}
-			}
-		},
-		header: {
-			left: 'title ',
-			center: 'prev,next today',
-			right: 'dayGridMonth,dayGridWeek,dayGridDay'
-		},
+			},
+			header: {
+				left: 'title ',
+				center: 'prev,next today',
+				right: 'dayGridMonth,dayGridWeek,dayGridDay'
+			},
 
-		
+
+		});
+
+
+
+
+		citasFecha = $('.citas-fecha');
+		citasHora = $('.citas-hora');
+		citasDescripcion =$('.citas-descripcion');
+		citasPaciente = $('.citas-paciente');
+
+		for (var i =0; i<citasFecha.length; i++) {
+
+
+			var cita=  
+			{title: citasPaciente[i].innerHTML,
+				start:citasFecha[i].innerHTML
+			}
+
+
+			calendar.addEvent( cita )
+		}
+
+
+		calendar.setOption('locale', 'es');
+
+		calendar.render();
 	});
 
 
 
 
-	citasFecha = $('.citas-fecha');
-	citasHora = $('.citas-hora');
-	citasDescripcion =$('.citas-descripcion');
-	citasPaciente = $('.citas-paciente');
 
-	for (var i =0; i<citasFecha.length; i++) {
-		
+cambiardehoja = function () 
+{
+	document.getElementById('col-datos2').innerHTML = document.getElementById('col-datos').innerHTML
+}
 
-		var cita=  
-		{title: citasPaciente[i].innerHTML,
-			start:citasFecha[i].innerHTML
+
+
+
+var resize=false
+$(window).resize(function(){
+
+
+
+	
+
+	if(window.screen.width >767)
+	{
+		if(resize ==false)
+
+		{
+			document.getElementById('home-tab').click();
+			resize=true
+
+
 		}
 		
 
-		calendar.addEvent( cita )
+	}
+	else
+	{
+		resize=false;
 	}
 
 
-	calendar.setOption('locale', 'es');
-	
-	calendar.render();
-});
+})
 
+
+
+
+
+/* WAITME*/
+
+
+
+
+$('a').on('click',function()
+{
+
+
+	$('body').waitMe({
+		effect : 'bounce',
+		text : 'Cargando',
+		bg:'white',
+		color : 'var(--principal)',
+		maxSize : '',
+		waitTime : -10,
+		textPos : 'vertical',
+		fontSize : '',
+		source : '',
+		onClose : function() {}
+	});
+}
+
+);

@@ -29,7 +29,7 @@
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback lead text-light" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('name') }} </strong>
                                     </span>
                                 @endif
                         </div>
