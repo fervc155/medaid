@@ -50,13 +50,13 @@
 							<h5 class="text-center h1 color-principal text-capitalize"><i class="fas fa-book"></i> Citas</h5>
 						</section>
 					</div>
-					<div class="row tarjeta-contenido-blanco ">
+					<div class="row  ">
 						<div class="col-12 p-0 ">
 
 
 
 							@if(count($appointments)>0)
-							<div class="d-none d-md-block">
+							<div class="d-none d-md-block tarjeta-contenido-blanco">
 								<table class="table ">
 									<thead>
 										<tr>
@@ -96,8 +96,8 @@
 
 
 							<div class="d-block    d-md-none">
-							@foreach ($appointments as $appointment)
-							@if ($appointment->completed == false)
+								@foreach ($appointments as $appointment)
+								@if ($appointment->completed == false)
 								
 
 								<div class="card  tarjeta my-3">
@@ -189,9 +189,9 @@
 									</div>
 
 								</div>
-							@endif
+								@endif
 
-							@endforeach
+								@endforeach
 							</div>
 
 

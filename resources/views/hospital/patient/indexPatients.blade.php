@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="contenedor">
-		
+
 	<div class="contenedor-titulo hidden-lg-down">
 		
 		<section class="container m-0  p-0">
@@ -11,7 +11,7 @@
 			<div class="row contenedor-titulo align-items-center">
 				<div class="col ">
 
-						<h1 class="display-4 text-capitalize  text-center">Pacientes</h1> 
+					<h1 class="display-4 text-capitalize  text-center">Pacientes</h1> 
 					
 				</div>
 			</div>
@@ -32,7 +32,7 @@
 			<div class="row ">
 				<div class="col ">
 
-						<img src="{{asset('splash/header/paciente.jpg')}}"> 
+					<img src="{{asset('splash/header/paciente.jpg')}}"> 
 					
 				</div>
 			</div>
@@ -48,9 +48,9 @@
 	<div class="row justify-content-end">
 		<div class="col-12 col-md-4">
 			
-		<div class="form-group" align="center">
-			<a href="/patient/create" role="button" class="btn btn-secondary btn-block"><i class="fas fa-plus"></i> Agregar</a>
-		</div>
+			<div class="form-group" align="center">
+				<a href="/patient/create" role="button" class="btn btn-wait btn-secondary btn-block"><i class="fas fa-plus"></i> Agregar</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -80,63 +80,147 @@
 				</thead>
 				<tbody>
 					@foreach ($patients as $p)
-						<tr>
-							<td><a class="link" href="/patient/{{$p->dni}}">{{ $p->name }}</a></td>
-							<td>{{ $p->curp }}</td>
-							<td>{{ $p->birthdate }}</td>
-							<td>{{ $p->telephoneNumber }}</td>
-							<td>{{ $p->sex }}</td>
-							<td>{{ $p->address }}</td>
-							<td>{{ $p->postalCode }}</td>
-							<td>{{ $p->city }}</td>
-							<td>{{ $p->country }}</td>
-							<td> <a class="link" href="/doctor/{{$p->doctor->id}}"> {{ $p->doctor->name }} </a></td>
-						</tr>
+					<tr>
+						<td><a class="link" href="/patient/{{$p->dni}}">{{ $p->name }}</a></td>
+						<td>{{ $p->curp }}</td>
+						<td>{{ $p->birthdate }}</td>
+						<td>{{ $p->telephoneNumber }}</td>
+						<td>{{ $p->sex }}</td>
+						<td>{{ $p->address }}</td>
+						<td>{{ $p->postalCode }}</td>
+						<td>{{ $p->city }}</td>
+						<td>{{ $p->country }}</td>
+						<td> <a class="link" href="/doctor/{{$p->doctor->id}}"> {{ $p->doctor->name }} </a></td>
+					</tr>
 					@endforeach
 					
 				</tbody>
 			</table>
 
 			@else
-				<p class="lead">No se encontraron pacientes. <a class="link" href="/patient/create">¡Agrega uno!</a></p>
+			<p class="lead">No se encontraron pacientes. <a class="link" href="/patient/create">¡Agrega uno!</a></p>
 			@endif
 		</div>
+
+
 		@if(count($patients) > 0)
 
 		<div class="col-12 d-block d-md-none">
+
+
+
+
+
 			@foreach ($patients as $patient)
-	
-			<table class="table mb-5">
-					<tbody>
-						<tr><th><i class="fas fa-id-card"></i> DNI</th> <td>{{ $patient->dni }}</td></tr>
+			<div class="card tarjeta  my-3">
 
-						<tr><th><i class="fas fa-id-card"></i> CURP</th> <td>{{ $patient->curp }}</td></tr>
+				<p class="lead bg-primary text-light card-header card-title"> <i class="fas fa-user-injured"></i> {{ $patient->name}}</p>
 
-						<tr><th><i class="fas fa-birthday-cake"></i> Fecha de nacimiento:</th> <td> {{ $patient->birthdate }}</td></tr>
-						<tr><th><i class="fas fa-phone"></i> Teléfono</th> <td> {{ $patient->telephoneNumber }}</td></tr>
-
+				<div class="card-body">
 					
-						<tr><th><i class="fas fa-venus-mars"></i> Sexo</th> <td> {{ $patient->sex }}</td></tr>
+					
 
-						<tr><th><i class="fas fa-address-card"></i> Domicilio</th> <td> {{ $patient->address }}</td></tr>
+					<div class="form-inline mb-2">
+						
+						
+						<div class="icon-form">
+							
+							<i class="fas fa-id-card"></i> 
+						</div>	
+						<div class="icon-texto">
+							<span class="color-principal">CURP </span> {{ $patient->curp }}
+						</div>
+					</div>
 
-						<tr><th><i class="fas fa-envelope"></i> CP</th> <td> {{ $patient->postalCode }}</td></tr>
+					<div class="form-inline mb-2">
+						<div class="icon-form">
+							<i class="fas fa-calendar-week"></i>
+						</div>
 
-						<tr><th><i class="fas fa-city"></i> Ciudad</th> <td> {{ $patient->city }}</td></tr>
+						<div class="icon-texto">
+							
+							<span class="color-principal">Nacimiento </span> {{ $patient->birthdate }}
+						</div>
+						
+					</div>
 
-						<tr><th><i class="fas fa-flag"></i> Pais</th> <td> {{ $patient->country }}</td></tr>
 
-						<tr><th><i class="fas fa-flag"></i> Medico</th> <td><a href="/doctor/{{$patient->doctor->id}}"> {{ $patient->doctor->name }}</a></td></tr>
+					<div class="form-inline mb-2">
+						<div class="icon-form">
+							<i class="fas fa-phone"></i>
+						</div>
 
-					</tbody>
-			</table>
+						<div class="icon-texto">
+							
+							<span class="color-principal">Telefono </span> {{ $patient->telephoneNumber }}
+						</div>
+						
+					</div>
+
+
+					<div class="form-inline mb-2">
+						<div class="icon-form">
+							<i class="fas fa-venus-mars"></i>
+						</div>
+
+						<div class="icon-texto">
+							
+							<span class="color-principal">Sexo </span> {{ $patient->sex }}
+						</div>
+						
+					</div>
+
+
+					<div class="form-inline mb-2">
+						<div class="icon-form">
+							<i class="fas fa-home"></i>
+						</div>
+
+						<div class="icon-texto">
+							
+							<span class="color-principal">Domicilio </span> {{ $patient->address }}
+						</div>
+						
+					</div>	
+
+
+					<div class="form-inline mb-2">
+						<div class="icon-form">
+							<i class="fas fa-city"></i>
+						</div>
+
+						<div class="icon-texto">
+							
+							<span class="color-principal">Ciudad </span> {{ $patient->city }}
+						</div>
+						
+					</div>	
+					<div class="form-inline mb-2">
+						<div class="icon-form">
+							<i class="fas fa-user-md"></i>
+						</div>
+
+						<div class="icon-texto">
+							
+							<a href="/doctor/{{$patient->doctor->id}}" class="link"><span class="color-principal">Medico </span> {{ $patient->doctor->name }}</a>
+						</div>
+						
+					</div>
+					<a href="/patient/{{$patient->dni}}" class=" btn btn-wait btn-primary btn-block"><i class="fas fa-eye"></i> Ver mas</a>
+				</div>
+				
+			</div>
+
 			@endforeach
+			
+			
 		</div>
+
+
 		@endif
 
 	</div>
 </div>
 
 @endsection
-
 @include('includes.dataTables')
