@@ -566,6 +566,10 @@ footer.footer li:hover
   color: var(--principalhover);
 }
 
+.table tbody tr
+{
+  background-color: white !important;
+}
 
 .table tr a.link:hover
 {
@@ -631,7 +635,8 @@ footer.footer li:hover
 
 
 /*  SHOW */
-.contadores .caja
+.contadores .caja,
+.tarjeta-datos 
 {
   background-color: white;
   padding: 1rem;
@@ -641,6 +646,42 @@ footer.footer li:hover
   box-shadow: 2px 2px 6px 1px rgba(0,0,0,0.2);
 
 }
+
+
+
+.tarjeta-datos .texto p
+{
+  color: var(--principalhover);
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.tarjeta-datos .caja
+{
+  margin: 0.5rem 0;
+}
+
+
+.tarjeta-datos  .texto h3
+{
+  color: var(--principal);
+  font-size: 1.5rem;
+  padding: 0;
+  margin: 0;
+
+
+
+}
+.tarjeta-datos  .fas
+{
+  padding-right: 0.5rem;
+  font-size: 2rem;
+  color: var(--verde);
+
+}
+
 
 
 .contadores .caja .texto p
@@ -664,25 +705,27 @@ footer.footer li:hover
 
 
 
- .contadores .caja .texto h3
-  {
-    color: var(--principal);
-    font-size: rem;
-    padding: 0;
-    margin: 0;
-    display: inline;
+.contadores .caja .texto h3
+{
+  color: var(--principal);
+  font-size: rem;
+  padding: 0;
+  margin: 0;
+  display: inline;
 
 
 
-  }
-  .contadores .caja .fas
-  {
-    padding-right: 0.5rem;
-    font-size: 2rem;
-    color: var(--verde);
-    display: inline;
+}
+.contadores .caja .fas
+{
+  padding-right: 0.5rem;
+  font-size: 2rem;
+  color: var(--verde);
+  display: inline;
 
-  }
+}
+
+
 
 .tabmenu
 {

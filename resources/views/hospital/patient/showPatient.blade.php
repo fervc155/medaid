@@ -11,7 +11,7 @@
 		<ul class="nav  md-tabs" id="Tabmenu" role="tablist">
 			<li>
 				<a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-				aria-selected="false"><i class="fas d-md-inline-block d-none fa-user-md"></i><i class="fas d-md-none d-inline-block fa-calendar"></i><span> Mis Datos</span></a>
+				aria-selected="false"><i class="fas d-md-inline-block d-none fa-user-injured"></i><i class="fas d-md-none d-inline-block fa-calendar"></i><span> Mis Datos</span></a>
 			</li>
 
 			<li class="d-block d-md-none">
@@ -82,7 +82,7 @@
 
 						<div class="rounded">
 							<div class="bg-primary text-center p-5">
-								<i class="fas fa-user display-1 text-light"></i>
+								<i class="fas fa-user-injured display-1 text-light"></i>
 							</div>
 						</div>
 
