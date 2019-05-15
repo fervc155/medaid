@@ -14,9 +14,11 @@
 
 @if(session('success'))
 
+
 			<script >
-					
-				swal("{{ $success }}","Bien", 'success');
+							
+
+				swal("Bien","{{ session('success') }}", 'success');
 				
 			</script>
 @endif
@@ -25,7 +27,7 @@
 	
 			<script >
 					
-				swal("{{ $error }}","No puedes Iniciar Sesion", 'error');
+				swal("{{ session('error') }}","No puedes Iniciar Sesion", 'error');
 				
 			</script>
 

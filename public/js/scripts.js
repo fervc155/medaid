@@ -143,12 +143,37 @@ $(window).resize(function(){
 
 
 
+/*  SWEET ALERT*/
+
+
+
 /* WAITME*/
 
 
 
+/* ya hecho el click solo implementar el post y esa wea 
+$('.btn-danger').on('click',function()
+{
+	swal({
+		title: "Cuidado",
+		text: "Se eliminara el registro permanentemente",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+	}).then((willDelete) => {
+	if (willDelete) {
+		swal("Hecho", {
+			icon: "success",
+		});
 
-$('a').on('click',function()
+	} 
+});
+})
+
+
+*/
+
+esperar=function()
 {
 
 
@@ -158,7 +183,7 @@ $('a').on('click',function()
 		bg:'white',
 		color : 'var(--principal)',
 		maxSize : '',
-		waitTime : -10,
+		waitTime : -1,
 		textPos : 'vertical',
 		fontSize : '',
 		source : '',
@@ -166,4 +191,23 @@ $('a').on('click',function()
 	});
 }
 
-);
+
+$('nav a.nav-link').on('click',function()
+{
+	esperar()
+});
+
+$('.link').on('click',function()
+{
+	esperar()
+});
+
+
+$('.btn-wait').on('click',function()
+{
+	esperar()
+});
+
+
+
+$('.no-wait').attr("onclick", "").unbind("click");

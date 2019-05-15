@@ -50,14 +50,14 @@
 							<h5 class="text-center h1 color-principal text-capitalize"><i class="fas fa-book"></i> Citas</h5>
 						</section>
 					</div>
-					<div class="row tarjeta-contenido-blanco">
+					<div class="row tarjeta-contenido-blanco ">
 						<div class="col-12 p-0 ">
 
 
 
 							@if(count($appointments)>0)
 							<div class="d-none d-md-block">
-								<table class="table  ">
+								<table class="table ">
 									<thead>
 										<tr>
 											<th>Fecha</th>
@@ -82,7 +82,7 @@
 											<td>
 												{!! Form::open(['action' => ['AppointmentController@complete', $a->id], 'method' => 'PATCH']) !!}
 												{{ Form::hidden('_method', 'PATCH') }}
-												{{ Form::submit('Atender', ['class' => 'btn btn-secondary']) }}
+												{{ Form::submit('Atender', ['class' => 'btn btn-wait btn-secondary']) }}
 												{!! Form::close() !!}
 											</td>
 										</tr>
@@ -94,100 +94,105 @@
 
 
 
+
+							<div class="d-block    d-md-none">
 							@foreach ($appointments as $appointment)
 							@if ($appointment->completed == false)
+								
 
-							<div class="card tarjeta  my-3 d-block d-md-none">
+								<div class="card  tarjeta my-3">
 
+									<p class="lead bg-primary text-light card-header card-title"> <i class="fas fa-user-injured"></i> {{ $appointment->patient->name}}</p>
 
-								<div class="card-body">
-
-
-
-									<div class="form-inline mb-2">
+									<div class="card-body">
 
 
-										<div class="icon-form">
 
-											<i class="fas fa-calendar-week"></i> 
-										</div>	
-										<div class="icon-texto">
-											<span class="color-principal">Fecha </span> {{ $appointment->date }}
+										<div class="form-inline mb-2">
+
+
+											<div class="icon-form">
+
+												<i class="fas fa-calendar-week"></i> 
+											</div>	
+											<div class="icon-texto">
+												<span class="color-principal">Fecha </span> {{ $appointment->date }}
+											</div>
+										</div>
+										<div class="form-inline mb-2">
+
+
+											<div class="icon-form">
+
+												<i class="fas fa-clock"></i> 
+											</div>	
+											<div class="icon-texto">
+												<span class="color-principal">Hora </span> {{ $appointment->time }}
+											</div>
+										</div>
+
+
+										<div class="form-inline mb-2">
+											<div class="icon-form">
+												<i class="fas fa-money-bill-wave"></i>
+											</div>
+
+											<div class="icon-texto">
+
+												<span class="color-principal">Costo </span> {{ $appointment->cost }}
+											</div>
+
+										</div>
+
+
+										<div class="form-inline mb-2">
+											<div class="icon-form">
+												<i class="fas fa-tag"></i>
+											</div>
+
+											<div class="icon-texto">
+
+												<span class="color-principal">Descripcion </span> {{ $appointment->description }}
+											</div>
+
+										</div>
+
+
+										<div class="form-inline mb-2">
+											<div class="icon-form">
+												<i class="fas fa-user-injured"></i>
+											</div>
+
+											<div class="icon-texto">
+
+												<span class="color-principal">Paciente </span> <a class="link" href="/patient/{{$appointment->patient->dni}}">{{ $appointment->patient->name }}</a>
+											</div>
+
+										</div>
+
+										<div class="form-inline mb-3">
+											<div class="icon-form">
+												<i class="fas fa-user-md"></i>
+											</div>
+
+											<div class="icon-texto">
+
+												<span class="color-principal">Especialidad: </span><a class="link" href="/office/{{$a->office->id}}"> {{ $appointment->office->name }}</a>
+											</div>
+										</div>
+										<div>
+											{!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
+											{{ Form::hidden('_method', 'PATCH') }}
+											{{ Form::submit('Atender', ['class' => 'btn btn-wait btn-block btn-primary']) }}
+											{!! Form::close() !!}
 										</div>
 									</div>
-									<div class="form-inline mb-2">
 
-
-										<div class="icon-form">
-
-											<i class="fas fa-clock"></i> 
-										</div>	
-										<div class="icon-texto">
-											<span class="color-principal">Hora </span> {{ $appointment->time }}
-										</div>
-									</div>
-
-
-									<div class="form-inline mb-2">
-										<div class="icon-form">
-											<i class="fas fa-money-bill-wave"></i>
-										</div>
-
-										<div class="icon-texto">
-
-											<span class="color-principal">Costo </span> {{ $appointment->cost }}
-										</div>
-
-									</p>		</div>
-
-
-									<div class="form-inline mb-2">
-										<div class="icon-form">
-											<i class="fas fa-tag"></i>
-										</div>
-
-										<div class="icon-texto">
-
-											<span class="color-principal">Descripcion </span> {{ $appointment->description }}
-										</div>
-
-									</div>
-
-
-									<div class="form-inline mb-2">
-										<div class="icon-form">
-											<i class="fas fa-user-injured"></i>
-										</div>
-
-										<div class="icon-texto">
-
-											<span class="color-principal">Paciente </span> <a class="link" href="/patient/{{$appointment->patient->dni}}">{{ $appointment->patient->name }}</a>
-										</div>
-
-									</div>
-
-									<div class="form-inline mb-3">
-										<div class="icon-form">
-											<i class="fas fa-user-md"></i>
-										</div>
-
-										<div class="icon-texto">
-											
-											<span class="color-principal">Especialidad: </span><a class="link" href="/office/{{$a->office->id}}"> {{ $appointment->office->name }}</a>
-										</div>
-									</div>
-									<div>
-										{!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
-										{{ Form::hidden('_method', 'PATCH') }}
-										{{ Form::submit('Atender', ['class' => 'btn btn-block btn-primary']) }}
-										{!! Form::close() !!}
-									</div>
 								</div>
-
-							</div>
 							@endif
 
 							@endforeach
+							</div>
 
 
 							@else
@@ -267,7 +272,7 @@
 													<span class="color-principal">DNI </span> {{ $patient->dni }}
 												</div>
 											</div>
-											<a href="/patient/{{$patient->dni}}" class=" btn btn-primary btn-block"><i class="fas fa-eye"></i> Ver mas</a>
+											<a href="/patient/{{$patient->dni}}" class=" btn btn-wait btn-primary btn-block"><i class="fas fa-eye"></i> Ver mas</a>
 										</div>
 
 									</div>
@@ -445,11 +450,11 @@
 
 
 							</div>  
-							<a role="button" class="btn btn-block mt-3  btn-info" href="/doctor/{{$doctor->id}}/edit"> <i class="fas fa-pen"></i> Editar</a>
+							<a role="button" class="btn btn-wait btn-block mt-3  btn-info" href="/doctor/{{$doctor->id}}/edit"> <i class="fas fa-pen"></i> Editar</a>
 
 							{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('Eliminar', ['class' => 'btn btn-block mt-3 btn-danger']) }}
+							{{ Form::submit('Eliminar', ['class' => 'btn btn-wait btn-block mt-3 btn-danger']) }}
 							{!! Form::close() !!}
 
 						</div>

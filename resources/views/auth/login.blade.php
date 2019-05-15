@@ -50,7 +50,7 @@
             
                 <div class="my-5">
                     
-                    <button type="submit" onclick="esperar()" class="btn  w-100 btn-claro">
+                    <button type="submit" onclick="" class="btn  w-100 btn-claro">
                         {{ __('Entrar') }}
                     </button>
                 </div>

@@ -553,18 +553,21 @@ footer.footer li:hover
 /* INDEX person */
 
 
-table.datos thead
+.table thead
 {
- background-color: var(--principal);
+ background-color: var(--principal) !important;
  color: white;
 }
 
-table.datos tr:hover
+
+.table tbody tr:hover
 {
-  background-color: var(--principalxclaro);
-  color: white;
+  background-color: rgba(0,0,255,0.1) !important;
+  color: var(--principalhover);
 }
-table.datos tr a.link:hover
+
+
+.table tr a.link:hover
 {
   color:white;
 }

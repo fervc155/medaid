@@ -3,6 +3,9 @@
 @section('content')
 
 
+
+
+
 <div class="contenedor">
 	
 	<div class="contenedor-titulo hidden-lg-down">
@@ -50,7 +53,7 @@
 		<div class="col-12 col-md-4">
 			
 			<div class="form-group" align="center">
-				<a href="/doctor/create" role="button" class="btn btn-secondary btn-block"><i class="fas fa-plus"></i> Agregar</a>
+				<a href="/doctor/create" role="button" class="btn btn-wait btn-secondary btn-block"><i class="fas fa-plus"></i> Agregar</a>
 			</div>
 		</div>
 	</div>
@@ -173,7 +176,7 @@
 						</div>
 						
 					</div>	
-					<a href="/doctor/{{$doctor->id}}" class=" btn btn-primary btn-block"><i class="fas fa-eye"></i> Ver mas</a>
+					<a href="/doctor/{{$doctor->id}}" class=" btn btn-wait btn-primary btn-block"><i class="fas fa-eye"></i> Ver mas</a>
 				</div>
 				
 			</div>
