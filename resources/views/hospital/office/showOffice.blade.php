@@ -151,9 +151,11 @@
 
 							<a role="button" class="btn btn-wait btn-block mt-3  btn-info" href="/office/{{$office->id}}/edit"> <i class="fas fa-pen"></i> Editar</a>
 
+							<a role"button" class="btn btn-block btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fas fa-trash"></i> Eliminar</a>
+
 							{!! Form::open(['action' => ['OfficeController@destroy', $office->id], 'method' => 'POST']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('Eliminar', ['class' => 'btn btn-wait btn-block mt-3 btn-danger']) }}
+							{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete']) }}
 							{!! Form::close() !!}
 
 						</div>

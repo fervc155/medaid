@@ -28,17 +28,17 @@
 						<i class="fas fa-calendar-week"></i>
 					</div>
 					
-					  {{Form::date('date', '', ['class'=>'form-control datepicker','placeholder' => 'Selecciona la Fecha'] )}}
+					{{Form::date('date', '', ['class'=>'form-control datepicker','placeholder' => 'Selecciona la Fecha'] )}}
 
-      </div>
+				</div>
 
 				<div class="form-group form-inline">
 					<div class="icon-form">
 						<i class="fas fa-clock"></i>
 					</div>
 
-				   {{Form::time('time', '', ['class'=>'form-control timepicker','placeholder' => 'Selecciona la hora'] )}}
-      </div>
+					{{Form::time('time', '', ['class'=>'form-control timepicker','placeholder' => 'Selecciona la hora'] )}}
+				</div>
 				<div class="form-group form-inline">
 					<div class="icon-form">
 						<i class="fas fa-money-bill-wave"></i>

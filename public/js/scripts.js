@@ -46,58 +46,60 @@ $('.timepicker').pickatime({
 
 
 
-document.addEventListener('DOMContentLoaded',
-	function() {
+document.addEventListener('DOMContentLoaded',function() 
+{
 
 
-		var calendarEl = document.getElementById('calendar');
+	var calendarEl = document.getElementById('calendar');
 
 
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			plugins: [ 'dayGrid', ],
+	var calendar = new FullCalendar.Calendar(calendarEl, 
+	{
+		plugins: [ 'dayGrid', ],
 
 
-			customButtons: {
-				myCustomButton: {
-					text: 'custom!',
-					click: function() {
-					}
+		customButtons: {
+			myCustomButton: {
+				text: 'custom!',
+				click: function() {
 				}
-			},
-			header: {
-				left: 'title ',
-				center: 'prev,next today',
-				right: 'dayGridMonth,dayGridWeek,dayGridDay'
-			},
-
-
-		});
-
-
-
-
-		citasFecha = $('.citas-fecha');
-		citasHora = $('.citas-hora');
-		citasDescripcion =$('.citas-descripcion');
-		citasPaciente = $('.citas-paciente');
-
-		for (var i =0; i<citasFecha.length; i++) {
-
-
-			var cita=  
-			{title: citasPaciente[i].innerHTML,
-				start:citasFecha[i].innerHTML
 			}
+		},
+		header: {
+			left: 'title ',
+			center: 'prev,next today',
+			right: 'dayGridMonth,dayGridWeek,dayGridDay'
+		},
 
 
-			calendar.addEvent( cita )
+	});
+
+
+
+
+	citasFecha = $('.citas-fecha');
+	citasHora = $('.citas-hora');
+	citasDescripcion =$('.citas-descripcion');
+	citasPaciente = $('.citas-paciente');
+
+	for (var i =0; i<citasFecha.length; i++) 
+	{
+
+
+		var cita=  
+		{title: citasPaciente[i].innerHTML,
+			start:citasFecha[i].innerHTML
 		}
 
 
-		calendar.setOption('locale', 'es');
+		calendar.addEvent( cita )
+	}
 
-		calendar.render();
-	});
+
+	calendar.setOption('locale', 'es');
+
+	calendar.render();
+});
 
 
 
@@ -109,35 +111,19 @@ cambiardehoja = function ()
 }
 
 
+window.onresize =function(){
 
-
-var resize=false
-$(window).resize(function(){
-
-
-
-	
-
-	if(window.screen.width >767)
+	console.log(window.screen.width)
+	if(window.screen.width >991)
 	{
-		if(resize ==false)
-
+		if($('#calendario-tab').hasClass('active'))
 		{
 			document.getElementById('home-tab').click();
-			resize=true
-
 
 		}
-		
-
-	}
-	else
-	{
-		resize=false;
 	}
 
-
-})
+}
 
 
 
@@ -147,12 +133,9 @@ $(window).resize(function(){
 
 
 
-/* WAITME*/
 
 
-
-/* ya hecho el click solo implementar el post y esa wea 
-$('.btn-danger').on('click',function()
+btn_confirm_delete  =function()
 {
 	swal({
 		title: "Cuidado",
@@ -162,16 +145,21 @@ $('.btn-danger').on('click',function()
 		dangerMode: true,
 	}).then((willDelete) => {
 	if (willDelete) {
+
+
+		$('.btn-delete').click();
 		swal("Hecho", {
 			icon: "success",
 		});
 
 	} 
 });
-})
+}
 
 
-*/
+
+
+/* WAITME*/
 
 esperar=function()
 {

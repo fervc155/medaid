@@ -361,7 +361,7 @@
 
 						<div class="rounded">
 							<div class="bg-primary text-center p-5">
-								<i class="fas fa-user display-1 text-light"></i>
+								<i class="fas fa-user-md display-1 text-light"></i>
 							</div>
 						</div>
 
@@ -452,9 +452,11 @@
 							</div>  
 							<a role="button" class="btn btn-wait btn-block mt-3  btn-info" href="/doctor/{{$doctor->id}}/edit"> <i class="fas fa-pen"></i> Editar</a>
 
+							<a role"button" class="btn btn-block btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fas fa-trash"></i> Eliminar</a>
+
 							{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('Eliminar', ['class' => 'btn btn-wait btn-block mt-3 btn-danger']) }}
+							{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
 							{!! Form::close() !!}
 
 						</div>

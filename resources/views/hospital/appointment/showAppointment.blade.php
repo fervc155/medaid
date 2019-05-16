@@ -133,9 +133,14 @@
 
 							<a role="button" class="btn btn-wait btn-block mt-3  btn-info" href="/appointment/{{$appointment->id}}/edit"> <i class="fas fa-pen"></i> Editar</a>
 
+							<a role"button" class="btn btn-block btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fas fa-trash"></i> Eliminar</a>
+
+							
+							
+
 							{!! Form::open(['action' => ['AppointmentController@destroy', $appointment->id], 'method' => 'POST']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('Eliminar', ['class' => 'btn btn-wait btn-block mt-3 btn-danger']) }}
+							{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete']) }}
 							{!! Form::close() !!}
 
 
@@ -203,7 +208,7 @@
 								<div class="texto">
 
 
-										<a href="/patient/{{$appointment->patient_dni}}" class="link"><h3>{{$appointment->patient->name}}</h3></a>
+									<a href="/patient/{{$appointment->patient_dni}}" class="link"><h3>{{$appointment->patient->name}}</h3></a>
 									<p>Paciente</p>
 								</div>
 							</div>
@@ -215,7 +220,7 @@
 								<div class="texto">
 
 
-										<a href="/doctor/{{$appointment->doctor_id}}" class="link"><h3>{{$appointment->doctor->name}}</h3></a>
+									<a href="/doctor/{{$appointment->doctor_id}}" class="link"><h3>{{$appointment->doctor->name}}</h3></a>
 									<p>Doctor</p>
 								</div>
 							</div>
@@ -228,7 +233,7 @@
 								<div class="texto">
 
 
-										<a href="/appointment/{{$appointment->office_id}}" class="link"><h3>{{$appointment->office->name}}</h3></a>
+									<a href="/appointment/{{$appointment->office_id}}" class="link"><h3>{{$appointment->office->name}}</h3></a>
 									<p>Consultorio</p>
 								</div>
 							</div>

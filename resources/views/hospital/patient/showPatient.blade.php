@@ -212,9 +212,12 @@
 							</div>  
 							<a role="button" class="btn btn-wait btn-block mt-3  btn-info" href="/patient/{{$patient->dni}}/edit"> <i class="fas fa-pen"></i> Editar</a>
 
+							<a role"button" class="btn btn-block btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fas fa-trash"></i> Eliminar</a>
+
+							
 							{!! Form::open(['action' => ['PatientController@destroy', $patient->dni], 'method' => 'POST']) !!}
 							{{ Form::hidden('_method', 'DELETE') }}
-							{{ Form::submit('Eliminar', ['class' => 'btn mt-3 btn-block btn-danger']) }}
+							{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete']) }}
 							{!! Form::close() !!}
 
 						</div>
@@ -295,7 +298,7 @@
 
 
 
-<div class="tab-pane   fade show " id="citas" role="tabpanel" aria-labelledby="citas-tab">
+		<div class="tab-pane   fade show " id="citas" role="tabpanel" aria-labelledby="citas-tab">
 
 			<div class="row">
 

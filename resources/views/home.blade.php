@@ -11,13 +11,13 @@
         
         <div class="col-12 col-md-6 tarjeta-contenido ">
             @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
             @endif
 
             <div class="text-light lead text-center">
-            Iniciaste sesión sin problemas!
+                Iniciaste sesión sin problemas!
                 
             </div>
 
