@@ -3,138 +3,255 @@
 @section('content')
 
 
-<div class="contenedor">
-		
-	<div class="contenedor-titulo hidden-lg-down">
-		
-		<section class="container m-0  p-0">
-
-			<div class="row contenedor-titulo align-items-center">
-				<div class="col ">
-
-						<h1 class="display-4 text-capitalize  text-center">Informacion de la cita</h1> 
-					
-				</div>
-			</div>
 
 
-
-		</section>
-	</div>
-
-	<div class="contenedor-fondo">
-		
-	</div>
-
-	<div class="contenedor-imagen">
-		
-		<div class="container-fluid mt-0  p-0">
-
-			<div class="row ">
-				<div class="col ">
-
-						<img src="{{asset('splash/header/citas.jpg')}}"> 
-					
-				</div>
-			</div>
+<div class="tabmenu ">
 
 
-
-		</div>
-	</div>
-
-</div>
+	<ul class="nav  md-tabs   d-flex  justify-content-center flex-wrap" id="Tabmenu" role="tablist">
+		<li>
+			<a class="nav-link active " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+			aria-selected="false"><i class="fas  fa-book"></i></i><span> Detalles</span></a>
+		</li>
 
 
 
 
-<div class="container-fluid tabmenu pl-5 ">
-	<div class="row justify-content-center">
-		
-	
-		<ul class="nav  md-tabs" id="Tabmenu" role="tablist">
-		  <li class="nav-item">
-		    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-		      aria-selected="true"><i class="fas fa-book"></i> Informacion</a>
-		  </li>
-		
-		</ul>
-	</div>
+
+	</ul>
 </div>
 
 
 
 <div class="tab-content container  pt-5 mb-5" id="TabContenido">
-  <div class="tab-pane row justify-content-center fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-		<div class="col-12 tarjeta">
-			<div class="row tarjeta-titulo">
-					
-				<div class="col ">
-						
-					<h5 class="text-center text-capitalize"><i class="fas fa-book"></i> Datos de la cita</h5>
-				</div>
-			</div>
-			<div class="row tarjeta-contenido-blanco p-3">
-					<table class="table">
-						<tbody>
-							<tr><th><i class="fas fa-id-card"></i> ID:</th> <td>{{ $appointment->id }}</td></tr>
 
-							<tr><th><i class="fas fa-calendar-week"></i> Fecha</th> <td> {{ $appointment->date }}</td></tr>
+	<div class="tab-pane   fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-							<tr><th><i class="fas fa-clock"></i> Hora</th> <td> {{ $appointment->time }}</td></tr>
 
-							<tr><th><i class="fas fa-money-bill-wave"></i>Costo</th> <td> {{ $appointment->cost }}</td></tr>
+		
+		<div class="row  ">
 
-							<tr><th><i class="fas fa-tag"></i> Descripcion</th> <td> {{ $appointment->description }}</td></tr>
 
-							<tr><th><i class="fas fa-user-md"></i> Medico</th> <td><a class="link" href="/doctor/{{$appointment->doctor_id}}"> {{ $appointment->doctor_id }}</a></td></tr>
+			<div id="col-datos" class=" col-12 col-md-4">
 
-							<tr><th><i class="fas fa-user-injured"></i> Paciente</th> <td><a class="link" href="/patient/{{$appointment->patient_dni}}"> {{ $appointment->patient_dni }} </a></td></tr>
 
-							<tr><th><i class="fas fa-hospital"></i> Consultorio</th> <td><a class="link" href="/office/{{$appointment->officee_id}}"> {{ $appointment->office_id }}</a></td></tr>
 
-							<tr><th><i class="fas fa-quote-left"></i> Comentarios</th> <td> {{ $appointment->comments }}</td></tr>
 
-							@if($appointment->completed ==1)
-							<tr><th><i class="fas fa-check"></i> Completada</th> <td> Si</td></tr>
-							@else
-							<tr><th><i class="fas fa-times"></i> Completada</th> <td> No</td></tr>
+				<div class="card box-shadow lead">
+
+
+					<div class="rounded">
+						<div class="bg-primary text-center p-5">
+							<i class="fas fa-book display-1 text-light"></i>
+						</div>
+					</div>
+
+
+					<h5 class="card-header h4 text-light bg-secondary text-center text-capitalize"><i class="fas fa-book"></i> {{$appointment->patient->name}}</h5>
+
+					<div class="card-body">
+
+
+
+
+
+
+						<div class="form-inline mb-2">
+
+
+							<div class="color-principal">
+
+								<i class="fas fa-calendar-week"></i> Fecha:
+							</div>  
+
+							{{ $appointment->date }}
+
+						</div>
+						<div class="form-inline mb-2">
+
+
+							<div class="color-principal">
+
+								<i class="fas fa-clock"></i> Hora:
+							</div>  
+
+							{{ $appointment->time }}
+
+						</div>
+
+
+						<div class="form-inline mb-2">
+							<div class="color-principal">
+								<i class="fas fa-money-bill-wave"></i> Precio:
+							</div>
+
+							{{ $appointment->cost }}
+
+						</div>
+						<div class="form-inline mb-2">
+							<div class="color-principal">
+								<i class="fas fa-tag"></i> Descripcion:
+							</div>                                  
+							{{ $appointment->description }}
+
+						</div>
+
+
+
+						<div class="form-inline mb-2">
+							<div class="color-principal">
+								<i class="fas fa-quote-left"></i> Comentarios:
+							</div>
+							{{ $appointment->comment }}
+
+						</div>
+
+
+						<div class="form-inline mb-2">
+							<div class="color-principal">
+								<i class="fas fa-user-md"></i> Doctor: 
+							</div>
+
+
+
+							<a href="/doctor/{{$appointment->doctor_id}}" class="link">{{ $appointment->doctor->name }}</a>
+
+
+						</div>
+
+
+						<div class="form-inline mb-3">
+							<div class="color-principal">
+								<i class="fas fa-hospital"></i> Consultorio:
+							</div>
+
+
+							<a href="/office/{{$appointment->office_id}}" class="link">
+								{{ $appointment->office->name }}</a>
+							</div>
+
+							<a role="button" class="btn btn-wait btn-block mt-3  btn-info" href="/appointment/{{$appointment->id}}/edit"> <i class="fas fa-pen"></i> Editar</a>
+
+							<a role"button" class="btn btn-block btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fas fa-trash"></i> Eliminar</a>
+
+							
+							
+
+							{!! Form::open(['action' => ['AppointmentController@destroy', $appointment->id], 'method' => 'POST']) !!}
+							{{ Form::hidden('_method', 'DELETE') }}
+							{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete']) }}
+							{!! Form::close() !!}
+
+
+							@if($appointment->completed ==0)
+
+							{!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
+							{{ Form::hidden('_method', 'PATCH') }}
+							{{ Form::submit('Atender', ['class' => 'btn  mt-3 btn-wait btn-block btn-secondary']) }}
+							{!! Form::close() !!}
 
 							@endif
-						</tbody>
-					</table>
-	
-			</div>
-			<div class="row tarjeta-contenido-blanco align-items-center ">
 
-				<div class="col-12 col-md-4 my-3">
-					<a role="button" class="btn btn-block btn-info" href="/appointment/{{$appointment->id}}/edit"><i class="fas fa-pen"></i> Editar</a>
-				</div>
-			
-				<div class="col-12 col-sm-6 col-md-4 my-3">
-					{!! Form::open(['action' => ['AppointmentController@destroy', $appointment->id], 'method' => 'POST']) !!}
-						{{ Form::hidden('_method', 'DELETE') }}
-						{{ Form::submit('Eliminar', ['class' => 'btn btn-block btn-danger']) }}
-					{!! Form::close() !!}
+
+						</div>
+
+					</div>
 				</div>
 
-				<div class="col-12 col-sm-6 col-md-4 my-3">
-					{!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
-						{{ Form::hidden('_method', 'PATCH') }}
-						{{ Form::submit('Atender', ['class' => 'btn btn-block btn-secondary']) }}
-					{!! Form::close() !!}
+
+
+
+
+
+
+
+
+
+				<div class=" col-12 col-md-8 ">
+
+					<div class=" row  text-center tarjeta-datos mt-5 mt-md-0">
+
+
+						<div class="col-6">
+
+							<div class="caja">
+
+
+								@if($appointment->completed ==1)
+
+								<i class="fas fa-check"></i> 
+								<div class="texto">
+
+
+									<h3>Completada</h3>
+								</div>
+								@else
+								<i class="fas fa-times"></i>
+								<div class="texto">
+
+
+									<h3>No Completada</h3>	
+								</div>
+
+
+								@endif
+							</div>
+
+
+						</div>
+
+						<div class="col-6  ">
+
+							<div class="caja ">
+								<i class="fas fa-user-injured"></i>
+								<div class="texto">
+
+
+									<a href="/patient/{{$appointment->patient_dni}}" class="link"><h3>{{$appointment->patient->name}}</h3></a>
+									<p>Paciente</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-6  ">
+
+							<div class="caja ">
+								<i class="fas fa-user-md"></i>
+								<div class="texto">
+
+
+									<a href="/doctor/{{$appointment->doctor_id}}" class="link"><h3>{{$appointment->doctor->name}}</h3></a>
+									<p>Doctor</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-6  ">
+
+							<div class="caja ">
+								<i class="fas fa-hospital"></i>
+								<div class="texto">
+
+
+									<a href="/appointment/{{$appointment->office_id}}" class="link"><h3>{{$appointment->office->name}}</h3></a>
+									<p>Consultorio</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
 				</div>
+
 			</div>
+
+
+
 
 		</div>
-	
-	
 
 
-  </div>
-  
-</div>
+	</div>
 
 
-@endsection
+	@endsection
