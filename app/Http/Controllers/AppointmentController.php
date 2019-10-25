@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\Doctor;
+use App\Patient;
+use App\Office;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -18,7 +21,12 @@ class AppointmentController extends Controller
     //Agregar cita
     public function create()
     {
-        return view('hospital.appointment.createAppointment');
+
+        $offices = Office::All();
+        $doctors= Doctor::All();
+        $patients = Patient::All();
+
+        return view('hospital.appointment.createAppointment', compact('offices','doctors','patients'));
     }
 
     //Método store, para almacenar cita
@@ -58,7 +66,14 @@ class AppointmentController extends Controller
     //Actualizar cita
     public function edit(Appointment $appointment)
     {
-        return view('hospital.appointment.editAppointment', compact('appointment'));
+        $offices = Office::All();
+        $doctors= Doctor::All();
+        $patients = Patient::All();
+
+
+        return view('hospital.appointment.editAppointment', compact('appointment','offices','doctors','patients'));
+
+
     }
 
     //Método update 

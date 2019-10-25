@@ -36,8 +36,5 @@ class Office extends Model
     }
 
     //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
-    public function getNameAttribute($value)
-    {
-        return ucfirst($value);
-    }
-}
+ 
+ }

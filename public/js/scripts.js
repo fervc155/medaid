@@ -1,3 +1,12 @@
+$ = jQuery.noConflict();
+
+
+    $(document).ready(function() {
+      //init DateTimePickers
+      //materialKit.initFormExtendedDatetimepickers();
+    });
+
+
 var Fecha = new Date();
 
 $('.datepicker').pickadate({
@@ -34,6 +43,57 @@ $('.timepicker').pickatime({
 
 
 
+
+////////// var responsive
+
+function CerrarDashboard()
+{
+		if($('.navbar-responsive').hasClass('navbar-responsive-open'))
+	{
+
+		$('.navbar-responsive').removeClass('navbar-responsive-open');
+		$('.main-admin').removeClass('main-admin-open');
+		$('#button-dashboard').removeClass('button-dashboard-open');
+		$('#button-menu').removeClass('button-menu-disabled');
+	}			
+}
+
+function AbrirDashboard()
+{
+	if(!$('.navbar-responsive').hasClass('navbar-responsive-open'))
+	{
+
+
+		$('.navbar-responsive').addClass('navbar-responsive-open');
+		$('.main-admin').addClass('main-admin-open');
+		$('#button-dashboard').addClass('button-dashboard-open');
+		$('#button-menu').addClass('button-menu-disabled');
+
+	}
+}
+$('#button-dashboard').click(function()
+{
+
+	if($('.navbar-responsive').hasClass('navbar-responsive-open'))
+	{
+		CerrarDashboard();
+
+	}
+	else
+	{
+
+		AbrirDashboard();
+	
+
+	}
+	
+
+})
+
+$('.navbar-responsive-base').click(function()
+{
+		AbrirDashboard()
+}) 
 
 
 
@@ -105,30 +165,6 @@ document.addEventListener('DOMContentLoaded',function()
 
 
 
-cambiardehoja = function () 
-{
-	document.getElementById('col-datos2').innerHTML = document.getElementById('col-datos').innerHTML
-}
-
-
-window.onresize =function(){
-
-	console.log(window.screen.width)
-	if(window.screen.width >991)
-	{
-		if($('#calendario-tab').hasClass('active'))
-		{
-			document.getElementById('home-tab').click();
-
-		}
-	}
-
-}
-
-
-
-
-
 /*  SWEET ALERT*/
 
 
@@ -182,7 +218,7 @@ esperar=function()
 
 $('nav a.nav-link').on('click',function()
 {
-	esperar()
+//	esperar()
 });
 
 $('.link').on('click',function()
@@ -199,3 +235,4 @@ $('.btn-wait').on('click',function()
 
 
 $('.no-wait').attr("onclick", "").unbind("click");
+

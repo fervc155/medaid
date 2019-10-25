@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
+
+use App\Office;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -17,7 +19,8 @@ class DoctorController extends Controller
     //Crear doctores
     public function create()
     {
-        return view('hospital.doctor.createDoctor');
+        $offices = Office::all(); 
+        return view('hospital.doctor.createDoctor',compact('offices'));
     }
 
     //Almacenar doctor
@@ -66,7 +69,8 @@ class DoctorController extends Controller
     //Actualizar doctor
     public function edit(Doctor $doctor)
     {
-        return view('hospital.doctor.editDoctor', compact('doctor'));
+        $offices = Office::all();
+        return view('hospital.doctor.editDoctor', compact('doctor','offices'));
     }
 
     //Método update

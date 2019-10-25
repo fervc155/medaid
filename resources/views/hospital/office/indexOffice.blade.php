@@ -1,177 +1,189 @@
-@extends ('layouts.nav')
+@extends ('layouts.nav-admin')
 
 @section('content')
 
-<div class="contenedor">
-
-	<div class="contenedor-titulo hidden-lg-down">
-		
-		<section class="container m-0  p-0">
-
-			<div class="row contenedor-titulo align-items-center">
-				<div class="col ">
-
-					<h1 class="display-4 text-capitalize  text-center">Consultorios</h1> 
-					
-				</div>
-			</div>
 
 
 
-		</section>
-	</div>
 
-	<div class="contenedor-fondo">
-		
-	</div>
-
-	<div class="contenedor-imagen">
-		
-		<div class="container-fluid mt-0  p-0">
-
-			<div class="row ">
-				<div class="col ">
-
-					<img src="{{asset('splash/header/consultorio.jpg')}}"> 
-					
-				</div>
-			</div>
+<a href="{{ url('/office/create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fas fa-plus"></i></a>
 
 
-
-		</div>
-	</div>
-
+@if(count($offices) < 1)
+<div class="container p-5 sin-datos">
+  <div class="row">
+    <div class="col text-center">
+      <i class="fal fa-hospital"></i>
+      <p class="lead ">No se encontraron consultorios. <a href="{{ url('/office/create')}}">¡Agrega uno!</a></p>
+    </div>
+  </div>
 </div>
 
-<div class="container my-5">
-	<div class="row justify-content-end">
-		<div class="col-12 col-md-4">
-			
-			<div class="form-group" align="center">
-				<a href="/office/create" role="button" class="btn btn-secondary btn-block"><i class="fas fa-plus"></i> Agregar</a>
-			</div>
-		</div>
-	</div>
-</div>
+
+@else
+
 
 
 <div class="container">
-	<div class="row">
-		<div class="col-12 d-none d-md-inline table-responsive">
-			
+  <div class="row">
+    <div class="col-12 d-none d-md-inline">
 
-			@if(count($offices) > 0)
-			<table class="table " id="data_table">
-				<thead>
-					<tr >
+      <div class="card">
+        <div class="card-encabezado">
 
-						<th >Nombre</th>
-						<th >Domicilio</th>
-						<th >C.P.</th>
-						<th >Ciudad</th>
-						<th >País</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach ($offices as $o)
-					<tr>
+          <div class="card-cabecera-icono bg-info sombra-2 ">
 
-						<td><a class="link" href="/office/{{$o->id}}">{{ $o->name }}</a></td>
-						<td>{{ $o->address }}</td>
-						<td>{{ $o->postalCode }}</td>
-						<td>{{ $o->city }}</td>
-						<td>{{ $o->country }}</td>
-					</tr>
-					@endforeach
+            <i class="fal fa-list"></i>
+          </div>
+          <div class="card-title">Listado de Consultorios</div>
+        </div>
+        
+        <div class="card-body table-responsive">
+          
 
-				</tbody>
-			</table>
+          <table class="table " id="data_table">
+            <thead>
+              <tr>
+                <th>Id</th>
 
-			@else
-			<p class="lead">No se encontraron consultorios. <a class="link" href="/office/create">¡Agrega uno!</a></p>
-			@endif
+                <th >Nombre</th>
+                <th >Domicilio</th>
+                <th >C.P.</th>
+                <th >Ciudad</th>
+                <th >País</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($offices as $o)
+              <tr>
 
-		</div>
-		<div class="col-12 d-block d-md-none">
+                <td>{{$o->id}}</td>
+                <td>{{ $o->name }}</td>
+                <td>{{ $o->address }}</td>
+                <td>{{ $o->postalCode }}</td>
+                <td>{{ $o->city }}</td>
+                <td>{{ $o->country }}</td>
+                <td><a href="{{url('/office/'.$o->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+                  <a href="{{url('/office/'.$o->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
+                  <button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
 
-			@if(count($offices)>0)
+                  {!! Form::open(['action' => ['DoctorController@destroy', $o->id], 'method' => 'POST']) !!}
+                  {{ Form::hidden('_method', 'DELETE') }}
+                  {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
+                  {!! Form::close() !!}
 
+                </td>
 
+              </tr>
+              @endforeach
 
-			@foreach ($offices as $office)
-			<div class="card tarjeta  my-3">
-
-				<p class="lead bg-primary text-light card-header card-title"> <i class="fas fa-user-md"></i> {{ $office->name}}</p>
-
-				<div class="card-body">
-					
-					
-
-					<div class="form-inline mb-2">
-						
-						
-						<div class="icon-form">
-							
-							<i class="fas fa-home"></i> 
-						</div>	
-						<div class="icon-texto">
-							<span class="color-principal">Domicilio: </span> {{ $office->address }}
-						</div>
-					</div>
-
-					<div class="form-inline mb-2">
-						<div class="icon-form">
-							<i class="fas fa-envelope"></i>
-						</div>
-
-						<div class="icon-texto">
-							
-							<span class="color-principal">CP: </span> {{ $office->postalCode }}
-						</div>
-						
-					</p>		</div>
+            </tbody>
+          </table>
 
 
-					<div class="form-inline mb-2">
-						<div class="icon-form">
-							<i class="fas fa-city"></i>
-						</div>
-
-						<div class="icon-texto">
-							
-							<span class="color-principal">Ciudad: </span> {{ $office->city }}
-						</div>
-						
-					</div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-12 d-block d-md-none">
 
 
-					<div class="form-inline mb-3">
-						<div class="icon-form">
-							<i class="fas fa-flag"></i>
-						</div>
-
-						<div class="icon-texto">
-							
-							<span class="color-principal">Pais: </span> {{ $office->country }}
-						</div>
-						
-					</div>
 
 
-					<a href="/office/{{$office->id}}" class=" btn btn-wait btn-primary btn-block"><i class="fas fa-eye"></i> Ver mas</a>
-				</div>
-				
-			</div>
 
-			@endforeach
-			@endif
-			
-		</div>
-	</div>
+      @foreach ($offices as $office)
+      <div class="card   my-5">
+        <div class="card-encabezado">
+
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-list"></i>
+          </div>
+          <div class="card-title">{{$office->name}}</div>
+        </div>
+        
+        <div class="card-body">
+          
+          
+
+          <div class="form-inline mb-2">
+            
+            
+            <div class="icon-form">
+              
+              <i class="fas fa-home"></i> 
+            </div>  
+            <div class="icon-texto">
+              <span class="color-principal">Domicilio: </span> {{ $office->address }}
+            </div>
+          </div>
+
+          <div class="form-inline mb-2">
+            <div class="icon-form">
+              <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="icon-texto">
+              
+              <span class="color-principal">CP: </span> {{ $office->postalCode }}
+            </div>
+            
+          </p>    </div>
+
+
+          <div class="form-inline mb-2">
+            <div class="icon-form">
+              <i class="fas fa-city"></i>
+            </div>
+
+            <div class="icon-texto">
+              
+              <span class="color-principal">Ciudad: </span> {{ $office->city }}
+            </div>
+            
+          </div>
+
+
+          <div class="form-inline mb-3">
+            <div class="icon-form">
+              <i class="fas fa-flag"></i>
+            </div>
+
+            <div class="icon-texto">
+              
+              <span class="color-principal">Pais: </span> {{ $office->country }}
+            </div>
+            
+          </div>
+
+          <div class="text-center">
+          	      <a href="{{url('/office/'.$o->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+                  <a href="{{url('/office/'.$o->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
+
+                  <button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
+
+                  {!! Form::open(['action' => ['DoctorController@destroy', $o->id], 'method' => 'POST']) !!}
+                  {{ Form::hidden('_method', 'DELETE') }}
+                  {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
+                  {!! Form::close() !!}
+
+          </div>
+
+
+
+        </div>
+        
+      </div>
+
+      @endforeach
+      
+    </div>
+  </div>
 </div>
 
+@endif
 @endsection
 
 @include('includes.dataTables')

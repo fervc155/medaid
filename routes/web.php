@@ -3,6 +3,19 @@
 use App\Notifications\Prueba;
 use App\User;
 
+/////rutas web
+
+
+Route::get('medicos','webController@medico');
+Route::get('consultorios','webController@consultorio');
+Route::get('acerca','webController@acerca');
+Route::get('contacto','webController@contacto');
+
+
+
+
+
+
 //Rutas que requieren que el usuario que inició sesión sea administrador
 Route::group(['middleware' => ['auth','admin'] ], function () {
 	Route::resource('doctor', 'DoctorController');

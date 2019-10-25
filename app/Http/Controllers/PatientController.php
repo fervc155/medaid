@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Doctor;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -21,7 +22,9 @@ class PatientController extends Controller
     //Agregar paciente
     public function create()
     {
-        return view('hospital.patient.createPatient');
+        $doctors = Doctor::All();
+
+        return view('hospital.patient.createPatient',compact('doctors'));
     }
 
     //Almacenar
@@ -68,7 +71,9 @@ class PatientController extends Controller
     //Editar paciente
     public function edit(Patient $patient)
     {
-        return view('hospital.patient.editPatient', compact('patient'));
+
+        $doctors = Doctor::All();
+        return view('hospital.patient.editPatient', compact('patient','doctors'));
     }
 
     //Método update
