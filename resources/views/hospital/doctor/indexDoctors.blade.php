@@ -62,11 +62,11 @@
 								<td><a href="{{url('/doctor/'.$d->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
 									<a href="{{url('/doctor/'.$d->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
-									<button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
+									<button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id='doctor-{{$d->id}}' > <i class="fas fa-times"></i></button>
 
 									{!! Form::open(['action' => ['DoctorController@destroy', $d->id], 'method' => 'POST']) !!}
 									{{ Form::hidden('_method', 'DELETE') }}
-									{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
+									{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none', 'id'=>'doctor-'.$d->id]) }}
 									{!! Form::close() !!}
 
 								</td>
@@ -166,11 +166,11 @@
 														<a href="{{url('/doctor/'.$doctor->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
 									<a href="{{url('/doctor/'.$doctor->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
-									<button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
+									<button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="doctor-{{$doctor->id}}"> <i class="fas fa-times"></i></button>
 
 									{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
 									{{ Form::hidden('_method', 'DELETE') }}
-									{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
+									{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ', 'id'=>'doctor-'.$doctor->id]) }}
 									{!! Form::close() !!}
 
 

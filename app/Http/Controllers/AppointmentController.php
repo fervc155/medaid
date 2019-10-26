@@ -6,6 +6,7 @@ use App\Appointment;
 use App\Doctor;
 use App\Patient;
 use App\Office;
+use App\Options;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -13,9 +14,12 @@ class AppointmentController extends Controller
     //Lista de citas
     public function index()
     {
+
+
+        $options = new Options();
         $appointments = Appointment::with(['doctor:id,name', 'patient:dni,name', 'office:id,name'])->get();
 
-        return view('hospital.appointment.indexAppointment', compact('appointments'));
+        return view('hospital.appointment.indexAppointment', compact('appointments','options'));
     }
 
     //Agregar cita

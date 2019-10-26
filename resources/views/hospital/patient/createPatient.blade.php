@@ -57,10 +57,10 @@
         <div class="card-body">
 
           <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-            <div class="fileinput-new thumbnail img-circle img-raised">
-              <img src="{{asset('splash/img/user-default.jpg')}}" >
+<div class="fileinput-new thumbnail img-circle img-raised " style="height: 100px;width: 100px; overflow: hidden;">
+              <img src="{{asset('splash/img/'.$defaultImg)}}" class="img-height" >
             </div>
-            <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
             <div>
               <span class="btn btn-raised btn-round btn-primary btn-file">
                 <span class="fileinput-new">Agregar foto</span>

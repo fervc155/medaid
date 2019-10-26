@@ -2,6 +2,8 @@
 
 namespace App;
 
+
+use App\Option;
 use Illuminate\Database\Eloquent\Model;
 use App\Scopes\CountryScope;
 
@@ -33,6 +35,14 @@ class Patient extends Model
     //Relación 1:N con citas
     public function appointments() {
         return $this->hasMany('App\Appointment');
+    }
+
+  public function getProfileimgAttribute()
+    {
+         $option =Option::all()->where('name','user-default')->first();
+
+
+       return 'splash/img/'.$option->value;
     }
 
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Patient;
 use App\Doctor;
+use App\Options;
+
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -22,9 +24,13 @@ class PatientController extends Controller
     //Agregar paciente
     public function create()
     {
+                  $defaultImg= new Options();
+        $defaultImg = $defaultImg->UserDefault();
+      
+
         $doctors = Doctor::All();
 
-        return view('hospital.patient.createPatient',compact('doctors'));
+        return view('hospital.patient.createPatient',compact('doctors','defaultImg'));
     }
 
     //Almacenar

@@ -87,7 +87,7 @@
 
 					<li class="nav-item <?php if($active=='chat'){ echo 'active';}?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
 					<li class="nav-item <?php if($active=='user'){ echo 'active';}?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>
-					<li class="nav-item <?php if($active=='money'){ echo 'active';}?>"><a href="{{url('/money')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
+					<li class="nav-item <?php if($active=='bills'){ echo 'active';}?>"><a href="{{url('/bills')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
 					<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/options')}}" class="nav-link"><i class="fal fa-cogs"></i> Opciones</a></li>
 
 
@@ -98,7 +98,7 @@
 
 
 		<section class="main-admin main-admin-open">
-			<nav class="navbar navbar-default navbar-expand-lg br-0 mb-0" role="navigation-demo">
+			<nav class="navbar navbar-default navbar-expand-lg br-0 mb-0 z-50" role="navigation-demo">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-translate">
 					<button class="btn btn-link btn-round btn-fab button-dashboard-open" id="button-dashboard">
@@ -130,7 +130,7 @@
 								<div class="profile-photo-small rounded-circle">
 
 
-									<img src="{{ asset('splash/header/login.jpg')}}" alt="Circle Image" class="img-heigth">
+									<img src="{{ asset(Auth::user()->Profileimg)}}" alt="Circle Image" class="img-heigth">
 								</div>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">

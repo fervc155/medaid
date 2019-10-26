@@ -67,11 +67,11 @@
                 <td><a href="{{url('/office/'.$o->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
                   <a href="{{url('/office/'.$o->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
-                  <button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
+                  <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="office-{{$o->id}}" > <i class="fas fa-times"></i></button>
 
-                  {!! Form::open(['action' => ['DoctorController@destroy', $o->id], 'method' => 'POST']) !!}
+                  {!! Form::open(['action' => ['OfficeController@destroy', $o->id], 'method' => 'POST']) !!}
                   {{ Form::hidden('_method', 'DELETE') }}
-                  {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
+                  {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ','id'=>'office-'.$o->id]) }}
                   {!! Form::close() !!}
 
                 </td>
@@ -159,14 +159,14 @@
           </div>
 
           <div class="text-center">
-          	      <a href="{{url('/office/'.$o->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
-                  <a href="{{url('/office/'.$o->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
+          	      <a href="{{url('/office/'.$office->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+                  <a href="{{url('/office/'.$office->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
-                  <button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
+                  <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="office-{{$office->id}}"> <i class="fas fa-times"></i></button>
 
-                  {!! Form::open(['action' => ['DoctorController@destroy', $o->id], 'method' => 'POST']) !!}
+                  {!! Form::open(['action' => ['OfficeController@destroy', $office->id], 'method' => 'POST']) !!}
                   {{ Form::hidden('_method', 'DELETE') }}
-                  {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
+                  {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ', 'id'=>'office-'.$office->id]) }}
                   {!! Form::close() !!}
 
           </div>

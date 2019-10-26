@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Doctor;
 
 use App\Office;
+use App\Options;
+
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -19,8 +21,11 @@ class DoctorController extends Controller
     //Crear doctores
     public function create()
     {
+          $defaultImg= new Options();
+        $defaultImg = $defaultImg->UserDefault();
+      
         $offices = Office::all(); 
-        return view('hospital.doctor.createDoctor',compact('offices'));
+        return view('hospital.doctor.createDoctor',compact('offices','defaultImg'));
     }
 
     //Almacenar doctor

@@ -3,42 +3,47 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-    <title>MedAid</title>
+	<title>MedAid</title>
 
-    <!-- Bootstrap  material kit-->
-    
-        <link href="{{ asset('splash/vendor/bootstrap/css/material-kit.css') }}" rel="stylesheet">
-                <link href="{{ asset('splash/vendor/bootstrap/css/vertical-nav.css') }}" rel="stylesheet">
+	<!-- Bootstrap  material kit-->
+	
+	<link href="{{ asset('splash/vendor/bootstrap/css/material-kit.css') }}" rel="stylesheet">
+	<link href="{{ asset('splash/vendor/bootstrap/css/vertical-nav.css') }}" rel="stylesheet">
 
 
-    <!-- Íconos -->
+	<!-- Íconos -->
 
-        <link href="{{ asset('splash/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('splash/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet">
 
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+	<!-- CHARTIST -->
+	<link href="{{ asset('splash/vendor/chartist/css/chartist.min.css') }}" rel="stylesheet">
 
-    <!-- Data tables -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css') }}"/>
-    <link href="{{ asset('splash/default.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('splash/default.time.css') }}" rel="stylesheet">
+	<!-- Fuente -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
 
-    <link href="{{ asset('splash/default.date.css') }}" rel="stylesheet">
-     <!-- FULLCALDENDAR-->
-    <link href="{{asset('splash/vendor/fullcalendar/core/main.min.css')}}" rel='stylesheet' />
-    <link href="{{asset('splash/vendor/fullcalendar/daygrid/main.min.css')}}" rel='stylesheet' />
+	<!-- Custom styles for this template -->
+	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-<!-- SWEET ALERT -->
-    <link href="{{asset('splash/vendor/waitme/waitme.min.css')}}" rel='stylesheet' />
+	<!-- Data tables -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css') }}"/>
+	<link href="{{ asset('splash/default.css') }}" rel="stylesheet">
+
+	<link href="{{ asset('splash/default.time.css') }}" rel="stylesheet">
+
+	<link href="{{ asset('splash/default.date.css') }}" rel="stylesheet">
+	<!-- FULLCALDENDAR-->
+	<link href="{{asset('splash/vendor/fullcalendar/core/main.min.css')}}" rel='stylesheet' />
+	<link href="{{asset('splash/vendor/fullcalendar/daygrid/main.min.css')}}" rel='stylesheet' />
+
+	<!-- SWEET ALERT -->
+	<link href="{{asset('splash/vendor/waitme/waitme.min.css')}}" rel='stylesheet' />
 
 
 
@@ -46,53 +51,59 @@
 <body>
 
 
-    @yield('navegacion')
+	@yield('navegacion')
 
 
-<!--  JQUERY -->
-<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
+	<!--  JQUERY -->
+	<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
 
-<!-- Material kit -->
-  <script src="{{asset('splash/vendor/bootstrap/js/popper.min.js')}}" type="text/javascript"></script>
-  <script src="{{asset('splash/vendor/bootstrap/js/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
-  <script src="{{asset('splash/vendor/bootstrap/js/moment.min.js')}}"></script>
-  <!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-  <!-- <script src="{{asset('splash/vendor/bootstrap/js/bootstrap-datetimepicker.js')}}" type="text/javascript"></script> -->
-  <!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="{{asset('splash/vendor/bootstrap/js/nouislider.min.js')}}" type="text/javascript"></script>
+	<!-- Material kit -->
+	<script src="{{asset('splash/vendor/bootstrap/js/popper.min.js')}}" type="text/javascript"></script>
+	<script src="{{asset('splash/vendor/bootstrap/js/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
+	<script src="{{asset('splash/vendor/bootstrap/js/moment.min.js')}}"></script>
+	<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+	<!-- <script src="{{asset('splash/vendor/bootstrap/js/bootstrap-datetimepicker.js')}}" type="text/javascript"></script> -->
+	<!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="{{asset('splash/vendor/bootstrap/js/nouislider.min.js')}}" type="text/javascript"></script>
 
-  <!-- Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs -->
-  <script src="{{asset('splash/vendor/bootstrap/js/bootstrap-tagsinput.js')}}"></script>
-  <!-- Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="{{asset('splash/vendor/bootstrap/js/bootstrap-selectpicker.js')}}" type="text/javascript"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="{{asset('splash/vendor/bootstrap/js/jasny-bootstrap.min.js')}}" type="text/javascript"></script>
-  <!-- Plugin for Small Gallery in Product Page -->
-  <script src="{{asset('splash/vendor/bootstrap/js/jquery.flexisel.js')}}" type="text/javascript"></script>
-  <!-- Plugins for presentation and navigation -->
-  <script src="{{asset('splash/vendor/bootstrap/js/modernizr.js')}}" type="text/javascript"></script>
-  <script src="{{asset('splash/vendor/bootstrap/js/vertical-nav.js')}}" type="text/javascript"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-  <script src="{{asset('splash/vendor/bootstrap/js/material-kit.js?v=2.1.1')}}" type="text/javascript"></script>
-
-
-<!-- pickadate -->
-<script src="{{ asset('splash/vendor/jquery/picker.js') }}"></script>
-<script src="{{ asset('splash/vendor/jquery/picker.date.js') }}"></script>
-<script src="{{ asset('splash/vendor/jquery/picker.time.js') }}"></script>
+	<!-- Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs -->
+	<script src="{{asset('splash/vendor/bootstrap/js/bootstrap-tagsinput.js')}}"></script>
+	<!-- Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+	<script src="{{asset('splash/vendor/bootstrap/js/bootstrap-selectpicker.js')}}" type="text/javascript"></script>
+	<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+	<script src="{{asset('splash/vendor/bootstrap/js/jasny-bootstrap.min.js')}}" type="text/javascript"></script>
+	<!-- Plugin for Small Gallery in Product Page -->
+	<script src="{{asset('splash/vendor/bootstrap/js/jquery.flexisel.js')}}" type="text/javascript"></script>
+	<!-- Plugins for presentation and navigation -->
+	<script src="{{asset('splash/vendor/bootstrap/js/modernizr.js')}}" type="text/javascript"></script>
+	<script src="{{asset('splash/vendor/bootstrap/js/vertical-nav.js')}}" type="text/javascript"></script>
+	<!-- Place this tag in your head or just before your close body tag. -->
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
+	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+	<script src="{{asset('splash/vendor/bootstrap/js/material-kit.js?v=2.1.1')}}" type="text/javascript"></script>
 
 
-<!-- fulllcallendar -->
-    <script src="{{asset('splash/vendor/fullcalendar/core/main.min.js')}}"></script>
-      <script src="{{asset('splash/vendor/fullcalendar/daygrid/main.min.js')}}"></script>
-          <script src="{{asset('splash/vendor/fullcalendar/core/moment/main.min.js')}}"></script>
-    <script src="{{asset('splash/vendor/fullcalendar/interaction/main.min.js')}}"></script>
+	<!-- pickadate -->
+	<script src="{{ asset('splash/vendor/jquery/picker.js') }}"></script>
+	<script src="{{ asset('splash/vendor/jquery/picker.date.js') }}"></script>
+	<script src="{{ asset('splash/vendor/jquery/picker.time.js') }}"></script>
 
-<script src="{{asset('splash/vendor/waitme/waitme.min.js')}}"></script>
-<script src="{{ asset('js/scripts.js') }}"></script>
-  
+
+	<!-- fulllcallendar -->
+	<script src="{{asset('splash/vendor/fullcalendar/core/main.min.js')}}"></script>
+	<script src="{{asset('splash/vendor/fullcalendar/daygrid/main.min.js')}}"></script>
+	<script src="{{asset('splash/vendor/fullcalendar/core/moment/main.min.js')}}"></script>
+	<script src="{{asset('splash/vendor/fullcalendar/interaction/main.min.js')}}"></script>
+
+	<script src="{{asset('splash/vendor/waitme/waitme.min.js')}}"></script>
+	<!--  chartist -->
+
+	<script src="{{asset('splash/vendor/chartist/js/chartist.min.js')}}"></script>
+
+	<script src="{{ asset('js/scripts.js') }}"></script>
+
+
+	
 </body>
 
 </html>

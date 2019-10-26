@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Options;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -30,5 +31,11 @@ class Appointment extends Model
     //Relación N:1 con consultorio
     public function office(){
         return $this->belongsTo('App\Office');
+    }
+
+    public function getpriceAttribute()
+    {
+        $options = new Options();
+        return $options->Moneda(). $this->cost;
     }
 }

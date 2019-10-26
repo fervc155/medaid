@@ -18,7 +18,7 @@
 
 
 
-				<img src="{{asset('splash/img/user-default.jpg')}}" class="img-fluid">
+				<img src="{{asset($doctor->Profileimg)}}" class="img-fluid">
 
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"><i class="fal fa-user-md"></i> {{$patient->name}}</h5>
 
@@ -145,12 +145,12 @@
 					</div>  
 					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="/patient/{{$patient->dni}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 
-					<a role="button" class="btn btn-round btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fal fa-trash"></i> Eliminar</a>
+					<a role="button" class="btn btn-round btn-danger text-light mt-3 btn-confirm-delete" id="patient-{{$patient->dni}}"> <i class="fal fa-trash"></i> Eliminar</a>
 
 
 					{!! Form::open(['action' => ['PatientController@destroy', $patient->dni], 'method' => 'POST']) !!}
 					{{ Form::hidden('_method', 'DELETE') }}
-					{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete']) }}
+					{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete','id'=>'patient-'.$patient->dni]) }}
 					{!! Form::close() !!}
 
 				</div>
@@ -186,7 +186,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+		
 
 		<div class="row mt-3">
 			<div class="col d-none">

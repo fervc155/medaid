@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Option;
 use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
@@ -34,5 +35,15 @@ class Doctor extends Model
     public function setCedulaAttribute($value)
     {
         $this->attributes['cedula'] = strtoupper($value);
+    }
+
+   
+
+    public function getProfileimgAttribute()
+    {
+         $option =Option::all()->where('name','user-default')->first();
+
+
+       return 'splash/img/'.$option->value;
     }
 }

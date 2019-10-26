@@ -11,7 +11,7 @@
 		<div class="col-md-4">
 
 			<div class="card card-profile pt-0">
-				<img src="{{asset('splash/img/user-default.jpg')}}" class="img-fluid">
+				<img src="{{asset($doctor->Profileimg)}}" class="img-fluid">
 
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
 
@@ -92,13 +92,14 @@
 
 
 					</div>  
-					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="/doctor/{{$doctor->id}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 
-					<a role="button" class="btn btn-round btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fal fa-trash"></i> Eliminar</a>
+
+					<button class="btn btn-danger btn-round btn-confirm-delete" id='doctor-{{$doctor->id}}' > <i class="fal fa-trash"></i> Eliminar</button>
 
 					{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
 					{{ Form::hidden('_method', 'DELETE') }}
-					{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none']) }}
+					{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none', 'id'=>'doctor-'.$doctor->id]) }}
 					{!! Form::close() !!}
 
 				</div>
@@ -230,7 +231,7 @@
 							<tr>
 								<td>{{ $a->date }}</td>
 								<td>{{ $a->time }}</td>
-								<td>${{ $a->cost }} MXN</td>
+								<td>{{ $a->price }}</td>
 								<td>{{ $a->description }}</td>
 								<td><a class="link" href="{{url('/patient/'.$a->patient->dni)}}">{{ $a->patient->name }} </a></td>
 								<td>
@@ -305,7 +306,7 @@
 
 						<div class="icon-texto">
 
-							<span class="color-principal">Costo: </span>$ {{ $appointment->cost }}
+							<span class="color-principal">Costo: </span>$ {{ $appointment->price }}
 						</div>
 
 					</div>
@@ -407,12 +408,6 @@
 								<td><a href="{{url('/patient/'.$p->dni)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
 
 
-									<button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
-
-									{!! Form::open(['action' => ['DoctorController@destroy', $p->dni], 'method' => 'POST']) !!}
-									{{ Form::hidden('_method', 'DELETE') }}
-									{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
-									{!! Form::close() !!}
 
 								</td>
 
@@ -454,7 +449,7 @@
 
 						<div class="icon-form">
 
-							<i class="fas fa-id-card"></i> 
+							<i class="fal fa-id-card"></i> 
 						</div>  
 						<div class="icon-texto">
 							<span class="color-principal">CURP </span> {{ $patient->curp }}
@@ -465,7 +460,7 @@
 
 					<div class="form-inline mb-2">
 						<div class="icon-form">
-							<i class="fas fa-phone"></i>
+							<i class="fal fa-phone"></i>
 						</div>
 
 						<div class="icon-texto">
@@ -478,7 +473,7 @@
 
 					<div class="form-inline mb-2">
 						<div class="icon-form">
-							<i class="fas fa-venus-mars"></i>
+							<i class="fal fa-venus-mars"></i>
 						</div>
 
 						<div class="icon-texto">
@@ -491,7 +486,7 @@
 
 					<div class="form-inline mb-2">
 						<div class="icon-form">
-							<i class="fas fa-home"></i>
+							<i class="fal fa-home"></i>
 						</div>
 
 						<div class="icon-texto">
@@ -503,13 +498,6 @@
 
 					<div class="text-center">
 						<a href="{{url('/patient/'.$p->dni)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
-
-						<button class="btn btn-danger btn-round btn-just-icon btn-sm" onclick="btn_confirm_delete()"> <i class="fas fa-times"></i></button>
-
-						{!! Form::open(['action' => ['DoctorController@destroy', $p->dni], 'method' => 'POST']) !!}
-						{{ Form::hidden('_method', 'DELETE') }}
-						{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ']) }}
-						{!! Form::close() !!}
 
 					</div>
 				</div>

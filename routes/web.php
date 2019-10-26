@@ -12,6 +12,21 @@ Route::get('acerca','webController@acerca');
 Route::get('contacto','webController@contacto');
 
 
+///chat 
+
+route::get('chat','chatController@index');
+
+///options
+
+route::get('options','optionController@index');
+route::post('options/user-default','optionController@userDefault');
+route::post('options/moneda','optionController@moneda');
+route::post('options/idioma','optionController@idioma');
+
+/// bills
+
+route::get('bills','BillController@index');
+
 
 
 

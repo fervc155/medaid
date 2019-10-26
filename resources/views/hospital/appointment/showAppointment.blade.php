@@ -17,7 +17,7 @@
 
 			<div class="card card-profile">
 
-				<img src="{{asset('splash/img/user-default.jpg')}}" class="img-fluid">
+				<img src="{{asset($appointment->patient->Profileimg)}}" class="img-fluid">
 
 				<h5 class="p-3 mt-0 h4 text-light bg-secondary text-center text-capitalize"><i class="fal fa-book"></i> {{$appointment->patient->name}}</h5>
 
@@ -56,8 +56,7 @@
 						<div class="color-principal">
 							<i class="fal fa-money-bill-wave"></i> Precio:
 						</div>
-
-						{{ $appointment->cost }}
+						{{ $appointment->price }}
 
 					</div>
 					<div class="form-inline mb-2">
