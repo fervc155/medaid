@@ -4,6 +4,9 @@
 
 
 
+
+
+
 <div class="container mt-5">
 
 	<div class="row ">
@@ -129,6 +132,34 @@
 
 
 				</div>
+					<div class="col-12 col-md-6">
+
+					<div class="caja-contador card">
+
+						<?php $i=0; 
+
+						foreach ($doctors as $d)
+						{
+							$i+=count($d->appointments);
+
+						}  
+
+						?>
+						<div class="caja-contador-icono">
+							
+						<i class="fal fa-calendar-check"></i>
+						</div>
+						<div class="card-body">
+
+
+							<h3>{{$i}}</h3>
+							<p>Citas</p> 
+						</div>
+					</div>
+
+
+				</div>
+
 
 
 
@@ -186,7 +217,7 @@
 				<div class="card-body table-responsive">
 
 
-					<table class="table " id="data_table">
+					<table class="table " id="data_table_medicos">
 						<thead>
 							<tr>
 								<th>Id</th>
@@ -207,7 +238,7 @@
 								<td>{{ $d->telephoneNumber }}</td>
 								<td>{{ $d->turno }}</td>
 								<td>{{ $d->sexo }}</td>
-								<td>{{ $d->especialidad }}</td>
+								<td>{{ $d->speciality->name }}</td>
 								<td><a href="{{url('/doctor/'.$d->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
 									<a href="{{url('/doctor/'.$d->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
@@ -300,7 +331,7 @@
 
 						<div class="icon-texto">
 
-							<span class="color-principal">Especialidad: </span> {{ $doctor->especialidad }}
+							<span class="color-principal">Especialidad: </span> {{ $doctor->speciality->name }}
 						</div>
 
 					</div>  
@@ -325,3 +356,6 @@
 
 
 @endsection
+
+@include('includes.dataTables')
+

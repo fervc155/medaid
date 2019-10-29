@@ -29,7 +29,7 @@
 							<div class="form-group">
 								<label class="bmd-label-floating"> Email</label>
 								<input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-				</div>
+							</div>
 						</div>
 
 						<div class="form-group form-inline align-items-end">
@@ -153,11 +153,19 @@
 							<i class="fal fa-user-tie"></i>
 						</div>
 						<div class="form-group">
-							<label class="bmd-label-floating">Especialidad</label>
+							
+							<select class="selectpicker" name="especialidad" id="especialidad" data-style="select-with-transition" title="Selecciona una especialidad" data-size="sd7">
 
-							{{Form::text('especialidad', '', ['class'=>'form-control'] )}}
+								<?php foreach ($specialities as $speciality ): ?>
+
+									<option value="{{ $speciality->id}}">{{ $speciality->name }}</option>
+
+								<?php endforeach ?>
+							</select>
+
 
 						</div>
+
 					</div>
 
 					<div>
@@ -202,14 +210,14 @@
 
 
 					@if(count($offices)>0)
-						<div class="card-encabezado mt-5">
-					
-					<div class="card-cabecera-icono bg-info sombra-2 ">
+					<div class="card-encabezado mt-5">
 
-						<i class="fal fa-user-md"></i>
+						<div class="card-cabecera-icono bg-info sombra-2 ">
+
+							<i class="fal fa-user-md"></i>
+						</div>
+						<div class="card-title">Consultorio (opcional):</div>
 					</div>
-					<div class="card-title">Consultorio (opcional):</div>
-				</div>
 
 
 
@@ -221,16 +229,16 @@
 
 						<div class="form-group">
 							
-									<select class="selectpicker" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
+							<select class="selectpicker" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
 
-										<?php foreach ($offices as $office ): ?>
-											
-										<option value="{{ $office->id}}">{{ $office->name }}</option>
-								
-										<?php endforeach ?>
-									</select>
+								<?php foreach ($offices as $office ): ?>
 
-			
+									<option value="{{ $office->id}}">{{ $office->name }}</option>
+
+								<?php endforeach ?>
+							</select>
+
+
 						</div>
 					</div>
 
@@ -240,11 +248,11 @@
 						</div>
 
 
-				<div class="form-group">
-					
-						{{Form::time('inTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+						<div class="form-group">
 
-				</div>
+							{{Form::time('inTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+
+						</div>
 					</div>
 
 					<div class="form-group form-inline align-items-end">
@@ -254,7 +262,7 @@
 
 						<div class="form-group">
 							
-						{{Form::time('outTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+							{{Form::time('outTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
 
 						</div>
 					</div>

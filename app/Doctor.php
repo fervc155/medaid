@@ -37,10 +37,17 @@ class Doctor extends Model
         $this->attributes['cedula'] = strtoupper($value);
     }
 
+    public function speciality() {
+        return $this->belongsTo('App\Speciality');
+    }
+
+
    
 
     public function getProfileimgAttribute()
     {
+
+        //if not have Img profile
          $option =Option::all()->where('name','user-default')->first();
 
 

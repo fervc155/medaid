@@ -10,6 +10,9 @@ $factory->define(App\Doctor::class, function (Faker $faker) {
         'turno' => $faker->randomElement($array = array ('Matutino','Vespertino')),
         'sexo' => $faker->randomElement($array2 = array ('M','F')),
         'cedula' => $faker->unique()->lexify('??????????'),
-        'especialidad' => $faker->randomElement($array3 = array ('Neurólogo','Pediatra', 'Cirujano', 'Odontólogo', 'Oncólogo'))
+        
+        'speciality_id' =>$faker->numberBetween(1,8),
+
+        //especialidad_id' => $faker->randomElement($array3 = array ('Neurólogo','Pediatra', 'Cirujano', 'Odontólogo', 'Oncólogo'))
     ];
 });

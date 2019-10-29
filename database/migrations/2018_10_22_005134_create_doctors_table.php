@@ -21,7 +21,9 @@ class CreateDoctorsTable extends Migration
             $table->char('turno', 20);
             $table->char('sexo', 1);
             $table->char('cedula', 20);
-            $table->char('especialidad', 40);
+            $table->integer('speciality_id')->unsigned();
+            $table->foreign('speciality_id')->references('id')->on('specialities');
+ 
         });
     }
 

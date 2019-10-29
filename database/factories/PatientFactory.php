@@ -4,6 +4,15 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Patient::class, function (Faker $faker) {
     return [
-        //
+        'name' => $faker->name,
+        'curp' => $faker->unique()->lexify('????????????????'),
+        'birthdate' => $faker->date,
+        'telephoneNumber' => $faker->numerify('##########'),
+        'sex' => $faker->randomElement($array2 = array ('M','F')),
+        'address'=>$faker->sentence(4),
+        'postalCode' => $faker->numerify('#####'),
+        'city'=> $faker->sentence(2),
+        'country'=> $faker->sentence(1),
+        'doctor_id'=> $faker->numberBetween(1,20)
     ];
 });

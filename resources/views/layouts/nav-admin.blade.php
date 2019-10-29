@@ -2,6 +2,7 @@
 
 @section('navegacion')
 <?php $active=explode('.',Request::route()->getName())[0];?>
+
 <main class="dashboard">
 
 	<div class="d-flex">
@@ -86,6 +87,8 @@
 
 
 					<li class="nav-item <?php if($active=='chat'){ echo 'active';}?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
+					<li class="nav-item <?php if($active=='speciality'){ echo 'active';}?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
+
 					<li class="nav-item <?php if($active=='user'){ echo 'active';}?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>
 					<li class="nav-item <?php if($active=='bills'){ echo 'active';}?>"><a href="{{url('/bills')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
 					<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/options')}}" class="nav-link"><i class="fal fa-cogs"></i> Opciones</a></li>

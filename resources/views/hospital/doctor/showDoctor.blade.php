@@ -88,7 +88,7 @@
 
 
 
-						{{ $doctor->especialidad }}
+						{{ $doctor->speciality->name }}
 
 
 					</div>  
@@ -213,7 +213,7 @@
 				<div class="card-body">
 
 					<!-- Si el número de citas es mayor a cero, se mostrarán los datos -->
-					<table class="table " id="data_table">
+					<table class="table " id="data_table_citas">
 						<thead>
 							<tr>
 								<th >Fecha</th>
@@ -386,7 +386,7 @@
 
 
 
-					<table class="table" id="data_table">
+					<table class="table" id="data_table_pacientes">
 						<thead>
 							<tr>
 								<th>Nombre</th>
@@ -515,9 +515,5 @@
 </div>
 
 @endif
-
-
-
-
-
 @endsection
+@include('includes.dataTables')

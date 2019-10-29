@@ -2,18 +2,39 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
+use App\Office;
+use App\Speciality;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
-    public function medico()
+    public function especialidades()
     {
-    	return view('web.medicos');
+
+
+        $specialities = Speciality::All();
+
+    	return view('web.especialidades', compact('specialities'));
     }
+        public function especialidad($name)
+    {
+
+
+        $speciality = Speciality::all()->where('name',$name)->first();
+
+    return view('web.especialidad', compact('speciality'))
+        ->with('doctors', $speciality->doctors);
+
+}
+
 
     public function consultorio()
     {
-    	return view('web.consultorios');
+
+
+        $offices = Office::all();
+    	return view('web.consultorios', compact('offices'));
 
     }
     

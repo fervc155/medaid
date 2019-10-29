@@ -5,8 +5,8 @@
 
 <script>
 	$(document).ready( function () {
-		$('#data_table').DataTable({
-			"language": {
+
+		let data ={
 				"lengthMenu": "Mostrar _MENU_ registros por página",
 				"zeroRecords": "No se encontró ningún resultado :(",
 				"info": "Mostrando página _PAGE_ de _PAGES_",
@@ -20,5 +20,31 @@
 					"previous":   "Anterior"
 				}
 			}
-		});
-	} );</script>
+
+		$('#data_table').DataTable({
+			"language": data
+			});
+			$('#data_table_citas').DataTable({
+			"language": data
+			});
+	
+		$('#data_table_pacientes').DataTable({
+			"language": data
+			});
+	
+		$('#data_table_medicos').DataTable({
+			"language": data
+			});
+	
+		$('#data_table_consultorios').DataTable({
+			"language": data
+			});
+	
+	
+
+	}
+
+	
+ );
+
+</script>

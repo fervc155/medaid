@@ -22,11 +22,11 @@
 
 				<!-- Sólo los administradores pueden ´ver Doctores y Consultorios -->
 				<li class="nav-item">
-					<a class="nav-link" href="{{ action('DoctorController@index') }}"><i class="icon fas fa-user-md"></i> {{__('Consultorios') }}</a>
+					<a class="nav-link" href="{{ url('visitante/consultorios') }}"><i class="icon fas fa-user-md"></i> {{__('Consultorios') }}</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fas fa-user-injured"></i> {{__('Medicos') }}</a>
+					<a class="nav-link" href="{{ url('visitante/especialidades') }}"> <i class="icon fas fa-user-injured"></i> {{__('Especialidades') }}</a>
 				</li>
 
 

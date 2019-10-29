@@ -1,46 +1,61 @@
 $ = jQuery.noConflict();
 
 
-    $(document).ready(function() {
-      //init DateTimePickers
-      //materialKit.initFormExtendedDatetimepickers();
-    });
+$(document).ready(function() {
+    //init DateTimePickers
+    //materialKit.initFormExtendedDatetimepickers();
+});
+
+
 
 
 var Fecha = new Date();
 
-$('.datepicker').pickadate({
-	today: 'Hoy',
-	clear: 'Limpiar',
-	close: 'Cerrar',
-	format: 'yyyy-mm-dd',
-	selectMonths: true,
-	min: new Date(Fecha.getFullYear(),  Fecha.getMonth(),Fecha.getDate() ),
+if ($('.datepicker').lenght>0)
+{
 
-	max: new Date( Fecha.getFullYear()+1,  Fecha.getMonth(),Fecha.getDate() )
-});
+	$('.datepicker').pickadate({
+		today: 'Hoy',
+		clear: 'Limpiar',
+		close: 'Cerrar',
+		format: 'yyyy-mm-dd',
+		selectMonths: true,
+		min: new Date(Fecha.getFullYear(),  Fecha.getMonth(),Fecha.getDate() ),
 
+		max: new Date( Fecha.getFullYear()+1,  Fecha.getMonth(),Fecha.getDate() )
+	});
+}
 
-$('.datepicker2').pickadate({
-	today: 'Hoy',
-	clear: 'Limpiar',
-	close: 'Cerrar',
-	format: 'yyyy-mm-dd',
-	selectMonths: true,
-	selectYears: 100,
+if ($('.datepicker2').lenght>0)
+{
 
 
-	max: new Date( Fecha.getFullYear()-18,  Fecha.getMonth(),Fecha.getDate() )
-});
+	$('.datepicker2').pickadate({
+		today: 'Hoy',
+		clear: 'Limpiar',
+		close: 'Cerrar',
+		format: 'yyyy-mm-dd',
+		selectMonths: true,
+		selectYears: 100,
 
-$('.timepicker').pickatime({
-	min: [9,0],
-	max: [16,0],
-	clear: 'Quitar Hora',
-	interval: 30,
-	format: 'H:i'
-})
 
+		max: new Date( Fecha.getFullYear()-18,  Fecha.getMonth(),Fecha.getDate() )
+	});
+
+}
+
+if ($('.timepicker').lenght>0)
+{
+
+	$('.timepicker').pickatime({
+		min: [9,0],
+		max: [16,0],
+		clear: 'Quitar Hora',
+		interval: 30,
+		format: 'H:i'
+	})
+
+}
 
 
 
@@ -48,7 +63,7 @@ $('.timepicker').pickatime({
 
 function CerrarDashboard()
 {
-		if($('.navbar-responsive').hasClass('navbar-responsive-open'))
+	if($('.navbar-responsive').hasClass('navbar-responsive-open'))
 	{
 
 		$('.navbar-responsive').removeClass('navbar-responsive-open');
@@ -83,7 +98,7 @@ $('#button-dashboard').click(function()
 	{
 
 		AbrirDashboard();
-	
+
 
 	}
 	
@@ -92,7 +107,7 @@ $('#button-dashboard').click(function()
 
 $('.navbar-responsive-base').click(function()
 {
-		AbrirDashboard()
+	AbrirDashboard()
 }) 
 
 
@@ -110,154 +125,189 @@ $(document).ready(function()
 {
 
 
-/*chart*/
+	/*chart*/
 
 //grafica cantidad citas
-	new Chartist.Line('#grafica-cantidad-citas', {
-  labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
-  series: [
-    [12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
+
+if ($('#grafica-cantidad-citas')>0)
+{
+
+new Chartist.Line('#grafica-cantidad-citas', {
+	labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
+	series: [
+	[12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
 },{
 
-  low: 0,
-  showArea: true,
+	low: 0,
+	showArea: true,
 
-  fullWidth: true
-  
+	fullWidth: true
+
 });
+}
 
-	new Chartist.Line('#grafica-ventas-mes', {
-  labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
-  series: [
-    [12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
+if ($('#grafica-ventas-mes')>0)
+{
+
+
+new Chartist.Line('#grafica-ventas-mes', {
+	labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
+	series: [
+	[12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
 },{
 
-  low: 0,
-  showArea: true,
+	low: 0,
+	showArea: true,
 
-  fullWidth: true
-  
+	fullWidth: true
+
 });
 
+}
 
 //grarfica relacion citas
-	var data = {
-  series: [5, 3, 4]
+if ($('#grafica-relacion-citas')>0)
+{
+
+
+var data = {
+	series: [5, 3, 4]
 };
 
 
 var sum = function(a, b) { return a + b };
 
 new Chartist.Pie('#grafica-relacion-citas', data, {
-  labelInterpolationFnc: function(value) {
-    return Math.round(value / data.series.reduce(sum) * 100) + '%';
-  }
+	labelInterpolationFnc: function(value) {
+		return Math.round(value / data.series.reduce(sum) * 100) + '%';
+	}
 });
+}
 
 //grafica peores  medicos
-	new Chartist.Bar('#grafica-peores-medicos', {
-  labels: ['doctor1','doctor2','doctor2','doctor2','doctor2'],
-  series: [
-    [12, 9, 7, 8, 5],    ]
+if ($('#grafica-peores-medicos')>0)
+{
+
+
+new Chartist.Bar('#grafica-peores-medicos', {
+	labels: ['doctor1','doctor2','doctor2','doctor2','doctor2'],
+	series: [
+	[12, 9, 7, 8, 5],    ]
 },{
 
-  low: 0,
-  showArea: true,
+	low: 0,
+	showArea: true,
 
-  fullWidth: true
-  
+	fullWidth: true
+
 });
-	var data = {
-  series: [5, 3, 4]
+var data = {
+	series: [5, 3, 4]
 };
 
+}
 
 //grafica mejores  medicos
-	new Chartist.Bar('#grafica-mejores-medicos', {
-  labels: ['doctor1','doctor2','doctor2','doctor2','doctor2'],
-  series: [
-    [123, 93, 73, 38, 35],    ]
+if ($('#grafica-mejores-medicos')>0)
+{
+
+
+new Chartist.Bar('#grafica-mejores-medicos', {
+	labels: ['doctor1','doctor2','doctor2','doctor2','doctor2'],
+	series: [
+	[123, 93, 73, 38, 35],    ]
 },{
 
-  low: 0,
-  showArea: true,
+	low: 0,
+	showArea: true,
 
-  fullWidth: true
-  
+	fullWidth: true
+
 });
-	var data = {
-  series: [5, 3, 4]
+var data = {
+	series: [5, 3, 4]
 };
 
+}
+	///
 
-/*full calendar*/
-
-	var calendarEl = document.getElementById('calendar');
-
-
-	var calendar = new FullCalendar.Calendar(calendarEl, 
-	{
-		plugins: [ 'dayGrid', ],
+if ($('#grafica-cantidad-citas')>0)
+{
 
 
-		customButtons: {
-			myCustomButton: {
-				text: 'custom!',
-				click: function() {
-				}
-			}
-		},
-		header: {
-			left: 'title ',
-			center: 'prev,next today',
-			right: 'dayGridMonth,dayGridWeek,dayGridDay'
-		},
+	new Chartist.Bar('#grafica-cantidad-citas', {
+		labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
+		series: [
+		[12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
+	},{
 
+		low: 0,
+		showArea: true,
+
+		fullWidth: true
 
 	});
 
+}
 
 
-
-	citasFecha = $('.citas-fecha');
-	citasHora = $('.citas-hora');
-	citasDescripcion =$('.citas-descripcion');
-	citasPaciente = $('.citas-paciente');
-
-	for (var i =0; i<citasFecha.length; i++) 
+	/*full calendar*/
+	if (document.getElementById('calendar'))
 	{
 
 
-		var cita=  
-		{title: citasPaciente[i].innerHTML,
-			start:citasFecha[i].innerHTML
+		var calendarEl = document.getElementById('calendar');
+
+
+		var calendar = new FullCalendar.Calendar(calendarEl, 
+		{
+			plugins: [ 'dayGrid', ],
+
+
+			customButtons: {
+				myCustomButton: {
+					text: 'custom!',
+					click: function() {
+					}
+				}
+			},
+			header: {
+				left: 'title ',
+				center: 'prev,next today',
+				right: 'dayGridMonth,dayGridWeek,dayGridDay'
+			},
+
+
+		});
+
+
+
+
+		citasHora = $('.citas-hora');
+		citasDescripcion =$('.citas-descripcion');
+		citasPaciente = $('.citas-paciente');
+		citasFecha = $('.citas-fecha');
+
+		for (var i =0; i<citasFecha.length; i++) 
+		{
+
+
+			var cita=  
+			{title: citasPaciente[i].innerHTML,
+				start:citasFecha[i].innerHTML
+			}
+
+
+			calendar.addEvent( cita )
 		}
 
 
-		calendar.addEvent( cita )
+		calendar.setOption('locale', 'es');
+
+		calendar.render();
+
+
 	}
-
-
-	calendar.setOption('locale', 'es');
-
-	calendar.render();
-
-
-	///
-
-
-new Chartist.Bar('#grafica-cantidad-citas', {
-  labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
-  series: [
-    [12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
-},{
-
-  low: 0,
-  showArea: true,
-
-  fullWidth: true
-  
-});
 
 
 
@@ -275,29 +325,42 @@ new Chartist.Bar('#grafica-cantidad-citas', {
 
 
 $(".btn-confirm-delete").click(function(){
-        
-        var ID = $(this).attr("id");
-        	swal({
+
+	var ID = $(this).attr("id");
+	swal({
 		title: "Cuidado",
 		text: "Se eliminara el registro permanentemente",
 		icon: "warning",
 		buttons: true,
 		dangerMode: true,
 	}).then((willDelete) => {
-	if (willDelete) {
+		if (willDelete) {
 
 
-		$('.btn-delete#'+ID).click();
-		swal("Hecho", {
-			icon: "success",
-		});
+			$('.btn-delete#'+ID).click();
+			swal("Hecho", {
+				icon: "success",
+			});
 
-	} 
+		} 
+	});
+
 });
-  
+
+
+///btn borrar especialidad
+
+
+$(".btn-actualizar-especialidad").click(function(){
+
+	var ID = $(this).data("id");
+	var name =$(this).data("name");
+
+	$('form.actualizar-especialidad input[name="id"]').val(ID);
+
+	$('form.actualizar-especialidad input[name="name"]').attr('placeholder',name);
+
 });
-
-
 
 
 /* WAITME*/
@@ -346,8 +409,14 @@ $('.no-wait').attr("onclick", "").unbind("click");
 
 /* chat*/
 
-$(".chat-contenido").scrollTop($(".chat-contenido")[0].scrollHeight);
 
+if ($('.chat-contenido').lenght>0)
+{
+
+
+	$(".chat-contenido").scrollTop($(".chat-contenido")[0].scrollHeight);
+
+}
 
 
 

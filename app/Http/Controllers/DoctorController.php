@@ -3,118 +3,123 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
-
 use App\Office;
 use App\Options;
-
+use App\Speciality;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
-    //Lista de doctores
-    public function index()
-    {           
-        $doctors = Doctor::all(); //Para ordenar los doctores por orden alfabético
-        return view('hospital.doctor.indexDoctors', compact('doctors'));
-    }
+  //Lista de doctores
+  public function index()
+  {           
 
-    //Crear doctores
-    public function create()
+        $doctors = Doctor::with(['speciality' => function ($query) {
+      $query->has('doctors');
+    }])->get();
+
+    return view('hospital.doctor.indexDoctors', compact('doctors'));
+  }
+
+  //Crear doctores
+  public function create()
+  {
+      $defaultImg= new Options();
+    $defaultImg = $defaultImg->UserDefault();
+    
+    $offices = Office::all(); 
+    $specialities = Speciality::all();
+    return view('hospital.doctor.createDoctor',compact('offices','specialities','defaultImg'));
+  }
+
+  //Almacenar doctor
+  public function store(Request $request)
+  {
+    $this->validate($request, [
+      'name'=>'required',
+      'birthdate'=>'required',
+      'telephoneNumber'=>'required',
+      'turno'=>'required',
+      'sexo'=>'required',
+      'cedula'=>'required',
+      'especialidad'=>'required'
+    ]);
+
+    //Crear médico
+    $doctor = new Doctor;
+    $doctor->name = $request->input('name');
+    $doctor->birthdate = $request->input('birthdate');
+    $doctor->telephoneNumber = $request->input('telephoneNumber');
+    $doctor->turno = $request->input('turno');
+    $doctor->sexo = $request->input('sexo');
+    $doctor->cedula = $request->input('cedula');
+    $doctor->speciality_id = $request->input('especialidad');
+    $doctor->save();
+
+    if($request->has(['office_id', 'inTime', 'outTime']))
     {
-          $defaultImg= new Options();
-        $defaultImg = $defaultImg->UserDefault();
-      
-        $offices = Office::all(); 
-        return view('hospital.doctor.createDoctor',compact('offices','defaultImg'));
+      $doctor->offices()->attach($request->input('office_id'), 
+                    ['inTime' => $request->input('inTime'),
+                     'outTime' => $request->input('outTime')]);
     }
 
-    //Almacenar doctor
-    public function store(Request $request)
+    return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
+  }
+
+  //Mostrar información de doctor
+  public function show(Doctor $doctor)
+  {
+    return view('hospital.doctor.showDoctor', compact('doctor'))
+        ->with('patients', $doctor->patients)
+        ->with('offices', $doctor->offices)
+        ->with('appointments', $doctor->appointments);
+  }
+
+  //Actualizar doctor
+  public function edit(Doctor $doctor)
+  {
+    $offices = Office::all();
+    $specialities = Speciality::all();
+    return view('hospital.doctor.editDoctor', compact('doctor','specialities','offices'));
+  }
+
+  //Método update
+  public function update(Request $request, Doctor $doctor)
+  {
+    $this->validate($request, [
+      'name'=>'required',
+      'birthdate'=>'required',
+      'telephoneNumber'=>'required',
+      'turno'=>'required',
+      'sexo'=>'required',
+      'cedula'=>'required',
+      'especialidad'=>'required'
+    ]);
+
+    //Editar médico
+    $doctor->name = $request->input('name');
+    $doctor->birthdate = $request->input('birthdate');
+    $doctor->telephoneNumber = $request->input('telephoneNumber');
+    $doctor->turno = $request->input('turno');
+    $doctor->sexo = $request->input('sexo');
+    $doctor->cedula = $request->input('cedula');
+    $doctor->speciality_id = $request->input('especialidad');
+    $doctor->save();
+
+    if($request->has(['office_id', 'inTime', 'outTime']))
     {
-        $this->validate($request, [
-            'name'=>'required',
-            'birthdate'=>'required',
-            'telephoneNumber'=>'required',
-            'turno'=>'required',
-            'sexo'=>'required',
-            'cedula'=>'required',
-            'especialidad'=>'required'
-        ]);
-
-        //Crear médico
-        $doctor = new Doctor;
-        $doctor->name = $request->input('name');
-        $doctor->birthdate = $request->input('birthdate');
-        $doctor->telephoneNumber = $request->input('telephoneNumber');
-        $doctor->turno = $request->input('turno');
-        $doctor->sexo = $request->input('sexo');
-        $doctor->cedula = $request->input('cedula');
-        $doctor->especialidad = $request->input('especialidad');
-        $doctor->save();
-
-        if($request->has(['office_id', 'inTime', 'outTime']))
-        {
-            $doctor->offices()->attach($request->input('office_id'), 
-                                        ['inTime' => $request->input('inTime'),
-                                         'outTime' => $request->input('outTime')]);
-        }
-
-        return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
+      $doctor->offices()->attach($request->input('office_id'), 
+                    ['inTime' => $request->input('inTime'),
+                     'outTime' => $request->input('outTime')]);
     }
 
-    //Mostrar información de doctor
-    public function show(Doctor $doctor)
-    {
-        return view('hospital.doctor.showDoctor', compact('doctor'))
-                ->with('patients', $doctor->patients)
-                ->with('offices', $doctor->offices)
-                ->with('appointments', $doctor->appointments);
-    }
+    return redirect('/doctor')->with('success','¡El médico ha sido actualizado con éxito!');
+  }
 
-    //Actualizar doctor
-    public function edit(Doctor $doctor)
-    {
-        $offices = Office::all();
-        return view('hospital.doctor.editDoctor', compact('doctor','offices'));
-    }
-
-    //Método update
-    public function update(Request $request, Doctor $doctor)
-    {
-        $this->validate($request, [
-            'name'=>'required',
-            'birthdate'=>'required',
-            'telephoneNumber'=>'required',
-            'turno'=>'required',
-            'sexo'=>'required',
-            'cedula'=>'required',
-            'especialidad'=>'required'
-        ]);
-
-        //Editar médico
-        $doctor->name = $request->input('name');
-        $doctor->birthdate = $request->input('birthdate');
-        $doctor->telephoneNumber = $request->input('telephoneNumber');
-        $doctor->turno = $request->input('turno');
-        $doctor->sexo = $request->input('sexo');
-        $doctor->cedula = $request->input('cedula');
-        $doctor->especialidad = $request->input('especialidad');
-        $doctor->save();
-
-        if($request->has(['office_id', 'inTime', 'outTime']))
-        {
-            $doctor->offices()->attach($request->input('office_id'), 
-                                        ['inTime' => $request->input('inTime'),
-                                         'outTime' => $request->input('outTime')]);
-        }
-
-        return redirect('/doctor');
-    }
-
-    //Eliminar doctor
-    public function destroy(Doctor $doctor)
-    {
-        $doctor->delete();
-        return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
-    }
+  //Eliminar doctor
+  public function destroy(Doctor $doctor)
+  {
+    $doctor->delete();
+    return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
+  }
 }

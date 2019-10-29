@@ -1,5 +1,6 @@
 <?php
 
+use App\Doctor;
 use Illuminate\Database\Seeder;
 
 class DoctorsTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class DoctorsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Doctor::class, 10)->create();
+        factory(App\Doctor::class, 20)->create();
     }
 }

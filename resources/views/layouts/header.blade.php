@@ -40,6 +40,7 @@
 	<link href="{{ asset('splash/default.date.css') }}" rel="stylesheet">
 	<!-- FULLCALDENDAR-->
 	<link href="{{asset('splash/vendor/fullcalendar/core/main.min.css')}}" rel='stylesheet' />
+
 	<link href="{{asset('splash/vendor/fullcalendar/daygrid/main.min.css')}}" rel='stylesheet' />
 
 	<!-- SWEET ALERT -->
@@ -53,13 +54,13 @@
 
 	@yield('navegacion')
 
-
 	<!--  JQUERY -->
 	<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
-
 	<!-- Material kit -->
+	
 	<script src="{{asset('splash/vendor/bootstrap/js/popper.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('splash/vendor/bootstrap/js/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
+
 	<script src="{{asset('splash/vendor/bootstrap/js/moment.min.js')}}"></script>
 	<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
 	<!-- <script src="{{asset('splash/vendor/bootstrap/js/bootstrap-datetimepicker.js')}}" type="text/javascript"></script> -->
@@ -80,7 +81,12 @@
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+	
+
 	<script src="{{asset('splash/vendor/bootstrap/js/material-kit.js?v=2.1.1')}}" type="text/javascript"></script>
+
+
+
 
 
 	<!-- pickadate -->
@@ -92,13 +98,20 @@
 	<!-- fulllcallendar -->
 	<script src="{{asset('splash/vendor/fullcalendar/core/main.min.js')}}"></script>
 	<script src="{{asset('splash/vendor/fullcalendar/daygrid/main.min.js')}}"></script>
-	<script src="{{asset('splash/vendor/fullcalendar/core/moment/main.min.js')}}"></script>
+	<script src="{{asset('splash/vendor/fullcalendar/moment/main.min.js')}}"></script>
 	<script src="{{asset('splash/vendor/fullcalendar/interaction/main.min.js')}}"></script>
 
 	<script src="{{asset('splash/vendor/waitme/waitme.min.js')}}"></script>
 	<!--  chartist -->
 
 	<script src="{{asset('splash/vendor/chartist/js/chartist.min.js')}}"></script>
+
+	<!--  DATA TABLES-->
+	
+	<script src="{{asset('datatables/datatables.min.js')}}"></script>
+
+
+	<!-- SCRIPTS -->
 
 	<script src="{{ asset('js/scripts.js') }}"></script>
 

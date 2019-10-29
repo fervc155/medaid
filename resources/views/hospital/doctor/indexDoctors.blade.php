@@ -58,7 +58,9 @@
 								<td>{{ $d->telephoneNumber }}</td>
 								<td>{{ $d->turno }}</td>
 								<td>{{ $d->sexo }}</td>
-								<td>{{ $d->especialidad }}</td>
+
+								
+								<td>{{ $d->speciality->name}}</td>
 								<td><a href="{{url('/doctor/'.$d->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
 									<a href="{{url('/doctor/'.$d->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
@@ -158,20 +160,20 @@
 
 						<div class="icon-texto">
 
-							<span class="color-principal">Especialidad: </span> {{ $doctor->especialidad }}
+							<span class="color-principal">Especialidad: </span> {{ $doctor->speciality->name }}
 						</div>
 
 					</div>  
 					<div class="text-center">
-														<a href="{{url('/doctor/'.$doctor->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
-									<a href="{{url('/doctor/'.$doctor->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
+						<a href="{{url('/doctor/'.$doctor->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
+						<a href="{{url('/doctor/'.$doctor->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
-									<button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="doctor-{{$doctor->id}}"> <i class="fas fa-times"></i></button>
+						<button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="doctor-{{$doctor->id}}"> <i class="fas fa-times"></i></button>
 
-									{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
-									{{ Form::hidden('_method', 'DELETE') }}
-									{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ', 'id'=>'doctor-'.$doctor->id]) }}
-									{!! Form::close() !!}
+						{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
+						{{ Form::hidden('_method', 'DELETE') }}
+						{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ', 'id'=>'doctor-'.$doctor->id]) }}
+						{!! Form::close() !!}
 
 
 					</div>

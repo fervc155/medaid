@@ -6,8 +6,13 @@ use App\User;
 /////rutas web
 
 
-Route::get('medicos','webController@medico');
-Route::get('consultorios','webController@consultorio');
+
+Route::get('/visitante/especialidades','webController@especialidades');
+Route::get('/visitante/especialidades/{name}','webController@especialidad');
+
+Route::get('/visitante/consultorios','webController@consultorio');
+
+
 Route::get('acerca','webController@acerca');
 Route::get('contacto','webController@contacto');
 
@@ -15,6 +20,18 @@ Route::get('contacto','webController@contacto');
 ///chat 
 
 route::get('chat','chatController@index');
+
+// especialidades
+
+route::get('speciality','SpecialityController@index');
+route::post('speciality/store','SpecialityController@store');
+route::post('speciality/update','SpecialityController@update');
+route::get('speciality/{id}','SpecialityController@show');
+
+route::delete('speciality/store','SpecialityController@destroy');
+
+
+
 
 ///options
 
@@ -46,7 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 //Página de inicio
 Route::get('/', function () {
-	//User::find(1)->notify(new Prueba);
     return view('welcome');
 });
 
