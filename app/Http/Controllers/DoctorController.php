@@ -54,14 +54,11 @@ class DoctorController extends Controller
     $doctor->sexo = $request->input('sexo');
     $doctor->cedula = $request->input('cedula');
     $doctor->speciality_id = $request->input('especialidad');
-    $doctor->save();
+    $doctor->office_id = $request->input('office_id');
+    $doctor->inTime = $request->input('inTime');
+    $doctor->onTime = $request->input('onTime');
 
-    if($request->has(['office_id', 'inTime', 'outTime']))
-    {
-      $doctor->offices()->attach($request->input('office_id'), 
-                    ['inTime' => $request->input('inTime'),
-                     'outTime' => $request->input('outTime')]);
-    }
+    $doctor->save();
 
     return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
   }
@@ -104,14 +101,12 @@ class DoctorController extends Controller
     $doctor->sexo = $request->input('sexo');
     $doctor->cedula = $request->input('cedula');
     $doctor->speciality_id = $request->input('especialidad');
-    $doctor->save();
 
-    if($request->has(['office_id', 'inTime', 'outTime']))
-    {
-      $doctor->offices()->attach($request->input('office_id'), 
-                    ['inTime' => $request->input('inTime'),
-                     'outTime' => $request->input('outTime')]);
-    }
+     $doctor->office_id = $request->input('office_id');
+    $doctor->inTime = $request->input('inTime');
+    $doctor->onTime = $request->input('onTime');
+
+    $doctor->save();
 
     return redirect('/doctor')->with('success','¡El médico ha sido actualizado con éxito!');
   }

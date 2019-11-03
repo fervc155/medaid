@@ -21,6 +21,7 @@ class SpecialityController extends Controller
     	$especialidad = new Speciality();
 
     	$especialidad->name = $request->input('name');
+    	$especialidad->cost = $request->input('cost');
     	$especialidad->save();
 
 
@@ -42,6 +43,8 @@ class SpecialityController extends Controller
     {
 
     	$especialidad = Speciality::find($request->input('id'));
+    	$especialidad->cost = $request->input('cost');
+
     	$especialidad->name = $request->input('name');
     	$especialidad->save();
 

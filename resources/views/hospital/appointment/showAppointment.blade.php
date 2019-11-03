@@ -97,24 +97,44 @@
 						</div>
 
 
-						<a href="{{url('/office/'.$appointment->office_id)}}" class="link">
-							{{ $appointment->office->name }}</a>
+						<a href="{{url('/office/'.$appointment->doctor->office_id)}}" class="link">
+							{{ $appointment->doctor->office->name }}</a>
 						</div>
 
 						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/appointment/'.$appointment->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 
-						<a role="button" class="btn btn-round btn-danger text-light mt-3 " onclick="btn_confirm_delete()"> <i class="fal fa-trash"></i> Eliminar</a>
+			
 
 
+						@if($appointment->condition->status =='pending')
 
 
-						{!! Form::open(['action' => ['AppointmentController@destroy', $appointment->id], 'method' => 'POST']) !!}
-						{{ Form::hidden('_method', 'DELETE') }}
-						{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete']) }}
+						{!! Form::open(['action' => ['AppointmentController@rejected', $appointment->id], 'method' => 'PATCH']) !!}
+						{{ Form::hidden('_method', 'PATCH') }}
+						{{ Form::submit('Rechazar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
 						{!! Form::close() !!}
 
 
-						@if($appointment->completed ==0)
+
+			
+
+						{!! Form::open(['action' => ['AppointmentController@accepted', $appointment->id], 'method' => 'PATCH']) !!}
+						{{ Form::hidden('_method', 'PATCH') }}
+						{{ Form::submit('Aceptar', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
+						{!! Form::close() !!}
+
+						@endif
+
+
+						@if($appointment->condition->status =='accepted')
+
+
+
+						{!! Form::open(['action' => ['AppointmentController@cancelled', $appointment->id], 'method' => 'PATCH']) !!}
+						{{ Form::hidden('_method', 'PATCH') }}
+						{{ Form::submit('Cancelar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
+						{!! Form::close() !!}
+
 
 						{!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
 						{{ Form::hidden('_method', 'PATCH') }}
@@ -148,23 +168,12 @@
 						<div class="card caja-contador">
 
 
-							@if($appointment->completed ==1)
 
 							<span class="caja-contador-icono"><i class="fal fa-calendar-check"></i></span>							<div class="card-body">
+								<h3>{{$appointment->status}}</h3>
 
 
-								<h3>Completada</h3>
 							</div>
-							@else
-							<span class="caja-contador-icono"><i class="fal fa-times"></i> </span>
-							<div class="card-body">
-
-
-								<h3>No Completada</h3>  
-							</div>
-
-
-							@endif
 						</div>
 
 
@@ -208,7 +217,7 @@
 							<div class="card-body">
 
 
-								<a href="{{url('/appointment/'.$appointment->office_id)}}" class="link"><h3>{{$appointment->office->name}}</h3></a>
+								<a href="{{url('/appointment/'.$appointment->doctor->office_id)}}" class="link"><h3>{{$appointment->doctor->office->name}}</h3></a>
 								<p>Consultorio</p>
 							</div>
 						</div>

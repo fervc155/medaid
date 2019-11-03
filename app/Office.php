@@ -26,13 +26,7 @@ class Office extends Model
     //Relación N:N con médicos, incluyendo la tabla pivote
     public function doctors()
     {
-    	return $this->belongsToMany('App\Doctor')
-                    ->withPivot('inTime', 'outTime');
-    }
-
-    //Relación 1:N con citas
-    public function appointments() {
-        return $this->hasMany('App\Appointment');
+    	return $this->hasMany('App\Doctor');
     }
 
     //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
@@ -40,8 +34,13 @@ class Office extends Model
     
     public function getProfileimgAttribute()
     {
-         $option =Option::all()->where('name','user-default')->first();
 
+        if($this->image)
+        {
+            return 'splash/img/office/'. $this->image;
+        }
+
+         $option =Option::all()->where('name','user-default')->first();
 
        return 'splash/img/'.$option->value;
     }

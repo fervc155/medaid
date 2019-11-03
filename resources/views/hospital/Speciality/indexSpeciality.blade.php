@@ -32,6 +32,18 @@
 
 
             </div>
+          </div> 
+          <div class="form-group form-inline align-items-end">
+
+            <div class="icon-form">
+              <i class="fal fa-coins"></i>
+            </div>
+            <div class="form-group">
+
+              {{Form::text('cost', '', ['class'=>'form-control','placeholder'=>'Precio de cita'])}}
+
+
+            </div>
           </div>
 
 
@@ -75,6 +87,18 @@
               {{Form::hidden('id')}}
 
               {{Form::text('name', '', ['class'=>'form-control','placeholder'=>'Nuevo Nombre'])}}
+
+
+            </div>
+          </div>
+             <div class="form-group form-inline align-items-end">
+
+            <div class="icon-form">
+              <i class="fal fa-coins"></i>
+            </div>
+            <div class="form-group">
+
+              {{Form::text('cost', '', ['class'=>'form-control','placeholder'=>'Precio de cita'])}}
 
 
             </div>
@@ -127,6 +151,8 @@
               <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Estrellas</th>
+                <th>Precio</th>
                 <th>Cantidad de doctores</th>
                 <th>Acciones</th>
 
@@ -137,12 +163,15 @@
               <tr>
                 <td>{{$speciality->id}}</td>
                 <td>{{ $speciality->name }}</td>
+                <td>{{ $speciality->stars }}</td>
+
+                <td>{{ $speciality->price }}</td>
                 <td>{{count($speciality->doctors)}}</td>
 
 
                 <td><a href="{{url('/speciality/'.$speciality->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-file-certificate"></i></a>
 
-                  <button type="button"  class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}"  data-name="{{$speciality->name}}"  data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
+                  <button type="button"  class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}" data-cost="{{$speciality->cost}}"  data-name="{{$speciality->name}}"  data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
 
                   @if (count($speciality->doctors)<1)
                   <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id='speciality-{{$speciality->id}}' > <i class="fas fa-times"></i></button>
@@ -205,7 +234,18 @@
 
             <div class="icon-texto">
               
-              <span class="color-principal">Cantidad de medicos </span> 3 statick
+              <span class="color-principal">Cantidad de medicos </span> {{count($speciality->doctors)}}
+            </div>
+            
+          </div>
+          <div class="form-inline mb-2">
+            <div class="icon-form">
+              <i class="fas fa-user-md"></i>
+            </div>
+
+            <div class="icon-texto">
+              
+              <span class="color-principal">Precio </span> {{$speciality->price}}
             </div>
             
           </div>

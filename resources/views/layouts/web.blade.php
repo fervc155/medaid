@@ -11,7 +11,7 @@
 		</a>                
 
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon text-light"><i class="fas fa-bars"></i></span>
+			<span class="navbar-toggler-icon text-light"><i class="fal fa-bars"></i></span>
 		</button>
 
 
@@ -22,11 +22,14 @@
 
 				<!-- Sólo los administradores pueden ´ver Doctores y Consultorios -->
 				<li class="nav-item">
-					<a class="nav-link" href="{{ url('visitante/consultorios') }}"><i class="icon fas fa-user-md"></i> {{__('Consultorios') }}</a>
+					<a class="nav-link" href="{{ url('visitante/consultorios') }}"><i class="icon fal fa-hospital"></i> {{__('Consultorios') }}</a>
+				</li>
+					<li class="nav-item">
+					<a class="nav-link" href="{{ url('visitante/doctores') }}"><i class="icon fal fa-user-md"></i> {{__('Doctores') }}</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="{{ url('visitante/especialidades') }}"> <i class="icon fas fa-user-injured"></i> {{__('Especialidades') }}</a>
+					<a class="nav-link" href="{{ url('visitante/especialidades') }}"> <i class="icon fal fa-file-certificate"></i> {{__('Especialidades') }}</a>
 				</li>
 
 
@@ -34,12 +37,12 @@
 
 				<li class="nav-item dropdown">
 					<a id="navbarDropdown" class="nav-link no-wait dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-						<i class="icon fas fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
+						<i class="icon fal fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 										<a class="dropdown-item" href="{{url('/home')}}">
 
-						<i class="fas icon fa-user"></i> {{__('Mi cuenta') }}
+						<i class="fal icon fa-user"></i>  {{__('Mi cuenta') }}
 
 					</a>
 
@@ -47,7 +50,7 @@
 						<a class="dropdown-item" href="{{ route('logout') }}"
 						onclick="esperar(); event.preventDefault();
 						document.getElementById('logout-form').submit();">
-						<i class="fas icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
+						<i class="fal icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
 
 					</a>
 
@@ -60,11 +63,11 @@
 
 			@else
 			<li class="nav-item">
-				<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fas fa-user-injured"></i> {{__('Entrar') }}</a>
+				<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fal fa-user-injured"></i> {{__('Entrar') }}</a>
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fas fa-user-injured"></i> {{__('Registrarse') }}</a>
+				<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fal fa-user-injured"></i> {{__('Registrarse') }}</a>
 			</li>
 
 			@endauth
@@ -98,10 +101,10 @@
 					<a href="{{url('/contacto')}}">Contacto</a>
 				</li>
 				<li class="nav-item list-inline-item">
-					<a href="{{url('/consultorios')}}">consultorios</a>
+					<a href="{{url('/visitante/consultorios')}}">consultorios</a>
 				</li>
 				<li class="nav-item list-inline-item">
-					<a href="{{url('/medicos')}}">medicos</a>
+					<a href="{{url('/visitante/doctores')}}">Doctores</a>
 				</li>
 			</ul>
 		</div>

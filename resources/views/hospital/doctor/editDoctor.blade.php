@@ -189,8 +189,8 @@
 
 
                   <select class="selectpicker" name="turno" id="turno" data-style="select-with-transition" title="Seleccionar turno" data-size="sd7">
-                    <option value="vespertino" <?php if($doctor->turno=='vespertino'){ echo "selected";} ?>>Vespertino</option>
-                    <option value="matutino"   <?php if($doctor->turno=='matutino'){ echo "selected";}?>>matutino</option>
+                    <option value="Vespertino" <?php if($doctor->turno=='Vespertino'){ echo "selected";} ?>>Vespertino</option>
+                    <option value="Matutino"   <?php if($doctor->turno=='Matutino'){ echo "selected";}?>>matutino</option>
                   </select>
                 </div>
               </div>
@@ -204,8 +204,8 @@
 
 
                   <select class="selectpicker" name="sexo" id="sexo" data-style="select-with-transition" title="Seleccionar sexo" data-size="sd7">
-                    <option value="m"  <?php if($doctor->sexo=='m'){ echo "selected";}?>>Masculino</option>
-                    <option value="f"  <?php if($doctor->sexo=='f'){ echo "selected";}?>>Femenino</option>
+                    <option value="M"  <?php if($doctor->sexo=='F'){ echo "selected";}?>>Masculino</option>
+                    <option value="F"  <?php if($doctor->sexo=='F'){ echo "selected";}?>>Femenino</option>
                   </select>
                 </div>
               </div>
@@ -222,7 +222,7 @@
 
               <i class="fal fa-user-md"></i>
             </div>
-            <div class="card-title">Consultorio (opcional):</div>
+            <div class="card-title">Consultorio </div>
           </div>
 
 
@@ -235,7 +235,7 @@
 
             <div class="form-group">
               
-              <select class="selectpicker" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
+              <select class="select2" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
 
                 <?php foreach ($offices as $office ): ?>
 
@@ -257,19 +257,19 @@
 
             <div class="form-group">
               
-              {{Form::time('inTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+              {{Form::time('inTime', '', ['class'=>'form-control timepicker timepickerEntrada','placeholder' => 'Hora de Entrada'] )}}
 
             </div>
           </div>
 
-          <div class="form-group form-inline align-items-end">
+          <div class="form-group form-inline align-items-end d-none formtimepickerSalida">
             <div class="icon-form">
               <i class="fal fa-clock"></i>
             </div>
 
             <div class="form-group">
               
-              {{Form::time('outTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+              {{Form::time('outTime', '', ['class'=>'form-control timepicker timepickerSalida','placeholder' => 'Hora de Entrada'] )}}
 
             </div>
           </div>

@@ -183,8 +183,8 @@
 
 
 									<select class="selectpicker" name="turno" id="turno" data-style="select-with-transition" title="Seleccionar turno" data-size="sd7">
-										<option value="vespertino">Vespertino</option>
-										<option value="matutino">matutino</option>
+										<option value="Vespertino">Vespertino</option>
+										<option value="Matutino">matutino</option>
 									</select>
 								</div>
 							</div>
@@ -198,8 +198,8 @@
 
 
 									<select class="selectpicker" name="sexo" id="sexo" data-style="select-with-transition" title="Seleccionar sexo" data-size="sd7">
-										<option value="m">Masculino</option>
-										<option value="f">Femenino</option>
+										<option value="M">Masculino</option>
+										<option value="F">Femenino</option>
 									</select>
 								</div>
 							</div>
@@ -216,7 +216,7 @@
 
 							<i class="fal fa-user-md"></i>
 						</div>
-						<div class="card-title">Consultorio (opcional):</div>
+						<div class="card-title">Consultorio </div>
 					</div>
 
 
@@ -229,7 +229,7 @@
 
 						<div class="form-group">
 							
-							<select class="selectpicker" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
+							<select class="select2" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
 
 								<?php foreach ($offices as $office ): ?>
 
@@ -250,19 +250,19 @@
 
 						<div class="form-group">
 
-							{{Form::time('inTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+							{{Form::time('inTime', '', ['class'=>'form-control timepicker timepickerEntrada','placeholder' => 'Hora de Entrada'] )}}
 
 						</div>
 					</div>
 
-					<div class="form-group form-inline align-items-end">
+					<div class="form-group form-inline align-items-end formtimepickerSalida d-none">
 						<div class="icon-form">
 							<i class="fal fa-clock"></i>
 						</div>
 
 						<div class="form-group">
 							
-							{{Form::time('outTime', '', ['class'=>'form-control timepicker','placeholder' => 'Hora de Entrada'] )}}
+							{{Form::time('outTime', '', ['class'=>'form-control timepicker timepickerSalida','placeholder' => 'Hora de salida'] )}}
 
 						</div>
 					</div>

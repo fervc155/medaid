@@ -1,3 +1,4 @@
+
 @extends('layouts.nav-admin')
 
 @section('content')
@@ -5,11 +6,11 @@
 
 
 
-	<div class="container mb-5">
-		<div class="row justify-content-center">
+<div class="container mb-5">
+	<div class="row justify-content-center">
 
-			<div class="col-12 ">
-				<div class="card">
+		<div class="col-12 ">
+			<div class="card">
 				
 				<div class="card-encabezado">
 					
@@ -21,138 +22,126 @@
 				</div>
 
 
-					<div class="card-body">
-						
-				{!! Form::open(['action' => 'AppointmentController@store', 'method' => 'POST']) !!}
-
-				<div class="form-group form-inline align-items-end">
-
-					<div class="icon-form">
-						<i class="fal fa-calendar-week"></i>
-					</div>
-
-					<div class="form-group">
-						
-					<label class="bmd-label-floating">Fecha</label>
+				<div class="card-body">
 					
-					{{Form::date('date', '', ['class'=>'form-control datepicker'] )}}
+					{!! Form::open(['action' => 'AppointmentController@store', 'method' => 'POST']) !!}
 
-					</div>
-				</div>
+					<div class="form-group form-inline align-items-end">
 
-				<div class="form-group form-inline align-items-end">
-					<div class="icon-form">
-						<i class="fal fa-clock"></i>
-					</div>
+						<div class="icon-form">
+							<i class="fal fa-calendar-week"></i>
+						</div>
 
-					<div class="form-group">
-						
-
-					<label class="bmd-label-floating">Hora</label>
-
-					{{Form::time('time', '', ['class'=>'form-control timepicker'] )}}
-					</div>
-				</div>
-				<div class="form-group form-inline align-items-end">
-					<div class="icon-form">
-						<i class="fal fa-money-bill-wave"></i>
-					</div>
-
-
-					<div class="form-group">
-						
-					<label class="bmd-label-floating">Precio</label>
-
-					{{Form::number('cost', '', ['class'=>'form-control'] )}}
-					</div>					
-				</div>
-
-				<div class="form-group form-inline align-items-end">
-					<div class="icon-form">
-						<i class="fal fa-quote-left"></i>
-					</div>
-
-					<div class="form-group">
-						
-					<label class="bmd-label-floating">Descripcion</label>
-
-					{{Form::text('description', '', ['class'=>'form-control'] )}}
-					</div>
-				</div>
-
-
-				<div class="form-group form-inline align-items-end">
-					<div class="icon-form">
-						<i class="fal fa-user-injured"></i>
-					</div>
-
-
-										<div class="form-group">
+						<div class="form-group">
 							
-									<select class="selectpicker" name="patient_dni" id="patient_dni" data-style="select-with-transition" title="Selecciona un paciente" data-size="sd7">
+							<label class="bmd-label-floating">Fecha</label>
+							
+							{{Form::date('date', '', ['class'=>'form-control datepicker'] )}}
 
-										<?php foreach ($patients as $patient ): ?>
-											
+						</div>
+					</div>
+
+					<div class="form-group form-inline align-items-end">
+						<div class="icon-form">
+							<i class="fal fa-clock"></i>
+						</div>
+
+						<div class="form-group">
+							
+
+							<label class="bmd-label-floating">Hora</label>
+
+							{{Form::time('time', '', ['class'=>'form-control timepicker timepickerCita'] )}}
+						</div>
+					</div>
+			
+
+					<div class="form-group form-inline align-items-end">
+						<div class="icon-form">
+							<i class="fal fa-quote-left"></i>
+						</div>
+
+						<div class="form-group">
+							
+							<label class="bmd-label-floating">Descripcion</label>
+
+							{{Form::text('description', '', ['class'=>'form-control'] )}}
+						</div>
+					</div>
+
+
+					<div class="form-group form-inline align-items-end">
+						<div class="icon-form">
+							<i class="fal fa-user-injured"></i>
+						</div>
+
+
+						<div class="form-group">
+							
+							<select class="select2" name="patient_dni" id="patient_dni" data-style="select-with-transition" title="Selecciona un paciente" data-size="sd7">
+								<optgroup label="Selecciona un paciente">
+
+									<?php foreach ($patients as $patient ): ?>
+										
 										<option value="{{ $patient->dni}}">{{ $patient->name }}</option>
-								
-										<?php endforeach ?>
-									</select>
+										
+									<?php endforeach ?>
+								</select>
+							</optgroup>
 
-			
+							
 						</div>
-				</div>
-
-
-				<div class="form-group form-inline align-items-end">
-					<div class="icon-form">
-						<i class="fal fa-user-md"></i>
 					</div>
+
 					
-										<div class="form-group">
-							
-									<select class="selectpicker" name="doctor_id" id="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7">
 
-										<?php foreach ($doctors as $doctor ): ?>
-											
-										<option value="{{ $doctor->id}}">{{ $doctor->name }}</option>
-								
-										<?php endforeach ?>
-									</select>
 
-			
+
+					<div class="form-group form-inline align-items-end ">
+						<div class="icon-form">
+							<i class="fal fa-user-md"></i>
 						</div>
 
-				</div>
 
-				<div class="form-group form-inline align-items-end">
-					<div class="icon-form">
-						<i class="fal fa-hospital"></i>
+						
+						<div class="form-group "  >
+							
+							<select class="select2 btn-AgregarPrecioCita" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7" >
+								<optgroup label="Selecciona un doctor">
+
+									@foreach($offices as $office)
+									<optgroup label="Clinica {{$office->name}}">
+
+										<?php foreach ($office->doctors as $doctor ): ?>
+											
+											
+											<option value="{{ $doctor->id}}" data-cost="{{$doctor->speciality->cost}}">{{ $doctor->name }} - <span class="font-weight-bold">{{$doctor->speciality->name}} - {{$doctor->speciality->price}}</span> </option>
+											
+										<?php endforeach ?>
+									</optgroup>
+									@endforeach
+								</optgroup>
+							</select>
+
+							
+						</div>
+
 					</div>
-				
-										<div class="form-group">
-							
-									<select class="selectpicker" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
 
-										<?php foreach ($offices as $office ): ?>
-											
-										<option value="{{ $office->id}}">{{ $office->name }}</option>
-								
-										<?php endforeach ?>
-									</select>
+							{{Form::hidden('cost', '', ['class'=>'form-control','id'=>'PrecioCita'] )}}
 
-			
-						</div>
+
+					<div class="my-3">
+						<button type="submit" class="btn btn-primary btn-block"><i class="fal fa-plus"> Agregar</i></button>
+					</div>
 				</div>
-				<div class="my-3">
-					<button type="submit" class="btn btn-primary btn-block"><i class="fal fa-plus"> Agregar</i></button>
-				</div>
+
+
+
 			</div>
+		</div>
+	</div> <!-- Fila -->
+</div> <!-- Contenedor -->
 
+@endsection
 
-
-					</div>
-				</div>
-		</div> <!-- Fila -->
-	</div> <!-- Contenedor -->
-
-	@endsection

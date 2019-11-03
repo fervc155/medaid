@@ -42,6 +42,7 @@
 							<tr>
 								<th>Id</th>
 								<th >Nombre</th>
+								<th >Estrellas</th>
 								<th >Teléfono</th>
 								<th >Turno</th>
 								<th >Sexo</th>
@@ -55,6 +56,7 @@
 								<td>{{$d->id}}</td>
 
 								<td>{{ $d->name }}</td>
+								<td>{{ $d->stars }}</td>
 								<td>{{ $d->telephoneNumber }}</td>
 								<td>{{ $d->turno }}</td>
 								<td>{{ $d->sexo }}</td>

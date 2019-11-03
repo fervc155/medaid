@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use File;
 use App\Office;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -33,23 +33,11 @@ class OfficeController extends Controller
             'image'=>'image|nullable|max:1999'
         ]);
 
-        //Subir archivo
-        if($request->hasFile('image'))
-        {
-            //Obtener nombre de archivo con extensión
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            //Obtener sólo el nombre del archivo
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME); //php
-            //Obtener sólo la extensión
-            $extension = $request->file('image')->getClientOriginalExtension();
-            //Nombre de archivo a guardar
-            $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            //Subir imagen
-            $path = $request->file('image')->storeAs('public/images', $fileNameToStore); //la guarda en la carpeta public con el nombre fileNameToStore
-        } else {
-            $fileNameToStore = 'noimage.png';
-        }
+     
+        $file = $request->file('image');
+        $path = public_path().'/splash/img/office';
+        $fileName= uniqid(). $file->getClientOriginalName();
+        $move = $file->move($path, $fileName);
 
         //Crear consultorio
         $office = new Office;
@@ -58,7 +46,11 @@ class OfficeController extends Controller
         $office->postalCode = $request->input('postalCode');
         $office->city = $request->input('city');
         $office->country = $request->input('country');
-        $office->image = $fileNameToStore;
+        if ($move)
+        {
+            $office->image= $fileName;
+        }
+
         $office->save();
 
         return redirect('/office')->with('success', '¡El consultorio ha sido agregado con éxito!');

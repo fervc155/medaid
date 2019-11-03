@@ -6,7 +6,7 @@ $factory->define(App\Patient::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'curp' => $faker->unique()->lexify('????????????????'),
-        'birthdate' => $faker->date,
+        'birthdate' => $faker->dateTimeBetween($startDate = '-100 years', $endDate = 'now', $timezone = null),
         'telephoneNumber' => $faker->numerify('##########'),
         'sex' => $faker->randomElement($array2 = array ('M','F')),
         'address'=>$faker->sentence(4),

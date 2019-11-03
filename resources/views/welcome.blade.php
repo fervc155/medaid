@@ -43,7 +43,7 @@
 
 
 				<h3 class="">Moderno</h3>
-				<p class="lead mb-0">Podrás administrar tus consultorios de la manera más eficaz posible.</p>
+				<p class=" mb-0">Podrás administrar tus consultorios de la manera más eficaz posible.</p>
 			</div>
 		</div>
 		<div class=" col-12 mt-5 mt-md-0 col-sm-6 col-md-4">
@@ -52,14 +52,14 @@
 				<i class="fal fa-clipboard-list-check"></i>
 
 				<h3 class="">Completo</h3>
-				<p class="lead mb-0">Todas las funciones que necesitas en una sola aplicación.</p>
+				<p class=" mb-0">Todas las funciones que necesitas en una sola aplicación.</p>
 			</div>
 		</div>
 		<div class=" col-12 mt-5 mt-md-0 col-sm-6 col-md-4">
 			<div class="modulo">
 					<i class="fal fa-tachometer-fast"></i>
 				<h3 class="">Rápido</h3>
-				<p class="lead mb-0">Agiliza el trabajo dentro de tu hospital con este gran sistema.</p>
+				<p class=" mb-0">Agiliza el trabajo dentro de tu hospital con este gran sistema.</p>
 			</div>
 		</div>
 	</div>  
@@ -82,28 +82,28 @@
 			<div class="p-3 mb-5">
 				<i class="fas fa-hospital"></i>
 				<h3>Consultorios</h3>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-3">
 			<div class="p-3 mb-5">
 				<i class="fas fa-user-md"></i>
 				<h3>Medicos</h3>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-3">
 			<div class="p-3 mb-5">
 				<i class="fas fa-user-injured"></i>
 				<h3>Pacientes</h3>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-3">
 			<div class="p-3 mb-5">
 				<i class="fas fa-book"></i>
 				<h3>Citas</h3>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
 			</div>
 		</div>
 	</div>

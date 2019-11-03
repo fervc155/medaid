@@ -27,7 +27,7 @@
 body {
   background-color: var(--blanco);
   overflow-x: hidden;
-  font-family: 'Open sans', "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif !important;
 }
 
 ul
@@ -35,6 +35,7 @@ ul
   margin: 0;
   padding: 0;
   list-style: none;
+
 }
 ul li
 {
@@ -42,23 +43,9 @@ ul li
   list-style: none;
 }
 
-header.masthead {
-  position: relative;
-  background-color: #343a40;
-  background: url("/splash/img/hospital.gif") no-repeat center center;
-  background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-}
-
-header.masthead .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
+h1,h2,h3,h4,h5,h6
+{
+  font-family: 'Roboto', sans-serif !important ;
 }
 
 a.link,
@@ -310,6 +297,8 @@ td.fc-today {
   height: 30vh;
   padding: 2rem;
   transition: all 0.3s ease;
+  font-size: 10px;
+  box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.2);
 
 }
 
@@ -539,10 +528,12 @@ footer.footer li:hover
 .card .card-encabezado .card-title
 {
   padding: 0px 1rem;
-  font-family: 'Open sans', Arial, Helvetica, sans-serif;
   font-weight: lighter;
   font-size: 1.2rem;
   text-transform: uppercase;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500;
+
 }
 .card .card-cabecera-icono
 {
@@ -1217,3 +1208,24 @@ background-color: var(--verde);
   padding: 1rem;
 }
 
+/* select2 */
+
+.select2-container.select2-container--default
+{
+  width: 100% !important;
+
+}
+.select2-container .select2-selection.select2-selection--single
+{
+  border:0 !important;
+  border-radius: 0px;
+  border-bottom: 1px solid #d2d2d2 !important;
+}
+
+/*star*/
+
+
+.stars 
+{
+  color: var(--principal);
+}

@@ -4,19 +4,11 @@ namespace App;
 
 use App\Options;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
-    use SoftDeletes;
+    public $timestamps = false;
 
-    //Nombre de tabla
-    protected $table = 'appointments';
-    //Llave primaria
-    public $primaryKey = 'id';
-
-    //Para Soft Deleting
-    protected $dates = ['deleted_at'];
 
     //Relación N:1 con doctor
     public function doctor(){
@@ -28,10 +20,19 @@ class Appointment extends Model
         return $this->belongsTo('App\Patient');
     }
 
-    //Relación N:1 con consultorio
-    public function office(){
-        return $this->belongsTo('App\Office');
+       public function condition(){
+        return $this->belongsTo('App\Condition');
     }
+
+    public function getstatusAttribute()
+    {
+        return $this->condition->status;
+    }
+
+
+
+
+
 
     public function getpriceAttribute()
     {

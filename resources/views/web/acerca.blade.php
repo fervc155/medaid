@@ -2,58 +2,20 @@
 
 @section('content')
 
-<div class="contenedor">
-  
-  <div class="contenedor-titulo hidden-lg-down">
-    
-    <section class="container m-0  p-0">
 
-      <div class="row contenedor-titulo align-items-center">
-        <div class="col ">
-
-          <h1 class="display-4 text-capitalize  d-none d-md-block text-center">acerca <img  src="{{asset('splash/img/logowhite.png')}}" ></h1>
-          
-        </div>
-      </div>
-
-
-
-    </section>
-  </div>
-
-  <div class="contenedor-fondo">
-    
-  </div>
-
-  <div class="contenedor-welcome">
-    
-    <div class="container-fluid mt-0  p-0">
-
-      <div class="row ">
-        <div class="col ">
-
-          <img class="img-fluid" src="{{asset('splash/img/hospital.gif')}}"> 
-          
-        </div>
-      </div>
-
-
-
-    </div>
-  </div>
-
-</div>
-
-<section class="container-fluid d-block d-md-none bg-primary">
+<div class="container">
   <div class="row">
-    <div class="col p-3">
-      <h1 class="h2 text-capitalize text-light  text-center">Bienvenido a <img  src="{{asset('splash/img/logowhite.png')}}" class="w-50" ></h1>
+    <div class="col">
+      <h1>Lorem iptim</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
   </div>
-</section>
-
-
-
+</div>
 
 
 

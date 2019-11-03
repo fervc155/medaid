@@ -52,7 +52,7 @@ class optionController extends Controller
 
 
 
-    	return back();
+        return back()->with('success','La Imagen default se ah actualizado correctamente');
     }
 
 
@@ -65,7 +65,7 @@ class optionController extends Controller
 		$Option->save();
 
 
-		return back();
+		return back()->with('success','La moneda se ah actualizado correctamente');
 
 	}
 
@@ -78,6 +78,6 @@ class optionController extends Controller
 		$Option->save();
 
 
-		return back();
+        return back()->with('success','El idioma se ha actualizado correctamente');
 	}
 }

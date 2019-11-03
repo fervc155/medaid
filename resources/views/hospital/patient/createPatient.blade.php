@@ -214,7 +214,7 @@
 
             <div class="form-group">
               
-                  <select class="selectpicker" name="doctor_id" id="doctor_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
+                  <select class="select2" name="doctor_id" id="doctor_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
 
                     <?php foreach ($doctors as $doctor ): ?>
                       

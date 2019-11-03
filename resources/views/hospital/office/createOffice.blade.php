@@ -20,6 +20,7 @@
 
         <div class="card-body"> 
          {!! Form::open(['action' => 'OfficeController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+            {{csrf_field()}}
 
          <div class="form-group form-inline align-items-end">
 
@@ -94,7 +95,7 @@
 
 
     <input type="text" class="form-control inputFileVisible">
-    <input type="file" class="inputFileHidden">
+    <input type="file" name="image" class="inputFileHidden">
   </div>
 </div>
 

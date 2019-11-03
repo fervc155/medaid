@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Appointment;
+use App\Appointments;
 use Illuminate\Http\Request;
+
+date_default_timezone_set('UTC');
 
 class HomeController extends Controller
 {
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+       $_appointments = new Appointments;
+ 
+       return view('home', compact('_appointments'));
+    //return count($_appointments->pending);
     }
 }

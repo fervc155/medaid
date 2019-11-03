@@ -15,7 +15,23 @@
 
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
 
+
 				<div class="card-body">
+										<div class="stars">
+                        <?php $estrellas = round($doctor->stars);
+                              $noEstrellas = 5-$estrellas; ?>
+                         
+                        @for($i = 0;$i<$estrellas ; $i++)
+                        <i class="fas fa-star"></i>
+                        @endfor
+                         @for($i = 0;$i<$noEstrellas ; $i++)
+                        <i class="fal fa-star"></i>
+                        @endfor
+                      </div>
+                      <div>
+                        {{$doctor->stars}}
+                      </div>
+
 
 					<div class="form-inline mb-2">
 
@@ -81,7 +97,7 @@
 					</div>
 
 
-					<div class="form-inline mb-3">
+					<div class="form-inline">
 						<div class="color-principal">
 							<i class="fal fa-user-tie"></i> Especialidad:
 						</div>
@@ -92,6 +108,18 @@
 
 
 					</div>  
+
+					<div class="form-inline mb-3">
+						<div class="color-principal">
+							<i class="fal fa-coins"></i> Consulta:
+						</div>
+
+
+
+						{{ $doctor->speciality->price }}
+
+
+					</div> 
 					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 
 
@@ -210,10 +238,10 @@
 					</div>
 					<div class="card-title">Listado de citas</div>
 				</div>
-				<div class="card-body">
+				<div class="card-body table-responsive">
 
 					<!-- Si el número de citas es mayor a cero, se mostrarán los datos -->
-					<table class="table " id="data_table_citas">
+					<table class="table " id="data_table">
 						<thead>
 							<tr>
 								<th >Fecha</th>
@@ -221,7 +249,7 @@
 								<th >Costo</th>
 								<th >Razón</th>
 								<th >Paciente</th>
-								<th >¿Completada?</th>
+								<th >Status</th>
 								<th>Acciones</th>
 
 							</tr>
@@ -235,11 +263,7 @@
 								<td>{{ $a->description }}</td>
 								<td><a class="link" href="{{url('/patient/'.$a->patient->dni)}}">{{ $a->patient->name }} </a></td>
 								<td>
-									@if ($a->completed == true)
-									Sí
-									@else
-									No
-									@endif
+									{{$a->status}}
 								</td>
 								<td><a href="{{url('/appointment/'.$a->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
 									<a href="{{url('/appointment/'.$a->id.'/edit')}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
@@ -295,7 +319,6 @@
 
 							<span class="color-principal">Hora: </span> {{ $appointment->time }}
 						</div>
-
 					</div>
 
 
@@ -318,11 +341,8 @@
 
 						</div>
 						<div class="icon-texto">
-							<span class="color-principal">Completada:</span>  @if ($a->completed == true)
-							Sí
-							@else
-							No
-							@endif
+							<span class="color-principal">Status:</span> {{$a->status}}
+
 
 						</div>
 					</div>
@@ -344,9 +364,8 @@
 	</div>
 
 </div>
+
 @endif
-
-
 
 
 <!-- PACIENTES -->

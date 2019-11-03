@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\Condition;
+use App\Conditions;
 use App\Doctor;
-use App\Patient;
 use App\Office;
 use App\Options;
+use App\Patient;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -17,7 +19,7 @@ class AppointmentController extends Controller
 
 
         $options = new Options();
-        $appointments = Appointment::with(['doctor:id,name', 'patient:dni,name', 'office:id,name'])->get();
+        $appointments = Appointment::all();
 
         return view('hospital.appointment.indexAppointment', compact('appointments','options'));
     }
@@ -42,8 +44,7 @@ class AppointmentController extends Controller
             'cost'=>'required',
             'description'=>'required',
             'doctor_id'=>'required',
-            'patient_dni'=>'required',
-            'office_id'=>'required'
+            'patient_dni'=>'required'
         ]);
 
         //Crear cita
@@ -53,9 +54,7 @@ class AppointmentController extends Controller
         $appointment->cost = $request->input('cost');
         $appointment->doctor_id = $request->input('doctor_id');
         $appointment->patient_dni = $request->input('patient_dni');
-        $appointment->office_id = $request->input('office_id');
         $appointment->description = $request->input('description');
-        $appointment->completed = false;
         $appointment->save();
 
         return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');
@@ -64,7 +63,8 @@ class AppointmentController extends Controller
     //Información de cita
     public function show(Appointment $appointment)
     {
-        return view('hospital.appointment.showAppointment', compact('appointment'));
+        $conditions = Condition::all();
+        return view('hospital.appointment.showAppointment', compact('appointment', 'conditions'));
     }
 
     //Actualizar cita
@@ -73,9 +73,10 @@ class AppointmentController extends Controller
         $offices = Office::All();
         $doctors= Doctor::All();
         $patients = Patient::All();
+        $conditions = Condition::All();
 
 
-        return view('hospital.appointment.editAppointment', compact('appointment','offices','doctors','patients'));
+        return view('hospital.appointment.editAppointment', compact('appointment','offices','doctors','patients','conditions'));
 
 
     }
@@ -90,8 +91,7 @@ class AppointmentController extends Controller
             'description'=>'required',
             'doctor_id'=>'required',
             'patient_dni'=>'required',
-            'office_id'=>'required',
-            'completed'=>'required'
+            'condition'=>'required'
         ]);
 
         //Actualizar cita
@@ -101,12 +101,11 @@ class AppointmentController extends Controller
         $appointment->description = $request->input('description');
         $appointment->doctor_id = $request->input('doctor_id');
         $appointment->patient_dni = $request->input('patient_dni');
-        $appointment->office_id = $request->input('office_id');
         $appointment->comments = $request->input('comments');
-        $appointment->completed = $request->input('completed');
+        $appointment->condition_id = $request->input('condition');
         $appointment->save();
 
-        return redirect('/appointment')->with('success', '¡La cita ha sido actualizada con éxito!');
+        return redirect('/appointment/'.$appointment->id)->with('success', '¡La cita ha sido actualizada con éxito!');
     }
 
     //Eliminar cita
@@ -119,9 +118,63 @@ class AppointmentController extends Controller
     //Atender cita
     public function complete(Appointment $appointment)
     {
-        $appointment->completed = true;
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('completed');
         $appointment->save();
 
-        return redirect('/appointment')->with('success', '¡La cita ha sido atendida con éxito!');
+        return back()->with('success', '¡La cita ha sido atendida con éxito!');
     }
+
+    public function rejected(Appointment $appointment)
+    {
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('rejected');
+        $appointment->save();
+
+        return back()->with('success', '¡La cita ha sido rechazada!');
+    }
+
+    public function accepted(Appointment $appointment)
+    {
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('accepted');
+        $appointment->save();
+
+        return back()->with('success', '¡La cita ha sido Aceptada!');
+    }
+    public function cancelled(Appointment $appointment)
+    {
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('cancelled');
+        $appointment->save();
+
+        return back()->with('success', '¡La cita ha sido cancelada!');
+    }
+        public function pending(Appointment $appointment)
+    {
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('pending');
+        $appointment->save();
+
+        return back()->with('success', '¡La cita ha sido marcada como pendiente!');
+    }
+        public function late(Appointment $appointment)
+    {
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('late');
+        $appointment->save();
+
+        return back()->with('success', '¡La cita ha sido atenidida con retrazo!');
+    }
+    public function lost(Appointment $appointment)
+    {
+        $conditions = new Conditions;
+        $appointment->condition_id =  $conditions->id('lost');
+        $appointment->save();
+
+        return back()->with('success', '¡La cita ha sido marcada como perdida!');
+    }
+
+
+
 }

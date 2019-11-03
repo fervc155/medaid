@@ -4,15 +4,13 @@
 
 
 
-<div class="container">
+<div class="container pt-5">
   <div class="row">
       
   @foreach($doctors as $doctor)
       
-    <div class="col-3 py-5">
-
-  {{$doctor->name}}        
-      
+    <div class="col-sm-6 col-md-4 ">
+		@include('web.includes.doctor-card')
 
 
     </div>

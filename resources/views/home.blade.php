@@ -20,24 +20,27 @@
 					<div class="card-body table-responsive">
 					
 						<!-- Si el número de citas es mayor a cero, se mostrarán los datos -->
-						<table class="table " id="data_table">
+						<table class="table " id="data_table_today">
 
 						<thead>
 							<tr>
 								<th >Hora</th>
 								<th >Razón</th>
+								<th >status</th>
 								<th >Paciente</th>
 						
 							</tr>
 						</thead>
 						<tbody>
-						@for ($i =0; $i<5;$i++)
+						@foreach ($_appointments->today as $appointment)
 							<tr>
-								<td>12:12</td>
-								<td>Gripa la wea cosmica</td>
-								<td><a class="link" href="">el wey que se enferma </a></td>
+								<td>{{$appointment->time}}</td>
+								<td>{{$appointment->description}}</td>
+
+								<td>{{$appointment->condition->status}}</td>
+								<td><a class="link" href="{{url('/patient/'.$appointment->patient->dni)}}">{{$appointment->patient->name}} </a></td>
 							</tr>
-							@endfor
+							@endforeach
 						</tbody>
 						</table>
 
@@ -57,12 +60,12 @@
 
 							<i class="fal fa-book"></i>
 						</div>
-						<div class="card-title">Nuevas citas</div>
+						<div class="card-title">Citas para aceptar</div>
 					</div>
 					<div class="card-body table-responsive">
 					
 					<!-- Si el número de citas es mayor a cero, se mostrarán los datos -->
-					<table class="table " id="data_table">
+					<table class="table " id="data_table_pending">
 
 						<thead>
 							<tr>
@@ -70,18 +73,32 @@
 								<th >Hora</th>
 								<th >Razón</th>
 								<th >Paciente</th>
+								<th >Acciones</th>
 						
 							</tr>
 						</thead>
 						<tbody>
-						@for ($i =0; $i<5;$i++)
+						@foreach ($_appointments->pending as $pending)
 							<tr>
-								<td>12/12/12</td>
-								<td>12:12</td>
-								<td>Gripa la wea cosmica</td>
-								<td><a class="link" href="">el wey que se enferma </a></td>
+								<td>{{$pending->date}}</td>
+								<td>{{$pending->time}}</td>
+								<td>{{$pending->description}}</td>
+								<td><a class="link" href="{{url('/patient/'.$pending->patient->dni)}}">{{$pending->patient->name}}</a></td>
+								<td>					{!! Form::open(['action' => ['AppointmentController@rejected', $pending->id], 'method' => 'PATCH']) !!}
+						{{ Form::hidden('_method', 'PATCH') }}
+						
+						<button type="submit" class="btn btn-round btn-sm btn-danger btn-wait btn-just-icon"><i class="fas fa-times" name="submit"></i></button>
+						{!! Form::close() !!}
+
+			
+
+						{!! Form::open(['action' => ['AppointmentController@accepted', $pending->id], 'method' => 'PATCH']) !!}
+						{{ Form::hidden('_method', 'PATCH') }}
+						<button type="submit" class="btn btn-round btn-sm btn-info btn-wait btn-just-icon"><i class="fas fa-check" name="submit"></i></button>
+						{!! Form::close() !!}
+</td>
 							</tr>
-							@endfor
+							@endforeach
 						</tbody>
 					</table>
 

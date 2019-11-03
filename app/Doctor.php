@@ -21,9 +21,8 @@ class Doctor extends Model
     }
 
     //Relación N:N con consultorios
-    public function offices() {
-    	return $this->belongsToMany('App\Office')
-                    ->withPivot('inTime', 'outTime');
+    public function office() {
+    	return $this->belongsTo('App\Office');
     }
 
     //Relación 1:N con citas
@@ -42,6 +41,30 @@ class Doctor extends Model
     }
 
 
+    public function getstarsAttribute()
+    {
+        $appointments= Appointment::all()->where('doctor_id',$this->id);
+
+        $contador=0;
+        $sumatoria=0;
+        foreach ($appointments as $ap)
+        {
+            if(isset($ap->stars))
+            {
+                $contador++;
+                $sumatoria+=$ap->stars;
+            }
+        }
+
+     if($contador==0)
+        {
+            return "No hay calificaciones";
+        }
+
+           
+
+        return round($sumatoria/$contador, 1);
+    }
    
 
     public function getProfileimgAttribute()

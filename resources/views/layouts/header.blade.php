@@ -26,18 +26,22 @@
 
 
 	<!-- Fuente -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 	<!-- Data tables -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css') }}"/>
-	<link href="{{ asset('splash/default.css') }}" rel="stylesheet">
+	<link href="{{asset('splash/vendor/datatables/datatables.css')}}" rel='stylesheet' />
 
-	<link href="{{ asset('splash/default.time.css') }}" rel="stylesheet">
+	<!-- pickadate -->
 
-	<link href="{{ asset('splash/default.date.css') }}" rel="stylesheet">
+	<link href="{{ asset('splash/vendor/picker/css/default.css') }}" rel="stylesheet">
+
+	<link href="{{ asset('splash/vendor/picker/css/default.time.css') }}" rel="stylesheet">
+
+	<link href="{{ asset('splash/vendor/picker/css/default.date.css') }}" rel="stylesheet">
+
 	<!-- FULLCALDENDAR-->
 	<link href="{{asset('splash/vendor/fullcalendar/core/main.min.css')}}" rel='stylesheet' />
 
@@ -45,6 +49,9 @@
 
 	<!-- SWEET ALERT -->
 	<link href="{{asset('splash/vendor/waitme/waitme.min.css')}}" rel='stylesheet' />
+
+	<!--  SELECT2 -->
+	<link href="{{asset('splash/vendor/select2/css/select2.min.css')}}" rel='stylesheet' />
 
 
 
@@ -60,6 +67,9 @@
 	
 	<script src="{{asset('splash/vendor/bootstrap/js/popper.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('splash/vendor/bootstrap/js/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
+
+	<script src="{{asset('splash/vendor/bootstrap/js/material-kit.js?v=2.1.1')}}" type="text/javascript"></script>
+
 
 	<script src="{{asset('splash/vendor/bootstrap/js/moment.min.js')}}"></script>
 	<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
@@ -83,16 +93,15 @@
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 	
 
-	<script src="{{asset('splash/vendor/bootstrap/js/material-kit.js?v=2.1.1')}}" type="text/javascript"></script>
 
 
 
 
 
 	<!-- pickadate -->
-	<script src="{{ asset('splash/vendor/jquery/picker.js') }}"></script>
-	<script src="{{ asset('splash/vendor/jquery/picker.date.js') }}"></script>
-	<script src="{{ asset('splash/vendor/jquery/picker.time.js') }}"></script>
+	<script src="{{ asset('splash/vendor/picker/js/picker.js') }}"></script>
+	<script src="{{ asset('splash/vendor/picker/js/picker.time.js') }}"></script>
+	<script src="{{ asset('splash/vendor/picker/js/picker.date.js') }}"></script>
 
 
 	<!-- fulllcallendar -->
@@ -106,16 +115,17 @@
 
 	<script src="{{asset('splash/vendor/chartist/js/chartist.min.js')}}"></script>
 
+
+<!-- select2 -->
+	<script src="{{asset('splash/vendor/select2/js/select2.min.js')}}"></script>
 	<!--  DATA TABLES-->
-	
-	<script src="{{asset('datatables/datatables.min.js')}}"></script>
 
-
+	<script src="{{asset('splash/vendor/datatables/datatables.js')}}"></script>
 	<!-- SCRIPTS -->
 
 	<script src="{{ asset('js/scripts.js') }}"></script>
 
-
+	
 	
 </body>
 
