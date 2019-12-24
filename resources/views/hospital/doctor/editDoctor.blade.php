@@ -204,7 +204,7 @@
 
 
                   <select class="selectpicker" name="sexo" id="sexo" data-style="select-with-transition" title="Seleccionar sexo" data-size="sd7">
-                    <option value="M"  <?php if($doctor->sexo=='F'){ echo "selected";}?>>Masculino</option>
+                    <option value="M"  <?php if($doctor->sexo=='M'){ echo "selected";}?>>Masculino</option>
                     <option value="F"  <?php if($doctor->sexo=='F'){ echo "selected";}?>>Femenino</option>
                   </select>
                 </div>
@@ -257,7 +257,7 @@
 
             <div class="form-group">
               
-              {{Form::time('inTime', '', ['class'=>'form-control timepicker timepickerEntrada','placeholder' => 'Hora de Entrada'] )}}
+              {{Form::time('inTime',$doctor->inTime, ['class'=>'form-control timepicker timepickerEntrada' ] )}}
 
             </div>
           </div>
@@ -269,7 +269,7 @@
 
             <div class="form-group">
               
-              {{Form::time('outTime', '', ['class'=>'form-control timepicker timepickerSalida','placeholder' => 'Hora de Entrada'] )}}
+              {{Form::time('outTime', $doctor->outTime, ['class'=>'form-control timepicker timepickerSalida' ] )}}
 
             </div>
           </div>

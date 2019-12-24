@@ -31,17 +31,32 @@
                         {{$doctor->stars}}
                       </div>
 
-					<div class="form-inline mb-2">
 
-
+					<div class="form-inline">
 						<div class="color-principal">
+							<i class="fal fa-user-tie"></i> Especialidad:
+						</div>
 
-							<i class="fal fa-address-card"></i> ID:
-						</div>  
 
-						{{ $doctor->id }}
+
+						{{ $doctor->speciality->name }}
+
 
 					</div>
+
+							<div class="form-inline">
+						<div class="color-principal">
+							<i class="fal fa-hospital"></i> Consultorio:
+						</div>
+
+
+
+						<a href="{{url('/visitante/consultorio/'.$doctor->office->id)}}">{{ $doctor->office->name }}</a>
+
+
+					</div>
+
+				
 					<div class="form-inline mb-2">
 
 
@@ -63,13 +78,7 @@
 						{{ $doctor->turno }}
 
 					</div>
-					<div class="form-inline mb-2">
-						<div class="color-principal">
-							<i class="fal fa-birthday-cake"></i> Nacimiento:
-						</div>                                  
-						{{ $doctor->birthdate }}
-
-					</div>
+			
 
 
 
@@ -95,29 +104,14 @@
 					</div>
 
 
-					<div class="form-inline">
-						<div class="color-principal">
-							<i class="fal fa-user-tie"></i> Especialidad:
-						</div>
-
-
-
-						{{ $doctor->speciality->name }}
-
-
+					<div class="text-center font-weight-bold color-principal">
+						<i class="fal fa-coins"></i> Consulta:
 					</div>
 
-					<div class="form-inline mb-3">
-						<div class="color-principal">
-							<i class="fal fa-coins"></i> Consulta:
-						</div>
-
-
-
+					<div class="display-4 color-principal">
 						{{ $doctor->speciality->price }}
+					</div>
 
-
-					</div>  
 
 
 					@auth
@@ -198,14 +192,6 @@
 
 	</div>
 </div>  
-
-<!-- CITAS -->
-
-
-
-
-
-<!-- PACIENTES -->
 
 
 

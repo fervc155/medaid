@@ -43,6 +43,16 @@ class Speciality extends Model
 
         return round($sumatoria/$contador, 1);
     }
-   
+
+
+   public function getStarsEarnedAttribute()
+   {
+        return round($this->stars);
+   }
+
+   public function getStarsMissingAttribute()
+   {
+        return 5- $this->StarsEarned;
+   }
 
 }

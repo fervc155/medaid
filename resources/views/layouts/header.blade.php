@@ -123,8 +123,11 @@
 	<script src="{{asset('splash/vendor/datatables/datatables.js')}}"></script>
 	<!-- SCRIPTS -->
 
-	<script src="{{ asset('js/scripts.js') }}"></script>
+	<?php echo 	'<script type="text/javascript">let _URL = "'.url('').'"</script>'?>
 
+	<script src="{{ asset('js/scripts.js') }}"></script>
+	<script src="{{ asset('js/AJAX.js') }}"></script>
+	<script src="{{ asset('js/web.js') }}"></script>
 	
 	
 </body>

@@ -104,11 +104,11 @@ class DoctorController extends Controller
 
      $doctor->office_id = $request->input('office_id');
     $doctor->inTime = $request->input('inTime');
-    $doctor->onTime = $request->input('onTime');
+    $doctor->outTime = $request->input('outTime');
 
     $doctor->save();
 
-    return redirect('/doctor')->with('success','¡El médico ha sido actualizado con éxito!');
+    return redirect('/doctor/'.$doctor->id)->with('success','¡El médico ha sido actualizado con éxito!');
   }
 
   //Eliminar doctor

@@ -3,11 +3,18 @@
 use App\Notifications\Prueba;
 use App\User;
 
-/////rutas web
+/*===========================
+=            WEB            =
+===========================*/
 
 
 
+
+
+
+Route::get('/visitante/citas','webController@citas');
 Route::get('/visitante/especialidades','webController@especialidades');
+
 Route::get('/visitante/especialidad/{id}','webController@especialidad');
 
 Route::get('/visitante/consultorios','webController@consultorios');
@@ -22,11 +29,42 @@ Route::get('acerca','webController@acerca');
 Route::get('contacto','webController@contacto');
 
 
-///chat 
+/*=====  End of WEB  ======*/
+
+
+/*===========================
+=            API            =
+===========================*/
+
+
+Route::post('/visitante/search-especialidades','API\\ApiController@searchespecialidades');
+Route::post('/visitante/search-doctores/especialidad','API\\ApiController@searchDoctorEspecialidad');
+Route::post('/visitante/search-doctores','API\\ApiController@searchDoctores');
+Route::post('/visitante/search-citas','API\\ApiController@searchCitas');
+
+
+/*=====  End of API  ======*/
+
+/*============================
+=            CHAT            =
+============================*/
+
+
+
+
 
 route::get('chat','chatController@index');
 
-// especialidades
+/*=====  End of CHAT  ======*/
+
+
+/*======================================
+=            ESPECIALIDADES            =
+======================================*/
+
+
+
+
 
 route::get('speciality','SpecialityController@index');
 route::post('speciality/store','SpecialityController@store');
@@ -36,20 +74,36 @@ route::get('speciality/{id}','SpecialityController@show');
 route::delete('speciality/store','SpecialityController@destroy');
 
 
+/*=====  End of ESPECIALIDADES  ======*/
 
 
-///options
+/*================================
+=            OPCIONES            =
+================================*/
+
+
+
+
 
 route::get('options','optionController@index');
 route::post('options/user-default','optionController@userDefault');
 route::post('options/moneda','optionController@moneda');
 route::post('options/idioma','optionController@idioma');
 
-/// bills
+/*=====  End of OPCIONES  ======*/
+
+
+/*================================
+=            FACTURAS            =
+================================*/
+
+
+
 
 route::get('bills','BillController@index');
 
 
+/*=====  End of FACTURAS  ======*/
 
 
 

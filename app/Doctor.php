@@ -76,4 +76,14 @@ class Doctor extends Model
 
        return 'splash/img/'.$option->value;
     }
+       public function getStarsEarnedAttribute()
+   {
+        return round($this->stars);
+   }
+
+   public function getStarsMissingAttribute()
+   {
+        return 5- $this->StarsEarned;
+   }
+
 }

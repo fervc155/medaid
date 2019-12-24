@@ -20,8 +20,9 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="navbar-nav  ml-md-auto ">
 
-				<!-- Sólo los administradores pueden ´ver Doctores y Consultorios -->
 				<li class="nav-item">
+					<a class="nav-link" href="{{ url('visitante/citas') }}"><i class="icon fal fa-calendar-check"></i> {{__('Citas') }}</a>
+				</li>		<li class="nav-item">
 					<a class="nav-link" href="{{ url('visitante/consultorios') }}"><i class="icon fal fa-hospital"></i> {{__('Consultorios') }}</a>
 				</li>
 					<li class="nav-item">
@@ -82,7 +83,7 @@
 </div>
 </nav>
 
-<main class="">
+<main class="vh-100">
 	@include('includes.messages')
 	@yield('content')
 
@@ -128,6 +129,7 @@
 		</div>
 	</div>
 	</div>
+
 
 </footer>
 

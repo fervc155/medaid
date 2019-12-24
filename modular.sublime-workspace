@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"pad",
+				"padding\tproperty"
+			],
+			[
+				"box",
+				"box-sizing\tproperty"
+			],
+			[
+				"fle",
+				"flex-wrap\tproperty"
+			],
+			[
+				"spei",
+				"$speciality〔variable〕"
+			],
+			[
+				"array_pu",
+				"array_push〔function〕"
+			],
+			[
+				"espe",
+				"especialidades〔variable〕"
+			],
+			[
+				"border",
+				"border-radius\tproperty"
+			],
+			[
+				"marg",
+				"margin\tproperty"
+			],
+			[
 				"c",
 				"cptm\tCustom Post Type: Admin Messages"
 			],
@@ -36,10 +68,6 @@
 				"speciality"
 			],
 			[
-				"border",
-				"border-bottom\tproperty"
-			],
-			[
 				"speciali",
 				"speciality_id"
 			],
@@ -52,15 +80,7 @@
 				"align-items\tproperty"
 			],
 			[
-				"marg",
-				"margin-left\tproperty"
-			],
-			[
 				"pa",
-				"padding\tproperty"
-			],
-			[
-				"pad",
 				"padding\tproperty"
 			],
 			[
@@ -328,10 +348,6 @@
 				"text-center \tBootstrap 4 Class"
 			],
 			[
-				"box",
-				"box-shadow\tproperty"
-			],
-			[
 				"bordra",
 				"border-radius\tproperty"
 			],
@@ -498,22 +514,6 @@
 			[
 				"gre",
 				"grid-row-end\tproperty"
-			],
-			[
-				"d",
-				"display\tproperty"
-			],
-			[
-				"rota",
-				"rotate()\ttransform"
-			],
-			[
-				"bn",
-				"bd-n\tborder: none;"
-			],
-			[
-				"max-",
-				"max-width\tproperty"
 			]
 		]
 	},
@@ -612,7 +612,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 2741,
+				"buffer_size": 2828,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -702,6 +702,24 @@
 			}
 		},
 		{
+			"file": "app/Appointments.php",
+			"settings":
+			{
+				"buffer_size": 1393,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Notifications/Prueba.php",
+			"settings":
+			{
+				"buffer_size": 828,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "app/Condition.php",
 			"settings":
 			{
@@ -748,7 +766,7 @@
 			"file": "resources/views/layouts/web.blade.php",
 			"settings":
 			{
-				"buffer_size": 3915,
+				"buffer_size": 3921,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -765,9 +783,27 @@
 			"file": "resources/views/web/especialidades.blade.php",
 			"settings":
 			{
-				"buffer_size": 1920,
+				"buffer_size": 2608,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/home.blade.php",
+			"settings":
+			{
+				"buffer_size": 4339,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 645,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -799,18 +835,36 @@
 			}
 		},
 		{
+			"file": "app/Http/Controllers/WebController.php",
+			"settings":
+			{
+				"buffer_size": 4198,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "resources/views/web/especialidad.blade.php",
 			"settings":
 			{
-				"buffer_size": 279,
+				"buffer_size": 1304,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/Http/Controllers/WebController.php",
+			"file": "/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/admin/ProductController.php",
 			"settings":
 			{
-				"buffer_size": 1565,
+				"buffer_size": 1501,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/SearchController.php",
+			"settings":
+			{
+				"buffer_size": 335,
 				"line_ending": "Unix"
 			}
 		},
@@ -881,18 +935,10 @@
 			}
 		},
 		{
-			"file": "resources/views/includes/dataTables.blade.php",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "resources/views/web/includes/doctor-card.blade.php",
 			"settings":
 			{
-				"buffer_size": 1303,
+				"buffer_size": 1299,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -923,13 +969,11 @@
 			}
 		},
 		{
-			"contents": "",
 			"file": "app/Http/Controllers/AppointmentController.php",
-			"file_size": 5534,
-			"file_write_time": 132171139011231501,
 			"settings":
 			{
 				"buffer_size": 0,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -971,7 +1015,7 @@
 			"file": "public/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 7901,
+				"buffer_size": 10666,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1039,7 +1083,8 @@
 			"file": "resources/views/web/doctores.blade.php",
 			"settings":
 			{
-				"buffer_size": 454,
+				"buffer_size": 1478,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -1091,7 +1136,7 @@
 			"file": "app/Http/Controllers/DoctorController.php",
 			"settings":
 			{
-				"buffer_size": 3451,
+				"buffer_size": 3466,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1109,7 +1154,7 @@
 			"file": "resources/views/hospital/Speciality/showSpeciality.blade.php",
 			"settings":
 			{
-				"buffer_size": 4061,
+				"buffer_size": 4060,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1118,7 +1163,7 @@
 			"file": "public/css/style.css",
 			"settings":
 			{
-				"buffer_size": 17060,
+				"buffer_size": 17871,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1187,9 +1232,52 @@
 			"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 			"settings":
 			{
-				"buffer_size": 9221,
+				"buffer_size": 9179,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/DELL/Desktop/archivo 2.csv",
+			"settings":
+			{
+				"buffer_size": 594,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/DELL/Desktop/a12.csv",
+			"settings":
+			{
+				"buffer_size": 347,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "compra mantenimiento puertas personas clase"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/almacenes/dashboard/index.view.php",
+			"settings":
+			{
+				"buffer_size": 2254,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/almacenes/dashboard/css/style.css",
+			"settings":
+			{
+				"buffer_size": 1304,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -1247,7 +1335,7 @@
 			"file": "app/Speciality.php",
 			"settings":
 			{
-				"buffer_size": 824,
+				"buffer_size": 1008,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1321,16 +1409,20 @@
 		"selected_items":
 		[
 			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
 				"reint",
 				"Indentation: Reindent Lines"
 			],
 			[
 				"reind",
 				"ReIndent: to 2"
-			],
-			[
-				"rein",
-				"Indentation: Reindent Lines"
 			],
 			[
 				"web",
@@ -1483,6 +1575,8 @@
 	[
 		"/C/xampp/htdocs/laravel/hospital",
 		"/C/xampp/htdocs/laravel/hospital/app",
+		"/C/xampp/htdocs/laravel/hospital/app/Console",
+		"/C/xampp/htdocs/laravel/hospital/app/Notifications",
 		"/C/xampp/htdocs/laravel/hospital/database",
 		"/C/xampp/htdocs/laravel/hospital/database/factories",
 		"/C/xampp/htdocs/laravel/hospital/database/migrations",
@@ -1490,18 +1584,27 @@
 		"/C/xampp/htdocs/laravel/hospital/resources",
 		"/C/xampp/htdocs/laravel/hospital/resources/views",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/includes",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/layouts",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/options",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/web",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/web/includes",
 		"/C/xampp/htdocs/laravel/hospital/routes"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/curso php/mysql/pdo.php",
+		"/C/xampp/htdocs/curso php/blog/buscar.php",
+		"/C/xampp/htdocs/curso php/blog/funciones.php",
+		"/C/Users/DELL/Desktop/almacenes/northwind-profe.sql",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/web/especialidad.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/admin/Products/create.blade.php",
+		"/C/Users/DELL/Documents/CUCEI/5to/Progra/phonegap/invernadero/www/index.html",
+		"/C/Users/DELL/Documents/CUCEI/5to/Progra/phonegap/invernadero/www/js/funciones.js",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/includes/dataTables.blade.php",
 		"/C/xampp/htdocs/laravel/hospital/public/js/app.js",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/includes/list-appointments.blade.php",
 		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/js/bootstrap-md.min.js",
 		"/C/xampp/htdocs/laravel/app-shop/routes/web.php",
 		"/C/xampp/htdocs/laravel/app-shop/resources/views/admin/Products/index.blade.php",
-		"/C/xampp/htdocs/laravel/app-shop/resources/views/admin/Products/create.blade.php",
 		"/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/ProductController.php",
 		"/C/xampp/htdocs/laravel/hospital/database/seeds/UsersTableSeeder.php",
 		"/C/xampp/htdocs/laravel/app-shop/database/factories/UserFactory.php",
@@ -1615,15 +1718,7 @@
 		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/svg/cedula.svg",
 		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/svg/whatsapp.svg",
 		"/C/Users/DELL/Downloads/default-form-(imported)-2019-09-21_21_09_50.json",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/header-usuario.php",
-		"/C/Users/DELL/Documents/Desarrollo/bootstrap/bootstrap-4.1.3-dist/css/bootstrap.css",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/single-certificado.php",
-		"/C/xampp/htdocs/laravel/proyectolaravel/routes/web.php",
-		"/C/xampp/htdocs/laravel/proyectolaravel/resources/views/principal.blade.php",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/archive-certificado.php",
-		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/author.php",
-		"/C/Users/DELL/Desktop/cursos/Laravel/4 Instalación de laravel, plantilla y configuraciones/video006/plantilla_coreui/listado.html",
-		"/C/Users/DELL/Desktop/CSS Grid y Flexbox, La Guía Definitiva, Crea + 10 Proyectos/CSS Grid y Flexbox, La Guía Definitiva, Crea + 10 Proyectos/13 PROYECTO Sitio Web para un Freelancer/freelancer-fin/css/style.css"
+		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/header-usuario.php"
 	],
 	"find":
 	{
@@ -1641,6 +1736,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"primary",
+			"99",
+			"100",
+			"11",
+			"1",
+			");\n",
+			"column",
+			"especialidades",
+			"25",
+			"especialidad",
+			"form",
+			"with font awesome",
+			"/'.$",
+			"for",
 			"speciality",
 			"id",
 			"name",
@@ -1749,7 +1858,7 @@
 	"groups":
 	[
 		{
-			"selected": 27,
+			"selected": 84,
 			"sheets":
 			[
 				{
@@ -1787,7 +1896,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
@@ -1825,7 +1934,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
@@ -1861,7 +1970,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
@@ -1901,7 +2010,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
@@ -1939,7 +2048,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
@@ -1974,7 +2083,7 @@
 						"translation.y": 7944.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
@@ -2010,7 +2119,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
@@ -2047,7 +2156,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
@@ -2088,7 +2197,7 @@
 						"translation.y": 3.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -2104,8 +2213,8 @@
 						"selection":
 						[
 							[
-								1247,
-								1247
+								728,
+								728
 							]
 						],
 						"settings":
@@ -2127,10 +2236,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 783.0,
+						"translation.y": 83.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
@@ -2139,19 +2248,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2741,
+						"buffer_size": 2828,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2293,
-								2293
-							],
-							[
-								2337,
-								2337
+								204,
+								204
 							]
 						],
 						"settings":
@@ -2162,6 +2267,7 @@
 							],
 							"SL.23.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.52.region_keys":
 							[
@@ -2171,10 +2277,10 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 202.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -2211,7 +2317,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
@@ -2227,8 +2333,8 @@
 						"selection":
 						[
 							[
-								466,
-								466
+								500,
+								500
 							]
 						],
 						"settings":
@@ -2252,7 +2358,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
@@ -2289,7 +2395,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
@@ -2323,7 +2429,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -2373,10 +2479,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 160.0,
+						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
@@ -2413,7 +2519,7 @@
 						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
@@ -2450,7 +2556,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
@@ -2505,8 +2611,8 @@
 						"selection":
 						[
 							[
-								707,
-								576
+								40,
+								80
 							]
 						],
 						"settings":
@@ -2528,11 +2634,82 @@
 						"translation.y": 20.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
 					"buffer": 20,
+					"file": "app/Appointments.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								402
+							]
+						],
+						"settings":
+						{
+							"SL.103.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 29,
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "app/Notifications/Prueba.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 828,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								642,
+								642
+							]
+						],
+						"settings":
+						{
+							"SL.109.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 33,
+					"type": "text"
+				},
+				{
+					"buffer": 22,
 					"file": "app/Condition.php",
 					"semi_transient": false,
 					"settings":
@@ -2553,6 +2730,9 @@
 							"SL.228.region_keys":
 							[
 							],
+							"SL.33.region_keys":
+							[
+							],
 							"SL.34.region_keys":
 							[
 							],
@@ -2564,11 +2744,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 23,
 					"file": "app/Conditions.php",
 					"semi_transient": false,
 					"settings":
@@ -2590,6 +2770,9 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.34.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
@@ -2599,11 +2782,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 24,
 					"file": "database/migrations/2018_11_11_220806_create_patients_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2633,11 +2816,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 25,
 					"file": "database/.gitignore",
 					"semi_transient": false,
 					"settings":
@@ -2662,11 +2845,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 26,
 					"file": "database/migrations/2018_10_22_005134_create_doctors_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2703,29 +2886,32 @@
 						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 27,
 					"file": "resources/views/layouts/web.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3915,
+						"buffer_size": 3921,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1164,
-								1164
+								2677,
+								2677
 							]
 						],
 						"settings":
 						{
 							"SL.23.region_keys":
+							[
+							],
+							"SL.41.region_keys":
 							[
 							],
 							"SL.56.region_keys":
@@ -2737,14 +2923,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 643.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 28,
 					"file": "resources/views/web/contacto.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -2775,24 +2961,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
-					"buffer": 27,
+					"buffer": 29,
 					"file": "resources/views/web/especialidades.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1920,
+						"buffer_size": 2608,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1036,
-								1036
+								1100,
+								1100
 							]
 						],
 						"settings":
@@ -2803,49 +2989,55 @@
 								"SL.php.Highlights.|8dcb63423dfe670316a367bf0ac512f09aedc6b42f9308ca02dce826bd75627f|region.redish markup.error.sublime_linter|32",
 								"sublime_linter.protected_regions"
 							],
+							"SL.40.region_keys":
+							[
+							],
 							"SL.41.region_keys":
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.43.region_keys":
+							[
+								"SL.php.Highlights.|3c1492353efe559359030fa6bb949ec9e6e5313c89679e26bc328c5ce0d6fc02|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|53303024f56c2501495b1b81789a10c2a3e8977c59d006e61790a694bf967f62|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9b8c6dffa2f413165235a2668165847a99c5fcd71c7dab275d512e012d9b8e30|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d4a07fb209d7625cd1d57808c765bf403cafdf32062fac8050200783677f2e5e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dd707dc1e760de00fd382b27a0a71af645fa4b78b5d1cf8a6f3796f7612bc5e8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0059a2d513978e350fb54a315102fdce083f9ace6d82bee1eeb8c0ae29e3e03f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9dd8da518183934efe6c53b05bf598786779b977feec16355a931a510eb26419|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b1dc0d46defd11b23bb37025b7483da886570d564036591f86d9a671d01df311|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f28b7fc4754c051cc9067eb106b1584074ba8d5fe9d3722d581be73795bb5e2b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|128becd8bdf01df9a23d528541a53802f3f65b83ed06cb78e09dae9247f3a256|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9b99f6773e52a9016cbbc28c7da0e0f0f1cc827c3781e2c6398311b13883bea4|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9da7d69f1b9bce8b468ed421e0987d7b73670f8fc724da1533586fdff1e8e5fe|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0d10415619456e8341d344bdff1028f16710ed93037e35ab50437b9cc5be3546|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f5669e1777ee8704c22985788ed348ad38753fd8c0db338f26d26b6e0cb5a6c9|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f08439effedd82cf2cb9777dfb087d0436dbcf63095d64396140a44ec2a1ca41|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ca79bc68abe87ff345c20b8bb268e13f19aa6d4976e5e5d80e6e15a5fcfdffbb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c8f1ee9afed63800bb8dd0ea1fc77b0e16ffd80463f87a44989a0ee1644d5a68|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c8ab3af960aa23ca27c92c8a82d65cb8477b119b459a5acaa2d1a37afef70aca|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|245a556a62d945b286eb8eb40bb7c04086dea295bf758ba3c353c8f8cc996ac9|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4f4c4cb5ef5558cc61520e257fa9f78ba26c4c81594dc1aa2ea2f04edcf437fe|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5ee4b09cd9593ecddfbf5114e7542eacbc3098b528f8500ddc6de7ef4e68447f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8314462a148972870723b8572a6bcf5dc24ad48ef8c062bf8c10a7b4c7f720d8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.php.Highlights.|7182f2fb2bca2715188f5ff2659ab4aecea7083bf1c44518208d34991e823e5d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|35e05f39b35c757d0a358db88ba8662010b54df04e7aa6c0fa941cb34458357b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b2346020e7faa30ce3b1bdced01f3c189f77b05d3e5838a1bf17b8090de68b09|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|71194dae44774a68f68d59c6c83acccd403c98fd67415571cec94c2f0c0a8c50|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.php.Highlights.|f7aceb594142b998ddda50be11b93e342917ee5730245520a0806c226dfb22a7|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|69b178bfbf31327cec46c37cfe27aad28fa81c709fe8cf99967fadf418772740|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8a1e56f15e3512a80500bbde4b746c498c9b9827ce796f1dc327640c1c0565ed|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c6f8ccf364860e34d441dcb35d8e1af0001854bc698d260b4f130a03912a33cc|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8937c6df5798088b415fabc7e716e832b89ad7b1b0acd4a366184c0063aed760|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|80c26bb50710d0fecdbec4ac1b21db0d80bb06511b7c4e2ebc6022c6c8632c03|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e7293deb9aab5a3bafc4dc220db37ebc19b9c49f2fdaa4ffdcc072fa7107d578|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f6424703448eb3525724956d31e642defff6f69f7bed040f5a89ba5472e5fc9b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8591a786f7193f7656cd7f7cd21ad55248455499c9be7652a13a35b534fd5552|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7e86b1379ad9cbe0cef23589842caa7226fb47a0d350b75fd516d268b21bf317|region.redish markup.error.sublime_linter|32"
+							],
 							"SL.59.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 240.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 28,
-					"file": "resources/views/web/consultorios.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1601,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.257.region_keys":
-							[
-							],
-							"SL.32.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -2858,11 +3050,125 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 29,
+					"buffer": 30,
+					"file": "resources/views/home.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4339,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2338,
+								2338
+							]
+						],
+						"settings":
+						{
+							"SL.101.region_keys":
+							[
+							],
+							"SL.44.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 502.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 31,
+					"file": "app/Http/Controllers/HomeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 645,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								197,
+								197
+							]
+						],
+						"settings":
+						{
+							"SL.102.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 32,
+					"file": "resources/views/web/consultorios.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1601,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								536,
+								536
+							]
+						],
+						"settings":
+						{
+							"SL.257.region_keys":
+							[
+							],
+							"SL.32.region_keys":
+							[
+							],
+							"SL.46.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 33,
 					"file": "database/seeds/DoctorOfficeTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -2892,11 +3198,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
-					"buffer": 30,
+					"buffer": 34,
 					"file": "resources/views/hospital/office/indexOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -2914,6 +3220,9 @@
 						],
 						"settings":
 						{
+							"SL.48.region_keys":
+							[
+							],
 							"SL.74.region_keys":
 							[
 							],
@@ -2926,64 +3235,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 31,
-					"file": "resources/views/web/especialidad.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 279,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								276,
-								276
-							]
-						],
-						"settings":
-						{
-							"SL.254.region_keys":
-							[
-							],
-							"SL.33.region_keys":
-							[
-							],
-							"SL.45.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"open_with_edit": true,
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 32,
+					"buffer": 35,
 					"file": "app/Http/Controllers/WebController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1565,
+						"buffer_size": 4198,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1326,
+								1338
 							]
 						],
 						"settings":
@@ -2996,6 +3265,276 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.50.region_keys":
+							[
+								"SL.php.Highlights.|6c697ffb5df2803c18db847ac270ec8b1ab762967cb2381b510607b035c4013c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c450c0a99ac821d86e70d35d528a9edcb6d65e3a65f607101c900ff412e44dc6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|07bb88b8c6f8cbfd54426a566bfcec4c7f5ce9a7a8d688124690eda3d2e4a8ce|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|30f4c17795e6d65316e50ed30ce537d4d9d9d91a4d2cf1a75e2691022d5cb09e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|991d414af0905b363165568165066947a95cbf8f098ee5dea0e9e0eed2fb02b2|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0eb5e398c906e7688ebace34f739dfcfec1e040bccac0eb9fe06c153d348b308|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8ec7b1fefc478d44c85fdcccff34bc0fc0fd2f8aab7f67b5db710aa59786e16e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6eb119f70710f4c1507ecec04b1854d052c2df06c1afb2c68762195daaa48cc8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dc61029a5ca2a3f7e06553c7ffc089313af2a675bdea283e081772344093ad18|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3cd914d55a359226f122c7f8b11df69a7463bcf451c31a404299fa5b5a455706|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|fc1f414db9409eeb475d8b6b7628fb81f5a53a3c153ed0a060430ba5251bef0f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d8db28dacfe6914223cd34e1453dd076b699c50e95acd3ded48c1a5bfd555196|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9759bae00f8d35069f8e35e3bb97b561c1b0c25e499854b48f8354700bcd8c8b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|418f5e0f5c7d82be6b4654c46d29c2e10963622c7d3abb11d670503bb8d357a6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6589ad82d6aa16fda21472f44b7f6ab28d6439139142d66e6132ed87694dcee5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9c7554271ab7d9708aa6bc88af3c8f9fe2a9b056da39f729bea9de8bb787398d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|fa1b7e95f3db91acd78e8e2539acd9f85bb7f1facf87c692e8064ad3f19deb3f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ba8ac13d1fb266c19ed88e87707ece9131e71265e6e3944c6cbe8534dcd5288f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|42d5c9aeda6af2b4145f13c3e2424ce3b3d6c7e6b9bddbd9ce94e0547c8fd0ac|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7b7251b931b42ca81c0b5f53240bbca075cdb0550bb6b1b96f3d657212e3bf1c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6d99cacdb19f67c16be50e012351d14e59d27339c7f3c3339010c91403e6ae0c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9db5fdb1011b1cba3d0a1bcef78e1ed4a385a0a2a98af8117e79635abc8a1a72|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5d934bcfb57488041dd34c44cfdd39f6eac68be16bce164293e99de585d3223c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|eef72def76a0d82cca5fca9d1b0168a192d7aa6064b35eb8ee56d04f9dd9a969|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e827a2e9dd00e769ea73a710dde04bba06bdacff8900fcca08ea6f864a59bf03|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|81032f3fded69a15a1f0fb6179bdfa56ddcd18b1fe26bed9c90ea6916edf74bd|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4e94effbaecc91bfd3e624d952f42b4076a8fb7223f448f49cf084587bf2c3c6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|31e83d38d6d59f40277db6623c128b5ca09b901c83e690231dab3e1ff812aa68|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|19cc14be02a51def894080232f60c20db67ec5202e5405f827829b997b88e3b6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b1468af50cb6ede44cb0ecdd674345144d1276b1f319772f81a628bbb8e7ef5f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f925c0bcb73c84eb45fb832426aed4c409e2f8df87bbe40f9bb43d5169a9979b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f8b7ceb824fe5a134865b9da12a428e48955a4f76863f83ec812dbdc950f1ccb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c5a84129fb8147352db3e31a85c7395635cd956886aeafe77641734b792e943b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|bc8224feec2387fbb9efc1f18701b97c89f3aa08855ef33516ad67314fd26267|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1142f8d80d73ad341a077c8e36360a98d6c388f06fe3fbda7ccf2bc65e6e4acc|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|05c87893906663a88bc66c44b2a77ee0ba668b6fa120657a5be491299a8d84f2|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b59c0a1b144d5831b62a869d94e5b7c855cb3b6c85a0de595d745704b50220af|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|174190ac851d11cac5b9fbd9d610ae6a464f9b1f4727c1eae7acbc2288f431c9|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b228adbe9f091f37601fb31e84aacdf84bdc63ad91d6438d39e3b0cae9460672|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|42d22eb5f9374adfc3837862d4ac6a4bb1eac2632c09a50ec929aff7dacf41d1|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d96ff381c5ccb73c152102646beab2f0050c5363f3abc57c4af455dce577ea85|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8e3474057ad218577e56488667795d27ff62495d395bc3d39419da9d9c47a3f4|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|05a7b83a7c770a8172eb39d36766267927d525efc174ed3d19023c551bace612|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5fbf76598c9590e54a985eb7bd2f4e52b6f231b237634cd5dfb4d5b53edfb6ff|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dc2ae66d6b66ea05f024483570cfa33ff90963a1c6b19e9d13133eae62e930c5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6d75b854fe51f5e594ea2c2ab006131aef965317c8bd5a141ffd562040d4897e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a2a71b76d02bfd884d8fd49bb4da64bc9a813ea3c67f928854dd91afaa0ee502|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1c17b27f19f4f952683cadad6aa64129781eb9e67f4950920ff1ce93db87dbe1|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|aea4c6ac9fc85f3ca1e256d661c18e3c58447cf99fe9ce670236096dc1a573d3|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|73d49a3cc9c0e7b4883c58f4a6d365a7aa7100a1a06c001bbd5ca5f254bebfa3|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b203c65a2bc0ee3a9b9e6bb3c030537f49c12cf5837f33fc054ff72cdf9c434c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3744dc12de3fa548f8575f4b23c670781c16c4a5a94610bad9b0bf72371b08ee|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|fda4c529c702ec6350b07b913d0e0e490a5236ade16fd72b24b58d2efc7afb85|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c5120027dadcd18eca2cde8bc2eb98810e28bedb7cf9198fdf44a946507475af|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e144adef1c2f43d4c5145a0f0ed241af9e30ca71a2a46a801258bcffaf5926a5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3d5a7e25396fa8cc5e9618aba1a64d37d8159ad9861624ec33457cdf4dda50c5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b9aa168523d58a3a52c278094de152475187252c419fdbb86088aba49f4e3977|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d5430026fbdd3d2e92e5cfbc1d093b952be1887ba9a056f123f8290f396a0c40|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a2cd01bf94029dc1405709f8c60cd80a8c4d4c7d483a9268724166c6a889df25|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e11c551e9fed046cc9952c4f6fcd259f567903f4a18817aef72d3e5ec5cdaadc|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d29c238ffe1c4111f6aa90d0bd529ccd3c2ee93554a6bdb692951960e85831ba|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|23a58259d9abfc097fef89e59adac7f30506a7bc6f10216b2e656a4e0674d79b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a07ac3e38f5a1019a6cb28491e820e1811b6f7f2ed25ac3a346ebb86c2449c54|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7c5225cd8172deabceee072370b96caf075f36c8f70d1f8c29fc5a377fb9f7c4|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2c3193e5189c59b0b9bb24a1db8101b12d4bdf2f4215928b918c7b02199f6769|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f58b5f43f619f0ef7f6e9ba5ac4ead9d1e2f1d0e9da98570e4b36584a66f756d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4b76feb992a876d5f63d6368acf562dbc3131941ca346df0f59272427132f189|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c385ce689d10a5518ca168e3350527ba4bde05831ee59c707deadccc23c404dd|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c76a88a20b23c507f98be4873bbb19df8e36fea1c5108bc37208316e5ad5acdd|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3f39c76c9e8ab0f9fe363884418d8876054b7c491c446f236451e7a79fa1d3ec|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7e9370c801512421cb6077f7e87b5ee9ce7c67f2ec368179457761f0aa6a744d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0fd98480352d0cd8e2e75e7e405d5cc097ff46f94affef36e99ab8fc4439d29a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7227adfa8dd64bf1028ef3eba8fb9bb9e8d8905a34aee3f70b2aecf100c56194|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|cc65666ac324d9f620e51e691495942756aea38579bbd3d0f25622d41002288d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|582d7809297cca4c0685aaf020af06b85d3cee351fc7656a9712c886aef77bd8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|fc8e02ee002f2c4a8881031a7fe8d6cc65e4225f422f7c7cc38883276b2bda89|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5dbf89e54d5888f0a2d9cb3fae41e305a0fa9e5fe67143f0059fc2d63fa9a356|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dd128a65e7b3c9dfd0436b7eb573309f531fffff472537add4f26eb9ac98b875|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e0f3afcbc8e37558112deb67dbfc6aa3270f08561ddddae4b0f1dfa17f924897|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3e7c15ee2f8a48308a7da7dbee537720ceb2c7038123e446a7c2a6e2461feb17|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0cbb3cc9b8fd1fc8346371bfd9a162ad75cf7e144efa2ce3b7f321c7745e0f3b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9c37b3f98b4d2c0766e3107bae793f77abee71f7146359e21dfe15738230cd0f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d0da06bfb18654c296fd7ddee28a845e6a155f7b8b4c71db1c24d3568c188992|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|07e00be10d7e4bbc369f883f5c28ef51afaf577e21716a68795e05bd313d2751|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|010d7be70346c433b9da9193eb65e8f63d1fa530f8338b99f250a3cbb540afda|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0bf34e0700165a24ef5b8a54d1ea4c27c479b8b982cc990d0b1f2d3fb3ba1c55|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ac5c16bd155d99f10d59485fc76d6a3519ce357c908adfba3f4d712ff064ceac|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1e68c6b141d38c85cc619d426dbecd39575edc65cdb03ae2eacee0c0002c1ad5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3e5a67ceb0e25d9e1292d89fafbe0b72cc891822bf20e257cc6b8a3a494bae29|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|65399c61c93c7b8d939a5ecae4146b4359c84131e9e572effa889e03616caf18|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e70ff966787b7b8f5f2b7ccee712b9ef7a5e9ba7af3a253d8d192eb050ebeeb2|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3b8776180fbf509e42ebafe4b59a850a8fea8d6b7b0ea48713f474412e9853ed|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dd3c1f058914c4035d189ee5f3b03d20c2484cc25eb9cfb2f2abad7e28af05bc|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2a849539e383bd280aa261818cf9c996905aaa33bb38d98f6ca5ab12503d8679|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|70f70dfe323107c7e6d938e03834919f1dd5332f22d6a421e0611f7001cac84f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f0d22fbe2eb2a72858909e754354bab5488dc2f7d00deea3ce47f41aa6b058bf|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|217a83bfd0c7a62e5b16eba3dff417259d128e253bfe47868210324da52dbf50|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e67b18670749311af02087f5ebaeb50cc575a85e94f3b38ae4cafb391c321597|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1162e6eb85f39b9c81e6788408fd49ef9417bf7eed3c3e3b57883a045e46c424|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|165cc331d66f016b10ce1946f39bd82f8b4e09fbdf326b3b5dcb1637546e66ec|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|80224c49e5968c710c4144cb2fb0a55bb9682fb294bd9ba1ef71ba51da0cde79|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2bc1a4ed9f87d43b7cda0bc08439015b176b997b0a0a20f0383ff93f4332e06f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|03d53984213eca3849954219b95f3f5c26188cd2af9ea16d3e1689f94dca49b1|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c28126291823807d24fc09a4cb6e2405879c029787731802c82d3670fdffe963|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6b29c150f1538199f850fee666adf53ce6ffb566b707b3a7583d059b36f3e5f5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6962e59e682eedd64bbb9708a1859ded6a2ee41c972926f402383e3aef3cdeb5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|19fcc89e9fc729e724f3d1cdc95f5452e8ee04101c4af90d5bc7ca52d7400ec0|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4fa79818a464925b4889809d9ac235ed4f9bf8a9ba9e1806344c5f6c3f1db225|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d2b3dafd576bec5d8516c9047aa9d6f65220cdecab172b230c40fa9596881e54|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0aceec958ead0add066cef3abbd3ffcf61af2e2acb8df018c81ad890402068ab|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|03537a3acf0babab648265eb7204712c7337b30b1b8f9f8a863ec9f81bbf09a7|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|54cd82583b8a6f1c34acd0083e675cb38ac29c28a6432819220e63979049c185|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|acfe6b3d46e9031f2829ca24b51135c82ea8c123a6e232cae74bb599e078ae59|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0fe74bb1b3b542554725d64ad5e415071c01e7c37b299c0599004625a8e7cc7f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a38be8db4fa1269a3aacb3dad29e4c771899fbb3b9684bcca94c3a2d6d8a694c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3ec4e07f13931faef34bb94fc37acc3bc10a91be4eff36339d07115d51f86679|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ba13a7df9acb8a05c46b175399cd062d7c99987f20c31411f85a08b4a68c5b36|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a79566e5ce93490dd0a17dfe3cd64e25f329539d8debd7d854c26016e2617a2c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d2b1458b8a4133d6d38898f19ac5e0174f7aec9ab222195217c6027c9d76fdeb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e439a7deacee46ff146fc710b339263cf03d06a92c66c6633def682d7279a8b7|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c47f44664650e7d9f0ec8224ac8cb02c3ae569d7d0f029cc3abf3823eeb1bc8a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c8f76fe43c882220881982420ffc84864ebcadebc20e39fa5e22b82bf8968f35|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|afedae2626b6d120821a3688aef579985caf21eaf7e31377f581483b4f76612d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dae950c477cb69b9979d588ab10cb991f89f228d718bdcbbf955a857551e1fd2|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|eef935cdc8f036d94c7f4137054cb77329f8679cbb892afe6e50b07f7a809b23|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3df5f9b9c2bb1d9e2cd8bdbd6fd8e9c2205358c914fe4648f55f8af5896ddc58|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4b2f176aed052e635b86f9c9da826e1b012085d73a0cbfc9e4367fb55ab243ec|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d829542aaf779e5f3ec7dba4cc2b5d44729a977dc28033325e52a4ff31578280|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|cfe844f08ac486ebedcd5f165c1ac26c1b522d5d942f7597413c2be131003dd1|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|fe31ab251394f56136089aae9d624ec01b2ad44dd759f95297737bc3f33b4eb7|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ca0075f19bef0a8a9b38b4426e3348abf28371df8ddece7d9edf2e66232cc948|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4ff1ebf2d5804c5b8b8c8421af4fee54486406e2be5d1beb85825120ab330a77|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3569928c7b9ba5f0b0ff1305cbde3c968e097dba73fb605335bcfb771f6228c6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|11efa5e002964a089b553c81cebaa81098bfb624e46774361a24b2bdc7b552fa|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0893322039995d0aeaaf04dafed5852688772fd1ef8bec28946b7eb6be00ff71|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3dd69100f4de9698481816104312562529788503b19bd59acb5922946f096484|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7d759a2bfb584a7ab312eed6774ef4f5abb394a5fe97663fa355920ebfaa49bb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3da753812279c8689388067de5150b8bca3762e761e8893abe8dc7dff1c18179|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|69f74b373149785977d1869101da5ef12a58c89c8f5613bc5ba70fccdf7c76aa|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9861853d5b192134396e9adb58b7a529dd579b8974f30f1becf106062d4a54af|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f3dbf52904d439e89b56a2e17aa0c17f49de10067b521e12ae68bd00bedcfc95|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b1183db5055838edc08c2fb399417b6ee70794b15d874bd997159a010e28e7cf|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|461f8ec0e58a315b50cb3fe5722e59c801916fb661632afc4c9f87fcf2d5eb5f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d8ebf6aea1b1524307844b30b842b1d966a81d3a4bc9a8c37613f6c567afaa64|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0038ce0ee9f0448ca7a676a748453a70c8d2782d835e43f6581dd5146a560d38|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|881e0efce11b0054461aeb1de50d28f04f495b0b88ff2eafe17ff40af2f4f495|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|efabd98af716a5c87e79b545ae9893a54960a80985ac48f99354b9853c4d2cce|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|19623422d5f14dc310a6bca83fe30b52f5bdc20d97cd8cbc9f3bc1304e3bed6b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4654c2c80912a15e931ae15b72af7efdf61e24e94edc77c81940532375dea2a6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1aaed202f4bf7afb1a0c3bb558ec1d19d357ba9567fdaf9c1b08d282cdf501a4|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|019e09ecff46950af53c744546fea5fb3153843572a5c7d39a42424e10621001|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dffdfddef098f1ecd77a4a875eea23a52ca7a8b7d0bd739a35af2ac070d59255|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d0aa835245383ca2507be66720f83694fccfefc99c28b9bb2943ce82ab9e41fb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4746739c52ba9855d649f6105708ba018ac5f4f380e93380d82ff880d6cb4746|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a0ddf9d80de68856b6bf4f3a15ee392392cf61992a39b6f8370a1cf155d779e8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7f0cdcfd5e6bd54dca650a6dd0ff648f23774f424104db8527dca4ed6f3b51c8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ba5dc182d1e43c560123818f3e99fa6e231060fb9cfc7ecc5f558605a8a8529c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|264e77668f7817acec826846ecfa3cf7665753df49ec3b04ce91c2f0ccac6e54|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|155a26ea929c709481b472b73588b936b434ece6570d1a97411df4b38670ae46|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|bc1c1f4ff2a37e8a0779cc3567add9ab2953593e438c9ce2acaa3273fe8a65ea|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b676bf2a8c90bcf1d595abb58fca9470d87ac3aa13a755f5daad581758485789|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2b8e517536a3e033963dd1556516f77bfb7847f6048ba32f23a8d69feb0c87d6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b458f9a3b52626db97a3b941a4418cb515e7061e1f6a924475d2a6d4ee9777db|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9b8cebbffb2b25c3b39d5286a8357a1dbbc55789643f8c801afdb7fddd208e12|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8afc4dcda235d839c803905023ae156f67560bc5a666e397452d45b49504ef24|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|841ce69b36b5e9656949a372f252f809f42e371d5fb0c0777bc6b885192410c7|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f283e425ae78a8af7f457590d40edc37e1eebc5a111006d7e29b0445d04dbca4|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|107582f7c25b4f36e41c3c04041a5c40eff7402b09a56a74bba7dca3474a2725|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|588acbdfa8fe6b28d8f947338c1e18aac005c9471783ad4ab69ced3aa903bf3c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|de9545b64d3706b25414364d41725634c464ffb0c5c88dcb1bc8a98c0ca56ccd|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|24525757c8d542d373666b53aa1a111ce88ecce9d2ed3042e451ff2e22e89b43|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c5206fc2cd2c06a828614e496f75d92f93a5101e8d01d18f57d39c668e97ea53|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d09e892be7ee59322d1dc16d59bd4d527aa20eab1af82c3ef0fe06d5f345e2fd|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ce59644399f6622d31df4e56e229ed80397d4df30f411ae83289f73881f1873f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7e8890f72aaf70b56d1d4d07b90db05104fdc15647620bdd700d7e643187c578|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d9f288fd905bc9f004a7a2dfae345ca30f5c2622d3f6015b3fa6c2422a6edf0e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e24cc670f4163e8fb5c066ab52f66affe8c25182908fa840f7e5d42ed8677b63|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5475f38bb5b1aba8ca8aa54a87d0cd93c6b06bc4a2a878a6abc9175a8293aa1b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|297ce34b2d04afb22248dfdf348d6faa8383981667da5ad31d08afc94641c259|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|be09905d96047a24c4a0ecf099b1d2f8269e2aeed25f03cd7217bae8e036e24a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d6a01f2adcbf52326ae1b5077bd52718f6693057ad7967a47c68ff7d8eb36448|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|bdfb72ec4af89f977ead36ff65fc06f9ae56985ec7e8c96da9c6bbb62c332608|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2cdf2729f83b3a6652b8e514593b5686fe810b5db30b9dafa437f8012383d597|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4afe57b18388ab0b64fb292855f5695be8c0f8cb4d69c98e8e8cfee50b624a5b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4cf37daa44a2f68932036b50adaef2bd11463c263781345068bfa94f37262797|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0ec1bbad14d795bb9ccc4d564f5e4d621bff5ae0791fa83a28bb4395ca3c4d0b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|a506b9e539d6447822d22c430914a6461a72733800dfc8cb287d3c4444602570|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|52eedb6049e316afccde8e396377907d28469094c41ec4516f02c0f373ccea52|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f5f52bdd46d64b82341c10dae1e20a9e7032da90d36695217d63886e044a9596|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dbea3905f3ac607bb5542dc751b44e63be306aaff6767ef350cf918c045a7017|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|876cbf4370091a2ef59e2ea910e44cabe18a815ae50629041125033078118b6e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5e6b3bb562d9d8207b9da4b718dfb07df453cf2dbc7b2d71d3b7824fa98c79ff|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ac7ab71c3e05d37ba873bcb4660ad7c2a8f5f1d8c485830b0cfe1a5b181b5cec|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d4cbd88bd62210b0b84049579ec58491ee3162ad5e792be1dfaba8f4f8c0c5dc|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c60168e14a876e175f32abeefa398dd3a91e8aff72e44ecebcc48c736b433c7f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9814a91b8cebd8dd1ecc84aeb0e8803a10db0e96290f8d56b2f45631a160792a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5df3df4eaca63ef6e4f09dbfdd7af2eaa1277db846e883aab72fbe664f82ea7c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|291baba464ba7d8f49fbeda379b8e3fa7fad70abb2e37f77d70dece79da08ad0|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7d544e48b5f6a229b1f937c2be0baef173362623eb2b012c5304db219ba2126b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8683c60041360a3bdd1b37068b8c66afcaef92ecfb459594740365994cf07faa|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1ea9d5bc46cf99449a05bcdf897668c7d99c316d3bb1610857957e2667f42695|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|1c7399a02e39b652970e94bccbc75a1f33eaaadf574134ae189c4dbf62116606|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ee0c568628fe08308745049523c15354e07d7d220f4b622515068bec83dd0ffe|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2477590c925fa66a7fb00d301a09fab01e881ddadfe46b280795108f2722837e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|814ab3771b8bae0feab1d8fd2c136a46eed9d5252d458c12615b5f7575fac4c8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|bb659b64f062ecd85271de55be8d996befccffc5ab0c3907b02673d0bf425bf4|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d2d1d6ec5f8fdc3b032257a35914a5f9b2ab43720c6ae345ce7b4fef41d01608|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|27fa657b62125f09539559822fa027becdd8ddecc4fc7e93ab54c14047639710|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|dd6a10ffbc40dab93ebb084a91c039c352b5841b8cbc33cf323c333fd7c7eae5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|caa79d273b77813d8131c5135a28bed74ccdbeba8b2c1e6089a2671e28f84acd|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ad260c75795989b6e9c08dc43318afc712321050c04744f6df0e6fe276c8e9ec|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|7b2b8ef2bc4d405cd725bed17b7f5226425618fe380091499ccbb2262e2a9f24|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|d33a9a71683557b6cdf1a1c1831b0ce794f2bfbcc1288a5af73ac319358a5ba0|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|71e8ed764a7593d50ab1cee21ccc40841909aceeec3ebc58e9040ebadb2a560e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|12a85fa6002caac52a55b54ef628af64b15a99155326d750441daef47e641829|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|280c1defd680e6c38a972e5389568e0e0e534751a1f3055af665c4e730bae425|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c066a7a81d3433dc11fedbc86579f829d07a2a177eb0b1454599fd5c0f10a9b5|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|589c8a8c602f21decf1c84e100c2a0f4d1e9381dd3bc57e7bef117f69f503538|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b14fffb9f19be08e7ea4cd5adea0c6ac389ddf21e55461c785fc14427e6de6f9|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ddc6af47568ff34426d8a4bed36131b46e8510ba22d6bb90c392ca395b67aec8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4aa099ba06bc6492e9541d913b69721af844e8d25e3e1b3a885c176a1af6c111|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|4ab42e82676ef91901ea864cb0ae87bd71decb3a9e8c5110148ab32987538b64|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|c06fcc5fda9a31c75714a5f27649e460bc34508cfdeebd2295f248ada5e489b8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|057a50ebfac0361306c17524665e38e1dcde830090fa73cd4f4ee4b395c97f04|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e8f1e164971f9f8ccc7018607bc653fc973be5f374badaf35e3f103c9a7dcb5c|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|0f4e186ef051ea1a9cdf2df3fdd0656e6366f5fa5ea63282eb4599c1f5877fc2|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f2e344bcf32c1623a03f5c2073af14ef2846806b472dd54d59fde426e0291336|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|72bba6717ff4d3e05d0be129d9e00bb8b28d0c2580e9fb97eca6e08cc9a24b9b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|57e174dea2e41e0717cafea22104ab11d3d7e1fea0afb2724c9f10563217f5c1|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|124260dd8de970ef3f4694e1cb39b78eb7e6c8d5b9b7a03b46815e506f219c16|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b3daa48b65cfd82230c5cf9a1ea9699fa4f5025bcf0b2d952ebc4ad93c8c1338|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|e7106d041245e3ed090521e5a34f0167134d0a1506a1db11fc910584202fc0b6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|f1f62694f78d64095d5f5a659199d72a9a7a6b683c3d8d8e0e92b2c32e03da41|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8c3653850681c34e55355b02918c9f17a307beea2d14259cc7408bdb97047f0f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|eb2c8c1dfecc7e08e77e733314867e6a82462ca2a7d4c8022659870c42218445|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|11380b419fd557fd7d33af50bb281354ef9f14d6c3951d408fe2a9bb77ea162e|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|95a4010f3f517586e227d8477b091deea65baebc563cbe6c1754d4df934a8e4b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6e204e36bf649f71f8990ddca9a3775988c63a4c9177438de7101aff02fbd2b0|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ca295540546dff6c656ac6764e6bd17b0f170a56c256d7f2496af41c912f1e2a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8dcdea37695ae6110cf46afa2fc35b61019e8e4dbeb2754563ce991137609712|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2077a851c78c3b4ccd58c852c556cfaabb0b4a17d2e5f74d8f7ac89ceb6d7976|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.php.Highlights.|7cd8eb3b3c02414d0b415ff25261a94bde51f1d05bf8ecb2b67320a55cb11a75|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|93e5e0dc654a8b535ecfb7ca1e096a8d5492af39eb38a576ff68e9e36f99c991|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b9cd73c1162c4e12816ea513fdb43eefbbe8e37b701ff234c38beedbfc73d15a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|ffb213b90004f3f596615267f40cbea899cfbcfb1df802bae9f37e3b4788aee7|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5d674cda7722ffa1d6232d622616ace9972ebe27c958584709d6ed604655cb47|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|5d1144c5e7871ecc8cd9740dfdf084dd88e947e1fcacceb3917fcef301de3f3a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|44927baed883e59f67587a3e8fe7f0d7585f7331467f8ec6fa54bff9b4edc21b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|97d91e25d51cda85c1a3d747647404d3e93a7b6e1ef821512bc4f04d33c49ffb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|75630f4ac018ade99e2871482fea917a5e36461b016cd27e4f199ff1077f9846|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|3ac839b0d36c95c9f1c9d8e04e48cd60b495985c5449f53472a59fb51565e703|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|9725611f70e00cc0cbdde1b298a7bd1275af9438bd343e081b4a16c82cab7922|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|8c0830778bf60f634f76c99fb12ea1ede263497af9d57897952cfb147adb7af3|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|369b400e78350233d815ba3fcb89e83adac7ebc3da67aa57908d5be14dc4cc95|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6506d08d096103516fd64a5d99ee01c45bdf8907f52bc0ceb889989dc46b8e79|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|73d9787690266170b68355ee8a96df6fa9bf0a18482a3e9c8929eefa7d62120b|region.redish markup.error.sublime_linter|32",
+								"SL.php.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.php.Highlights.|8f4e74cba25b386c6994a32068080000941bcc314590a75d6b60c186fe85bd13|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|aa4c4e280a33e75af53501ede8b3c409159ed884455840a9e7e9c2a48d5f2b0d|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|11395c54072b57996fdf25453f2c7ae73c51f6b62b8b824a6b6cac6b4fb3110a|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|2c6d341a4455e7aac57be8377f69a60b6cca13b5117864510963b23db08b8fd6|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|6d7a72e572fb3d32351a3d96909848728738a52e8724ecaa2d9d293d403391e8|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|cd85e0cfd5279fd41f641d660bf5305e2b48ca7257fbe370b83cb1a65cea8beb|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|fe7dd1387af75f4e287726236a2c5229fab5edd7cb8ae82c30bf4a188e994b96|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|46bebf26ecb0695fbab1a80e285918acd5b357648e604bbcbc757adc86187fcf|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|737f2a2370ea866167f86622de002e6efacc7ecddca9affc9baa3347a58f6733|region.redish markup.error.sublime_linter|32"
+							],
 							"SL.66.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -3003,18 +3542,117 @@
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 280.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 36,
+					"file": "resources/views/web/especialidad.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1304,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1070,
+								1070
+							]
+						],
+						"settings":
+						{
+							"SL.177.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 122.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 37,
+					"file": "/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/admin/ProductController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1501,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								624,
+								624
+							]
+						],
+						"settings":
+						{
+							"SL.108.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\app-shop",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 63.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 24,
+					"type": "text"
+				},
+				{
+					"buffer": 38,
+					"file": "/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/SearchController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								160
+							]
+						],
+						"settings":
+						{
+							"SL.109.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\app-shop",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 33,
+					"buffer": 39,
 					"file": "resources/views/web/acerca.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3032,6 +3670,9 @@
 						],
 						"settings":
 						{
+							"SL.51.region_keys":
+							[
+							],
 							"SL.82.region_keys":
 							[
 							],
@@ -3045,11 +3686,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 34,
+					"buffer": 40,
 					"file": "/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/index.html",
 					"semi_transient": false,
 					"settings":
@@ -3061,8 +3702,8 @@
 						"selection":
 						[
 							[
-								150983,
-								150356
+								22589,
+								22589
 							]
 						],
 						"settings":
@@ -3076,6 +3717,9 @@
 							"SL.48.region_keys":
 							[
 							],
+							"SL.52.region_keys":
+							[
+							],
 							"SL.61.region_keys":
 							[
 							],
@@ -3085,14 +3729,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 69451.0,
+						"translation.y": 791.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 35,
+					"buffer": 41,
 					"file": "database/seeds/OptionsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -3122,11 +3766,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
-					"buffer": 36,
+					"buffer": 42,
 					"file": "database/seeds/DoctorsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -3161,11 +3805,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
-					"buffer": 37,
+					"buffer": 43,
 					"file": "database/migrations/2018_11_25_173905_create_prescriptions_table.php",
 					"semi_transient": false,
 					"settings":
@@ -3202,11 +3846,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
-					"buffer": 38,
+					"buffer": 44,
 					"file": "database/seeds/SpecialitiesTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -3246,11 +3890,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
-					"buffer": 39,
+					"buffer": 45,
 					"file": "database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -3287,11 +3931,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
-					"buffer": 40,
+					"buffer": 46,
 					"file": "resources/views/hospital/doctor/indexDoctors.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3303,8 +3947,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								496,
+								496
 							]
 						],
 						"settings":
@@ -3319,42 +3963,7 @@
 							"SL.54.region_keys":
 							[
 							],
-							"auto_complete": false,
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 41,
-					"file": "resources/views/includes/dataTables.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"SL.202.region_keys":
-							[
-							],
-							"SL.42.region_keys":
+							"SL.58.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -3367,24 +3976,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 42,
+					"buffer": 47,
 					"file": "resources/views/web/includes/doctor-card.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1303,
+						"buffer_size": 1299,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								910,
-								910
+								1079,
+								1079
 							]
 						],
 						"settings":
@@ -3398,6 +4007,9 @@
 							"SL.56.region_keys":
 							[
 							],
+							"SL.60.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
@@ -3409,11 +4021,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 43,
+					"buffer": 48,
 					"file": "resources/views/layouts/header.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3446,11 +4058,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
-					"buffer": 44,
+					"buffer": 49,
 					"file": "public/splash/vendor/datatables/datatables.css",
 					"semi_transient": false,
 					"settings":
@@ -3475,11 +4087,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
-					"buffer": 45,
+					"buffer": 50,
 					"file": "resources/views/hospital/appointment/createAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3539,11 +4151,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
-					"buffer": 46,
+					"buffer": 51,
 					"file": "app/Http/Controllers/AppointmentController.php",
 					"semi_transient": false,
 					"settings":
@@ -3579,11 +4191,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
-					"buffer": 47,
+					"buffer": 52,
 					"file": "resources/views/hospital/appointment/showAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3595,13 +4207,16 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								2492,
+								2492
 							]
 						],
 						"settings":
 						{
 							"SL.218.region_keys":
+							[
+							],
+							"SL.60.region_keys":
 							[
 							],
 							"SL.61.region_keys":
@@ -3613,14 +4228,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 280.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 48,
+					"buffer": 53,
 					"file": "resources/views/hospital/appointment/indexAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3651,11 +4266,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
-					"buffer": 49,
+					"buffer": 54,
 					"file": "database/factories/AppointmentFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -3691,11 +4306,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
-					"buffer": 50,
+					"buffer": 55,
 					"file": "database/seeds/AppointmentsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -3728,24 +4343,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
-					"buffer": 51,
+					"buffer": 56,
 					"file": "public/js/scripts.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7901,
+						"buffer_size": 10666,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								9068,
+								9068
 							]
 						],
 						"settings":
@@ -3759,20 +4374,23 @@
 							"SL.65.region_keys":
 							[
 							],
+							"SL.69.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 10978.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 52,
+					"buffer": 57,
 					"file": "vendor/laravel/framework/src/Illuminate/Redis/Events/CommandExecuted.php",
 					"semi_transient": false,
 					"settings":
@@ -3802,11 +4420,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
-					"buffer": 53,
+					"buffer": 58,
 					"file": "vendor/symfony/routing/Tests/Fixtures/namespaceprefix.xml",
 					"semi_transient": false,
 					"settings":
@@ -3833,11 +4451,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
-					"buffer": 54,
+					"buffer": 59,
 					"file": "resources/views/includes/messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3867,11 +4485,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
-					"buffer": 55,
+					"buffer": 60,
 					"file": "resources/views/hospital/doctor/showDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3908,11 +4526,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
-					"buffer": 56,
+					"buffer": 61,
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
@@ -3937,11 +4555,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
-					"buffer": 57,
+					"buffer": 62,
 					"file": "resources/views/web/doctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3978,11 +4596,11 @@
 						"translation.y": 3.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
-					"buffer": 58,
+					"buffer": 63,
 					"file": "resources/views/web/consultorio.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4013,24 +4631,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
-					"buffer": 59,
+					"buffer": 64,
 					"file": "resources/views/web/doctores.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 454,
+						"buffer_size": 1478,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1069,
+								1069
 							]
 						],
 						"settings":
@@ -4041,6 +4659,9 @@
 							"SL.51.region_keys":
 							[
 							],
+							"SL.77.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
@@ -4049,14 +4670,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 294.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 60,
+					"buffer": 65,
 					"file": "/C/Users/DELL/Desktop/lentes.csv",
 					"semi_transient": false,
 					"settings":
@@ -4080,11 +4701,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
-					"buffer": 61,
+					"buffer": 66,
 					"file": "resources/views/hospital/patient/indexPatients.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4114,11 +4735,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
-					"buffer": 62,
+					"buffer": 67,
 					"file": "app/Patient.php",
 					"semi_transient": false,
 					"settings":
@@ -4151,11 +4772,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
-					"buffer": 63,
+					"buffer": 68,
 					"file": "app/Office.php",
 					"semi_transient": false,
 					"settings":
@@ -4187,11 +4808,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
-					"buffer": 64,
+					"buffer": 69,
 					"file": "app/Http/Controllers/PatientController.php",
 					"semi_transient": false,
 					"settings":
@@ -4221,24 +4842,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
-					"buffer": 65,
+					"buffer": 70,
 					"file": "app/Http/Controllers/DoctorController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3451,
+						"buffer_size": 3466,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3038,
+								3038
 							]
 						],
 						"settings":
@@ -4268,6 +4889,14 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.83.region_keys":
+							[
+								"SL.php.Highlights.|6267f1c268dd03be5e8c41f8532032da40e1c8587ee61981b3c5f4ee28781f66|region.redish markup.error.sublime_linter|32",
+								"SL.php.Highlights.|b4009d1a0d82dd4d1968701d0ec6c9dfee9b581f097eb9cd412e67135f248e7f|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.php.Highlights.|89df2df83677ed1b5cdd1c31da182c65eccb9eaa81943833e74d804a05e0562f|region.redish markup.error.sublime_linter|32",
+								"SL.php.Gutter.|region.redish markup.error.sublime_linter|dot"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -4275,14 +4904,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1703.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 66,
+					"buffer": 71,
 					"file": "resources/views/hospital/Speciality/indexSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4317,24 +4946,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
-					"buffer": 67,
+					"buffer": 72,
 					"file": "resources/views/hospital/Speciality/showSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4061,
+						"buffer_size": 4060,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								80,
+								80
 							]
 						],
 						"settings":
@@ -4348,6 +4977,9 @@
 							"SL.80.region_keys":
 							[
 							],
+							"SL.85.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
@@ -4359,29 +4991,32 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 68,
+					"buffer": 73,
 					"file": "public/css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17060,
+						"buffer_size": 17871,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								17019,
-								17019
+								12171,
+								12171
 							]
 						],
 						"settings":
 						{
 							"SL.59.region_keys":
+							[
+							],
+							"SL.86.region_keys":
 							[
 							],
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
@@ -4390,14 +5025,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 23918.0,
+						"translation.y": 17019.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 69,
+					"buffer": 74,
 					"file": "resources/views/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4409,13 +5044,16 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								473,
+								476
 							]
 						],
 						"settings":
 						{
 							"SL.142.region_keys":
+							[
+							],
+							"SL.87.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -4427,11 +5065,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
-					"buffer": 70,
+					"buffer": 75,
 					"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4463,11 +5101,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
-					"buffer": 71,
+					"buffer": 76,
 					"file": "/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/assets/css/material-kit.css",
 					"semi_transient": false,
 					"settings":
@@ -4493,11 +5131,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
-					"buffer": 72,
+					"buffer": 77,
 					"file": "resources/views/layouts/nav-admin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4531,11 +5169,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
-					"buffer": 73,
+					"buffer": 78,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4569,11 +5207,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
-					"buffer": 74,
+					"buffer": 79,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4604,11 +5242,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
-					"buffer": 75,
+					"buffer": 80,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -4633,16 +5271,57 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
-					"buffer": 76,
+					"buffer": 81,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9221,
+						"buffer_size": 9179,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8383,
+								8383
+							]
+						],
+						"settings":
+						{
+							"SL.111.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.63.region_keys":
+							[
+							],
+							"SL.94.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5460.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 82,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -4655,28 +5334,138 @@
 						],
 						"settings":
 						{
-							"SL.111.region_keys":
-							[
-								"sublime_linter.protected_regions"
-							],
-							"SL.63.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"default_dir": "C:\\xampp\\htdocs\\laravel\\hospital\\resources\\views\\hospital\\doctor",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 77,
+					"buffer": 83,
+					"file": "/C/Users/DELL/Desktop/archivo 2.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 594,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 84,
+					"file": "/C/Users/DELL/Desktop/a12.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								128,
+								128
+							]
+						],
+						"settings":
+						{
+							"auto_name": "compra mantenimiento puertas personas clase",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 85,
+					"file": "/C/xampp/htdocs/almacenes/dashboard/index.view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1257,
+								1257
+							]
+						],
+						"settings":
+						{
+							"SL.110.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 712.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 86,
+					"file": "/C/xampp/htdocs/almacenes/dashboard/css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1304,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								264,
+								264
+							]
+						],
+						"settings":
+						{
+							"SL.109.region_keys":
+							[
+							],
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 87,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4697,6 +5486,9 @@
 							"SL.124.region_keys":
 							[
 							],
+							"SL.95.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -4707,11 +5499,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 78,
+					"buffer": 88,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
@@ -4743,11 +5535,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
-					"buffer": 79,
+					"buffer": 89,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
@@ -4779,11 +5571,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
-					"buffer": 80,
+					"buffer": 90,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4812,11 +5604,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
-					"buffer": 81,
+					"buffer": 91,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4847,11 +5639,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
-					"buffer": 82,
+					"buffer": 92,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -4881,28 +5673,32 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
-					"buffer": 83,
+					"buffer": 93,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 824,
+						"buffer_size": 1008,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								868,
+								868
 							]
 						],
 						"settings":
 						{
+							"SL.101.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.34.region_keys":
 							[
 							],
@@ -4924,14 +5720,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 403.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 84,
+					"buffer": 94,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -4973,11 +5769,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
-					"buffer": 85,
+					"buffer": 95,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -5007,7 +5803,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 70,
 					"type": "text"
 				}
 			]
@@ -5074,8 +5870,116 @@
 		"selected_items":
 		[
 			[
+				"db.php",
+				"C:\\xampp\\htdocs\\almacenes\\dashboard\\db.php"
+			],
+			[
+				"",
+				"C:\\xampp\\htdocs\\almacenes\\dashboard\\index.view.php"
+			],
+			[
+				"index.view",
+				"C:\\xampp\\htdocs\\almacenes\\dashboard\\index.view.php"
+			],
+			[
+				"editD",
+				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
+			],
+			[
+				"doctorContr",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"editDo",
+				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
+			],
+			[
+				"DOCTORcONTRO",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"webCon",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"especialidad",
+				"resources\\views\\web\\especialidad.blade.php"
+			],
+			[
+				"doctores.",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"web.bla",
+				"resources\\views\\layouts\\web.blade.php"
+			],
+			[
+				"especial",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
 				"especialidades",
 				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"webC",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"doctor-card",
+				"resources\\views\\web\\includes\\doctor-card.blade.php"
+			],
+			[
+				"index.html",
+				"C:\\Users\\DELL\\Documents\\CUCEI\\5to\\Progra\\phonegap\\invernadero\\www\\index.html"
+			],
+			[
+				"web",
+				"routes\\web.php"
+			],
+			[
+				"scripts",
+				"public\\js\\scripts.js"
+			],
+			[
+				"style",
+				"public\\css\\style.css"
+			],
+			[
+				"WEB",
+				"routes\\web.php"
+			],
+			[
+				"speciality.blade",
+				"resources\\views\\hospital\\Speciality\\showSpeciality.blade.php"
+			],
+			[
+				"welcome",
+				"resources\\views\\welcome.blade.php"
+			],
+			[
+				"showA",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"scrip",
+				"public\\js\\scripts.js"
+			],
+			[
+				"home.bl",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"homeC",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"homeControll",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"homeCon",
+				"app\\Http\\Controllers\\HomeController.php"
 			],
 			[
 				"showDp",
@@ -5086,20 +5990,12 @@
 				"resources\\views\\hospital\\office\\showOffice.blade.php"
 			],
 			[
-				"",
-				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
-			],
-			[
 				"doctorB",
 				"resources\\views\\web\\doctor.blade.php"
 			],
 			[
 				"showD",
 				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
-			],
-			[
-				"doctor-card",
-				"resources\\views\\web\\includes\\doctor-card.blade.php"
 			],
 			[
 				"doctor.bla",
@@ -5130,10 +6026,6 @@
 				"resources\\views\\web\\especialidades.blade.php"
 			],
 			[
-				"style",
-				"public\\css\\style.css"
-			],
-			[
 				"index",
 				"C:\\Users\\DELL\\Documents\\Desarrollo\\material-kit-pro-html-v2.1.1\\material-kit-pro-html-v2.1.1\\index.html"
 			],
@@ -5162,16 +6054,8 @@
 				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
 			],
 			[
-				"scripts",
-				"public\\js\\scripts.js"
-			],
-			[
 				"indeXS",
 				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"showA",
-				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
 			],
 			[
 				"Special",
@@ -5184,10 +6068,6 @@
 			[
 				"AppointmentCon",
 				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"web",
-				"routes\\web.php"
 			],
 			[
 				"AppointmenTable",
@@ -5278,10 +6158,6 @@
 				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
 			],
 			[
-				"editD",
-				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
 				"welco",
 				"resources\\views\\welcome.blade.php"
 			],
@@ -5354,20 +6230,12 @@
 				"public\\css\\style.css"
 			],
 			[
-				"editDo",
-				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
 				"s",
 				"public\\js\\scripts.js"
 			],
 			[
 				"editaP",
 				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
-			],
-			[
-				"scrip",
-				"public\\js\\scripts.js"
 			],
 			[
 				"consultorio",
@@ -5380,10 +6248,6 @@
 			[
 				"showO",
 				"resources\\views\\hospital\\office\\showOffice.blade.php"
-			],
-			[
-				"webC",
-				"app\\Http\\Controllers\\WebController.php"
 			],
 			[
 				"web.",
@@ -5402,10 +6266,6 @@
 				"resources\\views\\web\\consultorios.blade.php"
 			],
 			[
-				"index.html",
-				"C:\\Users\\DELL\\Documents\\Desarrollo\\material-kit-pro-html-v2.1.1\\material-kit-pro-html-v2.1.1\\index.html"
-			],
-			[
 				"doctores",
 				"resources\\views\\web\\doctores.blade.php"
 			],
@@ -5419,10 +6279,6 @@
 			],
 			[
 				"web.blade",
-				"resources\\views\\layouts\\web.blade.php"
-			],
-			[
-				"web.bla",
 				"resources\\views\\layouts\\web.blade.php"
 			],
 			[
@@ -5440,10 +6296,6 @@
 			[
 				"webContr",
 				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"especialidad",
-				"resources\\views\\web\\especialidad.blade.php"
 			],
 			[
 				"inde",
@@ -5528,62 +6380,6 @@
 			[
 				"IndexSp",
 				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"IndexD",
-				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
-			],
-			[
-				"show",
-				"resources\\views\\hospital\\office\\showOffice.blade.php"
-			],
-			[
-				"showDo",
-				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
-			],
-			[
-				"showPa",
-				"resources\\views\\hospital\\patient\\showPatient.blade.php"
-			],
-			[
-				"datatables",
-				"resources\\views\\includes\\dataTables.blade.php"
-			],
-			[
-				"showDoctor",
-				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
-			],
-			[
-				"IndexDoc",
-				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
-			],
-			[
-				"admin",
-				"resources\\views\\layouts\\nav-admin.blade.php"
-			],
-			[
-				"IndexS",
-				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"Spec",
-				"app\\Http\\Controllers\\SpecialityController.php"
-			],
-			[
-				"specia",
-				"app\\Http\\Controllers\\SpecialityController.php"
-			],
-			[
-				"nav-admi",
-				"resources\\views\\layouts\\nav-admin.blade.php"
-			],
-			[
-				"DoctorConr",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"OfficeF",
-				"database\\factories\\OfficeFactory.php"
 			]
 		],
 		"width": 0.0
@@ -5614,7 +6410,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 362.0,
+	"side_bar_width": 154.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
