@@ -20,7 +20,7 @@ class Doctor extends Model
     	return $this->hasMany('App\Patient');
     }
 
-    //Relación N:N con consultorios
+    //Relación 1:N con consultorios
     public function office() {
     	return $this->belongsTo('App\Office');
     }

@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class  Conditions extends Model
 {
     
-    public function Status($id)
+    public static function Status($id)
     {
 
     	return Condition::all()->where('id',$id)->first()->status;
     }
 
-    public function Id($status)
+    public static function Id($status)
     {
 
     	return Condition::all()->where('status',$status)->first()->id;

@@ -6,7 +6,7 @@
 
 
 
-<div class="container mb-5">
+<div class="container mb-5 appointmentAjax">
 	<div class="row justify-content-center">
 
 		<div class="col-12 ">
@@ -25,36 +25,11 @@
 				<div class="card-body">
 					
 					{!! Form::open(['action' => 'AppointmentController@store', 'method' => 'POST']) !!}
+           <input type="hidden" name="_token" value="{{ csrf_token()}}">
+          
 
-					<div class="form-group form-inline align-items-end">
-
-						<div class="icon-form">
-							<i class="fal fa-calendar-week"></i>
-						</div>
-
-						<div class="form-group">
-							
-							<label class="bmd-label-floating">Fecha</label>
-							
-							{{Form::date('date', '', ['class'=>'form-control datepicker'] )}}
-
-						</div>
-					</div>
-
-					<div class="form-group form-inline align-items-end">
-						<div class="icon-form">
-							<i class="fal fa-clock"></i>
-						</div>
-
-						<div class="form-group">
-							
-
-							<label class="bmd-label-floating">Hora</label>
-
-							{{Form::time('time', '', ['class'=>'form-control timepicker timepickerCita'] )}}
-						</div>
-					</div>
-			
+            <input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
+    
 
 					<div class="form-group form-inline align-items-end">
 						<div class="icon-form">
@@ -79,7 +54,9 @@
 						<div class="form-group">
 							
 							<select class="select2" name="patient_dni" id="patient_dni" data-style="select-with-transition" title="Selecciona un paciente" data-size="sd7">
-								<optgroup label="Selecciona un paciente">
+
+								<option>Selecciona un paciente</option>
+								<optgroup label="O prueba buscando su nombre">
 
 									<?php foreach ($patients as $patient ): ?>
 										
@@ -107,10 +84,12 @@
 						<div class="form-group "  >
 							
 							<select class="select2 btn-AgregarPrecioCita" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7" >
-								<optgroup label="Selecciona un doctor">
+										<option>Selecciona un medico</option>
+								<optgroup label="Doctores separados por clinica">
 
 									@foreach($offices as $office)
 									<optgroup label="Clinica {{$office->name}}">
+
 
 										<?php foreach ($office->doctors as $doctor ): ?>
 											
@@ -128,7 +107,36 @@
 
 					</div>
 
-							{{Form::hidden('cost', '', ['class'=>'form-control','id'=>'PrecioCita'] )}}
+					<div class="form-group form-inline align-items-end">
+
+						<div class="icon-form">
+							<i class="fal fa-calendar-week"></i>
+						</div>
+
+						<div class="form-group">
+							
+							<label class="bmd-label-floating">Fecha</label>
+							
+							{{Form::date('date', '', ['class'=>'form-control datepicker'] )}}
+
+						</div>
+					</div>
+
+					<div class="form-group form-inline align-items-end">
+						<div class="icon-form">
+							<i class="fal fa-clock"></i>
+						</div>
+
+						<div class="form-group groupTimepickerCita">
+							
+
+							<label class="bmd-label-floating">Hora</label>
+
+							{{Form::time('time', '', ['class'=>'form-control timepickerCita','readonly'=>'true'] )}}
+						</div>
+					</div>
+			
+
 
 
 					<div class="my-3">

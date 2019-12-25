@@ -22,7 +22,7 @@
           
 
             <input type="hidden" name="url" value="{{url('/visitante/search-citas')}}">
-            <input type="text" name="search" class="form-control" placeholder="Agrega tu nombre"  value="<?php if( isset($search)){if(strlen($search)>0){echo $search;}}?>">
+            <input type="text" name="search" class="form-control" placeholder="Agrega tu DNI"  value="<?php if( isset($search)){if(strlen($search)>0){echo $search;}}?>">
 
             <button  class="btn btn-doctores-ajax float-right btn-just-icon"><i class="fas fa-search"></i></button>
           </div>

@@ -55,14 +55,6 @@ if (document.getElementsByClassName('timepicker'))
 	})
 
 
-	$('.timepickerCita').pickatime({
-		min: [9,0],
-		max: [16-4,0],
-		clear: 'Quitar Hora',
-		interval: 30,
-		format: 'H:i'
-	})
-
 
 
 	$('.timepickerEntrada').on('change',function()

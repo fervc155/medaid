@@ -127,6 +127,7 @@
 
 	<script src="{{ asset('js/scripts.js') }}"></script>
 	<script src="{{ asset('js/AJAX.js') }}"></script>
+	<script src="{{ asset('js/appointments/appointments.js') }}"></script>
 	<script src="{{ asset('js/web.js') }}"></script>
 	
 	

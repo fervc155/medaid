@@ -5,7 +5,7 @@
 
 
 
-<div class="container mb-5">
+<div class="container mb-5 appointmentAjax">
   <div class="row justify-content-center">
 
     <div class="col-12 ">
@@ -23,50 +23,12 @@
 
         <div class="card-body">
           {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}
+           <input type="hidden" name="_token" value="{{ csrf_token()}}">
+          
 
-          <div class="form-group form-inline align-items-end">
-
-            <div class="icon-form">
-              <i class="fal fa-calendar-week"></i>
-            </div>
-
-            <div class="form-group">
-
-              <label class="bmd-label-floating">Fecha</label>
-
-              {{Form::date('date', $appointment->date, ['class'=>'form-control datepicker'] )}}
-
-            </div>
-          </div>
-
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-clock"></i>
-            </div>
-
-            <div class="form-group">
-
-
-              <label class="bmd-label-floating">Hora</label>
-
-              {{Form::time('time', $appointment->time, ['class'=>'form-control timepicker'] )}}
-            </div>
-          </div>
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-money-bill-wave"></i>
-            </div>
-
-
-            <div class="form-group">
-
-              <label class="bmd-label-floating">Precio</label>
-
-              {{Form::number('cost', $appointment->cost, ['class'=>'form-control'] )}}
-            </div>          
-          </div>
-
-          <div class="form-group form-inline align-items-end">
+            <input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
+    
+            <div class="form-group form-inline align-items-end">
             <div class="icon-form">
               <i class="fal fa-quote-left"></i>
             </div>
@@ -79,7 +41,7 @@
             </div>
           </div>
 
-
+        
           <div class="form-group form-inline align-items-end">
             <div class="icon-form">
               <i class="fal fa-user-injured"></i>
@@ -124,7 +86,7 @@
                     <?php foreach ($office->doctors as $doctor ): ?>
                       
                       
-                      <option value="{{ $doctor->id}}" <?php if($appointment->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }}</option>
+                      <option value="{{ $doctor->id}}" <?php if($appointment->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }} - {{$doctor->speciality->name}}</option>
                       
                     <?php endforeach ?>
                   </optgroup>
@@ -135,9 +97,59 @@
               
             </div>
 
+
+
+
+          <div class="form-group form-inline align-items-end">
+
+            <div class="icon-form">
+              <i class="fal fa-calendar-week"></i>
+            </div>
+
+            <div class="form-group">
+
+              <label class="bmd-label-floating">Fecha</label>
+
+              {{Form::date('date', $appointment->date, ['class'=>'form-control datepicker'] )}}
+
+            </div>
           </div>
 
 
+
+            <input type="hidden" name="my-time" value="{{$appointment->time}}">
+
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-clock"></i>
+            </div>
+
+            <div class="form-group groupTimepickerCita">
+
+
+              <label class="bmd-label-floating">Hora</label>
+
+              {{Form::time('time', $appointment->time, ['class'=>'form-control  timepickerCita','readonly'=>'true','id'=>'select-time'] )}}
+            </div>
+          <span class="appointment-reestablecer-hora btn-link btn" >Reestablecer hora</span>
+          </div>
+
+
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-money-bill-wave"></i>
+            </div>
+
+
+            <div class="form-group">
+
+              <label class="bmd-label-floating">Precio</label>
+
+              {{Form::number('cost', $appointment->cost, ['class'=>'form-control'] )}}
+            </div>          
+          </div>
+
+    
           <div class="form-group form-inline align-items-end">
            <div class="icon-form">
             <i class="fal fa-quote-left"></i>
@@ -177,7 +189,7 @@
       {{ Form::hidden('_method','PUT')}}
 
       <div class="text-center">
-        <button type="submit" class="btn btn-primary "><i class="fal fa-plus"> Agregar</i></button>
+        <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
       </div>
     </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 
 use App\Appointment;
+use App\Conditions;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Office;
@@ -207,6 +208,81 @@ class ApiController extends Controller
 
 
 		return json_encode($calculateArray);
+
+
+
+	}
+
+
+
+	/*====================================
+	=            Appointmnent            =
+	====================================*/
+	
+	
+
+
+	
+	/*=====  End of Appointmnent  ======*/
+	
+	public function AppointmentGetTime(Request $request )
+	{
+
+	
+		$id= $request->input('doctor');
+$date= $request->input('date');
+
+		$doctor= Doctor::find($id);
+
+
+		$appointments = Appointment::where('doctor_id',$id)->where('date',$date)
+		//->where('condition_id',Conditions::Id('pending'))->orWhere('condition_id',Conditions::Id('accepted'))
+		->get();
+
+
+
+
+
+
+		$hours = array();
+
+		foreach ($appointments as $appointment) 
+		{
+
+			$time = $appointment->time[0].$appointment->time[1].":"
+			//$minute =
+			.$appointment->time[3].$appointment->time[4];
+
+			
+			if($appointment->condition_id==Conditions::Id('pending'))
+			{
+			array_push($hours,$time);
+
+			}
+			else if($appointment->condition_id==Conditions::Id('accepted'))
+			{
+
+			array_push($hours,$time);
+			}
+
+			
+		}
+
+
+
+
+
+
+			$calculateArray=array(
+				'inTime'=>$doctor->inTime,
+				'outTime'=>$doctor->outTime,
+				'hours'=>$hours, 
+			);
+
+		
+
+		return json_encode($calculateArray);
+
 
 
 

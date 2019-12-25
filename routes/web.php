@@ -126,6 +126,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('appointment/lost/{appointment}', 'AppointmentController@lost');
 
 
+//api
+
+
+    Route::post('api/appointment/gettime','API\\ApiController@AppointmentGetTime');
+
+
     Route::resource('appointment', 'AppointmentController');
 
 });
