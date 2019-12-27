@@ -149,18 +149,6 @@
             </div>          
           </div>
 
-    
-          <div class="form-group form-inline align-items-end">
-           <div class="icon-form">
-            <i class="fal fa-quote-left"></i>
-          </div>
-
-          <div class="form-group">
-            <label  class="bmd-label-floating">Comentarios</label>
-          {{Form::text('comments', $appointment->comments, ['class'=>'form-control'] )}}
-          </div>
-        </div>
-
         <div class="form-group form-inline align-items-end">
          <div class="icon-form">
           <i class="fal fa-check"></i>

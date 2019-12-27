@@ -33,6 +33,10 @@
 						</thead>
 						<tbody>
 						@foreach ($_appointments->today as $appointment)
+
+							@if($appointment->status=='pending' || $appointment->status=='accepted')
+
+
 							<tr>
 								<td>{{$appointment->time}}</td>
 								<td>{{$appointment->description}}</td>
@@ -40,6 +44,7 @@
 								<td>{{$appointment->condition->status}}</td>
 								<td><a class="link" href="{{url('/patient/'.$appointment->patient->dni)}}">{{$appointment->patient->name}} </a></td>
 							</tr>
+							@endif
 							@endforeach
 						</tbody>
 						</table>

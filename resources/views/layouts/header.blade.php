@@ -52,6 +52,11 @@
 
 	<!--  SELECT2 -->
 	<link href="{{asset('splash/vendor/select2/css/select2.min.css')}}" rel='stylesheet' />
+		<!--  QUILLS EDITOR  -->
+
+	<link href="{{asset('splash/vendor/quills/css/quill.snow.css')}}" rel='stylesheet' />
+	<link href="{{asset('splash/vendor/quills/css/quill.bubble.css')}}" rel='stylesheet' />
+
 
 
 
@@ -121,6 +126,14 @@
 	<!--  DATA TABLES-->
 
 	<script src="{{asset('splash/vendor/datatables/datatables.js')}}"></script>
+
+
+	<!--  QUILLS EDITOR  -->
+
+
+	<script src="{{asset('splash/vendor/quills/js/quill.min.js')}}"></script>
+
+
 	<!-- SCRIPTS -->
 
 	<?php echo 	'<script type="text/javascript">let _URL = "'.url('').'"</script>'?>
@@ -128,6 +141,7 @@
 	<script src="{{ asset('js/scripts.js') }}"></script>
 	<script src="{{ asset('js/AJAX.js') }}"></script>
 	<script src="{{ asset('js/appointments/appointments.js') }}"></script>
+	<script src="{{ asset('js/appointments/appointment_comment.js') }}"></script>
 	<script src="{{ asset('js/web.js') }}"></script>
 	
 	

@@ -7,25 +7,11 @@ $(document).ready(function() {
 
 
 
-var Fecha = new Date();
-
-if (document.getElementsByClassName('datepicker'))
-{
-
-	$('.datepicker').pickadate({
-		today: 'Hoy',
-		clear: 'Limpiar',
-		close: 'Cerrar',
-		format: 'yyyy-mm-dd',
-		selectMonths: true,
-		min: new Date(Fecha.getFullYear(),  Fecha.getMonth(),Fecha.getDate() ),
-
-		max: new Date( Fecha.getFullYear()+1,  Fecha.getMonth(),Fecha.getDate() )
-	});
-}
 
 if (document.getElementsByClassName('datepicker2'))
 {
+		var Fecha = new Date();
+
 
 
 	$('.datepicker2').pickadate({

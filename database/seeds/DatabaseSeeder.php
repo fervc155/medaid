@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ConditionsTableSeeder::class);
         $this->call(AppointmentsTableSeeder::class);
 
+        $this->call(Appointment_commentSeeder::class);
+
     }
 }

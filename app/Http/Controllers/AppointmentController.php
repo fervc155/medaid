@@ -70,6 +70,13 @@ class AppointmentController extends Controller
     //Actualizar cita
  public function edit(Appointment $appointment)
  {
+
+    if($appointment->condition_id!=Conditions::Id('pending'))
+    {
+
+        return back()->with('error','Solo se pueden editar las citas pendientes');
+    }
+    
     $patients = Patient::all();
     $offices= Office::all();
     $conditions = Condition::all();

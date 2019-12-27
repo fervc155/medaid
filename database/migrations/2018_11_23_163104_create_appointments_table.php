@@ -21,14 +21,17 @@ class CreateAppointmentsTable extends Migration
             $table->text('description');
 
             $table->integer('stars')->unsigned()->nullable();
-            $table->text('comments')->nullable();
-
+  
             $table->integer('condition_id')->unsigned()->default(1);
             $table->foreign('condition_id')->references('id')->on('conditions');
             $table->integer('doctor_id')->unsigned();
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->integer('patient_dni')->unsigned();
             $table->foreign('patient_dni')->references('dni')->on('patients');
+
+
+                        $table->timestamps();
+
         });
     }
 

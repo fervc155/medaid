@@ -54,26 +54,9 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($appointments as $a)
-              <tr>
-                <td>{{ $a->date }}</td>
-                <td>{{ $a->time }}</td>
-                <td>{{ $a->price }}</td>
-                <td>{{ $a->description }}</td>
-                <td><a class="link" href="{{url('/doctor/'.$a->doctor->id)}}">{{ $a->doctor->name }} </a></td>
-                <td><a class="link" href="{{url('/patient/'.$a->patient->dni)}}">{{ $a->patient->name }} </a></td>
-                <td><a class="link" href="{{url('/office/'.$a->doctor->office->id)}}">{{ $a->doctor->office->name }} </a></td>
-                <td>
-                  {{$a->status}}
-                </td>
-                <td><a href="{{url('/appointment/'.$a->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
-                  <a href="{{url('/appointment/'.$a->id.'/edit')}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
+            
+                @include('hospital.includes.loopAppointment-desktop')
 
-
-
-                </td>
-              </tr>
-              @endforeach
 
             </tbody>
           </table>
@@ -85,106 +68,8 @@
       </div>
     </div>
     <div class="col-12 d-block d-md-none">
-      @foreach ($appointments as $appointment)
-      <div class="card  my-5">
-
-        <div class="card-encabezado">
-
-          <div class="card-cabecera-icono bg-info sombra-2 ">
-            <i class="fal fa-calendar-check"></i>
-          </div>
-          <div class="card-title">{{ $appointment->patient->name}}</div>
-        </div>
-        <div class="card-body">
-
-
-
-          <div class="form-inline mb-2">
-
-
-            <div class="icon-form">
-
-              <i class="fal fa-calendar-week"></i> 
-            </div>  
-            <div class="icon-texto">
-              <span class="color-principal">Fecha: </span> {{ $appointment->date }}
-            </div>
-          </div>
-
-          <div class="form-inline mb-2">
-            <div class="icon-form">
-              <i class="fal fa-clock"></i>
-            </div>
-
-            <div class="icon-texto">
-
-              <span class="color-principal">Hora: </span> {{ $appointment->time }}
-            </div>
-    </div>
-
-
-          <div class="form-inline mb-2">
-            <div class="icon-form">
-              <i class="fal fa-money-bill-wave"></i>
-            </div>
-
-            <div class="icon-texto">
-
-              <span class="color-principal">Costo: </span>$ {{ $appointment->price }}
-            </div>
-
-          </div>
-
-
-          <div class="form-inline mb-2">
-            <div class="icon-form">
-              <i class="fal fa-user-md"></i>
-            </div>
-
-            <div class="icon-texto">
-
-              <a href="/doctor/{{$appointment->doctor->id}}" class="link"><span class="color-principal">Doctor: </span> {{ $appointment->doctor->name }}</a>
-            </div>
-
-          </div>
-
-
-          <div class="form-inline mb-3">
-            <div class="icon-form">
-              <i class="fal fa-hospital"></i>
-            </div>
-
-            <div class="icon-texto">
-
-              <a href="/office/{{$appointment->doctor->office->id}}" class="link"><span class="color-principal">Consultorio: </span> {{ $appointment->doctor->office->name }}</a>
-            </div>
-
-          </div>
-
-          <div class="form-inline mb-3">
-            <div class="icon-form">
-              <i class="fal fa-question"></i>
-
-            </div>
-            <div class="icon-texto">
-              <span class="color-principal">Status:</span> {{$a->status}}
-
-
-            </div>
-          </div>
-
-          <div class="text-center">
-
-            <a href="{{url('/appointment/'.$a->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
-            <a href="{{url('/appointment/'.$a->id.'/edit')}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
-
-          </div>  
-        </div>
-
-      </div>
-
-      @endforeach
-
+                @include('hospital.includes.loopAppointment-movil')
+      
     </div>
 
   </div>

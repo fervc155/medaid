@@ -134,6 +134,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('appointment', 'AppointmentController');
 
+    /*----------  comments  ----------*/
+    
+
+    Route::post('/appointment/comment/register','Appointment_commentController@register');
+    Route::post('/appointment/comment/delete','Appointment_commentController@destroy');
 });
 
 //Página de inicio
