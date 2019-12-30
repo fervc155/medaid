@@ -71,10 +71,10 @@ class Doctor extends Model
     {
 
         //if not have Img profile
-         $option =Option::all()->where('name','user-default')->first();
+        
 
 
-       return 'splash/img/'.$option->value;
+       return 'splash/img/'.Options::UserDefault();
     }
        public function getStarsEarnedAttribute()
    {

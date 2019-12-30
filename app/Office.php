@@ -40,9 +40,8 @@ class Office extends Model
             return 'splash/img/office/'. $this->image;
         }
 
-         $option =Option::all()->where('name','user-default')->first();
+       return 'splash/img/'.Options::UserDefault();
 
-       return 'splash/img/'.$option->value;
     }
  
  }

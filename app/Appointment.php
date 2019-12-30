@@ -50,6 +50,7 @@ class Appointment extends Model
 
 
 
+
     public function getpriceAttribute()
     {
         $options = new Options();
@@ -103,15 +104,17 @@ class Appointment extends Model
 
 
 /*=============================================
-SET GLOBAL event_scheduler = OFF;
-CREATE EVENT  update_appointment_condition_id
-ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
-DO
-update horas set status=3  where date = DATE_FORMAT(NOW(),"%Y-%m-%d") and hora < CURRENT_TIME();
+SET GLOBAL event_scheduler = ON;
+CREATE EVENT `update_appointment_pending_lost` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-29 00:00:00.000000' ENDS '2029-12-29 00:00:00.000000' ON COMPLETION PRESERVE ENABLE DO
+
+update appointments set condition_id=7  where date <= DATE_FORMAT(NOW(),"%Y-%m-%d") and hora < CURRENT_TIME() and condition_id=1;
+
+
+CREATE EVENT `update_appointment_accepted_lost` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-29 00:00:00.000000' ENDS '2029-12-29 00:00:00.000000' ON COMPLETION PRESERVE ENABLE DO
+
+update appointments set condition_id=7  where date <= DATE_FORMAT(NOW(),"%Y-%m-%d") and hora < CURRENT_TIME() and condition_id=2;
 
 
 
-
-22:00 22:01
 
  ======*/

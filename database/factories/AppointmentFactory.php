@@ -13,7 +13,7 @@ $factory->define(App\Appointment::class, function (Faker $faker) {
         'condition_id' =>  $faker->numberBetween(1,7),
 
         'doctor_id'=> $faker->numberBetween(1,20),
-        'patient_dni'=>$faker->numberBetween(1,50)
+        'patient_dni'=>$faker->numberBetween(1,20)
 
     ];
 });

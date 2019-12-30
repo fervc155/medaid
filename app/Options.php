@@ -9,17 +9,17 @@ use App\Doctor;
 
 class Options 
 {
-	public function Moneda()
+	public static function Moneda()
     {
     	return Option::All()->where('name','moneda')->first()->value;
     }
 
-    public Function UserDefault()
+    public static Function UserDefault()
     {
     	return Option::All()->where('name','user-default')->first()->value;
     }
 
-    public Function Idioma()
+    public static Function Idioma()
     {
     	return Option::All()->where('name','idioma')->first()->value;
     }

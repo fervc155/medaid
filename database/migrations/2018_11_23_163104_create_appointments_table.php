@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAppointmentsTable extends Migration
 {
@@ -33,6 +34,14 @@ class CreateAppointmentsTable extends Migration
                         $table->timestamps();
 
         });
+
+
+/*        DB::statement("SET GLOBAL event_scheduler = ON;");
+
+        DB::statement("CREATE EVENT `update_appointment_pending_lost` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-29 00:00:00.000000' ENDS '2029-12-29 00:00:00.000000' ON COMPLETION PRESERVE ENABLE DO update appointments set condition_id=7  where date <= DATE_FORMAT(NOW(),'%Y-%m-%d') and hora < CURRENT_TIME() and condition_id=1;");
+
+        DB::statement("CREATE EVENT `update_appointment_accepted_lost` ON SCHEDULE EVERY 1 MINUTE STARTS '2019-12-29 00:00:00.000000' ENDS '2029-12-29 00:00:00.000000' ON COMPLETION PRESERVE ENABLE DO update appointments set condition_id=7  where date <= DATE_FORMAT(NOW(),'%Y-%m-%d') and hora < CURRENT_TIME() and condition_id=2;");
+*/
     }
 
     /**

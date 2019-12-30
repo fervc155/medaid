@@ -216,7 +216,7 @@
         <div class=" row ">
 
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 ">
 
             <div class="card caja-contador">
 
@@ -232,7 +232,7 @@
 
           </div>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 ">
 
             <div class="card caja-contador">
               <span class="caja-contador-icono"><i class="fal fa-user-injured"></i></span>
@@ -244,7 +244,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-6  ">
+          <div class="col-12   ">
 
             <div class="card caja-contador">
               <span class="caja-contador-icono">
@@ -260,7 +260,7 @@
             </div>
           </div>
 
-          <div class="col-12 col-md-6  ">
+          <div class="col-12   ">
 
             <div class="card caja-contador ">
               <span class="caja-contador-icono">
@@ -302,7 +302,7 @@
           </div>
           <div class="card-body ">
 
-            <form action="{{url('/appointment/comment/register')}}" method="post">
+            <form action="{{url('/appointment/comment/register')}}" method="post" id="appointment-comment-form">
 
               <input type="hidden" name="_token" value="{{ csrf_token()}}">
               
@@ -321,6 +321,9 @@
 
 
               <button type="submit" class="btn btn-primary float-right btn-round">Enviar</button>
+
+
+              <!-- <span id="submit-comment" class="btn btn-primary float-right btn-round">ajax Enviar</span> -->
             </form>
 
           </div>

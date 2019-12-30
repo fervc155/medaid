@@ -1,14 +1,14 @@
-var quill = new Quill('#editor-container', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['image',]
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'  // or 'bubble'
-});
+// var quill = new Quill('#editor-container', {
+//   modules: {
+//     toolbar: [
+//       [{ header: [1, 2, false] }],
+//       ['bold', 'italic', 'underline'],
+//       ['image',]
+//     ]
+//   },
+//   placeholder: 'Compose an epic...',
+//   theme: 'snow'  // or 'bubble'
+// });
 
 
 
@@ -42,3 +42,23 @@ $(".btn-confirm-delete-comment").click(function(){
 	});
 
 });
+
+
+
+// var acform = document.querySelector('#appointment-comment-form');
+
+
+// $('#submit-comment').click(  function() {
+
+// 	alert('yes');
+//   // Populate hidden form on submit
+  
+//   console.log("Submitted", $(acform).serialize(), $(acform).serializeArray());
+
+  
+  
+//   // No back end to actually submit to!
+//   alert('Open the console to see the submit data!')
+//   return false;
+// }
+// );

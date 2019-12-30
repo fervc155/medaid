@@ -39,10 +39,7 @@ class Patient extends Model
 
   public function getProfileimgAttribute()
     {
-         $option =Option::all()->where('name','user-default')->first();
+        return 'splash/img/'.Options::UserDefault();
 
-
-       return 'splash/img/'.$option->value;
-    }
-
+}
 }

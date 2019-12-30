@@ -11,7 +11,7 @@ class Appointment_commentSeeder extends Seeder
      */
         public function run()
     {
-        factory(App\Appointment_comment::class, 2000)->create();
+        factory(App\Appointment_comment::class, 200)->create();
     }
 
 }
