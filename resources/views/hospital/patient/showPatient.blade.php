@@ -143,7 +143,10 @@
 
 
 					</div>  
-					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="/patient/{{$patient->dni}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/patient/'.$patient->dni.'/edit')}}"> <i class="fal fa-pen"></i> Editar</a>
+
+
+					@if(Auth::Doctor())
 
 					<a role="button" class="btn btn-round btn-danger text-light mt-3 btn-confirm-delete" id="patient-{{$patient->dni}}"> <i class="fal fa-trash"></i> Eliminar</a>
 
@@ -152,6 +155,8 @@
 					{{ Form::hidden('_method', 'DELETE') }}
 					{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete','id'=>'patient-'.$patient->dni]) }}
 					{!! Form::close() !!}
+
+					@endif
 
 				</div>
 
@@ -220,7 +225,6 @@
 		</div>
 	</div>
 
-
 	@if(count($appointments) < 1)
 	<div class="container p-5 sin-datos">
 		<div class="row">
@@ -237,6 +241,7 @@
   @include('hospital.includes.tableAppointment')
 
 @endif
+
 
 
 

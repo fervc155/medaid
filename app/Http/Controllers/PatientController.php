@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Patient;
 use App\Doctor;
+use App\Office;
 use App\Options;
-
+use App\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -67,19 +68,44 @@ class PatientController extends Controller
     }
 
     //Información de paciente
-    public function show(Patient $patient)
+    public function show($id)
     {
+
+
+        $patient = Patient::find($id);
+
+        if(Auth::isPatient())
+        {
+
+            if (Auth::user()->id_user!=$id)
+            {
+                return view('admin');
+            }
+        }
+
+
         return view('hospital.patient.showPatient', compact('patient'))
         ->with('doctor', $patient->doctor)
         ->with('appointments', $patient->appointments);
     }
 
     //Editar paciente
-    public function edit(Patient $patient)
+    public function edit($id)
     {
 
-        $doctors = Doctor::All();
-        return view('hospital.patient.editPatient', compact('patient','doctors'));
+        $patient = Patient::find($id);
+
+        if(Auth::isPatient())
+        {
+
+            if (Auth::user()->id_user!=$id)
+            {
+                return view('admin');
+            }
+        }        
+
+        $offices = Office::All();
+        return view('hospital.patient.editPatient', compact('patient','offices'));
     }
 
     //Método update

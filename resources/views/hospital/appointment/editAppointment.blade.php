@@ -41,6 +41,18 @@
             </div>
           </div>
 
+
+
+          @if(Auth::isPatient())
+
+          <input type="hidden" name="patient_dni" id="patient_dni" value="{{Auth::UserId()}}">
+
+      
+        @endif
+
+          @if(Auth::Doctor())
+
+
         
           <div class="form-group form-inline align-items-end">
             <div class="icon-form">
@@ -64,6 +76,8 @@
 
             </div>
           </div>
+
+          @endif
 
 
 

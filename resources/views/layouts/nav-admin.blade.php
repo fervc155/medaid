@@ -22,18 +22,32 @@
 
 					<li class="nav-item <?php if($active=='home'){ echo 'active';}?>"><a href="{{url('/home')}}" class="nav-link"><i class="fal fa-chart-pie"></i> Escritorio</a></li>
 
+
+					@if(Auth::Patient())
+
 					<li class="card-collapse nav-item <?php if($active=='doctor'){ echo 'active';}?>">
 						<a class="nav-link" data-toggle="collapse" href="#collapseDoctor" aria-expanded="true" aria-controls="collapseDoctor"><i class="fal fa-user-md"></i> Doctores
 						</a>
 						<div id="collapseDoctor" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
 							<ul class="elementos pb-1">
 								<li class="nav-item <?php if($active=='money'){ echo 'active';}?>"><a href="{{url('/doctor')}}" class="nav-link"><i class="fal  fa-users"></i> Todos</a></li>
-								<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/doctor/create')}}" class="nav-link"><i class="fal fa-user-plus"></i> Agregar nuevo</a></li>
+								
 
+
+								@if(Auth::Office())				
+				
+								<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/doctor/create')}}" class="nav-link"><i class="fal fa-user-plus"></i> Agregar nuevo</a></li>
+								
+								@endif
 
 							</ul>
 						</div>
 					</li>
+
+					@endif
+
+										@admin
+
 
 
 					<li class="card-collapse nav-item <?php if($active=='patient'){ echo 'active';}?>">
@@ -49,18 +63,31 @@
 						</div>
 					</li>
 
+					@endadmin
+
+
+					@if(Auth::Patient())
+
 					<li class="card-collapse nav-item <?php if($active=='office'){ echo 'active';}?>">
 						<a class="nav-link" data-toggle="collapse" href="#collapseHospital" aria-expanded="true" aria-controls="collapseHospital"><i class="fal fa-hospital"></i> Consultorios</a>
 
 						<div id="collapseHospital" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
 							<ul class="elementos pb-1">
 								<li class="nav-item <?php if($active=='money'){ echo 'active';}?>"><a href="{{url('/office')}}" class="nav-link"><i class="fal  fa-hospitals"></i> Todos</a></li>
+
+								@admin
 								<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/office/create')}}" class="nav-link"><i class="fal fa-clinic-medical"></i> Agregar nuevo</a></li>
+
+								@endadmin
 
 
 							</ul>
 						</div>
 					</li>
+
+					@endif
+
+					@if(Auth::Patient())
 
 					<li class="card-collapse nav-item <?php if($active=='appointment'){ echo 'active';}?>">
 						<a class="nav-link" data-toggle="collapse" href="#collapseAppointment" aria-expanded="true" aria-controls="collapseAppointment"><i class="fal fa-calendar-check"></i> Citas</a>
@@ -83,15 +110,31 @@
 
 
 
+					@endif
 
+					@admin
 
 
 					<li class="nav-item <?php if($active=='chat'){ echo 'active';}?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
+					@endadmin
+
+					@admin
 					<li class="nav-item <?php if($active=='speciality'){ echo 'active';}?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
+					@endadmin
+
+
+					@admin	
 
 					<li class="nav-item <?php if($active=='user'){ echo 'active';}?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>
+					@endadmin
+
+					@admin
 					<li class="nav-item <?php if($active=='bills'){ echo 'active';}?>"><a href="{{url('/bills')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
+
+					@endadmin
+					@admin
 					<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/options')}}" class="nav-link"><i class="fal fa-cogs"></i> Opciones</a></li>
+					@endadmin
 
 
 				</ul>
@@ -133,11 +176,16 @@
 								<div class="profile-photo-small rounded-circle">
 
 
-									<img src="{{ asset(Auth::user()->Profileimg)}}" alt="Circle Image" class="img-heigth">
+
+									<img src="{{ asset(Auth::user()->Profileimg)}}" alt="Circle Image" class="img-height">
+
+
+
 								</div>
 							</a>
+
 							<div class="dropdown-menu dropdown-menu-right">
-								<a href="#pablo" class="dropdown-item">Perfil</a>
+								<a href="{{url(Auth::user()->ProfileUrl)}}" class="dropdown-item">{{Auth::user()->Name}}</a>
 								<a class="dropdown-item" href="{{ route('logout') }}" onclick="esperar(); event.preventDefault(); document.getElementById('logout-form').submit();">
 									<i class="fas icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
 								</a>

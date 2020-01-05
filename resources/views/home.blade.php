@@ -32,7 +32,7 @@
 							</tr>
 						</thead>
 						<tbody>
-						@foreach ($_appointments->today as $appointment)
+						@foreach ($_appointmentsToday as $appointment)
 
 							@if($appointment->status=='pending' || $appointment->status=='accepted')
 
@@ -56,6 +56,8 @@
 			</div>
 
 		</div>
+
+		@if(Auth::Doctor())
 		<div class="col-12 col-md-6">
 			<div class="card">
 
@@ -83,7 +85,7 @@
 							</tr>
 						</thead>
 						<tbody>
-						@foreach ($_appointments->pending as $pending)
+						@foreach ($_appointmentsPending as $pending)
 							<tr>
 								<td>{{$pending->date}}</td>
 								<td>{{$pending->time}}</td>
@@ -114,6 +116,11 @@
 		</div>
 	</div>
 
+
+	@endif
+
+	@if(Auth::Doctor())
+
 		<div class="col-12 col-md-6">
 			<div class="card">
 
@@ -134,7 +141,9 @@
 			
 		</div>
 	</div>
+@endif
 
+@if(Auth::Doctor())
 				<div class="col-12 col-md-6">
 			<div class="card">
 
@@ -177,6 +186,8 @@
 			</div>
 
 		</div>
+
+		@endif
 	</div>
 </div>
 

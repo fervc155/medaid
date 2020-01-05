@@ -139,6 +139,8 @@
 	<?php echo 	'<script type="text/javascript">let _URL = "'.url('').'"</script>'?>
 
 	<script src="{{ asset('js/scripts.js') }}"></script>
+	<script src="{{ asset('js/calendar.js') }}"></script>
+	
 	<script src="{{ asset('js/datatables.js') }}"></script>
 
 	<script src="{{ asset('js/AJAX-visitantes.js') }}"></script>

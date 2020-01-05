@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AdminUsersTable extends Migration
+class CreateUserPrivilegesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AdminUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('is_admin')->after('name')->default(0);
+        Schema::create('user_privileges', function (Blueprint $table) {
+             $table->increments('id');
+            $table->text('user');
         });
     }
 
@@ -25,8 +26,6 @@ class AdminUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin');
-        });
+        Schema::dropIfExists('user_privileges');
     }
 }

@@ -125,9 +125,10 @@
 
             @if($appointment->status=='pending')
             
-
+              @if(Auth::Patient())
 
             <a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/appointment/'.$appointment->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+            @endif
 
             @endif
 
@@ -136,60 +137,80 @@
 
             @if($appointment->condition->status =='pending')
 
-
-            {!! Form::open(['action' => ['AppointmentController@rejected', $appointment->id], 'method' => 'PATCH']) !!}
-            {{ Form::hidden('_method', 'PATCH') }}
-            {{ Form::submit('Rechazar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
-            {!! Form::close() !!}
+              @if(Auth::Patient())
 
 
 
 
+              {!! Form::open(['action' => ['AppointmentController@rejected', $appointment->id], 'method' => 'PATCH']) !!}
+              {{ Form::hidden('_method', 'PATCH') }}
+              {{ Form::submit('Rechazar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
+              {!! Form::close() !!}
 
-            {!! Form::open(['action' => ['AppointmentController@accepted', $appointment->id], 'method' => 'PATCH']) !!}
-            {{ Form::hidden('_method', 'PATCH') }}
-            {{ Form::submit('Aceptar', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
-            {!! Form::close() !!}
+              @endif
+
+
+
+
+              @if(Auth::Doctor())
+
+                {!! Form::open(['action' => ['AppointmentController@accepted', $appointment->id], 'method' => 'PATCH']) !!}
+                {{ Form::hidden('_method', 'PATCH') }}
+                {{ Form::submit('Aceptar', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
+                {!! Form::close() !!}
+              @endif
 
             @endif
 
 
             @if($appointment->condition->status =='accepted')
+              @if(Auth::Patient())
+
+
+              {!! Form::open(['action' => ['AppointmentController@cancelled', $appointment->id], 'method' => 'PATCH']) !!}
+              {{ Form::hidden('_method', 'PATCH') }}
+              {{ Form::submit('Cancelar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
+              {!! Form::close() !!}
+              @endif
+
+              @if(Auth::Doctor())
 
 
 
-            {!! Form::open(['action' => ['AppointmentController@cancelled', $appointment->id], 'method' => 'PATCH']) !!}
-            {{ Form::hidden('_method', 'PATCH') }}
-            {{ Form::submit('Cancelar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
-            {!! Form::close() !!}
+                {!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
+                {{ Form::hidden('_method', 'PATCH') }}
+                {{ Form::submit('Atender', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
+                {!! Form::close() !!}
 
-
-            {!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
-            {{ Form::hidden('_method', 'PATCH') }}
-            {{ Form::submit('Atender', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
-            {!! Form::close() !!}
-
-            @endif
-
-            @if($appointment->condition->status =='lost')
-
-
-            @if($appointment->IsToday)
-
-            
-
-            @if($appointment->CanUpdateLate)
-
-
-            {!! Form::open(['action' => ['AppointmentController@late', $appointment->id], 'method' => 'PATCH']) !!}
-            {{ Form::hidden('_method', 'PATCH') }}
-            {{ Form::submit('Aceptar con retraso', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
-            {!! Form::close() !!}
-
+              @endif
 
             @endif
 
-            @endif
+
+
+            @if(Auth::Doctor())
+
+
+              @if($appointment->condition->status =='lost')
+
+
+                @if($appointment->IsToday)
+
+                  
+
+                  @if($appointment->CanUpdateLate)
+
+
+                    {!! Form::open(['action' => ['AppointmentController@late', $appointment->id], 'method' => 'PATCH']) !!}
+                    {{ Form::hidden('_method', 'PATCH') }}
+                    {{ Form::submit('Aceptar con retraso', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
+                    {!! Form::close() !!}
+
+
+                  @endif
+
+                @endif
+              @endif
 
 
             @endif

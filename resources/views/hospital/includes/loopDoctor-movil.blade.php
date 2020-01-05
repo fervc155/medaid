@@ -77,6 +77,9 @@
           </div>  
           <div class="text-center">
             <a href="{{url('/doctor/'.$doctor->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
+
+
+            @if(Auth::Doctor())
             <a href="{{url('/doctor/'.$doctor->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
             <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="doctor-{{$doctor->id}}"> <i class="fas fa-times"></i></button>
@@ -85,6 +88,8 @@
             {{ Form::hidden('_method', 'DELETE') }}
             {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ', 'id'=>'doctor-'.$doctor->id]) }}
             {!! Form::close() !!}
+
+            @endif
 
 
           </div>

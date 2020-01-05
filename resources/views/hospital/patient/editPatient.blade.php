@@ -24,7 +24,7 @@
             @csrf
 
             <div class="form-group form-inline align-items-end align-items-end">
-              <div class="icon-form"
+              <div class="icon-form">
                 <i class="fal fa-at"></i>
               </div>
               <div class="form-group">
@@ -91,7 +91,7 @@
 
             <i class="fal fa-user-md"></i>
           </div>
-          <div class="card-title">Datos del médico</div>
+          <div class="card-title">Datos del paciente</div>
         </div>
         <div class="card-body">
 
@@ -207,27 +207,38 @@
           {{Form::text('country', $patient->country, ['class'=>'form-control'] )}}
         </div>
       </div>
-      <div class="form-group form-inline align-items-end">
-        <div class="icon-form">
-          <i class="fal fa-id-card"></i>
-        </div>
-
-            <div class="form-group">
-              
-                  <select class="select2" name="doctor_id" id="doctor_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
-
-                    <?php foreach ($doctors as $doctor ): ?>
-                      
-                    <option value="{{ $doctor->id}}" <?php if($patient->doctor_id==$doctor->id){echo "selected";} ?>>{{ $doctor->name }}</option>
-                
-                    <?php endforeach ?>
-                  </select>
-
-      
+     
+          <div class="form-group form-inline align-items-end ">
+            <div class="icon-form">
+              <i class="fal fa-user-md"></i>
             </div>
 
-      </div>
-      
+
+            
+            <div class="form-group "  >
+              
+              <select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7" >
+                <optgroup label="Selecciona un doctor">
+
+                  @foreach($offices as $office)
+                  <optgroup label="Clinica {{$office->name}}">
+
+                    <?php foreach ($office->doctors as $doctor ): ?>
+                      
+                      
+                      <option value="{{ $doctor->id}}" <?php if($patient->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }} - {{$doctor->speciality->name}}</option>
+                      
+                    <?php endforeach ?>
+                  </optgroup>
+                  @endforeach
+                </optgroup>
+              </select>
+
+              
+            </div>
+
+
+
       <div class="my-5 text-right text-md-center">
 
         <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>

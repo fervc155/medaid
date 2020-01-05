@@ -79,6 +79,8 @@
 
 					</div>
 
+					@if(Auth::Office())
+
 					<div class="text-center">
 
 
@@ -93,6 +95,8 @@
 						{!! Form::close() !!}
 
 					</div>
+
+					@endif
 				</div>
 
 			</div>

@@ -39,7 +39,12 @@ class Patient extends Model
 
   public function getProfileimgAttribute()
     {
-        return 'splash/img/'.Options::UserDefault();
 
-}
+        $img = User::where('id_user',$this->dni)->where('id_privileges',Privileges::Id('patient'))->get()->first()->image;
+
+        if($img=='')
+            return 'splash/img/'.Options::UserDefault();
+        else
+            return 'splash/img/'.$img;
+    }
 }

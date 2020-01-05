@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"patient",
+				"patient_dni"
+			],
+			[
+				"comm-",
+				"comm-block\tComment - Block style comment"
+			],
+			[
+				"comm-s",
+				"comm-subsection\tComment - Subsection comment"
+			],
+			[
+				"User",
+				"User_privileges.php"
+			],
+			[
+				"dasb",
+				"dashboardOpened〔variable〕"
+			],
+			[
+				"das",
+				"dashboardOpened〔variable〕"
+			],
+			[
 				"contaier",
 				"container-fluid"
 			],
@@ -490,30 +514,6 @@
 			[
 				"p",
 				"padding\tproperty"
-			],
-			[
-				"tw",
-				"text-white \tBootstrap 4 Class"
-			],
-			[
-				"sca",
-				"scale()\ttransform"
-			],
-			[
-				"tras",
-				"transform\tproperty"
-			],
-			[
-				"re",
-				"relative\tposition"
-			],
-			[
-				"jcm",
-				"justify-content-md-start \tBootstrap 4 Class"
-			],
-			[
-				"wid",
-				"width\tproperty"
 			]
 		]
 	},
@@ -523,7 +523,24 @@
 			"file": "database/seeds/DatabaseSeeder.php",
 			"settings":
 			{
-				"buffer_size": 654,
+				"buffer_size": 719,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/migrations/2019_10_25_201714_create_options_table.php",
+			"settings":
+			{
+				"buffer_size": 663,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/migrations/2014_10_12_000000_create_users_table.php",
+			"settings":
+			{
+				"buffer_size": 1241,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -532,7 +549,33 @@
 			"file": "resources/views/hospital/office/showOffice.blade.php",
 			"settings":
 			{
-				"buffer_size": 6758,
+				"buffer_size": 3493,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Console/Scheduling/Schedule.php",
+			"settings":
+			{
+				"buffer_size": 5542,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Console/Kernel.php",
+			"settings":
+			{
+				"buffer_size": 865,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Console/Commands/everyMinute.php",
+			"settings":
+			{
+				"buffer_size": 1242,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -568,7 +611,7 @@
 			"file": "resources/views/hospital/patient/showPatient.blade.php",
 			"settings":
 			{
-				"buffer_size": 8399,
+				"buffer_size": 4352,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -603,7 +646,7 @@
 			"file": "app/Doctor.php",
 			"settings":
 			{
-				"buffer_size": 1809,
+				"buffer_size": 1771,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -649,9 +692,18 @@
 			"file": "database/migrations/2018_11_23_163104_create_appointments_table.php",
 			"settings":
 			{
-				"buffer_size": 1246,
+				"buffer_size": 2016,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Options.php",
+			"settings":
+			{
+				"buffer_size": 417,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -687,7 +739,7 @@
 			"file": "app/Appointment.php",
 			"settings":
 			{
-				"buffer_size": 1912,
+				"buffer_size": 2319,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -696,17 +748,9 @@
 			"file": "public/js/Appointments/appointment_comment.js",
 			"settings":
 			{
-				"buffer_size": 682,
+				"buffer_size": 1112,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "database/migrations/2019_10_25_201714_create_options_table.php",
-			"settings":
-			{
-				"buffer_size": 663,
-				"line_ending": "Unix"
 			}
 		},
 		{
@@ -731,7 +775,7 @@
 			"file": "app/Appointments.php",
 			"settings":
 			{
-				"buffer_size": 1393,
+				"buffer_size": 1462,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -826,7 +870,7 @@
 			"file": "resources/views/home.blade.php",
 			"settings":
 			{
-				"buffer_size": 4436,
+				"buffer_size": 4526,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -835,7 +879,7 @@
 			"file": "app/Http/Controllers/HomeController.php",
 			"settings":
 			{
-				"buffer_size": 645,
+				"buffer_size": 1181,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -863,7 +907,7 @@
 			"file": "resources/views/hospital/office/indexOffice.blade.php",
 			"settings":
 			{
-				"buffer_size": 5267,
+				"buffer_size": 5377,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -890,7 +934,7 @@
 			"file": "app/Http/Controllers/AppointmentController.php",
 			"settings":
 			{
-				"buffer_size": 5555,
+				"buffer_size": 7284,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -981,8 +1025,69 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 4235,
+				"buffer_size": 4905,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/admin.blade.php",
+			"settings":
+			{
+				"buffer_size": 699,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/doctor.php",
+			"settings":
+			{
+				"buffer_size": 477,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/Admin.php",
+			"settings":
+			{
+				"buffer_size": 493,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/office.php",
+			"settings":
+			{
+				"buffer_size": 472,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/patient.php",
+			"settings":
+			{
+				"buffer_size": 482,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/Authenticate.php",
+			"settings":
+			{
+				"buffer_size": 409,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/VerifyCsrfToken.php",
+			"settings":
+			{
+				"buffer_size": 463,
 				"line_ending": "Unix"
 			}
 		},
@@ -998,7 +1103,8 @@
 			"file": "database/seeds/UsersTableSeeder.php",
 			"settings":
 			{
-				"buffer_size": 385,
+				"buffer_size": 795,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -1006,7 +1112,7 @@
 			"file": "resources/views/hospital/doctor/indexDoctors.blade.php",
 			"settings":
 			{
-				"buffer_size": 4791,
+				"buffer_size": 569,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1042,7 +1148,16 @@
 			"file": "resources/views/layouts/header.blade.php",
 			"settings":
 			{
-				"buffer_size": 5825,
+				"buffer_size": 5951,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/datatables.js",
+			"settings":
+			{
+				"buffer_size": 904,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1059,7 +1174,7 @@
 			"file": "resources/views/hospital/appointment/createAppointment.blade.php",
 			"settings":
 			{
-				"buffer_size": 3731,
+				"buffer_size": 3914,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1068,7 +1183,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 4235,
+				"buffer_size": 4905,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1086,7 +1201,7 @@
 			"file": "resources/views/hospital/appointment/showAppointment.blade.php",
 			"settings":
 			{
-				"buffer_size": 9722,
+				"buffer_size": 10282,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1095,7 +1210,7 @@
 			"file": "database/seeds/Appointment_commentSeeder.php",
 			"settings":
 			{
-				"buffer_size": 273,
+				"buffer_size": 272,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1130,16 +1245,43 @@
 			"file": "resources/views/hospital/appointment/indexAppointment.blade.php",
 			"settings":
 			{
-				"buffer_size": 1863,
+				"buffer_size": 604,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/tableAppointment.blade.php",
+			"settings":
+			{
+				"buffer_size": 1378,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "resources/views/hospital/includes/loopAppointment-desktop.blade.php",
 			"settings":
 			{
-				"buffer_size": 1146,
+				"buffer_size": 1228,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/loopDoctor-desktop.blade.php",
+			"settings":
+			{
+				"buffer_size": 1342,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/loopDoctor-movil.blade.php",
+			"settings":
+			{
+				"buffer_size": 2792,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1148,7 +1290,7 @@
 			"file": "resources/views/hospital/includes/loopAppointment-movil.blade.php",
 			"settings":
 			{
-				"buffer_size": 2853,
+				"buffer_size": 2542,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1166,7 +1308,7 @@
 			"file": "database/factories/Appointment_commentFactory.php",
 			"settings":
 			{
-				"buffer_size": 238,
+				"buffer_size": 237,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1175,7 +1317,8 @@
 			"file": "database/seeds/AppointmentsTableSeeder.php",
 			"settings":
 			{
-				"buffer_size": 258,
+				"buffer_size": 257,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -1183,13 +1326,69 @@
 			"file": "public/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 7366,
+				"buffer_size": 6270,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/js/AJAX.js",
+			"file": "public/js/calendar.js",
+			"settings":
+			{
+				"buffer_size": 945,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/doctor/showDoctor.blade.php",
+			"settings":
+			{
+				"buffer_size": 5346,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nuse Illuminate\\Support\\Facades\\Schema;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Database\\Migrations\\Migration;\n\nclass CreateUsersPrivigesTable extends Migration\n{\n    /**\n     * Run the migrations.\n     *\n     * @return void\n     */\n    public function up()\n    {\n        Schema::create('users_priviges', function (Blueprint $table) {\n            $table->increments('id');\n            $table->text('user');\n\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     *\n     * @return void\n     */\n    public function down()\n    {\n        Schema::dropIfExists('users_priviges');\n    }\n}\n",
+			"file": "database/migrations/2010_01_03_234648_create_users_priviges_table.php",
+			"file_size": 613,
+			"file_write_time": 132225904490824457,
+			"settings":
+			{
+				"buffer_size": 613,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/migrations/2010_01_04_001633_create_user_privileges_table.php",
+			"settings":
+			{
+				"buffer_size": 616,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/User_privileges.php",
+			"settings":
+			{
+				"buffer_size": 253,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "database/seeds/UserPrivielegesTableSeeder.php",
+			"settings":
+			{
+				"buffer_size": 484,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/js/AJAX-visitantes.js",
 			"settings":
 			{
 				"buffer_size": 7643,
@@ -1218,15 +1417,6 @@
 			"settings":
 			{
 				"buffer_size": 473,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resources/views/hospital/doctor/showDoctor.blade.php",
-			"settings":
-			{
-				"buffer_size": 11085,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -1269,16 +1459,88 @@
 			"file": "resources/views/hospital/patient/indexPatients.blade.php",
 			"settings":
 			{
-				"buffer_size": 5828,
+				"buffer_size": 591,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/loopPatient-desktop.blade.php",
+			"settings":
+			{
+				"buffer_size": 1382,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/loopPatient-movil.blade.php",
+			"settings":
+			{
+				"buffer_size": 2991,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/tablePatient.blade.php",
+			"settings":
+			{
+				"buffer_size": 1133,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/includes/tableDoctor.blade.php",
+			"settings":
+			{
+				"buffer_size": 1101,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "app/Patient.php",
 			"settings":
 			{
-				"buffer_size": 1021,
+				"buffer_size": 952,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/User.php",
+			"settings":
+			{
+				"buffer_size": 1297,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Privileges.php",
+			"settings":
+			{
+				"buffer_size": 385,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Auth/SessionGuard.php",
+			"settings":
+			{
+				"buffer_size": 23787,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Kernel.php",
+			"settings":
+			{
+				"buffer_size": 2444,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1287,7 +1549,7 @@
 			"file": "app/Office.php",
 			"settings":
 			{
-				"buffer_size": 1001,
+				"buffer_size": 937,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1305,7 +1567,7 @@
 			"file": "app/Http/Controllers/DoctorController.php",
 			"settings":
 			{
-				"buffer_size": 3466,
+				"buffer_size": 3394,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1347,10 +1609,13 @@
 			}
 		},
 		{
+			"contents": "@extends('layouts.nav-admin')\n\n@section('content')\n\n\n\n\n<div class=\"container mb-5 appointmentAjax\">\n  <div class=\"row justify-content-center\">\n\n    <div class=\"col-12 \">\n      <div class=\"card\">\n\n        <div class=\"card-encabezado\">\n\n          <div class=\"card-cabecera-icono bg-info sombra-2 \">\n\n            <i class=\"fal fa-calendar-check\"></i>\n          </div>\n          <div class=\"card-title\">Editar cita</div>\n        </div>\n\n\n        <div class=\"card-body\">\n          {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}\n           <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token()}}\">\n          \n\n            <input type=\"hidden\" name=\"url\" value=\"{{url('/api/appointment/gettime')}}\">\n    \n            <div class=\"form-group form-inline align-items-end\">\n            <div class=\"icon-form\">\n              <i class=\"fal fa-quote-left\"></i>\n            </div>\n\n            <div class=\"form-group\">\n\n              <label class=\"bmd-label-floating\">Descripcion</label>\n\n              {{Form::text('description', $appointment->description, ['class'=>'form-control'] )}}\n            </div>\n          </div>\n\n\n\n          @if(Auth::isPatient())\n\n          <input type=\"hidden\" name=\"patient_dni\" id=\"patient_dni\" value=\"{{Auth::UserId()}}\">\n\n      \n        @endif\n\n          @if(Auth::Doctor())\n\n\n        \n          <div class=\"form-group form-inline align-items-end\">\n            <div class=\"icon-form\">\n              <i class=\"fal fa-user-injured\"></i>\n            </div>\n\n\n            <div class=\"form-group\">\n\n              <select class=\"select2\" name=\"patient_dni\" id=\"patient_dni\" data-style=\"select-with-transition\" title=\"Selecciona un paciente\" data-size=\"sd7\">\n                <optgroup label=\"Selecciona un paciente\">\n\n                <?php foreach ($patients as $patient ): ?>\n\n                  <option value=\"{{ $patient->dni}}\" <?php if($appointment->patient_dni==$patient->dni){echo \"selected\";} ?>>{{ $patient->name }}</option>\n\n                <?php endforeach ?>\n              </optgroup>\n              </select>\n\n\n            </div>\n          </div>\n\n          @endif\n\n\n\n         \n          <div class=\"form-group form-inline align-items-end \">\n            <div class=\"icon-form\">\n              <i class=\"fal fa-user-md\"></i>\n            </div>\n\n\n            \n            <div class=\"form-group \"  >\n              \n              <select class=\"select2\" name=\"doctor_id\" data-style=\"select-with-transition\" title=\"Selecciona un doctor\" data-size=\"sd7\" >\n                <optgroup label=\"Selecciona un doctor\">\n\n                  @foreach($offices as $office)\n                  <optgroup label=\"Clinica {{$office->name}}\">\n\n                    <?php foreach ($office->doctors as $doctor ): ?>\n                      \n                      \n                      <option value=\"{{ $doctor->id}}\" <?php if($appointment->doctor_id==$doctor->id){ echo \"selected\";}?>>{{ $doctor->name }} - {{$doctor->speciality->name}}</option>\n                      \n                    <?php endforeach ?>\n                  </optgroup>\n                  @endforeach\n                </optgroup>\n              </select>\n\n              \n            </div>\n\n\n\n\n          <div class=\"form-group form-inline align-items-end\">\n\n            <div class=\"icon-form\">\n              <i class=\"fal fa-calendar-week\"></i>\n            </div>\n\n            <div class=\"form-group\">\n\n              <label class=\"bmd-label-floating\">Fecha</label>\n\n              {{Form::date('date', $appointment->date, ['class'=>'form-control datepicker'] )}}\n\n            </div>\n          </div>\n\n\n\n            <input type=\"hidden\" name=\"my-time\" value=\"{{$appointment->time}}\">\n\n          <div class=\"form-group form-inline align-items-end\">\n            <div class=\"icon-form\">\n              <i class=\"fal fa-clock\"></i>\n            </div>\n\n            <div class=\"form-group groupTimepickerCita\">\n\n\n              <label class=\"bmd-label-floating\">Hora</label>\n\n              {{Form::time('time', $appointment->time, ['class'=>'form-control  timepickerCita','readonly'=>'true','id'=>'select-time'] )}}\n            </div>\n          <span class=\"appointment-reestablecer-hora btn-link btn\" >Reestablecer hora</span>\n          </div>\n\n\n          <div class=\"form-group form-inline align-items-end\">\n            <div class=\"icon-form\">\n              <i class=\"fal fa-money-bill-wave\"></i>\n            </div>\n\n\n            <div class=\"form-group\">\n\n              <label class=\"bmd-label-floating\">Precio</label>\n\n              {{Form::number('cost', $appointment->cost, ['class'=>'form-control'] )}}\n            </div>          \n          </div>\n\n        <div class=\"form-group form-inline align-items-end\">\n         <div class=\"icon-form\">\n          <i class=\"fal fa-check\"></i>\n        </div>\n\n        <div class=\"form-group\">\n                    <div class=\"form-group\">\n\n              <select class=\"select2\" name=\"condition\" id=\"condition\" data-style=\"select-with-transition\" title=\"Completada\" data-size=\"sd7\">\n                <?php foreach ($conditions as $condition): ?>\n                  \n\n\n                  <option value=\"{{$condition->id}}\" <?php if($appointment->condition_id==$condition->id){ echo \"selected\";} ?>>{{$condition->status}}</option>\n\n\n                <?php endforeach ?>\n              </select>\n\n\n            </div>\n\n        </div>\n      </div>\n\n      {{ Form::hidden('_method','PUT')}}\n\n      <div class=\"text-center\">\n        <button type=\"submit\" class=\"btn btn-primary \"><i class=\"fal fa-pen\"> Editar</i></button>\n      </div>\n    </div>\n\n\n\n  </div>\n</div>\n</div> <!-- Fila -->\n</div> <!-- Contenedor -->\n\n@endsection\n\n",
 			"file": "resources/views/hospital/appointment/editAppointment.blade.php",
+			"file_size": 5674,
+			"file_write_time": 132226635957238651,
 			"settings":
 			{
-				"buffer_size": 5467,
+				"buffer_size": 5672,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1367,8 +1632,25 @@
 			"file": "resources/views/layouts/nav-admin.blade.php",
 			"settings":
 			{
-				"buffer_size": 7296,
+				"buffer_size": 7699,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Controller.php",
+			"settings":
+			{
+				"buffer_size": 381,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
+			"settings":
+			{
+				"buffer_size": 523,
 				"line_ending": "Unix"
 			}
 		},
@@ -1471,7 +1753,7 @@
 			"file": "database/factories/DoctorFactory.php",
 			"settings":
 			{
-				"buffer_size": 1234,
+				"buffer_size": 1106,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1536,20 +1818,28 @@
 		"selected_items":
 		[
 			[
+				"reindent",
+				"ReIndent: to 2"
+			],
+			[
 				"reint",
 				"Indentation: Reindent Lines"
 			],
 			[
-				"rein",
+				"reinden",
 				"Indentation: Reindent Lines"
+			],
+			[
+				"reinten",
+				"github: set remote for integration"
 			],
 			[
 				"reinte",
 				"Indentation: Reindent Lines"
 			],
 			[
-				"reinten",
-				"github: set remote for integration"
+				"rein",
+				"Indentation: Reindent Lines"
 			],
 			[
 				"insta",
@@ -1570,14 +1860,6 @@
 			[
 				"reinde",
 				"Indentation: Reindent Lines"
-			],
-			[
-				"reindent",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"reinden",
-				"ReIndent: to 2"
 			],
 			[
 				"pack",
@@ -1707,20 +1989,28 @@
 		"/C/xampp/htdocs/laravel/hospital",
 		"/C/xampp/htdocs/laravel/hospital/app",
 		"/C/xampp/htdocs/laravel/hospital/app/Console",
+		"/C/xampp/htdocs/laravel/hospital/app/Console/Commands",
 		"/C/xampp/htdocs/laravel/hospital/app/Http",
-		"/C/xampp/htdocs/laravel/hospital/app/Notifications",
-		"/C/xampp/htdocs/laravel/hospital/database",
-		"/C/xampp/htdocs/laravel/hospital/database/factories",
-		"/C/xampp/htdocs/laravel/hospital/database/migrations",
-		"/C/xampp/htdocs/laravel/hospital/database/seeds",
+		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers",
+		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers/Auth",
+		"/C/xampp/htdocs/laravel/hospital/app/Http/Middleware",
+		"/C/xampp/htdocs/laravel/hospital/config",
 		"/C/xampp/htdocs/laravel/hospital/public",
 		"/C/xampp/htdocs/laravel/hospital/public/js",
 		"/C/xampp/htdocs/laravel/hospital/public/splash",
 		"/C/xampp/htdocs/laravel/hospital/resources",
-		"/C/xampp/htdocs/laravel/hospital/resources/views"
+		"/C/xampp/htdocs/laravel/hospital/resources/views",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/auth",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/layouts"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php",
+		"/C/xampp/htdocs/laravel/hospital/vendor/phpunit/php-file-iterator/src/Facade.php",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php",
+		"/C/Users/DELL/Desktop/redes sociales/database_scheme.sql",
 		"/C/xampp/htdocs/laravel/hospital/vendor/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php",
 		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers/AppointmentController.php",
 		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers/API/ApiController.php",
@@ -1842,13 +2132,7 @@
 		"/C/xampp/htdocs/laravel/my-thoughts/app/User.php",
 		"/C/xampp/htdocs/laravel/proyectolaravel/app/Providers/AppServiceProvider.php",
 		"/C/xampp/htdocs/AYSEL/wp-content/plugins/user-registration/includes/functions-ur-template.php",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/author.php",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/template-medicos.php",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/footer-usuario.php",
-		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/style.css",
-		"/C/xampp/htdocs/AYSEL/wp-content/plugins/user-registration/includes/functions-ur-account.php",
-		"/C/xampp/htdocs/AYSEL/wp-content/plugins/user-registration/includes/functions-ur-page.php",
-		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/front-page.php"
+		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/author.php"
 	],
 	"find":
 	{
@@ -1866,6 +2150,41 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"();",
+			"_appointments->today",
+			"function",
+			"$this->user->",
+			"auth",
+			"());",
+			"->get()",
+			"                return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);\n",
+			"Doctor",
+			"doctor",
+			"Doctor",
+			"doctor",
+			"edit",
+			"patient",
+			"PATIENT",
+			"patient",
+			"PATIENT",
+			"Office",
+			"patient",
+			"User_privigeles",
+			"id_privileges",
+			"       'is_admin'=>true,",
+			"options",
+			"<?",
+			"Function",
+			"function",
+			"SCHEDULE",
+			"$d-",
+			"$p-",
+			"$p",
+			"offic",
+			"col-md-6",
+			"cerrar",
+			"resi",
+			"form",
 			"with",
 			"back",
 			"textarea",
@@ -1958,42 +2277,7 @@
 			"Status",
 			"status",
 			"Status",
-			"status",
-			"Status",
-			"status",
-			"Status",
-			"status",
-			"Status",
-			"status",
-			"User",
-			"No completada",
-			"splash/",
-			"jquery",
-			"in",
-			"speciality",
-			"timepickerSalida",
-			"str",
-			"timepickerEntrada",
-			"timepicker",
-			"card-cabecera",
-			"modulo",
-			"lead",
-			"font-family",
-			"selectpicker",
-			"              <select class=\"selectpicker\" name=\"completed\" id=\"completed\" data-style=\"select-with-transition\" title=\"Completada\" data-size=\"sd7\">\n",
-			"font-family",
-			"font",
-			"font family",
-			"bootstrapMaterialDesign",
-			"doctor",
-			"button",
-			" ",
-			"fas",
-			"appointment",
-			"blog cards",
-			"4",
-			"2",
-			"4"
+			"status"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -2011,7 +2295,7 @@
 	"groups":
 	[
 		{
-			"selected": 64,
+			"selected": 40,
 			"sheets":
 			[
 				{
@@ -2020,15 +2304,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 654,
+						"buffer_size": 719,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								635,
-								635
+								239,
+								239
 							]
 						],
 						"settings":
@@ -2036,6 +2320,9 @@
 							"SL.13.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.27.region_keys":
+							[
 							],
 							"SL.37.region_keys":
 							[
@@ -2051,24 +2338,97 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/hospital/office/showOffice.blade.php",
+					"file": "database/migrations/2019_10_25_201714_create_options_table.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6758,
+						"buffer_size": 663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3108,
-								3108
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.156.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 63,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "database/migrations/2014_10_12_000000_create_users_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								675,
+								675
+							]
+						],
+						"settings":
+						{
+							"SL.160.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.28.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 98.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 47,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "resources/views/hospital/office/showOffice.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3493,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1277,
+								1277
 							]
 						],
 						"settings":
@@ -2080,20 +2440,132 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.29.region_keys":
+							[
+							],
+							"SL.38.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 1098.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
+					"file": "vendor/laravel/framework/src/Illuminate/Console/Scheduling/Schedule.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.133.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 82,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Console/Kernel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 865,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								864,
+								864
+							]
+						],
+						"settings":
+						{
+							"SL.134.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 81,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/Console/Commands/everyMinute.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1030,
+								1030
+							]
+						],
+						"settings":
+						{
+							"SL.135.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 80,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "database/seeds/PatientsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -2105,8 +2577,8 @@
 						"selection":
 						[
 							[
-								82,
-								82
+								265,
+								265
 							]
 						],
 						"settings":
@@ -2117,6 +2589,9 @@
 							"SL.15.region_keys":
 							[
 							],
+							"SL.32.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
@@ -2125,11 +2600,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 8,
 					"file": "database/factories/PatientFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -2157,6 +2632,9 @@
 							"SL.16.region_keys":
 							[
 							],
+							"SL.33.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -2167,11 +2645,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 9,
 					"file": "vendor/psy/psysh/src/Input/ShellInput.php",
 					"semi_transient": false,
 					"settings":
@@ -2205,29 +2683,32 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 134,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 10,
 					"file": "resources/views/hospital/patient/showPatient.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8399,
+						"buffer_size": 4352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8399,
-								8366
+								4304,
+								4304
 							]
 						],
 						"settings":
 						{
 							"SL.134.region_keys":
+							[
+							],
+							"SL.42.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -2237,14 +2718,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7944.0,
+						"translation.y": 1078.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 11,
 					"file": "database/factories/OfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -2276,11 +2757,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 12,
 					"file": "database/seeds/OfficesTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -2313,11 +2794,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 13,
 					"file": "vendor/composer/ClassLoader.php",
 					"semi_transient": false,
 					"settings":
@@ -2344,6 +2825,9 @@
 							"SL.21.region_keys":
 							[
 							],
+							"SL.39.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -2354,24 +2838,24 @@
 						"translation.y": 3.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 139,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 14,
 					"file": "app/Doctor.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1809,
+						"buffer_size": 1771,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								629,
-								536
+								181,
+								126
 							]
 						],
 						"settings":
@@ -2382,6 +2866,9 @@
 							"SL.22.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.40.region_keys":
+							[
 							],
 							"SL.75.region_keys":
 							[
@@ -2396,14 +2883,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 110.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 15,
 					"file": "app/Http/Controllers/SpecialityController.php",
 					"semi_transient": false,
 					"settings":
@@ -2441,11 +2928,11 @@
 						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 16,
 					"file": "database/migrations/2014_10_12_041821_create_specialities_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2457,8 +2944,8 @@
 						"selection":
 						[
 							[
-								530,
-								530
+								512,
+								512
 							]
 						],
 						"settings":
@@ -2466,7 +2953,13 @@
 							"SL.19.region_keys":
 							[
 							],
+							"SL.24.region_keys":
+							[
+							],
 							"SL.25.region_keys":
+							[
+							],
+							"SL.42.region_keys":
 							[
 							],
 							"SL.68.region_keys":
@@ -2485,11 +2978,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 17,
 					"file": "database/migrations/2018_11_22_021324_create_office_doctor_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2522,11 +3015,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 18,
 					"file": "database/migrations/2018_09_18_235748_create_offices_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2559,24 +3052,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 19,
 					"file": "database/migrations/2018_11_23_163104_create_appointments_table.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1246,
+						"buffer_size": 2016,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1084,
-								1084
+								1961,
+								1961
 							]
 						],
 						"settings":
@@ -2600,8 +3093,48 @@
 							],
 							"SL.27.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.28.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.45.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 288.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 65,
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "app/Options.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"SL.138.region_keys":
 							[
 								"sublime_linter.protected_regions"
 							],
@@ -2612,14 +3145,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 80.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 21,
 					"file": "database/seeds/ConditionsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -2641,6 +3174,9 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.28.region_keys":
+							[
+							],
 							"SL.29.region_keys":
 							[
 							],
@@ -2654,11 +3190,11 @@
 						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 22,
 					"file": "database/migrations/2018_11_23_163102_create_statuses_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2691,11 +3227,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 23,
 					"file": "database/migrations/2017_11_01_040320_create_conditions_table.php",
 					"semi_transient": false,
 					"settings":
@@ -2730,24 +3266,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 24,
 					"file": "app/Appointment.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1912,
+						"buffer_size": 2319,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								385,
-								385
+								943,
+								943
 							]
 						],
 						"settings":
@@ -2758,8 +3294,15 @@
 							],
 							"SL.31.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.32.region_keys":
+							[
+							],
+							"SL.50.region_keys":
+							[
+							],
+							"SL.55.region_keys":
 							[
 							],
 							"SL.85.region_keys":
@@ -2772,27 +3315,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 25,
 					"file": "public/js/Appointments/appointment_comment.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 682,
+						"buffer_size": 1112,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								398,
-								398
+								340,
+								340
 							]
 						],
 						"settings":
@@ -2803,47 +3346,18 @@
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 109.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "database/migrations/2019_10_25_201714_create_options_table.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 663,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 26,
 					"file": "app/Appointment_comment.php",
 					"semi_transient": false,
 					"settings":
@@ -2868,6 +3382,12 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.52.region_keys":
+							[
+							],
+							"SL.58.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
@@ -2876,11 +3396,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 27,
 					"file": "app/Http/Controllers/Appointment_commentController.php",
 					"semi_transient": false,
 					"settings":
@@ -2902,32 +3422,36 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.53.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 361.0,
+						"translation.y": 289.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 28,
 					"file": "app/Appointments.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1393,
+						"buffer_size": 1462,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								355,
-								355
+								177,
+								177
 							]
 						],
 						"settings":
@@ -2939,6 +3463,10 @@
 							"SL.33.region_keys":
 							[
 							],
+							"SL.54.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
@@ -2947,14 +3475,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 29,
 					"file": "app/Notifications/Prueba.php",
 					"semi_transient": false,
 					"settings":
@@ -2984,11 +3512,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 30,
 					"file": "app/Condition.php",
 					"semi_transient": false,
 					"settings":
@@ -3026,11 +3554,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 31,
 					"file": "app/Conditions.php",
 					"semi_transient": false,
 					"settings":
@@ -3042,8 +3570,8 @@
 						"selection":
 						[
 							[
-								140,
-								140
+								361,
+								361
 							]
 						],
 						"settings":
@@ -3053,6 +3581,9 @@
 								"sublime_linter.protected_regions"
 							],
 							"SL.34.region_keys":
+							[
+							],
+							"SL.63.region_keys":
 							[
 							],
 							"SL.89.region_keys":
@@ -3068,11 +3599,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
-					"buffer": 27,
+					"buffer": 32,
 					"file": "database/migrations/2018_11_11_220806_create_patients_table.php",
 					"semi_transient": false,
 					"settings":
@@ -3084,13 +3615,16 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								925,
+								765
 							]
 						],
 						"settings":
 						{
 							"SL.160.region_keys":
+							[
+							],
+							"SL.58.region_keys":
 							[
 							],
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
@@ -3102,11 +3636,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
-					"buffer": 28,
+					"buffer": 33,
 					"file": "database/.gitignore",
 					"semi_transient": false,
 					"settings":
@@ -3131,11 +3665,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
-					"buffer": 29,
+					"buffer": 34,
 					"file": "database/migrations/2018_10_22_005134_create_doctors_table.php",
 					"semi_transient": false,
 					"settings":
@@ -3147,8 +3681,8 @@
 						"selection":
 						[
 							[
-								969,
-								969
+								933,
+								933
 							]
 						],
 						"settings":
@@ -3157,6 +3691,9 @@
 							[
 							],
 							"SL.28.region_keys":
+							[
+							],
+							"SL.60.region_keys":
 							[
 							],
 							"SL.73.region_keys":
@@ -3169,14 +3706,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 240.0,
+						"translation.y": 168.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
-					"buffer": 30,
+					"buffer": 35,
 					"file": "resources/views/layouts/web.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3188,8 +3725,8 @@
 						"selection":
 						[
 							[
-								576,
-								576
+								1670,
+								1695
 							]
 						],
 						"settings":
@@ -3203,6 +3740,9 @@
 							"SL.56.region_keys":
 							[
 							],
+							"SL.61.region_keys":
+							[
+							],
 							"SL.93.region_keys":
 							[
 							],
@@ -3212,14 +3752,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
-					"buffer": 31,
+					"buffer": 36,
 					"file": "vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/layout.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3240,6 +3780,9 @@
 							"SL.225.region_keys":
 							[
 							],
+							"SL.62.region_keys":
+							[
+							],
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
@@ -3249,11 +3792,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
-					"buffer": 32,
+					"buffer": 37,
 					"file": "resources/views/web/contacto.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3284,11 +3827,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 140,
 					"type": "text"
 				},
 				{
-					"buffer": 33,
+					"buffer": 38,
 					"file": "resources/views/web/especialidades.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3376,24 +3919,24 @@
 						"translation.y": 325.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
-					"buffer": 34,
+					"buffer": 39,
 					"file": "resources/views/home.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4436,
+						"buffer_size": 4526,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1216,
-								1216
+								741,
+								759
 							]
 						],
 						"settings":
@@ -3404,33 +3947,36 @@
 							"SL.44.region_keys":
 							[
 							],
+							"SL.65.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1944.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 35,
+					"buffer": 40,
 					"file": "app/Http/Controllers/HomeController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 645,
+						"buffer_size": 1181,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								571,
-								571
+								531,
+								531
 							]
 						],
 						"settings":
@@ -3442,6 +3988,10 @@
 							"SL.45.region_keys":
 							[
 							],
+							"SL.66.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -3449,14 +3999,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 60.0,
+						"translation.y": 402.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 36,
+					"buffer": 41,
 					"file": "resources/views/web/consultorios.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -3496,11 +4046,11 @@
 						"translation.y": 182.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
-					"buffer": 37,
+					"buffer": 42,
 					"file": "database/seeds/DoctorOfficeTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -3530,24 +4080,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
-					"buffer": 38,
+					"buffer": 43,
 					"file": "resources/views/hospital/office/indexOffice.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5267,
+						"buffer_size": 5377,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								5232,
+								5232
 							]
 						],
 						"settings":
@@ -3555,23 +4105,27 @@
 							"SL.48.region_keys":
 							[
 							],
+							"SL.69.region_keys":
+							[
+							],
 							"SL.74.region_keys":
 							[
 							],
+							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2970.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 39,
+					"buffer": 44,
 					"file": "app/Http/Controllers/WebController.php",
 					"semi_transient": false,
 					"settings":
@@ -3882,14 +4436,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 358.0,
+						"translation.y": 286.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
-					"buffer": 40,
+					"buffer": 45,
 					"file": "app/Http/Controllers/API/ApiController.php",
 					"semi_transient": false,
 					"settings":
@@ -3917,30 +4471,31 @@
 							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 4354.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
-					"buffer": 41,
+					"buffer": 46,
 					"file": "app/Http/Controllers/AppointmentController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5555,
+						"buffer_size": 7284,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2120,
-								2120
+								4025,
+								4025
 							]
 						],
 						"settings":
@@ -3959,21 +4514,25 @@
 							"SL.62.region_keys":
 							[
 							],
+							"SL.72.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1053.0,
+						"translation.y": 2607.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 42,
+					"buffer": 47,
 					"file": "vendor/symfony/routing/Route.php",
 					"semi_transient": false,
 					"settings":
@@ -4000,14 +4559,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6048.0,
+						"translation.y": 756.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
-					"buffer": 43,
+					"buffer": 48,
 					"file": "resources/views/web/especialidad.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4041,11 +4600,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
-					"buffer": 44,
+					"buffer": 49,
 					"file": "/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/admin/ProductController.php",
 					"semi_transient": false,
 					"settings":
@@ -4075,11 +4634,11 @@
 						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
-					"buffer": 45,
+					"buffer": 50,
 					"file": "/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/SearchController.php",
 					"semi_transient": false,
 					"settings":
@@ -4107,11 +4666,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
-					"buffer": 46,
+					"buffer": 51,
 					"file": "resources/views/web/acerca.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4145,11 +4704,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
-					"buffer": 47,
+					"buffer": 52,
 					"file": "/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/index.html",
 					"semi_transient": false,
 					"settings":
@@ -4197,14 +4756,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 55341.0,
+						"translation.y": 315.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
-					"buffer": 48,
+					"buffer": 53,
 					"file": "database/seeds/OptionsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -4222,6 +4781,9 @@
 						],
 						"settings":
 						{
+							"SL.60.region_keys":
+							[
+							],
 							"SL.94.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -4236,11 +4798,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
-					"buffer": 49,
+					"buffer": 54,
 					"file": "database/seeds/DoctorsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -4264,6 +4826,9 @@
 							"SL.37.region_keys":
 							[
 							],
+							"SL.61.region_keys":
+							[
+							],
 							"SL.97.region_keys":
 							[
 							],
@@ -4275,11 +4840,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
-					"buffer": 50,
+					"buffer": 55,
 					"file": "database/migrations/2018_11_25_173905_create_prescriptions_table.php",
 					"semi_transient": false,
 					"settings":
@@ -4303,6 +4868,9 @@
 							"SL.51.region_keys":
 							[
 							],
+							"SL.81.region_keys":
+							[
+							],
 							"SL.93.region_keys":
 							[
 							],
@@ -4316,11 +4884,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
-					"buffer": 51,
+					"buffer": 56,
 					"file": "database/seeds/SpecialitiesTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -4332,8 +4900,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								312,
+								226
 							]
 						],
 						"settings":
@@ -4345,9 +4913,15 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.63.region_keys":
+							[
+							],
 							"SL.75.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.82.region_keys":
+							[
 							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
@@ -4360,24 +4934,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
-					"buffer": 52,
+					"buffer": 57,
 					"file": "routes/web.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4235,
+						"buffer_size": 4905,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3718,
-								3718
+								1803,
+								1803
 							]
 						],
 						"settings":
@@ -4404,6 +4978,10 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.83.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -4411,14 +4989,261 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2052.0,
+						"translation.y": 717.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 53,
+					"buffer": 58,
+					"file": "resources/views/admin.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 699,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								699,
+								699
+							]
+						],
+						"settings":
+						{
+							"SL.190.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 45,
+					"type": "text"
+				},
+				{
+					"buffer": 59,
+					"file": "app/Http/Middleware/doctor.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								355
+							]
+						],
+						"settings":
+						{
+							"SL.184.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 60,
+					"file": "app/Http/Middleware/Admin.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 493,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								493,
+								493
+							]
+						],
+						"settings":
+						{
+							"SL.324.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 61,
+					"file": "app/Http/Middleware/office.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 472,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								355
+							]
+						],
+						"settings":
+						{
+							"SL.185.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 20,
+					"type": "text"
+				},
+				{
+					"buffer": 62,
+					"file": "app/Http/Middleware/patient.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								373,
+								327
+							]
+						],
+						"settings":
+						{
+							"SL.186.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 22,
+					"type": "text"
+				},
+				{
+					"buffer": 63,
+					"file": "app/Http/Middleware/Authenticate.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 409,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.160.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 35,
+					"type": "text"
+				},
+				{
+					"buffer": 64,
+					"file": "app/Http/Middleware/VerifyCsrfToken.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 463,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.164.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 41,
+					"type": "text"
+				},
+				{
+					"buffer": 65,
 					"file": "vendor/phpunit/php-file-iterator/src/Factory.php",
 					"semi_transient": false,
 					"settings":
@@ -4445,27 +5270,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 450.0,
+						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
-					"buffer": 54,
+					"buffer": 66,
 					"file": "database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 385,
+						"buffer_size": 795,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								319,
+								319
+							],
+							[
+								507,
+								507
+							],
+							[
+								700,
+								700
 							]
 						],
 						"settings":
@@ -4482,6 +5315,14 @@
 							"SL.65.region_keys":
 							[
 							],
+							"SL.66.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.85.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -4492,24 +5333,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
-					"buffer": 55,
+					"buffer": 67,
 					"file": "resources/views/hospital/doctor/indexDoctors.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4791,
+						"buffer_size": 569,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								496,
-								496
+								470,
+								470
 							]
 						],
 						"settings":
@@ -4527,6 +5368,12 @@
 							"SL.58.region_keys":
 							[
 							],
+							"SL.86.region_keys":
+							[
+							],
+							"SL.92.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -4537,11 +5384,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 56,
+					"buffer": 68,
 					"file": "resources/views/web/includes/doctor-card.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4585,11 +5432,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
-					"buffer": 57,
+					"buffer": 69,
 					"file": "public/js/web.js",
 					"semi_transient": false,
 					"settings":
@@ -4601,8 +5448,8 @@
 						"selection":
 						[
 							[
-								372,
-								372
+								486,
+								486
 							]
 						],
 						"settings":
@@ -4613,17 +5460,18 @@
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 108.0,
+						"translation.y": 541.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
-					"buffer": 58,
+					"buffer": 70,
 					"file": "resources/views/web/citas.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -4658,24 +5506,24 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
-					"buffer": 59,
+					"buffer": 71,
 					"file": "resources/views/layouts/header.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5825,
+						"buffer_size": 5951,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5413,
-								5413
+								5318,
+								5318
 							]
 						],
 						"settings":
@@ -4693,20 +5541,58 @@
 							"SL.70.region_keys":
 							[
 							],
+							"SL.90.region_keys":
+							[
+							],
+							"SL.96.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2231.0,
+						"translation.y": 2924.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 60,
+					"buffer": 72,
+					"file": "public/js/datatables.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								524,
+								524
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 212.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 84,
+					"type": "text"
+				},
+				{
+					"buffer": 73,
 					"file": "public/splash/vendor/datatables/datatables.css",
 					"semi_transient": false,
 					"settings":
@@ -4731,24 +5617,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
-					"buffer": 61,
+					"buffer": 74,
 					"file": "resources/views/hospital/appointment/createAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3731,
+						"buffer_size": 3914,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3731,
-								3731
+								1198,
+								1214
 							]
 						],
 						"settings":
@@ -4767,6 +5653,10 @@
 							],
 							"SL.81.region_keys":
 							[
+							],
+							"SL.93.region_keys":
+							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.96.region_keys":
 							[
@@ -4804,19 +5694,19 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2141.0,
+						"translation.y": 701.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
-					"buffer": 62,
+					"buffer": 75,
 					"file": "routes/web.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4235,
+						"buffer_size": 4905,
 						"regions":
 						{
 						},
@@ -4840,6 +5730,10 @@
 							"SL.82.region_keys":
 							[
 							],
+							"SL.94.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -4850,11 +5744,11 @@
 						"translation.y": 2054.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
-					"buffer": 63,
+					"buffer": 76,
 					"file": "public/js/Appointments/appointments.js",
 					"semi_transient": false,
 					"settings":
@@ -4892,28 +5786,31 @@
 						"translation.y": 2322.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
-					"buffer": 64,
+					"buffer": 77,
 					"file": "resources/views/hospital/appointment/showAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9722,
+						"buffer_size": 10282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9477,
-								9477
+								2757,
+								2757
 							]
 						],
 						"settings":
 						{
+							"SL.101.region_keys":
+							[
+							],
 							"SL.118.region_keys":
 							[
 							],
@@ -4936,34 +5833,37 @@
 							"SL.77.region_keys":
 							[
 							],
+							"SL.96.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6679.0,
+						"translation.y": 2106.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 65,
+					"buffer": 78,
 					"file": "database/seeds/Appointment_commentSeeder.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 273,
+						"buffer_size": 272,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								270,
-								270
+								272,
+								272
 							]
 						],
 						"settings":
@@ -4971,6 +5871,9 @@
 							"SL.183.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.79.region_keys":
+							[
 							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
@@ -4980,11 +5883,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
-					"buffer": 66,
+					"buffer": 79,
 					"file": "database/migrations/2019_12_26_235849_create_appointment_comments_table.php",
 					"semi_transient": false,
 					"settings":
@@ -5009,6 +5912,9 @@
 							"SL.76.region_keys":
 							[
 							],
+							"SL.98.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -5016,14 +5922,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 198.0,
+						"translation.y": 126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
-					"buffer": 67,
+					"buffer": 80,
 					"file": "bootstrap/app.php",
 					"semi_transient": false,
 					"settings":
@@ -5051,11 +5957,11 @@
 						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
-					"buffer": 68,
+					"buffer": 81,
 					"file": "config/app.php",
 					"semi_transient": false,
 					"settings":
@@ -5073,6 +5979,9 @@
 						],
 						"settings":
 						{
+							"SL.100.region_keys":
+							[
+							],
 							"SL.130.region_keys":
 							[
 							],
@@ -5083,31 +5992,34 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1134.0,
+						"translation.y": 918.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
-					"buffer": 69,
+					"buffer": 82,
 					"file": "resources/views/hospital/appointment/indexAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1863,
+						"buffer_size": 604,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								592,
-								592
+								499,
+								499
 							]
 						],
 						"settings":
 						{
+							"SL.106.region_keys":
+							[
+							],
 							"SL.119.region_keys":
 							[
 							],
@@ -5127,31 +6039,76 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
-					"buffer": 70,
-					"file": "resources/views/hospital/includes/loopAppointment-desktop.blade.php",
+					"buffer": 83,
+					"file": "resources/views/hospital/includes/tableAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1146,
+						"buffer_size": 1378,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1146,
-								1146
+								1103,
+								1103
 							]
 						],
 						"settings":
 						{
+							"SL.102.region_keys":
+							[
+							],
+							"SL.174.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 31,
+					"type": "text"
+				},
+				{
+					"buffer": 84,
+					"file": "resources/views/hospital/includes/loopAppointment-desktop.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1228,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								958,
+								958
+							]
+						],
+						"settings":
+						{
+							"SL.103.region_keys":
+							[
+							],
+							"SL.107.region_keys":
+							[
+							],
 							"SL.119.region_keys":
 							[
 							],
@@ -5166,28 +6123,109 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
-					"buffer": 71,
-					"file": "resources/views/hospital/includes/loopAppointment-movil.blade.php",
+					"buffer": 85,
+					"file": "resources/views/hospital/includes/loopDoctor-desktop.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2853,
+						"buffer_size": 1342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2804,
-								2804
+								922,
+								922
 							]
 						],
 						"settings":
 						{
+							"SL.104.region_keys":
+							[
+							],
+							"SL.195.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 86,
+					"file": "resources/views/hospital/includes/loopDoctor-movil.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2512,
+								2512
+							]
+						],
+						"settings":
+						{
+							"SL.105.region_keys":
+							[
+							],
+							"SL.202.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1242.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 87,
+					"file": "resources/views/hospital/includes/loopAppointment-movil.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								329,
+								329
+							]
+						],
+						"settings":
+						{
+							"SL.106.region_keys":
+							[
+							],
 							"SL.122.region_keys":
 							[
 							],
@@ -5199,14 +6237,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1134.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
-					"buffer": 72,
+					"buffer": 88,
 					"file": "database/factories/AppointmentFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -5218,12 +6256,15 @@
 						"selection":
 						[
 							[
-								875,
-								875
+								990,
+								990
 							]
 						],
 						"settings":
 						{
+							"SL.107.region_keys":
+							[
+							],
 							"SL.174.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -5239,6 +6280,9 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.89.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -5249,24 +6293,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
-					"buffer": 73,
+					"buffer": 89,
 					"file": "database/factories/Appointment_commentFactory.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 238,
+						"buffer_size": 237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								238,
-								238
+								219,
+								219
 							]
 						],
 						"settings":
@@ -5274,6 +6318,9 @@
 							"SL.187.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.90.region_keys":
+							[
 							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
@@ -5285,28 +6332,31 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
-					"buffer": 74,
+					"buffer": 90,
 					"file": "database/seeds/AppointmentsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 258,
+						"buffer_size": 257,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								255,
-								255
+								257,
+								257
 							]
 						],
 						"settings":
 						{
+							"SL.109.region_keys":
+							[
+							],
 							"SL.176.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -5317,6 +6367,9 @@
 							"SL.83.region_keys":
 							[
 							],
+							"SL.91.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
@@ -5325,28 +6378,34 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
-					"buffer": 75,
+					"buffer": 91,
 					"file": "public/js/scripts.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7366,
+						"buffer_size": 6270,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5190,
-								4833
+								4570,
+								4570
 							]
 						],
 						"settings":
 						{
+							"SL.110.region_keys":
+							[
+							],
+							"SL.112.region_keys":
+							[
+							],
 							"SL.190.region_keys":
 							[
 							],
@@ -5362,21 +6421,237 @@
 							"SL.84.region_keys":
 							[
 							],
+							"SL.92.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5841.0,
+						"translation.y": 5331.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 76,
-					"file": "public/js/AJAX.js",
+					"buffer": 92,
+					"file": "public/js/calendar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								509,
+								509
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 93,
+					"file": "resources/views/hospital/doctor/showDoctor.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5346,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3774,
+								3774
+							]
+						],
+						"settings":
+						{
+							"SL.410.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 94,
+					"file": "database/migrations/2010_01_03_234648_create_users_priviges_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 613,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								429,
+								367
+							]
+						],
+						"settings":
+						{
+							"SL.150.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 62,
+					"type": "text"
+				},
+				{
+					"buffer": 95,
+					"file": "database/migrations/2010_01_04_001633_create_user_privileges_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								432,
+								432
+							]
+						],
+						"settings":
+						{
+							"SL.112.region_keys":
+							[
+							],
+							"SL.165.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 48,
+					"type": "text"
+				},
+				{
+					"buffer": 96,
+					"file": "app/User_privileges.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 253,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
+							]
+						],
+						"settings":
+						{
+							"SL.113.region_keys":
+							[
+							],
+							"SL.163.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 42,
+					"type": "text"
+				},
+				{
+					"buffer": 97,
+					"file": "database/seeds/UserPrivielegesTableSeeder.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								475,
+								475
+							]
+						],
+						"settings":
+						{
+							"SL.152.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 58,
+					"type": "text"
+				},
+				{
+					"buffer": 98,
+					"file": "public/js/AJAX-visitantes.js",
 					"semi_transient": false,
 					"settings":
 					{
@@ -5387,8 +6662,8 @@
 						"selection":
 						[
 							[
-								2766,
-								2766
+								2008,
+								2008
 							]
 						],
 						"settings":
@@ -5403,14 +6678,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1926.0,
+						"translation.y": 1116.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
-					"buffer": 77,
+					"buffer": 99,
 					"file": "vendor/laravel/framework/src/Illuminate/Redis/Events/CommandExecuted.php",
 					"semi_transient": false,
 					"settings":
@@ -5440,11 +6715,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 135,
 					"type": "text"
 				},
 				{
-					"buffer": 78,
+					"buffer": 100,
 					"file": "vendor/symfony/routing/Tests/Fixtures/namespaceprefix.xml",
 					"semi_transient": false,
 					"settings":
@@ -5471,11 +6746,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 136,
 					"type": "text"
 				},
 				{
-					"buffer": 79,
+					"buffer": 101,
 					"file": "resources/views/includes/messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -5487,12 +6762,15 @@
 						"selection":
 						[
 							[
-								149,
-								149
+								344,
+								344
 							]
 						],
 						"settings":
 						{
+							"SL.118.region_keys":
+							[
+							],
 							"SL.185.region_keys":
 							[
 							],
@@ -5512,48 +6790,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 80,
-					"file": "resources/views/hospital/doctor/showDoctor.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11085,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								970,
-								970
-							]
-						],
-						"settings":
-						{
-							"SL.49.region_keys":
-							[
-							],
-							"SL.59.region_keys":
-							[
-							],
-							"SL.69.region_keys":
-							[
-							],
-							"auto_complete": false,
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 72,
-					"type": "text"
-				},
-				{
-					"buffer": 81,
+					"buffer": 102,
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
@@ -5578,11 +6815,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
-					"buffer": 82,
+					"buffer": 103,
 					"file": "resources/views/web/doctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -5594,12 +6831,15 @@
 						"selection":
 						[
 							[
-								3846,
-								3846
+								2347,
+								2133
 							]
 						],
 						"settings":
 						{
+							"SL.121.region_keys":
+							[
+							],
 							"SL.128.region_keys":
 							[
 							],
@@ -5619,14 +6859,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2990.0,
+						"translation.y": 1406.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 83,
+					"buffer": 104,
 					"file": "resources/views/web/consultorio.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -5655,17 +6895,17 @@
 							"open_with_edit": true,
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 3275.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
-					"buffer": 84,
+					"buffer": 105,
 					"file": "resources/views/web/doctores.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -5712,32 +6952,72 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
-					"buffer": 85,
+					"buffer": 106,
 					"file": "resources/views/hospital/patient/indexPatients.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5828,
+						"buffer_size": 591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								547,
+								547
 							]
 						],
 						"settings":
 						{
+							"SL.122.region_keys":
+							[
+							],
 							"SL.64.region_keys":
 							[
 							],
+							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 214.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 87,
+					"type": "text"
+				},
+				{
+					"buffer": 107,
+					"file": "resources/views/hospital/includes/loopPatient-desktop.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1382,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								474,
+								474
+							]
+						],
+						"settings":
+						{
+							"SL.188.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -5746,34 +7026,197 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
-					"buffer": 86,
-					"file": "app/Patient.php",
+					"buffer": 108,
+					"file": "resources/views/hospital/includes/loopPatient-movil.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1021,
+						"buffer_size": 2991,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2180,
+								2180
+							],
+							[
+								2334,
+								2334
 							]
 						],
 						"settings":
 						{
+							"SL.192.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 980.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 85,
+					"type": "text"
+				},
+				{
+					"buffer": 109,
+					"file": "resources/views/hospital/includes/tablePatient.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								486,
+								486
+							]
+						],
+						"settings":
+						{
+							"SL.193.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 83,
+					"type": "text"
+				},
+				{
+					"buffer": 110,
+					"file": "resources/views/hospital/includes/tableDoctor.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1101,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								874,
+								874
+							]
+						],
+						"settings":
+						{
+							"SL.128.region_keys":
+							[
+							],
+							"SL.203.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 270.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 111,
+					"file": "app/Patient.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 952,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								721,
+								638
+							]
+						],
+						"settings":
+						{
+							"SL.107.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.125.region_keys":
+							[
+							],
 							"SL.54.region_keys":
 							[
 							],
 							"SL.67.region_keys":
 							[
 							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 49,
+					"type": "text"
+				},
+				{
+					"buffer": 112,
+					"file": "app/User.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								358,
+								358
+							]
+						],
+						"settings":
+						{
+							"SL.130.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.167.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
@@ -5783,28 +7226,140 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
-					"buffer": 87,
-					"file": "app/Office.php",
+					"buffer": 113,
+					"file": "app/Privileges.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1001,
+						"buffer_size": 385,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								573,
-								573
+								384,
+								384
 							]
 						],
 						"settings":
 						{
+							"SL.180.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 27,
+					"type": "text"
+				},
+				{
+					"buffer": 114,
+					"file": "vendor/laravel/framework/src/Illuminate/Auth/SessionGuard.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23787,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6332,
+								6332
+							]
+						],
+						"settings":
+						{
+							"SL.284.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4388.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 115,
+					"file": "app/Http/Kernel.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								198,
+								198
+							]
+						],
+						"settings":
+						{
+							"SL.157.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 37,
+					"type": "text"
+				},
+				{
+					"buffer": 116,
+					"file": "app/Office.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								622,
+								540
+							]
+						],
+						"settings":
+						{
+							"SL.108.region_keys":
+							[
+							],
+							"SL.126.region_keys":
+							[
+							],
 							"SL.134.region_keys":
 							[
 							],
@@ -5819,14 +7374,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 164.0,
+						"translation.y": 92.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
-					"buffer": 88,
+					"buffer": 117,
 					"file": "app/Http/Controllers/PatientController.php",
 					"semi_transient": false,
 					"settings":
@@ -5838,12 +7393,18 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								831,
+								831
 							]
 						],
 						"settings":
 						{
+							"SL.125.region_keys":
+							[
+							],
+							"SL.132.region_keys":
+							[
+							],
 							"SL.69.region_keys":
 							[
 							],
@@ -5853,31 +7414,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 306.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 89,
+					"buffer": 118,
 					"file": "app/Http/Controllers/DoctorController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3466,
+						"buffer_size": 3394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3038,
-								3038
+								1964,
+								1964
 							]
 						],
 						"settings":
 						{
+							"SL.133.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.136.region_keys":
 							[
 							],
@@ -5921,14 +7486,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 317.0,
+						"translation.y": 1026.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 90,
+					"buffer": 119,
 					"file": "resources/views/hospital/Speciality/indexSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -5963,11 +7528,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 123,
 					"type": "text"
 				},
 				{
-					"buffer": 91,
+					"buffer": 120,
 					"file": "resources/views/hospital/Speciality/showSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6008,11 +7573,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
-					"buffer": 92,
+					"buffer": 121,
 					"file": "public/css/style.css",
 					"semi_transient": false,
 					"settings":
@@ -6045,11 +7610,11 @@
 						"translation.y": 17019.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
-					"buffer": 93,
+					"buffer": 122,
 					"file": "resources/views/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6082,24 +7647,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
-					"buffer": 94,
+					"buffer": 123,
 					"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5467,
+						"buffer_size": 5672,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4463,
-								4463
+								1324,
+								1324
 							]
 						],
 						"settings":
@@ -6110,6 +7675,9 @@
 							"SL.113.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.138.region_keys":
+							[
 							],
 							"SL.141.region_keys":
 							[
@@ -6124,14 +7692,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2564.0,
+						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 95,
+					"buffer": 124,
 					"file": "/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/assets/css/material-kit.css",
 					"semi_transient": false,
 					"settings":
@@ -6157,28 +7725,31 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
-					"buffer": 96,
+					"buffer": 125,
 					"file": "resources/views/layouts/nav-admin.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7296,
+						"buffer_size": 7699,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3331,
+								3331
 							]
 						],
 						"settings":
 						{
+							"SL.140.region_keys":
+							[
+							],
 							"SL.152.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -6192,14 +7763,82 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1566.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 97,
+					"buffer": 126,
+					"file": "app/Http/Controllers/Controller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								377,
+								377
+							]
+						],
+						"settings":
+						{
+							"SL.264.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 32,
+					"type": "text"
+				},
+				{
+					"buffer": 127,
+					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								446,
+								446
+							]
+						],
+						"settings":
+						{
+							"SL.225.region_keys":
+							[
+							],
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 36,
+					"type": "text"
+				},
+				{
+					"buffer": 128,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6233,11 +7872,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
-					"buffer": 98,
+					"buffer": 129,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6268,11 +7907,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
-					"buffer": 99,
+					"buffer": 130,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -6297,11 +7936,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 137,
 					"type": "text"
 				},
 				{
-					"buffer": 100,
+					"buffer": 131,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6342,11 +7981,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
-					"buffer": 101,
+					"buffer": 132,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6380,11 +8019,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
-					"buffer": 102,
+					"buffer": 133,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
@@ -6396,12 +8035,15 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1381,
+								1381
 							]
 						],
 						"settings":
 						{
+							"SL.123.region_keys":
+							[
+							],
 							"SL.126.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -6413,14 +8055,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 918.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
-					"buffer": 103,
+					"buffer": 134,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
@@ -6452,11 +8094,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
-					"buffer": 104,
+					"buffer": 135,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6468,12 +8110,15 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								3801,
+								3801
 							]
 						],
 						"settings":
 						{
+							"SL.125.region_keys":
+							[
+							],
 							"SL.135.region_keys":
 							[
 							],
@@ -6482,14 +8127,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
-					"buffer": 105,
+					"buffer": 136,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -6520,11 +8165,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
-					"buffer": 106,
+					"buffer": 137,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -6554,11 +8199,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 138,
 					"type": "text"
 				},
 				{
-					"buffer": 107,
+					"buffer": 138,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
@@ -6579,6 +8224,12 @@
 							"SL.101.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.146.region_keys":
+							[
+							],
+							"SL.151.region_keys":
+							[
 							],
 							"SL.159.region_keys":
 							[
@@ -6604,27 +8255,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
-					"buffer": 108,
+					"buffer": 139,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1234,
+						"buffer_size": 1106,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1090,
-								1090
+								1095,
+								1095
 							]
 						],
 						"settings":
@@ -6632,6 +8283,9 @@
 							"SL.121.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.129.region_keys":
+							[
 							],
 							"SL.35.region_keys":
 							[
@@ -6657,11 +8311,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
-					"buffer": 109,
+					"buffer": 140,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -6691,7 +8345,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 126,
 					"type": "text"
 				}
 			]
@@ -6758,12 +8412,332 @@
 		"selected_items":
 		[
 			[
+				"",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"homeCOntr",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"home.blade.php",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"appointments",
+				"app\\Appointments.php"
+			],
+			[
+				"homeController",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"homeCon",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"home.blade.",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"showOffice",
+				"resources\\views\\hospital\\office\\showOffice.blade.php"
+			],
+			[
+				"indexOffi",
+				"resources\\views\\hospital\\office\\indexOffice.blade.php"
+			],
+			[
+				"indexOffice",
+				"resources\\views\\hospital\\office\\indexOffice.blade.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"sessionGu",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
+			],
+			[
+				"nav-admin",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"showD",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"calendar.js",
+				"public\\js\\calendar.js"
+			],
+			[
+				"showDo",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"scripts",
+				"public\\js\\scripts.js"
+			],
+			[
+				"header",
+				"resources\\views\\layouts\\header.blade.php"
+			],
+			[
+				"showDoctor",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"doctorContro",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"doctor.bl",
+				"resources\\views\\web\\doctor.blade.php"
+			],
+			[
+				"showDoc",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"loopDoc",
+				"resources\\views\\hospital\\includes\\loopDoctor-movil.blade.php"
+			],
+			[
+				"tableD",
+				"resources\\views\\hospital\\includes\\tableDoctor.blade.php"
+			],
+			[
+				"loopDoctor-des",
+				"resources\\views\\hospital\\includes\\loopDoctor-desktop.blade.php"
+			],
+			[
+				"tableDoctor",
+				"resources\\views\\hospital\\includes\\tableDoctor.blade.php"
+			],
+			[
+				"indexDoc",
+				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
+			],
+			[
+				"patient",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"appointmentC",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"editAA",
+				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
+			],
+			[
+				"edita",
+				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
+			],
+			[
+				"createApp",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"sessiongu",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
+			],
+			[
+				"privileg",
+				"app\\Privileges.php"
+			],
+			[
+				"appointmentCn",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"sess",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
+			],
+			[
+				"privileges",
+				"app\\Privileges.php"
+			],
+			[
+				"loop",
+				"resources\\views\\hospital\\includes\\loopAppointment-desktop.blade.php"
+			],
+			[
+				"showApp",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"SessionGua",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
+			],
+			[
+				"loopAppointment",
+				"resources\\views\\hospital\\includes\\loopAppointment-movil.blade.php"
+			],
+			[
+				"loopAppo",
+				"resources\\views\\hospital\\includes\\loopAppointment-desktop.blade.php"
+			],
+			[
+				"tabla",
+				"resources\\views\\hospital\\includes\\tableAppointment.blade.php"
+			],
+			[
+				"sessionG",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
+			],
+			[
+				"nav",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"facade",
+				"vendor\\phpunit\\php-file-iterator\\src\\Facade.php"
+			],
+			[
+				"n",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"appointmentCo",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"privileges.php",
+				"app\\Privileges.php"
+			],
+			[
+				"appointmentCon",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"appointmentContro",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"nav-admi",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"redirectif",
+				"app\\Http\\Middleware\\RedirectIfAuthenticated.php"
+			],
+			[
+				"home.bla",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"web",
+				"resources\\views\\layouts\\web.blade.php"
+			],
+			[
+				"web.",
+				"routes\\web.php"
+			],
+			[
+				"homeC",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"user_Tabl",
+				"database\\migrations\\2014_10_12_000000_create_users_table.php"
+			],
+			[
+				"user_privileges",
+				"database\\migrations\\2010_01_04_001633_create_user_privileges_table.php"
+			],
+			[
+				"user.php",
+				"app\\User.php"
+			],
+			[
+				"indexOp",
+				"resources\\views\\options\\indexOptions.blade.php"
+			],
+			[
+				"optionCon",
+				"app\\Http\\Controllers\\optionController.php"
+			],
+			[
+				"options",
+				"app\\Options.php"
+			],
+			[
+				"appointment",
+				"app\\Appointment.php"
+			],
+			[
+				"Appointmen",
+				"app\\Appointment.php"
+			],
+			[
+				"schedule",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Console\\Scheduling\\Schedule.php"
+			],
+			[
+				"showO",
+				"resources\\views\\hospital\\office\\showOffice.blade.php"
+			],
+			[
+				"indexD",
+				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
+			],
+			[
+				"data",
+				"public\\js\\datatables.js"
+			],
+			[
+				"datat",
+				"public\\js\\datatables.js"
+			],
+			[
+				"datata",
+				"public\\js\\datatables.js"
+			],
+			[
+				"show",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"indexP",
+				"resources\\views\\hospital\\patient\\indexPatients.blade.php"
+			],
+			[
+				"indexPa",
+				"resources\\views\\hospital\\patient\\indexPatients.blade.php"
+			],
+			[
+				"indexa",
+				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
+			],
+			[
+				"showP",
+				"resources\\views\\hospital\\patient\\showPatient.blade.php"
+			],
+			[
 				"showA",
 				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
 			],
 			[
-				"",
-				"database\\factories\\Appointment_commentFactory.php"
+				"indexA",
+				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
+			],
+			[
+				"patientcon",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"showpatient",
+				"resources\\views\\hospital\\patient\\showPatient.blade.php"
+			],
+			[
+				"datatables",
+				"public\\js\\datatables.js"
+			],
+			[
+				"comment.js",
+				"public\\js\\Appointments\\appointment_comment.js"
 			],
 			[
 				"commentfac",
@@ -6782,36 +8756,12 @@
 				"database\\seeds\\AppointmentsTableSeeder.php"
 			],
 			[
-				"indexa",
-				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
-			],
-			[
-				"appointment",
-				"app\\Appointment.php"
-			],
-			[
 				"commentCn",
 				"app\\Http\\Controllers\\Appointment_commentController.php"
 			],
 			[
-				"appointmentCon",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"indexA",
-				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
-			],
-			[
-				"comment.js",
-				"public\\js\\Appointments\\appointment_comment.js"
-			],
-			[
 				"commentControl",
 				"app\\Http\\Controllers\\Appointment_commentController.php"
-			],
-			[
-				"web.php",
-				"routes\\web.php"
 			],
 			[
 				"script",
@@ -6846,10 +8796,6 @@
 				"resources\\views\\web\\doctores.blade.php"
 			],
 			[
-				"header",
-				"resources\\views\\layouts\\header.blade.php"
-			],
-			[
 				"appontm",
 				"app\\Appointment.php"
 			],
@@ -6858,20 +8804,12 @@
 				"resources\\views\\home.blade.php"
 			],
 			[
-				"homeCon",
-				"app\\Http\\Controllers\\HomeController.php"
-			],
-			[
 				"index.html",
 				"C:\\Users\\DELL\\Documents\\Desarrollo\\material-kit-pro-html-v2.1.1\\material-kit-pro-html-v2.1.1\\index.html"
 			],
 			[
 				"showAppointment",
 				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
-			],
-			[
-				"appointmentC",
-				"app\\Http\\Controllers\\AppointmentController.php"
 			],
 			[
 				"edit",
@@ -6910,10 +8848,6 @@
 				"bootstrap\\app.php"
 			],
 			[
-				"appointmentContro",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
 				"doctores.bla",
 				"resources\\views\\web\\doctores.blade.php"
 			],
@@ -6924,10 +8858,6 @@
 			[
 				"appo",
 				"public\\js\\Appointments\\appointments.js"
-			],
-			[
-				"scripts",
-				"public\\js\\scripts.js"
 			],
 			[
 				"editA",
@@ -6992,282 +8922,6 @@
 			[
 				"conditions",
 				"app\\Conditions.php"
-			],
-			[
-				"show",
-				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
-			],
-			[
-				"appointmentCont",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"specia",
-				"app\\Http\\Controllers\\SpecialityController.php"
-			],
-			[
-				"condition",
-				"app\\Conditions.php"
-			],
-			[
-				"appointment.bl",
-				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
-			],
-			[
-				"doctorContro",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"appointm",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"citas.",
-				"resources\\views\\web\\citas.blade.php"
-			],
-			[
-				"aja",
-				"public\\js\\AJAX.js"
-			],
-			[
-				"web.blade",
-				"resources\\views\\layouts\\web.blade.php"
-			],
-			[
-				"webContro",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"doctor-card",
-				"resources\\views\\web\\includes\\doctor-card.blade.php"
-			],
-			[
-				"web",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"consultorio",
-				"resources\\views\\web\\consultorio.blade.php"
-			],
-			[
-				"especialidades",
-				"resources\\views\\web\\especialidades.blade.php"
-			],
-			[
-				"webCon",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"office",
-				"app\\Office.php"
-			],
-			[
-				"special",
-				"app\\Speciality.php"
-			],
-			[
-				"cons",
-				"resources\\views\\web\\consultorios.blade.php"
-			],
-			[
-				"especialidad",
-				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"a",
-				"public\\js\\AJAX.js"
-			],
-			[
-				"web/doc",
-				"resources\\views\\web\\doctores.blade.php"
-			],
-			[
-				"web.p",
-				"routes\\web.php"
-			],
-			[
-				"espec",
-				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"especi",
-				"resources\\views\\web\\especialidades.blade.php"
-			],
-			[
-				"web/doctores",
-				"resources\\views\\web\\doctores.blade.php"
-			],
-			[
-				"especial",
-				"resources\\views\\web\\especialidades.blade.php"
-			],
-			[
-				"doctor-car",
-				"resources\\views\\web\\includes\\doctor-card.blade.php"
-			],
-			[
-				"card",
-				"resources\\views\\web\\includes\\doctor-card.blade.php"
-			],
-			[
-				"espe",
-				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"webC",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"spe",
-				"app\\Speciality.php"
-			],
-			[
-				"doctor.php",
-				"app\\Doctor.php"
-			],
-			[
-				"web/especialidad",
-				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"apiContro",
-				"app\\Http\\Controllers\\API\\ApiController.php"
-			],
-			[
-				"web/espe",
-				"resources\\views\\web\\especialidades.blade.php"
-			],
-			[
-				"layout.",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\views\\layout.blade.php"
-			],
-			[
-				"web.blad",
-				"resources\\views\\layouts\\web.blade.php"
-			],
-			[
-				"route",
-				"vendor\\symfony\\routing\\Route.php"
-			],
-			[
-				"controllers",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"web/especia",
-				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"web/espec",
-				"resources\\views\\web\\especialidades.blade.php"
-			],
-			[
-				"controllers/we",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"db.php",
-				"C:\\xampp\\htdocs\\almacenes\\dashboard\\db.php"
-			],
-			[
-				"index.view",
-				"C:\\xampp\\htdocs\\almacenes\\dashboard\\index.view.php"
-			],
-			[
-				"editD",
-				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
-				"doctorContr",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"editDo",
-				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
-				"DOCTORcONTRO",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"web.bla",
-				"resources\\views\\layouts\\web.blade.php"
-			],
-			[
-				"style",
-				"public\\css\\style.css"
-			],
-			[
-				"WEB",
-				"routes\\web.php"
-			],
-			[
-				"speciality.blade",
-				"resources\\views\\hospital\\Speciality\\showSpeciality.blade.php"
-			],
-			[
-				"welcome",
-				"resources\\views\\welcome.blade.php"
-			],
-			[
-				"home.bl",
-				"resources\\views\\home.blade.php"
-			],
-			[
-				"homeC",
-				"app\\Http\\Controllers\\HomeController.php"
-			],
-			[
-				"homeControll",
-				"app\\Http\\Controllers\\HomeController.php"
-			],
-			[
-				"showDp",
-				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
-			],
-			[
-				"sho",
-				"resources\\views\\hospital\\office\\showOffice.blade.php"
-			],
-			[
-				"doctorB",
-				"resources\\views\\web\\doctor.blade.php"
-			],
-			[
-				"showD",
-				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
-			],
-			[
-				"doctor.bla",
-				"resources\\views\\web\\doctor.blade.php"
-			],
-			[
-				"PatientF",
-				"database\\factories\\PatientFactory.php"
-			],
-			[
-				"DoctorF",
-				"database\\factories\\DoctorFactory.php"
-			],
-			[
-				"Appoint",
-				"database\\factories\\AppointmentFactory.php"
-			],
-			[
-				"doctor-c",
-				"resources\\views\\web\\includes\\doctor-card.blade.php"
-			],
-			[
-				"especiali",
-				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"D",
-				"app\\Doctor.php"
-			],
-			[
-				"indexS",
-				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
 			]
 		],
 		"width": 0.0
@@ -7298,7 +8952,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 365.0,
+	"side_bar_width": 385.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

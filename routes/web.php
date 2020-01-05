@@ -45,77 +45,135 @@ Route::post('/visitante/search-citas','API\\ApiController@searchCitas');
 
 /*=====  End of API  ======*/
 
-/*============================
-=            CHAT            =
-============================*/
 
 
 
 
-
-route::get('chat','chatController@index');
-
-/*=====  End of CHAT  ======*/
-
-
-/*======================================
-=            ESPECIALIDADES            =
-======================================*/
+/*====================================
+=            AUTH PATIENT            =
+====================================*/
 
 
+Route::group(['middleware' => ['auth','patient'] ], function () {
 
+    Route::resource('appointment', 'AppointmentController');          
+    
+    Route::get('appointment/create/{id_doctor}','AppointmentController@create');
 
-
-route::get('speciality','SpecialityController@index');
-route::post('speciality/store','SpecialityController@store');
-route::post('speciality/update','SpecialityController@update');
-route::get('speciality/{id}','SpecialityController@show');
-
-route::delete('speciality/store','SpecialityController@destroy');
-
-
-/*=====  End of ESPECIALIDADES  ======*/
-
-
-/*================================
-=            OPCIONES            =
-================================*/
-
-
-
-
-
-route::get('options','optionController@index');
-route::post('options/user-default','optionController@userDefault');
-route::post('options/moneda','optionController@moneda');
-route::post('options/idioma','optionController@idioma');
-
-/*=====  End of OPCIONES  ======*/
-
-
-/*================================
-=            FACTURAS            =
-================================*/
-
-
-
-
-route::get('bills','BillController@index');
-
-
-/*=====  End of FACTURAS  ======*/
-
-
-
-//Rutas que requieren que el usuario que inició sesión sea administrador
-Route::group(['middleware' => ['auth','admin'] ], function () {
-	Route::resource('doctor', 'DoctorController');
+    Route::get('appointment/create','AppointmentController@create');
+    Route::get('doctor', 'DoctorController@index');
+    Route::get('doctor/{id}', 'DoctorController@show');
     Route::resource('office', 'OfficeController');
+
+    Route::get('patient/{id}','patientController@show');
+    Route::get('patient/{id}/edit','patientController@edit');
+ Route::patch('patient','patientController@update');
+
+
+
+
+
+
+});
+/*=====  End of AUTH PATIENT  ======*/
+
+/*====================================
+=            AUTH doctor            =
+====================================*/
+
+
+Route::group(['middleware' => ['auth','doctor'] ], function () {
+
+    Route::patch('doctor/edit/{doctor}', 'DoctorController@edit');
+    Route::get('doctor/create', 'DoctorController@create');
+
+
+});
+/*=====  End of AUTH doctor  ======*/
+
+/*====================================
+=            AUTH office            =
+====================================*/
+
+
+Route::group(['middleware' => ['auth','office'] ], function () {
+
+
+});
+/*=====  End of AUTH office  ======*/
+
+
+/*==================================
+=            auth ADMIN            =
+==================================*/
+
+
+
+/*=====  End of auth ADMIN  ======*/
+
+Route::group(['middleware' => ['auth','admin'] ], function () {
+
+ 
+    Route::resource('patient', 'PatientController');
+
+
+    /*----------  especialidades  ----------*/
+
+
+    route::get('speciality','SpecialityController@index');
+    route::post('speciality/store','SpecialityController@store');
+    route::post('speciality/update','SpecialityController@update');
+    route::get('speciality/{id}','SpecialityController@show');
+
+    route::delete('speciality/store','SpecialityController@destroy');
+
+
+    /*----------  Facturas  ----------*/
+
+
+    route::get('bills','BillController@index');
+
+    /*----------  opciones  ----------*/
+
+
+
+    route::get('options','optionController@index');
+    route::post('options/user-default','optionController@userDefault');
+    route::post('options/moneda','optionController@moneda');
+    route::post('options/idioma','optionController@idioma');
+
+
+    /*----------  char  ----------*/
+    
+
+ 
+
+
+
+
+    route::get('chat','chatController@index');
+
+     
+
+     
+
+    
+
+        
+
+
+    
+ 
 });
 
-//Rutas que sólo requieren que el usuario haya iniciado sesión
+
+
+/*============================
+=            AUTH            =
+============================*/
+
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('patient', 'PatientController');
     Route::patch('appointment/complete/{appointment}', 'AppointmentController@complete');
     Route::patch('appointment/rejected/{appointment}', 'AppointmentController@rejected');
     Route::patch('appointment/accepted/{appointment}', 'AppointmentController@accepted');
@@ -131,20 +189,34 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('api/appointment/gettime','API\\ApiController@AppointmentGetTime');
 
-
-    Route::resource('appointment', 'AppointmentController');
-
-    /*----------  comments  ----------*/
+\  /*----------  comments  ----------*/
     
 
     Route::post('/appointment/comment/register','Appointment_commentController@register');
     Route::post('/appointment/comment/delete','Appointment_commentController@destroy');
 });
 
+
+
+
+/*=====  End of AUTH  ======*/
+
+
+
+/*=============================
+=            INDEX            =
+=============================*/
+
+
 //Página de inicio
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*=====  End of INDEX  ======*/
+
+
+
 
 //Página para redireccionar a los que no son administradores
 Route::get('/admin', function () {
@@ -154,5 +226,3 @@ Route::get('/admin', function () {
 //Rutas para autenticación de usuarios
 Auth::routes();
 
-//Home
-Route::get('/home', 'HomeController@index')->name('home');

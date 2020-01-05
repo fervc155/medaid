@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Option;
+use App\Options;
 use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model

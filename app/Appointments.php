@@ -6,16 +6,19 @@ use App\Options;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Appointments extends Model
+class Appointments 
 {
   
 
 
 
-    public function gettodayAttribute()
+    public static function Today($model="",$id="")
     {
        $mytime = Carbon::now();
-        $appointment = Appointment::all()->where('date', $mytime->toDateString())->sortBy('date');
+        $appointment = Appointment::all()
+        ->where('date', $mytime->toDateString())
+        ->where($model,'=',$id)
+        ->sortBy('date');
 
 
         return $appointment;
@@ -23,7 +26,7 @@ class Appointments extends Model
     }
 
 
-    public function getnewsAttribute()
+    public static function getnewsAttribute()
     {
        $mytime = Carbon::now();
        $conditions = new Conditions;
@@ -38,7 +41,7 @@ class Appointments extends Model
         return $appointment;
 
     }
-    public function getacceptedAttribute()
+    public static function getacceptedAttribute()
     {
        $mytime = Carbon::now();
        $conditions = new Conditions;
@@ -52,7 +55,7 @@ class Appointments extends Model
         return $appointment;
 
     }
-    public function getpendingAttribute()
+    public static function Pending()
     {
        $mytime = Carbon::now();
        $conditions = new Conditions;

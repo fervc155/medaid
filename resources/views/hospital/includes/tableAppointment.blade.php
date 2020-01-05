@@ -24,7 +24,10 @@
                 <th >Costo</th>
                 <th >Razón</th>
                 <th >Médico</th>
+
+                @if(!Auth::isPatient())
                 <th >Paciente</th>
+                @endif
                 <th >Consultorio</th>
                 <th >Status</th>
                 <th>Acciones</th>

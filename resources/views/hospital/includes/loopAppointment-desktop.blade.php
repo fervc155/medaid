@@ -5,7 +5,12 @@
                 <td>{{ $a->price }}</td>
                 <td>{{ $a->description }}</td>
                 <td><a class="link" href="{{url('/doctor/'.$a->doctor->id)}}">{{ $a->doctor->name }} </a></td>
+
+                                @if(!Auth::isPatient())
+
                 <td><a class="link" href="{{url('/patient/'.$a->patient->dni)}}">{{ $a->patient->name }} </a></td>
+                @endif
+
                 <td><a class="link" href="{{url('/office/'.$a->doctor->office->id)}}">{{ $a->doctor->office->name }} </a></td>
                 <td>
                   {{$a->status}}

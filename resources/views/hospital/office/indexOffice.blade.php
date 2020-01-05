@@ -65,6 +65,8 @@
                 <td>{{ $o->city }}</td>
                 <td>{{ $o->country }}</td>
                 <td><a href="{{url('/office/'.$o->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+
+                  @admin
                   <a href="{{url('/office/'.$o->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
                   <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="office-{{$o->id}}" > <i class="fas fa-times"></i></button>
@@ -73,6 +75,8 @@
                   {{ Form::hidden('_method', 'DELETE') }}
                   {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ','id'=>'office-'.$o->id]) }}
                   {!! Form::close() !!}
+
+                  @endadmin
 
                 </td>
 
@@ -160,6 +164,8 @@
 
           <div class="text-center">
           	      <a href="{{url('/office/'.$office->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+
+                  @admin
                   <a href="{{url('/office/'.$office->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
                   <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="office-{{$office->id}}"> <i class="fas fa-times"></i></button>
@@ -168,6 +174,8 @@
                   {{ Form::hidden('_method', 'DELETE') }}
                   {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none ', 'id'=>'office-'.$office->id]) }}
                   {!! Form::close() !!}
+
+                  @endadmin
 
           </div>
 

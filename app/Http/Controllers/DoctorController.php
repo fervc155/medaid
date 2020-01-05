@@ -14,9 +14,9 @@ class DoctorController extends Controller
   public function index()
   {           
 
-        $doctors = Doctor::with(['speciality' => function ($query) {
-      $query->has('doctors');
-    }])->get();
+        $doctors = Doctor::all();
+
+
 
     return view('hospital.doctor.indexDoctors', compact('doctors'));
   }
@@ -64,8 +64,14 @@ class DoctorController extends Controller
   }
 
   //Mostrar información de doctor
-  public function show(Doctor $doctor)
+  public function show($id)
   {
+
+
+    $doctor=Doctor::find($id);
+
+
+    
     return view('hospital.doctor.showDoctor', compact('doctor'))
         ->with('patients', $doctor->patients)
         ->with('offices', $doctor->offices)
