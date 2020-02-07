@@ -135,7 +135,7 @@ public function show(Appointment $appointment)
   {
     if(Auth::UserId()==$appointment->patient_dni)
     {
-      return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
+      return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
     }
 
 
@@ -168,7 +168,11 @@ public function show(Appointment $appointment)
 
   if(Auth::Admin())
   {
-    return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
+
+
+
+
+    return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
 
   }
 

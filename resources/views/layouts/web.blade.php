@@ -40,7 +40,14 @@
 					<a id="navbarDropdown" class="nav-link no-wait dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 						<i class="icon fal fa-user"></i> {{ Auth::user()->Name }} <span class="caret"></span>
 					</a>
+
+
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="{{url('/home')}}">
+
+						<i class="fal fa-chart-pie"></i>  {{__('Escritorio') }}
+
+					</a>
 										<a class="dropdown-item" href="{{url(Auth::user()->ProfileUrl)}}">
 
 						<i class="fal icon fa-user"></i>  {{__('Mi cuenta') }}

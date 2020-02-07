@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
 
 
+
 });
 /*=====  End of AUTH PATIENT  ======*/
 
@@ -87,6 +88,8 @@ Route::group(['middleware' => ['auth','doctor'] ], function () {
     Route::patch('doctor/edit/{doctor}', 'DoctorController@edit');
     Route::get('doctor/create', 'DoctorController@create');
 
+Route::post('prescription/store','PrescriptionController@store');
+Route::post('prescription/update','PrescriptionController@update');
 
 });
 /*=====  End of AUTH doctor  ======*/
@@ -184,16 +187,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('appointment/lost/{appointment}', 'AppointmentController@lost');
 
 
+    ///////////////////// prscriptions
+
+    Route::get('prescription','PrescriptionController@index');
+
+
+
+
 //api
 
 
     Route::post('api/appointment/gettime','API\\ApiController@AppointmentGetTime');
 
-\  /*----------  comments  ----------*/
+  /*----------  comments  ----------*/
     
-
     Route::post('/appointment/comment/register','Appointment_commentController@register');
     Route::post('/appointment/comment/delete','Appointment_commentController@destroy');
+    Route::post('/appointment/comment/update','Appointment_commentController@update');
+
+
 });
 
 

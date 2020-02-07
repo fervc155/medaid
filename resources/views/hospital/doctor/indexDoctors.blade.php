@@ -4,8 +4,10 @@
 @section('content')
 
 
+@if(Auth::Office())
 <a href="{{ url('/doctor/create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fal fa-plus"></i></a>
 
+@endif
 
 @if(count($doctors) < 1)
 <div class="container p-5 sin-datos">

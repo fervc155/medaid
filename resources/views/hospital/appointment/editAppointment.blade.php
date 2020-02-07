@@ -81,6 +81,7 @@
 
 
 
+          @if(!Auth::isPatient())
          
           <div class="form-group form-inline align-items-end ">
             <div class="icon-form">
@@ -110,6 +111,33 @@
 
               
             </div>
+
+            @else
+ 
+            <div class="form-group d-none"  >
+              
+              <select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7" >
+                <optgroup label="Selecciona un doctor">
+
+                  @foreach($offices as $office)
+                  <optgroup label="Clinica {{$office->name}}">
+
+                    <?php foreach ($office->doctors as $doctor ): ?>
+                      
+                      @if($appointment->doctor_id==$doctor->id)                      
+                      <option value="{{ $doctor->id}}" <?php if($appointment->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }} - {{$doctor->speciality->name}}</option>
+                      
+                      @endif
+                    <?php endforeach ?>
+                  </optgroup>
+                  @endforeach
+                </optgroup>
+              </select>
+
+              
+            </div>
+
+            @endif
 
 
 
@@ -149,6 +177,7 @@
           </div>
 
 
+          @if(Auth::Doctor())
           <div class="form-group form-inline align-items-end">
             <div class="icon-form">
               <i class="fal fa-money-bill-wave"></i>
@@ -162,6 +191,10 @@
               {{Form::number('cost', $appointment->cost, ['class'=>'form-control'] )}}
             </div>          
           </div>
+          @endif
+
+
+          @if(Auth::isOffice())
 
         <div class="form-group form-inline align-items-end">
          <div class="icon-form">
@@ -187,6 +220,8 @@
 
         </div>
       </div>
+
+      @endif
 
       {{ Form::hidden('_method','PUT')}}
 

@@ -461,6 +461,12 @@ footer.footer li:hover
 {
   background-color: var(--principalclaro);
   border-radius: 4px;
+  cursor: pointer;
+}
+.main-admin .nav-item:hover 
+{
+  background-color: white !important;
+  border-radius: 0;
 }
 
 
@@ -703,12 +709,35 @@ background-color: var(--verde);
   font-size: 24px;
 }
 
+
+
+::-webkit-scrollbar-track
+{
+  
+  background-color: transparent;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: var(--principalxclaro);
+}
+
+
 .navbar-responsive .navbar-responsive-base
 {
   background-color: rgba(22,162,200,0.7);
   width: 260px;
   height: 100vh !important;
   overflow-x: hidden;
+  overflow-y: scroll;
+
   position: relative;
   z-index: 2;
 
@@ -756,16 +785,29 @@ background-color: var(--verde);
 .main-admin .navbar a.nav-link
 {
   color: var(--principal) !important;
+
 }
+
+
+
 
 .nav-item-button
 {
-  border-radius: 100px;
+  border-radius: 0px;
 }
 
-.nav-item-button:hover
+.nav-item.nav-item-button:hover,
+.nav-item.nav-item-button a.nav-link:hover,
+.nav-item.nav-item-button:hover a.nav-link:hover,
+.nav-item.nav-item-button:hover a.nav-link
 {
-    background-color: transparent !important;
+
+  color: var(--principal) !important;
+}
+
+.nav-item.nav-item-button:hover
+{
+  background-color: transparent !important;
 }
 .dashboard
 {
@@ -795,6 +837,27 @@ background-color: var(--verde);
 
 }
 
+.dropdown-menu.dropdown-menu-right i
+{
+  margin-right: 0.3rem;
+}
+
+.dropdown-menu.dropdown-menu-right.show
+{
+  height: auto !important;
+  overflow-y: auto !important;
+
+}
+@media screen and (max-width: 991px)
+{
+.navbar-collapse:after 
+{
+    background-color: #fcfcfc !important;
+    box-shadow: 0px 0px 15px 0px rgba(33,0,100,0.2);
+    border-radius: 0px;
+
+}
+}
 #button-dashboard i
 {
   transition: var(--transicionMenu);
@@ -808,6 +871,7 @@ background-color: var(--verde);
 .dropdown-perfil
 {
   order: -1;
+  border-radius: 0px !important;
 }
 .dropdown-perfil .profile-photo-small
 {
@@ -815,18 +879,36 @@ background-color: var(--verde);
   height: 100px !important;
   overflow: hidden;
   margin:0 auto;
+  
+
 }
 
+
+.main-admin .navbar
+{
+      padding: 5px 1rem !important;
+
+}
+.dropdown-perfil .dropdown-toggle:after
+{
+  display: none;
+}
 @media screen and (min-width: 992px)
 {
     .dropdown-perfil
   {
     order: 1;
+    border-radius: 0.25rem !important;
   }
+      .dropdown-perfil a.dropdown-toggle
+      {
+        padding: 0 !important;
+      }
+
   .dropdown-perfil .profile-photo-small
   {
-    width: 40px !important;
-    height: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
     overflow: hidden;
   }
 
@@ -836,25 +918,24 @@ background-color: var(--verde);
 
 
 
-.btn-just-icon
+.btn-sm.btn-just-icon
 {
-  width: 30px;
-  height: 3px;
-  padding: 0;
+  font-size: 12px !important;
+  line-height: 30px !important;
+}
 
-}
-.btn-just-icon i
+table .btn-just-icon
 {
-    line-height: 30px !important;
-    font-size: 12px;
-    margin: 0;
+  font-size: 12px !important;
+  line-height: 30px !important;
 }
+
 
 /*  CABECERA INICIO */
 .img-height
 {
  height: 100% !important;
-    width: auto;
+    width: auto !important;
     background-position: center center;
     margin-left: -10%;
   overflow: hidden;
@@ -1240,6 +1321,20 @@ background-color: var(--verde);
   color: var(--principal);
 }
 
+/* commnet*/
+.comment .comment-imagen-profile img
+{
+  width: auto !important;
+  height: 100% !important;
+}
+
+.comment .comment-imagen-profile
+{
+  height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    overflow: hidden;
+}
 
 /* header search*/
 

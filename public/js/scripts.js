@@ -376,6 +376,40 @@ $(".btn-actualizar-especialidad").click(function(){
 });
 
 
+$(".btn-actualizar-receta").click(function(){
+
+	var ID = $(this).data("id");
+	var content =$(this).data("content");
+
+
+	$('form.actualizar-receta input[name="prescription_id"]').val(ID);
+	$('form.actualizar-receta textarea').html(content);
+	
+});
+
+$(".btn-edit-comment").click(function(){
+
+	var ID = $(this).data("commentid");
+
+	$(this).addClass('d-none');
+
+
+	$('textarea#'+ID).removeAttr('disabled');
+	
+	$('span#btn-submit-'+ID).removeClass('d-none');
+	
+});
+
+$(".btn-update-comment").click(function(){
+
+	var ID = $(this).data("commentid");
+
+	console.log(ID);
+
+	$('#btn-update-comment-'+ID).click();
+})
+
+
 
 $(".btn-AgregarPrecioCita").on('change',function(){
 

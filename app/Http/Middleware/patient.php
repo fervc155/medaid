@@ -22,6 +22,7 @@ class patient
         
         }
 
+
         return redirect('/admin');
     }
 }

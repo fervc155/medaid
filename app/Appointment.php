@@ -40,6 +40,11 @@ class Appointment extends Model
     }
 
 
+
+    public function prescriptions() {
+        return $this->hasMany('App\Prescription')->orderBy('created_at','DESC');
+    }
+
     public function getstatusAttribute()
     {
         return $this->condition->status;

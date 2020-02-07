@@ -35,7 +35,7 @@
 
 
 								@if(Auth::Office())				
-				
+
 								<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/doctor/create')}}" class="nav-link"><i class="fal fa-user-plus"></i> Agregar nuevo</a></li>
 								
 								@endif
@@ -46,7 +46,7 @@
 
 					@endif
 
-										@admin
+					@admin
 
 
 
@@ -95,7 +95,12 @@
 						<div id="collapseAppointment" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
 							<ul class="elementos pb-1">
 								<li class="nav-item <?php if($active=='money'){ echo 'active';}?>"><a href="{{url('/appointment')}}" class="nav-link"><i class="fal  fa-book"></i> Todas</a></li>
+
+
 								<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/appointment/create')}}" class="nav-link"><i class="fal fa-calendar-plus"></i> Agregar nuevo</a></li>
+
+								<li class="nav-item <?php if($active=='money'){ echo 'active';}?>"><a href="{{url('/prescription')}}" class="nav-link"><i class="fal  fa-envelope-open-text"></i> Recetas</a></li>
+								
 
 
 							</ul>
@@ -160,42 +165,79 @@
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse">
-					<ul class="navbar-nav ml-auto">
+					<ul class="navbar-nav ml-auto p-0">
 						<li class="nav-item  nav-item-button ">
-							<a href="#pablo" class="nav-link">
-								Notificaciones
+							<a href="#pablo" class="nav-link text-primary btn btn-link  ">
+								Notificaciones <i class="not-notification fal fa-bell"></i>
+								<span class=" btn-sm with-notification btn-just-icon btn-danger btn 
+								btn-round">23</span>
+
+
+
 							</a>
 						</li>
 						<li class="nav-item nav-item-button">
-							<a href="#pablo" class="btn btn-link">
-								Mensajes <i class="fal fa-envelope" ></i>
+							<a href="#pablo" class="btn nav-link  btn btn-link text-primary btn-round">
+								Mensajes <i class="fal fa-envelope not-messages" ></i>
+								<span class=" btn-sm with-messages btn-just-icon btn-danger btn 
+								btn-round">23</span>
+
+
 							</a>
 						</li>
-						<li class="dropdown nav-item nav-item-button mr-lg-3 dropdown-perfil p-3 p-lg-0">
-							<a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
-								<div class="profile-photo-small rounded-circle">
 
+						<li class="nav-item nav-item-button">
+						<a class="nav-link" href="#">
+						@if(Auth::isPatient())
 
+						Paciente
 
+						@endif
+						@if(Auth::isDoctor())
+
+						Doctor
+						@endif
+						@if(Auth::isOffice())
+
+						Medico
+						@endif
+						@if(Auth::isAdmin())
+
+						Amdin
+						@endif
+					</a>
+						</li>
+
+					<li class="nav-item dropdown dropdown-perfil">
+					<a id="navbarDropdown" class="nav-link no-wait dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+						<div class="profile-photo-small rounded-circle">
 									<img src="{{ asset(Auth::user()->Profileimg)}}" alt="Circle Image" class="img-height">
-
-
-
 								</div>
-							</a>
+					</a>
 
-							<div class="dropdown-menu dropdown-menu-right">
-								<a href="{{url(Auth::user()->ProfileUrl)}}" class="dropdown-item">{{Auth::user()->Name}}</a>
-								<a class="dropdown-item" href="{{ route('logout') }}" onclick="esperar(); event.preventDefault(); document.getElementById('logout-form').submit();">
-									<i class="fas icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
-								</a>
 
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									@csrf
-								</form>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" href="{{url(Auth::user()->ProfileUrl)}}">
 
-							</div>
-						</li>
+						<i class="fal icon fa-user"></i>  {{__('Mi cuenta') }}
+
+					</a>
+
+
+						<a class="dropdown-item" href="{{ route('logout') }}"
+						onclick="esperar(); event.preventDefault();
+						document.getElementById('logout-form').submit();">
+						<i class="fal icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
+
+					</a>
+
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+						@csrf
+					</form>
+				
+				</div>
+			</li>
+
 
 					</ul>
 				</div>

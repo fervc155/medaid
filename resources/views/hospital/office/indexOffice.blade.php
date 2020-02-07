@@ -6,7 +6,11 @@
 
 
 
+@if(Auth::Admin())
 <a href="{{ url('/office/create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fas fa-plus"></i></a>
+
+@endif
+
 
 
 @if(count($offices) < 1)

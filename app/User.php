@@ -24,6 +24,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function comments()
+    {
+       return $this->hasMany('App\Appointment_comment')->orderBy('created_at','DESC');
+
+    }
+
     //Método para determinar si el usuario es de tipo administrador
     public function isAdmin()
     {
@@ -33,6 +40,8 @@ class User extends Authenticatable
 
         return false;
     }
+
+
 
     public function isOffice()
     {
@@ -139,10 +148,5 @@ class User extends Authenticatable
 
 
     
-
-
-    // public function privilege() {
-    //     return $this->belongsTo('App\User_privileges');
-    // }
 
 }
