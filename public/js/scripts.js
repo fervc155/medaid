@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+	$('span.material-icons.check-mark').html('<i class="fal fa-check">');
     //init DateTimePickers
     //materialKit.initFormExtendedDatetimepickers();
 });

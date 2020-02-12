@@ -53,7 +53,21 @@ class DoctorController extends Controller
     $doctor->turno = $request->input('turno');
     $doctor->sexo = $request->input('sexo');
     $doctor->cedula = $request->input('cedula');
-    $doctor->speciality_id = $request->input('especialidad');
+
+
+
+
+    $especialidades = $request->input('especialidad');
+    for($i=0;$i<count($especialidades);$i++)
+    {
+      $speciality_id =$especialidades[$i];
+
+      echo $speciality_id." ";
+     $doctor->specialities()->attach( $speciality_id);
+
+    }
+
+
     $doctor->office_id = $request->input('office_id');
     $doctor->inTime = $request->input('inTime');
     $doctor->onTime = $request->input('onTime');
@@ -88,10 +102,11 @@ class DoctorController extends Controller
   }
 
   //Método update
-  public function update(Request $request, Doctor $doctor)
+  public function update(Request $request)
   {
     $this->validate($request, [
       'name'=>'required',
+      'doctor_id',
       'birthdate'=>'required',
       'telephoneNumber'=>'required',
       'turno'=>'required',
@@ -100,6 +115,25 @@ class DoctorController extends Controller
       'especialidad'=>'required'
     ]);
 
+
+
+    $doctor = Doctor::find($request->input('doctor_id'));
+
+    $doctor->specialities()->detach();
+
+
+    $especialidades = $request->input('especialidad');
+    for($i=0;$i<count($especialidades);$i++)
+    {
+      $speciality_id =$especialidades[$i];
+
+      echo $speciality_id." ";
+     $doctor->specialities()->attach( $speciality_id);
+
+    }
+
+
+
     //Editar médico
     $doctor->name = $request->input('name');
     $doctor->birthdate = $request->input('birthdate');
@@ -107,7 +141,6 @@ class DoctorController extends Controller
     $doctor->turno = $request->input('turno');
     $doctor->sexo = $request->input('sexo');
     $doctor->cedula = $request->input('cedula');
-    $doctor->speciality_id = $request->input('especialidad');
 
      $doctor->office_id = $request->input('office_id');
     $doctor->inTime = $request->input('inTime');

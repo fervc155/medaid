@@ -154,7 +154,7 @@
 						</div>
 						<div class="form-group">
 							
-							<select class="selectpicker" name="especialidad" id="especialidad" data-style="select-with-transition" title="Selecciona una especialidad" data-size="sd7">
+							<select class="selectpicker" name="especialidad[]" id="especialidad" data-style="select-with-transition" title="Selecciona una especialidad" data-size="sd7">
 
 								<?php foreach ($specialities as $speciality ): ?>
 

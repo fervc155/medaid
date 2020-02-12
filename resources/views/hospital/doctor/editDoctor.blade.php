@@ -99,8 +99,9 @@
 
         <div class="card-body">
 
-          {!! Form::open(['action' => ['DoctorController@update', $doctor->id], 'method' => 'PUT']) !!}
+          {!! Form::open(['action' => ['DoctorController@update'], 'method' => 'post']) !!}
 
+          <input type="hidden" name="doctor_id" value="{{$doctor->id}}">
 
           <div class="form-group form-inline align-items-end">
 
@@ -160,11 +161,11 @@
             </div>
 						<div class="form-group">
 							
-							<select data-size="7" class="selectpicker" name="especialidad" id="especialidad"  multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
+							<select data-size="7" class="selectpicker" name="especialidad[]" id="especialidad"  multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
 
 								<?php foreach ($specialities as $speciality ): ?>
 
-									<option value="{{ $speciality->id}}" ?>{{ $speciality->name }}</option>
+									<option value="{{ $speciality->id}}" ?  <?php if($doctor->hasSpeciality($speciality->id)){ echo "selected";} ?>>{{ $speciality->name }}</option>
 
 								<?php endforeach ?>
 							</select>

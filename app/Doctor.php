@@ -41,6 +41,20 @@ class Doctor extends Model
         return $this->belongsToMany('App\Speciality');
     }
 
+    public function hasSpeciality($id)
+    {
+
+        foreach ($this->specialities as $speciality) 
+        {
+            if($speciality->id  == $id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     public function getMinMaxCostAttribute()
     {

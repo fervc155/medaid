@@ -106,7 +106,7 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
 
     Route::get('doctor/{id}/edit', 'DoctorController@edit');
-    Route::get('doctor/creat', 'DoctorController@create');
+    Route::get('doctor/create', 'DoctorController@create');
 
     Route::post('doctor/update', 'DoctorController@update');
 

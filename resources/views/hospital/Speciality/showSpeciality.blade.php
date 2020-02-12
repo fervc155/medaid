@@ -31,7 +31,6 @@
                 <th >Teléfono</th>
                 <th >Turno</th>
                 <th >Sexo</th>
-                <th >Especialidad</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -46,7 +45,6 @@
                 <td>{{ $d->sexo }}</td>
 
                 
-                <td>{{ $d->speciality->name}}</td>
                 <td><a href="{{url('/doctor/'.$d->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
                   <a href="{{url('/doctor/'.$d->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
 
@@ -132,18 +130,7 @@
 
           </div>
 
-
-          <div class="form-inline mb-3">
-            <div class="icon-form">
-              <i class="fal fa-user-tie"></i>
-            </div>
-
-            <div class="icon-texto">
-
-              <span class="color-principal">Especialidad: </span> {{ $doctor->speciality->name }}
-            </div>
-
-          </div>  
+ 
           <div class="text-center">
            <a href="{{url('/doctor/'.$d->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
                   <a href="{{url('/doctor/'.$d->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
