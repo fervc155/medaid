@@ -9,7 +9,10 @@
                 <td>{{ $doctor->sexo }}</td>
 
                 
-                <td>{{ $doctor->speciality->name}}</td>
+                <td><?php foreach ($doctor->specialities as $speciality): ?>
+                    
+                    <a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>           
+                <?php endforeach ?></td>
                 <td><a href="{{url('/doctor/'.$doctor->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
 
 

@@ -160,11 +160,11 @@
             </div>
 						<div class="form-group">
 							
-							<select class="selectpicker" name="especialidad" id="especialidad" data-style="select-with-transition" title="Selecciona una especialidad" data-size="sd7">
+							<select data-size="7" class="selectpicker" name="especialidad" id="especialidad"  multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
 
 								<?php foreach ($specialities as $speciality ): ?>
 
-									<option value="{{ $speciality->id}}" <?php if($doctor->speciality->id==$speciality->id){ echo "selected";} ?>>{{ $speciality->name }}</option>
+									<option value="{{ $speciality->id}}" ?>{{ $speciality->name }}</option>
 
 								<?php endforeach ?>
 							</select>

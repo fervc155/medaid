@@ -4,6 +4,18 @@
 				<img src="{{asset($doctor->Profileimg)}}" class="img-fluid">
 
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
+					<div>
+							
+						<h5 class="color-principal"><i class="fal fa-user-tie "></i> Especialidades</h5>
+
+
+
+				<?php foreach ($doctor->specialities as $speciality): ?>
+                    
+                    <a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>           
+                <?php endforeach ?>
+
+						</div>
 
 
 				<div class="card-body">
@@ -94,25 +106,34 @@
 					</div>
 
 
-					<div class="form-inline">
-						<div class="color-principal">
-							<i class="fal fa-user-tie"></i> Especialidad:
-						</div>
-
-
-
-						{{ $doctor->speciality->name }}
-
-
-					</div>  
-
 					<div class="text-center font-weight-bold color-principal">
 						<i class="fal fa-coins"></i> Consulta:
 					</div>
 
-					<div class="display-4 color-principal">
-						{{ $doctor->speciality->price }}
+
+					<select data-size="7" class="selectpicker select-speciality-doctor" name="especialidad" id="especialidad"  data-style="select-with-transition" title="Especialidad" data-size="sd7">
+
+						<?php foreach ($doctor->specialities as $speciality ): ?>
+
+							<option value="{{ $speciality->id}}" ?>{{ $speciality->name }}</option>
+
+							<?php endforeach ?>
+					</select>
+
+					@if(Auth::Doctor())
+
+					<div class="h3 color-principal">
+						<span class=" speciality-price" id="speciality-price-minmax">
+							
+							{{$doctor->MinMaxCost}}  
+						</span>
+
+						<?php foreach ($doctor->specialities as $speciality): ?>
+							<span class="d-none speciality-price" id="speciality-price-{{$speciality->id}}">{{$speciality->price}}</span>
+						<?php endforeach ?>
 					</div>
+
+					@endif
 
 
 					@if(Auth::Doctor())
@@ -131,9 +152,31 @@
 
 					@if(Auth::isPatient())
 					
-					<a href="{{url('appointment/create/'.$doctor->id)}}" class="btn btn-primary btn-round">Registrar una cita</a>
+
+					
+
+					<div class="h3 color-principal">
+						<span class=" speciality-price" id="speciality-price-minmax">
+							
+							{{$doctor->MinMaxCost}}  
+						</span>
+
+						<?php foreach ($doctor->specialities as $speciality): ?>
+							<span class="d-none speciality-price" id="speciality-price-{{$speciality->id}}">
+								<span class="d-block">
+								{{$speciality->price}}
+									
+								</span>
+
+					
+							<a  class="btn btn-primary btn-round" href="{{url('appointment/create/'.$doctor->id.'/'.$speciality->id)}}">Agendar una cita</a>
+							</span>
+						<?php endforeach ?>
+					</div>
 
 					@endif
+					
+
 				</div>
 
 			</div>

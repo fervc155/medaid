@@ -10,10 +10,11 @@
 		<i class="fal fa-envelope-open-text"></i>
 	</button>
 
+		@include('hospital.includes.modal.createPrescription');
 
 @elseif(Auth::Doctor())
 
-		@include('hospital.includes.modal.createPrescription');
+		@include('hospital.includes.modal.editPrescription');
 
 	@endif
 
@@ -35,8 +36,16 @@
 
 				<div class="card card-profile">
 
-					<img src="{{asset($patient->Profileimg)}}" class="img-fluid">
+			@if(Auth::isDoctor())
+					<img src="{{asset($appointment->doctor->Profileimg)}}" class="img-fluid">
 
+			@else
+				<img src="{{asset($patient->Profileimg)}}" class="img-fluid">
+
+
+			@endif
+
+			
 					<h5 class="p-3 mt-0 h4 text-light bg-secondary text-center text-capitalize"><i class="fal fa-book"></i> {{$appointment->patient->name}}</h5>
 
 					<div class="card-body">

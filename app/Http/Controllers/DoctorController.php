@@ -79,10 +79,11 @@ class DoctorController extends Controller
   }
 
   //Actualizar doctor
-  public function edit(Doctor $doctor)
+  public function edit($id)
   {
     $offices = Office::all();
     $specialities = Speciality::all();
+    $doctor= Doctor::find($id);
     return view('hospital.doctor.editDoctor', compact('doctor','specialities','offices'));
   }
 

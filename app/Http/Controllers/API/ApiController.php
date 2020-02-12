@@ -230,7 +230,7 @@ class ApiController extends Controller
 
 	
 		$id= $request->input('doctor');
-$date= $request->input('date');
+		$date= $request->input('date');
 
 		$doctor= Doctor::find($id);
 
@@ -288,5 +288,58 @@ $date= $request->input('date');
 
 	}
 
+
+	/*===========================================
+	=            Get office's doctos            =
+	===========================================*/
+	
+	
+	
+
+
+
+	public function get_officesDoctors($id)
+	{
+
+		$office = Office::find($id);
+
+		$calculateSpeciality=array();
+
+
+		foreach ($office->doctors as $doctor)
+		{
+			$spe= array();
+
+			foreach ($doctor->specialities as $special) 
+			{
+
+				$new1 = array(
+					'id'=>$special->id,
+					'name'=>$special->name
+				);
+				
+				array_push($spe,$new1);
+	
+			}
+
+			$new = array(
+				'id'=>$doctor->id,
+				'name'=>$doctor->name,
+				'speciality'=>$spe
+				
+			);
+			array_push($calculateSpeciality,$new);
+
+
+		}
+
+
+		return json_encode($calculateSpeciality);
+
+
+
+	}
+
+	/*=====  End of Get office's doctos  ======*/
 
 }

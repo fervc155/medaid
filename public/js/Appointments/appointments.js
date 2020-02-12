@@ -46,7 +46,7 @@ $('.appointmentAjax input[name="date"]').on('change', function()
 	let fecha=$(this).val();
 	let doctor =$('.appointmentAjax select[name="doctor_id"]').val();
 
-
+	console.log(doctor);
 
 
 	appointmentAjaxLlenarHorario(fecha,doctor);
@@ -77,10 +77,12 @@ $('.appointmentAjax select[name="doctor_id"]').on('change', function()
 
 });
 
-let datos;
+let __datos;
 let desabilitado;
 function appointmentAjaxLlenarHorario(fecha,doctor)
 {
+
+	console.log()
 
 	if(fecha==undefined || doctor ==undefined)
 	{
@@ -88,8 +90,8 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 	}
 	if(fecha.length>0 && doctor.length>0)
 	{
-				$('.groupTimepickerCita .bmd-label-floating').html('Hora');
- 				 
+		$('.groupTimepickerCita .bmd-label-floating').html('Hora');
+
 
 
 		$.ajax({
@@ -106,9 +108,9 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 			},
 
 			success:function(data,success){
-				 datos= JSON.parse(data);
+				__datos= JSON.parse(data);
 
-				var cantidad =Object.keys(datos).length
+				var cantidad =Object.keys(__datos).length
 
 
 				if (document.getElementsByClassName('timepicker'))
@@ -118,10 +120,10 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 					
 
 
-					horaMax= 	datos['outTime'][0]+datos['outTime'][1];	
+					horaMax= 	__datos['outTime'][0]+__datos['outTime'][1];	
 					minutoMax ="00";
 
-					if (datos['outTime'][3]=='0')
+					if (__datos['outTime'][3]=='0')
 					{
 						minutoMax='30';
 
@@ -129,8 +131,8 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 					}
 
 
-					horaMin =datos['inTime'][0]+datos['inTime'][1];
-					minutoMin=datos['inTime'][3]+datos['inTime'][4]; 
+					horaMin =__datos['inTime'][0]+__datos['inTime'][1];
+					minutoMin=__datos['inTime'][3]+__datos['inTime'][4]; 
 
 
 
@@ -170,39 +172,135 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 					$('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input disabled class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
 					}
 
-					}*/
+				}*/
 
-					$('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
-					fijarMiHora();
+				$('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
+				fijarMiHora();
 
 				
 
-					$('.timepickerCita').pickatime({
-						min: [horaMin,minutoMin],
-						max:[horaMax,minutoMax],
-						clear: 'Quitar Hora',
-						interval: 30,
-						format: 'H:i',
-						 onClose: function() {
-	    			$('.groupTimepickerCita .bmd-label-floating').html('');
- 				 },})
+				$('.timepickerCita').pickatime({
+					min: [horaMin,minutoMin],
+					max:[horaMax,minutoMax],
+					clear: 'Quitar Hora',
+					interval: 30,
+					format: 'H:i',
+					onClose: function() {
+						$('.groupTimepickerCita .bmd-label-floating').html('');
+					},})
 
 
-					for(t=0;t<datos['hours'].length;t++)
-					{
-						$('[aria-label="'+ datos['hours'][t] +'"]').remove();
-					}
-
-
+				for(t=0;t<__datos['hours'].length;t++)
+				{
+					$('[aria-label="'+ __datos['hours'][t] +'"]').remove();
 				}
 
 
 			}
 
-		});
+
+		}
+
+	});
 	}
 }
 
+
+/*=====================================================
+=            obtener medicos de una oficia            =
+=====================================================*/
+
+
+ExisteEspecialidadEnArray = function(array, element)
+{
+
+	for(k=0;k< array.length;k++)
+	{
+		if (element['id']==array[k]['id'])
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+__specialities =new Array();
+__doctors = new Array();
+
+
+$('.select-office.ajax').on('change',function()
+{
+
+
+	$.ajax({
+
+		type:'GET',
+
+		url:_URL+"/get/officesdoctors/"+$(this).val(),
+
+		success:function(data,success){
+			var doctores= JSON.parse(data);
+
+			__doctors= doctores;
+
+
+
+
+			for(i=0; i< doctores.length;i++)
+			{
+
+				for(j=0;j<doctores[i]['speciality'].length; j++)
+				{
+
+					if(!ExisteEspecialidadEnArray(__specialities,doctores[i]['speciality'][j]))
+					{
+						__specialities.push(doctores[i]['speciality'][j]);
+					}
+
+
+				}
+
+			}
+
+
+			html='<option>Seleciona una especialidad</option>';
+
+
+			for(i=0; i< __specialities.length;i++)
+			{
+				html+='<option value="'+__specialities[i]['id']+'" >'+ __specialities[i]['name']+'</option>';
+
+			}
+
+			$('select[name=speciality_id]').html(html)
+
+
+		}
+
+	});
+})
+
+$('.select-speciality.ajax').on('change',function()
+{
+
+
+	doctores= __doctors;
+
+
+	html='<option>Selecciona un doctor</option>';
+
+
+	for(i=0; i< doctores.length;i++)
+	{
+		html+='<option value="'+doctores[i]['id']+'" >'+ doctores[i]['name']+'</option>';
+
+	}
+
+	$('select[name=doctor_id]').html(html);
+
+
+
+});
 
 
 
@@ -227,7 +325,7 @@ fijarMiHora = function()
 	{
 
 
-	 $('.appointmentAjax input#select-time').val(horaActual);
+		$('.appointmentAjax input#select-time').val(horaActual);
 	}
 
 }
@@ -260,17 +358,17 @@ $('.appointment-reestablecer-hora').click(function()
 =            functions            =
 =================================*/
 function formatDateToday() {
-    var d = new Date(),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+	var d = new Date(),
+	month = '' + (d.getMonth() + 1),
+	day = '' + d.getDate(),
+	year = d.getFullYear();
 
-    if (month.length < 2) 
-        month = '0' + month;
-    if (day.length < 2) 
-        day = '0' + day;
+	if (month.length < 2) 
+		month = '0' + month;
+	if (day.length < 2) 
+		day = '0' + day;
 
-    return [year, month, day].join('-');
+	return [year, month, day].join('-');
 }
 
 

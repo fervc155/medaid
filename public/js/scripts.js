@@ -358,6 +358,30 @@ $(".btn-confirm-delete").click(function(){
 
 });
 
+$(".select-speciality-doctor").on('change', function()
+{
+
+	id=$(this).val();
+
+
+	$('.speciality-price').each(function()
+	{
+		if(!$(this).hasClass('d-none'))
+		{
+		$(this).addClass('d-none')
+
+		}
+
+	})
+
+
+	$('#speciality-price-'+id).removeClass('d-none')
+
+
+
+
+})
+
 
 ///btn borrar especialidad
 

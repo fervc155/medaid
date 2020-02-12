@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Speciality extends Model
 {
-	    //Relación 1:N con doctores
+	   
     public function doctors() {
-    	return $this->hasMany('App\Doctor');
+        return $this->belongsToMany('App\Doctor');
     }
 
       public function getpriceAttribute()

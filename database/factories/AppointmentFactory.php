@@ -11,6 +11,7 @@ $factory->define(App\Appointment::class, function (Faker $faker) {
         'description'=>$faker->sentence(5),
         'stars'=>$faker->numberBetween(2,5),
         'condition_id' =>  $faker->numberBetween(1,7),
+        'speciality_id' =>  $faker->numberBetween(1,7),
 
         'doctor_id'=> $faker->numberBetween(1,20),
         'patient_dni'=>$faker->numberBetween(1,20)

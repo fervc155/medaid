@@ -39,6 +39,11 @@ class Appointment extends Model
         return $this->hasMany('App\Appointment_comment')->orderBy('created_at','DESC');
     }
 
+    public function speciality()
+    {
+        return $this->belongsTo('App\Speciality.php');
+    }
+
 
 
     public function prescriptions() {

@@ -37,8 +37,40 @@ class Doctor extends Model
         $this->attributes['cedula'] = strtoupper($value);
     }
 
-    public function speciality() {
-        return $this->belongsTo('App\Speciality');
+    public function specialities() {
+        return $this->belongsToMany('App\Speciality');
+    }
+
+
+    public function getMinMaxCostAttribute()
+    {
+        $min=999999;
+        $max=1;
+
+        foreach ($this->specialities as $speciality ) 
+        {
+            if($speciality->cost<$min)
+            {
+                $min=$speciality->cost;
+            }
+
+            if($speciality->cost>$max)
+            {
+                $max=$speciality->cost;
+            }
+
+        }
+
+
+        if($min==$max)
+        {
+            return $moneda.$min;
+        }
+
+        $moneda = Options::Moneda();
+
+        return $moneda.$min." - ".$moneda.$max;
+
     }
 
 

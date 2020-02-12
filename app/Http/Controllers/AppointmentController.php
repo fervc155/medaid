@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Appointment;
 use App\Condition;
 use App\Conditions;
+use App\Speciality;
 use App\Doctor;
 use App\Office;
 use App\Patient;
@@ -72,7 +73,7 @@ class AppointmentController extends Controller
   }
 
   //Agregar cita
-  public function create($id='')
+  public function create($id='',$spe='')
   {
 
 
@@ -83,10 +84,22 @@ class AppointmentController extends Controller
 	  $patients = Patient::all();
 	  $offices= Office::all();
 
+
+
+    if ($id!='' && $spe!='')
+    {
+      $_doctor= Doctor::find($id);
+      $_speciality_id = $spe;
+
+    return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices','_speciality_id'));
+   
+    }
+
     if ($id!='')
     {
       $_doctor= Doctor::find($id);
-    return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices'));
+    
+     return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices'));
    
     }
     else
@@ -102,7 +115,7 @@ public function store(Request $request)
   $this->validate($request, [
     'date'=>'required',
     'time'=>'required',
-    
+    'speciality_id'=>'required',
     'description'=>'required',
     'doctor_id'=>'required',
     'patient_dni'=>'required',
@@ -116,12 +129,15 @@ public function store(Request $request)
   $appointment->date = $request->input('date');
   $appointment->time = $request->input('time');
   $appointment->doctor_id = $request->input('doctor_id');
-  $appointment->cost = Doctor::find($appointment->doctor_id)->first()->speciality->cost;
+  $appointment->speciality_id = $request->input('speciality_id');
+  $appointment->cost = Speciality::find($appointment->speciality_id)->first()->cost;
+
   $appointment->patient_dni = $request->input('patient_dni');
   
   $appointment->description = $request->input('description');
   $appointment->condition_id = Conditions::id('pending');
   $appointment->save();
+
 
   return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');
 }
@@ -235,10 +251,8 @@ public function edit(Appointment $appointment)
 
 
 
-	  $patients = Patient::all();
-	  $offices= Office::all();
 	  $conditions = Condition::all();
-	  return view('hospital.appointment.editAppointment', compact('appointment','patients','offices','conditions'));
+	  return view('hospital.appointment.editAppointment', compact('appointment','conditions'));
   }
 
 
@@ -252,22 +266,18 @@ public function update(Request $request, Appointment $appointment)
     'date'=>'required',
     'time'=>'required',
     'description'=>'required',
-    'cost'=>'required',
-    'doctor_id'=>'required',
-    'patient_dni'=>'required',
+    'appointment_id'=>'required'
     
   ]);
 
-  
+
+  $appointment = Appointment::find($request->input('appointment_id')) ; 
   $appointment->date = $request->input('date');
   $appointment->time = $request->input('time');
-  $appointment->doctor_id = $request->input('doctor_id');
-  $appointment->cost =  $request->input('cost');
-  $appointment->patient_dni = $request->input('patient_dni');
   
   $appointment->description = $request->input('description');
-  $appointment->condition_id = Conditions::id('pending');
   $appointment->save();
+
   return redirect('/appointment')->with('success', '¡La cita ha sido actualizada con éxito!');
 }
 

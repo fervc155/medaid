@@ -42,6 +42,8 @@ Route::post('/visitante/search-doctores/especialidad','API\\ApiController@search
 Route::post('/visitante/search-doctores','API\\ApiController@searchDoctores');
 Route::post('/visitante/search-citas','API\\ApiController@searchCitas');
 
+Route::get('/get/officesdoctors/{id}','API\\ApiController@get_officesDoctors');
+
 
 /*=====  End of API  ======*/
 
@@ -58,16 +60,17 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
     Route::resource('appointment', 'AppointmentController');          
     
-    Route::get('appointment/create/{id_doctor}','AppointmentController@create');
+    Route::get('appointment/create/{id_doctor}/{id_speciality}','AppointmentController@create');
 
     Route::get('appointment/create','AppointmentController@create');
     Route::get('doctor', 'DoctorController@index');
-    Route::get('doctor/{id}', 'DoctorController@show');
     Route::resource('office', 'OfficeController');
 
     Route::get('patient/{id}','patientController@show');
     Route::get('patient/{id}/edit','patientController@edit');
- Route::patch('patient','patientController@update');
+    Route::patch('patient','patientController@update');
+    
+    Route::get('doctor/{id}','DoctorController@show');
 
 
 
@@ -86,7 +89,6 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 Route::group(['middleware' => ['auth','doctor'] ], function () {
 
     Route::patch('doctor/edit/{doctor}', 'DoctorController@edit');
-    Route::get('doctor/create', 'DoctorController@create');
 
 Route::post('prescription/store','PrescriptionController@store');
 Route::post('prescription/update','PrescriptionController@update');
@@ -100,6 +102,13 @@ Route::post('prescription/update','PrescriptionController@update');
 
 
 Route::group(['middleware' => ['auth','office'] ], function () {
+    Route::get('doctor/destroy/{doctor}', 'DoctorController@destroy');
+
+
+    Route::get('doctor/{id}/edit', 'DoctorController@edit');
+    Route::get('doctor/creat', 'DoctorController@create');
+
+    Route::post('doctor/update', 'DoctorController@update');
 
 
 });
