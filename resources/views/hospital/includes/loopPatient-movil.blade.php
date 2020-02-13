@@ -64,7 +64,10 @@
               <span class="color-principal">Domicilio </span> {{ $patient->address }}
             </div>
             
-          </div>  
+          </div>
+
+
+          @if(!Auth::isDoctor())  
 
           <div class="form-inline mb-2">
             <div class="icon-form">
@@ -77,6 +80,8 @@
             </div>
             
           </div>
+
+          @endif
           <div class="text-center">
             <a href="{{url('/patient/'.$patient->dni)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
 

@@ -26,7 +26,11 @@
                 <th>Teléfono</th>
                 <th>Sexo</th>
                 <th>Domicilio</th>
+                 @if(!Auth::isDoctor())
+               
                 <th>Médico</th>
+               
+                @endif
                 <th>Acciones</th>
               </tr>
             </thead>

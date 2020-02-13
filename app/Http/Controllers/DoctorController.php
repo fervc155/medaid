@@ -7,7 +7,7 @@ use App\Office;
 use App\Options;
 use App\Speciality;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class DoctorController extends Controller
 {
   //Lista de doctores
@@ -95,10 +95,24 @@ class DoctorController extends Controller
   //Actualizar doctor
   public function edit($id)
   {
+
+
+    if(Auth::Doctor())
+    {
+
+
+      if(Auth::UserId() != $id)
+      {
+        return view('admin');
+      }
+
     $offices = Office::all();
     $specialities = Speciality::all();
     $doctor= Doctor::find($id);
     return view('hospital.doctor.editDoctor', compact('doctor','specialities','offices'));
+    }
+
+    return view('admin');
   }
 
   //Método update

@@ -3,7 +3,10 @@
 @section('content')
 
 
-@if(count($appointment->prescriptions)<1 && $appointment->condition->status == 'accepted'  && Auth::Doctor())
+@if(count($appointment->prescriptions)<1 
+&& ($appointment->condition->status == 'accepted' 
+|| $appointment->condition->status == 'completed')
+&& Auth::Doctor())
 
 
 	<button  class="btn btn-success  btn-float"  data-toggle="modal" data-target="#AgregarReceta">

@@ -46,7 +46,7 @@
 
 					@endif
 
-					@admin
+					@if(Auth::Doctor())
 
 
 
@@ -56,14 +56,18 @@
 						<div id="collapsePatient" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
 							<ul class="elementos pb-1">
 								<li class="nav-item <?php if($active=='money'){ echo 'active';}?>"><a href="{{url('/patient')}}" class="nav-link"><i class="fal  fa-users"></i> Todos</a></li>
+
+								@if(Auth::Office())
 								<li class="nav-item <?php if($active=='options'){ echo 'active';}?>"><a href="{{url('/patient/create')}}" class="nav-link"><i class="fal fa-user-plus"></i> Agregar nuevo</a></li>
+
+								@endif
 
 
 							</ul>
 						</div>
 					</li>
 
-					@endadmin
+					@endif
 
 
 					@if(Auth::Patient())

@@ -102,12 +102,12 @@
 							<select class="select2 select-office ajax"  data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7" >
 								<option>Selecciona una clinica</option>
 
-									@foreach($offices as $office)
+								@foreach($offices as $office)
 
-									<option value="{{ $office->id}}">{{ $office->name }} </option>
+								<option value="{{ $office->id}}">{{ $office->name }} </option>
 
-									@endforeach
-								</select>
+								@endforeach
+							</select>
 
 						</div>
 					</div>
@@ -123,7 +123,7 @@
 
 							<select name="speciality_id" class="select2 select-speciality ajax btn-AgregarPrecioCita"  data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7" >
 								<option>Selecciona una especialidad</option>
-								</select>
+							</select>
 
 						</div>
 					</div>
@@ -160,19 +160,34 @@
 					@else
 
 
-							<select class="d-none" name="doctor_id">
-								<option value="{{$_doctor->id}}"></option>
+					<select class="d-none" name="doctor_id">
+						<option value="{{$_doctor->id}}"></option>
 
 
 
+					</select>
+
+
+					<div class="form-group form-inline align-items-end ">
+						<div class="icon-form">
+							<i class="fal fa-hospital"></i>
+						</div>
+
+
+
+						<div class="form-group "  >
+
+							<select name="speciality_id" class="select2 select-speciality "  data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7" >
+								<option>Selecciona una especialidad</option>
+								
+								<?php foreach ($_doctor->specialities as $speciality): ?>
+									
+									<option value="{{$speciality->id}}" <?php if(!empty($_speciality_id)) { if($_speciality_id==$speciality->id){ echo "selected";} } ?>>{{$speciality->name}} - {{$speciality->price}}</option>
+								<?php endforeach ?>
 							</select>
-														<select name="speciality_id" class="d-none">
-								<option value="{{$_speciality_id}}"></option>
-								</select>
 
-
-
-
+						</div>
+					</div>
 					@endif
 
 					<div class="form-group form-inline align-items-end">

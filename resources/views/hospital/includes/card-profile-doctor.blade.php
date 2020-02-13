@@ -137,8 +137,15 @@
 
 
 					@if(Auth::Doctor())
-					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 
+					@if($doctor->id == Auth::UserId() || Auth::isOffice())
+					
+
+					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+					@endif
+
+
+					@if(Auth::Office())
 
 					<button class="btn btn-danger btn-round btn-confirm-delete" id='doctor-{{$doctor->id}}' > <i class="fal fa-trash"></i> Eliminar</button>
 
@@ -147,7 +154,9 @@
 					{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none', 'id'=>'doctor-'.$doctor->id]) }}
 					{!! Form::close() !!}
 
+				
 					@endif
+	@endif
 
 
 					@if(Auth::isPatient())

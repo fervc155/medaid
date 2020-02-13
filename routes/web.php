@@ -88,10 +88,17 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
 Route::group(['middleware' => ['auth','doctor'] ], function () {
 
+    Route::get('patient','PatientController@index');
+    Route::get('patient/show','PatientController@show');
+
     Route::patch('doctor/edit/{doctor}', 'DoctorController@edit');
 
+    Route::get('doctor/{id}/edit', 'DoctorController@edit');
 Route::post('prescription/store','PrescriptionController@store');
-Route::post('prescription/update','PrescriptionController@update');
+Route::post('prescription/update','PrescriptionController@update'
+);
+Route::get('prescription','PrescriptionController@index');
+
 
 });
 /*=====  End of AUTH doctor  ======*/
@@ -102,10 +109,13 @@ Route::post('prescription/update','PrescriptionController@update');
 
 
 Route::group(['middleware' => ['auth','office'] ], function () {
+
+
+    Route::patch('patient/{patient}/destroy','PatientController@destroy');
+    Route::get('patiet/create','PatientController@create');
     Route::get('doctor/destroy/{doctor}', 'DoctorController@destroy');
 
 
-    Route::get('doctor/{id}/edit', 'DoctorController@edit');
     Route::get('doctor/create', 'DoctorController@create');
 
     Route::post('doctor/update', 'DoctorController@update');
@@ -126,7 +136,6 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 Route::group(['middleware' => ['auth','admin'] ], function () {
 
  
-    Route::resource('patient', 'PatientController');
 
 
     /*----------  especialidades  ----------*/

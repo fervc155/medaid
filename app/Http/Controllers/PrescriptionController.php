@@ -23,14 +23,21 @@ class PrescriptionController extends Controller
         ->get();
 
 
-            $prescriptions =  Prescription::
-             join('appointments','appointments.id','=','prescriptions.appointment_id')->
-             select('prescriptions.*')
-            ->where('appointments.patient_dni','=', 1)->get();
 
+            return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+
+        }
+        if(Auth::isDoctor())
+        {
+                 $prescriptions =  Prescription::
+        join('appointments','appointments.id','=','prescriptions.appointment_id')
+        ->select('prescriptions.*','appointments.*')
+        ->where('appointments.doctor_id', Auth::UserId())
+        ->get();
 
 
             return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+
 
         }
         

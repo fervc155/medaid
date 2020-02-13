@@ -83,7 +83,7 @@
 </div>  
 
 
-@if(auth::Doctor())
+@if((auth::isDoctor() && Auth::UserId()== $doctor->id) || auth::isOffice())
 
 <!-- CITAS -->
 

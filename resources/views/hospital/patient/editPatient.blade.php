@@ -226,7 +226,7 @@
                     <?php foreach ($office->doctors as $doctor ): ?>
                       
                       
-                      <option value="{{ $doctor->id}}" <?php if($patient->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }} - {{$doctor->speciality->name}}</option>
+                      <option value="{{ $doctor->id}}" <?php if($patient->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }} </option>
                       
                     <?php endforeach ?>
                   </optgroup>

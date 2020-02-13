@@ -85,6 +85,12 @@ class AppointmentController extends Controller
 	  $offices= Office::all();
 
 
+    if(Auth::isDoctor())
+    {
+      $id= Auth::UserId();
+    }
+
+
 
     if ($id!='' && $spe!='')
     {
@@ -98,7 +104,9 @@ class AppointmentController extends Controller
     if ($id!='')
     {
       $_doctor= Doctor::find($id);
-    
+
+
+
      return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices'));
    
     }
@@ -161,10 +169,30 @@ public function show(Appointment $appointment)
 
   if(Auth::isDoctor())
   {
+
+           $patients =  Patient::
+        join('appointments','appointments.patient_dni','=','patients.dni')
+        ->select('patients.*','appointments.*')
+        ->where('appointments.doctor_id', Auth::UserId())
+        ->get();
+
     if(Auth::UserId()==$appointment->doctor_id)
     {
       return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
     }
+
+    foreach ($patients as $patient) 
+    {
+      foreach ($patient->appointments as $ap) 
+      {
+        if($ap->id == $appointment->id)
+        {
+         return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
+        
+        }
+      }
+    }
+
 
 
   }
