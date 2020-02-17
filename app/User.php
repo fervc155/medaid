@@ -31,6 +31,30 @@ class User extends Authenticatable
 
     }
 
+    public function getNamePrivilegeAttribute()
+    {
+
+        if($this->isPatient())
+        {
+            return 'Patient';
+        }
+
+        if($this->isDoctor())
+        {
+            return 'Doctor';
+        }
+
+        if($this->isOffice())
+        {
+            return 'Office';
+        }
+
+        if($this->isAdmin())
+        {
+            return 'Admin';
+        }
+    }
+
 
 
 

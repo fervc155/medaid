@@ -133,6 +133,11 @@ Route::group(['middleware' => ['auth','office'] ], function () {
     route::get('speciality/{id}','SpecialityController@show');
 
     route::delete('speciality/store','SpecialityController@destroy');
+        /*----------  users  ----------*/
+
+            route::get('user','UserController@index');
+
+
 
 });
 /*=====  End of AUTH office  ======*/
