@@ -14,8 +14,8 @@ class DoctorsTableSeeder extends Seeder
     {
         factory(App\Doctor::class, 20)->create();
 
-        $specialities = App\Speciality::all();
-        Doctor::All()->each(function ($doctor) use ($specialities){
+        Doctor::All()->each(function ($doctor) {
+        $specialities = App\Speciality::all()->random(4);
       	$doctor->specialities()->saveMany($specialities);
    		});
 	

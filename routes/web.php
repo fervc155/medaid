@@ -64,11 +64,11 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
     Route::get('appointment/create','AppointmentController@create');
     Route::get('doctor', 'DoctorController@index');
-    Route::resource('office', 'OfficeController');
-
-    Route::get('patient/{id}','patientController@show');
-    Route::get('patient/{id}/edit','patientController@edit');
-    Route::patch('patient','patientController@update');
+    Route::get('office', 'OfficeController@index');
+    Route::get('office/{id}' ,'OfficeController@show');
+    Route::get('patient/{id}','PatientController@show');
+    Route::get('patient/{id}/edit','PatientController@edit');
+    Route::patch('patient','PatientController@update');
     
     Route::get('doctor/{id}','DoctorController@show');
 
@@ -116,10 +116,23 @@ Route::group(['middleware' => ['auth','office'] ], function () {
     Route::get('doctor/destroy/{doctor}', 'DoctorController@destroy');
 
 
+    Route::get('office/{id}/edit','officeController@edit');
+    Route::patch('office','OfficeController@update');
+
     Route::get('doctor/create', 'DoctorController@create');
 
     Route::post('doctor/update', 'DoctorController@update');
 
+
+    route::get('speciality','SpecialityController@index');
+    /*----------  especialidades  ----------*/
+
+
+    route::post('speciality/store','SpecialityController@store');
+    route::post('speciality/update','SpecialityController@update');
+    route::get('speciality/{id}','SpecialityController@show');
+
+    route::delete('speciality/store','SpecialityController@destroy');
 
 });
 /*=====  End of AUTH office  ======*/
@@ -137,16 +150,6 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
  
 
-
-    /*----------  especialidades  ----------*/
-
-
-    route::get('speciality','SpecialityController@index');
-    route::post('speciality/store','SpecialityController@store');
-    route::post('speciality/update','SpecialityController@update');
-    route::get('speciality/{id}','SpecialityController@show');
-
-    route::delete('speciality/store','SpecialityController@destroy');
 
 
     /*----------  Facturas  ----------*/
@@ -176,7 +179,10 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
      
 
-     
+    /*----------  Office  ----------*/
+
+    route::delete('office/{office}/delete','OfficeController@destroy');
+         
 
     
 

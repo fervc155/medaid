@@ -79,13 +79,13 @@
 
 					</div>
 
-					@if(Auth::Office())
+					@if(Auth::Admin()  || (Auth::isOffice() && $office->id == Auth::UserId()) )
 
 					<div class="text-center">
 
 
 
-						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="/office/{{$office->id}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/office/'.$office->id.'/edit')}}"> <i class="fal fa-pen"></i> Editar</a>
 
 						<a role="button" class="btn btn-round btn-danger text-light mt-3 btn-confirm-delete" id="office-{{$office->id}}"> <i class="fal fa-trash"></i> Eliminar</a>
 

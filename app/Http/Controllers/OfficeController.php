@@ -5,73 +5,120 @@ use File;
 use App\Office;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class OfficeController extends Controller
 {
     //Lista de consultorios
     public function index()
     {
-        $offices = Office::orderBy('id', 'asc')->get();
-        return view('hospital.office.indexOffice', compact('offices'));
+
+        if(Auth::Patient())
+        {
+
+            $offices = Office::orderBy('id', 'asc')->get();
+            return view('hospital.office.indexOffice', compact('offices'));
+        }
+        return view('admin');
+
     }
 
     //Agregar consultorio
     public function create()
     {
-        return view('hospital.office.createOffice');
+        if(Auth::Admin())
+        {
+
+
+            return view('hospital.office.createOffice');
+        }
+        return view('admin');
+
     }
 
     //Almacenar consultorio
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name'=>'required',
-            'address'=>'required',
-            'postalCode'=>'required',
-            'city'=>'required',
-            'country'=>'required',
-            'image'=>'image|nullable|max:1999'
-        ]);
+        if(Auth::Admin())
+        {
 
-     
-        $file = $request->file('image');
-        $path = public_path().'/splash/img/office';
-        $fileName= uniqid(). $file->getClientOriginalName();
-        $move = $file->move($path, $fileName);
+
+            $this->validate($request, [
+                'name'=>'required',
+                'address'=>'required',
+                'postalCode'=>'required',
+                'city'=>'required',
+                'country'=>'required',
+                'image'=>'image|nullable|max:1999'
+            ]);
+
+
+            $file = $request->file('image');
+            $path = public_path().'/splash/img/office';
+            $fileName= uniqid(). $file->getClientOriginalName();
+            $move = $file->move($path, $fileName);
 
         //Crear consultorio
-        $office = new Office;
-        $office->name = $request->input('name');
-        $office->address = $request->input('address');
-        $office->postalCode = $request->input('postalCode');
-        $office->city = $request->input('city');
-        $office->country = $request->input('country');
-        if ($move)
-        {
-            $office->image= $fileName;
+            $office = new Office;
+            $office->name = $request->input('name');
+            $office->address = $request->input('address');
+            $office->postalCode = $request->input('postalCode');
+            $office->city = $request->input('city');
+            $office->country = $request->input('country');
+            if ($move)
+            {
+                $office->image= $fileName;
+            }
+
+            $office->save();
+
+            return redirect('/office')->with('success', '¡El consultorio ha sido agregado con éxito!');
         }
 
-        $office->save();
+        return view('admin');
 
-        return redirect('/office')->with('success', '¡El consultorio ha sido agregado con éxito!');
     }
 
     //Mostrar información
-    public function show(Office $office)
+    public function show($id)
     {
-        return view('hospital.office.showOffice', compact('office'))
-                ->with('doctors', $office->doctors);
+        if(Auth::Patient())
+        {
+
+            $office = Office::find($id);
+            return view('hospital.office.showOffice', compact('office'))
+            ->with('doctors', $office->doctors);
+        }
+        return view('admin');
+
     }
 
     //Actualizar
-    public function edit(Office $office)
+    public function edit($id)
     {
+        if(Auth::Office())
+        {
+
+
+          if(Auth::UserId() != $id)
+          {
+            return view('admin');
+        }
+
+        $office = Office::find($id);
         return view('hospital.office.editOffice', compact('office'));
     }
+    return view('admin');
+
+}
 
     //Método update
-    public function update(Request $request, Office $office)
+public function update(Request $request, Office $office)
+{
+
+    if(Auth::Office())
     {
+
         $this->validate($request, [
             'name'=>'required',
             'address'=>'required',
@@ -114,10 +161,17 @@ class OfficeController extends Controller
 
         return redirect('/office')->with('success', '¡El consultorio ha sido actualizado con éxito!');
     }
+    return view('admin');
+
+}
 
     //Eliminar consultorio
-    public function destroy(Office $office)
+public function destroy(Office $office)
+{
+
+    if(Auth::Admin())
     {
+
         //Si la imagen no es no 'noimage' (nuestra imagen predeterminada),
         //entonces será eliminada del almacenamiento
         if($office->image != 'noimage.png')
@@ -127,5 +181,8 @@ class OfficeController extends Controller
         $office->delete();
         return redirect('/office')->with('success', 'El consultorio ha sido eliminado con éxito.');
     }
+    return view('admin');
+
+}
 
 }

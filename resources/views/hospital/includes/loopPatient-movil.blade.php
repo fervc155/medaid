@@ -82,6 +82,10 @@
           </div>
 
           @endif
+
+
+          @if((Auth::Office() && Auth::UserId() == $patient->doctor->office_id) || Auth::Admin())
+
           <div class="text-center">
             <a href="{{url('/patient/'.$patient->dni)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
 
@@ -95,6 +99,8 @@
             {!! Form::close() !!}
 
           </div>
+
+          @endif
         </div>
         
       </div>

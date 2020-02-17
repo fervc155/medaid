@@ -17,10 +17,10 @@ class PrescriptionController extends Controller
         if(Auth::isPatient())
         {
             $prescriptions =  Prescription::
-        join('appointments','appointments.id','=','prescriptions.appointment_id')
-        ->select('prescriptions.*','appointments.*')
-        ->where('appointments.patient_dni', Auth::UserId())
-        ->get();
+            join('appointments','appointments.id','=','prescriptions.appointment_id')
+            ->select('prescriptions.*','appointments.*')
+            ->where('appointments.patient_dni', Auth::UserId())
+            ->get();
 
 
 
@@ -29,34 +29,53 @@ class PrescriptionController extends Controller
         }
         if(Auth::isDoctor())
         {
-                 $prescriptions =  Prescription::
-        join('appointments','appointments.id','=','prescriptions.appointment_id')
-        ->select('prescriptions.*','appointments.*')
-        ->where('appointments.doctor_id', Auth::UserId())
-        ->get();
+           $prescriptions =  Prescription::
+           join('appointments','appointments.id','=','prescriptions.appointment_id')
+           ->select('prescriptions.*','appointments.*')
+           ->where('appointments.doctor_id', Auth::UserId())
+           ->get();
 
 
-            return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+           return view('hospital.prescription.indexPrescription', compact('prescriptions'));
 
 
-        }
-        
+       }
+       if(Auth::isOffice())
+       {
+           $prescriptions =  Prescription::
+           join('appointments','appointments.id','=','prescriptions.appointment_id')
+           ->join('doctors','appointments.doctor_id','=','doctors.id')
+           ->select('prescriptions.*','appointments.*','doctors.*')
+           ->where('doctors.office_id', Auth::UserId())
+           ->get();
 
-        if(Auth::isAdmin())
-        {
 
-            $prescriptions = Prescription::all();
-            return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+           return view('hospital.prescription.indexPrescription', compact('prescriptions'));
 
 
+       }
 
-        }
+       
 
-        return view('admin');
+       if(Auth::isAdmin())
+       {
+
+        $prescriptions = Prescription::all();
+        return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+
+
+
     }
 
-    public function store(Request $request )
+    return view('admin');
+}
+
+public function store(Request $request )
+{
+
+    if(Auth::Doctor())
     {
+
 
         $prescription =  new Prescription();
 
@@ -70,21 +89,29 @@ class PrescriptionController extends Controller
 
 
         return back()->with('success', 'Se ha agregado la receta correctamente');
+
     }
+    return view('admin');
+
+}
 
 
-    public function show(Prescription $prescription)
-    {
+public function show(Prescription $prescription)
+{
         //
-    }
+}
 
-    public function edit(Prescription $prescription)
-    {
+public function edit(Prescription $prescription)
+{
         //
-    }
+}
 
-    public function update(Request $request)
+public function update(Request $request)
+{
+
+    if(Auth::Doctor())
     {
+
         $prescription = Prescription::find($request->input('prescription_id'));
 
         $prescription->content = $request->input('content');
@@ -92,10 +119,14 @@ class PrescriptionController extends Controller
         $prescription->save();
 
         return back()->with('success','Receta actualizada correctamente');
-    }
 
-    public function destroy(Prescription $prescription)
-    {
-        //
     }
+    return view('admin');
+
+}
+
+public function destroy(Prescription $prescription)
+{
+        //
+}
 }

@@ -18,11 +18,16 @@
                 <td><a href="{{url('/appointment/'.$a->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
 
 
+                  @if((Auth::isPatient() && Auth::UserId() == $a->patient_dni) || (Auth::isDoctor() && Auth::UserId() == $a->doctor_id) || (Auth::isOffice() && Auth::UserId() == $a->doctor->office_id) || Auth::Admin() )
+
+
                   @if ($a->status=='pending')
                   
 
                   <a href="{{url('/appointment/'.$a->id.'/edit')}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
                   
+                  @endif
+
                   @endif
 
 

@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"Appo",
+				"Appointment"
+			],
+			[
+				"patients",
+				"patients1"
+			],
+			[
+				"ap",
+				"appointment"
+			],
+			[
+				"appo",
+				"appointments"
+			],
+			[
+				"office",
+				"office_id"
+			],
+			[
+				"appi",
+				"appointments"
+			],
+			[
+				"App",
+				"Appointment〔namespace〕"
+			],
+			[
+				"offi",
+				"office_id"
+			],
+			[
+				"appointment",
+				"appointment_id"
+			],
+			[
+				"special",
+				"speciality"
+			],
+			[
+				"docto",
+				"doctor"
+			],
+			[
+				"spe",
+				"$speciality_id〔variable〕"
+			],
+			[
+				"speci",
+				"speciality_id"
+			],
+			[
+				"epecia",
+				"$especialidades〔variable〕"
+			],
+			[
+				"especi",
+				"$especialidades〔variable〕"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"op",
+				"option\tTag"
+			],
+			[
+				"badge-p",
+				"badge-primary \tBootstrap 4 Class"
+			],
+			[
+				"req",
+				"$request〔variable〕"
+			],
+			[
+				"doctor",
+				"doctores"
+			],
+			[
+				"comm-section",
+				"comm-section\tComment - Full section comment"
+			],
+			[
 				"doct",
 				"doctores"
 			],
@@ -20,20 +104,12 @@
 				"comm-section-header\tComment - Section header comment"
 			],
 			[
-				"office",
-				"office"
-			],
-			[
 				"sp",
 				"span\tTag"
 			],
 			[
 				"has",
 				"hasClass〔function〕"
-			],
-			[
-				"speci",
-				"speciality"
 			],
 			[
 				"d",
@@ -128,14 +204,6 @@
 				"Appointment_comment"
 			],
 			[
-				"Appo",
-				"AppointmentController〔class〕"
-			],
-			[
-				"ap",
-				"appointment"
-			],
-			[
 				"hora",
 				"horaActual〔variable〕"
 			],
@@ -170,10 +238,6 @@
 			[
 				"appoin",
 				"$appointments〔variable〕"
-			],
-			[
-				"spe",
-				"$specialities〔variable〕"
 			],
 			[
 				"pad",
@@ -224,10 +288,6 @@
 				"bg-white \tBootstrap 4 Class"
 			],
 			[
-				"special",
-				"$speciality〔variable〕"
-			],
-			[
 				"specialit",
 				"speciality"
 			],
@@ -276,10 +336,6 @@
 				"text-center \tBootstrap 4 Class"
 			],
 			[
-				"doctor",
-				"doctor_id"
-			],
-			[
 				"form",
 				"form-group"
 			],
@@ -298,10 +354,6 @@
 			[
 				"lh",
 				"line-height\tproperty"
-			],
-			[
-				"for",
-				"form-group"
 			],
 			[
 				"colum",
@@ -462,58 +514,6 @@
 			[
 				"ac",
 				"action\tAttr"
-			],
-			[
-				"image",
-				"imageUrl〔function〕"
-			],
-			[
-				"le",
-				"letter-spacing\tproperty"
-			],
-			[
-				"trasn",
-				"transform\tproperty"
-			],
-			[
-				"transl",
-				"translateX()\ttransform"
-			],
-			[
-				"boxs",
-				"box-shadow\tproperty"
-			],
-			[
-				"produ",
-				"$productos〔variable〕"
-			],
-			[
-				"btn-",
-				"btn-info \tBootstrap 4 Class"
-			],
-			[
-				"Coller",
-				"Collective\\Html\\FormFacade〔class〕"
-			],
-			[
-				"Colle",
-				"Collective\\Html\\FormFacade〔class〕"
-			],
-			[
-				"_",
-				"_titulo_url"
-			],
-			[
-				"tex",
-				"text-center \tBootstrap 4 Class"
-			],
-			[
-				"bordra",
-				"border-radius\tproperty"
-			],
-			[
-				"img",
-				"img-fluid \tBootstrap 4 Class"
 			]
 		]
 	},
@@ -558,7 +558,7 @@
 			"file": "resources/views/hospital/office/showOffice.blade.php",
 			"settings":
 			{
-				"buffer_size": 3493,
+				"buffer_size": 3560,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -602,7 +602,7 @@
 			"file": "database/factories/PatientFactory.php",
 			"settings":
 			{
-				"buffer_size": 680,
+				"buffer_size": 725,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -655,17 +655,19 @@
 			"file": "app/Doctor.php",
 			"settings":
 			{
-				"buffer_size": 2331,
+				"buffer_size": 2578,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse App\\Speciality;\nuse Illuminate\\Http\\Request;\n\nclass SpecialityController extends Controller\n{\n    public function index()\n    {\n\n    \t$specialities = Speciality::All();\n\n    \treturn view('hospital.speciality.indexSpeciality', compact('specialities'));\n    }\n\n    public function store(Request $request)\n    {\n\n    \t$especialidad = new Speciality();\n\n    \t$especialidad->name = $request->input('name');\n    \t$especialidad->cost = $request->input('cost');\n    \t$especialidad->save();\n\n\n    return back()->with('success','¡Especialidad Agregada con Exito!');\n\n    }\n\n    public function show($id)\n    {\n\n    \t$speciality = Speciality::find($id);\n        \n\n   \n    return view('hospital.speciality.showSpeciality', compact('speciality'))->with('doctors',$speciality->doctors);\n\n    }\n\n    public function update(Request $request)\n    {\n\n    \t$especialidad = Speciality::find($request->input('id'));\n    \t$especialidad->cost = $request->input('cost');\n\n    \t$especialidad->name = $request->input('name');\n    \t$especialidad->save();\n\n\n    return back()->with('success','¡Especialidad Actualizada con Exito!');\n\n    }\n\n\n    public function destroy(Request $request)\n    {\n\n    \t$especialidad = Speciality::find($request->input('id'));\n\n\n\n    \t$especialidad->delete();\n\n   \t\t return back()->with('success','¡Especialidad eliminada con Exito!');\n\n\n    }\n}\n",
 			"file": "app/Http/Controllers/SpecialityController.php",
+			"file_size": 1386,
+			"file_write_time": 132171152998641535,
 			"settings":
 			{
-				"buffer_size": 1383,
-				"encoding": "UTF-8",
+				"buffer_size": 1392,
 				"line_ending": "Unix"
 			}
 		},
@@ -710,7 +712,7 @@
 			"file": "database/migrations/2018_11_23_163104_create_appointments_table.php",
 			"settings":
 			{
-				"buffer_size": 2175,
+				"buffer_size": 2174,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -757,7 +759,7 @@
 			"file": "app/Appointment.php",
 			"settings":
 			{
-				"buffer_size": 2446,
+				"buffer_size": 2547,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -953,7 +955,7 @@
 			"file": "app/Http/Controllers/API/ApiController.php",
 			"settings":
 			{
-				"buffer_size": 4893,
+				"buffer_size": 5262,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -962,7 +964,7 @@
 			"file": "app/Http/Controllers/AppointmentController.php",
 			"settings":
 			{
-				"buffer_size": 7440,
+				"buffer_size": 8728,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1029,7 +1031,7 @@
 			"file": "database/seeds/DoctorsTableSeeder.php",
 			"settings":
 			{
-				"buffer_size": 446,
+				"buffer_size": 438,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1057,7 +1059,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 6036,
+				"buffer_size": 6580,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1101,7 +1103,7 @@
 			"file": "app/Http/Middleware/office.php",
 			"settings":
 			{
-				"buffer_size": 472,
+				"buffer_size": 470,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1143,7 +1145,7 @@
 			"file": "database/seeds/UsersTableSeeder.php",
 			"settings":
 			{
-				"buffer_size": 736,
+				"buffer_size": 926,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1161,7 +1163,7 @@
 			"file": "resources/views/web/includes/doctor-card.blade.php",
 			"settings":
 			{
-				"buffer_size": 1299,
+				"buffer_size": 1514,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1214,7 +1216,7 @@
 			"file": "resources/views/hospital/appointment/createAppointment.blade.php",
 			"settings":
 			{
-				"buffer_size": 5508,
+				"buffer_size": 5112,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1223,7 +1225,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 6036,
+				"buffer_size": 6580,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1232,7 +1234,7 @@
 			"file": "public/js/Appointments/appointments.js",
 			"settings":
 			{
-				"buffer_size": 4914,
+				"buffer_size": 5762,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1241,7 +1243,7 @@
 			"file": "resources/views/hospital/appointment/showAppointment.blade.php",
 			"settings":
 			{
-				"buffer_size": 10715,
+				"buffer_size": 10824,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1268,7 +1270,7 @@
 			"file": "app/Http/Controllers/PrescriptionController.php",
 			"settings":
 			{
-				"buffer_size": 2134,
+				"buffer_size": 2858,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1345,11 +1347,13 @@
 			}
 		},
 		{
+			"contents": "<div class=\"container\">\n\n\n  <div class=\"row\">\n    <div class=\"col-12  d-none d-md-block\">\n\n      <div class=\"card\">\n        <div class=\"card-encabezado\">\n\n          <div class=\"card-cabecera-icono bg-info sombra-2 \">\n\n            <i class=\"fal fa-book\"></i>\n          </div>\n          <div class=\"card-title\">Listado de citas</div>\n        </div>\n        <div class=\"card-body table-responsive\">\n\n          <!-- Si el número de citas es mayor a cero, se mostrarán los datos -->\n          <table class=\"table \" id=\"data_table_citas\">\n            <thead>\n              <tr>\n                <th >Fecha</th>\n                <th >Hora</th>\n                <th >Costo</th>\n                <th >Razón</th>\n                \n                <th >Médico</th>\n\n                @if(!Auth::isPatient())\n                <th >Paciente</th>\n                @endif\n                <th >Consultorio</th>\n                <th >Status</th>\n                <th>Acciones</th>\n\n              </tr>\n            </thead>\n            <tbody>\n            \n                @include('hospital.includes.loopAppointment-desktop')\n\n\n            </tbody>\n          </table>\n\n          <!-- Si no hay registros, el usuario será informado -->\n\n\n        </div>\n      </div>\n    </div>\n    <div class=\"col-12 d-block d-md-none\">\n                @include('hospital.includes.loopAppointment-movil')\n      \n    </div>\n\n  </div>\n\n</div>\n",
 			"file": "resources/views/hospital/includes/tableAppointment.blade.php",
+			"file_size": 1441,
+			"file_write_time": 132254821775038014,
 			"settings":
 			{
-				"buffer_size": 1378,
-				"encoding": "UTF-8",
+				"buffer_size": 1395,
 				"line_ending": "Windows"
 			}
 		},
@@ -1357,7 +1361,7 @@
 			"file": "resources/views/hospital/includes/loopAppointment-desktop.blade.php",
 			"settings":
 			{
-				"buffer_size": 1228,
+				"buffer_size": 1476,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1375,7 +1379,7 @@
 			"file": "resources/views/hospital/includes/loopDoctor-desktop.blade.php",
 			"settings":
 			{
-				"buffer_size": 1580,
+				"buffer_size": 1639,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1384,7 +1388,7 @@
 			"file": "resources/views/hospital/includes/loopDoctor-movil.blade.php",
 			"settings":
 			{
-				"buffer_size": 3012,
+				"buffer_size": 3078,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1393,7 +1397,7 @@
 			"file": "resources/views/hospital/includes/loopAppointment-movil.blade.php",
 			"settings":
 			{
-				"buffer_size": 2542,
+				"buffer_size": 2795,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1435,20 +1439,24 @@
 			}
 		},
 		{
+			"contents": "<?php\n\nuse App\\Appointment;\nuse App\\Condition;\nuse App\\Doctor;\nuse App\\Patient;\nuse App\\Speciality;\nuse Faker\\Generator as Faker;\n\n$factory->define(App\\Appointment::class, function (Faker $faker) {\n\n\n    $Condition = Condition::all()->random(1);\n    $Speciality = Speciality::all()->random(1);\n    $Doctor = Doctor::all()->random(1);\n    $Patient = Patient::all()->random(1);\n\n       return [\n        'date' => $faker->dateTimeBetween($startDate = '-6 months', $endDate = '+6 months', $timezone = null),\n        'time' => $faker->randomElement($array2 = array ('09:00:00','09:30:00','10:00:00','10:30:00','10:30:00','11:00:00','11:30:00','12:00:00','12:30:00','13:00:00','13:30:00','14:00:00','14:30:00','15:00:00','15:30:00','16:00:00','16:30:00','17:00:00','17:30:00','18:00:00','18:30:00','19:00:00','19:30:00','20:00:00','20:30:00','21:00:00','21:30:00','22:00:00','22:30:00','23:00:00',)),\n        'cost'=> $faker->randomElement($array2 = array ('40','60','120','150','200')),\n        'description'=>$faker->sentence(5),\n        'stars'=>$faker->numberBetween(2,5),\n        'condition_id' =>  $Condition->id,\n        'speciality_id' =>  $Speciality->id,\n\n        'doctor_id'=> $Doctor->id,\n        'patient_dni'=>$Patient->dni,\n\n    ];\n});\n\n//15:44:00",
 			"file": "database/factories/AppointmentFactory.php",
+			"file_size": 1184,
+			"file_write_time": 132261836584815218,
 			"settings":
 			{
-				"buffer_size": 1001,
-				"encoding": "UTF-8",
+				"buffer_size": 1256,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "<?php\n\nuse App\\Appointment;\nuse App\\User;\nuse Faker\\Generator as Faker;\n\n$factory->define(App\\Appointment_comment::class, function (Faker $faker) {\n\n\t$Appointment = Appointment::all()->random(1);\n\t$user = User::all()->random(1);\n\treturn [\n\n\t\t'comment'=>$faker->sentence(20),\n\t\t'user_id'=>$user->id,\n\t\t'appointment_id'=>$Appointment->id,\n\n\n\n\n\n\t];\n});",
 			"file": "database/factories/Appointment_commentFactory.php",
+			"file_size": 314,
+			"file_write_time": 132261835185815200,
 			"settings":
 			{
-				"buffer_size": 237,
-				"encoding": "UTF-8",
+				"buffer_size": 349,
 				"line_ending": "Unix"
 			}
 		},
@@ -1465,7 +1473,7 @@
 			"file": "public/js/scripts.js",
 			"settings":
 			{
-				"buffer_size": 7132,
+				"buffer_size": 7203,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1483,7 +1491,7 @@
 			"file": "resources/views/hospital/doctor/showDoctor.blade.php",
 			"settings":
 			{
-				"buffer_size": 2240,
+				"buffer_size": 2296,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1492,7 +1500,7 @@
 			"file": "resources/views/hospital/includes/card-profile-doctor.blade.php",
 			"settings":
 			{
-				"buffer_size": 4396,
+				"buffer_size": 5033,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1615,7 +1623,7 @@
 			"file": "resources/views/hospital/patient/indexPatients.blade.php",
 			"settings":
 			{
-				"buffer_size": 591,
+				"buffer_size": 618,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1624,7 +1632,7 @@
 			"file": "resources/views/hospital/includes/loopPatient-desktop.blade.php",
 			"settings":
 			{
-				"buffer_size": 1382,
+				"buffer_size": 1581,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1633,7 +1641,7 @@
 			"file": "resources/views/hospital/includes/loopPatient-movil.blade.php",
 			"settings":
 			{
-				"buffer_size": 2991,
+				"buffer_size": 3163,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1642,7 +1650,7 @@
 			"file": "resources/views/hospital/includes/tablePatient.blade.php",
 			"settings":
 			{
-				"buffer_size": 1133,
+				"buffer_size": 1228,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1678,7 +1686,7 @@
 			"file": "app/User.php",
 			"settings":
 			{
-				"buffer_size": 2479,
+				"buffer_size": 2490,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1731,7 +1739,7 @@
 			"file": "app/Http/Controllers/PatientController.php",
 			"settings":
 			{
-				"buffer_size": 4323,
+				"buffer_size": 6446,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1740,7 +1748,7 @@
 			"file": "app/Http/Controllers/DoctorController.php",
 			"settings":
 			{
-				"buffer_size": 3437,
+				"buffer_size": 4618,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1758,9 +1766,18 @@
 			"file": "resources/views/hospital/Speciality/showSpeciality.blade.php",
 			"settings":
 			{
-				"buffer_size": 4060,
+				"buffer_size": 169,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": " (function(document, player) { var config = {\"cdn_url\":\"https://f.vimeocdn.com\",\"vimeo_api_url\":\"api.vimeo.com\",\"request\":{\"files\":{\"dash\":{\"separate_av\":true,\"streams\":[{\"profile\":164,\"quality\":\"360p\",\"id\":\"97ae48d1-a699-43b5-8c64-7072f4fdc46b\",\"fps\":25},{\"profile\":174,\"quality\":\"720p\",\"id\":\"a76babb1-6130-494e-8e67-a1819586a6fe\",\"fps\":25},{\"profile\":165,\"quality\":\"540p\",\"id\":\"c428519e-390a-4631-8605-acf855b7359a\",\"fps\":25},{\"profile\":139,\"quality\":\"240p\",\"id\":\"24368f21-8bf8-4dbf-a239-a641285422c9\",\"fps\":25},{\"profile\":175,\"quality\":\"1080p\",\"id\":\"3d4a580e-77f2-47ac-b1af-a4514653a490\",\"fps\":25}],\"cdns\":{\"akfire_interconnect_quic\":{\"url\":\"https://50vod-adaptive.akamaized.net/exp=1581561030~acl=%2F03b120b3-ee41-40cf-9bab-268c9e9f5fc1%2F%2A~hmac=c7e199f7c159ed1d06f7fd3b5f96005e1c681e4b724cbd1bdb79b1761899aba0/03b120b3-ee41-40cf-9bab-268c9e9f5fc1/sep/video/97ae48d1,a76babb1,c428519e,24368f21,3d4a580e/master.json?base64_init=1\",\"origin\":\"gcs\",\"avc_url\":\"https://50vod-adaptive.akamaized.net/exp=1581561030~acl=%2F03b120b3-ee41-40cf-9bab-268c9e9f5fc1%2F%2A~hmac=c7e199f7c159ed1d06f7fd3b5f96005e1c681e4b724cbd1bdb79b1761899aba0/03b120b3-ee41-40cf-9bab-268c9e9f5fc1/sep/video/97ae48d1,a76babb1,c428519e,24368f21,3d4a580e/master.json?base64_init=1\"}},\"streams_avc\":[{\"profile\":164,\"quality\":\"360p\",\"id\":\"97ae48d1-a699-43b5-8c64-7072f4fdc46b\",\"fps\":25},{\"profile\":174,\"quality\":\"720p\",\"id\":\"a76babb1-6130-494e-8e67-a1819586a6fe\",\"fps\":25},{\"profile\":165,\"quality\":\"540p\",\"id\":\"c428519e-390a-4631-8605-acf855b7359a\",\"fps\":25},{\"profile\":139,\"quality\":\"240p\",\"id\":\"24368f21-8bf8-4dbf-a239-a641285422c9\",\"fps\":25},{\"profile\":175,\"quality\":\"1080p\",\"id\":\"3d4a580e-77f2-47ac-b1af-a4514653a490\",\"fps\":25}],\"default_cdn\":\"akfire_interconnect_quic\"},\"hls\":{\"separate_av\":false,\"default_cdn\":\"akfire_interconnect_quic\",\"cdns\":{\"akfire_interconnect_quic\":{\"url\":\"https://50vod-adaptive.akamaized.net/exp=1581561030~acl=%2F03b120b3-ee41-40cf-9bab-268c9e9f5fc1%2F%2A~hmac=c7e199f7c159ed1d06f7fd3b5f96005e1c681e4b724cbd1bdb79b1761899aba0/03b120b3-ee41-40cf-9bab-268c9e9f5fc1/video/97ae48d1,a76babb1,c428519e,24368f21,3d4a580e/master.m3u8\",\"origin\":\"gcs\",\"avc_url\":\"https://50vod-adaptive.akamaized.net/exp=1581561030~acl=%2F03b120b3-ee41-40cf-9bab-268c9e9f5fc1%2F%2A~hmac=c7e199f7c159ed1d06f7fd3b5f96005e1c681e4b724cbd1bdb79b1761899aba0/03b120b3-ee41-40cf-9bab-268c9e9f5fc1/video/97ae48d1,a76babb1,c428519e,24368f21,3d4a580e/master.m3u8\"}}},\"progressive\":[{\"profile\":164,\"width\":640,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://gcs-vimeo.akamaized.net/exp=1581561030~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1564%2F15%2F382822193%2F1607313111.mp4~hmac=d2088c3aa05b64161e7f02c751b090867438e2a6e655f689fa68d889923c75c0/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607313111.mp4?source=1\",\"cdn\":\"akamai_interconnect\",\"quality\":\"360p\",\"id\":\"97ae48d1-a699-43b5-8c64-7072f4fdc46b\",\"origin\":\"gcs\",\"height\":360},{\"profile\":174,\"width\":1280,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://gcs-vimeo.akamaized.net/exp=1581561030~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1564%2F15%2F382822193%2F1607314435.mp4~hmac=7370766961ff38111f51885c895da121ac0c0a0971a9da1cde90adce09fad130/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607314435.mp4?source=1\",\"cdn\":\"akamai_interconnect\",\"quality\":\"720p\",\"id\":\"a76babb1-6130-494e-8e67-a1819586a6fe\",\"origin\":\"gcs\",\"height\":720},{\"profile\":165,\"width\":960,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://gcs-vimeo.akamaized.net/exp=1581561030~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1564%2F15%2F382822193%2F1607314433.mp4~hmac=cd4af3322b10041ebe86629070987a82d62353852578e828ddf31b7aa34a5dbb/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607314433.mp4?source=1\",\"cdn\":\"akamai_interconnect\",\"quality\":\"540p\",\"id\":\"c428519e-390a-4631-8605-acf855b7359a\",\"origin\":\"gcs\",\"height\":540},{\"profile\":139,\"width\":426,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://gcs-vimeo.akamaized.net/exp=1581561030~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1564%2F15%2F382822193%2F1607313109.mp4~hmac=63c10499affaa163b85a8901810f0a2c32db20684b8c74da4cbccd82bd07fa3b/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607313109.mp4?source=1\",\"cdn\":\"akamai_interconnect\",\"quality\":\"240p\",\"id\":\"24368f21-8bf8-4dbf-a239-a641285422c9\",\"origin\":\"gcs\",\"height\":240},{\"profile\":175,\"width\":1920,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://gcs-vimeo.akamaized.net/exp=1581561030~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1564%2F15%2F382822193%2F1607314432.mp4~hmac=2846a30b3b0ef055bddbc2931971c48f126df20c6f5205833ee05a8d06cdd3f9/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607314432.mp4?source=1\",\"cdn\":\"akamai_interconnect\",\"quality\":\"1080p\",\"id\":\"3d4a580e-77f2-47ac-b1af-a4514653a490\",\"origin\":\"gcs\",\"height\":1080}]},\"lang\":\"es\",\"sentry\":{\"url\":\"https://6f5f8e1cecfa40fb850f578b69fc1705@sentry.io/1297650\",\"enabled\":true,\"debug_enabled\":true,\"debug_intent\":0},\"ab_tests\":{\"chromecast\":{\"track\":false,\"data\":{},\"group\":false},\"cdn_preference\":{\"track\":false,\"data\":{\"city\":\"guadalajara\",\"country_code\":\"MX\",\"hls_pref_found\":false,\"dash_pref_found\":true},\"group\":true}},\"referrer\":\"https://kaleanders.com/seminario-web-repeticion32571996\",\"cookie_domain\":\".vimeo.com\",\"timestamp\":1581534062,\"gc_debug\":{\"bucket\":\"vimeo-player-debug\"},\"expires\":26668,\"currency\":\"MXN\",\"session\":\"5d7edd5d6814ffc237e7f24a7fbf52fd65b26d7f1581534062\",\"cookie\":{\"scaling\":1,\"volume\":1.0,\"quality\":null,\"hd\":0,\"captions\":null},\"build\":{\"backend\":\"1.15.3\",\"js\":\"3.17.6\"},\"urls\":{\"barebone_js\":\"https://f.vimeocdn.com/p/3.17.6/js/barebone.js\",\"test_imp\":\"https://fresnel.vimeocdn.com/add/player-test-impression\",\"js_base\":\"https://f.vimeocdn.com/p/3.17.6/js/\",\"fresnel\":\"https://fresnel.vimeocdn.com/add/player-stats\",\"js\":\"https://f.vimeocdn.com/p/3.17.6/js/player.es.js\",\"proxy\":\"https://player.vimeo.com/static/proxy.html\",\"mux_url\":\"https://f.vimeocdn.com/p/external/mux.js\",\"fresnel_chunk_url\":\"https://fresnel-events.vimeocdn.com/add/chunk_downloads\",\"three_js\":\"https://f.vimeocdn.com/p/external/three.rvimeo.min.js\",\"sentry_url\":\"https://f.vimeocdn.com/p/external/sentry.min.js\",\"chromeless_css\":\"https://f.vimeocdn.com/p/3.17.6/css/chromeless.css\",\"vuid_js\":\"https://f.vimeocdn.com/js_opt/modules/utils/vuid.min.js\",\"chromeless_js\":\"https://f.vimeocdn.com/p/3.17.6/js/chromeless.js\",\"fresnel_manifest_url\":\"https://fresnel-events.vimeocdn.com/add/playback_manifest\",\"css\":\"https://f.vimeocdn.com/p/3.17.6/css/player.css\"},\"signature\":\"5aed1606b3ffc18478fdfea9aea6a6ee\",\"flags\":{\"dnt\":0,\"preload_video\":\"metadata_on_hover\",\"plays\":1,\"partials\":1,\"autohide_controls\":0},\"country\":\"MX\",\"file_codecs\":{\"hevc\":{\"hdr\":[],\"sdr\":[]},\"av1\":[],\"avc\":[\"97ae48d1-a699-43b5-8c64-7072f4fdc46b\",\"a76babb1-6130-494e-8e67-a1819586a6fe\",\"c428519e-390a-4631-8605-acf855b7359a\",\"24368f21-8bf8-4dbf-a239-a641285422c9\",\"3d4a580e-77f2-47ac-b1af-a4514653a490\"]}},\"player_url\":\"player.vimeo.com\",\"video\":{\"version\":{\"current\":null,\"available\":[{\"is_current\":1,\"id\":96458540,\"file_id\":1607312616}]},\"height\":1080,\"duration\":6667,\"thumbs\":{\"1280\":\"https://i.vimeocdn.com/video/844086039_1280.jpg\",\"960\":\"https://i.vimeocdn.com/video/844086039_960.jpg\",\"640\":\"https://i.vimeocdn.com/video/844086039_640.jpg\",\"base\":\"https://i.vimeocdn.com/video/844086039\"},\"owner\":{\"account_type\":\"pro\",\"name\":\"Kalle Andersson\",\"img\":\"https://i.vimeocdn.com/portrait/defaults-blue_60x60.png\",\"url\":\"https://vimeo.com/user102488073\",\"img_2x\":\"https://i.vimeocdn.com/portrait/defaults-blue_120x120.png\",\"id\":102488073},\"id\":382822193,\"embed_code\":\"<iframe title=\\\"vimeo-player\\\" src=\\\"https://player.vimeo.com/video/382822193\\\" width=\\\"640\\\" height=\\\"360\\\" frameborder=\\\"0\\\" allowfullscreen><\\/iframe>\",\"title\":\"Webinar 5.0\",\"share_url\":\"https://vimeo.com/382822193\",\"width\":1920,\"embed_permission\":\"public\",\"fps\":25.0,\"spatial\":0,\"live_event\":null,\"allow_hd\":1,\"hd\":1,\"lang\":null,\"default_to_hd\":0,\"url\":null,\"privacy\":\"disable\",\"bypass_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGlwX2lkIjozODI4MjIxOTMsImV4cCI6MTU4MTU2MDU0OH0.jm53AMqbcTl7oNfigsJu7qgLgf3GUIKcJfHmh-DFUTk\",\"unlisted_hash\":null},\"user\":{\"team_origin_user_id\":0,\"liked\":0,\"account_type\":\"none\",\"vimeo_api_client_token\":null,\"vimeo_api_interaction_tokens\":null,\"team_id\":0,\"watch_later\":0,\"owner\":0,\"id\":0,\"mod\":0,\"logged_in\":0},\"embed\":{\"autopause\":0,\"playsinline\":1,\"settings\":{\"fullscreen\":1,\"byline\":0,\"like\":0,\"playbar\":1,\"title\":0,\"color\":0,\"speed\":1,\"watch_later\":0,\"share\":0,\"scaling\":1,\"spatial_compass\":0,\"collections\":0,\"info_on_pause\":0,\"portrait\":0,\"logo\":0,\"embed\":0,\"badge\":0,\"spatial_label\":0,\"volume\":1},\"color\":\"00adef\",\"texttrack\":\"\",\"on_site\":0,\"app_id\":\"\",\"muted\":1,\"dnt\":0,\"player_id\":\"\",\"api\":null,\"editor\":false,\"context\":\"embed.main\",\"time\":0,\"outro\":\"nothing\",\"log_plays\":1,\"quality\":null,\"transparent\":1,\"loop\":0,\"autoplay\":1},\"view\":1,\"vimeo_url\":\"vimeo.com\"}; if (!config.request) { return; } if (typeof config.request === 'object' && 'error' in config.request) { if ('html' in config.request) { document.documentElement.innerHTML = config.request.html.replace(/&lt;/g, '<').replace(/&gt;/g, '>'); } return; } var isIframe = (function() { try { return window.self !== window.top; } catch (e) { return true; } }()); if (!isIframe && /twitter/i.test(navigator.userAgent) && config.video.url) { window.location = config.video.url; } if (config.request.lang) { document.documentElement.setAttribute('lang', config.request.lang); } var fullscreenSupport = 'exitFullscreen' in document || 'webkitExitFullscreen' in document || 'webkitCancelFullScreen' in document || 'mozCancelFullScreen' in document || 'msExitFullscreen' in document || 'webkitEnterFullScreen' in document.createElement('video'); var inlineSvgSupport = (function() { var div = document.createElement('div'); div.innerHTML = '<svg/>'; return (div.firstChild && div.firstChild.namespaceURI) === 'http://www.w3.org/2000/svg'; }()); var windowsPhone = /MSIE 9/.test(navigator.userAgent) && /Windows Phone/.test(navigator.userAgent); var IE10 = /IE 10/.test(navigator.userAgent); var usePlayer = fullscreenSupport || IE10 || windowsPhone; var firstScript = document.getElementsByTagName('script')[0]; var script = document.createElement('script'); var jsDone = false; var playerObject = false; if (!inlineSvgSupport) { usePlayer = false; } if (!usePlayer) { var placeholder = document.querySelector('.vp-placeholder'); if (placeholder && placeholder.parentNode) { placeholder.parentNode.removeChild(placeholder); } } if (usePlayer) { player.className = 'player loading'; var startTime = new Date().getTime(); script.src = config.request.urls.js; firstScript.parentNode.insertBefore(script, firstScript); script['onreadystatechange' in script ? 'onreadystatechange' : 'onload'] = function() { if (!jsDone && (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete')) { jsDone = true; playerObject = new VimeoPlayer(player, config, cssDone || { link: link, startTime: startTime }); } }; var cssDone = false; var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = config.request.urls.css + (typeof cacheBuster === 'undefined' ? '' : cacheBuster); document.getElementsByTagName('head')[0].appendChild(link); link.onload = function() { cssDone = true; }; } else { player.innerHTML = '<div class=\"fallback\"><iframe title=\"vimeo-player\" src=\"/video/382822193/fallback?js&amp;referrer=' + encodeURIComponent(config.request.referrer) + '\" frameborder=\"0\"></iframe></div>'; } if (!config.request.flags.dnt && !config.embed.dnt) { window._vuid = [ ['pid', config.request.session] ]; var vim = document.createElement('script'); vim.async = true; vim.src = config.request.urls.vuid_js; firstScript.parentNode.insertBefore(vim, firstScript); } }(document, document.getElementById('player'))); ",
+			"settings":
+			{
+				"buffer_size": 11698,
+				"line_ending": "Windows",
+				"name": "(function(document, player) { var config = {\"cdn_"
 			}
 		},
 		{
@@ -1794,7 +1811,7 @@
 			"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 			"settings":
 			{
-				"buffer_size": 6811,
+				"buffer_size": 2723,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1803,7 +1820,7 @@
 			"file": "resources/views/layouts/nav-admin.blade.php",
 			"settings":
 			{
-				"buffer_size": 8696,
+				"buffer_size": 8772,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1847,7 +1864,7 @@
 			"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 			"settings":
 			{
-				"buffer_size": 7400,
+				"buffer_size": 7402,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1873,7 +1890,7 @@
 			"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 			"settings":
 			{
-				"buffer_size": 9117,
+				"buffer_size": 9253,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1882,7 +1899,7 @@
 			"file": "resources/views/hospital/patient/editPatient.blade.php",
 			"settings":
 			{
-				"buffer_size": 8116,
+				"buffer_size": 8085,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1899,7 +1916,7 @@
 			"file": "app/Http/Controllers/OfficeController.php",
 			"settings":
 			{
-				"buffer_size": 4210,
+				"buffer_size": 4990,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1942,9 +1959,17 @@
 			"file": "database/factories/DoctorFactory.php",
 			"settings":
 			{
-				"buffer_size": 1056,
+				"buffer_size": 1103,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": " (function(document, player) { var config = {\"cdn_url\":\"https://f.vimeocdn.com\",\"vimeo_api_url\":\"api.vimeo.com\",\"request\":{\"files\":{\"dash\":{\"separate_av\":true,\"streams\":[{\"profile\":175,\"quality\":\"1080p\",\"id\":1607314432,\"fps\":25},{\"profile\":164,\"quality\":\"360p\",\"id\":1607313111,\"fps\":25},{\"profile\":165,\"quality\":\"540p\",\"id\":1607314433,\"fps\":25},{\"profile\":139,\"quality\":\"240p\",\"id\":1607313109,\"fps\":25},{\"profile\":174,\"quality\":\"720p\",\"id\":1607314435,\"fps\":25}],\"cdns\":{\"akfire_interconnect_quic\":{\"url\":\"https://194vod-adaptive.akamaized.net/exp=1581939674~acl=%2F382822193%2F%2A~hmac=3bee871ab04ce353634cdb1cda985b2a5c2b45558793123d80193f8c4e93c65b/382822193/sep/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.json?base64_init=1\",\"origin\":\"gcs\",\"avc_url\":\"https://194vod-adaptive.akamaized.net/exp=1581939674~acl=%2F382822193%2F%2A~hmac=3bee871ab04ce353634cdb1cda985b2a5c2b45558793123d80193f8c4e93c65b/382822193/sep/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.json?base64_init=1\"},\"fastly_skyfire\":{\"url\":\"https://skyfire.vimeocdn.com/1581939674-0x86f860f7f64e3bb9f0fb852427903f14c305f59f/382822193/sep/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.json?base64_init=1\",\"origin\":\"gcs\",\"avc_url\":\"https://skyfire.vimeocdn.com/1581939674-0x86f860f7f64e3bb9f0fb852427903f14c305f59f/382822193/sep/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.json?base64_init=1\"}},\"streams_avc\":[{\"profile\":175,\"quality\":\"1080p\",\"id\":1607314432,\"fps\":25},{\"profile\":164,\"quality\":\"360p\",\"id\":1607313111,\"fps\":25},{\"profile\":165,\"quality\":\"540p\",\"id\":1607314433,\"fps\":25},{\"profile\":139,\"quality\":\"240p\",\"id\":1607313109,\"fps\":25},{\"profile\":174,\"quality\":\"720p\",\"id\":1607314435,\"fps\":25}],\"default_cdn\":\"akfire_interconnect_quic\"},\"hls\":{\"separate_av\":false,\"default_cdn\":\"akfire_interconnect_quic\",\"cdns\":{\"akfire_interconnect_quic\":{\"url\":\"https://194vod-adaptive.akamaized.net/exp=1581939674~acl=%2F382822193%2F%2A~hmac=3bee871ab04ce353634cdb1cda985b2a5c2b45558793123d80193f8c4e93c65b/382822193/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.m3u8\",\"origin\":\"gcs\",\"avc_url\":\"https://194vod-adaptive.akamaized.net/exp=1581939674~acl=%2F382822193%2F%2A~hmac=3bee871ab04ce353634cdb1cda985b2a5c2b45558793123d80193f8c4e93c65b/382822193/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.m3u8\"},\"fastly_skyfire\":{\"url\":\"https://skyfire.vimeocdn.com/1581939674-0x86f860f7f64e3bb9f0fb852427903f14c305f59f/382822193/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.m3u8\",\"origin\":\"gcs\",\"avc_url\":\"https://skyfire.vimeocdn.com/1581939674-0x86f860f7f64e3bb9f0fb852427903f14c305f59f/382822193/video/1607314435,1607314433,1607314432,1607313111,1607313109/master.m3u8\"}}},\"progressive\":[{\"profile\":174,\"width\":1280,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://vod-progressive.akamaized.net/exp=1581939674~acl=%2A%2F1607314435.mp4%2A~hmac=75b4e28c317184f8fde116946987e6678ea8717bd19430b3417abefb57116bea/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607314435.mp4\",\"cdn\":\"akamai_interconnect\",\"quality\":\"720p\",\"id\":1607314435,\"origin\":\"gcs\",\"height\":720},{\"profile\":165,\"width\":960,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://vod-progressive.akamaized.net/exp=1581939674~acl=%2A%2F1607314433.mp4%2A~hmac=14a006533d9f287b0ba765fc55e409fbfc3faf551905c2d46cf901362baf896a/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607314433.mp4\",\"cdn\":\"akamai_interconnect\",\"quality\":\"540p\",\"id\":1607314433,\"origin\":\"gcs\",\"height\":540},{\"profile\":175,\"width\":1920,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://vod-progressive.akamaized.net/exp=1581939674~acl=%2A%2F1607314432.mp4%2A~hmac=84bce2f64fbb202f268822296d072b453979f4bd0b0395740609884f1f90b0b7/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607314432.mp4\",\"cdn\":\"akamai_interconnect\",\"quality\":\"1080p\",\"id\":1607314432,\"origin\":\"gcs\",\"height\":1080},{\"profile\":164,\"width\":640,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://vod-progressive.akamaized.net/exp=1581939674~acl=%2A%2F1607313111.mp4%2A~hmac=b3b02978c1413170eefd94ed4e38fe774ba4a2acb8380895a5011c10e68a8aae/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607313111.mp4\",\"cdn\":\"akamai_interconnect\",\"quality\":\"360p\",\"id\":1607313111,\"origin\":\"gcs\",\"height\":360},{\"profile\":139,\"width\":426,\"mime\":\"video/mp4\",\"fps\":25,\"url\":\"https://vod-progressive.akamaized.net/exp=1581939674~acl=%2A%2F1607313109.mp4%2A~hmac=e144bcd48512c75c4cc66bf1db9cd4e1a421e15072ab43b5e68289e8339ffd66/vimeo-prod-skyfire-std-us/01/1564/15/382822193/1607313109.mp4\",\"cdn\":\"akamai_interconnect\",\"quality\":\"240p\",\"id\":1607313109,\"origin\":\"gcs\",\"height\":240}]},\"lang\":\"es\",\"sentry\":{\"url\":\"https://6f5f8e1cecfa40fb850f578b69fc1705@sentry.io/1297650\",\"enabled\":false,\"debug_enabled\":true,\"debug_intent\":0},\"ab_tests\":{\"chromecast\":{\"track\":false,\"data\":{},\"group\":false},\"cdn_preference\":{\"track\":false,\"data\":{\"city\":\"el salto\",\"country_code\":\"MX\",\"hls_pref_found\":false,\"dash_pref_found\":false},\"group\":true}},\"referrer\":\"https://kaleanders.com/seminario-web-transmision32571995?webinar_ext=Ajbn5bsH\",\"cookie_domain\":\".vimeo.com\",\"timestamp\":1581912706,\"gc_debug\":{\"bucket\":\"vimeo-player-debug\"},\"expires\":26668,\"currency\":\"MXN\",\"session\":\"c0f22e1d3362d81608f8964f1cdddae51597bc461581912706\",\"cookie\":{\"scaling\":1,\"volume\":1.0,\"quality\":null,\"hd\":0,\"captions\":null},\"build\":{\"backend\":\"1.15.7\",\"js\":\"3.17.7\"},\"urls\":{\"barebone_js\":\"https://f.vimeocdn.com/p/3.17.7/js/barebone.js\",\"test_imp\":\"https://fresnel.vimeocdn.com/add/player-test-impression\",\"js_base\":\"https://f.vimeocdn.com/p/3.17.7/js/\",\"fresnel\":\"https://fresnel.vimeocdn.com/add/player-stats\",\"js\":\"https://f.vimeocdn.com/p/3.17.7/js/player.es.js\",\"proxy\":\"https://player.vimeo.com/static/proxy.html\",\"mux_url\":\"https://f.vimeocdn.com/p/external/mux.js\",\"fresnel_chunk_url\":\"https://fresnel-events.vimeocdn.com/add/chunk_downloads\",\"three_js\":\"https://f.vimeocdn.com/p/external/three.rvimeo.min.js\",\"sentry_url\":\"https://f.vimeocdn.com/p/external/sentry.min.js\",\"chromeless_css\":\"https://f.vimeocdn.com/p/3.17.7/css/chromeless.css\",\"vuid_js\":\"https://f.vimeocdn.com/js_opt/modules/utils/vuid.min.js\",\"chromeless_js\":\"https://f.vimeocdn.com/p/3.17.7/js/chromeless.js\",\"fresnel_manifest_url\":\"https://fresnel-events.vimeocdn.com/add/playback_manifest\",\"css\":\"https://f.vimeocdn.com/p/3.17.7/css/player.css\"},\"signature\":\"9f220b5c0912b17d38da888cc0589b0a\",\"flags\":{\"dnt\":0,\"preload_video\":\"metadata_on_hover\",\"plays\":1,\"partials\":1,\"autohide_controls\":0},\"country\":\"MX\",\"file_codecs\":{\"hevc\":{\"hdr\":[],\"sdr\":[]},\"av1\":[],\"avc\":[1607314435,1607314433,1607314432,1607313111,1607313109]}},\"player_url\":\"player.vimeo.com\",\"video\":{\"version\":{\"current\":null,\"available\":[{\"is_current\":1,\"id\":96458540,\"file_id\":1607312616}]},\"height\":1080,\"duration\":6667,\"thumbs\":{\"1280\":\"https://i.vimeocdn.com/video/844086039_1280.jpg\",\"960\":\"https://i.vimeocdn.com/video/844086039_960.jpg\",\"640\":\"https://i.vimeocdn.com/video/844086039_640.jpg\",\"base\":\"https://i.vimeocdn.com/video/844086039\"},\"owner\":{\"account_type\":\"pro\",\"name\":\"Kalle Andersson\",\"img\":\"https://i.vimeocdn.com/portrait/defaults-blue_60x60.png\",\"url\":\"https://vimeo.com/user102488073\",\"img_2x\":\"https://i.vimeocdn.com/portrait/defaults-blue_120x120.png\",\"id\":102488073},\"id\":382822193,\"embed_code\":\"<iframe title=\\\"vimeo-player\\\" src=\\\"https://player.vimeo.com/video/382822193\\\" width=\\\"640\\\" height=\\\"360\\\" frameborder=\\\"0\\\" allowfullscreen><\\/iframe>\",\"title\":\"Webinar 5.0\",\"share_url\":\"https://vimeo.com/382822193\",\"width\":1920,\"embed_permission\":\"public\",\"fps\":25.0,\"spatial\":0,\"live_event\":null,\"allow_hd\":1,\"hd\":1,\"lang\":null,\"default_to_hd\":0,\"url\":null,\"privacy\":\"disable\",\"bypass_token\":\"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGlwX2lkIjozODI4MjIxOTMsImV4cCI6MTU4MTkzOTAyOH0.FIqrMHcfRpAIKwhlWyTDGalRAYmEuD2UdPTpPMK6JfM\",\"unlisted_hash\":null},\"user\":{\"team_origin_user_id\":0,\"liked\":0,\"account_type\":\"none\",\"vimeo_api_client_token\":null,\"vimeo_api_interaction_tokens\":null,\"team_id\":0,\"watch_later\":0,\"owner\":0,\"id\":0,\"mod\":0,\"logged_in\":0},\"embed\":{\"autopause\":0,\"playsinline\":1,\"settings\":{\"fullscreen\":1,\"byline\":0,\"like\":0,\"playbar\":1,\"title\":0,\"color\":0,\"speed\":1,\"watch_later\":0,\"share\":0,\"scaling\":1,\"spatial_compass\":0,\"collections\":0,\"info_on_pause\":0,\"portrait\":0,\"logo\":0,\"embed\":0,\"badge\":0,\"spatial_label\":0,\"volume\":1},\"color\":\"00adef\",\"texttrack\":\"\",\"on_site\":0,\"app_id\":\"\",\"muted\":1,\"dnt\":0,\"player_id\":\"\",\"api\":null,\"editor\":false,\"context\":\"embed.main\",\"time\":0,\"outro\":\"nothing\",\"log_plays\":1,\"quality\":null,\"transparent\":1,\"loop\":0,\"autoplay\":1},\"view\":1,\"vimeo_url\":\"vimeo.com\"}; if (!config.request) { return; } if (typeof config.request === 'object' && 'error' in config.request) { if ('html' in config.request) { document.documentElement.innerHTML = config.request.html.replace(/&lt;/g, '<').replace(/&gt;/g, '>'); } return; } var isIframe = (function() { try { return window.self !== window.top; } catch (e) { return true; } }()); if (!isIframe && /twitter/i.test(navigator.userAgent) && config.video.url) { window.location = config.video.url; } if (config.request.lang) { document.documentElement.setAttribute('lang', config.request.lang); } var fullscreenSupport = 'exitFullscreen' in document || 'webkitExitFullscreen' in document || 'webkitCancelFullScreen' in document || 'mozCancelFullScreen' in document || 'msExitFullscreen' in document || 'webkitEnterFullScreen' in document.createElement('video'); var inlineSvgSupport = (function() { var div = document.createElement('div'); div.innerHTML = '<svg/>'; return (div.firstChild && div.firstChild.namespaceURI) === 'http://www.w3.org/2000/svg'; }()); var windowsPhone = /MSIE 9/.test(navigator.userAgent) && /Windows Phone/.test(navigator.userAgent); var IE10 = /IE 10/.test(navigator.userAgent); var usePlayer = fullscreenSupport || IE10 || windowsPhone; var firstScript = document.getElementsByTagName('script')[0]; var script = document.createElement('script'); var jsDone = false; var playerObject = false; if (!inlineSvgSupport) { usePlayer = false; } if (!usePlayer) { var placeholder = document.querySelector('.vp-placeholder'); if (placeholder && placeholder.parentNode) { placeholder.parentNode.removeChild(placeholder); } } if (usePlayer) { player.className = 'player loading'; var startTime = new Date().getTime(); script.src = config.request.urls.js; firstScript.parentNode.insertBefore(script, firstScript); script['onreadystatechange' in script ? 'onreadystatechange' : 'onload'] = function() { if (!jsDone && (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete')) { jsDone = true; playerObject = new VimeoPlayer(player, config, cssDone || { link: link, startTime: startTime }); } }; var cssDone = false; var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = config.request.urls.css + (typeof cacheBuster === 'undefined' ? '' : cacheBuster); document.getElementsByTagName('head')[0].appendChild(link); link.onload = function() { cssDone = true; }; } else { player.innerHTML = '<div class=\"fallback\"><iframe title=\"vimeo-player\" src=\"/video/382822193/fallback?js&amp;referrer=' + encodeURIComponent(config.request.referrer) + '\" frameborder=\"0\"></iframe></div>'; } if (!config.request.flags.dnt && !config.embed.dnt) { window._vuid = [ ['pid', config.request.session] ]; var vim = document.createElement('script'); vim.async = true; vim.src = config.request.urls.vuid_js; firstScript.parentNode.insertBefore(vim, firstScript); } }(document, document.getElementById('player'))); ",
+			"settings":
+			{
+				"buffer_size": 11525,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -2007,12 +2032,16 @@
 		"selected_items":
 		[
 			[
-				"reint",
+				"reinden",
 				"Indentation: Reindent Lines"
 			],
 			[
 				"rein",
-				"ReIndent: to 2"
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reint",
+				"Indentation: Reindent Lines"
 			],
 			[
 				"reindent",
@@ -2024,10 +2053,6 @@
 			],
 			[
 				"reinte",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"reinden",
 				"Indentation: Reindent Lines"
 			],
 			[
@@ -2177,7 +2202,12 @@
 	[
 		"/C/xampp/htdocs/laravel/hospital",
 		"/C/xampp/htdocs/laravel/hospital/app",
+		"/C/xampp/htdocs/laravel/hospital/app/Http",
+		"/C/xampp/htdocs/laravel/hospital/app/Http/Middleware",
 		"/C/xampp/htdocs/laravel/hospital/bootstrap",
+		"/C/xampp/htdocs/laravel/hospital/database",
+		"/C/xampp/htdocs/laravel/hospital/database/factories",
+		"/C/xampp/htdocs/laravel/hospital/database/seeds",
 		"/C/xampp/htdocs/laravel/hospital/public",
 		"/C/xampp/htdocs/laravel/hospital/public/js",
 		"/C/xampp/htdocs/laravel/hospital/public/js/Appointments",
@@ -2331,6 +2361,57 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			".mp4",
+			"Office",
+			"office",
+			"Office",
+			"Condition",
+			"Appointment",
+			"PatientController",
+			"patientController",
+			"$a",
+			"speciality",
+			"$o",
+			");\n",
+			"patient",
+			"resource",
+			"DoctorController'",
+			"DoctorController@create",
+			"DoctorController",
+			"show",
+			"Patients",
+			"patients",
+			"patients1",
+			"count",
+			"patient/create",
+			"doctor",
+			"speciality->name",
+			"index",
+			"patient",
+			"mp4",
+			"                \n",
+			"store",
+			"specialities",
+			"update",
+			"appointmentAjaxLlenarHorario",
+			"store",
+			"create",
+			"\n  ",
+			"appointmentAjaxLlenarHorario",
+			"appointmentA",
+			"appointment",
+			"datos",
+			"precioCita",
+			"btn-agregar",
+			"__specialities",
+			"doctores",
+			"k",
+			"i",
+			"doctores[i]['speciality'][j]",
+			"doctores",
+			",doctores",
+			"speciality",
+			"__specialities",
 			"Route::get('doctor/{id}','DoctorController@show",
 			"Route::get('doctor/{id}', 'DoctorController@show');",
 			"Route::get('doctor/{id}', 'DoctorController@show');\n    ",
@@ -2407,58 +2488,7 @@
 			"-i",
 			"-id",
 			"EditarReceta",
-			"AgregarReceta",
-			"block",
-			"<span>",
-			"a",
-			"appoitment",
-			"doctor",
-			"AgregarEspecialidad",
-			"patients",
-			"appointment",
-			"editar",
-			"user_id",
-			"if(",
-			"if (",
-			"img-heigh",
-			"Auth::user()",
-			"doctor",
-			"isset",
-			"();",
-			"_appointments->today",
-			"function",
-			"$this->user->",
-			"auth",
-			"());",
-			"->get()",
-			"                return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);\n",
-			"Doctor",
-			"doctor",
-			"Doctor",
-			"doctor",
-			"edit",
-			"patient",
-			"PATIENT",
-			"patient",
-			"PATIENT",
-			"Office",
-			"patient",
-			"User_privigeles",
-			"id_privileges",
-			"       'is_admin'=>true,",
-			"options",
-			"<?",
-			"Function",
-			"function",
-			"SCHEDULE",
-			"$d-",
-			"$p-",
-			"$p",
-			"offic",
-			"col-md-6",
-			"cerrar",
-			"resi",
-			"form"
+			"AgregarReceta"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -2476,7 +2506,7 @@
 	"groups":
 	[
 		{
-			"selected": 78,
+			"selected": 162,
 			"sheets":
 			[
 				{
@@ -2492,8 +2522,8 @@
 						"selection":
 						[
 							[
-								239,
-								239
+								476,
+								476
 							]
 						],
 						"settings":
@@ -2501,6 +2531,9 @@
 							"SL.13.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.15.region_keys":
+							[
 							],
 							"SL.27.region_keys":
 							[
@@ -2519,7 +2552,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -2556,7 +2589,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
@@ -2592,7 +2625,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
@@ -2634,7 +2667,7 @@
 						"translation.y": 26.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
@@ -2643,15 +2676,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3493,
+						"buffer_size": 3560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1277,
-								1277
+								1476,
+								1476
 							]
 						],
 						"settings":
@@ -2662,6 +2695,9 @@
 							"SL.148.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.19.region_keys":
+							[
 							],
 							"SL.29.region_keys":
 							[
@@ -2675,10 +2711,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 1152.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
@@ -2712,7 +2748,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 121,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
@@ -2748,7 +2784,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 120,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
@@ -2784,7 +2820,7 @@
 						"translation.y": 918.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 119,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
@@ -2812,6 +2848,9 @@
 							"SL.15.region_keys":
 							[
 							],
+							"SL.23.region_keys":
+							[
+							],
 							"SL.32.region_keys":
 							[
 							],
@@ -2823,7 +2862,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -2832,15 +2871,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 680,
+						"buffer_size": 725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								299,
-								299
+								133,
+								133
 							]
 						],
 						"settings":
@@ -2855,6 +2894,10 @@
 							"SL.16.region_keys":
 							[
 							],
+							"SL.24.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.33.region_keys":
 							[
 							],
@@ -2868,7 +2911,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -2906,7 +2949,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 155,
+					"stack_index": 157,
 					"type": "text"
 				},
 				{
@@ -2922,13 +2965,16 @@
 						"selection":
 						[
 							[
-								2061,
-								2061
+								2311,
+								2311
 							]
 						],
 						"settings":
 						{
 							"SL.134.region_keys":
+							[
+							],
+							"SL.24.region_keys":
 							[
 							],
 							"SL.37.region_keys":
@@ -2944,10 +2990,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 693.0,
+						"translation.y": 2071.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
@@ -2975,6 +3021,9 @@
 							"SL.19.region_keys":
 							[
 							],
+							"SL.27.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
@@ -2983,7 +3032,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 115,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -3012,6 +3061,9 @@
 							"SL.20.region_keys":
 							[
 							],
+							"SL.28.region_keys":
+							[
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
@@ -3020,7 +3072,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 113,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -3070,7 +3122,7 @@
 						"translation.y": 3.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 160,
+					"stack_index": 162,
 					"type": "text"
 				},
 				{
@@ -3079,15 +3131,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2331,
+						"buffer_size": 2578,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1394,
-								1394
+								906,
+								906
 							]
 						],
 						"settings":
@@ -3100,6 +3152,10 @@
 								"sublime_linter.protected_regions"
 							],
 							"SL.27.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.28.region_keys":
 							[
 								"sublime_linter.protected_regions"
 							],
@@ -3123,10 +3179,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 756.0,
+						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
@@ -3135,15 +3191,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1383,
+						"buffer_size": 1392,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								808,
-								808
+								686,
+								686
 							]
 						],
 						"settings":
@@ -3158,6 +3214,12 @@
 							"SL.28.region_keys":
 							[
 							],
+							"SL.29.region_keys":
+							[
+							],
+							"SL.31.region_keys":
+							[
+							],
 							"SL.77.region_keys":
 							[
 							],
@@ -3168,10 +3230,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 434.0,
+						"translation.y": 343.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
@@ -3224,7 +3286,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
@@ -3261,7 +3323,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 150,
+					"stack_index": 154,
 					"type": "text"
 				},
 				{
@@ -3301,7 +3363,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
@@ -3337,7 +3399,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
@@ -3346,15 +3408,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2175,
+						"buffer_size": 2174,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1070,
-								1070
+								1209,
+								1209
 							]
 						],
 						"settings":
@@ -3384,6 +3446,9 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.34.region_keys":
+							[
+							],
 							"SL.36.region_keys":
 							[
 							],
@@ -3397,10 +3462,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 216.0,
+						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
@@ -3439,7 +3504,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
@@ -3481,7 +3546,7 @@
 						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 112,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
@@ -3518,7 +3583,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 147,
+					"stack_index": 151,
 					"type": "text"
 				},
 				{
@@ -3560,7 +3625,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
@@ -3569,15 +3634,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2446,
+						"buffer_size": 2547,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1527,
-								1527
+								2202,
+								2202
 							]
 						],
 						"settings":
@@ -3594,6 +3659,10 @@
 							[
 							],
 							"SL.38.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.39.region_keys":
 							[
 								"sublime_linter.protected_regions"
 							],
@@ -3616,10 +3685,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 556.0,
+						"translation.y": 260.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
@@ -3654,7 +3723,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 127,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
@@ -3702,7 +3771,7 @@
 						"translation.y": 55.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
@@ -3747,7 +3816,7 @@
 						"translation.y": 702.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
@@ -3781,7 +3850,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
@@ -3831,7 +3900,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
@@ -3865,7 +3934,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 145,
+					"stack_index": 149,
 					"type": "text"
 				},
 				{
@@ -3907,7 +3976,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 134,
+					"stack_index": 139,
 					"type": "text"
 				},
 				{
@@ -3952,7 +4021,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 129,
+					"stack_index": 134,
 					"type": "text"
 				},
 				{
@@ -3992,7 +4061,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
@@ -4021,7 +4090,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 110,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
@@ -4074,7 +4143,7 @@
 						"translation.y": 24.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
@@ -4126,7 +4195,7 @@
 						"translation.y": 181.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
@@ -4163,7 +4232,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
@@ -4198,7 +4267,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 161,
+					"stack_index": 163,
 					"type": "text"
 				},
 				{
@@ -4290,7 +4359,7 @@
 						"translation.y": 325.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 137,
+					"stack_index": 142,
 					"type": "text"
 				},
 				{
@@ -4333,7 +4402,7 @@
 						"translation.y": 1512.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
@@ -4386,7 +4455,7 @@
 						"translation.y": 555.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
@@ -4430,7 +4499,7 @@
 						"translation.y": 182.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 138,
+					"stack_index": 143,
 					"type": "text"
 				},
 				{
@@ -4464,7 +4533,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 149,
+					"stack_index": 153,
 					"type": "text"
 				},
 				{
@@ -4480,8 +4549,8 @@
 						"selection":
 						[
 							[
-								72,
-								72
+								1943,
+								1943
 							]
 						],
 						"settings":
@@ -4490,6 +4559,9 @@
 							[
 							],
 							"SL.57.region_keys":
+							[
+							],
+							"SL.61.region_keys":
 							[
 							],
 							"SL.69.region_keys":
@@ -4505,10 +4577,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 765.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
@@ -4826,7 +4898,7 @@
 						"translation.y": 286.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 136,
+					"stack_index": 141,
 					"type": "text"
 				},
 				{
@@ -4835,15 +4907,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4893,
+						"buffer_size": 5262,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4789,
-								4789
+								4974,
+								4974
 							]
 						],
 						"settings":
@@ -4866,10 +4938,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1907.0,
+						"translation.y": 5326.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
@@ -4878,15 +4950,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7440,
+						"buffer_size": 8728,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1418,
-								1418
+								8517,
+								8517
 							]
 						],
 						"settings":
@@ -4907,6 +4979,7 @@
 							],
 							"SL.62.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.64.region_keys":
 							[
@@ -4931,10 +5004,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1114.0,
+						"translation.y": 7687.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -4968,7 +5041,7 @@
 						"translation.y": 756.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 140,
+					"stack_index": 145,
 					"type": "text"
 				},
 				{
@@ -5006,7 +5079,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 139,
+					"stack_index": 144,
 					"type": "text"
 				},
 				{
@@ -5040,7 +5113,7 @@
 						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 143,
+					"stack_index": 148,
 					"type": "text"
 				},
 				{
@@ -5072,7 +5145,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 142,
+					"stack_index": 147,
 					"type": "text"
 				},
 				{
@@ -5110,7 +5183,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 141,
+					"stack_index": 146,
 					"type": "text"
 				},
 				{
@@ -5165,7 +5238,7 @@
 						"translation.y": 261.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 130,
+					"stack_index": 135,
 					"type": "text"
 				},
 				{
@@ -5190,6 +5263,9 @@
 							"SL.60.region_keys":
 							[
 							],
+							"SL.71.region_keys":
+							[
+							],
 							"SL.94.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -5204,7 +5280,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 114,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -5213,15 +5289,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 446,
+						"buffer_size": 438,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								424,
-								424
+								302,
+								302
 							]
 						],
 						"settings":
@@ -5244,13 +5320,15 @@
 							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -5297,7 +5375,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
@@ -5350,7 +5428,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -5359,15 +5437,39 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6036,
+						"buffer_size": 6580,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1263,
-								1263
+								1970,
+								1970
+							],
+							[
+								2032,
+								2032
+							],
+							[
+								2086,
+								2086
+							],
+							[
+								2435,
+								2435
+							],
+							[
+								2493,
+								2493
+							],
+							[
+								3119,
+								3119
+							],
+							[
+								3180,
+								3180
 							]
 						],
 						"settings":
@@ -5398,8 +5500,13 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.73.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.75.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.76.region_keys":
 							[
@@ -5420,10 +5527,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 286.0,
+						"translation.y": 1683.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -5448,16 +5555,19 @@
 							"SL.183.region_keys":
 							[
 							],
+							"SL.74.region_keys":
+							[
+							],
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3938.0,
+						"translation.y": 4275.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
@@ -5492,7 +5602,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
@@ -5508,8 +5618,8 @@
 						"selection":
 						[
 							[
-								355,
-								355
+								432,
+								432
 							]
 						],
 						"settings":
@@ -5519,6 +5629,12 @@
 								"sublime_linter.protected_regions"
 							],
 							"SL.74.region_keys":
+							[
+							],
+							"SL.76.region_keys":
+							[
+							],
+							"SL.78.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -5531,7 +5647,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -5570,7 +5686,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
@@ -5579,15 +5695,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 472,
+						"buffer_size": 470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								381,
-								381
+								379,
+								379
 							]
 						],
 						"settings":
@@ -5597,6 +5713,9 @@
 								"sublime_linter.protected_regions"
 							],
 							"SL.76.region_keys":
+							[
+							],
+							"SL.78.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -5609,7 +5728,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
@@ -5649,7 +5768,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
@@ -5686,7 +5805,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
@@ -5720,7 +5839,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
@@ -5751,10 +5870,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 132,
+					"stack_index": 137,
 					"type": "text"
 				},
 				{
@@ -5763,15 +5882,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 736,
+						"buffer_size": 926,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								620,
-								620
+								541,
+								541
 							]
 						],
 						"settings":
@@ -5792,6 +5911,9 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.83.region_keys":
+							[
+							],
 							"SL.85.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -5807,10 +5929,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 423.0,
+						"translation.y": 124.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -5826,8 +5948,8 @@
 						"selection":
 						[
 							[
-								105,
-								105
+								541,
+								496
 							]
 						],
 						"settings":
@@ -5867,7 +5989,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
@@ -5876,15 +5998,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1299,
+						"buffer_size": 1514,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								30,
-								30
+								410,
+								410
 							]
 						],
 						"settings":
@@ -5904,6 +6026,9 @@
 							"SL.60.region_keys":
 							[
 							],
+							"SL.85.region_keys":
+							[
+							],
 							"SL.88.region_keys":
 							[
 							],
@@ -5918,7 +6043,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
@@ -5953,7 +6078,7 @@
 						"translation.y": 161.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 128,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
@@ -5995,7 +6120,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
@@ -6045,7 +6170,7 @@
 						"translation.y": 404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
@@ -6077,7 +6202,7 @@
 						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 123,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
@@ -6106,7 +6231,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 154,
+					"stack_index": 156,
 					"type": "text"
 				},
 				{
@@ -6115,15 +6240,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5508,
+						"buffer_size": 5112,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3533,
-								3533
+								3659,
+								3659
 							]
 						],
 						"settings":
@@ -6148,6 +6273,10 @@
 							],
 							"SL.88.region_keys":
 							[
+							],
+							"SL.91.region_keys":
+							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.93.region_keys":
 							[
@@ -6193,10 +6322,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2122.0,
+						"translation.y": 343.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
@@ -6205,7 +6334,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6036,
+						"buffer_size": 6580,
 						"regions":
 						{
 						},
@@ -6261,7 +6390,7 @@
 						"translation.y": 2054.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 133,
+					"stack_index": 138,
 					"type": "text"
 				},
 				{
@@ -6270,15 +6399,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4914,
+						"buffer_size": 5762,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4075,
-								4075
+								784,
+								851
 							]
 						],
 						"settings":
@@ -6292,6 +6421,9 @@
 							"SL.83.region_keys":
 							[
 							],
+							"SL.93.region_keys":
+							[
+							],
 							"SL.96.region_keys":
 							[
 							],
@@ -6303,10 +6435,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3600.0,
+						"translation.y": 250.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
@@ -6315,15 +6447,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10715,
+						"buffer_size": 10824,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								651,
-								651
+								196,
+								196
 							]
 						],
 						"settings":
@@ -6376,10 +6508,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
@@ -6414,7 +6546,7 @@
 						"translation.y": 16.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
@@ -6454,7 +6586,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
@@ -6463,15 +6595,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2134,
+						"buffer_size": 2858,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								793,
-								793
+								0,
+								0
 							]
 						],
 						"settings":
@@ -6484,6 +6616,14 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.97.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.99.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
@@ -6491,10 +6631,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -6532,7 +6672,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
@@ -6571,7 +6711,7 @@
 						"translation.y": 55.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
@@ -6607,7 +6747,7 @@
 						"translation.y": 289.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
@@ -6629,6 +6769,9 @@
 						],
 						"settings":
 						{
+							"SL.103.region_keys":
+							[
+							],
 							"SL.183.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -6644,7 +6787,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 111,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -6692,7 +6835,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
@@ -6724,7 +6867,7 @@
 						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 131,
+					"stack_index": 136,
 					"type": "text"
 				},
 				{
@@ -6762,7 +6905,7 @@
 						"translation.y": 918.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
@@ -6779,12 +6922,15 @@
 						[
 							[
 								551,
-								501
+								551
 							]
 						],
 						"settings":
 						{
 							"SL.106.region_keys":
+							[
+							],
+							"SL.107.region_keys":
 							[
 							],
 							"SL.109.region_keys":
@@ -6815,7 +6961,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
@@ -6824,15 +6970,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1378,
+						"buffer_size": 1395,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1233,
+								1233
 							]
 						],
 						"settings":
@@ -6841,6 +6987,9 @@
 							[
 							],
 							"SL.102.region_keys":
+							[
+							],
+							"SL.108.region_keys":
 							[
 							],
 							"SL.174.region_keys":
@@ -6854,10 +7003,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 305.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
@@ -6866,15 +7015,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1228,
+						"buffer_size": 1476,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1113,
+								892
 							]
 						],
 						"settings":
@@ -6889,6 +7038,9 @@
 							[
 							],
 							"SL.107.region_keys":
+							[
+							],
+							"SL.109.region_keys":
 							[
 							],
 							"SL.111.region_keys":
@@ -6911,7 +7063,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
@@ -6947,7 +7099,7 @@
 						"translation.y": 36.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
@@ -6956,15 +7108,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1580,
+						"buffer_size": 1639,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								636,
-								368
+								895,
+								797
 							]
 						],
 						"settings":
@@ -6973,6 +7125,9 @@
 							[
 							],
 							"SL.109.region_keys":
+							[
+							],
+							"SL.111.region_keys":
 							[
 							],
 							"SL.112.region_keys":
@@ -6990,10 +7145,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
@@ -7002,20 +7157,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3012,
+						"buffer_size": 3078,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1932,
-								1932
+								2379,
+								2379
 							]
 						],
 						"settings":
 						{
 							"SL.105.region_keys":
+							[
+							],
+							"SL.110.region_keys":
+							[
+							],
+							"SL.112.region_keys":
 							[
 							],
 							"SL.113.region_keys":
@@ -7032,10 +7193,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1269.0,
+						"translation.y": 1512.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
@@ -7044,15 +7205,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2542,
+						"buffer_size": 2795,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								329,
-								329
+								2351,
+								2351
+							],
+							[
+								2420,
+								2420
+							],
+							[
+								2487,
+								2487
 							]
 						],
 						"settings":
@@ -7061,6 +7230,9 @@
 							[
 							],
 							"SL.106.region_keys":
+							[
+							],
+							"SL.113.region_keys":
 							[
 							],
 							"SL.122.region_keys":
@@ -7074,10 +7246,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1316.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
@@ -7113,7 +7285,7 @@
 						"translation.y": 362.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -7144,10 +7316,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 524.0,
+						"translation.y": 434.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
@@ -7172,6 +7344,9 @@
 							"SL.111.region_keys":
 							[
 							],
+							"SL.116.region_keys":
+							[
+							],
 							"SL.267.region_keys":
 							[
 							],
@@ -7184,7 +7359,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
@@ -7218,7 +7393,7 @@
 						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
@@ -7227,21 +7402,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1001,
+						"buffer_size": 1256,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								990,
-								990
+								352,
+								352
 							]
 						],
 						"settings":
 						{
 							"SL.107.region_keys":
 							[
+							],
+							"SL.116.region_keys":
+							[
+							],
+							"SL.118.region_keys":
+							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.174.region_keys":
 							[
@@ -7271,7 +7453,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -7280,19 +7462,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 237,
+						"buffer_size": 349,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								219,
-								219
+								208,
+								208
 							]
 						],
 						"settings":
 						{
+							"SL.119.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.187.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -7310,7 +7496,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 116,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -7338,6 +7524,12 @@
 							"SL.109.region_keys":
 							[
 							],
+							"SL.118.region_keys":
+							[
+							],
+							"SL.120.region_keys":
+							[
+							],
 							"SL.176.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -7359,7 +7551,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -7368,15 +7560,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7132,
+						"buffer_size": 7203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5210,
-								5210
+								102,
+								102
 							]
 						],
 						"settings":
@@ -7417,10 +7609,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6082.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
@@ -7452,7 +7644,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
@@ -7461,20 +7653,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2240,
+						"buffer_size": 2296,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1464,
+								1464
 							]
 						],
 						"settings":
 						{
 							"SL.120.region_keys":
+							[
+							],
+							"SL.121.region_keys":
 							[
 							],
 							"SL.124.region_keys":
@@ -7489,10 +7684,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
@@ -7501,19 +7696,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4396,
+						"buffer_size": 5033,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4292,
-								4156
+								3595,
+								3595
 							]
 						],
 						"settings":
 						{
+							"SL.122.region_keys":
+							[
+							],
+							"SL.124.region_keys":
+							[
+							],
 							"SL.125.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -7528,10 +7729,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2590.0,
+						"translation.y": 2608.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
@@ -7565,7 +7766,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
@@ -7600,7 +7801,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 123,
 					"type": "text"
 				},
 				{
@@ -7641,7 +7842,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
@@ -7680,7 +7881,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
@@ -7702,6 +7903,9 @@
 						],
 						"settings":
 						{
+							"SL.129.region_keys":
+							[
+							],
 							"SL.152.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -7716,7 +7920,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -7751,7 +7955,7 @@
 						"translation.y": 4658.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -7785,7 +7989,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 156,
+					"stack_index": 158,
 					"type": "text"
 				},
 				{
@@ -7816,7 +8020,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 157,
+					"stack_index": 159,
 					"type": "text"
 				},
 				{
@@ -7856,7 +8060,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
@@ -7885,7 +8089,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 146,
+					"stack_index": 150,
 					"type": "text"
 				},
 				{
@@ -7941,7 +8145,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
@@ -7980,7 +8184,7 @@
 						"translation.y": 3275.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 135,
+					"stack_index": 140,
 					"type": "text"
 				},
 				{
@@ -8034,7 +8238,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
@@ -8043,20 +8247,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 591,
+						"buffer_size": 618,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								547,
-								547
+								209,
+								209
 							]
 						],
 						"settings":
 						{
 							"SL.122.region_keys":
+							[
+							],
+							"SL.136.region_keys":
 							[
 							],
 							"SL.64.region_keys":
@@ -8069,10 +8276,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 214.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 126,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
@@ -8081,19 +8288,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1382,
+						"buffer_size": 1581,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								474,
-								474
+								773,
+								773
 							]
 						],
 						"settings":
 						{
+							"SL.137.region_keys":
+							[
+							],
+							"SL.139.region_keys":
+							[
+							],
 							"SL.188.region_keys":
 							[
 							],
@@ -8108,7 +8321,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 125,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
@@ -8117,23 +8330,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2991,
+						"buffer_size": 3163,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2180,
-								2180
-							],
-							[
-								2334,
-								2334
+								2213,
+								2213
 							]
 						],
 						"settings":
 						{
+							"SL.138.region_keys":
+							[
+							],
+							"SL.140.region_keys":
+							[
+							],
 							"SL.192.region_keys":
 							[
 							],
@@ -8145,10 +8360,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 422.0,
+						"translation.y": 1208.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 124,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
@@ -8157,19 +8372,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1133,
+						"buffer_size": 1228,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								486,
-								486
+								843,
+								843
 							]
 						],
 						"settings":
 						{
+							"SL.139.region_keys":
+							[
+							],
 							"SL.193.region_keys":
 							[
 							],
@@ -8184,7 +8402,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 122,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
@@ -8200,13 +8418,16 @@
 						"selection":
 						[
 							[
-								874,
-								874
+								719,
+								719
 							]
 						],
 						"settings":
 						{
 							"SL.128.region_keys":
+							[
+							],
+							"SL.142.region_keys":
 							[
 							],
 							"SL.203.region_keys":
@@ -8223,7 +8444,7 @@
 						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
@@ -8277,10 +8498,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 161.0,
+						"translation.y": 89.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
@@ -8319,7 +8540,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
@@ -8328,15 +8549,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2479,
+						"buffer_size": 2490,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1984,
-								1984
+								640,
+								640
 							]
 						],
 						"settings":
@@ -8356,6 +8577,10 @@
 							"SL.140.region_keys":
 							[
 							],
+							"SL.145.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.167.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -8367,10 +8592,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 143.0,
+						"translation.y": 55.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
@@ -8407,7 +8632,7 @@
 						"translation.y": 36.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
@@ -8423,8 +8648,8 @@
 						"selection":
 						[
 							[
-								5143,
-								5148
+								4391,
+								4391
 							]
 						],
 						"settings":
@@ -8439,6 +8664,9 @@
 							"SL.142.region_keys":
 							[
 							],
+							"SL.147.region_keys":
+							[
+							],
 							"SL.284.region_keys":
 							[
 								"sublime_linter.protected_regions"
@@ -8450,10 +8678,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3345.0,
+						"translation.y": 2718.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
@@ -8487,7 +8715,7 @@
 						"translation.y": 17.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
@@ -8523,7 +8751,7 @@
 						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
@@ -8568,10 +8796,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 107.0,
+						"translation.y": 35.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
@@ -8580,15 +8808,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4323,
+						"buffer_size": 6446,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4323,
-								4323
+								2150,
+								2150
 							]
 						],
 						"settings":
@@ -8609,6 +8837,14 @@
 							"SL.146.region_keys":
 							[
 							],
+							"SL.149.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.151.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
 							"SL.69.region_keys":
 							[
 							],
@@ -8619,10 +8855,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1976.0,
+						"translation.y": 1243.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
@@ -8631,15 +8867,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3437,
+						"buffer_size": 4618,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1722,
-								1722
+								4213,
+								4213
 							]
 						],
 						"settings":
@@ -8662,6 +8898,10 @@
 							[
 							],
 							"SL.150.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.152.region_keys":
 							[
 								"sublime_linter.protected_regions"
 							],
@@ -8708,10 +8948,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1143.0,
+						"translation.y": 3151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -8753,10 +8993,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1261.0,
+						"translation.y": 415.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
@@ -8765,19 +9005,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4060,
+						"buffer_size": 169,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								80,
-								80
+								83,
+								83
 							]
 						],
 						"settings":
 						{
+							"SL.152.region_keys":
+							[
+							],
+							"SL.154.region_keys":
+							[
+							],
 							"SL.258.region_keys":
 							[
 							],
@@ -8801,11 +9047,40 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 144,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
 					"buffer": 140,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11698,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4976,
+								4976
+							]
+						],
+						"settings":
+						{
+							"auto_name": "(function(document, player) { var config = {\"cdn_",
+							"default_dir": "C:\\xampp\\htdocs\\laravel\\hospital\\resources\\views\\hospital\\Speciality",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 56,
+					"type": "text"
+				},
+				{
+					"buffer": 141,
 					"file": "public/css/style.css",
 					"semi_transient": false,
 					"settings":
@@ -8847,11 +9122,11 @@
 						"translation.y": 23471.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
-					"buffer": 141,
+					"buffer": 142,
 					"file": "resources/views/layouts/nav-login.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8881,11 +9156,11 @@
 						"translation.y": 253.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
-					"buffer": 142,
+					"buffer": 143,
 					"file": "resources/views/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8921,24 +9196,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
-					"buffer": 143,
+					"buffer": 144,
 					"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6811,
+						"buffer_size": 2723,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2962,
-								2962
+								2444,
+								2444
 							]
 						],
 						"settings":
@@ -8963,6 +9238,9 @@
 							"SL.150.region_keys":
 							[
 							],
+							"SL.156.region_keys":
+							[
+							],
 							"SL.159.region_keys":
 							[
 							],
@@ -8976,27 +9254,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1564.0,
+						"translation.y": 1549.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
-					"buffer": 144,
+					"buffer": 145,
 					"file": "resources/views/layouts/nav-admin.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8696,
+						"buffer_size": 8772,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1621,
-								1621
+								5058,
+								5058
 							]
 						],
 						"settings":
@@ -9019,6 +9297,12 @@
 							"SL.157.region_keys":
 							[
 							],
+							"SL.158.region_keys":
+							[
+							],
+							"SL.160.region_keys":
+							[
+							],
 							"SL.60.region_keys":
 							[
 							],
@@ -9028,14 +9312,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 459.0,
+						"translation.y": 2644.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
-					"buffer": 145,
+					"buffer": 146,
 					"file": "/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/index.html",
 					"semi_transient": false,
 					"settings":
@@ -9066,11 +9350,11 @@
 						"translation.y": 10819.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
-					"buffer": 146,
+					"buffer": 147,
 					"file": "vendor/symfony/console/Formatter/OutputFormatterStyleStack.php",
 					"semi_transient": false,
 					"settings":
@@ -9100,11 +9384,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
-					"buffer": 147,
+					"buffer": 148,
 					"file": "app/Http/Controllers/Controller.php",
 					"semi_transient": false,
 					"settings":
@@ -9137,11 +9421,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
-					"buffer": 148,
+					"buffer": 149,
 					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
 					"semi_transient": false,
 					"settings":
@@ -9174,28 +9458,31 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
-					"buffer": 149,
+					"buffer": 150,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7400,
+						"buffer_size": 7402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								464,
-								452
+								4322,
+								4322
 							]
 						],
 						"settings":
 						{
+							"SL.162.region_keys":
+							[
+							],
 							"SL.165.region_keys":
 							[
 							],
@@ -9212,14 +9499,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 358.0,
+						"translation.y": 243.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
-					"buffer": 150,
+					"buffer": 151,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9231,13 +9518,16 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								7082,
+								7082
 							]
 						],
 						"settings":
 						{
 							"SL.118.region_keys":
+							[
+							],
+							"SL.164.region_keys":
 							[
 							],
 							"auto_complete": false,
@@ -9247,14 +9537,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 684.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 151,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
-					"buffer": 151,
+					"buffer": 152,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -9279,24 +9569,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 158,
+					"stack_index": 160,
 					"type": "text"
 				},
 				{
-					"buffer": 152,
+					"buffer": 153,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9117,
+						"buffer_size": 9253,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5550,
-								5191
+								3485,
+								3485
 							]
 						],
 						"settings":
@@ -9310,6 +9600,7 @@
 							],
 							"SL.165.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.168.region_keys":
 							[
@@ -9327,27 +9618,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2719.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
-					"buffer": 153,
+					"buffer": 154,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8116,
+						"buffer_size": 8085,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								637,
-								637
+								7573,
+								7573
 							]
 						],
 						"settings":
@@ -9359,6 +9650,9 @@
 							[
 								"sublime_linter.protected_regions"
 							],
+							"SL.167.region_keys":
+							[
+							],
 							"SL.95.region_keys":
 							[
 							],
@@ -9369,14 +9663,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3897.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
-					"buffer": 154,
+					"buffer": 155,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
@@ -9411,29 +9705,36 @@
 						"translation.y": 918.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 118,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
-					"buffer": 155,
+					"buffer": 156,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4210,
+						"buffer_size": 4990,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4958,
+								4958
 							]
 						],
 						"settings":
 						{
 							"SL.133.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.169.region_keys":
+							[
+							],
+							"SL.171.region_keys":
 							[
 								"sublime_linter.protected_regions"
 							],
@@ -9444,14 +9745,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2665.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 152,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 156,
+					"buffer": 157,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9483,11 +9784,11 @@
 						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 117,
+					"stack_index": 126,
 					"type": "text"
 				},
 				{
-					"buffer": 157,
+					"buffer": 158,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9518,11 +9819,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 153,
+					"stack_index": 155,
 					"type": "text"
 				},
 				{
-					"buffer": 158,
+					"buffer": 159,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -9552,11 +9853,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 159,
+					"stack_index": 161,
 					"type": "text"
 				},
 				{
-					"buffer": 159,
+					"buffer": 160,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
@@ -9568,8 +9869,8 @@
 						"selection":
 						[
 							[
-								207,
-								207
+								890,
+								890
 							]
 						],
 						"settings":
@@ -9590,6 +9891,9 @@
 							"SL.172.region_keys":
 							[
 								"sublime_linter.protected_regions"
+							],
+							"SL.173.region_keys":
+							[
 							],
 							"SL.175.region_keys":
 							[
@@ -9616,27 +9920,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 272.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
-					"buffer": 160,
+					"buffer": 161,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1056,
+						"buffer_size": 1103,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								547,
-								547
+								1103,
+								1103
 							]
 						],
 						"settings":
@@ -9653,6 +9957,7 @@
 							],
 							"SL.176.region_keys":
 							[
+								"sublime_linter.protected_regions"
 							],
 							"SL.35.region_keys":
 							[
@@ -9678,11 +9983,38 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 161,
+					"buffer": 162,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3442,
+								3230
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 423.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 163,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -9712,7 +10044,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 148,
+					"stack_index": 152,
 					"type": "text"
 				}
 			]
@@ -9779,12 +10111,424 @@
 		"selected_items":
 		[
 			[
+				"DoctorFac",
+				"database\\factories\\DoctorFactory.php"
+			],
+			[
 				"",
-				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+				"database\\factories\\DoctorFactory.php"
+			],
+			[
+				"AppointmentFa",
+				"database\\factories\\AppointmentFactory.php"
+			],
+			[
+				"DoctotableS",
+				"database\\seeds\\DoctorsTableSeeder.php"
+			],
+			[
+				"Prescriptin",
+				"app\\Http\\Controllers\\PrescriptionController.php"
+			],
+			[
+				"AppointmentContr",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"OfficeContr",
+				"app\\Http\\Controllers\\OfficeController.php"
+			],
+			[
+				"PatientC",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"DoctorContro",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"web.",
+				"routes\\web.php"
+			],
+			[
+				"loopA",
+				"resources\\views\\hospital\\includes\\loopAppointment-movil.blade.php"
+			],
+			[
+				"loopAppo",
+				"resources\\views\\hospital\\includes\\loopAppointment-desktop.blade.php"
+			],
+			[
+				"loopPatie",
+				"resources\\views\\hospital\\includes\\loopPatient-movil.blade.php"
+			],
+			[
+				"loopPati",
+				"resources\\views\\hospital\\includes\\loopPatient-desktop.blade.php"
+			],
+			[
+				"loopDo",
+				"resources\\views\\hospital\\includes\\loopDoctor-movil.blade.php"
+			],
+			[
+				"loopDoctor",
+				"resources\\views\\hospital\\includes\\loopDoctor-desktop.blade.php"
+			],
+			[
+				"indexD",
+				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
+			],
+			[
+				"showS",
+				"resources\\views\\hospital\\Speciality\\showSpeciality.blade.php"
+			],
+			[
+				"tableDo",
+				"resources\\views\\hospital\\includes\\tableDoctor.blade.php"
+			],
+			[
+				"specia",
+				"app\\Http\\Controllers\\SpecialityController.php"
+			],
+			[
+				"Speciality",
+				"app\\Http\\Controllers\\SpecialityController.php"
+			],
+			[
+				"web.p",
+				"routes\\web.php"
+			],
+			[
+				"nav",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"PatientContr",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"DoctorCo",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"nav-adm",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"card-pro",
+				"resources\\views\\hospital\\includes\\card-profile-doctor.blade.php"
+			],
+			[
+				"Prescriptio",
+				"app\\Http\\Controllers\\PrescriptionController.php"
+			],
+			[
+				"AppointmentCon",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"indexA",
+				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
+			],
+			[
+				"loopAp",
+				"resources\\views\\hospital\\includes\\loopAppointment-desktop.blade.php"
+			],
+			[
+				"tableA",
+				"resources\\views\\hospital\\includes\\tableAppointment.blade.php"
+			],
+			[
+				"indexa",
+				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
+			],
+			[
+				"indexOf",
+				"resources\\views\\hospital\\office\\indexOffice.blade.php"
+			],
+			[
+				"appointmentC",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"Appoi",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"user",
+				"app\\User.php"
+			],
+			[
+				"sessionG",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
+			],
+			[
+				"Auth",
+				"config\\auth.php"
+			],
+			[
+				"AppointmentC",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"DoctorController",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"Doctor.php",
+				"app\\Doctor.php"
+			],
+			[
+				"doctor",
+				"app\\Doctor.php"
+			],
+			[
+				"officeConr",
+				"app\\Http\\Controllers\\OfficeController.php"
+			],
+			[
+				"showO",
+				"resources\\views\\hospital\\office\\showOffice.blade.php"
+			],
+			[
+				"officeCont",
+				"app\\Http\\Controllers\\OfficeController.php"
+			],
+			[
+				"showOf",
+				"resources\\views\\hospital\\office\\showOffice.blade.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"doctorContro",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"createDo",
+				"resources\\views\\hospital\\doctor\\createDoctor.blade.php"
+			],
+			[
+				"patientContr",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"userSe",
+				"database\\seeds\\UsersTableSeeder.php"
+			],
+			[
+				"Patient",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"prescrip",
+				"app\\Http\\Controllers\\PrescriptionController.php"
+			],
+			[
+				"patient",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"appointmentContro",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"patientContro",
+				"app\\Http\\Controllers\\PatientController.php"
 			],
 			[
 				"create_appo",
 				"database\\migrations\\2018_11_23_163104_create_appointments_table.php"
+			],
+			[
+				"appointment table",
+				"database\\seeds\\AppointmentsTableSeeder.php"
+			],
+			[
+				"PrescriptionC",
+				"app\\Http\\Controllers\\PrescriptionController.php"
+			],
+			[
+				"showDo",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"indexPa",
+				"resources\\views\\hospital\\patient\\indexPatients.blade.php"
+			],
+			[
+				"nav-admin",
+				"resources\\views\\layouts\\nav-admin.blade.php"
+			],
+			[
+				"PatientController",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"doctorController",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"showDoctor",
+				"resources\\views\\hospital\\doctor\\showDoctor.blade.php"
+			],
+			[
+				"appointment.js",
+				"public\\js\\Appointments\\appointments.js"
+			],
+			[
+				"createAppo",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"showPatient",
+				"resources\\views\\hospital\\patient\\showPatient.blade.php"
+			],
+			[
+				"showAppo",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"editPa",
+				"resources\\views\\hospital\\patient\\editPatient.blade.php"
+			],
+			[
+				"createPa",
+				"resources\\views\\hospital\\patient\\createPatient.blade.php"
+			],
+			[
+				"showPatien",
+				"resources\\views\\hospital\\patient\\showPatient.blade.php"
+			],
+			[
+				"patientC",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"PatientCont",
+				"app\\Http\\Controllers\\PatientController.php"
+			],
+			[
+				"OfficeCon",
+				"app\\Http\\Controllers\\OfficeController.php"
+			],
+			[
+				"SpecialityC",
+				"app\\Http\\Controllers\\SpecialityController.php"
+			],
+			[
+				"Special",
+				"app\\Speciality.php"
+			],
+			[
+				"DoctorCon",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"Doc",
+				"app\\Doctor.php"
+			],
+			[
+				"appoint",
+				"app\\Appointment.php"
+			],
+			[
+				"looppatient",
+				"resources\\views\\hospital\\includes\\loopPatient-desktop.blade.php"
+			],
+			[
+				"tablePat",
+				"resources\\views\\hospital\\includes\\tablePatient.blade.php"
+			],
+			[
+				"loopPatient",
+				"resources\\views\\hospital\\includes\\loopPatient-desktop.blade.php"
+			],
+			[
+				"userSeeder",
+				"database\\seeds\\UsersTableSeeder.php"
+			],
+			[
+				"showSp",
+				"resources\\views\\hospital\\Speciality\\showSpeciality.blade.php"
+			],
+			[
+				"createD",
+				"resources\\views\\hospital\\doctor\\createDoctor.blade.php"
+			],
+			[
+				"spec",
+				"app\\Speciality.php"
+			],
+			[
+				"Doctor",
+				"app\\Doctor.php"
+			],
+			[
+				"doctorC",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"editD",
+				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
+			],
+			[
+				"middle",
+				"vendor\\guzzlehttp\\guzzle\\src\\Middleware.php"
+			],
+			[
+				"scrip",
+				"public\\js\\scripts.js"
+			],
+			[
+				"Doct",
+				"app\\Doctor.php"
+			],
+			[
+				"showA",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"appointmentCon",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"editA",
+				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
+			],
+			[
+				"create",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"card-doc",
+				"resources\\views\\hospital\\includes\\card-profile-doctor.blade.php"
+			],
+			[
+				"doctor-c",
+				"resources\\views\\web\\includes\\doctor-card.blade.php"
+			],
+			[
+				"appo",
+				"app\\Appointment.php"
+			],
+			[
+				"appointment",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"create_tab",
+				"database\\migrations\\2018_11_23_163104_create_appointments_table.php"
+			],
+			[
+				"factory Appo",
+				"database\\factories\\AppointmentFactory.php"
+			],
+			[
+				"apiC",
+				"app\\Http\\Controllers\\API\\ApiController.php"
 			],
 			[
 				"createA",
@@ -9793,10 +10537,6 @@
 			[
 				"apiCon",
 				"app\\Http\\Controllers\\API\\ApiController.php"
-			],
-			[
-				"web.",
-				"routes\\web.php"
 			],
 			[
 				"appoin",
@@ -9823,32 +10563,12 @@
 				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
 			],
 			[
-				"createAppo",
-				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
-			],
-			[
-				"appointmentC",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
 				"appointmentCn",
 				"app\\Http\\Controllers\\AppointmentController.php"
 			],
 			[
-				"createD",
-				"resources\\views\\hospital\\doctor\\createDoctor.blade.php"
-			],
-			[
 				"card",
 				"resources\\views\\hospital\\includes\\card-profile-doctor.blade.php"
-			],
-			[
-				"editD",
-				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
-				"specia",
-				"app\\Speciality.php"
 			],
 			[
 				"doctor.php",
@@ -9867,40 +10587,12 @@
 				"app\\Options.php"
 			],
 			[
-				"Doc",
-				"app\\Doctor.php"
-			],
-			[
 				"card-p",
 				"resources\\views\\hospital\\includes\\card-profile-doctor.blade.php"
 			],
 			[
-				"loopDo",
-				"resources\\views\\hospital\\includes\\loopDoctor-desktop.blade.php"
-			],
-			[
-				"doctorContro",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"web.php",
-				"routes\\web.php"
-			],
-			[
 				"editDoc",
 				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
-				"doctor",
-				"app\\Doctor.php"
-			],
-			[
-				"loopDoctor",
-				"resources\\views\\hospital\\includes\\loopDoctor-movil.blade.php"
-			],
-			[
-				"Doctor.php",
-				"app\\Doctor.php"
 			],
 			[
 				"doctorSeeder",
@@ -9919,10 +10611,6 @@
 				"database\\migrations\\2014_10_12_041821_create_specialities_table.php"
 			],
 			[
-				"spec",
-				"app\\Speciality.php"
-			],
-			[
 				"spe",
 				"app\\Speciality.php"
 			],
@@ -9933,362 +10621,6 @@
 			[
 				"specialities",
 				"database\\seeds\\SpecialitiesTableSeeder.php"
-			],
-			[
-				"Docot",
-				"app\\Doctor.php"
-			],
-			[
-				"doctorFa",
-				"database\\factories\\DoctorFactory.php"
-			],
-			[
-				"table doctor",
-				"database\\migrations\\2018_10_22_005134_create_doctors_table.php"
-			],
-			[
-				"Doctor",
-				"app\\Doctor.php"
-			],
-			[
-				"doctorC",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"editDoctor",
-				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
-			],
-			[
-				"index.html",
-				"C:\\Users\\DELL\\Documents\\Desarrollo\\materialkitpro-121\\materialkitpro-121\\index.html"
-			],
-			[
-				"indexDoc",
-				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
-			],
-			[
-				"nav-admin",
-				"resources\\views\\layouts\\nav-admin.blade.php"
-			],
-			[
-				"web",
-				"routes\\web.php"
-			],
-			[
-				"indexD",
-				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
-			],
-			[
-				"indeXD",
-				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
-			],
-			[
-				"indexDoco",
-				"resources\\views\\hospital\\doctor\\indexDoctors.blade.php"
-			],
-			[
-				"DoctorContro",
-				"app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"doctorController",
-				"C:\\xampp\\htdocs\\laravel\\hospital\\app\\Http\\Controllers\\DoctorController.php"
-			],
-			[
-				"showA",
-				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
-			],
-			[
-				"_comment.php",
-				"app\\Appointment_comment.php"
-			],
-			[
-				"style.css",
-				"public\\css\\style.css"
-			],
-			[
-				"scripts",
-				"public\\js\\scripts.js"
-			],
-			[
-				"appointm",
-				"app\\Appointment.php"
-			],
-			[
-				"loopco",
-				"resources\\views\\hospital\\includes\\loopComments.blade.php"
-			],
-			[
-				"loop",
-				"resources\\views\\hospital\\includes\\loopAppointment-desktop.blade.php"
-			],
-			[
-				"comment.php",
-				"app\\Appointment_comment.php"
-			],
-			[
-				"User",
-				"app\\User.php"
-			],
-			[
-				"loopCom",
-				"resources\\views\\hospital\\includes\\loopComments.blade.php"
-			],
-			[
-				"modal/",
-				"resources\\views\\hospital\\includes\\modal\\EditPrescription.blade.php"
-			],
-			[
-				"commentContro",
-				"app\\Http\\Controllers\\Appointment_commentController.php"
-			],
-			[
-				"user",
-				"app\\User.php"
-			],
-			[
-				"Appointment_co",
-				"app\\Appointment_comment.php"
-			],
-			[
-				"AppointmentCo",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"loopCo",
-				"resources\\views\\hospital\\includes\\loopComments.blade.php"
-			],
-			[
-				"loppC",
-				"vendor\\psy\\psysh\\src\\CodeCleaner\\LoopContextPass.php"
-			],
-			[
-				"commentC",
-				"app\\Http\\Controllers\\Appointment_commentController.php"
-			],
-			[
-				"sessionG",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\SessionGuard.php"
-			],
-			[
-				"middleware/pa",
-				"app\\Http\\Middleware\\patient.php"
-			],
-			[
-				"mi",
-				"vendor\\guzzlehttp\\guzzle\\src\\Middleware.php"
-			],
-			[
-				"middle",
-				"vendor\\guzzlehttp\\guzzle\\src\\Middleware.php"
-			],
-			[
-				"nav",
-				"resources\\views\\layouts\\nav-admin.blade.php"
-			],
-			[
-				"middleware/patient",
-				"app\\Http\\Middleware\\patient.php"
-			],
-			[
-				"scrip",
-				"public\\js\\scripts.js"
-			],
-			[
-				"auth",
-				"config\\auth.php"
-			],
-			[
-				"loopC",
-				"resources\\views\\hospital\\includes\\loopComments.blade.php"
-			],
-			[
-				"commentCon",
-				"app\\Http\\Controllers\\Appointment_commentController.php"
-			],
-			[
-				"appointmentCo",
-				"app\\Appointment_comment.php"
-			],
-			[
-				"Appointment_com",
-				"app\\Http\\Controllers\\Appointment_commentController.php"
-			],
-			[
-				"indexO",
-				"resources\\views\\hospital\\office\\indexOffice.blade.php"
-			],
-			[
-				"sty",
-				"public\\css\\style.css"
-			],
-			[
-				"provider",
-				"vendor\\nunomaduro\\collision\\src\\Provider.php"
-			],
-			[
-				"aut",
-				"config\\auth.php"
-			],
-			[
-				"facade",
-				"vendor\\phpunit\\php-file-iterator\\src\\Facade.php"
-			],
-			[
-				"Prescription-",
-				"resources\\views\\hospital\\includes\\loopPrescription-movil.blade.php"
-			],
-			[
-				"loop-des",
-				"resources\\views\\hospital\\includes\\loopPrescription-desktop.blade.php"
-			],
-			[
-				"web.bl",
-				"resources\\views\\layouts\\web.blade.php"
-			],
-			[
-				"doctor.blade",
-				"resources\\views\\web\\doctor.blade.php"
-			],
-			[
-				"nav-",
-				"resources\\views\\layouts\\nav-login.blade.php"
-			],
-			[
-				"index.ht",
-				"C:\\Users\\DELL\\Documents\\Desarrollo\\materialkitpro-121\\materialkitpro-121\\index.html"
-			],
-			[
-				"styl",
-				"public\\css\\style.css"
-			],
-			[
-				"index",
-				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"stlye",
-				"public\\css\\style.css"
-			],
-			[
-				"show",
-				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
-			],
-			[
-				"indexPres",
-				"resources\\views\\hospital\\prescription\\indexPrescription.blade.php"
-			],
-			[
-				"loopPres",
-				"resources\\views\\hospital\\includes\\loopPrescription-desktop.blade.php"
-			],
-			[
-				"tablePRes",
-				"resources\\views\\hospital\\includes\\tablePrescriptions.blade.php"
-			],
-			[
-				"indexS",
-				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"indexPr",
-				"resources\\views\\hospital\\prescription\\indexPrescription.blade.php"
-			],
-			[
-				"tablePres",
-				"resources\\views\\hospital\\includes\\tablePrescriptions.blade.php"
-			],
-			[
-				"script",
-				"public\\js\\scripts.js"
-			],
-			[
-				"indexSpe",
-				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"tablaA",
-				"resources\\views\\hospital\\includes\\tableAppointment.blade.php"
-			],
-			[
-				"tableAppo",
-				"resources\\views\\hospital\\includes\\tableAppointment.blade.php"
-			],
-			[
-				"indexAppo",
-				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
-			],
-			[
-				"PRescription",
-				"app\\Http\\Controllers\\PrescriptionController.php"
-			],
-			[
-				"prescription",
-				"resources\\views\\hospital\\prescription\\indexPrescription.blade.php"
-			],
-			[
-				"presc",
-				"app\\Http\\Controllers\\PrescriptionController.php"
-			],
-			[
-				"Prescrip",
-				"app\\Prescription.php"
-			],
-			[
-				"appointmentController",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"indexAp",
-				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
-			],
-			[
-				"loopA",
-				"resources\\views\\hospital\\includes\\loopAppointment-desktop.blade.php"
-			],
-			[
-				"tableAppointment",
-				"resources\\views\\hospital\\includes\\tableAppointment.blade.php"
-			],
-			[
-				"editA",
-				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
-			],
-			[
-				"prescrip",
-				"app\\Prescription.php"
-			],
-			[
-				"appointmentContro",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"indexAppointment",
-				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
-			],
-			[
-				"indexP",
-				"C:\\xampp\\htdocs\\laravel\\hospital\\resources\\views\\hospital\\prescription\\indexPrescription.blade.php"
-			],
-			[
-				"prescr",
-				"app\\Http\\Controllers\\PrescriptionController.php"
-			],
-			[
-				"indexSpec",
-				"resources\\views\\hospital\\Speciality\\indexSpeciality.blade.php"
-			],
-			[
-				"indexPre",
-				"C:\\xampp\\htdocs\\laravel\\hospital\\resources\\views\\hospital\\prescription\\indexPrescription.blade.php"
-			],
-			[
-				"patientC",
-				"app\\Http\\Controllers\\PatientController.php"
-			],
-			[
-				"na-v",
-				"resources\\views\\layouts\\nav-admin.blade.php"
 			]
 		],
 		"width": 0.0

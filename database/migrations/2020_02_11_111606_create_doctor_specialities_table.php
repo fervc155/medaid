@@ -14,8 +14,8 @@ class CreateDoctorSpecialitiesTable extends Migration
     public function up()
     {
         Schema::create('doctor_speciality', function (Blueprint $table) {
-          
-            
+           $table->increments('id');
+           
            
             $table->integer('speciality_id')->unsigned();
             $table->foreign('speciality_id')->references('id')->on('specialities');

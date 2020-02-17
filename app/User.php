@@ -31,6 +31,13 @@ class User extends Authenticatable
 
     }
 
+
+
+
+
+    
+
+
     //Método para determinar si el usuario es de tipo administrador
     public function isAdmin()
     {

@@ -53,6 +53,19 @@
 
 
 					@endif
+										<div class="form-inline mb-2">
+
+
+						<div class="color-principal">
+
+							<i class="fal fa-hospital"></i> consultorio:
+						</div>  
+
+						{{ $doctor->office->name }}
+
+					</div>
+
+
 					<div class="form-inline mb-2">
 
 
@@ -138,14 +151,20 @@
 
 					@if(Auth::Doctor())
 
-					@if($doctor->id == Auth::UserId() || Auth::isOffice())
+					@if(($doctor->id == Auth::UserId() && Auth::isDoctor()) || Auth::Admin())
 					
 
-					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+					@endif
+
+					@if(Auth::isOffice() && $doctor->office_id == Auth::UserId())
+					
+
+						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 					@endif
 
 
-					@if(Auth::Office())
+					@if(Auth::Admin() ||  (Auth::isOffice() && $doctor->office_id == Auth::UserId()))
 
 					<button class="btn btn-danger btn-round btn-confirm-delete" id='doctor-{{$doctor->id}}' > <i class="fal fa-trash"></i> Eliminar</button>
 

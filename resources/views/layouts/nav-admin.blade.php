@@ -121,15 +121,15 @@
 
 					@endif
 
-					@admin
+					@if(Auth::Doctor())
 
 
 					<li class="nav-item <?php if($active=='chat'){ echo 'active';}?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
-					@endadmin
+					@endif
 
-					@admin
+					@if(Auth::Office())
 					<li class="nav-item <?php if($active=='speciality'){ echo 'active';}?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
-					@endadmin
+					@endif
 
 
 					@admin	
@@ -203,7 +203,7 @@
 						@endif
 						@if(Auth::isOffice())
 
-						Medico
+						Oficina
 						@endif
 						@if(Auth::isAdmin())
 

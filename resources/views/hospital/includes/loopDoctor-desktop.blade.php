@@ -17,7 +17,7 @@
 
 
 
-                  @if(Auth::Office())
+                  @if((Auth::Office() && Auth::UserId() == $doctor->office_id) || Auth::Admin())
 
                   <a href="{{url('/doctor/'.$doctor->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 

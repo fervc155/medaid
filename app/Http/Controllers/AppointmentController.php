@@ -21,11 +21,11 @@ class AppointmentController extends Controller
   {
     if(Auth::isPatient())
     {
-        $appointments = Appointment::where('patient_dni','=',Auth::UserId())->get();
+      $appointments = Appointment::where('patient_dni','=',Auth::UserId())->get();
 
 
-        return view('hospital.appointment.indexAppointment', compact('appointments'));
-     
+      return view('hospital.appointment.indexAppointment', compact('appointments'));
+      
 
     }
 
@@ -33,10 +33,10 @@ class AppointmentController extends Controller
 
     if(Auth::isDoctor())
     {
-        $appointments = Appointment::where('doctor_id','=',Auth::UserId())->get();
+      $appointments = Appointment::where('doctor_id','=',Auth::UserId())->get();
 
-        return view('hospital.appointment.indexAppointment', compact('appointments'));
-     
+      return view('hospital.appointment.indexAppointment', compact('appointments'));
+      
 
     }
 
@@ -45,14 +45,19 @@ class AppointmentController extends Controller
 
     if(Auth::isOffice())
     {
-        $appointments = DB::table('appointments')
-        ->join('doctors','appointments.doctor_id','=','doctors.id')
-        ->select('appointments.*','doctors.office_id', Auth::UserId)
-        ->get();
 
 
-        return view('hospital.appointment.indexAppointment', compact('appointments'));
-     
+      $appointments =  Appointment::
+      join('doctors','appointments.doctor_id','=','doctors.id')
+      ->select('appointments.*')
+      ->where('doctors.office_id', Auth::UserId())
+      ->get();
+
+
+
+
+      return view('hospital.appointment.indexAppointment', compact('appointments'));
+      
 
     }
 
@@ -81,41 +86,41 @@ class AppointmentController extends Controller
 
 
 
-	  $patients = Patient::all();
-	  $offices= Office::all();
+   $patients = Patient::all();
+   $offices= Office::all();
 
 
-    if(Auth::isDoctor())
-    {
-      $id= Auth::UserId();
-    }
+   if(Auth::isDoctor())
+   {
+    $id= Auth::UserId();
+  }
 
 
 
-    if ($id!='' && $spe!='')
-    {
-      $_doctor= Doctor::find($id);
-      $_speciality_id = $spe;
+  if ($id!='' && $spe!='')
+  {
+    $_doctor= Doctor::find($id);
+    $_speciality_id = $spe;
 
     return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices','_speciality_id'));
-   
-    }
+    
+  }
 
-    if ($id!='')
-    {
-      $_doctor= Doctor::find($id);
+  if ($id!='')
+  {
+    $_doctor= Doctor::find($id);
 
 
 
-     return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices'));
-   
-    }
-    else
-    {
+    return view('hospital.appointment.createAppointment', compact('_doctor','patients','offices'));
+    
+  }
+  else
+  {
 
     return view('hospital.appointment.createAppointment', compact('patients','offices'));
-    }
-	}
+  }
+}
 
   //Método store, para almacenar cita
 public function store(Request $request)
@@ -151,76 +156,90 @@ public function store(Request $request)
 }
 
   //Información de cita
-public function show(Appointment $appointment)
+public function show($id)
+{
+
+ $appointment = Appointment::find($id);
+
+ if(Auth::isPatient())
+ {
+  if(Auth::UserId()==$appointment->patient_dni)
+  {
+    return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
+  }
+
+
+}
+
+
+if(Auth::isOffice())
+{
+  if(Auth::UserId()==$appointment->doctor->office_id)
+  {
+    return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
+  }
+
+
+}
+
+
+
+if(Auth::isDoctor())
+{
+
+ $patients =  Patient::
+ join('appointments','appointments.patient_dni','=','patients.dni')
+ ->select('patients.*','appointments.*')
+ ->where('appointments.doctor_id', Auth::UserId())
+ ->get();
+
+ if(Auth::UserId()==$appointment->doctor_id)
+ {
+  return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
+}
+
+foreach ($patients as $patient) 
+{
+  foreach ($patient->appointments as $ap) 
+  {
+    if($ap->id == $appointment->id)
+    {
+     return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
+     
+   }
+ }
+}
+
+return view('admin');
+
+}
+
+
+
+
+if(Auth::isOffice())
+{
+
+  if(Auth::UserId()==$appointment->doctor->office_id)
+  {
+
+    return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
+  }
+
+
+}
+
+if(Auth::Admin())
 {
 
 
-  if(Auth::isPatient())
-  {
-    if(Auth::UserId()==$appointment->patient_dni)
-    {
-      return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
-    }
 
 
-  }
+  return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
 
+}
 
-
-  if(Auth::isDoctor())
-  {
-
-           $patients =  Patient::
-        join('appointments','appointments.patient_dni','=','patients.dni')
-        ->select('patients.*','appointments.*')
-        ->where('appointments.doctor_id', Auth::UserId())
-        ->get();
-
-    if(Auth::UserId()==$appointment->doctor_id)
-    {
-      return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
-    }
-
-    foreach ($patients as $patient) 
-    {
-      foreach ($patient->appointments as $ap) 
-      {
-        if($ap->id == $appointment->id)
-        {
-         return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
-        
-        }
-      }
-    }
-
-
-
-  }
-
-
-
-
-  if(Auth::isOffice())
-  {
-    if(Auth::UserId()==$appointment->doctor->office_id)
-    {
-      return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients',$appointment->patient);
-    }
-
-
-  }
-
-  if(Auth::Admin())
-  {
-
-
-
-
-    return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient',$appointment->patient);
-
-  }
-
-  return view('admin');
+return view('admin');
 
 }
 
@@ -279,105 +298,149 @@ public function edit(Appointment $appointment)
 
 
 
-	  $conditions = Condition::all();
-	  return view('hospital.appointment.editAppointment', compact('appointment','conditions'));
-  }
+   $conditions = Condition::all();
+   return view('hospital.appointment.editAppointment', compact('appointment','conditions'));
+ }
 
 
-  return view('admin');
+ return view('admin');
 }
 
   //Método update 
 public function update(Request $request, Appointment $appointment)
 {
-  $this->validate($request, [
-    'date'=>'required',
-    'time'=>'required',
-    'description'=>'required',
-    'appointment_id'=>'required'
+
+  if(Auth::Patient())
+  {
+
+    $this->validate($request, [
+      'date'=>'required',
+      'time'=>'required',
+      'description'=>'required',
+      'appointment_id'=>'required'
+      
+    ]);
+
+
+    $appointment = Appointment::find($request->input('appointment_id')) ; 
+    $appointment->date = $request->input('date');
+    $appointment->time = $request->input('time');
     
-  ]);
+    $appointment->description = $request->input('description');
+    $appointment->save();
 
+    return redirect('/appointment')->with('success', '¡La cita ha sido actualizada con éxito!');
+  }
 
-  $appointment = Appointment::find($request->input('appointment_id')) ; 
-  $appointment->date = $request->input('date');
-  $appointment->time = $request->input('time');
-  
-  $appointment->description = $request->input('description');
-  $appointment->save();
+  return view('admin');
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido actualizada con éxito!');
 }
 
   //cancelar cita
 public function destroy(Appointment $appointment)
 {
- $appointment->condition_id = Conditions::Id('cancelled');
- $appointment->save();
+  if(Auth::Patient())
+  {
 
- return redirect('/appointment')->with('success', '¡La cita ha sido cancelada con éxito!');
+   $appointment->condition_id = Conditions::Id('cancelled');
+   $appointment->save();
+
+   return redirect('/appointment')->with('success', '¡La cita ha sido cancelada con éxito!');
+ }
+ return view('admin');
+
 }
 
     //cancelar cita
 public function cancelled(Appointment $appointment)
 {
- $appointment->condition_id = Conditions::Id('cancelled');
- $appointment->save();
+  if(Auth::Patient())
+  {
+   $appointment->condition_id = Conditions::Id('cancelled');
+   $appointment->save();
 
- return redirect('/appointment')->with('success', '¡La cita ha sido cancelada con éxito!');
+   return redirect('/appointment')->with('success', '¡La cita ha sido cancelada con éxito!');
+ }
+ return view('admin');
+
 }
 
 
   //Atender cita
 public function complete(Appointment $appointment)
 {
-  $appointment->condition_id = Conditions::Id('completed');
-  $appointment->save();
+  if(Auth::Patient())
+  {
+    $appointment->condition_id = Conditions::Id('completed');
+    $appointment->save();
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido atendida con éxito!');
+    return redirect('/appointment')->with('success', '¡La cita ha sido atendida con éxito!');
+  }
+  return view('admin');
 }
 
     //acpetar cita
 public function accepted(Appointment $appointment)
 {
-  $appointment->condition_id = Conditions::Id('accepted');
-  $appointment->save();
+  if(Auth::Patient())
+  {
+    $appointment->condition_id = Conditions::Id('accepted');
+    $appointment->save();
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido aceptada con éxito!');
+    return redirect('/appointment')->with('success', '¡La cita ha sido aceptada con éxito!');
+  }
 }
 
     //rechazar cita
 public function rejected(Appointment $appointment)
 {
-  $appointment->condition_id = Conditions::Id('rejected');
-  $appointment->save();
+  if(Auth::Patient())
+  {
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+    $appointment->condition_id = Conditions::Id('rejected');
+    $appointment->save();
+
+    return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+  }
+  return view('admin');
+
 }
 
       //pendiente cita
 public function pending(Appointment $appointment)
 {
-  $appointment->condition_id = Conditions::Id('pending');
-  $appointment->save();
+  if(Auth::Patient())
+  {
+    $appointment->condition_id = Conditions::Id('pending');
+    $appointment->save();
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+    return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+  }
+  return view('admin');
 }
         //tarde cita
 public function late(Appointment $appointment)
 {
-  $appointment->condition_id = Conditions::Id('late');
-  $appointment->save();
+  if(Auth::Patient())
+  {
+    $appointment->condition_id = Conditions::Id('late');
+    $appointment->save();
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+    return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+  }
+  return view('admin');
 }
       //perdida cita
 public function lost(Appointment $appointment)
 {
-  $appointment->condition_id = Conditions::Id('lost');
-  $appointment->save();
+  if(Auth::Patient())
+  {
+    $appointment->condition_id = Conditions::Id('lost');
+    $appointment->save();
 
-  return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+    return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+  }
+  return view('admin');
 }
 
 

@@ -1,8 +1,11 @@
 <?php
 
+use App\Doctor;
 use Faker\Generator as Faker;
 
 $factory->define(App\Patient::class, function (Faker $faker) {
+     $Doctor = Doctor::all()->random();
+   
     return [
         'name' => $faker->name,
         'curp' => $faker->unique()->lexify('????????????????'),
@@ -13,6 +16,6 @@ $factory->define(App\Patient::class, function (Faker $faker) {
         'postalCode' => $faker->numerify('#####'),
         'city'=> $faker->sentence(2),
         'country'=> $faker->sentence(1),
-        'doctor_id'=> $faker->numberBetween(1,20)
+        'doctor_id'=> $Doctor->id
     ];
 });
