@@ -56,25 +56,21 @@
 				</div>
 			</div>
 
+			<div class="row">
+				
+				
+				<div class="col p-3 datos-calendario">
 
+					<div id='id' data-id="{{$doctor->id}}"></div>
+					<div id='url' data-url="{{url('/get/appointments/doctor')}}"></div>
+					@csrf
+					<div id='calendar'></div>
 
-			<div class="col d-none">
-				@foreach ($appointments as $a)
-				@if ($a->completed == false)
-
-				<span class="citas-fecha">{{ $a->date }}</span>
-
-				<span class="citas-hora">{{ $a->time }}</span>
-				<span class="citas-descripcion">{{ $a->description }}</span>
-				<span class="citas-paciente">{{ $a->patient->name }}</span>
-				@endif
-				@endforeach
-
+				</div>
 			</div>
-			<div class="col p-3 ">
-				<div id='calendar'></div>
 
-			</div>
+
+
 
 		</div>
 

@@ -138,6 +138,11 @@
 
 	<?php echo 	'<script type="text/javascript">let _URL = "'.url('').'"</script>'?>
 
+
+
+
+	<script src="{{ asset('js/callbacks.js') }}"></script>
+	<script src="{{ asset('js/charts.js') }}"></script>
 	<script src="{{ asset('js/scripts.js') }}"></script>
 	<script src="{{ asset('js/calendar.js') }}"></script>
 	

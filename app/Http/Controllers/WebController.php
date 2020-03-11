@@ -69,12 +69,19 @@ class WebController extends Controller
         foreach ($office->doctors as $doctor) 
         {
 
-            if(!in_array($doctor->speciality,$specialities))
-            {
+            foreach ($doctor->specialities as $speciality)
+             {
 
-            array_push($specialities,$doctor->speciality);
+                if(!in_array($speciality->name,$specialities))
+                {
+
+                array_push($specialities,$speciality->name);
+                }
             }
+
         }
+
+
 
 
         return view('web.consultorio', compact('office','specialities'))->with('doctors',$office->doctors);
@@ -91,6 +98,8 @@ class WebController extends Controller
     {
 
         $doctor = Doctor::find($id);
+
+
 
         return view('web.doctor', compact('doctor'))->with('patients', $doctor->patients)
         ->with('appointments', $doctor->appointments);
@@ -154,71 +163,3 @@ class WebController extends Controller
 
 
 
-/*	public function searchespecialidades(Request $request )
-	{
-
-
-
-		$search =$request->input('search');
-
-		$specialities= Speciality::where('name','like',"%$search%")->get();
-
-
-		$html='';
-		$array = array();
-			foreach ($specialities as $speciality)
-		{
-	   $html='<div class="col-12 col-md-4 col-xl-3">
-      <div class="card card-pricing">
-        <div class="card-body ">
-          <h6 class="card-category text-gray"> 
-            <i class="fal fa-user-md"></i>'.count($speciality->doctors).'Doctores</h6>
-
-            <div class="icon icon-info">
-              <i class="fal fa-file-certificate"></i>
-            </div>
-            <h3 class="card-title">'.$speciality->price .'/<small>consulta</small></h3>
-            <p class="card-description">
-              <span class="text-uppercase text-primary">
-
-                '.$speciality->name.'
-
-              </span>
-              <div class="stars">';
-                $estrellas = round($speciality->stars);
-                $noEstrellas = 5-$estrellas; 
-
-                for($i = 0;$i<$estrellas ; $i++)
-                {
-                $html.='<i class="fas fa-star"></i>';
-
-                }
-                for($i = 0;$i<$noEstrellas ; $i++)
-                {
-                $html.='<i class="fal fa-star"></i>';
-
-                }
-
-              $html.='</div>
-              <div>
-                '.$speciality->stars.'
-              </div>
-            </p>
-            <a href="'.url('/visitante/especialidad/'.$speciality->id).'" class="btn btn-info btn-round">Ver doctores</a>
-          </div>
-        </div>
-      </div>';
-
-      array_push($array,array(
-      	'id'=>$speciality->id,
-      	'html'=>$html,
-      ));
-
-      $html='';
-
-		}
-
-	
-		return json_encode($array);
-
-	}*/

@@ -1,15 +1,26 @@
-$(document).ready(function()
+
+class  Calendario
 {
 
-	/*full calendar*/
-	if (document.getElementById('calendar'))
+
+	static Existe()
 	{
 
+		if(document.getElementById('calendar'))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 
-		var calendarEl = document.getElementById('calendar');
+	}
 
+	constructor()
+	{
 
-		var calendar = new FullCalendar.Calendar(calendarEl, 
+		this.calendar = new FullCalendar.Calendar(document.getElementById('calendar'), 
 		{
 			plugins: [ 'dayGrid', ],
 			displayEventTime:true,
@@ -21,7 +32,7 @@ $(document).ready(function()
 					text: 'custom!',
 					click: function() {
 					}
-				}
+			}
 			},
 			header: {
 				left: 'title ',
@@ -33,34 +44,85 @@ $(document).ready(function()
 		});
 
 
+		this.ObtenerCitas();
+		
+	}
 
 
-		citasHora = $('.citas-hora');
-		citasDescripcion =$('.citas-descripcion');
-		citasPaciente = $('.citas-paciente');
-		citasFecha = $('.citas-fecha');
+	ObtenerCitas()
+	{
 
-		for (var i =0; i<citasFecha.length; i++) 
+		self=this;
+
+
+		$.ajax({
+
+			type:'POST',
+
+			url: $('.datos-calendario #url').data('url'),
+
+			data:
+			{
+				id: $('.datos-calendario #id').data('id'),
+				_token: $('.datos-calendario input[name="_token"]').val()
+			},
+
+			success:function(data,success){
+				self.LlenarCalendario(JSON.parse(data));
+				
+				
+			}
+
+		});
+
+	}
+
+	LlenarCalendario(citas)
+	{
+
+
+
+		if(citas.length<1)
+		{
+
+			return;
+		}
+
+		citas.forEach(cita=>
 		{
 
 
-			var cita=  
+
+
+			var bloqueCita=  
 			{
 
-				title:citasHora[i].innerHTML+" "+ citasPaciente[i].innerHTML,
-				start:citasFecha[i].innerHTML
+				title:`${cita['time']} ${cita['patient_name']}`,
+				start:cita['date']
 			}
 
+			this.calendar.addEvent( bloqueCita )
+		})
 
-			calendar.addEvent( cita )
-		}
-
-
-		calendar.setOption('locale', 'es');
-
-		calendar.render();
+		this.calendar.setOption('locale', 'es');
+		this.calendar.render();
 
 
 	}
 
+
+	
+}
+
+
+
+
+$(document).ready(function()
+{
+
+	if(Calendario.Existe())
+	{
+
+		let calendario = new Calendario();
+	}
 })

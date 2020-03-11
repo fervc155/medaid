@@ -19,19 +19,29 @@ class ApiController extends Controller
 	public function searchDoctorEspecialidad(Request $request)
 	{
 
-	
+
 
 
 		$search =$request->input('search');
 		$speciality=$request->input('speciality');
 
+
 		if (strlen($search)>0)
 		{
-			$doctors = Doctor::where('speciality_id',$speciality)->where('name','like',"%$search%")->get();
+
+
+			    	
+			$doctors=Doctor::
+            join('doctor_speciality','doctor_speciality.doctor_id','=','doctors.id')
+            ->select('doctors.*')
+            ->where('doctor_speciality.speciality_id', $speciality)
+            ->where('doctors.name','like',"%$search%")
+            ->get();
+
 		}
 		else
 		{
-			$doctors = Doctor::where('speciality_id',$speciality)->get();
+			$doctors = Speciality::find($speciality)->doctors;
 
 		}
 
@@ -45,13 +55,13 @@ class ApiController extends Controller
 				'id'=>$doctor->id,
 
 				'name'=>$doctor->name,
-				'speciality'=>$doctor->speciality->name,
-				'price'=>$doctor->speciality->price,
+				'specialities'=>$doctor->specialities,
+				'MinMaxCost'=>$doctor->MinMaxCost,
 				'Profileimg'=>asset($doctor->Profileimg),
 				'StarsEarned'=>$doctor->StarsEarned,
 				'StarsMissing'=>$doctor->StarsMissing,
 				'stars'=>$doctor->stars,
-		
+
 			);
 
 			array_push($calculateSpeciality,$new);
@@ -67,10 +77,10 @@ class ApiController extends Controller
 
 
 	}
-		public function searchDoctores(Request $request)
+	public function searchDoctores(Request $request)
 	{
 
-	
+
 
 
 		$search =$request->input('search');
@@ -95,13 +105,13 @@ class ApiController extends Controller
 				'id'=>$doctor->id,
 
 				'name'=>$doctor->name,
-				'speciality'=>$doctor->speciality->name,
-				'price'=>$doctor->speciality->price,
+				'specialities'=>$doctor->specialities,
+				'MinMaxCost'=>$doctor->MinMaxCost,
 				'Profileimg'=>asset($doctor->Profileimg),
 				'StarsEarned'=>$doctor->StarsEarned,
 				'StarsMissing'=>$doctor->StarsMissing,
 				'stars'=>$doctor->stars,
-		
+
 			);
 
 			array_push($calculateSpeciality,$new);
@@ -163,56 +173,6 @@ class ApiController extends Controller
 
 	}
 
-		public function searchCitas(Request $request )
-
-	{
-
-
-
-		$search =$request->input('search');
-
-
-
-		if (strlen($search)>0)
-		{
-
-
-			$appointments= Appointment::where('patient_dni',"$search")->orderBy('date','DESC')->get();
-		}
-		else
-		{
-			return array();
-		}
-
-		$calculateArray=array();
-
-
-		foreach ($appointments as $appointment)
-		{
-			$new = array(
-				'name'=>$appointment->patient->name,
-				'date'=>$appointment->date,
-				'time'=>$appointment->time, 
-				'price'=>$appointment->price,
-				'doctor'=>$appointment->doctor->name,
-				'doctor_id'=>$appointment->doctor->id,
-				'office'=>$appointment->doctor->office->name,
-				'office_id'=>$appointment->doctor->office->id,
-
-				'status'=>$appointment->status
-			);
-
-			array_push($calculateArray,$new);
-
-		}
-
-
-		return json_encode($calculateArray);
-
-
-
-	}
-
 
 
 	/*====================================
@@ -228,7 +188,7 @@ class ApiController extends Controller
 	public function AppointmentGetTime(Request $request )
 	{
 
-	
+
 		$id= $request->input('doctor');
 		$date= $request->input('date');
 
@@ -256,13 +216,13 @@ class ApiController extends Controller
 			
 			if($appointment->condition_id==Conditions::Id('pending'))
 			{
-			array_push($hours,$time);
+				array_push($hours,$time);
 
 			}
 			else if($appointment->condition_id==Conditions::Id('accepted'))
 			{
 
-			array_push($hours,$time);
+				array_push($hours,$time);
 			}
 
 			
@@ -273,11 +233,11 @@ class ApiController extends Controller
 
 
 
-			$calculateArray=array(
-				'inTime'=>$doctor->inTime,
-				'outTime'=>$doctor->outTime,
-				'hours'=>$hours, 
-			);
+		$calculateArray=array(
+			'inTime'=>$doctor->inTime,
+			'outTime'=>$doctor->outTime,
+			'hours'=>$hours, 
+		);
 
 		
 
@@ -287,6 +247,108 @@ class ApiController extends Controller
 
 
 	}
+
+
+	public function getAppointmentPatient(Request $request )
+	{
+
+
+
+		$search =$request->input('id');
+
+
+
+		if (strlen($search)>0)
+		{
+
+
+			$appointments= Appointment::where('patient_dni',"$search")->orderBy('date','DESC')->get();
+		}
+		else
+		{
+			return array();
+		}
+
+		$calculateArray=array();
+
+
+		foreach ($appointments as $appointment)
+		{
+			$new = array(
+				'patient_name'=>$appointment->patient->name,
+				'patient_dni'=>$appointment->patient->dni,
+				'date'=>$appointment->date,
+				'time'=>$appointment->time, 
+				'price'=>$appointment->price,
+				'doctor_name'=>$appointment->doctor->name,
+				'doctor_id'=>$appointment->doctor->id,
+				'office'=>$appointment->doctor->office->name,
+				'office_id'=>$appointment->doctor->office->id,
+				'status'=>$appointment->status
+			);
+
+			array_push($calculateArray,$new);
+
+		}
+
+
+		return json_encode($calculateArray);
+
+
+
+	}
+
+
+
+	public function getAppointmentDoctor(Request $request )
+	{
+
+
+
+		$search =$request->input('id');
+
+
+
+		if (strlen($search)>0)
+		{
+
+
+			$appointments= Appointment::where('doctor_id',"$search")->orderBy('date','DESC')->get();
+		}
+		else
+		{
+			return array();
+		}
+
+		$calculateArray=array();
+
+
+		foreach ($appointments as $appointment)
+		{
+			$new = array(
+				'patient_name'=>$appointment->patient->name,
+				'patient_dni'=>$appointment->patient->dni,
+				'date'=>$appointment->date,
+				'time'=>$appointment->time, 
+				'price'=>$appointment->price,
+				'doctor_name'=>$appointment->doctor->name,
+				'doctor_id'=>$appointment->doctor->id,
+				'office'=>$appointment->doctor->office->name,
+				'office_id'=>$appointment->doctor->office->id,
+				'status'=>$appointment->status
+			);
+
+			array_push($calculateArray,$new);
+
+		}
+
+
+		return json_encode($calculateArray);
+
+
+
+	}
+
 
 
 	/*===========================================
@@ -319,7 +381,7 @@ class ApiController extends Controller
 				);
 				
 				array_push($spe,$new1);
-	
+
 			}
 
 			$new = array(

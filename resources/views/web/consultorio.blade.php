@@ -187,7 +187,7 @@
           @foreach($specialities as $speciality)
 
 
-          <option value="{{str_replace(' ','-',$speciality->name)}}">{{$speciality->name}}</option>
+          <option value="{{str_replace(' ','-',$speciality)}}">{{$speciality}}</option>
        
           @endforeach
                     <option value="Todos">Todos</option>
@@ -207,7 +207,7 @@
     
     @foreach($doctors as $doctor)
     
-    <div class="col-sm-6 col-md-4  card-doctor {{str_replace(' ','-',$doctor->speciality->name)}}">
+    <div class="col-sm-6 col-md-4  card-doctor <?php foreach($doctor->specialities as $speciality){echo " ".str_replace(' ','-',$speciality->name);} ?>">
 
       @include('web.includes.doctor-card')
 

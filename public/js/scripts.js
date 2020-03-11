@@ -1,13 +1,63 @@
+/*=================================
+=            INIT            =
+=================================*/
 
-$(document).ready(function() {
+
+
+Grafica = new Grafica();
+$(document).ready(()=>
+{
+
+
+	StartMaterialKit();
+	cerrarDashboardAliniciar();
+
+})
+
+/*=====  End of INIT  ======*/
+
+/*=================================
+=            CALLBACKS            =
+=================================*/
+
+$(".btn-confirm-delete").click(btnConfirmDelete);
+$(".select-speciality-doctor").on('change', selectSpecialityDoctor);
+$(".btn-actualizar-receta").click(btnActualizarReceta);
+$(".btn-actualizar-especialidad").click(btnActualizarEspecialidad);
+$(".btn-edit-comment").click(btnEditComment);
+$(".btn-update-comment").click(btnUpdateComment);
+$(".btn-AgregarPrecioCita").on('change',btnAgregarPrecioCita);
+
+
+
+/*=====  End of CALLBACKS  ======*/
+
+
+
+
+
+
+function StartMaterialKit() {
 	$('span.material-icons.check-mark').html('<i class="fal fa-check">');
     //init DateTimePickers
     //materialKit.initFormExtendedDatetimepickers();
-});
+};
 
 
 
 
+function cerrarDashboardAliniciar()
+{
+
+	width= $(window).width();
+
+
+	if(width<768)
+	{
+		CerrarDashboard();
+	}
+
+}
 /*==============================
 =            resize            =
 ==============================*/
@@ -16,21 +66,7 @@ $(document).ready(function() {
 
 /*----------  cerrar dashboard si la ventana es pequeña  ----------*/
 
-$(document).ready(function()
-{
-
-	width= $(window).width();
-
-
-	if(width<768)
-	{
-		
-			CerrarDashboard();
-
-		
-	}
-
-})
+$(document).ready()
 
 $( window ).resize(function() {
  
@@ -175,156 +211,7 @@ $('#button-dashboard').click(function()
 
 })
 
-$('.navbar-responsive-base').click(function()
-{
-	AbrirDashboard()
-}) 
-
-
-
-
-/*  FULL CALENDAR*/
-
-
-
-
-
-
-
-$(document).ready(function()
-{
-
-
-	/*chart*/
-
-//grafica cantidad citas
-
-if ($('#grafica-cantidad-citas')>0)
-{
-
-	new Chartist.Line('#grafica-cantidad-citas', {
-		labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
-		series: [
-		[12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
-	},{
-
-		low: 0,
-		showArea: true,
-
-		fullWidth: true
-
-	});
-}
-
-if ($('#grafica-ventas-mes')>0)
-{
-
-
-	new Chartist.Line('#grafica-ventas-mes', {
-		labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
-		series: [
-		[12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
-	},{
-
-		low: 0,
-		showArea: true,
-
-		fullWidth: true
-
-	});
-
-}
-
-//grarfica relacion citas
-if ($('#grafica-relacion-citas')>0)
-{
-
-
-	var data = {
-		series: [5, 3, 4]
-	};
-
-
-	var sum = function(a, b) { return a + b };
-
-	new Chartist.Pie('#grafica-relacion-citas', data, {
-		labelInterpolationFnc: function(value) {
-			return Math.round(value / data.series.reduce(sum) * 100) + '%';
-		}
-	});
-}
-
-//grafica peores  medicos
-if ($('#grafica-peores-medicos')>0)
-{
-
-
-	new Chartist.Bar('#grafica-peores-medicos', {
-		labels: ['doctor1','doctor2','doctor2','doctor2','doctor2'],
-		series: [
-		[12, 9, 7, 8, 5],    ]
-	},{
-
-		low: 0,
-		showArea: true,
-
-		fullWidth: true
-
-	});
-	var data = {
-		series: [5, 3, 4]
-	};
-
-}
-
-//grafica mejores  medicos
-if ($('#grafica-mejores-medicos')>0)
-{
-
-
-	new Chartist.Bar('#grafica-mejores-medicos', {
-		labels: ['doctor1','doctor2','doctor2','doctor2','doctor2'],
-		series: [
-		[123, 93, 73, 38, 35],    ]
-	},{
-
-		low: 0,
-		showArea: true,
-
-		fullWidth: true
-
-	});
-	var data = {
-		series: [5, 3, 4]
-	};
-
-}
-	///
-
-	if ($('#grafica-cantidad-citas')>0)
-	{
-
-
-		new Chartist.Bar('#grafica-cantidad-citas', {
-			labels: ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'],
-			series: [
-			[12, 9, 7, 8, 5,5,32,54,65,32,43,45],    ]
-		},{
-
-			low: 0,
-			showArea: true,
-
-			fullWidth: true
-
-		});
-
-	}
-
-
-
-
-});
-
+$('.navbar-responsive-base').click(AbrirDashboard) 
 
 
 
@@ -336,114 +223,10 @@ if ($('#grafica-mejores-medicos')>0)
 
 
 
-$(".btn-confirm-delete").click(function(){
-
-	var ID = $(this).attr("id");
-	swal({
-		title: "Cuidado",
-		text: "Se eliminara el registro permanentemente",
-		icon: "warning",
-		buttons: true,
-		dangerMode: true,
-	}).then((willDelete) => {
-		if (willDelete) {
-
-
-			$('.btn-delete#'+ID).click();
-			swal("Hecho", {
-				icon: "success",
-			});
-
-		} 
-	});
-
-});
-
-$(".select-speciality-doctor").on('change', function()
-{
-
-	id=$(this).val();
-
-
-	$('.speciality-price').each(function()
-	{
-		if(!$(this).hasClass('d-none'))
-		{
-		$(this).addClass('d-none')
-
-		}
-
-	})
-
-
-	$('#speciality-price-'+id).removeClass('d-none')
 
 
 
 
-})
-
-
-///btn borrar especialidad
-
-
-$(".btn-actualizar-especialidad").click(function(){
-
-	var ID = $(this).data("id");
-	var name =$(this).data("name");
-	var cost =$(this).data("cost");
-
-	$('form.actualizar-especialidad input[name="id"]').val(ID);
-
-	$('form.actualizar-especialidad input[name="name"]').attr('placeholder',name);
-	$('form.actualizar-especialidad input[name="cost"]').attr('placeholder',cost);
-
-});
-
-
-$(".btn-actualizar-receta").click(function(){
-
-	var ID = $(this).data("id");
-	var content =$(this).data("content");
-
-
-	$('form.actualizar-receta input[name="prescription_id"]').val(ID);
-	$('form.actualizar-receta textarea').html(content);
-	
-});
-
-$(".btn-edit-comment").click(function(){
-
-	var ID = $(this).data("commentid");
-
-	$(this).addClass('d-none');
-
-
-	$('textarea#'+ID).removeAttr('disabled');
-	
-	$('span#btn-submit-'+ID).removeClass('d-none');
-	
-});
-
-$(".btn-update-comment").click(function(){
-
-	var ID = $(this).data("commentid");
-
-	console.log(ID);
-
-	$('#btn-update-comment-'+ID).click();
-})
-
-
-
-$(".btn-AgregarPrecioCita").on('change',function(){
-
-	var cost =$('.btn-AgregarPrecioCita option:selected').data('cost');
-	console.log(cost);
-
-	$('input[name="cost"]#PrecioCita').val(cost);
-
-});
 
 /* WAITME*/
 
