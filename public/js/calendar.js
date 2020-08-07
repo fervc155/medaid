@@ -97,7 +97,7 @@ class  Calendario
 			var bloqueCita=  
 			{
 
-				title:`${cita['time']} ${cita['patient_name']}`,
+				title:`${cita['time']} ${cita['patient_name']} ${cita['doctor_name']}`,
 				start:cita['date']
 			}
 

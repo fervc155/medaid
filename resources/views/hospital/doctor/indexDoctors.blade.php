@@ -5,7 +5,7 @@
 
 
 @if(Auth::Office())
-<a href="{{ url('/doctor/creat')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fal fa-plus"></i></a>
+<a href="{{route('doctor.create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fal fa-plus"></i></a>
 
 @endif
 

@@ -77,7 +77,7 @@
 </div>  
 
 
-@if((auth::isDoctor() && Auth::UserId()== $doctor->id) || auth::isOffice())
+@if((auth::isDoctor() && Auth::UserId()== $doctor->id) || auth::Office())
 
 <!-- CITAS -->
 
@@ -123,6 +123,7 @@
 
 @endif
 
+ 
 
 @endif
 @endsection

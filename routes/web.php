@@ -69,13 +69,9 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
     Route::get('appointment/create','AppointmentController@create');
     Route::get('doctor', 'DoctorController@index');
     Route::get('office', 'OfficeController@index');
-    Route::get('office/{id}' ,'OfficeController@show');
-    Route::get('patient/{id}','PatientController@show');
-    Route::get('patient/{id}/edit','PatientController@edit');
-    Route::patch('patient','PatientController@update');
     
-    Route::get('doctor/{id}','DoctorController@show');
 
+    route::get('speciality','SpecialityController@index');
 
 
 
@@ -93,8 +89,7 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 Route::group(['middleware' => ['auth','doctor'] ], function () {
 
     Route::get('patient','PatientController@index');
-    Route::get('patient/show','PatientController@show');
-
+ 
     Route::patch('doctor/edit/{doctor}', 'DoctorController@edit');
 
     Route::get('doctor/{id}/edit', 'DoctorController@edit');
@@ -116,25 +111,25 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
 
     Route::patch('patient/{patient}/destroy','PatientController@destroy');
-    Route::get('patiet/create','PatientController@create');
+    Route::get('patient/create','PatientController@create');
+    Route::post('patient/store','PatientController@store');
     Route::get('doctor/destroy/{doctor}', 'DoctorController@destroy');
 
 
-    Route::get('office/{id}/edit','officeController@edit');
+//    Route::get('office/{id}/edit','officeController@edit');
     Route::patch('office','OfficeController@update');
 
-    Route::get('doctor/create', 'DoctorController@create');
 
     Route::post('doctor/update', 'DoctorController@update');
+   Route::get('doctor/create', 'DoctorController@create')->name('doctor.create');
+   Route::post('doctor/store', 'DoctorController@store')->name('doctor.store');
 
 
-    route::get('speciality','SpecialityController@index');
     /*----------  especialidades  ----------*/
 
 
     route::post('speciality/store','SpecialityController@store');
     route::post('speciality/update','SpecialityController@update');
-    route::get('speciality/{id}','SpecialityController@show');
 
     route::delete('speciality/store','SpecialityController@destroy');
         /*----------  users  ----------*/
@@ -190,6 +185,8 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
     /*----------  Office  ----------*/
 
+    route::get('office/create','OfficeController@create');
+    route::get('office/store','OfficeController@store');
     route::delete('office/{office}/delete','OfficeController@destroy');
          
 
@@ -208,8 +205,9 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 =            AUTH            =
 ============================*/
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['middleware' => 'auth'], function () {
+Route::get('/home', 'HomeController@index')->name('home');
     Route::patch('appointment/complete/{appointment}', 'AppointmentController@complete');
     Route::patch('appointment/rejected/{appointment}', 'AppointmentController@rejected');
     Route::patch('appointment/accepted/{appointment}', 'AppointmentController@accepted');
@@ -245,7 +243,39 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 /*=====  End of AUTH  ======*/
+///////////////////////////////////////////////////////////////////////////////////////////////////   
 
+
+Route::group(['middleware' => ['auth','patient'] ], function () {
+     Route::get('patient/{id}','patientController@show');
+    Route::get('patient/{id}/edit','patientController@edit');
+    Route::put('patient/{id}','PatientController@update')->name('patient.update');
+
+    Route::get('office/{id}' ,'officeController@show')->name('office.show');
+    Route::get('doctor/{id}','DoctorController@show')->name('doctor.show');
+ 
+
+    route::get('speciality/{id}','SpecialityController@show');
+
+
+
+
+
+
+});
+
+
+Route::group(['middleware' => ['auth','office'] ], function () {
+
+
+ 
+    Route::get('office/{id}/edit','officeController@edit');
+ 
+
+});
+
+
+////////////////////////////////////////////////////////////
 
 
 /*=============================

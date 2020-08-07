@@ -8,6 +8,8 @@ use App\Options;
 use App\Speciality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+
 class DoctorController extends Controller
 {
   //Lista de doctores
@@ -30,8 +32,7 @@ class DoctorController extends Controller
   //Crear doctores
   public function create()
   {
-
-    if(Auth::Office())
+     if(Auth::Office())
     {
 
       $defaultImg= new Options();
@@ -44,6 +45,8 @@ class DoctorController extends Controller
     return view('admin');
 
   }
+
+
 
   //Almacenar doctor
   public function store(Request $request)
@@ -99,20 +102,21 @@ class DoctorController extends Controller
   public function show($id)
   {
 
+    $doctor = Doctor::find($id);
+
+ 
     if(Auth::Patient())
     {
 
 
 
 
-      $doctor=Doctor::find($id);
+ 
 
-
-      
+       
       return view('hospital.doctor.showDoctor', compact('doctor'))
       ->with('patients', $doctor->patients)
-      ->with('offices', $doctor->offices)
-      ->with('appointments', $doctor->appointments);
+       ->with('appointments', $doctor->appointments);
     }
 
     return view('admin');
@@ -120,27 +124,26 @@ class DoctorController extends Controller
   }
 
   //Actualizar doctor
-  public function edit($id)
+  public function edit( $id)
   {
 
-
-    if(Auth::Doctor())
-    {
+    $doctor = Doctor::find($id);
 
 
-      if(Auth::UserId() != $id)
+
+
+ 
+
+      if( Auth::isAdmin() ||  Auth::user()->profile()->id == $id  || (Auth::isOffice() && Auth::user()->profile()->id == $doctor->office_id    ))
       {
-        return view('admin');
+
+        $offices = Office::all();
+        $specialities = Speciality::all();
+        return view('hospital.doctor.editDoctor', compact('doctor','specialities','offices'));
       }
+         return view('admin');
 
-      $offices = Office::all();
-      $specialities = Speciality::all();
-      $doctor= Doctor::find($id);
-      return view('hospital.doctor.editDoctor', compact('doctor','specialities','offices'));
-    }
-
-    return view('admin');
-  }
+   }
 
   //Método update
   public function update(Request $request)

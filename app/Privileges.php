@@ -18,7 +18,7 @@ class Privileges   //static class
 
    public static function User($id)
    {
-       return     User_privileges::find($id)->id;
+       return     User_privileges::find($id)->name;
 
 
    }

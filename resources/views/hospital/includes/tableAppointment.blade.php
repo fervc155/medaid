@@ -23,6 +23,7 @@
                 <th >Hora</th>
                 <th >Costo</th>
                 <th >Razón</th>
+                
                 <th >Médico</th>
 
                 @if(!Auth::isPatient())

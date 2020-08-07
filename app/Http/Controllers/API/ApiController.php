@@ -275,7 +275,7 @@ class ApiController extends Controller
 		foreach ($appointments as $appointment)
 		{
 			$new = array(
-				'patient_name'=>$appointment->patient->name,
+				'patient_name'=>$appointment->patient->user()->name,
 				'patient_dni'=>$appointment->patient->dni,
 				'date'=>$appointment->date,
 				'time'=>$appointment->time, 

@@ -29,6 +29,13 @@ class Office extends Model
     	return $this->hasMany('App\Doctor');
     }
 
+
+  public function getProfileUrlAttribute()
+    {
+         return '/office/'.$this->id;
+
+    }
+
     //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
 
     
@@ -44,4 +51,9 @@ class Office extends Model
 
     }
  
+  public function user()
+  {
+            return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('patient'))->get();
+
+  }
  }

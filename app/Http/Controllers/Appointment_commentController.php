@@ -51,9 +51,9 @@ class Appointment_commentController extends Controller
 		$id_user = $request->input('user_id');
 
 
-
-
 		$Acomment  = Appointment_comment::find($id_comment);
+
+
 
 
 		if($Acomment->user_id== $id_user)

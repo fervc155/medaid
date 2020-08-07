@@ -55,18 +55,18 @@ class PatientController extends Controller
             {
 
 
-            $patients1 = Doctor::find($doctor->id)->patients;
+                $patients1 = Doctor::find($doctor->id)->patients;
 
 
-            $patients2 =  Patient::
-            join('appointments','appointments.patient_dni','=','patients.dni')
-            ->select('patients.*','appointments.*')
-            ->where('appointments.doctor_id', $doctor->id)
-            ->get();
+                $patients2 =  Patient::
+                join('appointments','appointments.patient_dni','=','patients.dni')
+                ->select('patients.*','appointments.*')
+                ->where('appointments.doctor_id', $doctor->id)
+                ->get();
 
-            $patients2 = $patients2->merge($patients1);
-            $patients2 = $patients2->unique('dni');
-            $patients = $patients->merge($patients2);
+                $patients2 = $patients2->merge($patients1);
+                $patients2 = $patients2->unique('dni');
+                $patients = $patients->merge($patients2);
 
 
 
@@ -161,44 +161,53 @@ class PatientController extends Controller
 public function show($id)
 {
 
-    if(Auth::isPatient())
-    {
+    if (Auth::Patient()) {
 
-        if (Auth::user()->id_user!=$id)
+
+        $patient = Patient::find($id);
+
+        if(Auth::isPatient())
         {
-            return view('admin');
+
+            if (Auth::user()->id_user!=$id)
+            {
+                return view('admin');
+            }
+
+            $appointments =$patient->appointments;  
         }
-    }
-
-    $patient = Patient::find($id);
-
-    if(Auth::isDoctor())
-    {
-
-       $appointments = Appointment::where('doctor_id',Auth::UserId())->where('patient_dni',$patient->dni)->get()->first();   
 
 
-       if($patient->doctor->id == Auth::UserId() ||  !empty($appointments))
+        if(Auth::isDoctor() )
+        {
+
+
+
+           if($patient->doctor->id == Auth::UserId() )
+           {
+
+               $appointments = Appointment::where('doctor_id',Auth::UserId())->where('patient_dni',$patient->dni)->get()->first();   
+
+           }
+
+
+       }
+
+       if(Auth::Office())
        {
 
 
-        return view('hospital.patient.showPatient', compact('patient'))
-        ->with('doctor', $patient->doctor)
-        ->with('appointments', $patient->appointments);
-    }
 
-    return view('admin');
-}
+       }
 
-
-if(Auth::Office())
-{
+       return view('hospital.patient.showPatient', compact('patient'))
+       ->with('doctor', $patient->doctor)
+       ->with('appointments', $appointments);
 
 
-    return view('hospital.patient.showPatient', compact('patient'))
-    ->with('doctor', $patient->doctor)
-    ->with('appointments', $patient->appointments);
-}
+   }   
+
+   return view('admin');
 }
 
     //Editar paciente
@@ -206,6 +215,10 @@ public function edit($id)
 {
 
     $patient = Patient::find($id);
+
+
+
+
 
     if(Auth::isPatient())
     {
@@ -235,54 +248,85 @@ public function edit($id)
 }
 
     //Método update
-public function update(Request $request, Patient $patient)
+public function update(Request $request,  $id)
 {
 
-    if(Auth::Patient())
+    if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
     {
 
 
-    $this->validate($request, [
-        'name'=>'required',
-        'curp'=>'required',
-        'birthdate'=>'required',
-        'telephoneNumber'=>'required',
-        'sex'=>'required',
-        'postalCode'=>'required',
-        'city'=>'required',
-        'country'=>'required',
-        'doctor_id'=>'required'
-    ]);
+      $data=request()->validate([
+          'name' => 'required|string|max:255',
+         //   'email' => 'required|string|email|max:255|unique:users',
+          'curp' => 'required|string|max:20',
+          'birthdate'=>'required',
+          'telephone' => 'required|string|max:20',
+          'sex' => 'required|string|max:1',
+          'postalCode' => 'required|string|max:7',
+          'city' => 'required|string|max:255',
+          'country' => 'required|string|max:255',
+          'doctor_id'=>'required',
+       //     'image' => 'required',
+
+          'address' => 'required|string|max:255',
+
+
+      ]);
+
+
+      $patient = Patient::find($id);
 
 
 
-        //Editar paciente
-    $patient->name = $request->input('name');
-    $patient->curp = $request->input('curp');
-    $patient->birthdate = $request->input('birthdate');
-    $patient->telephoneNumber = $request->input('telephoneNumber');
-    $patient->sex = $request->input('sex');
-    $patient->address = $request->input('address');
-    $patient->postalCode = $request->input('postalCode');
-    $patient->city = $request->input('city');
-    $patient->country = $request->input('country');
-    $patient->doctor_id = $request->input('doctor_id');
-    $patient->save();
 
-    return redirect('/patient')->with('success', '¡El paciente ha sido actualizado con éxito!');
-    }
 
-    return view('admin');
+
+      $patient->curp = $data['curp'];
+      $patient->address = $data['address'];
+      $patient->postalCode = $data['postalCode'];
+      $patient->city = $data['city'];
+      $patient->country = $data['country'];
+      $patient->doctor_id =$data['doctor_id'];
+
+
+
+
+
+      $patient->save();
+
+
+        //$ruta_imagen =  $data['image']->store('patients','public');
+
+
+      $user = $patient->user();
+
+      $user->name = $data['name'];
+      $user->telephone = $data['telephone'];
+      $user->sex = strtolower($data['sex']);
+      $user->birthdate = $data['birthdate'];
+
+
+      $user->save();
+
+
+
+    
+
+      return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
+    
+  }
+
+  return view('admin');
 }
 
         //Eliminar paciente
-    public function destroy(Patient $patient)
+public function destroy(Patient $patient)
+{
+    if(Auth::Office())
     {
-        if(Auth::Office())
-        {
 
         $patient->delete();
         return redirect('/patient')->with('success', 'El paciente ha sido eliminado con éxito.');
-        }
     }
+}
 }

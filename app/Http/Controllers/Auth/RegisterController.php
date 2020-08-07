@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Patient;
+use App\Privileges;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -51,7 +53,17 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'telephone' => 'required|string|max:20',
+            'sex' => 'required|string|max:1',
+            'image' => 'required',
             'password' => 'required|string|min:6|confirmed',
+
+            'curp' => 'required|string|max:20',
+            'address' => 'required|string|max:255',
+            'postalCode' => 'required|string|max:7',
+            'city' => 'required|string|max:255',
+            'country' => 'required|string|max:255',
+ 
         ]);
     }
 
@@ -63,10 +75,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $patient = new Patient();
+
+        $patient->curp = $data['curp'];
+        $patient->address = $data['address'];
+        $patient->postalCode = $data['postalCode'];
+        $patient->city = $data['city'];
+        $patient->country = $data['country'];
+        $patient->doctor_id =1;
+
+
+        
+
+
+        $patient->save();
+
+
+        $ruta_imagen =  $data['image']->store('patients','public');
+    
+         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'telephone' => $data['telephone'],
+            'sex' => strtolower($data['sex']),
+            'birthdate' => $data['birthdate'],
+            'image' => $ruta_imagen,
+            'id_privileges' => Privileges::Id('patient'),
+            'id_user'=>$patient->dni,
             'password' => Hash::make($data['password']),
         ]);
+
     }
 }

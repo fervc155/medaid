@@ -18,17 +18,18 @@
 
 
 
-				<img src="{{asset($doctor->Profileimg)}}" class="img-fluid">
+				
+				<img src="{{Auth::user()->ProfileImg}}" class="img-fluid">
 
-				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"><i class="fal fa-user-injured"></i> {{$patient->name}}</h5>
+				
+				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"><i class="fal fa-user-injured"></i> {{$patient->user()->name}}</h5>
 
 				<div class="card-body">
 
 
 
 
-
-
+ 
 					<div class="form-inline mb-2">
 
 
@@ -57,7 +58,7 @@
 							<i class="fal fa-phone"></i> Telefono:
 						</div>  
 
-						{{ $patient->telephoneNumber }}
+						{{ $patient->user()->telephone  }}
 
 					</div>
 
@@ -67,7 +68,7 @@
 						<div class="color-principal">
 							<i class="fal fa-birthday-cake"></i> Nacimiento:
 						</div>                                  
-						{{ $patient->birthdate }}
+						{{ $patient->user()->birthdate }}
 
 					</div>
 
@@ -77,7 +78,7 @@
 						<div class="color-principal">
 							<i class="fal fa-venus-mars"></i> Sexo:
 						</div>
-						{{ $patient->sex }}
+						{{ $patient->user()->sex }}
 
 					</div>
 
@@ -88,8 +89,7 @@
 						</div>
 
 
-
-						{{ $patient->address }}
+ 						{{ $patient->address }}
 
 
 					</div>
@@ -101,7 +101,7 @@
 
 
 
-						{{ $patient->postalCode }}
+						{{ $patient ->postalCode }}
 
 
 					</div>
@@ -143,19 +143,28 @@
 
 
 					</div>  
-					@if(Auth::Office())
+					@if(Auth::Office() || Auth::user()->profile()->id == $patient->dni )
+
+
 					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/patient/'.$patient->dni.'/edit')}}"> <i class="fal fa-pen"></i> Editar</a>
 
 
+						@if(Auth::Office()   )
 
-					<a role="button" class="btn btn-round btn-danger text-light mt-3 btn-confirm-delete" id="patient-{{$patient->dni}}"> <i class="fal fa-trash"></i> Eliminar</a>
+			
+						 
+								<a role="button" class="btn btn-round btn-danger text-light mt-3 btn-confirm-delete" id="patient-{{$patient->dni}}"> <i class="fal fa-trash"></i> Eliminar</a>
 
 
-					{!! Form::open(['action' => ['PatientController@destroy', $patient->dni], 'method' => 'POST']) !!}
-					{{ Form::hidden('_method', 'DELETE') }}
-					{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete','id'=>'patient-'.$patient->dni]) }}
-					{!! Form::close() !!}
 
+
+								{!! Form::open(['action' => ['PatientController@destroy', $patient->dni], 'method' => 'POST']) !!}
+								{{ Form::hidden('_method', 'DELETE') }}
+								{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete','id'=>'patient-'.$patient->dni]) }}
+								{!! Form::close() !!}
+
+							 
+						@endif
 					@endif
 
 				</div>
@@ -206,7 +215,6 @@
 					</div>
 
 				</div>
-
 
 
 

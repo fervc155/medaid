@@ -127,7 +127,7 @@
 					<li class="nav-item <?php if($active=='chat'){ echo 'active';}?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
 					@endif
 
-					@if(Auth::Office())
+					@if(Auth::Office() || Auth::IsPatient())
 					<li class="nav-item <?php if($active=='speciality'){ echo 'active';}?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
 					@endif
 
@@ -191,24 +191,9 @@
 						</li>
 
 						<li class="nav-item nav-item-button">
-						<a class="nav-link" href="#">
-						@if(Auth::isPatient())
-
-						Paciente
-
-						@endif
-						@if(Auth::isDoctor())
-
-						Doctor
-						@endif
-						@if(Auth::isOffice())
-
-						Oficina
-						@endif
-						@if(Auth::isAdmin())
-
-						Amdin
-						@endif
+						<a class="nav-link" href="{{Auth::user()->ProfileUrl}}">
+						
+						{{Auth::user()->name}}
 					</a>
 						</li>
 

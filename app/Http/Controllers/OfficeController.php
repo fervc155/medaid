@@ -82,10 +82,11 @@ class OfficeController extends Controller
     //Mostrar información
     public function show($id)
     {
+        $office = Office::find($id);
+        
         if(Auth::Patient())
         {
 
-            $office = Office::find($id);
             return view('hospital.office.showOffice', compact('office'))
             ->with('doctors', $office->doctors);
         }
@@ -100,13 +101,14 @@ class OfficeController extends Controller
         {
 
 
-          if(Auth::UserId() != $id)
-          {
-            return view('admin');
-        }
 
-        $office = Office::find($id);
-        return view('hospital.office.editOffice', compact('office'));
+
+          if(Auth::isAdmin() || Auth::UserId() == $id)
+          {
+            $office = Office::find($id);
+            return view('hospital.office.editOffice', compact('office'));
+          }
+
     }
     return view('admin');
 

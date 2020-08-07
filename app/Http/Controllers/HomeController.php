@@ -30,34 +30,43 @@ class HomeController extends Controller
     {
 
 
-        if(Auth::isPatient())
+        if(Auth::Patient())
         {
-            $_appointmentsToday  = Appointments::Today('patient_dni',Auth::UserId());
 
-       return view('home', compact('_appointmentsToday'));
 
-        }
 
-           if(Auth::isDoctor())
-        {
+            if(Auth::isPatient())
+            {
+                $_appointmentsToday  = Appointments::Today('patient_dni',Auth::UserId());
+                $_appointmentsPending  = Appointments::Pending();
+
+     
+            }
+
+            if(Auth::isDoctor() || Auth::isOffice())
+            {
+
+                    $_appointmentsPending  = Appointments::Pending();
             $_appointmentsToday  = Appointments::Today('doctor_id',Auth::UserId());
+     
+            }
 
+               if(Auth::isPatient())
+            {
+                $_appointmentsToday  = Appointments::Today('patient_dni',Auth::UserId());
+                    $_appointmentsPending  = Appointments::Pending();
+ 
+            }
+               if(Auth::isAdmin())
+            {
+                $_appointmentsToday  = Appointments::Today();
+                $_appointmentsPending  = Appointments::Pending();
+
+            }
         }
 
-           if(Auth::isPatient())
-        {
-            $_appointmentsToday  = Appointments::Today('patient_dni',Auth::UserId());
-
-        }
-
-
-           if(Auth::isAdmin())
-        {
-            $_appointmentsToday  = Appointments::Today();
-            $_appointmentsPending  = Appointments::Pending();
+        
        return view('home', compact('_appointmentsToday','_appointmentsPending'));
-
-        }
 
 
         return view('admin');

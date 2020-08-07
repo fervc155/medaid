@@ -38,18 +38,24 @@
 
 
 				<div class="card card-profile">
+ 
+ 
 
-			@if(Auth::isDoctor())
-					<img src="{{asset($appointment->doctor->Profileimg)}}" class="img-fluid">
+				@if(Auth::Doctor())
 
-			@else
-				<img src="{{asset($patient->Profileimg)}}" class="img-fluid">
+  			<img src="{{asset($patient->user()->Profileimg)}}" class="img-fluid">
 
+				@else
 
-			@endif
+  			<img src="{{asset($appointment->doctor->user())}}" class="img-fluid">
 
+				
+
+				@endif
+
+ 
 			
-					<h5 class="p-3 mt-0 h4 text-light bg-secondary text-center text-capitalize"><i class="fal fa-book"></i> {{$appointment->patient->name}}</h5>
+					<h5 class="p-3 mt-0 h4 text-light bg-secondary text-center text-capitalize"><i class="fal fa-book"></i> {{$appointment->patient->user()->name}}</h5>
 
 					<div class="card-body">
 

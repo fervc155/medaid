@@ -68,7 +68,7 @@
                 <td>{{ $o->postalCode }}</td>
                 <td>{{ $o->city }}</td>
                 <td>{{ $o->country }}</td>
-                <td><a href="{{url('/office/'.$o->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+                <td><a href="{{route('office.show', ['id'=>$o->id])}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
 
                   @admin
                   <a href="{{url('/office/'.$o->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
@@ -167,7 +167,7 @@
           </div>
 
           <div class="text-center">
-          	      <a href="{{url('/office/'.$office->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
+          	      <a href="{{route('office.show', ['id'=>$o->id])}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-hospital"></i></a>
 
                   @admin
                   <a href="{{url('/office/'.$office->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>

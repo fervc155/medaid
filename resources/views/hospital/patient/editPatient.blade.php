@@ -20,32 +20,19 @@
         </div>
 
         <div class="card-body">
-          <form class="formulario" method="POST"  action="{{ route('login') }}" >
-            @csrf
-
+ 
             <div class="form-group form-inline align-items-end align-items-end">
               <div class="icon-form">
                 <i class="fal fa-at"></i>
               </div>
               <div class="form-group">
                 <label class="bmd-label-floating"> Email</label>
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{$patient->user()->email}}" required autofocus>
               </div>
-            </div>
+            </div> 
+      
 
-            <div class="form-group form-inline align-items-end align-items-end">
-              <div class="icon-form">
-                <i class="fal fa-key"></i>
-              </div>
-              <div class="form-group">
-                <label class="bmd-label-floating"> Password</label>
-                <input id="password" type="password" class="form-control-claro form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-              </div>
-            </div>
-
-
-          </form>
-        </div>
+         </div>
 
 
 
@@ -58,7 +45,7 @@
 
           <div class="fileinput fileinput-new text-center" data-provides="fileinput">
               <div class="fileinput-new thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;">
-              <img src="{{asset($patient->Profileimg)}}" class="img-height">
+              <img src="{{asset($patient->user()->Profileimg)}}" class="img-height">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
             <div>
@@ -96,7 +83,10 @@
         <div class="card-body">
 
 
-      {!! Form::open(['action' => ['PatientController@update', $patient->dni], 'method' => 'PUT']) !!}
+     <form method="post" action="{{route('patient.update', ['patient'=>$patient->id])}}"   > 
+ 
+         @method('PUT')
+        @csrf
           <div class="form-group form-inline align-items-end">
             <div class="icon-form">
               <i class="fal fa-user"></i>
@@ -105,7 +95,7 @@
             <div class="form-group">
              <label class="bmd-label-floating">Nombre</label>
 
-             {{Form::text('name', $patient->name, ['class'=>'form-control'] )}}
+             {{Form::text('name', $patient->user()->name, ['class'=>'form-control'] )}}
            </div>
          </div>
          <div class="form-group form-inline align-items-end">
@@ -127,7 +117,7 @@
         <div class="form-group">
           <label class="bmd-label-floating"> Fecha de cumpleaños</label>
 
-          {{Form::text('birthdate', $patient->birthdate, ['class'=>'form-control datepicker2 '] )}}
+          {{Form::text('birthdate', $patient->user()->birthdate, ['class'=>'form-control datepicker2 '] )}}
         </div>
       </div>
       <div class="form-group form-inline align-items-end">
@@ -139,7 +129,7 @@
         <div class="form-group">
           <label class="bmd-label-floating"> Telefono</label>
 
-          {{Form::number('telephoneNumber', $patient->telephoneNumber, ['class'=>'form-control'] )}}
+          {{Form::number('telephone', $patient->user()->telephone, ['class'=>'form-control'] )}}
         </div>
       </div>
 
@@ -150,8 +140,8 @@
                   <div class="form-group">
               
                   <select class="selectpicker" name="sex" id="sex" data-style="select-with-transition" title="Sexo" data-size="sd7">                  
-                     <option value="f" <?php if($patient->sex=='f'){echo "selected";} ?>>Femenino</option>
-                     <option value="m" <?php if($patient->sex=='m'){echo "selected";} ?>>Masculino</option>
+                     <option value="f" <?php if($patient->user()->sex=='f'){echo "selected";} ?>>Femenino</option>
+                     <option value="m" <?php if($patient->user()->sex=='m'){echo "selected";} ?>>Masculino</option>
                 
                   </select>
 
@@ -243,7 +233,7 @@
 
         <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
       </div>
-      {!! Form::close() !!}
+     </form>
     </div>
 
     

@@ -16,12 +16,15 @@ class User extends Authenticatable
 
     //Atributos modificables
     protected $fillable = [
-        'name', 'is_admin', 'email', 'password',
+          'name','email', 'password','telephone','sex','birthdate',
+        'image' ,'id_privileges','id_user', 
     ];
 
-    //Atributos ocultos
+
+            
+     //Atributos ocultos
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token'
     ];
 
 
@@ -34,28 +37,38 @@ class User extends Authenticatable
     public function getNamePrivilegeAttribute()
     {
 
-        if($this->isPatient())
+         if($this->isAdmin())
         {
-            return 'Patient';
+            return 'Admin';
         }
 
-        if($this->isDoctor())
-        {
-            return 'Doctor';
-        }
 
-        if($this->isOffice())
-        {
-            return 'Office';
-        }
-
+        return str_replace("App\\","",get_class($this->profile()));
+    }
+ 
+    public function profile()
+    {
+        
         if($this->isAdmin())
         {
             return 'Admin';
         }
+        else if($this->isOffice())
+        {
+            return Office::find($this->id_user);
+
+        }
+           else if($this->isDoctor())
+        {
+             return Doctor::find($this->id_user);
+           
+        }
+           else if($this->isPatient())
+        {
+              return Patient::find($this->id_user);
+          
+        }
     }
-
-
 
 
 
@@ -111,65 +124,28 @@ class User extends Authenticatable
         if($img=='')
             return 'splash/img/'.Options::UserDefault();
         else
-            return 'splash/img/'.$img;
+
+            return url('/storage/'.$img);
     
     }
 
-    public function getNameAttribute()
-    {
-
-        if($this->isPatient())
-        {
-
-            return Patient::find($this->id_user)->name;
-
-
-        }
-        else if($this->isDoctor())
-        {
-
-            return Doctor::find($this->id_user)->name;
-
-        }
-        else if($this->isOffice())
-        {
-
-            return Office::find($this->id_user)->name;
-
-        }
-        else
-        {
-            return 'Admin';
-        }
-
-    }
-
+ 
 
     public function getProfileUrlAttribute()
     {
-        if($this->isPatient())
+        
+
+        if($this->isAdmin())
         {
 
-            return '/patient/'.$this->id_user;
-
-
+            return url('/home');
         }
-        else if($this->isDoctor())
-        {
 
 
-            return '/doctor/'.$this->id_user;
-        }
-        else if($this->isOffice())
-        {
 
 
-            return '/office/'.$this->id_user;
-        }
-        else
-        {
-            return '/home';
-        }
+ 
+         return $this->profile()->ProfileUrl;
 
 
     }

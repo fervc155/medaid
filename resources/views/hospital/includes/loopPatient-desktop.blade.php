@@ -3,13 +3,13 @@
                 <td>{{$patient->dni}}</td>
                 <td>{{ $patient->name }}</td>
                 <td>{{ $patient->curp }}</td>
-                <td>{{ $patient->telephoneNumber }}</td>
+                <td>{{ $patient->telephone }}</td>
                 <td>{{ $patient->sex }}</td>
                 <td>{{ $patient->address }}</td>
 
 
                 @if(!Auth::isDoctor())
-                <td> <a class="link" href="{{url('/doctor/'.$patient->doctor->id)}}"> {{ $patient->doctor->name }} </a></td>
+                <td> <a class="link" href="$patient->ProfileUrl"> {{ $patient->doctor->name }} </a></td>
 
                 @endif
 

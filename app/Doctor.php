@@ -41,6 +41,12 @@ class Doctor extends Model
         return $this->belongsToMany('App\Speciality');
     }
 
+
+    public function user()
+     {
+            return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('doctor'))->get();
+
+     }
     public function hasSpeciality($id)
     {
 
@@ -53,6 +59,14 @@ class Doctor extends Model
         }
 
         return false;
+    }
+
+
+
+    public function getProfileUrlAttribute()
+    {
+         return '/doctor/'.$this->id;
+
     }
 
 

@@ -2,6 +2,7 @@
 
 @section('content')
 
+@if(Auth::Office())
 
 <button  class="btn btn-success  btn-float"  data-toggle="modal" data-target="#AgregarEspecialidad">
   <i class="fal fa-plus"></i>
@@ -57,6 +58,7 @@
     </div>
   </div>
 </div>
+
 
 
 <!-- Modal Actializar -->
@@ -116,13 +118,16 @@
   </div>
 </div>
 
+@endif
 
 @if(count($specialities) < 1)
 <div class="container p-5 sin-datos">
   <div class="row">
     <div class="col text-center">
       <i class="fal fa-user-md"></i>
-      <p class="lead ">No se encontraron especialidades. <a href="{{ url('/speciality/create')}}">¡Agrega uno!</a></p>
+      <p class="lead ">No se encontraron especialidades. 
+
+        @if(Auth::Office())<a href="{{ url('/speciality/create')}}">¡Agrega uno!</a></p>@endif
     </div>
   </div>
 </div>
@@ -171,6 +176,10 @@
 
                 <td><a href="{{url('/speciality/'.$speciality->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-file-certificate"></i></a>
 
+
+
+                  @if(Auth::Office())
+
                   <button type="button"  class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}" data-cost="{{$speciality->cost}}"  data-name="{{$speciality->name}}"  data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
 
                   @if (count($speciality->doctors)<1)
@@ -190,6 +199,7 @@
 
                   {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none', 'id'=>'speciality-'.$speciality->id]) }}
                   {!! Form::close() !!}
+                  @endif
 
 
                 </td>
@@ -252,7 +262,10 @@
           <div class="text-center">
             <a href="{{url('/speciality/'.$speciality->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-file-certificate"></i></a>
 
-                  <button type="button"  class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}"  data-name="{{$speciality->name}}"  data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
+       
+
+                         @if(Auth::Office())
+           <button type="button"  class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}"  data-name="{{$speciality->name}}"  data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
 
                   @if (count($speciality->doctors)<1)
                   <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id='speciality-{{$speciality->id}}' > <i class="fas fa-times"></i></button>
@@ -271,6 +284,7 @@
 
                   {{ Form::submit('Eliminar', ['class' => 'btn-delete d-none', 'id'=>'speciality-'.$speciality->id]) }}
                   {!! Form::close() !!}
+                  @endif
 
 
                 </td>

@@ -35,7 +35,7 @@
 
             <div class="icon-texto">
               
-              <span class="color-principal">Telefono </span> {{ $patient->telephoneNumber }}
+              <span class="color-principal">Telefono </span> {{ $patient->telephone }}
             </div>
             
           </div>
@@ -76,7 +76,7 @@
 
             <div class="icon-texto">
               
-              <a href="/doctor/{{$patient->doctor->id}}" class="link"><span class="color-principal">Medico </span> {{ $patient->doctor->name }}</a>
+              <a href="{{$patient->doctor->ProfileUrl}}" class="link"><span class="color-principal">Medico </span> {{ $patient->doctor->name }}</a>
             </div>
             
           </div>
@@ -87,7 +87,7 @@
           @if((Auth::Office() && Auth::UserId() == $patient->doctor->office_id) || Auth::Admin())
 
           <div class="text-center">
-            <a href="{{url('/patient/'.$patient->dni)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
+            <a href="{{$patient->ProfileUrl}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
 
             <a href="{{url('/patient/'.$patient->dni).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 

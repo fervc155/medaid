@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Speciality;
 use Illuminate\Http\Request;
-
+use  Illuminate\Support\Facades\Auth;
 class SpecialityController extends Controller
 {
     public function index()
     {
 
+        if(Auth::Patient())
+        {
+
+
     	$specialities = Speciality::All();
 
     	return view('hospital.speciality.indexSpeciality', compact('specialities'));
+        }
+
+        return view('admin');
     }
 
     public function store(Request $request)
@@ -33,6 +40,7 @@ class SpecialityController extends Controller
     {
 
     	$speciality = Speciality::find($id);
+        
 
    
     return view('hospital.speciality.showSpeciality', compact('speciality'))->with('doctors',$speciality->doctors);

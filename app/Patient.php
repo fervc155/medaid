@@ -18,7 +18,7 @@ class Patient extends Model
   //Llave primaria
   public $primaryKey = 'dni';
 
-  protected $fillable = ['name', 'birthdate', 'sex', 'city', 'country'];
+  protected $fillable = [  'city', 'country'];
 
   //Incluye el scope de países (CountryScope.php) para filtrar a pacientes y consultorios de India
   protected static function boot()
@@ -38,6 +38,17 @@ class Patient extends Model
     return $this->hasMany('App\Appointment');
   }
 
+
+  public function getProfileUrlAttribute()
+    {
+         return url('/patient/'.$this->dni);
+
+    }
+
+    public function getidAttribute()
+    {
+      return $this->dni;
+    }
   public function getProfileimgAttribute()
   {
 
@@ -61,6 +72,50 @@ class Patient extends Model
   {
 
     return Carbon::parse($this->birthdate)->age;
-  
   }
+
+
+  public function user()
+  {
+            return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('patient'))->get()->first();
+
+  }
+
+
+  ///////////////////////datos user
+
+ 
+ 
+   
+ 
+  public function getnameAttribute()
+  {
+    return $this->user()->name;
+  }
+
+
+
+  public function getemailAttribute()
+  {
+    return $this->user()->email;
+  }
+    public function gettelephoneAttribute()
+  {
+    return $this->user()->telephone;
+  }
+    public function getsexAttribute()
+  {
+    return $this->user()->sex;
+  }
+  
+
+  public function getbirthdateAttribute()
+  {
+    return $this->user()->birthdate;
+  }
+
+
+
+ 
+
 }

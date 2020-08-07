@@ -2,50 +2,35 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Database\Eloquent\Faker;
 class UsersTableSeeder extends Seeder
 {
     /**
      * Seed the application's database.
      *
      * @return void
+
+
      */
-    public function run()
+
+
+     
+     public function run()
     {
       User::create([
-       'accepted'=>true,
+        'name'=>'nombre',
        'id_privileges'=>4,
        'email'=>'fer@mail.com',
-      'password'=>bcrypt('123456'),
+       'telephone'=>'3313131313',
+       'sex'=>'h',
+       'password'=>bcrypt('123456'),
      ]);
 
 
-           User::create([
-       'accepted'=>true,
-       'id_privileges'=>1,
-       'id_user'=>1,
-       'email'=>'josue@mail.com',
-      'password'=>bcrypt('123456'),
-     ]);
   
+ 
+   
 
-           User::create([
-       'accepted'=>true,
-       'id_privileges'=>2,
-       'id_user'=>1,
-       'email'=>'kevin@mail.com',
-      'password'=>bcrypt('123456'),
-     ]);
-
-
-           User::create([
-       'accepted'=>true,
-       'id_privileges'=>3,
-       'id_user'=>1,
-       'email'=>'consultorio@mail.com',
-      'password'=>bcrypt('123456'),
-     ]);
-  
 
  
 

@@ -15,11 +15,17 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');         
             $table->string('email')->unique();
+
+            $table->string('telephone')->nullable();
+            $table->string('sex');              
+            $table->date('birthdate')->nullable();
+
+   
             $table->string('password');
             $table->string('image')->nullable();
-            $table->boolean('accepted');
-
+ 
              $table->integer('id_privileges')->unsigned();
              $table->integer('id_user')->unsigned()->nullable(); // se refiere al id del medico o office o paciente
              
