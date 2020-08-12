@@ -130,6 +130,19 @@ class User extends Authenticatable
     }
 
  
+    public function getPathimgAttribute()
+    {
+
+        $img = $this->image;
+
+        if($img=='')
+            return 'splash/img/'.Options::UserDefault();
+        else
+
+            return public_path().'/storage/'.$img;
+    
+    }
+
 
     public function getProfileUrlAttribute()
     {

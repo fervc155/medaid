@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
+use App\User;
 use App\Appointment;
 use App\Office;
 use App\Options;
 use App\Patient;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
+ use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 class PatientController extends Controller
 {
     //Lista de pacientes
@@ -319,6 +320,91 @@ public function update(Request $request,  $id)
   return view('admin');
 }
 
+public function updateLogin(Request $request,  $id)
+{
+
+    if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
+    {
+
+
+      $data=request()->validate([
+       'email' => 'required|string|email|max:255',
+       'password' => 'required|string|min:6',
+       'newpassword' => 'required|string|min:6',
+ 
+      ]);
+
+
+   
+
+      $patient = Patient::find($id);
+      $user = $patient->user();
+
+       
+  
+    if(Hash::check($data['password'], $patient->user()->password))
+    {
+
+      if($data['newpassword'] == $data['password'])
+      {
+       return  back()->with('error', 'La contraseña nueva debe ser diferente');    
+     
+      }
+
+
+ 
+      $user->email = $data['email'];
+      $user->password = bcrypt($data['newpassword']);
+ 
+
+      $user->save();
+
+      return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
+
+    }
+    
+    return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');    
+
+    
+  }
+
+  return view('admin');
+}
+
+    //Método update
+public function updateImage(Request $request,  $id)
+{
+
+    if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
+    {
+
+
+      $data=request()->validate([
+        'image' => 'required',
+      ]);
+
+
+      $patient = Patient::find($id);
+
+ 
+        $user = $patient->user();
+
+
+   
+      $ruta_imagen =  $data['image']->store('patients','public');
+
+      unlink($user->Pathimg);
+
+      $user = $patient->user();
+      $user->image = $ruta_imagen;
+      $user->save();
+ 
+      return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
+    
+  }
+
+  return view('admin');
+}
         //Eliminar paciente
 public function destroy(Patient $patient)
 {

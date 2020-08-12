@@ -250,6 +250,8 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
      Route::get('patient/{id}','patientController@show');
     Route::get('patient/{id}/edit','patientController@edit');
     Route::put('patient/{id}','PatientController@update')->name('patient.update');
+    Route::put('patient/{id}/login','PatientController@updateLogin')->name('patient.update.login');
+    Route::put('patient/{id}/image','PatientController@updateImage')->name('patient.update.image');
 
     Route::get('office/{id}' ,'officeController@show')->name('office.show');
     Route::get('doctor/{id}','DoctorController@show')->name('doctor.show');

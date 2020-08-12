@@ -20,7 +20,11 @@
         </div>
 
         <div class="card-body">
+
+     <form method="post" action="{{route('patient.update.login', ['patient'=>$patient->id])}}"   > 
  
+         @method('PUT')
+        @csrf 
             <div class="form-group form-inline align-items-end align-items-end">
               <div class="icon-form">
                 <i class="fal fa-at"></i>
@@ -28,9 +32,35 @@
               <div class="form-group">
                 <label class="bmd-label-floating"> Email</label>
                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{$patient->user()->email}}" required autofocus>
-              </div>
+
+ 
             </div> 
-      
+          </div>
+                     <div class="form-group form-inline align-items-end align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-lock"></i>
+              </div>
+              <div class="form-group">
+                <label class="bmd-label-floating"> Password</label>
+                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="" required autofocus>
+
+ 
+            </div> 
+          </div>
+                     <div class="form-group form-inline align-items-end align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-lock"></i>
+              </div>
+              <div class="form-group">
+                <label class="bmd-label-floating"> Nuevo Password</label>
+                <input id="newpassword" type="password" class="form-control{{ $errors->has('newpassword') ? ' is-invalid' : '' }}" name="newpassword" value="" required autofocus>
+
+ 
+            </div> 
+          </div>
+                  <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+
+      </form>
 
          </div>
 
@@ -43,6 +73,11 @@
       <div class="card card-profile">
         <div class="card-body">
 
+               <form enctype="multipart/form-data" method="post" action="{{route('patient.update.image', ['patient'=>$patient->id])}}"   > 
+ 
+         @method('PUT')
+        @csrf 
+
           <div class="fileinput fileinput-new text-center" data-provides="fileinput">
               <div class="fileinput-new thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;">
               <img src="{{asset($patient->user()->Profileimg)}}" class="img-height">
@@ -51,13 +86,17 @@
             <div>
               <span class="btn btn-raised btn-round btn-primary btn-file">
                 <span class="fileinput-new">Agregar foto</span>
-                <span class="fileinput-exists">Change</span>
-                <input type="file" name="..." />
+                <span class="fileinput-exists">Cambiar</span>
+                <input type="file" name="image" />
               </span>
               <br />
-              <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+              <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Deshacer</a>
             </div>
           </div>
+          <br>
+                            <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+
+        </form>
         </div>
 
       </div>
