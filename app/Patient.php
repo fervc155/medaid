@@ -40,82 +40,82 @@ class Patient extends Model
 
 
   public function getProfileUrlAttribute()
-    {
-         return url('/patient/'.$this->dni);
-
-    }
-
-    public function getidAttribute()
-    {
-      return $this->dni;
-    }
-  public function getProfileimgAttribute()
   {
+   return url('/patient/'.$this->dni);
+
+ }
+
+ public function getidAttribute()
+ {
+  return $this->dni;
+}
+public function getProfileimgAttribute()
+{
 
 
 
-    $user = User::where('id_user',$this->dni)->where('id_privileges',Privileges::Id('patient'))->get()->first();
 
-    $img='';
-    if($user)
-    {
-      $img =$user->image;
-    }
 
-    if($img=='')
-      return 'splash/img/'.Options::UserDefault();
-    else
-      return 'splash/img/'.$img;
+  $img='';
+  if($user)
+  {
+    $img =$this->user()->image;
   }
 
-  public function getAgeAttribute()
-  {
+  if($img=='')
+    return 'splash/img/'.Options::UserDefault();
+  else
+    return 'splash/img/'.$img;
+}
 
-    return Carbon::parse($this->birthdate)->age;
-  }
+public function getAgeAttribute()
+{
+
+  return Carbon::parse($this->birthdate)->age;
+}
 
 
-  public function user()
-  {
-            return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('patient'))->get()->first();
+public function user()
+{
+  return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('patient'))->get()->first();
 
-  }
+}
 
 
   ///////////////////////datos user
 
- 
- 
-   
- 
-  public function getnameAttribute()
-  {
-    return $this->user()->name;
-  }
 
 
 
-  public function getemailAttribute()
-  {
-    return $this->user()->email;
-  }
-    public function gettelephoneAttribute()
-  {
-    return $this->user()->telephone;
-  }
-    public function getsexAttribute()
-  {
-    return $this->user()->sex;
-  }
-  
 
-  public function getbirthdateAttribute()
-  {
-    return $this->user()->birthdate;
-  }
+public function getnameAttribute()
+{
+  return $this->user()->name;
+}
 
 
 
- 
+public function getemailAttribute()
+{
+  return $this->user()->email;
+}
+public function gettelephoneAttribute()
+{
+  return $this->user()->telephone;
+}
+public function getsexAttribute()
+{
+  return $this->user()->sex;
+}
+
+
+public function getbirthdateAttribute()
+{
+  return $this->user()->birthdate;
+}
+
+
+
+
 
 }

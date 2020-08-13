@@ -19,7 +19,7 @@
 
 
 				
-				<img src="{{Auth::user()->ProfileImg}}" class="img-fluid">
+				<img src="{{$patient->user()->ProfileImg}}" class="img-fluid">
 
 				
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"><i class="fal fa-user-injured"></i> {{$patient->user()->name}}</h5>

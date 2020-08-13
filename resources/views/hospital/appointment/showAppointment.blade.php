@@ -43,11 +43,11 @@
 
 				@if(Auth::Doctor())
 
-  			<img src="{{asset($patient->user()->Profileimg)}}" class="img-fluid">
+  			<img src="{{asset($appointment->patient->user()->Profileimg)}}" class="img-fluid">
 
 				@else
 
-  			<img src="{{asset($appointment->doctor->user())}}" class="img-fluid">
+  			<img src="{{asset($appointment->doctor->user()->Profileimg)}}" class="img-fluid">
 
 				
 

@@ -1,7 +1,7 @@
 <div class="col-md-6 col-lg-4">
 
 			<div class="card card-profile pt-0">
-				<img src="{{asset($doctor->Profileimg)}}" class="img-fluid">
+				<img src="{{$doctor->user()->ProfileImg}}" class="img-fluid">
 
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
 					<div>
@@ -74,19 +74,11 @@
 							<i class="fal fa-phone"></i> Telefono:
 						</div>  
 
-						{{ $doctor->telephoneNumber }}
+						{{ $doctor->telephone }}
 
 					</div>
 
-
-					<div class="form-inline mb-2">
-						<div class="color-principal">
-							<i class="fal fa-sun"></i> Turno:
-						</div>
-
-						{{ $doctor->turno }}
-
-					</div>
+ 
 					<div class="form-inline mb-2">
 						<div class="color-principal">
 							<i class="fal fa-birthday-cake"></i> Nacimiento:
@@ -101,7 +93,7 @@
 						<div class="color-principal">
 							<i class="fal fa-venus-mars"></i> Sexo:
 						</div>
-						{{ $doctor->sexo }}
+						{{ $doctor->sex }}
 
 					</div>
 
@@ -113,7 +105,7 @@
 
 
 
-						{{ $doctor->cedula }}
+						{{ $doctor->schedule }}
 
 
 					</div>

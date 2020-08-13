@@ -8,241 +8,258 @@ use App\Appointment;
 use App\Office;
 use App\Options;
 use App\Patient;
+use App\Crud;
 use Illuminate\Http\Request;
- use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 class PatientController extends Controller
 {
     //Lista de pacientes
-    public function index()
+  public function index()
+  {
+
+
+
+    if(Auth::isDoctor())
     {
 
-
-
-        if(Auth::isDoctor())
-        {
-
-            $patients1 = Doctor::find(Auth::UserId())->patients;
-            $patients =  Patient::
-            join('appointments','appointments.patient_dni','=','patients.dni')
-            ->select('patients.*','appointments.*')
-            ->where('appointments.doctor_id', Auth::UserId())
-            ->get();
+      $patients1 = Doctor::find(Auth::UserId())->patients;
+      $patients =  Patient::
+      join('appointments','appointments.patient_dni','=','patients.dni')
+      ->select('patients.*','appointments.*')
+      ->where('appointments.doctor_id', Auth::UserId())
+      ->get();
 
 
 
-            $patients = $patients->merge($patients1);
-            $patients = $patients->unique('dni');
+      $patients = $patients->merge($patients1);
+      $patients = $patients->unique('dni');
 
 
 
 
-            return view('hospital.patient.indexPatients', compact('patients'));
+      return view('hospital.patient.indexPatients', compact('patients'));
 
 
-        }
-
-        if(Auth::isOffice())
-        {
-
-
-            $doctors = Doctor::where('office_id', Auth::UserId())->get();
-
-
-            $patients = collect();
-
-
-            foreach ($doctors as $doctor)
-            {
-
-
-                $patients1 = Doctor::find($doctor->id)->patients;
-
-
-                $patients2 =  Patient::
-                join('appointments','appointments.patient_dni','=','patients.dni')
-                ->select('patients.*','appointments.*')
-                ->where('appointments.doctor_id', $doctor->id)
-                ->get();
-
-                $patients2 = $patients2->merge($patients1);
-                $patients2 = $patients2->unique('dni');
-                $patients = $patients->merge($patients2);
-
-
-
-            }
-
-
-
-            $patients = $patients->unique('dni');
-
-
-
-
-
-
-            return view('hospital.patient.indexPatients', compact('patients'));
-
-
-        }
-
-        if(Auth::Admin())
-        {
-
-            $patients = Patient::with(['doctor' => function ($query) {
-                $query->has('patients');
-            }])->get();
-
-            return view('hospital.patient.indexPatients', compact('patients'));
-        }
-
-        return view('admin');
     }
 
-    //Agregar paciente
-    public function create()
+    if(Auth::isOffice())
     {
-        if(Auth::Office())
-        {
-
-          $defaultImg= new Options();
-          $defaultImg = $defaultImg->UserDefault();
 
 
-          $doctors = Doctor::All();
+      $doctors = Doctor::where('office_id', Auth::UserId())->get();
 
-          return view('hospital.patient.createPatient',compact('doctors','defaultImg'));
+
+      $patients = collect();
+
+
+      foreach ($doctors as $doctor)
+      {
+
+
+        $patients1 = Doctor::find($doctor->id)->patients;
+
+
+        $patients2 =  Patient::
+        join('appointments','appointments.patient_dni','=','patients.dni')
+        ->select('patients.*','appointments.*')
+        ->where('appointments.doctor_id', $doctor->id)
+        ->get();
+
+        $patients2 = $patients2->merge($patients1);
+        $patients2 = $patients2->unique('dni');
+        $patients = $patients->merge($patients2);
+
+
+
       }
 
-      return view('admin');
+
+
+      $patients = $patients->unique('dni');
+
+
+
+
+
+
+      return view('hospital.patient.indexPatients', compact('patients'));
+
+
+    }
+
+    if(Auth::Admin())
+    {
+
+      $patients = Patient::with(['doctor' => function ($query) {
+        $query->has('patients');
+      }])->get();
+
+      return view('hospital.patient.indexPatients', compact('patients'));
+    }
+
+    return view('admin');
+  }
+
+    //Agregar paciente
+  public function create()
+  {
+    if(Auth::Office())
+    {
+
+      $defaultImg= new Options();
+      $defaultImg = $defaultImg->UserDefault();
+
+
+      $doctors = Doctor::All();
+
+      return view('hospital.patient.createPatient',compact('doctors','defaultImg'));
+    }
+
+    return view('admin');
   }
 
     //Almacenar
   public function store(Request $request)
   {
+
+
+
     if(Auth::Office())
     {
 
 
-        $this->validate($request, [
-            'name'=>'required',
-            'curp'=>'required',
-            'birthdate'=>'required',
-            'telephoneNumber'=>'required',
-            'sex'=>'required',
-            'address'=>'required',
-            'postalCode'=>'required',
-            'city'=>'required',
-            'country'=>'required',
-            'doctor_id'=>'required'
-        ]);
 
-        //Crear paciente
-        $patient = new Patient;
-        $patient->name = $request->input('name');
-        $patient->curp = $request->input('curp');
-        $patient->birthdate = $request->input('birthdate');
-        $patient->telephoneNumber = $request->input('telephoneNumber');
-        $patient->sex = $request->input('sex');
-        $patient->address = $request->input('address');
-        $patient->postalCode = $request->input('postalCode');
-        $patient->city = $request->input('city');
-        $patient->country = $request->input('country');
-        $patient->doctor_id = $request->input('doctor_id');
-        $patient->save();
+      $data=request()->validate([
+       'name' => 'required|string|max:255',
+       'email' => 'required|string|email|max:255|unique:users',
+       'telephone' => 'required|string|max:20',
+       'sex' => 'required|string|max:1',
+       'image' => 'required',
+       'password' => 'required|string|min:6|confirmed',
+       'curp' => 'required|string|max:20',
+       'address' => 'required|string|max:255',
+       'postalCode' => 'required|string|max:7',
+       'city' => 'required|string|max:255',
+       'country' => 'required|string|max:255',
 
-        return redirect('/patient')->with('success', '¡El paciente ha sido agregado con éxito!');
+
+     ]);
+
+
+      $patient = new Patient();
+
+      $patient->curp = $data['curp'];
+      $patient->doctor_id =1;
+   
+      //address
+      $patient->address = $data['address'];
+      $patient->postalCode = $data['postalCode'];
+      $patient->city = $data['city'];
+      $patient->country = $data['country'];
+   
+
+
+
+
+
+      $patient->save();
+      dd($patient);
+
+
+      Crud::newUser($data,'patient',$patient->dni,$ruta_imagen);
+
+      return redirect('/patient')->with('success', '¡El paciente ha sido agregado con éxito!');
     }
 
-    return view('admin');
-}
+  //  return view('admin');
+  }
 
     //Información de paciente
-public function show($id)
-{
+  public function show($id)
+  {
 
     if (Auth::Patient()) {
 
 
-        $patient = Patient::find($id);
+      $patient = Patient::find($id);
 
-        if(Auth::isPatient())
+      if(Auth::isPatient())
+      {
+
+        if (Auth::user()->id_user!=$id)
         {
-
-            if (Auth::user()->id_user!=$id)
-            {
-                return view('admin');
-            }
-
-            $appointments =$patient->appointments;  
+          return view('admin');
         }
 
-
-        if(Auth::isDoctor() )
-        {
-
+        $appointments =$patient->appointments;  
+      }
 
 
-           if($patient->doctor->id == Auth::UserId() )
-           {
-
-               $appointments = Appointment::where('doctor_id',Auth::UserId())->where('patient_dni',$patient->dni)->get()->first();   
-
-           }
+      if(Auth::isDoctor() )
+      {
 
 
-       }
 
-       if(Auth::Office())
+       if($patient->doctor->id == Auth::UserId() )
        {
 
-
+         $appointments = Appointment::where('doctor_id',Auth::UserId())->where('patient_dni',$patient->dni)->get();   
 
        }
 
-       return view('hospital.patient.showPatient', compact('patient'))
-       ->with('doctor', $patient->doctor)
-       ->with('appointments', $appointments);
+
+     }
+
+     if(Auth::Office())
+     {
+
+
+
+     }
+
+     return view('hospital.patient.showPatient', compact('patient'))
+     ->with('doctor', $patient->doctor)
+     ->with('appointments', $appointments);
 
 
    }   
 
    return view('admin');
-}
+ }
 
     //Editar paciente
-public function edit($id)
-{
+ public function edit($id)
+ {
 
-    $patient = Patient::find($id);
-
-
+  $patient = Patient::find($id);
 
 
 
-    if(Auth::isPatient())
+
+
+  if(Auth::isPatient())
+  {
+
+    if (Auth::user()->id_user!=$id)
     {
-
-        if (Auth::user()->id_user!=$id)
-        {
-            return view('admin');
-        }
-        $offices = Office::All();
-        return view('hospital.patient.editPatient', compact('patient','offices'));
-
+      return view('admin');
     }
+    $offices = Office::All();
+    return view('hospital.patient.editPatient', compact('patient','offices'));
+
+  }
 
 
 
 
-    if(Auth::Office())
-    {
+  if(Auth::Office())
+  {
 
 
 
-     $offices = Office::All();
-     return view('hospital.patient.editPatient', compact('patient','offices'));
+   $offices = Office::All();
+   return view('hospital.patient.editPatient', compact('patient','offices'));
 
  }        
  return view('admin');
@@ -252,68 +269,68 @@ public function edit($id)
 public function update(Request $request,  $id)
 {
 
-    if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
-    {
+  if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
+  {
 
 
-      $data=request()->validate([
-          'name' => 'required|string|max:255',
+    $data=request()->validate([
+      'name' => 'required|string|max:255',
          //   'email' => 'required|string|email|max:255|unique:users',
-          'curp' => 'required|string|max:20',
-          'birthdate'=>'required',
-          'telephone' => 'required|string|max:20',
-          'sex' => 'required|string|max:1',
-          'postalCode' => 'required|string|max:7',
-          'city' => 'required|string|max:255',
-          'country' => 'required|string|max:255',
-          'doctor_id'=>'required',
+      'curp' => 'required|string|max:20',
+      'birthdate'=>'required',
+      'telephone' => 'required|string|max:20',
+      'sex' => 'required|string|max:1',
+      'postalCode' => 'required|string|max:7',
+      'city' => 'required|string|max:255',
+      'country' => 'required|string|max:255',
+      'doctor_id'=>'required',
        //     'image' => 'required',
 
-          'address' => 'required|string|max:255',
+      'address' => 'required|string|max:255',
 
 
-      ]);
+    ]);
 
 
-      $patient = Patient::find($id);
-
-
-
-
-
-
-      $patient->curp = $data['curp'];
-      $patient->address = $data['address'];
-      $patient->postalCode = $data['postalCode'];
-      $patient->city = $data['city'];
-      $patient->country = $data['country'];
-      $patient->doctor_id =$data['doctor_id'];
+    $patient = Patient::find($id);
 
 
 
 
 
-      $patient->save();
+
+    $patient->curp = $data['curp'];
+    $patient->address = $data['address'];
+    $patient->postalCode = $data['postalCode'];
+    $patient->city = $data['city'];
+    $patient->country = $data['country'];
+    $patient->doctor_id =$data['doctor_id'];
+
+
+
+
+
+    $patient->save();
 
 
         //$ruta_imagen =  $data['image']->store('patients','public');
 
 
-      $user = $patient->user();
+    $user = $patient->user();
 
-      $user->name = $data['name'];
-      $user->telephone = $data['telephone'];
-      $user->sex = strtolower($data['sex']);
-      $user->birthdate = $data['birthdate'];
+    $user->name = $data['name'];
+    $user->telephone = $data['telephone'];
+    $user->sex = strtolower($data['sex']);
+    $user->birthdate = $data['birthdate'];
 
 
-      $user->save();
+    $user->save();
 
 
 
     
 
-      return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
+    return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
     
   }
 
@@ -323,83 +340,83 @@ public function update(Request $request,  $id)
 public function updateLogin(Request $request,  $id)
 {
 
-    if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
-    {
+  if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
+  {
 
 
-      $data=request()->validate([
-       'email' => 'required|string|email|max:255',
-       'password' => 'required|string|min:6',
-       'newpassword' => 'required|string|min:6',
- 
-      ]);
+    $data=request()->validate([
+     'email' => 'required|string|email|max:255',
+     'password' => 'required|string|min:6',
+     'newpassword' => 'required|string|min:6',
+
+   ]);
 
 
-   
 
-      $patient = Patient::find($id);
-      $user = $patient->user();
 
-       
-  
+    $patient = Patient::find($id);
+    $user = $patient->user();
+
+
+
     if(Hash::check($data['password'], $patient->user()->password))
     {
 
       if($data['newpassword'] == $data['password'])
       {
        return  back()->with('error', 'La contraseña nueva debe ser diferente');    
-     
-      }
+
+     }
 
 
- 
-      $user->email = $data['email'];
-      $user->password = bcrypt($data['newpassword']);
- 
 
-      $user->save();
+     $user->email = $data['email'];
+     $user->password = bcrypt($data['newpassword']);
 
-      return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
 
-    }
-    
-    return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');    
+     $user->save();
 
-    
-  }
+     return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
 
-  return view('admin');
+   }
+
+   return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');    
+
+
+ }
+
+ return view('admin');
 }
 
     //Método update
 public function updateImage(Request $request,  $id)
 {
 
-    if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
-    {
+  if((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office())
+  {
 
 
-      $data=request()->validate([
-        'image' => 'required',
-      ]);
+    $data=request()->validate([
+      'image' => 'required',
+    ]);
 
 
-      $patient = Patient::find($id);
-
- 
-        $user = $patient->user();
+    $patient = Patient::find($id);
 
 
-   
-      $ruta_imagen =  $data['image']->store('patients','public');
+    $user = $patient->user();
 
-      unlink($user->Pathimg);
 
-      $user = $patient->user();
-      $user->image = $ruta_imagen;
-      $user->save();
- 
-      return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
+
+    $ruta_imagen =  $data['image']->store('patients','public');
+
+    unlink($user->Pathimg);
+
+    $user = $patient->user();
+    $user->image = $ruta_imagen;
+    $user->save();
+
+    return redirect('/patient/'.$id)->with('success', '¡El paciente ha sido actualizado con éxito!');
     
   }
 
@@ -408,11 +425,11 @@ public function updateImage(Request $request,  $id)
         //Eliminar paciente
 public function destroy(Patient $patient)
 {
-    if(Auth::Office())
-    {
+  if(Auth::Office())
+  {
 
-        $patient->delete();
-        return redirect('/patient')->with('success', 'El paciente ha sido eliminado con éxito.');
-    }
+    $patient->delete();
+    return redirect('/patient')->with('success', 'El paciente ha sido eliminado con éxito.');
+  }
 }
 }

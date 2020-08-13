@@ -91,7 +91,7 @@ class RegisterController extends Controller
         $patient->save();
 
 
-        $ruta_imagen =  $data['image']->store('patients','public');
+        $ruta_imagen =  $data['image']->store('profile','public');
     
          return User::create([
             'name' => $data['name'],

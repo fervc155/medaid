@@ -13,7 +13,7 @@
               	</div>
                 <div class="col-12 col-sm-11">
                   <h4 class="font-weight-bold">{{$comment->Name}}
-                    <small class="font-weight-bold">&#xB7; Publicado el: {{$comment->created_at}}  </small>@if($comment->edited)<small>&#xB7; Editado a las: {{$comment->updated_at}}</small>@endif
+                    <small class="font-weight-bold">&#xB7; Publicado el: {{$comment->created_at->diffForHumans()}}  </small>@if($comment->edited)<small>&#xB7; Editado a las: {{$comment->updated_at->diffForHumans()}}</small>@endif
                   </h4>
                   <div >
 

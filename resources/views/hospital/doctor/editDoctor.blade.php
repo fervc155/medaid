@@ -21,6 +21,8 @@
           <form class="formulario" method="POST"  action="{{ route('login') }}" >
             @csrf
 
+
+
             <div class="form-group form-inline align-items-end">
               <div class="icon-form">
                 <i class="fas fa-at"></i>
@@ -177,25 +179,7 @@
           <div>
 
             <div class="d-flex">
-
-
-
-              <div class="form-group form-inline ">
-                <div class="icon-form">
-                  <i class="fal fa-sun"></i>
-                  
-                </div>
-
-                <div class="form-group">
-
-
-                  <select class="selectpicker" name="turno" id="turno" data-style="select-with-transition" title="Seleccionar turno" data-size="sd7">
-                    <option value="Vespertino" <?php if($doctor->turno=='Vespertino'){ echo "selected";} ?>>Vespertino</option>
-                    <option value="Matutino"   <?php if($doctor->turno=='Matutino'){ echo "selected";}?>>matutino</option>
-                  </select>
-                </div>
-              </div>
-
+ 
               <div class="form-group form-inline ">
                 <div class="icon-form">
                   <i class="fal fa-venus-mars"></i>

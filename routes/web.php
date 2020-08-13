@@ -112,7 +112,7 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
     Route::patch('patient/{patient}/destroy','PatientController@destroy');
     Route::get('patient/create','PatientController@create');
-    Route::post('patient/store','PatientController@store');
+    Route::post('patient/store','PatientController@store')->name('patient.store');
     Route::get('doctor/destroy/{doctor}', 'DoctorController@destroy');
 
 

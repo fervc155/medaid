@@ -42,109 +42,134 @@ class Doctor extends Model
     }
 
 
+
     public function user()
-     {
-            return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('doctor'))->get();
-
-     }
-    public function hasSpeciality($id)
     {
+        return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('doctor'))->get()->first();
 
-        foreach ($this->specialities as $speciality) 
+  }
+
+  public function hasSpeciality($id)
+  {
+
+    foreach ($this->specialities as $speciality) 
+    {
+        if($speciality->id  == $id)
         {
-            if($speciality->id  == $id)
-            {
-                return true;
-            }
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+ public function getProfileUrlAttribute()
+  {
+   return url('/doctor/'.$this->id);
+
+ }
+
+public function getMinMaxCostAttribute()
+{
+    $min=999999;
+    $max=1;
+
+    foreach ($this->specialities as $speciality ) 
+    {
+        if($speciality->cost<$min)
+        {
+            $min=$speciality->cost;
         }
 
-        return false;
+        if($speciality->cost>$max)
+        {
+            $max=$speciality->cost;
+        }
+
+    }
+
+    $moneda = Options::Moneda();
+
+    if($min==$max)
+    {
+        return $moneda.$min;
+    }
+
+
+    return $moneda.$min." - ".$moneda.$max;
+
+}
+
+
+public function getstarsAttribute()
+{
+    $appointments= Appointment::all()->where('doctor_id',$this->id);
+
+    $contador=0;
+    $sumatoria=0;
+    foreach ($appointments as $ap)
+    {
+        if(isset($ap->stars))
+        {
+            $contador++;
+            $sumatoria+=$ap->stars;
+        }
+    }
+
+    if($contador==0)
+    {
+        return "No hay calificaciones";
     }
 
 
 
-    public function getProfileUrlAttribute()
-    {
-         return '/doctor/'.$this->id;
+    return round($sumatoria/$contador, 1);
+}
 
-    }
+ 
+public function getStarsEarnedAttribute()
+{
+    return round($this->stars);
+}
 
-
-    public function getMinMaxCostAttribute()
-    {
-        $min=999999;
-        $max=1;
-
-        foreach ($this->specialities as $speciality ) 
-        {
-            if($speciality->cost<$min)
-            {
-                $min=$speciality->cost;
-            }
-
-            if($speciality->cost>$max)
-            {
-                $max=$speciality->cost;
-            }
-
-        }
+public function getStarsMissingAttribute()
+{
+    return 5- $this->StarsEarned;
+}
 
 
-        if($min==$max)
-        {
-            return $moneda.$min;
-        }
 
-        $moneda = Options::Moneda();
-
-        return $moneda.$min." - ".$moneda.$max;
-
-    }
+  ///////////////////////datos user
 
 
-    public function getstarsAttribute()
-    {
-        $appointments= Appointment::all()->where('doctor_id',$this->id);
-
-        $contador=0;
-        $sumatoria=0;
-        foreach ($appointments as $ap)
-        {
-            if(isset($ap->stars))
-            {
-                $contador++;
-                $sumatoria+=$ap->stars;
-            }
-        }
-
-     if($contador==0)
-        {
-            return "No hay calificaciones";
-        }
-
-           
-
-        return round($sumatoria/$contador, 1);
-    }
-   
-
-    public function getProfileimgAttribute()
-    {
-
-        //if not have Img profile
-        
 
 
-       return 'splash/img/'.Options::UserDefault();
-    }
-       public function getStarsEarnedAttribute()
-   {
-        return round($this->stars);
-   }
 
-   public function getStarsMissingAttribute()
-   {
-        return 5- $this->StarsEarned;
-   }
+public function getnameAttribute()
+{
+    return $this->user()->name;
+}
+
+
+
+public function getemailAttribute()
+{
+    return $this->user()->email;
+}
+public function gettelephoneAttribute()
+{
+    return $this->user()->telephone;
+}
+public function getsexAttribute()
+{
+    return $this->user()->sex;
+}
+
+
+public function getbirthdateAttribute()
+{
+    return $this->user()->birthdate;
+}
 
 }

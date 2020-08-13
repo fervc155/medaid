@@ -1,8 +1,9 @@
 <?php
 
+use App\Crud;
 use App\Patient;
 use Illuminate\Database\Seeder;
-
+ 
 class PatientsTableSeeder extends Seeder
 {
     /**
@@ -12,6 +13,15 @@ class PatientsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Patient::class, 20)->create();
+    	factory(App\Patient::class, 20)->create();
+
+    	Patient::All()->each(function ($patient) 
+    	{
+
+ 
+             Crud::newUserSeeder('patient',$patient->id);
+
+    	});
+
     }
 }

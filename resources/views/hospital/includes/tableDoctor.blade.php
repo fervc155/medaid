@@ -22,8 +22,7 @@
                 <th >Nombre</th>
                 <th >Estrellas</th>
                 <th >Teléfono</th>
-                <th >Turno</th>
-                <th >Sexo</th>
+                 <th >Sexo</th>
                 <th >Especialidad</th>
                 <th>Acciones</th>
               </tr>

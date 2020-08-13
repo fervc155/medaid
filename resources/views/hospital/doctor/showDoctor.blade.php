@@ -103,27 +103,28 @@
 <!-- PACIENTES -->
 
 
+	@if(Auth::Office())
 
+	@if(count($patients) < 1)
 
-@if(count($patients) < 1)
-
-<div class="container p-5 sin-datos">
-	<div class="row">
-		<div class="col text-center">
-			<i class="fal fa-user-injured"></i>
-			<p class="lead ">No se encontraron pacientes. <a href="{{ url('/patient/create')}}">¡Agrega uno!</a></p>
+	<div class="container p-5 sin-datos">
+		<div class="row">
+			<div class="col text-center">
+				<i class="fal fa-user-injured"></i>
+				<p class="lead ">No se encontraron pacientes. <a href="{{ url('/patient/create')}}">¡Agrega uno!</a></p>
+			</div>
 		</div>
 	</div>
-</div>
 
 
 
-@else
-@include('hospital.includes.tablePatient')
+	@else
+	@include('hospital.includes.tablePatient')
 
-@endif
+	@endif
 
- 
+	@endif
+	 
 
 @endif
 @endsection

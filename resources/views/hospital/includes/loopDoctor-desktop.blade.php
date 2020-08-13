@@ -4,9 +4,8 @@
 
                 <td>{{ $doctor->name }}</td>
                 <td>{{ $doctor->stars }}</td>
-                <td>{{ $doctor->telephoneNumber }}</td>
-                <td>{{ $doctor->turno }}</td>
-                <td>{{ $doctor->sexo }}</td>
+                <td>{{ $doctor->telephone }}</td>
+                 <td>{{ $doctor->sex }}</td>
 
                 
                 <td><?php foreach ($doctor->specialities as $speciality): ?>

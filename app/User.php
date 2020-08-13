@@ -28,6 +28,8 @@ class User extends Authenticatable
     ];
 
 
+
+    
     public function comments()
     {
        return $this->hasMany('App\Appointment_comment')->orderBy('created_at','DESC');
