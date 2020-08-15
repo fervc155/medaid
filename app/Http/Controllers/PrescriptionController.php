@@ -18,7 +18,7 @@ class PrescriptionController extends Controller
         {
             $prescriptions =  Prescription::
             join('appointments','appointments.id','=','prescriptions.appointment_id')
-            ->select('prescriptions.*','appointments.*')
+            ->select('prescriptions.*','appointments.patient_dni')
             ->where('appointments.patient_dni', Auth::UserId())
             ->get();
 
@@ -31,7 +31,7 @@ class PrescriptionController extends Controller
         {
            $prescriptions =  Prescription::
            join('appointments','appointments.id','=','prescriptions.appointment_id')
-           ->select('prescriptions.*','appointments.*')
+           ->select('prescriptions.*','appointments.doctor_id')
            ->where('appointments.doctor_id', Auth::UserId())
            ->get();
 

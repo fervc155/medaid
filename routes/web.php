@@ -47,6 +47,7 @@ Route::get('/get/officesdoctors/{id}','API\\ApiController@get_officesDoctors');
 //calendario
 Route::post('/get/appointments/patient','API\\ApiController@getAppointmentPatient');
 Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor');
+Route::post('/get/appointment','API\\ApiController@getAppointment');
 
 
 /*=====  End of API  ======*/
@@ -89,14 +90,14 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 Route::group(['middleware' => ['auth','doctor'] ], function () {
 
     Route::get('patient','PatientController@index');
- 
+
     Route::patch('doctor/edit/{doctor}', 'DoctorController@edit');
 
     Route::get('doctor/{id}/edit', 'DoctorController@edit');
-Route::post('prescription/store','PrescriptionController@store');
-Route::post('prescription/update','PrescriptionController@update'
+    Route::post('prescription/store','PrescriptionController@store');
+    Route::post('prescription/update','PrescriptionController@update'
 );
-Route::get('prescription','PrescriptionController@index');
+    Route::get('prescription','PrescriptionController@index');
 
 
 });
@@ -120,9 +121,8 @@ Route::group(['middleware' => ['auth','office'] ], function () {
     Route::patch('office','OfficeController@update');
 
 
-    Route::post('doctor/update', 'DoctorController@update');
-   Route::get('doctor/create', 'DoctorController@create')->name('doctor.create');
-   Route::post('doctor/store', 'DoctorController@store')->name('doctor.store');
+    Route::get('doctor/create', 'DoctorController@create')->name('doctor.create');
+    Route::post('doctor/store', 'DoctorController@store')->name('doctor.store');
 
 
     /*----------  especialidades  ----------*/
@@ -132,9 +132,9 @@ Route::group(['middleware' => ['auth','office'] ], function () {
     route::post('speciality/update','SpecialityController@update');
 
     route::delete('speciality/store','SpecialityController@destroy');
-        /*----------  users  ----------*/
+    /*----------  users  ----------*/
 
-            route::get('user','UserController@index');
+    route::get('user','UserController@index');
 
 
 
@@ -152,7 +152,7 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
 Route::group(['middleware' => ['auth','admin'] ], function () {
 
- 
+
 
 
 
@@ -174,29 +174,29 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
     /*----------  char  ----------*/
     
 
- 
+
 
 
 
 
     route::get('chat','chatController@index');
 
-     
+
 
     /*----------  Office  ----------*/
 
     route::get('office/create','OfficeController@create');
     route::get('office/store','OfficeController@store');
     route::delete('office/{office}/delete','OfficeController@destroy');
-         
-
-    
-
-        
 
 
     
- 
+
+
+
+
+    
+
 });
 
 
@@ -207,7 +207,7 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::patch('appointment/complete/{appointment}', 'AppointmentController@complete');
     Route::patch('appointment/rejected/{appointment}', 'AppointmentController@rejected');
     Route::patch('appointment/accepted/{appointment}', 'AppointmentController@accepted');
@@ -230,7 +230,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
     Route::post('api/appointment/gettime','API\\ApiController@AppointmentGetTime');
 
-  /*----------  comments  ----------*/
+    /*----------  comments  ----------*/
     
     Route::post('/appointment/comment/register','Appointment_commentController@register');
     Route::post('/appointment/comment/delete','Appointment_commentController@destroy');
@@ -247,17 +247,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => ['auth','patient'] ], function () {
-     Route::get('patient/{id}','patientController@show');
-    Route::get('patient/{id}/edit','patientController@edit');
-    Route::put('patient/{id}','PatientController@update')->name('patient.update');
-    Route::put('patient/{id}/login','PatientController@updateLogin')->name('patient.update.login');
-    Route::put('patient/{id}/image','PatientController@updateImage')->name('patient.update.image');
+   Route::get('patient/{id}','patientController@show');
+   Route::get('patient/{id}/edit','patientController@edit');
+   Route::put('patient/{id}','PatientController@update')->name('patient.update');
+   Route::put('patient/{id}/login','PatientController@updateLogin')->name('patient.update.login');
+   Route::put('patient/{id}/image','PatientController@updateImage')->name('patient.update.image');
 
-    Route::get('office/{id}' ,'officeController@show')->name('office.show');
-    Route::get('doctor/{id}','DoctorController@show')->name('doctor.show');
- 
+   Route::get('office/{id}' ,'officeController@show')->name('office.show');
+   Route::get('doctor/{id}','DoctorController@show')->name('doctor.show');
 
-    route::get('speciality/{id}','SpecialityController@show');
+
+   route::get('speciality/{id}','SpecialityController@show');
 
 
 
@@ -266,13 +266,22 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
 });
 
+Route::group(['middleware' => ['auth','doctor'] ], function () {
+
+     Route::put('doctor/{id}', 'DoctorController@update')->name('doctor.update');
+     Route::put('doctor/{id}/login', 'DoctorController@updateLogin')->name('doctor.update.login');
+     Route::put('doctor/{id}/image', 'DoctorController@updateImage')->name('doctor.update.image');
+     
+
+});
+
 
 Route::group(['middleware' => ['auth','office'] ], function () {
 
 
- 
+
     Route::get('office/{id}/edit','officeController@edit');
- 
+
 
 });
 

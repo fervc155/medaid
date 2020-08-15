@@ -23,13 +23,19 @@
                 <th >Hora</th>
                 <th >Costo</th>
                 <th >Razón</th>
-                
+                  @if(!Auth::isDoctor())
+              
                 <th >Médico</th>
+                @endif
 
                 @if(!Auth::isPatient())
                 <th >Paciente</th>
                 @endif
+                                  @if(!Auth::isDoctor())
+
                 <th >Consultorio</th>
+                @endif
+
                 <th >Status</th>
                 <th>Acciones</th>
 

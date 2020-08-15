@@ -9,12 +9,9 @@
 
    <input id="name" type="text" class=" form-control-claro form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" " required autofocus>
 
-   @if ($errors->has('name'))
-   <span class="invalid-feedback lead text-light" role="alert">
-    <strong>{{ $errors->first('name') }} </strong>
-  </span>
-  @endif
-</div>
+   @include('includes.errors', ['errorName'=>'name'])
+
+ </div>
 </div>
 
 <!-- email -->
@@ -30,11 +27,8 @@
 
     <input id="email" type="email" class=" form-control-claro form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"   required>
 
-    @if ($errors->has('email'))
-    <span class="invalid-feedback lead text-light" role="alert">
-      <strong>{{ $errors->first('email') }}</strong>
-    </span>
-    @endif
+    @include('includes.errors', ['errorName'=>'email'])
+
   </div>
 </div>
 
@@ -50,6 +44,8 @@
     <label class="bmd-label-floating"> Fecha de cumpleaños</label>
 
     {{Form::text('birthdate', old('birthdate'), ['class'=>'form-control datepicker2 '] )}}
+    @include('includes.errors', ['errorName'=>'birthdate'])
+
   </div>
 </div>
 
@@ -66,6 +62,8 @@
     <label class="bmd-label-floating"> Telefono</label>
 
     {{Form::number('telephone', old('telephone'), ['class'=>'form-control'] )}}
+    @include('includes.errors', ['errorName'=>'telephone'])
+
   </div>
 </div>
 
@@ -85,6 +83,8 @@
      <option value="m" <?php if(old('sex')=='m'){echo "selected";} ?>>Masculino</option>
 
    </select>
+   @include('includes.errors', ['errorName'=>'sex'])
+
 
 
  </div>
@@ -92,7 +92,7 @@
 </div>
 
 
- 
+
 
 <!-- PASS -->
 
@@ -108,12 +108,9 @@
 
    <input id="password" type="password" class=" form-control-claro form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"   required>
 
-   @if ($errors->has('password'))
-   <span class="invalid-feedback lead text-light" role="alert">
-    <strong>{{ $errors->first('password') }}</strong>
-  </span>
-  @endif
-</div>
+   @include('includes.errors', ['errorName'=>'password'])
+
+ </div>
 
 </div>
 

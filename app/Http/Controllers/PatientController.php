@@ -201,12 +201,8 @@ class PatientController extends Controller
 
 
 
-       if($patient->doctor->id == Auth::UserId() )
-       {
+         $appointments = Appointment::where('doctor_id','=',Auth::UserId())->where('patient_dni','=',$patient->dni)->get();   
 
-         $appointments = Appointment::where('doctor_id',Auth::UserId())->where('patient_dni',$patient->dni)->get();   
-
-       }
 
 
      }
@@ -408,7 +404,7 @@ public function updateImage(Request $request,  $id)
 
 
 
-    $ruta_imagen =  $data['image']->store('patients','public');
+    $ruta_imagen =  $data['image']->store('profile','public');
 
     unlink($user->Pathimg);
 

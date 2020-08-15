@@ -147,16 +147,7 @@ function btnActualizarReceta()
 
 
 
-function btnAgregarPrecioCita(){
-
-	var cost =$('.btn-AgregarPrecioCita option:selected').data('cost');
-	console.log(cost);
-
-	$('input[name="cost"]#PrecioCita').val(cost);
-
-}
-
-
+ 
 function btnUpdateComment(){
 
 	var ID = $(this).data("commentid");

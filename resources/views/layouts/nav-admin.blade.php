@@ -3,7 +3,7 @@
 @section('navegacion')
 <?php $active=explode('.',Request::route()->getName())[0];?>
 
-<main class="dashboard">
+<main class="dashboard"  >
 
 	<div class="d-flex">
 

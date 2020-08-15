@@ -46,7 +46,7 @@ $('.appointmentAjax input[name="date"]').on('change', function()
 	let fecha=$(this).val();
 	let doctor =$('.appointmentAjax select[name="doctor_id"]').val();
 
-	console.log(doctor);
+	console.log("doctor id "+doctor);
 
 
 	appointmentAjaxLlenarHorario(fecha,doctor);
@@ -82,7 +82,9 @@ let desabilitado;
 function appointmentAjaxLlenarHorario(fecha,doctor)
 {
 
-	console.log()
+ 
+ 
+
 
 	if(fecha==undefined || doctor ==undefined)
 	{
@@ -174,10 +176,11 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 
 				}*/
 
-				$('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
+ 				$('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
 				fijarMiHora();
 
-				
+
+ 				
 
 				$('.timepickerCita').pickatime({
 					min: [horaMin,minutoMin],
@@ -268,7 +271,7 @@ $('.select-office.ajax').on('change',function()
 
 			for(i=0; i< __specialities.length;i++)
 			{
-				html+='<option value="'+__specialities[i]['id']+'" >'+ __specialities[i]['name']+'</option>';
+				html+='<option value="'+__specialities[i]['id']+'" >'+ __specialities[i]['name']+' '+__specialities[i]['price']+'</option>';
 
 			}
 
@@ -284,15 +287,24 @@ $('.select-speciality.ajax').on('change',function()
 {
 
 
-	doctores= __doctors;
-
+	let doctores= __doctors;
+	let specialityId = $('.select-speciality.ajax').val()
 
 	html='<option>Selecciona un doctor</option>';
 
 
 	for(i=0; i< doctores.length;i++)
 	{
-		html+='<option value="'+doctores[i]['id']+'" >'+ doctores[i]['name']+'</option>';
+
+		for(j=0; j<doctores[i].speciality.length;j++)
+		{
+
+			if (doctores[i].speciality[j].id == specialityId)
+			{
+
+				html+='<option value="'+doctores[i]['id']+'" >'+ doctores[i]['name']+'</option>';
+			}
+		}
 
 	}
 

@@ -26,8 +26,7 @@ $(".btn-actualizar-receta").click(btnActualizarReceta);
 $(".btn-actualizar-especialidad").click(btnActualizarEspecialidad);
 $(".btn-edit-comment").click(btnEditComment);
 $(".btn-update-comment").click(btnUpdateComment);
-$(".btn-AgregarPrecioCita").on('change',btnAgregarPrecioCita);
-
+ 
 
 
 /*=====  End of CALLBACKS  ======*/

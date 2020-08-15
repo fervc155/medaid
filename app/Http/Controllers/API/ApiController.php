@@ -249,6 +249,47 @@ class ApiController extends Controller
 	}
 
 
+	public function getAppointment(Request $request )
+	{
+
+
+
+		$id =$request->input('id');
+
+
+ 
+
+		$appointment= Appointment::find($id);
+		
+		if(null === $appointment)
+			return array();
+		
+ 
+		 
+			$array = array(
+				'id'=>$appointment->id, 
+				'patient_name'=>$appointment->patient->name,
+				'patient_dni'=>$appointment->patient->dni,
+				'date'=>$appointment->date,
+				'time'=>$appointment->time, 
+				'price'=>$appointment->price,
+				'doctor_name'=>$appointment->doctor->name,
+				'doctor_id'=>$appointment->doctor->id,
+				'office'=>$appointment->doctor->office->name,
+				'office_id'=>$appointment->doctor->office->id,
+				'status'=>$appointment->status
+			);
+
+			 
+
+
+		return json_encode($array);
+
+
+
+	}
+
+
 	public function getAppointmentPatient(Request $request )
 	{
 
@@ -275,6 +316,7 @@ class ApiController extends Controller
 		foreach ($appointments as $appointment)
 		{
 			$new = array(
+				'id'=>$appointment->id, 
 				'patient_name'=>$appointment->patient->user()->name,
 				'patient_dni'=>$appointment->patient->dni,
 				'date'=>$appointment->date,
@@ -377,7 +419,8 @@ class ApiController extends Controller
 
 				$new1 = array(
 					'id'=>$special->id,
-					'name'=>$special->name
+					'name'=>$special->name,
+					'price'=>$special->price
 				);
 				
 				array_push($spe,$new1);

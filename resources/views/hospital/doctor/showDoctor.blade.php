@@ -14,46 +14,19 @@
 		<div class=" col-md-6 col-lg-8">
 			<div class="row">
 				<div class="col-12 col-lg-6">
-					<div class="card caja-contador">
+					@include('hospital.includes.counter.appointments')
 
-						<?php $i=0; 
-
-						foreach ($appointments as $a)
-						{
-							if ($a->completed == false)
-							{
-								$i++;
-							}
-						}  
-
-						?>
-						<span class="caja-contador-icono">
-
-							<i class="fal fa-book"></i>
-						</span>
-						<div class="card-body">
-
-
-							<h3>{{$i}}</h3>
-							<p>Citas</p>  
-						</div>
-					</div>
 
 				</div>
 				<div class="col-12 col-lg-6">
-					<div class="card caja-contador ">
+					@include('hospital.includes.counter.model',
+					[
+					'model'=>$patients,
+					'title'=>'Pacientes',
+					'icon'=>'fa-user-injured'
 
-						<div class="caja-contador-icono">
+					])
 
-							<i class="fal fa-user-injured"></i>
-						</div>
-						<div class="card-body">
-
-
-							<h3>{{count($patients)}}</h3>
-							<p>Pacientes</p>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -62,12 +35,13 @@
 
 
 
-				<div class="col p-3 datos-calendario">
+				<div class="col p-3  ">
+						@include('includes.calendar', [
+							'model_id'=>$doctor->id,
+							'route'=>url('/get/appointments/doctor')
 
-					<div id='id' data-id="{{$doctor->id}}"></div>
-					<div id='url' data-url="{{url('/get/appointments/doctor')}}"></div>
-					@csrf
-					<div id='calendar'></div>
+						])
+					 
 
 				</div>
 			</div>
@@ -103,28 +77,28 @@
 <!-- PACIENTES -->
 
 
-	@if(Auth::Office())
+@if(Auth::Office())
 
-	@if(count($patients) < 1)
+@if(count($patients) < 1)
 
-	<div class="container p-5 sin-datos">
-		<div class="row">
-			<div class="col text-center">
-				<i class="fal fa-user-injured"></i>
-				<p class="lead ">No se encontraron pacientes. <a href="{{ url('/patient/create')}}">¡Agrega uno!</a></p>
-			</div>
+<div class="container p-5 sin-datos">
+	<div class="row">
+		<div class="col text-center">
+			<i class="fal fa-user-injured"></i>
+			<p class="lead ">No se encontraron pacientes. <a href="{{ url('/patient/create')}}">¡Agrega uno!</a></p>
 		</div>
 	</div>
+</div>
 
 
 
-	@else
-	@include('hospital.includes.tablePatient')
+@else
+@include('hospital.includes.tablePatient')
 
-	@endif
+@endif
 
-	@endif
-	 
+@endif
+
 
 @endif
 @endsection

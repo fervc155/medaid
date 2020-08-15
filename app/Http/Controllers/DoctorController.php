@@ -7,8 +7,10 @@ use App\Office;
 use App\Options;
 use App\Crud;
 use App\Speciality;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class DoctorController extends Controller
@@ -118,7 +120,91 @@ public function store(Request $request)
   }    
   return view('admin');
 }
+public function updateLogin(Request $request,  $id)
+{
 
+
+   if((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office())
+  {
+
+
+    $data=request()->validate([
+     'email' => 'required|string|email|max:255',
+     'password' => 'required|string|min:6',
+     'newpassword' => 'required|string|min:6',
+
+   ]);
+
+
+
+
+    $doctor = Doctor::find($id);
+    $user = $doctor->user();
+
+
+
+    if(Hash::check($data['password'], $doctor->user()->password))
+    {
+
+      if($data['newpassword'] == $data['password'])
+      {
+       return  back()->with('error', 'La contraseña nueva debe ser diferente');    
+
+     }
+
+
+
+     $user->email = $data['email'];
+     $user->password = bcrypt($data['newpassword']);
+
+
+     $user->save();
+
+     return redirect('/doctor/'.$id)->with('success', '¡El usuario ha sido actualizado con éxito!');
+
+   }
+
+   return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');    
+
+
+ }
+
+ return view('admin');
+}
+
+public function updateImage(Request $request,  $id)
+{
+
+  if((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office())
+  {
+
+
+    $data=request()->validate([
+      'image' => 'required',
+    ]);
+
+
+    $doctor = Doctor::find($id);
+
+
+    $user = $doctor->user();
+
+
+
+    $ruta_imagen =  $data['image']->store('profile','public');
+
+    unlink($user->Pathimg);
+
+    $user = $doctor->user();
+    $user->image = $ruta_imagen;
+    $user->save();
+
+    return redirect('/doctor/'.$id)->with('success', '¡La foto ha sido actualizada con éxito!');
+    
+  }
+
+  return view('admin');
+}
   //Mostrar información de doctor
 public function show($id)
 {

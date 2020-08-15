@@ -1384,3 +1384,7 @@ table .btn-just-icon
 }
 
 
+.invalid-feedback
+{
+  display: block !important;
+}

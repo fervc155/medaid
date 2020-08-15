@@ -1,4 +1,3 @@
-<script src="{{asset('splash/vendor/sweetalert/sweetalert.js')}}"></script>
 
 @if(count($errors) > 0)
 	@foreach($errors->all() as $error)
@@ -26,7 +25,7 @@
 
 	<script >
 		
-		swal("{{ session('error') }}","No puedes Iniciar Sesion", 'error');
+		swal("Error" ,"{{ session('error') }}",  'error');
 		
 	</script>
 

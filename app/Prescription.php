@@ -9,4 +9,6 @@ class Prescription extends Model
        public function appointment(){
         return $this->belongsTo('App\Appointment');
     }
+
+ 
 }

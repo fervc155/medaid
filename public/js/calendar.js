@@ -1,5 +1,6 @@
 
-class  Calendario
+
+ class  Calendario
 {
 
 
@@ -20,10 +21,18 @@ class  Calendario
 	constructor()
 	{
 
+		self =this;
+
 		this.calendar = new FullCalendar.Calendar(document.getElementById('calendar'), 
 		{
 			plugins: [ 'dayGrid', ],
 			displayEventTime:true,
+			eventClick: function(info) {
+	       var eventObj = info.event;
+
+		       
+		    self.ObtenerCita(eventObj.id);
+			},
 
 
 
@@ -32,8 +41,9 @@ class  Calendario
 					text: 'custom!',
 					click: function() {
 					}
-			}
+				}
 			},
+		
 			header: {
 				left: 'title ',
 				center: 'prev,next today',
@@ -46,6 +56,24 @@ class  Calendario
 
 		this.ObtenerCitas();
 		
+	}
+
+	llenarModal(data)
+	{
+   		$('#btn-show-appointment').click();	
+
+  		console.log(data['date']);		
+
+		$('#data-date span').html(data['date']);
+		$('#data-time span').html(data['time']);
+		$('#data-price span').html(data['price']);
+		$('#data-patient span').html(data['patient_name']);
+		$('#data-doctor span').html(data['doctor_name']);
+		$('#data-office span').html(data['office']);
+		$('#data-status span').html(data['status']);
+	
+	 
+
 	}
 
 
@@ -77,6 +105,37 @@ class  Calendario
 
 	}
 
+	ObtenerCita(idCita)
+	{
+
+		self=this;
+
+ 
+
+		$.ajax({
+
+			type:'POST',
+
+			url: $('.datos-calendario #url').data('url2'),
+
+			data:
+			{
+				id: idCita,
+				_token: $('.datos-calendario input[name="_token"]').val()
+			},
+
+			success:function(data,success){
+			self.llenarModal(JSON.parse(data));
+				
+				
+			}
+
+		});
+
+
+ 
+	}
+
 	LlenarCalendario(citas)
 	{
 
@@ -97,17 +156,20 @@ class  Calendario
 			var bloqueCita=  
 			{
 
-				title:`${cita['time']} ${cita['patient_name']} ${cita['doctor_name']}`,
-				start:cita['date']
+				title:cita['time'],
+				start:cita['date'],
+				id:cita['id'],
+				
+				
 			}
+
 
 			this.calendar.addEvent( bloqueCita )
 		})
 
 		this.calendar.setOption('locale', 'es');
 		this.calendar.render();
-
-
+ 
 	}
 
 

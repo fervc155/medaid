@@ -143,12 +143,12 @@
 
 
 					</div>  
-					@if(Auth::Office() || Auth::user()->profile()->id == $patient->dni )
+					@if(Auth::Office() || (Auth::isPatient() && Auth::user()->profile()->id == $patient->dni ))
 
 
+				
 					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/patient/'.$patient->dni.'/edit')}}"> <i class="fal fa-pen"></i> Editar</a>
-
-
+					
 						@if(Auth::Office()   )
 
 			
@@ -178,40 +178,24 @@
 				<div class="col-12">
 
 
-					<div class="card caja-contador">
 
-						<?php $i=0; 
-
-						foreach ($appointments as $a)
-						{
-							if ($a->completed == false)
-							{
-								$i++;
-							}
-						}  
-
-						?>
-						<span class="caja-contador-icono"><i class="fal fa-book"></i></span>
-						<div class="card-body">
-
-
-							<h3>{{$i}}</h3>
-							<p>Citas</p>  
-						</div>
-					</div>
+				@include('hospital.includes.counter.appointments')
 				</div>
 			</div>
 
 
 				<div class="row mt-3">
 				
-					<div class="col p-3 datos-calendario">
+					<div class="col p-3" >
 
-						<div id='id' data-id="{{$patient->dni}}"></div>
-						<div id='url' data-url="{{url('/get/appointments/patient')}}"></div>
-						@csrf
-						<div id='calendar'></div>
 
+						@include('includes.calendar', [
+							'model_id'=>$patient->dni,
+							'route'=>url('/get/appointments/patient')
+
+						])
+
+						
 					</div>
 
 				</div>

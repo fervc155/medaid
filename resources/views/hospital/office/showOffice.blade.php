@@ -111,29 +111,13 @@
 			<div class=" row  text-center contadores">
 				<div class="col-12 col-md-6">
 
-					<div class="caja-contador card">
+ 					@include('hospital.includes.counter.model',
+					[
+					'model'=>$doctors,
+					'title'=>'Doctores',
+					'icon'=>'fa-user-md'
 
-						<?php $i=0; 
-
-						foreach ($doctors as $d)
-						{
-							$i++;
-
-						}  
-
-						?>
-						<div class="caja-contador-icono">
-							
-						<i class="fal fa-user-md"></i>
-						</div>
-						<div class="card-body">
-
-
-							<h3>{{$i}}</h3>
-							<p>Doctores</p> 
-						</div>
-					</div>
-
+					])
 
 				</div>
 					<div class="col-12 col-md-6">

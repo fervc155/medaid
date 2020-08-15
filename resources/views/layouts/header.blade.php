@@ -7,8 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<title>MedAid</title>
+
 
 	<!-- Bootstrap  material kit-->
 	
@@ -26,7 +28,7 @@
 
 
 	<!-- Fuente -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -52,19 +54,27 @@
 
 	<!--  SELECT2 -->
 	<link href="{{asset('splash/vendor/select2/css/select2.min.css')}}" rel='stylesheet' />
-		<!--  QUILLS EDITOR  -->
+	<!--  QUILLS EDITOR  -->
 
 	<link href="{{asset('splash/vendor/quills/css/quill.snow.css')}}" rel='stylesheet' />
 	<link href="{{asset('splash/vendor/quills/css/quill.bubble.css')}}" rel='stylesheet' />
 
 
+	<!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+	<script src="{{asset('splash/vendor/sweetalert/sweetalert.js')}}"></script>
 
 
 </head>
 <body>
 
+	<div id="app">
 
-	@yield('navegacion')
+
+		@yield('navegacion')
+
+	</div>
+
+
 
 	<!--  JQUERY -->
 	<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
@@ -121,7 +131,7 @@
 	<script src="{{asset('splash/vendor/chartist/js/chartist.min.js')}}"></script>
 
 
-<!-- select2 -->
+	<!-- select2 -->
 	<script src="{{asset('splash/vendor/select2/js/select2.min.js')}}"></script>
 	<!--  DATA TABLES-->
 
@@ -136,14 +146,13 @@
 
 	<!-- SCRIPTS -->
 
-	<?php echo 	'<script type="text/javascript">let _URL = "'.url('').'"</script>'?>
+ <script type="text/javascript">let _URL = "<?php echo url('') ?>"</script>'
 
 
 
 
 	<script src="{{ asset('js/callbacks.js') }}"></script>
 	<script src="{{ asset('js/charts.js') }}"></script>
-	<script src="{{ asset('js/scripts.js') }}"></script>
 	<script src="{{ asset('js/calendar.js') }}"></script>
 	
 	<script src="{{ asset('js/datatables.js') }}"></script>
@@ -151,9 +160,10 @@
 	<script src="{{ asset('js/AJAX-visitantes.js') }}"></script>
 	<script src="{{ asset('js/appointments/appointments.js') }}"></script>
 	<script src="{{ asset('js/appointments/appointment_comment.js') }}"></script>
+	<script src="{{ asset('js/scripts.js') }}"></script>
 	<script src="{{ asset('js/web.js') }}"></script>
-	
-	
+
+
 </body>
 
 </html>

@@ -43,11 +43,11 @@
 
 				@if(Auth::Doctor())
 
-  			<img src="{{asset($appointment->patient->user()->Profileimg)}}" class="img-fluid">
+  			<img src="{{$appointment->patient->user()->Profileimg}}" class="img-fluid">
 
 				@else
 
-  			<img src="{{asset($appointment->doctor->user()->Profileimg)}}" class="img-fluid">
+  			<img src="{{$appointment->doctor->user()->Profileimg}}" class="img-fluid">
 
 				
 
@@ -310,7 +310,7 @@
 								</span>
 								<div class="card-body">
 
-
+									
 									<a href="{{url('/doctor/'.$appointment->doctor_id)}}" class="link"><h3>{{$appointment->doctor->name}}</h3></a>
 									<p>Doctor</p>
 								</div>
@@ -346,14 +346,12 @@
 
 
 
-
-		@if(count($appointment->prescriptions)>0 && $appointment->condition->status == 'accepted' && Auth::Doctor())
+		@if(count($appointment->prescriptions)>0  && Auth::Doctor())
 
 		@include('hospital.includes.modal.EditPrescription');
 
 
-
-
+ 
 
 
 
@@ -395,7 +393,7 @@
 
 								<div class="col-6 col-md-3">
 									<p>
-										<i class="fal fa-calendar-week btn btn-primary btn-just-icon btn-round"></i> Fecha: <span class="font-weight-bold ">{{$prescription->created_at}}</span> 
+										<i class="fal fa-calendar-week btn btn-primary btn-just-icon btn-round"></i> Fecha: <span class="font-weight-bold ">{{$prescription->created_at->diffForHumans()}}</span> Editado el: {{$prescription->updated_at->diffForHumans()}}</span> 
 									</p>
 								</div>
 							</div>

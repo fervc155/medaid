@@ -18,39 +18,13 @@
         </div>
 
         <div class="card-body">
-          <form class="formulario" method="POST"  action="{{ route('login') }}" >
-            @csrf
+       
+        @include('forms.edit.login', 
+        [  
+        'model'=>$doctor,
+        'route'=> route('doctor.update.login', ['doctor'=>$doctor->id]) 
+        ]);
 
-
-
-            <div class="form-group form-inline align-items-end">
-              <div class="icon-form">
-                <i class="fas fa-at"></i>
-              </div>
-              <div class="form-group">
-                <label class="bmd-label-floating"> Email</label>
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                @if ($errors->has('email'))
-                <span class="invalid-feedback text-light" role="alert">
-                  <strong>{{ $errors->first('email') }}</strong>
-                </span>
-                @endif                                
-              </div>
-            </div>
-
-            <div class="form-group form-inline align-items-end">
-              <div class="icon-form">
-                <i class="fas fa-key"></i>
-              </div>
-              <div class="form-group">
-                <label class="bmd-label-floating"> Password</label>
-                <input id="password" type="password" class="form-control-claro form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-              </div>
-            </div>
-
-
-          </form>
         </div>
 
 
@@ -62,21 +36,12 @@
       <div class="card card-profile">
         <div class="card-body">
 
-          <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-            <div class="fileinput-new thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;">
-              <img src="{{asset($doctor->Profileimg)}}" class="img-height">
-            </div>
-            <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
-            <div>
-              <span class="btn btn-raised btn-round btn-primary btn-file">
-                <span class="fileinput-new">Agregar foto</span>
-                <span class="fileinput-exists">Change</span>
-                <input type="file" name="..." />
-              </span>
-              <br />
-              <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
-            </div>
-          </div>
+             @include('forms.edit.image',
+          [
+          'route'=>route('doctor.update.image', ['doctor'=>$doctor->id]),
+          'model'=>$doctor
+
+          ]);
         </div>
 
       </div>
@@ -101,50 +66,29 @@
 
         <div class="card-body">
 
-          {!! Form::open(['action' => ['DoctorController@update'], 'method' => 'post']) !!}
+         <form method="post" action="{{route('doctor.update', ['doctor'=>$doctor->id])}}"   > 
 
           <input type="hidden" name="doctor_id" value="{{$doctor->id}}">
 
-          <div class="form-group form-inline align-items-end">
-
-            <div class="icon-form">
-              <i class="fal fa-user"></i>
-            </div>
-            <div class="form-group">
-              <label class="bmd-label-floating">Nombre</label>
-
-              {{Form::text('name', $doctor->name, ['class'=>'form-control'])}}
-            </div>
-          </div>
+           
+          @include('forms.edit.user', 
+          [  
+          'model'=>$doctor,
+           ]);
 
 
+           
+          @include('forms.edit.address', 
+          [  
+          'model'=>$doctor,
+           ]);
 
 
-          <div class="form-group form-inline align-items-end">
-
-            <div class="icon-form">
-              <i class="fal fa-birthday-cake"></i>
-            </div>
-            <div class="form-group">
-
-              {{Form::text('birthdate', $doctor->birthdate, ['class'=>'form-control datepicker2 ','placeholder'=>'Elige una fecha'] )}}
-
-            </div>
-          </div>
 
 
-          <div class="form-group form-inline align-items-end">
-
-            <div class="icon-form">
-              <i class="fal fa-phone"></i>
-            </div>
-            <div class="form-group">
-              <label class="bmd-label-floating">Telefono</label>
-
-              {{Form::text('telephoneNumber', $doctor->telephoneNumber, ['class'=>'form-control'] )}}
-            </div>
-          </div>
-
+ 
+  
+         
           <div class="form-group form-inline align-items-end">
 
             <div class="icon-form">
@@ -176,28 +120,7 @@
 						</div>
           </div>
 
-          <div>
-
-            <div class="d-flex">
- 
-              <div class="form-group form-inline ">
-                <div class="icon-form">
-                  <i class="fal fa-venus-mars"></i>
-                </div>
-
-                <div class="form-group">
-
-
-                  <select class="selectpicker" name="sexo" id="sexo" data-style="select-with-transition" title="Seleccionar sexo" data-size="sd7">
-                    <option value="M"  <?php if($doctor->sexo=='M'){ echo "selected";}?>>Masculino</option>
-                    <option value="F"  <?php if($doctor->sexo=='F'){ echo "selected";}?>>Femenino</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
+          
 
 
           @if(count($offices)>0)
@@ -267,7 +190,7 @@
 
             <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Agregar</i></button>
           </div>
-          {!! Form::close() !!}
+         </form>
 
 
           
