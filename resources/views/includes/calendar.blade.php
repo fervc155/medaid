@@ -2,12 +2,15 @@
 
 
 	<div id='id' data-id="{{$model_id}}"></div>
-	<div id='url' data-url="{{$route}}" data-url2="{{url('/get/appointment')}}"></div>
+	<div id='url' data-url="{{$route}}" @if($model_id == Auth::UserId())
+ data-url2="{{url('/get/appointment')}}" @endif></div>
  	@csrf
 	<div id='calendar'></div>
 
 </div>
 
+
+@if($model_id == Auth::UserId())
 
 <button  class="d-none" id="btn-show-appointment"  data-toggle="modal" data-target="#AgregarEspecialidad"></button>
 
@@ -53,3 +56,5 @@
     </div>
   </div>
 </div>
+
+@endif

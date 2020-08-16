@@ -62,8 +62,7 @@
 	{
    		$('#btn-show-appointment').click();	
 
-  		console.log(data['date']);		
-
+  		
 		$('#data-date span').html(data['date']);
 		$('#data-time span').html(data['time']);
 		$('#data-price span').html(data['price']);
@@ -71,9 +70,9 @@
 		$('#data-doctor span').html(data['doctor_name']);
 		$('#data-office span').html(data['office']);
 		$('#data-status span').html(data['status']);
-	
-	 
+		$('#data-href').attr('href',_URL+"/appointment/"+data['id']);
 
+ 
 	}
 
 
@@ -110,6 +109,7 @@
 
 		self=this;
 
+ 
  
 
 		$.ajax({
@@ -163,6 +163,7 @@
 				
 			}
 
+ 
 
 			this.calendar.addEvent( bloqueCita )
 		})
