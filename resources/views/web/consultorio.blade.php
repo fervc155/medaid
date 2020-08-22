@@ -153,7 +153,7 @@
 
       <div class="row">
         <div class="col">
-          <iframe src="https://www.google.com/maps/d/embed?mid=19EoyniwVmLG_wj1xSTgfHLBzyH8&hl=es" width="640" height="480"></iframe>
+         {!! $office->map!!}
         </div>
       </div>
 

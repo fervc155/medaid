@@ -19,6 +19,7 @@ class CreateOfficesTable extends Migration
             $table->char('address', 100);
             $table->char('postalCode', 10);
             $table->char('city', 60);
+            $table->text('map');
             $table->char('country', 40);
             $table->string('image')->nullable();
         });

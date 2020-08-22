@@ -36,6 +36,17 @@ class WebController extends Controller
         ->with('doctors', $speciality->doctors);
 
     }
+
+        public function mapa($id)
+    {
+
+
+        $office = Office::find($id);
+
+        return view('web.mapa', compact('office')) ;
+
+    }
+    
     
     /*=====  End of especialidades  ======*/
     

@@ -506,7 +506,13 @@ footer.footer li:hover
 
 
 
-
+.map-page iframe
+{
+      /* width: 100% !important; */
+    width: 100vw !important;
+    border: 0;
+    height: 100vh !important;
+}
 /* LOGIN */
 
 

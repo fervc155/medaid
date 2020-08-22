@@ -23,9 +23,9 @@
                          Direccion: {{$office->address}}
                         </p>
                         <div class="stats text-center">
-                          <button type="button" name="button" class="btn btn-danger btn-fill btn-round btn-rotate">
+                          <a target="_blank" href="{{url('/visitante/mapa/'.$office->id)}}"type="button" name="button" class="btn btn-danger btn-fill btn-round btn-rotate">
                             <i class="fal fa-map-marker"></i> Ver mapa
-                          </button>
+                          </a>
 
                            <a href="{{url('/visitante/consultorio/'.$office->id)}}"  class="btn btn-primary btn-round btn-sm">
                             <i class="fal fa-hospital"></i> Ver Consultorio

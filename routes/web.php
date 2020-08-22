@@ -19,6 +19,7 @@ Route::get('/visitante/especialidad/{id}','webController@especialidad');
 
 Route::get('/visitante/consultorios','webController@consultorios');
 Route::get('/visitante/consultorio/{id}','webController@consultorio');
+Route::get('/visitante/mapa/{id}','webController@mapa');
 
 Route::get('/visitante/doctor/{id}','webController@doctor');
 Route::get('/visitante/doctores/','webController@doctores');
