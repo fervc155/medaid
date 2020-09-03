@@ -21,8 +21,6 @@
 			<ul class="navbar-nav  ml-md-auto ">
 
 				<li class="nav-item">
-					<a class="nav-link" href="{{ url('visitante/citas') }}"><i class="icon fal fa-calendar-check"></i> {{__('Citas') }}</a>
-				</li>		<li class="nav-item">
 					<a class="nav-link" href="{{ url('visitante/consultorios') }}"><i class="icon fal fa-hospital"></i> {{__('Consultorios') }}</a>
 				</li>
 					<li class="nav-item">

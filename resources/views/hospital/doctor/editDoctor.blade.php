@@ -164,7 +164,7 @@
 
 
             <div class="form-group">
-              
+            <label class="bmd-label-floating">Horario de entrada</label>
               {{Form::time('inTime',$doctor->inTime, ['class'=>'form-control timepicker timepickerEntrada' ] )}}
 
             </div>
@@ -176,7 +176,7 @@
             </div>
 
             <div class="form-group">
-              
+            <label class="bmd-label-floating">Horario de salida</label>
               {{Form::time('outTime', $doctor->outTime, ['class'=>'form-control timepicker timepickerSalida' ] )}}
 
             </div>

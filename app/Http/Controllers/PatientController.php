@@ -183,6 +183,7 @@ class PatientController extends Controller
 
 
       $patient = Patient::find($id);
+      $appointments =$patient->appointments;  
 
       if(Auth::isPatient())
       {
