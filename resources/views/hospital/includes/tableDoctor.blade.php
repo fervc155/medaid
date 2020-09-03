@@ -1,4 +1,3 @@
-
 <div class="container">
 
   <div class="row">
@@ -19,16 +18,16 @@
             <thead>
               <tr>
                 <th>Id</th>
-                <th >Nombre</th>
-                <th >Estrellas</th>
-                <th >Teléfono</th>
-                 <th >Sexo</th>
-                <th >Especialidad</th>
+                <th>Nombre</th>
+                <th>Estrellas</th>
+                <th>Teléfono</th>
+                <th>Sexo</th>
+                <th>Especialidad</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-                @include('hospital.includes.loopDoctor-desktop')
+              @include('hospital.includes.loopDoctor-desktop')
 
             </tbody>
           </table>
@@ -41,7 +40,7 @@
 
 
 
-                @include('hospital.includes.loopDoctor-movil')
+      @include('hospital.includes.loopDoctor-movil')
 
 
 

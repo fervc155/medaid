@@ -12,7 +12,7 @@
 	<div class="row ">
 
 
-		<div  class=" col-12 col-md-4">
+		<div class=" col-12 col-md-4">
 
 
 
@@ -35,7 +35,7 @@
 						<div class="color-principal">
 
 							<i class="fal fa-address-card"></i> ID:
-						</div>  
+						</div>
 
 						{{ $office->id }}
 
@@ -46,7 +46,7 @@
 						<div class="color-principal">
 
 							<i class="fal fa-home"></i> Domicilio:
-						</div>  
+						</div>
 
 						{{ $office->address }}
 
@@ -64,7 +64,7 @@
 					<div class="form-inline mb-2">
 						<div class="color-principal">
 							<i class="fal fa-city"></i> Ciudad:
-						</div>                                  
+						</div>
 						{{ $office->city }}
 
 					</div>
@@ -79,7 +79,7 @@
 
 					</div>
 
-					@if(Auth::Admin()  || (Auth::isOffice() && $office->id == Auth::UserId()) )
+					@if(Auth::Admin() || (Auth::isOffice() && $office->id == Auth::UserId()) )
 
 					<div class="text-center">
 
@@ -111,7 +111,7 @@
 			<div class=" row  text-center contadores">
 				<div class="col-12 col-md-6">
 
- 					@include('hospital.includes.counter.model',
+					@include('hospital.includes.counter.model',
 					[
 					'model'=>$doctors,
 					'title'=>'Doctores',
@@ -120,28 +120,26 @@
 					])
 
 				</div>
-					<div class="col-12 col-md-6">
+				<div class="col-12 col-md-6">
 
 					<div class="caja-contador card">
 
-						<?php $i=0; 
+						<?php $i = 0;
 
-						foreach ($doctors as $d)
-						{
-							$i+=count($d->appointments);
-
-						}  
+						foreach ($doctors as $d) {
+							$i += count($d->appointments);
+						}
 
 						?>
 						<div class="caja-contador-icono">
-							
-						<i class="fal fa-calendar-check"></i>
+
+							<i class="fal fa-calendar-check"></i>
 						</div>
 						<div class="card-body">
 
 
 							<h3>{{$i}}</h3>
-							<p>Citas</p> 
+							<p>Citas</p>
 						</div>
 					</div>
 
@@ -175,27 +173,25 @@
 
 
 
-@if(count($doctors) < 1)
-<div class="container p-5 sin-datos">
+@if(count($doctors) < 1) <div class="container p-5 sin-datos">
 	<div class="row">
 		<div class="col text-center">
 			<i class="fal fa-user-md"></i>
 			<p class="lead ">No se encontraron doctores. <a href="{{ url('/doctor/create')}}">¡Agrega uno!</a></p>
 		</div>
 	</div>
-</div>
+	</div>
 
 
-@else
+	@else
 
-  @include('hospital.includes.tableDoctor')
+	@include('hospital.includes.tableDoctor')
 
-@endif
-
-
+	@endif
 
 
-@endsection
 
-@include('includes.dataTables')
 
+	@endsection
+
+	@include('includes.dataTables')

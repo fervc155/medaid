@@ -5,9 +5,9 @@
   </div>
 
   <div class="form-group">
-   <label class="bmd-label-floating"> Nombre</label>
+    <label class="bmd-label-floating"> Nombre</label>
 
-   <input id="name" type="text" class=" form-control-claro form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" " required autofocus>
+    <input id="name" type="text" class=" form-control-claro form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" " required autofocus>
 
    @include('includes.errors', ['errorName'=>'name'])
 
@@ -16,16 +16,16 @@
 
 <!-- email -->
 
-<div class="form-group form-inline align-items-end ">
-  <div class="icon-form ">
-    <i class="fas fa-at"></i>
+<div class=" form-group form-inline align-items-end ">
+  <div class=" icon-form ">
+    <i class=" fas fa-at"></i>
   </div>
 
   <div class="form-group">
 
     <label class="bmd-label-floating"> Correo electronico</label>
 
-    <input id="email" type="email" class=" form-control-claro form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"   required>
+    <input id="email" type="email" class=" form-control-claro form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
     @include('includes.errors', ['errorName'=>'email'])
 
@@ -78,16 +78,20 @@
   </div>
   <div class="form-group">
 
-    <select class="selectpicker" name="sex" id="sex" data-style="select-with-transition" title="Sexo" data-size="sd7">                  
-     <option value="f" <?php if(old('sex')=='f'){echo "selected";} ?>>Femenino</option>
-     <option value="m" <?php if(old('sex')=='m'){echo "selected";} ?>>Masculino</option>
+    <select class="selectpicker" name="sex" id="sex" data-style="select-with-transition" title="Sexo" data-size="sd7">
+      <option value="f" <?php if (old('sex') == 'f') {
+                          echo "selected";
+                        } ?>>Femenino</option>
+      <option value="m" <?php if (old('sex') == 'm') {
+                          echo "selected";
+                        } ?>>Masculino</option>
 
-   </select>
-   @include('includes.errors', ['errorName'=>'sex'])
+    </select>
+    @include('includes.errors', ['errorName'=>'sex'])
 
 
 
- </div>
+  </div>
 
 </div>
 
@@ -104,13 +108,13 @@
 
 
   <div class="form-group">
-   <label class="bmd-label-floating"> Contraseña</label>
+    <label class="bmd-label-floating"> Contraseña</label>
 
-   <input id="password" type="password" class=" form-control-claro form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"   required>
+    <input id="password" type="password" class=" form-control-claro form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-   @include('includes.errors', ['errorName'=>'password'])
+    @include('includes.errors', ['errorName'=>'password'])
 
- </div>
+  </div>
 
 </div>
 
@@ -122,13 +126,13 @@
 
 
   <div class="form-group">
-   <label class="bmd-label-floating"> Repetir contraseña</label>
+    <label class="bmd-label-floating"> Repetir contraseña</label>
 
 
 
-   <input id="password-confirm" type="password" class=" form-control-claro form-control" name="password_confirmation"  required>
+    <input id="password-confirm" type="password" class=" form-control-claro form-control" name="password_confirmation" required>
 
- </div>
+  </div>
 </div>
 
 
@@ -138,28 +142,19 @@
 
 
 <div class="form-group form-inline justify-content-center ">
-
-
-
-
-
-
-
-
- <div class="fileinput fileinput-new text-center" data-provides="fileinput">
-  <div class="fileinput-new thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;">
-    <img src="" class="img-height">
-  </div>
-  <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
-  <div>
-    <span class="btn btn-raised btn-round btn-primary btn-file">
-      <span class="fileinput-new">Agregar foto</span>
-      <span class="fileinput-exists">Change</span>
-      <input type="file" name="image" value="old('imagen')" />
-    </span>
-    <br />
-    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+  <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+    <div class="fileinput-new thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;">
+      <img src="" class="img-height">
+    </div>
+    <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
+    <div>
+      <span class="btn btn-raised btn-round btn-primary btn-file">
+        <span class="fileinput-new">Agregar foto</span>
+        <span class="fileinput-exists">Change</span>
+        <input type="file" name="image" value="old('imagen')" />
+      </span>
+      <br />
+      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+    </div>
   </div>
 </div>
-</div>
-

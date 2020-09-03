@@ -1,4 +1,3 @@
-
 @extends ('layouts.nav-admin')
 
 @section('content')
@@ -9,22 +8,21 @@
 
 @endif
 
-@if(count($doctors) < 1)
-<div class="container p-5 sin-datos">
+@if(count($doctors) < 1) <div class="container p-5 sin-datos">
 	<div class="row">
 		<div class="col text-center">
 			<i class="fal fa-user-md"></i>
 			<p class="lead ">No se encontraron doctores. <a href="{{ url('/doctor/create')}}">¡Agrega uno!</a></p>
 		</div>
 	</div>
-</div>
+	</div>
 
 
-@else
+	@else
 
-  @include('hospital.includes.tableDoctor')
+	@include('hospital.includes.tableDoctor')
 
-@endif
-@endsection
+	@endif
+	@endsection
 
-@include('includes.dataTables')
+	@include('includes.dataTables')

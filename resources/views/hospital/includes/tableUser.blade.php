@@ -11,11 +11,8 @@
           </div>
           <div class="card-title">Listado de Usuarios</div>
         </div>
-        
-        <div class="card-body table-responsives">
-          
 
-          
+        <div class="card-body table-responsives">
 
           <table class="table" id="data_table_pacientes">
             <thead>
@@ -41,14 +38,6 @@
 
 
     <div class="col-12 d-block d-md-none">
-
-
-
-
-      
     </div>
-
-
-
   </div>
 </div>

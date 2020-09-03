@@ -7,53 +7,49 @@ use App\Scopes\CountryScope;
 
 class Office extends Model
 {
-    const UPDATED_AT=NULL;
-    const CREATED_AT=NULL;
+  const UPDATED_AT = NULL;
+  const CREATED_AT = NULL;
 
-    //Nombre de tabla
-    protected $table = 'offices';
-    //Llave primaria
-    public $primaryKey = 'id';
+  //Nombre de tabla
+  protected $table = 'offices';
+  //Llave primaria
+  public $primaryKey = 'id';
 
-    //Función para añadir Scope, que nos permite filtrar resultados
-    protected static function boot()
-    {
-        parent::boot();
+  //Función para añadir Scope, que nos permite filtrar resultados
+  protected static function boot()
+  {
+    parent::boot();
 
-        static::addGlobalScope(new CountryScope);
-    }
+    static::addGlobalScope(new CountryScope);
+  }
 
-    //Relación N:N con médicos, incluyendo la tabla pivote
-    public function doctors()
-    {
-    	return $this->hasMany('App\Doctor');
-    }
+  //Relación N:N con médicos, incluyendo la tabla pivote
+  public function doctors()
+  {
+    return $this->hasMany('App\Doctor');
+  }
 
 
   public function getProfileUrlAttribute()
-    {
-         return '/office/'.$this->id;
+  {
+    return '/office/' . $this->id;
+  }
 
+  //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
+
+
+  public function getProfileimgAttribute()
+  {
+
+    if ($this->image) {
+      return 'splash/img/office/' . $this->image;
     }
 
-    //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
+    return 'splash/img/' . Options::UserDefault();
+  }
 
-    
-    public function getProfileimgAttribute()
-    {
-
-        if($this->image)
-        {
-            return 'splash/img/office/'. $this->image;
-        }
-
-       return 'splash/img/'.Options::UserDefault();
-
-    }
- 
   public function user()
   {
-            return User::where('id_user','=',$this->id)->where('id_privileges','=',Privileges::Id('patient'))->get();
-
+    return User::where('id_user', '=', $this->id)->where('id_privileges', '=', Privileges::Id('patient'))->get();
   }
- }
+}

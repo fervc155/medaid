@@ -1,4 +1,3 @@
-
 @extends('layouts.nav-admin')
 
 @section('content')
@@ -74,12 +73,12 @@
 								<option>Selecciona un paciente</option>
 								<optgroup label="O prueba buscando su nombre">
 
-									<?php foreach ($patients as $patient ): ?>
+									<?php foreach ($patients as $patient) : ?>
 
 										<option value="{{ $patient->dni}}">{{ $patient->name }}</option>
 
 									<?php endforeach ?>
-								</select>
+							</select>
 							</optgroup>
 
 
@@ -97,9 +96,9 @@
 
 
 
-						<div class="form-group "  >
+						<div class="form-group ">
 
-							<select class="select2 select-office ajax"  data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7" >
+							<select class="select2 select-office ajax" data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7">
 								<option>Selecciona una clinica</option>
 
 								@foreach($offices as $office)
@@ -119,9 +118,9 @@
 
 
 
-						<div class="form-group "  >
+						<div class="form-group ">
 
-							<select name="speciality_id" class="select2 select-speciality ajax btn-AgregarPrecioCita"  data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7" >
+							<select name="speciality_id" class="select2 select-speciality ajax btn-AgregarPrecioCita" data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7">
 								<option>Selecciona una especialidad</option>
 							</select>
 
@@ -142,9 +141,9 @@
 						</div>
 
 
-						<div class="form-group "  >
+						<div class="form-group ">
 
-							<select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7" >
+							<select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7">
 								<option>Selecciona un medico</option>
 
 
@@ -175,14 +174,18 @@
 
 
 
-						<div class="form-group "  >
+						<div class="form-group ">
 
-							<select name="speciality_id" class="select2 select-speciality "  data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7" >
+							<select name="speciality_id" class="select2 select-speciality " data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7">
 								<option>Selecciona una especialidad</option>
-								
-								<?php foreach ($_doctor->specialities as $speciality): ?>
-									
-									<option value="{{$speciality->id}}" <?php if(!empty($_speciality_id)) { if($_speciality_id==$speciality->id){ echo "selected";} } ?>>{{$speciality->name}} - {{$speciality->price}}</option>
+
+								<?php foreach ($_doctor->specialities as $speciality) : ?>
+
+									<option value="{{$speciality->id}}" <?php if (!empty($_speciality_id)) {
+																			if ($_speciality_id == $speciality->id) {
+																				echo "selected";
+																			}
+																		} ?>>{{$speciality->name}} - {{$speciality->price}}</option>
 								<?php endforeach ?>
 							</select>
 
@@ -219,15 +222,10 @@
 						</div>
 					</div>
 
-
-
-
 					<div class="my-3">
 						<button type="submit" class="btn btn-primary btn-block"><i class="fal fa-plus"> Agregar</i></button>
 					</div>
 				</div>
-
-
 
 			</div>
 		</div>
@@ -235,4 +233,3 @@
 </div> <!-- Contenedor -->
 
 @endsection
-

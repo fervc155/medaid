@@ -1,4 +1,3 @@
-
 @extends ('layouts.nav-admin')
 
 @section('content')
@@ -33,8 +32,8 @@
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary ">
-										<i class="fal fa-save"></i> Guardar
-									</button>
+							<i class="fal fa-save"></i> Guardar
+						</button>
 					</form>
 
 				</div>
@@ -57,13 +56,13 @@
 				<div class="card-body ">
 
 					<form action="" method="post">
-						  <div class="togglebutton">
-                <label>
-                  <input type="checkbox" checked="false">
-                  <span class="toggle"></span>
-                  
-                </label>
-              </div>
+						<div class="togglebutton">
+							<label>
+								<input type="checkbox" checked="false">
+								<span class="toggle"></span>
+
+							</label>
+						</div>
 					</form>
 
 				</div>
@@ -111,17 +110,21 @@
 						{{csrf_field()}}
 
 
-						
-							
+
+
 						<select class="selectpicker" name="moneda" id="moneda" data-style="select-with-transition" title="Seleccionar Moneda" data-size="sd7">
-							<option value="MXN $" <?php if($options->Moneda()=='MXN $'){echo "selected";} ?>>MXN</option>
-							<option value="USD $" <?php if($options->Moneda()=='USD $'){echo "selected";} ?>>
-							USD
+							<option value="MXN $" <?php if ($options->Moneda() == 'MXN $') {
+														echo "selected";
+													} ?>>MXN</option>
+							<option value="USD $" <?php if ($options->Moneda() == 'USD $') {
+														echo "selected";
+													} ?>>
+								USD
 							</option>
 						</select>
 
 						<input type="submit" class="btn btn-primary">
-	</form>
+					</form>
 
 				</div>
 			</div>
@@ -148,16 +151,20 @@
 						{{csrf_field()}}
 
 
-						
-						
+
+
 						<select class="selectpicker" name="idioma" id="idioma" data-style="select-with-transition" title="Seleccionar idioma" data-size="sd7">
-							<option value="esp" <?php if($options->Idioma()=='esp'){echo "selected";} ?>>Español</option>
-							<option value="eng" <?php if($options->Idioma()=='eng'){echo "selected";} ?>>Inglés</option>
+							<option value="esp" <?php if ($options->Idioma() == 'esp') {
+													echo "selected";
+												} ?>>Español</option>
+							<option value="eng" <?php if ($options->Idioma() == 'eng') {
+													echo "selected";
+												} ?>>Inglés</option>
 						</select>
 
 						<input type="submit" class="btn btn-primary">
 					</form>
-			
+
 
 				</div>
 			</div>

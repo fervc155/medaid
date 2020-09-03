@@ -4,24 +4,23 @@
 
 
 
-@if(count($users) < 1)
-<div class="container p-5 sin-datos">
+@if(count($users) < 1) <div class="container p-5 sin-datos">
   <div class="row">
     <div class="col text-center">
       <i class="fal fa-user"></i>
       <p class="lead ">No se encontraron usuarios. </p>
     </div>
   </div>
-</div>
+  </div>
 
 
-@else
+  @else
 
 
   @include('hospital.includes.tableUser')
 
-@endif
+  @endif
 
-@endsection
+  @endsection
 
-@include('includes.dataTables')
+  @include('includes.dataTables')

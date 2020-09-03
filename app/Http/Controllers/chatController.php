@@ -10,7 +10,6 @@ class chatController extends Controller
 {
     public function index()
     {
-
     	$doctors = Doctor::All();
     	return view('chat.indexChat', compact('doctors'));
     }

@@ -21,22 +21,26 @@ class Appointment extends Model
 
 
     //Relación N:1 con doctor
-    public function doctor(){
+    public function doctor()
+    {
         return $this->belongsTo('App\Doctor');
     }
 
     //Relación N:1 con paciente
-    public function patient(){
+    public function patient()
+    {
         return $this->belongsTo('App\Patient');
     }
 
-       public function condition(){
+    public function condition()
+    {
         return $this->belongsTo('App\Condition');
     }
 
 
-        public function comments() {
-        return $this->hasMany('App\Appointment_comment')->orderBy('created_at','DESC');
+    public function comments()
+    {
+        return $this->hasMany('App\Appointment_comment')->orderBy('created_at', 'DESC');
     }
 
     public function speciality()
@@ -46,8 +50,9 @@ class Appointment extends Model
 
 
 
-    public function prescriptions() {
-        return $this->hasMany('App\Prescription')->orderBy('created_at','DESC');
+    public function prescriptions()
+    {
+        return $this->hasMany('App\Prescription')->orderBy('created_at', 'DESC');
     }
 
     public function getstatusAttribute()
@@ -64,7 +69,7 @@ class Appointment extends Model
     public function getpriceAttribute()
     {
         $options = new Options();
-        return $options->Moneda(). $this->cost;
+        return $options->Moneda() . $this->cost;
     }
 
 
@@ -73,22 +78,18 @@ class Appointment extends Model
 
 
 
-      
 
-        if($this->IsToday)
-        {
 
-        $timeless = date('H:s:i',strtotime(date('H:s:i').'-1 hours'));
-   
+        if ($this->IsToday) {
 
-            if ($this->time> $timeless)
-            {
+            $timeless = date('H:s:i', strtotime(date('H:s:i') . '-1 hours'));
 
-                
+
+            if ($this->time > $timeless) {
+
+
                 return true;
             }
-
-           
         }
 
         return false;
@@ -98,8 +99,7 @@ class Appointment extends Model
     public function getIsTodayAttribute()
     {
 
-        if($this->date == date('Y-m-d'))
-        {
+        if ($this->date == date('Y-m-d')) {
 
 
 

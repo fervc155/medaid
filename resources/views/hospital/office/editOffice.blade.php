@@ -18,96 +18,96 @@
           <div class="card-title">Editar consultorio</div>
         </div>
 
-        <div class="card-body"> 
-                {!! Form::open(['action' => ['OfficeController@update', $office->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
+        <div class="card-body">
+          {!! Form::open(['action' => ['OfficeController@update', $office->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
 
-         <div class="form-group form-inline align-items-end">
+          <div class="form-group form-inline align-items-end">
 
-          <div class="icon-form">
-            <i class="fal fa-user"></i>
+            <div class="icon-form">
+              <i class="fal fa-user"></i>
+            </div>
+            <div class="form-group">
+              <label class="bmd-label-floating">Nombre consultorio</label>
+
+
+              {{Form::text('name', $office->name, ['class'=>'form-control'] )}}
+            </div>
           </div>
-          <div class="form-group">
-            <label class="bmd-label-floating">Nombre consultorio</label>
+
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-home"></i>
+            </div>
+
+            <div class="form-group">
+              <label class="bmd-label-floating">Direccion</label>
 
 
-            {{Form::text('name', $office->name, ['class'=>'form-control'] )}}
+              {{Form::text('address', $office->address, ['class'=>'form-control'] )}}
+            </div>
           </div>
-        </div>
 
-        <div class="form-group form-inline align-items-end">
-         <div class="icon-form">
-          <i class="fal fa-home"></i>
-        </div>
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-envelope"></i>
+            </div>
 
-        <div class="form-group">
-          <label class="bmd-label-floating">Direccion</label>
+            <div class="form-group">
+              <label class="bmd-label-floating">codigo postal</label>
+
+              {{Form::text('postalCode', $office->postalCode, ['class'=>'form-control'] )}}
+            </div>
+          </div>
+
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-city"></i>
+            </div>
+
+            <div class="form-group">
+              <label class="bmd-label-floating">Ciudad</label>
+
+              {{Form::text('city', $office->city, ['class'=>'form-control'] )}}
+            </div>
+          </div>
 
 
-          {{Form::text('address', $office->address, ['class'=>'form-control'] )}}
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-flag"></i>
+            </div>
+            <div class="form-group">
+              <label class="bmd-label-floating">Pais</label>
+
+              {{Form::text('country', $office->country, ['class'=>'form-control'] )}}
+            </div>
+          </div>
+
+
+          <div class="form-group form-inline align-items-end ">
+            <div class="icon-form">
+              <i class="fal fa-camera-retro"></i>
+            </div>
+
+            <div class="form-group has-default form-file-upload form-file-simple">
+              <label class="bmd-label-floating">Foto de la clinica</label>
+
+
+              <input type="text" class="form-control inputFileVisible">
+              <input type="file" class="inputFileHidden">
+            </div>
+          </div>
+
+
+          <div class="text-md-center text-right">
+            <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+          </div>
+          {!! Form::close() !!}
         </div>
       </div>
 
-      <div class="form-group form-inline align-items-end">
-       <div class="icon-form">
-        <i class="fal fa-envelope"></i>
-      </div>
 
-      <div class="form-group">
-        <label class="bmd-label-floating">codigo postal</label>
+    </div> <!-- Fila -->
+  </div> <!-- Contenedor -->
 
-        {{Form::text('postalCode', $office->postalCode, ['class'=>'form-control'] )}}
-      </div>
-    </div>
-
-    <div class="form-group form-inline align-items-end">
-     <div class="icon-form">
-      <i class="fal fa-city"></i>
-    </div>
-
-    <div class="form-group">
-      <label class="bmd-label-floating">Ciudad</label>
-
-      {{Form::text('city', $office->city, ['class'=>'form-control'] )}}
-    </div>
-  </div>
-
-
-  <div class="form-group form-inline align-items-end">
-   <div class="icon-form">
-    <i class="fal fa-flag"></i>
-  </div>
-  <div class="form-group">
-    <label class="bmd-label-floating">Pais</label>
-
-    {{Form::text('country', $office->country, ['class'=>'form-control'] )}}
-  </div>
-</div>
-
-
-<div class="form-group form-inline align-items-end ">
-  <div class="icon-form">
-    <i class="fal fa-camera-retro"></i>
-  </div>
-
-  <div class="form-group has-default form-file-upload form-file-simple">
-    <label class="bmd-label-floating">Foto de la clinica</label>
-
-
-    <input type="text" class="form-control inputFileVisible">
-    <input type="file" class="inputFileHidden">
-  </div>
-</div>
-
-
-<div class="text-md-center text-right">
- <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
-</div>
-{!! Form::close() !!}
-</div>
-</div>
-
-
-</div> <!-- Fila -->
-</div> <!-- Contenedor -->
-
-@endsection
+  @endsection

@@ -1,4 +1,3 @@
-
 <div class="modal fade" id="EditarReceta" tabindex="-1" role="dialog" aria-labelledby="EditarRecetaLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -25,17 +24,17 @@
 
 
           </div>
-        </div> 
+        </div>
 
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
         <button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Editar</button>
-            {!! Form::close() !!}
+        {!! Form::close() !!}
 
-      </div>    
-    </div>  
+      </div>
+    </div>
   </div>
 
 </div>

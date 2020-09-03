@@ -21,116 +21,118 @@
 
         <div class="card-body">
           <form method="POST" class="formulario" action="{{ route('doctor.store') }}" enctype="multipart/form-data">
-           @csrf
+            @csrf
 
 
 
 
-           @include('forms.create.user')
+            @include('forms.create.user')
 
 
-           @include('forms.create.address')
+            @include('forms.create.address')
 
 
 
-           <div class="form-group form-inline align-items-end">
+            <div class="form-group form-inline align-items-end">
 
-            <div class="icon-form">
-              <i class="fal fa-address-card"></i>
-            </div>
-            <div class="form-group">
-              <label class="bmd-label-floating">Cedula</label>
-              {{Form::text('schedule', old('schedule'), ['class'=>'form-control'] )}}
+              <div class="icon-form">
+                <i class="fal fa-address-card"></i>
+              </div>
+              <div class="form-group">
+                <label class="bmd-label-floating">Cedula</label>
+                {{Form::text('schedule', old('schedule'), ['class'=>'form-control'] )}}
 
-            </div>
-          </div>
-
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-user-tie"></i>
-            </div>
-            <div class="form-group">
-              
-              <select data-size="7" class="selectpicker" name="especialidad[]" id="especialidad"  multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
-
-                <?php foreach ($specialities as $speciality ): ?>
-
-                  <option value="{{ $speciality->id}}">{{ $speciality->name }}</option>
-
-                <?php endforeach ?>
-              </select>
-
-
-            </div>
-          </div>
-
-
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-hospital"></i>
+              </div>
             </div>
 
-            <div class="form-group">
-              
-              <select class="select2" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
+            <div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-user-tie"></i>
+              </div>
+              <div class="form-group">
 
-                <?php foreach ($offices as $office ): ?>
+                <select data-size="7" class="selectpicker" name="especialidad[]" id="especialidad" multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
 
-                  <option value="{{ $office->id}}"  <?php if(old('office_id')==$office->id){ echo "selected";}?>>{{ $office->name }}</option>
+                  <?php foreach ($specialities as $speciality) : ?>
 
-                <?php endforeach ?>
-              </select>
+                    <option value="{{ $speciality->id}}">{{ $speciality->name }}</option>
 
-              
-            </div>
-          </div>
+                  <?php endforeach ?>
+                </select>
 
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-clock"></i>
+
+              </div>
             </div>
 
 
+            <div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-hospital"></i>
+              </div>
 
-            <div class="form-group">
-            <label class="bmd-label-floating">Horario de entrada</label>
-              {{Form::time('inTime', old('inTime'), ['class'=>'form-control timepicker timepickerEntrada' ] )}}
+              <div class="form-group">
 
+                <select class="select2" name="office_id" id="office_id" data-style="select-with-transition" title="Selecciona un consultorio" data-size="sd7">
+
+                  <?php foreach ($offices as $office) : ?>
+
+                    <option value="{{ $office->id}}" <?php if (old('office_id') == $office->id) {
+                                                        echo "selected";
+                                                      } ?>>{{ $office->name }}</option>
+
+                  <?php endforeach ?>
+                </select>
+
+
+              </div>
             </div>
-          </div>
 
-          <div class="form-group form-inline align-items-end d-none formtimepickerSalida">
-            <div class="icon-form">
-              <i class="fal fa-clock"></i>
+            <div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-clock"></i>
+              </div>
+
+
+
+              <div class="form-group">
+                <label class="bmd-label-floating">Horario de entrada</label>
+                {{Form::time('inTime', old('inTime'), ['class'=>'form-control timepicker timepickerEntrada' ] )}}
+
+              </div>
             </div>
 
-            <div class="form-group">
-            <label class="bmd-label-floating">Horario de salida</label>
-              {{Form::time('outTime', old('outTime'), ['class'=>'form-control timepicker timepickerSalida' ] )}}
+            <div class="form-group form-inline align-items-end d-none formtimepickerSalida">
+              <div class="icon-form">
+                <i class="fal fa-clock"></i>
+              </div>
 
+              <div class="form-group">
+                <label class="bmd-label-floating">Horario de salida</label>
+                {{Form::time('outTime', old('outTime'), ['class'=>'form-control timepicker timepickerSalida' ] )}}
+
+              </div>
             </div>
-          </div>
 
 
-          <div class="mb-3 text-center">
+            <div class="mb-3 text-center">
 
-            <button type="submit" onclick="" class="btn   btn-primary">
-              {{ __('Agregar') }}
-            </button>
-          </div>
+              <button type="submit" onclick="" class="btn   btn-primary">
+                {{ __('Agregar') }}
+              </button>
+            </div>
 
-        </form>
+          </form>
+        </div>
+
+
+
+
       </div>
-
-
-
-
     </div>
+
+
+
   </div>
-
-
-
-</div>
 </div>
 
 

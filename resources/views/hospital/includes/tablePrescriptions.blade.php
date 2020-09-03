@@ -11,7 +11,7 @@
           </div>
           <div class="card-title">Listado de recetas</div>
         </div>
-        
+
         <div class="card-body table-responsives">
 
           <table class="table" id="data_table">
@@ -20,12 +20,12 @@
                 <th>ID</th>
                 <th>Cita ID</th>
                 @if(!Auth::isDoctor())
-                  <th>Doctor</th>
+                <th>Doctor</th>
                 @endif
 
                 @if(!Auth::isPatient())
 
-                  <th>Paciente</th>
+                <th>Paciente</th>
                 @endif
                 <th>Fecha</th>
                 <th>Opciones</th>
@@ -33,9 +33,9 @@
               </tr>
             </thead>
             <tbody>
-                @include('hospital.includes.loopPrescription-desktop')
-      
-             
+              @include('hospital.includes.loopPrescription-desktop')
+
+
             </tbody>
           </table>
 
@@ -47,9 +47,9 @@
 
 
 
-  <div class="col-12 d-block d-md-none">
-                @include('hospital.includes.loopPrescription-movil')
-      
+    <div class="col-12 d-block d-md-none">
+      @include('hospital.includes.loopPrescription-movil')
+
     </div>
 
   </div>

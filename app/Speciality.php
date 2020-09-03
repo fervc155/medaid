@@ -7,52 +7,48 @@ use Illuminate\Database\Eloquent\Model;
 
 class Speciality extends Model
 {
-	   
-    public function doctors() {
+
+    public function doctors()
+    {
         return $this->belongsToMany('App\Doctor');
     }
 
-      public function getpriceAttribute()
+    public function getpriceAttribute()
     {
         $options = new Options();
-        return $options->Moneda(). $this->cost;
+        return $options->Moneda() . $this->cost;
     }
 
-     public function getstarsAttribute()
+    public function getstarsAttribute()
     {
-       
-        $contador=0;
-        $sumatoria=0;
-        foreach ($this->doctors as $doctor)
-        {
-        	if($doctor->stars>0)
-        	{
+
+        $contador = 0;
+        $sumatoria = 0;
+        foreach ($this->doctors as $doctor) {
+            if ($doctor->stars > 0) {
 
                 $contador++;
-                $sumatoria+=$doctor->stars;
-        	}
-            
+                $sumatoria += $doctor->stars;
+            }
         }
 
-        if($contador==0)
-        {
-        	return "No hay calificaciones";
+        if ($contador == 0) {
+            return "No hay calificaciones";
         }
 
-        
 
-        return round($sumatoria/$contador, 1);
+
+        return round($sumatoria / $contador, 1);
     }
 
 
-   public function getStarsEarnedAttribute()
-   {
+    public function getStarsEarnedAttribute()
+    {
         return round($this->stars);
-   }
+    }
 
-   public function getStarsMissingAttribute()
-   {
-        return 5- $this->StarsEarned;
-   }
-
+    public function getStarsMissingAttribute()
+    {
+        return 5 - $this->StarsEarned;
+    }
 }

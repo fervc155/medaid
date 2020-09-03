@@ -12,7 +12,7 @@
   <div class="row ">
 
 
-    <div  class=" col-12 col-md-4">
+    <div class=" col-12 col-md-4">
 
 
 
@@ -35,7 +35,7 @@
             <div class="color-principal">
 
               <i class="fal fa-address-card"></i> ID:
-            </div>  
+            </div>
 
             {{ $office->id }}
 
@@ -46,7 +46,7 @@
             <div class="color-principal">
 
               <i class="fal fa-home"></i> Domicilio:
-            </div>  
+            </div>
 
             {{ $office->address }}
 
@@ -64,7 +64,7 @@
           <div class="form-inline mb-2">
             <div class="color-principal">
               <i class="fal fa-city"></i> Ciudad:
-            </div>                                  
+            </div>
             {{ $office->city }}
 
           </div>
@@ -95,24 +95,22 @@
 
           <div class="caja-contador card">
 
-            <?php $i=0; 
+            <?php $i = 0;
 
-            foreach ($doctors as $d)
-            {
+            foreach ($doctors as $d) {
               $i++;
-
-            }  
+            }
 
             ?>
             <div class="caja-contador-icono">
-              
+
               <i class="fal fa-user-md"></i>
             </div>
             <div class="card-body">
 
 
               <h3>{{$i}}</h3>
-              <p>Doctores</p> 
+              <p>Doctores</p>
             </div>
           </div>
 
@@ -122,24 +120,22 @@
 
           <div class="caja-contador card">
 
-            <?php $i=0; 
+            <?php $i = 0;
 
-            foreach ($doctors as $d)
-            {
-              $i+=count($d->appointments);
-
-            }  
+            foreach ($doctors as $d) {
+              $i += count($d->appointments);
+            }
 
             ?>
             <div class="caja-contador-icono">
-              
+
               <i class="fal fa-calendar-check"></i>
             </div>
             <div class="card-body">
 
 
               <h3>{{$i}}</h3>
-              <p>Citas</p> 
+              <p>Citas</p>
             </div>
           </div>
 
@@ -153,7 +149,7 @@
 
       <div class="row">
         <div class="col">
-         {!! $office->map!!}
+          {!! $office->map!!}
         </div>
       </div>
 
@@ -180,23 +176,23 @@
 
 
 
-      <div class="col-lg-5 col-md-6 col-sm-12">
+    <div class="col-lg-5 col-md-6 col-sm-12">
 
-     <p class="text-capitalize"> filtrar pos especialidad
-</p>        <select id="select-especialidad" class="selectpicker" data-style="select-with-transition" title="Especialidad" data-size="sd7">
-          @foreach($specialities as $speciality)
-
-
-          <option value="{{str_replace(' ','-',$speciality)}}">{{$speciality}}</option>
-       
-          @endforeach
-                    <option value="Todos">Todos</option>
+      <p class="text-capitalize"> filtrar pos especialidad
+      </p> <select id="select-especialidad" class="selectpicker" data-style="select-with-transition" title="Especialidad" data-size="sd7">
+        @foreach($specialities as $speciality)
 
 
-        </select>
-      </div>
-      
-   
+        <option value="{{str_replace(' ','-',$speciality)}}">{{$speciality}}</option>
+
+        @endforeach
+        <option value="Todos">Todos</option>
+
+
+      </select>
+    </div>
+
+
   </div>
 
 </div>
@@ -204,10 +200,12 @@
 <main class="container py-5">
 
   <div class="row">
-    
+
     @foreach($doctors as $doctor)
-    
-    <div class="col-sm-6 col-md-4  card-doctor <?php foreach($doctor->specialities as $speciality){echo " ".str_replace(' ','-',$speciality->name);} ?>">
+
+    <div class="col-sm-6 col-md-4  card-doctor <?php foreach ($doctor->specialities as $speciality) {
+                                                  echo " " . str_replace(' ', '-', $speciality->name);
+                                                } ?>">
 
       @include('web.includes.doctor-card')
 
@@ -221,4 +219,3 @@
 @endsection
 
 @include('includes.dataTables')
-

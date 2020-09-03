@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Appointment_comment extends Model
 {
-	public function appointment(){
+	public function appointment()
+	{
 		return $this->belongsTo('App\appointment');
 	}
 
 
-	public function user(){
+	public function user()
+	{
 		return $this->belongsTo('App\User');
 	}
 
@@ -26,8 +28,7 @@ class Appointment_comment extends Model
 	public function geteditedAttribute()
 	{
 
-		if($this->created_at != $this->updated_at)
-		{
+		if ($this->created_at != $this->updated_at) {
 			return true;
 		}
 
@@ -36,12 +37,6 @@ class Appointment_comment extends Model
 
 	public function getuserUrlAttribute()
 	{
-				return User::find($this->user_id)->Profileurl;
-
-
-
+		return User::find($this->user_id)->Profileurl;
 	}
-
-
-
 }

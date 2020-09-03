@@ -11,7 +11,7 @@
 			<div class="row h-100 align-items-center justify-content-center">
 				<div class="col-10">
 
-					<h1 class="display-4 text-capitalize  d-none d-md-block text-center">Bienvenido a <img  src="{{asset('splash/img/logowhite.png')}}" ></h1>
+					<h1 class="display-4 text-capitalize  d-none d-md-block text-center">Bienvenido a <img src="{{asset('splash/img/logowhite.png')}}"></h1>
 
 				</div>
 			</div>
@@ -26,7 +26,7 @@
 <section class="container-fluid d-block d-md-none bg-primary">
 	<div class="row">
 		<div class="col p-3">
-			<h1 class="h2 text-capitalize text-light  text-center">Bienvenido a <img  src="{{asset('splash/img/logowhite.png')}}" class="w-50" ></h1>
+			<h1 class="h2 text-capitalize text-light  text-center">Bienvenido a <img src="{{asset('splash/img/logowhite.png')}}" class="w-50"></h1>
 		</div>
 	</div>
 </section>
@@ -57,12 +57,12 @@
 		</div>
 		<div class=" col-12 mt-5 mt-md-0 col-sm-6 col-md-4">
 			<div class="modulo">
-					<i class="fal fa-tachometer-fast"></i>
+				<i class="fal fa-tachometer-fast"></i>
 				<h3 class="">Rápido</h3>
 				<p class=" mb-0">Agiliza el trabajo dentro de tu hospital con este gran sistema.</p>
 			</div>
 		</div>
-	</div>  
+	</div>
 </div>
 
 
@@ -155,8 +155,8 @@
 <div class="container-fluid contenedor-foto p-0">
 	<div class="row align-items-center bg-primary">
 
-	
-				
+
+
 		<div class="col-12 col-md-6 align-items-center">
 			<div class="row ">
 				<div class="col p-5 lead  text-light">
@@ -196,11 +196,11 @@
 									<i class="fas fa-user"></i>
 								</div>
 
-								
+
 								<div class="form-group">
-                <label for="nombre" class="bmd-label-floating">Nombre</label>
-                <input type="text" class="form-control" id="nombre">
-              </div>
+									<label for="nombre" class="bmd-label-floating">Nombre</label>
+									<input type="text" class="form-control" id="nombre">
+								</div>
 							</div>
 
 							<div class="form-group form-inline align-items-end">
@@ -209,7 +209,7 @@
 								</div>
 								<div class="form-group">
 									<label class="bmd-label-floating"> Correo</label>
-									<input type="email"  class="form-control form-control-claro" name="">
+									<input type="email" class="form-control form-control-claro" name="">
 								</div>
 							</div>
 
@@ -219,7 +219,7 @@
 								</div>
 								<div class="form-group ">
 									<label class="bmd-label-floating"> Mensaje</label>
-									<textarea type="text"  class="form-control form-control-claro" name=""></textarea>
+									<textarea type="text" class="form-control form-control-claro" name=""></textarea>
 								</div>
 							</div>
 
@@ -229,7 +229,7 @@
 							</div>
 
 						</form>
-					</div>         
+					</div>
 				</div>
 			</div>
 		</div>

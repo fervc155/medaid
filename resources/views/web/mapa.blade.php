@@ -12,19 +12,19 @@
   <div class="row ">
 
 
-    <div  class=" col-12 col-md-4">
+    <div class=" col-12 col-md-4">
 
       {!! $office->map!!}
 
     </div>
- 
 
 
 
-    </div>
+
   </div>
+</div>
 
 
 </div>
 
- @endsection
+@endsection

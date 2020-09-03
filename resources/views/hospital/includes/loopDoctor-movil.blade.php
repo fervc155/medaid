@@ -1,4 +1,3 @@
-
 @foreach ($doctors as $doctor)
 <div class="card  my-5">
   <div class="card-encabezado">
@@ -18,8 +17,8 @@
 
       <div class="icon-form">
 
-        <i class="fal fa-phone"></i> 
-      </div>  
+        <i class="fal fa-phone"></i>
+      </div>
       <div class="icon-texto">
         <span class="color-principal">Teléfono: </span> {{ $doctor->telephone }}
       </div>
@@ -60,19 +59,19 @@
 
       <div class="icon-texto">
 
-        <span class="color-principal">Especialidad: </span> <?php foreach ($doctor->specialities as $speciality): ?>
-        <a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>          
+        <span class="color-principal">Especialidad: </span> <?php foreach ($doctor->specialities as $speciality) : ?>
+          <a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>
         <?php endforeach ?></td>
       </div>
 
-    </div>  
+    </div>
     <div class="text-center">
-      <a href="{{url('/doctor/'.$doctor->id)}}"  class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
+      <a href="{{url('/doctor/'.$doctor->id)}}" class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-md"></i></a>
 
 
       @if((Auth::Office() && Auth::UserId() == $doctor->office_id) || Auth::Admin())
 
-      <a href="{{url('/doctor/'.$doctor->id).'/edit'}}"  class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
+      <a href="{{url('/doctor/'.$doctor->id).'/edit'}}" class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
       <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="doctor-{{$doctor->id}}"> <i class="fas fa-times"></i></button>
 

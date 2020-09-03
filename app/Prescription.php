@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prescription extends Model
 {
-       public function appointment(){
+    public function appointment()
+    {
         return $this->belongsTo('App\Appointment');
     }
-
- 
 }

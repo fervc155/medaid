@@ -23,13 +23,13 @@
 
         <div class="card-body">
           {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}
-           <input type="hidden" name="_token" value="{{ csrf_token()}}">
-          
+          <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
-            <input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
-            <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
-    
-            <div class="form-group form-inline align-items-end">
+
+          <input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
+          <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
+
+          <div class="form-group form-inline align-items-end">
             <div class="icon-form">
               <i class="fal fa-quote-left"></i>
             </div>
@@ -45,8 +45,8 @@
 
           <select class="d-none" name="doctor_id">
 
-          <option value="{{$appointment->doctor->id}}">></option>
-        </select>
+            <option value="{{$appointment->doctor->id}}">></option>
+          </select>
 
 
 
@@ -72,7 +72,7 @@
 
 
 
-            <input type="hidden" name="my-time" value="{{$appointment->time}}">
+          <input type="hidden" name="my-time" value="{{$appointment->time}}">
 
           <div class="form-group form-inline align-items-end">
             <div class="icon-form">
@@ -86,25 +86,24 @@
 
               {{Form::time('time', $appointment->time, ['class'=>'form-control  timepickerCita','readonly'=>'true','id'=>'select-time'] )}}
             </div>
-          <span class="appointment-reestablecer-hora btn-link btn" >Reestablecer hora</span>
+            <span class="appointment-reestablecer-hora btn-link btn">Reestablecer hora</span>
           </div>
 
 
 
 
-      {{ Form::hidden('_method','PUT')}}
+          {{ Form::hidden('_method','PUT')}}
 
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+          </div>
+        </div>
+
+
+
       </div>
     </div>
-
-
-
-  </div>
-</div>
-</div> <!-- Fila -->
+  </div> <!-- Fila -->
 </div> <!-- Contenedor -->
 
 @endsection
-

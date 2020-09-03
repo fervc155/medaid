@@ -63,7 +63,7 @@ class RegisterController extends Controller
             'postalCode' => 'required|string|max:7',
             'city' => 'required|string|max:255',
             'country' => 'required|string|max:255',
- 
+
         ]);
     }
 
@@ -82,18 +82,18 @@ class RegisterController extends Controller
         $patient->postalCode = $data['postalCode'];
         $patient->city = $data['city'];
         $patient->country = $data['country'];
-        $patient->doctor_id =1;
+        $patient->doctor_id = 1;
 
 
-        
+
 
 
         $patient->save();
 
 
-        $ruta_imagen =  $data['image']->store('profile','public');
-    
-         return User::create([
+        $ruta_imagen =  $data['image']->store('profile', 'public');
+
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'telephone' => $data['telephone'],
@@ -101,9 +101,8 @@ class RegisterController extends Controller
             'birthdate' => $data['birthdate'],
             'image' => $ruta_imagen,
             'id_privileges' => Privileges::Id('patient'),
-            'id_user'=>$patient->dni,
+            'id_user' => $patient->dni,
             'password' => Hash::make($data['password']),
         ]);
-
     }
 }

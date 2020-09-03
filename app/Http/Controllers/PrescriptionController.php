@@ -14,119 +14,98 @@ class PrescriptionController extends Controller
     public function index()
     {
 
-        if(Auth::isPatient())
-        {
-            $prescriptions =  Prescription::
-            join('appointments','appointments.id','=','prescriptions.appointment_id')
-            ->select('prescriptions.*','appointments.patient_dni')
-            ->where('appointments.patient_dni', Auth::UserId())
-            ->get();
+        if (Auth::isPatient()) {
+            $prescriptions =  Prescription::join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
+                ->select('prescriptions.*', 'appointments.patient_dni')
+                ->where('appointments.patient_dni', Auth::UserId())
+                ->get();
 
 
 
             return view('hospital.prescription.indexPrescription', compact('prescriptions'));
-
         }
-        if(Auth::isDoctor())
-        {
-           $prescriptions =  Prescription::
-           join('appointments','appointments.id','=','prescriptions.appointment_id')
-           ->select('prescriptions.*','appointments.doctor_id')
-           ->where('appointments.doctor_id', Auth::UserId())
-           ->get();
+        if (Auth::isDoctor()) {
+            $prescriptions =  Prescription::join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
+                ->select('prescriptions.*', 'appointments.doctor_id')
+                ->where('appointments.doctor_id', Auth::UserId())
+                ->get();
 
 
-           return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+            return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+        }
+        if (Auth::isOffice()) {
+            $prescriptions =  Prescription::join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
+                ->join('doctors', 'appointments.doctor_id', '=', 'doctors.id')
+                ->select('prescriptions.*', 'appointments.*', 'doctors.*')
+                ->where('doctors.office_id', Auth::UserId())
+                ->get();
 
 
-       }
-       if(Auth::isOffice())
-       {
-           $prescriptions =  Prescription::
-           join('appointments','appointments.id','=','prescriptions.appointment_id')
-           ->join('doctors','appointments.doctor_id','=','doctors.id')
-           ->select('prescriptions.*','appointments.*','doctors.*')
-           ->where('doctors.office_id', Auth::UserId())
-           ->get();
-
-
-           return view('hospital.prescription.indexPrescription', compact('prescriptions'));
-
-
-       }
-
-       
-
-       if(Auth::isAdmin())
-       {
-
-        $prescriptions = Prescription::all();
-        return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+            return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+        }
 
 
 
+        if (Auth::isAdmin()) {
+
+            $prescriptions = Prescription::all();
+            return view('hospital.prescription.indexPrescription', compact('prescriptions'));
+        }
+
+        return view('admin');
     }
 
-    return view('admin');
-}
-
-public function store(Request $request )
-{
-
-    if(Auth::Doctor())
+    public function store(Request $request)
     {
 
-
-        $prescription =  new Prescription();
-
-        
-        $prescription->appointment_id = htmlspecialchars($request->input('appointment_id'));
-
-        $prescription->content = $request->input('content');
+        if (Auth::Doctor()) {
 
 
-        $prescription->save();
+            $prescription =  new Prescription();
 
 
-        return back()->with('success', 'Se ha agregado la receta correctamente');
+            $prescription->appointment_id = htmlspecialchars($request->input('appointment_id'));
 
+            $prescription->content = $request->input('content');
+
+
+            $prescription->save();
+
+
+            return back()->with('success', 'Se ha agregado la receta correctamente');
+        }
+        return view('admin');
     }
-    return view('admin');
-
-}
 
 
-public function show(Prescription $prescription)
-{
+    public function show(Prescription $prescription)
+    {
         //
-}
+    }
 
-public function edit(Prescription $prescription)
-{
+    public function edit(Prescription $prescription)
+    {
         //
-}
+    }
 
-public function update(Request $request)
-{
-
-    if(Auth::Doctor())
+    public function update(Request $request)
     {
 
-        $prescription = Prescription::find($request->input('prescription_id'));
+        if (Auth::Doctor()) {
 
-        $prescription->content = $request->input('content');
+            $prescription = Prescription::find($request->input('prescription_id'));
 
-        $prescription->save();
+            $prescription->content = $request->input('content');
 
-        return back()->with('success','Receta actualizada correctamente');
+            $prescription->save();
 
+            return back()->with('success', 'Receta actualizada correctamente');
+        }
+        return view('admin');
     }
-    return view('admin');
 
-}
-
-public function destroy(Prescription $prescription)
-{
+    public function destroy(Prescription $prescription)
+    {
         //
-}
+    }
 }

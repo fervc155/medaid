@@ -21,10 +21,10 @@
 
         <div class="card-body">
 
-          @include('forms.edit.login', 
-          [  
+          @include('forms.edit.login',
+          [
           'model'=>$patient,
-          'route'=> route('patient.update.login', ['patient'=>$patient->id]) 
+          'route'=> route('patient.update.login', ['patient'=>$patient->id])
           ]);
 
         </div>
@@ -71,82 +71,84 @@
         <div class="card-body">
 
 
-         <form method="post" action="{{route('patient.update', ['patient'=>$patient->id])}}"   > 
+          <form method="post" action="{{route('patient.update', ['patient'=>$patient->id])}}">
 
-           @method('PUT')
-           @csrf
-
-
-           @include('forms.edit.user', [
-           'model'=>$patient
-           ])
+            @method('PUT')
+            @csrf
 
 
-           <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-id-card"></i>
+            @include('forms.edit.user', [
+            'model'=>$patient
+            ])
+
+
+            <div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-id-card"></i>
+              </div>
+
+              <div class="form-group">
+                <label class="bmd-label-floating"> CURP</label>
+
+
+                {{Form::text('curp', $patient->curp, ['class'=>'form-control'] )}}
+              </div>
             </div>
 
-            <div class="form-group">
-             <label class="bmd-label-floating"> CURP</label>
-
-
-             {{Form::text('curp', $patient->curp, ['class'=>'form-control'] )}}
-           </div>
-         </div>
-
-           @include('forms.edit.address', [
-           'model'=>$patient
-           ])
+            @include('forms.edit.address', [
+            'model'=>$patient
+            ])
 
 
 
-        <div class="form-group form-inline align-items-end ">
-          <div class="icon-form">
-            <i class="fal fa-user-md"></i>
-          </div>
+            <div class="form-group form-inline align-items-end ">
+              <div class="icon-form">
+                <i class="fal fa-user-md"></i>
+              </div>
 
 
 
-          <div class="form-group "  >
+              <div class="form-group ">
 
-            <select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7" >
-              <optgroup label="Selecciona un doctor">
+                <select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7">
+                  <optgroup label="Selecciona un doctor">
 
-                @foreach($offices as $office)
-                <optgroup label="Clinica {{$office->name}}">
+                    @foreach($offices as $office)
+                  <optgroup label="Clinica {{$office->name}}">
 
-                  <?php foreach ($office->doctors as $doctor ): ?>
-
-
-                    <option value="{{ $doctor->id}}" <?php if($patient->doctor_id==$doctor->id){ echo "selected";}?>>{{ $doctor->name }} </option>
-
-                  <?php endforeach ?>
-                </optgroup>
-                @endforeach
-              </optgroup>
-            </select>
+                    <?php foreach ($office->doctors as $doctor) : ?>
 
 
-          </div>
+                      <option value="{{ $doctor->id}}" <?php if ($patient->doctor_id == $doctor->id) {
+                                                          echo "selected";
+                                                        } ?>>{{ $doctor->name }} </option>
+
+                    <?php endforeach ?>
+                  </optgroup>
+                  @endforeach
+                  </optgroup>
+                </select>
+
+
+              </div>
 
 
 
 
 
-          <div class="my-5 text-right text-md-center">
+              <div class="my-5 text-right text-md-center">
 
-            <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
-          </div>
-        </form>
+                <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+              </div>
+          </form>
+        </div>
+
+
       </div>
-
-
     </div>
-  </div>
 
 
-</div> <!-- Fila -->
+  </div> <!-- Fila -->
 </div> <!-- Contenedor -->
 
 

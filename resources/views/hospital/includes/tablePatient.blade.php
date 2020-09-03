@@ -11,11 +11,11 @@
           </div>
           <div class="card-title">Listado de pacientes</div>
         </div>
-        
-        <div class="card-body table-responsives">
-          
 
-          
+        <div class="card-body table-responsives">
+
+
+
 
           <table class="table" id="data_table_pacientes">
             <thead>
@@ -26,10 +26,10 @@
                 <th>Teléfono</th>
                 <th>Sexo</th>
                 <th>Domicilio</th>
-                 @if(!Auth::isDoctor())
-               
+                @if(!Auth::isDoctor())
+
                 <th>Médico</th>
-               
+
                 @endif
                 <th>Acciones</th>
               </tr>
@@ -53,7 +53,7 @@
       @include('hospital.includes.loopPatient-movil');
 
 
-      
+
     </div>
 
 

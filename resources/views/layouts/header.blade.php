@@ -13,7 +13,7 @@
 
 
 	<!-- Bootstrap  material kit-->
-	
+
 	<link href="{{ asset('splash/vendor/bootstrap/css/material-kit.css') }}" rel="stylesheet">
 	<link href="{{ asset('splash/vendor/bootstrap/css/vertical-nav.css') }}" rel="stylesheet">
 
@@ -65,6 +65,7 @@
 
 
 </head>
+
 <body>
 
 	<div id="app">
@@ -79,7 +80,7 @@
 	<!--  JQUERY -->
 	<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
 	<!-- Material kit -->
-	
+
 	<script src="{{asset('splash/vendor/bootstrap/js/popper.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('splash/vendor/bootstrap/js/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
 
@@ -106,7 +107,7 @@
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-	
+
 
 
 
@@ -146,7 +147,9 @@
 
 	<!-- SCRIPTS -->
 
- <script type="text/javascript">let _URL = "<?php echo url('') ?>"</script>'
+	<script type="text/javascript">
+		let _URL = "<?php echo url('') ?>"
+	</script>'
 
 
 
@@ -154,7 +157,7 @@
 	<script src="{{ asset('js/callbacks.js') }}"></script>
 	<script src="{{ asset('js/charts.js') }}"></script>
 	<script src="{{ asset('js/calendar.js') }}"></script>
-	
+
 	<script src="{{ asset('js/datatables.js') }}"></script>
 
 	<script src="{{ asset('js/AJAX-visitantes.js') }}"></script>

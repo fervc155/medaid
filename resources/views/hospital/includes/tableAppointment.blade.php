@@ -19,31 +19,31 @@
           <table class="table " id="data_table_citas">
             <thead>
               <tr>
-                <th >Fecha</th>
-                <th >Hora</th>
-                <th >Costo</th>
-                <th >Razón</th>
-                  @if(!Auth::isDoctor())
-              
-                <th >Médico</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Costo</th>
+                <th>Razón</th>
+                @if(!Auth::isDoctor())
+
+                <th>Médico</th>
                 @endif
 
                 @if(!Auth::isPatient())
-                <th >Paciente</th>
+                <th>Paciente</th>
                 @endif
-                                  @if(!Auth::isDoctor())
+                @if(!Auth::isDoctor())
 
-                <th >Consultorio</th>
+                <th>Consultorio</th>
                 @endif
 
-                <th >Status</th>
+                <th>Status</th>
                 <th>Acciones</th>
 
               </tr>
             </thead>
             <tbody>
-            
-                @include('hospital.includes.loopAppointment-desktop')
+
+              @include('hospital.includes.loopAppointment-desktop')
 
 
             </tbody>
@@ -56,8 +56,8 @@
       </div>
     </div>
     <div class="col-12 d-block d-md-none">
-                @include('hospital.includes.loopAppointment-movil')
-      
+      @include('hospital.includes.loopAppointment-movil')
+
     </div>
 
   </div>

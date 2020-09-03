@@ -14,10 +14,9 @@ class office
      * @param  \Closure  $next
      * @return mixed
      */
-      public function handle($request, Closure $next)
+    public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::Office())
-        {
+        if (Auth::check() && Auth::Office()) {
             return $next($request);
         }
 
