@@ -17,7 +17,7 @@
 
 
 			<div class="card ">
-				<img src="{{asset($office->Profileimg)}}" class="img-fluid">
+				<img src="{{asset($office->user()->Profileimg)}}" class="img-fluid">
 
 				<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$office->name}}</h5>
 
@@ -38,6 +38,19 @@
 						</div>
 
 						{{ $office->id }}
+
+					</div>
+
+
+					<div class="form-inline mb-2">
+
+
+						<div class="color-principal">
+
+							<i class="fal fa-address-card"></i> Administrador:
+						</div>
+
+						{{ $office->user()->name }}
 
 					</div>
 					<div class="form-inline mb-2">

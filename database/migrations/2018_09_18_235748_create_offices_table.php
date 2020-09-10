@@ -16,13 +16,14 @@ class CreateOfficesTable extends Migration
         Schema::create('offices', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name', 30);
+            $table->text('map');
+
             $table->char('address', 100);
             $table->char('postalCode', 10);
             $table->char('city', 60);
-            $table->text('map');
             $table->char('country', 40);
-            $table->string('image')->nullable();
-        });
+           
+         });
     }
 
     /**

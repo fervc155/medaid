@@ -187,7 +187,7 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
     /*----------  Office  ----------*/
 
     route::get('office/create','OfficeController@create');
-    route::get('office/store','OfficeController@store');
+    route::post('office/store','OfficeController@store')->name('office.store');
     route::delete('office/{office}/delete','OfficeController@destroy');
 
 
@@ -269,7 +269,7 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
 Route::group(['middleware' => ['auth','doctor'] ], function () {
 
-     Route::put('doctor/{id}', 'DoctorController@update')->name('doctor.update');
+     Route::put('doctor/{doctor}', 'DoctorController@update')->name('doctor.update');
      Route::put('doctor/{id}/login', 'DoctorController@updateLogin')->name('doctor.update.login');
      Route::put('doctor/{id}/image', 'DoctorController@updateImage')->name('doctor.update.image');
      
@@ -282,6 +282,11 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
 
     Route::get('office/{id}/edit','officeController@edit');
+
+     Route::put('office/{office}', 'officeController@update')->name('office.update');
+     Route::put('office/{id}/login', 'officeController@updateLogin')->name('office.update.login');
+     Route::put('office/{id}/image', 'officeController@updateImage')->name('office.update.image');
+     
 
 
 });

@@ -32,7 +32,7 @@ class Office extends Model
 
   public function getProfileUrlAttribute()
   {
-    return '/office/' . $this->id;
+    return url( '/office/' . $this->id);
   }
 
   //Accessor para que, al consultar el atributo 'nombre', la primera letra sea mayúscula
@@ -50,6 +50,6 @@ class Office extends Model
 
   public function user()
   {
-    return User::where('id_user', '=', $this->id)->where('id_privileges', '=', Privileges::Id('patient'))->get();
+    return User::where('id_user', '=', $this->id)->where('id_privileges', '=', Privileges::Id('office'))->get()->first();
   }
 }

@@ -3,24 +3,91 @@
 @section('content')
 
 
-<div class="container  mb-5">
-  <div class="row justify-content-center">
-
-    <div class="col-12 ">
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
 
       <div class="card">
         <div class="card-encabezado">
 
           <div class="card-cabecera-icono bg-info sombra-2 ">
 
-            <i class="fal fa-hospital"></i>
+            <i class="fal fa-sign-in"></i>
           </div>
-          <div class="card-title">Editar consultorio</div>
+          <div class="card-title">Login</div>
         </div>
 
         <div class="card-body">
-          {!! Form::open(['action' => ['OfficeController@update', $office->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
 
+          @include('forms.edit.login',
+          [
+          'model'=>$office,
+          'route'=> route('office.update.login', ['office'=>$office->id])
+          ]);
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card card-profile">
+        <div class="card-body">
+
+          @include('forms.edit.image',
+          [
+          'route'=>route('office.update.image', ['office'=>$office->id]),
+          'model'=>$office
+
+          ]);
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <div class="row justify-content-center">
+
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-encabezado">
+
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-user-md"></i>
+          </div>
+          <div class="card-title">Datos del médico</div>
+        </div>
+
+        <div class="card-body">
+
+          <form method="post" action="{{route('office.update', ['office'=>$office->id])}}">
+
+ 
+            @csrf
+
+            @method('put')
+
+            @include('forms.edit.user',
+            [
+            'model'=>$office,
+            ]);
+
+
+
+            @include('forms.edit.address',
+            [
+            'model'=>$office,
+            ]);
+
+
+
+ 
           <div class="form-group form-inline align-items-end">
 
             <div class="icon-form">
@@ -30,84 +97,47 @@
               <label class="bmd-label-floating">Nombre consultorio</label>
 
 
-              {{Form::text('name', $office->name, ['class'=>'form-control'] )}}
+              {{Form::text('name_office', $office->name, ['class'=>'form-control'] )}}
             </div>
           </div>
+
+    
+ 
 
           <div class="form-group form-inline align-items-end">
+
             <div class="icon-form">
-              <i class="fal fa-home"></i>
-            </div>
-
-            <div class="form-group">
-              <label class="bmd-label-floating">Direccion</label>
-
-
-              {{Form::text('address', $office->address, ['class'=>'form-control'] )}}
-            </div>
-          </div>
-
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-envelope"></i>
-            </div>
-
-            <div class="form-group">
-              <label class="bmd-label-floating">codigo postal</label>
-
-              {{Form::text('postalCode', $office->postalCode, ['class'=>'form-control'] )}}
-            </div>
-          </div>
-
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-city"></i>
-            </div>
-
-            <div class="form-group">
-              <label class="bmd-label-floating">Ciudad</label>
-
-              {{Form::text('city', $office->city, ['class'=>'form-control'] )}}
-            </div>
-          </div>
-
-
-          <div class="form-group form-inline align-items-end">
-            <div class="icon-form">
-              <i class="fal fa-flag"></i>
+              <i class="fal fa-map"></i>
             </div>
             <div class="form-group">
-              <label class="bmd-label-floating">Pais</label>
+              <label class="bmd-label-floating">Mapa</label>
 
-              {{Form::text('country', $office->country, ['class'=>'form-control'] )}}
+
+              {{Form::text('map', $office->map, ['class'=>'form-control'] )}}
             </div>
           </div>
 
 
-          <div class="form-group form-inline align-items-end ">
-            <div class="icon-form">
-              <i class="fal fa-camera-retro"></i>
+
+            <div class="my-5 text-right text-md-center">
+
+              <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
             </div>
-
-            <div class="form-group has-default form-file-upload form-file-simple">
-              <label class="bmd-label-floating">Foto de la clinica</label>
+          </form>
 
 
-              <input type="text" class="form-control inputFileVisible">
-              <input type="file" class="inputFileHidden">
-            </div>
-          </div>
 
-
-          <div class="text-md-center text-right">
-            <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
-          </div>
-          {!! Form::close() !!}
         </div>
+
+
+
+
       </div>
 
+    </div>
 
-    </div> <!-- Fila -->
-  </div> <!-- Contenedor -->
+  </div> <!-- Fila -->
+</div> <!-- Contenedor -->
 
-  @endsection
+
+@endsection

@@ -28,6 +28,16 @@ class UsersTableSeeder extends Seeder
 
 
   
+      User::create([
+        'name'=>'nombre',
+       'id_privileges'=>3,
+       'id_user'=>1,
+       'email'=>'consultorio@mail.com',
+       'telephone'=>'3313131313',
+       'sex'=>'h',
+       'password'=>bcrypt('123456'),
+     ]);
+
  
    
 

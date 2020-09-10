@@ -366,7 +366,11 @@ class PatientController extends Controller
 
       $ruta_imagen =  $data['image']->store('profile', 'public');
 
-      unlink($user->Pathimg);
+       if(null!=$user->img)
+      {
+
+        unlink($user->Pathimg);
+      }
 
       $user = $patient->user();
       $user->image = $ruta_imagen;

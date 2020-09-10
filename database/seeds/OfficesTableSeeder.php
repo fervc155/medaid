@@ -1,5 +1,7 @@
 <?php
 
+use App\Crud;
+use App\Office;
 use Illuminate\Database\Seeder;
 
 class OfficesTableSeeder extends Seeder
@@ -12,5 +14,13 @@ class OfficesTableSeeder extends Seeder
     public function run()
     {
         factory(App\Office::class, 4)->create();
+
+
+        Office::All()->each(function ($office) 
+       {
+            
+            Crud::newUserSeeder('office',$office->id);
+
+        });
     }
 }

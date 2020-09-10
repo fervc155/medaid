@@ -178,7 +178,11 @@ class DoctorController extends Controller
 
       $ruta_imagen =  $data['image']->store('profile', 'public');
 
-      unlink($user->Pathimg);
+      if(null!=$user->img)
+      {
+
+        unlink($user->Pathimg);
+      }
 
       $user = $doctor->user();
       $user->image = $ruta_imagen;
@@ -233,28 +237,31 @@ class DoctorController extends Controller
   }
 
   //Método update
-  public function update(Request $request)
+  public function update(Request $request, Doctor $doctor)
   {
 
-    if (Auth::Doctor()) {
+    if (Auth::Office() || Auth::user()->profile()->id == $doctor->id) {
 
-
-
-      $this->validate($request, [
-        'name' => 'required',
-        'doctor_id',
+      $data = request()->validate([
+        'name' => 'required|string|max:255',
+        'telephone' => 'required|string|max:20',
+        'sex' => 'required|string|max:1',
         'birthdate' => 'required',
-        'telephoneNumber' => 'required',
-        'turno' => 'required',
-        'sexo' => 'required',
-        'cedula' => 'required',
-        'especialidad' => 'required'
+
+        'address' => 'required|string|max:255',
+        'postalCode' => 'required|string|max:7',
+        'city' => 'required|string|max:255',
+        'country' => 'required|string|max:255',
+
+        //
+        'especialidad.*' => 'required',
+        'schedule' => 'required',
+        'office_id' => 'required',
+        'inTime' => 'required',
+        'outTime' => 'required',
+
       ]);
-
-
-
-      $doctor = Doctor::find($request->input('doctor_id'));
-
+ 
       $doctor->specialities()->detach();
 
 
@@ -268,19 +275,41 @@ class DoctorController extends Controller
 
 
 
-      //Editar médico
-      $doctor->name = $request->input('name');
-      $doctor->birthdate = $request->input('birthdate');
-      $doctor->telephoneNumber = $request->input('telephoneNumber');
-      $doctor->turno = $request->input('turno');
-      $doctor->sexo = $request->input('sexo');
-      $doctor->cedula = $request->input('cedula');
 
-      $doctor->office_id = $request->input('office_id');
-      $doctor->inTime = $request->input('inTime');
-      $doctor->outTime = $request->input('outTime');
+      //Editar médico
+
+
+      $doctor->schedule = $data['schedule'];
+      $doctor->inTime = $data['inTime'];
+      $doctor->outTime = $data['outTime'];
+      $doctor->office_id = $data['office_id'];
+
+      $doctor->address = $data['address'];
+      $doctor->postalCode = $data['postalCode'];
+      $doctor->city = $data['city'];
+      $doctor->country = $data['country'];
+
+
+
+
 
       $doctor->save();
+
+
+  
+
+      $user = $doctor->user();
+
+      $user->name = $data['name'];
+      $user->telephone = $data['telephone'];
+      $user->sex = strtolower($data['sex']);
+      $user->birthdate = $data['birthdate'];
+
+
+      $user->save();
+
+
+ 
 
       return redirect('/doctor/' . $doctor->id)->with('success', '¡El médico ha sido actualizado con éxito!');
     }

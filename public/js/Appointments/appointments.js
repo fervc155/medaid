@@ -30,8 +30,18 @@ if (document.getElementsByClassName('datepicker'))
 $(window).on('load',function()
 {
 
+
+
+	if($('.select-office.ajax').val()>=0)
+	{
+  		obtenerDoctoresClinica();
+
+ 	}
+
+
 	let fecha =$('.appointmentAjax input[name="date"]').val();
 	let doctor =$('.appointmentAjax select[name="doctor_id"]').val();
+
 	appointmentAjaxLlenarHorario(fecha,doctor);
 
 
@@ -231,7 +241,9 @@ __specialities =new Array();
 __doctors = new Array();
 
 
-$('.select-office.ajax').on('change',function()
+$('.select-office.ajax').on('change',obtenerDoctoresClinica)
+
+function obtenerDoctoresClinica()
 {
 
 
@@ -239,7 +251,7 @@ $('.select-office.ajax').on('change',function()
 
 		type:'GET',
 
-		url:_URL+"/get/officesdoctors/"+$(this).val(),
+		url:_URL+"/get/officesdoctors/"+$('.select-office.ajax').val(),
 
 		success:function(data,success){
 			var doctores= JSON.parse(data);
@@ -281,7 +293,8 @@ $('.select-office.ajax').on('change',function()
 		}
 
 	});
-})
+}
+ 
 
 $('.select-speciality.ajax').on('change',function()
 {

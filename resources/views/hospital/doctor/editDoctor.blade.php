@@ -68,20 +68,22 @@
 
           <form method="post" action="{{route('doctor.update', ['doctor'=>$doctor->id])}}">
 
-            <input type="hidden" name="doctor_id" value="{{$doctor->id}}">
+ 
+            @csrf
 
+            @method('put')
 
             @include('forms.edit.user',
             [
             'model'=>$doctor,
-            ]);
+            ])
 
 
 
             @include('forms.edit.address',
             [
             'model'=>$doctor,
-            ]);
+            ])
 
 
 
@@ -96,7 +98,7 @@
               </div>
               <div class="form-group">
                 <label class="bmd-label-floating">Cedula</label>
-                {{Form::text('cedula', $doctor->cedula, ['class'=>'form-control'] )}}
+                {{Form::text('schedule', $doctor->schedule, ['class'=>'form-control'] )}}
 
               </div>
             </div>

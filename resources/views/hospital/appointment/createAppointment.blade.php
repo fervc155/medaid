@@ -103,7 +103,17 @@
 
 								@foreach($offices as $office)
 
-								<option value="{{ $office->id}}">{{ $office->name }} </option>
+								<option value="{{ $office->id}}"
+									@php
+									if(Auth::user()->isOffice() && Auth::user()->profile()->id == $office->id)
+									{
+										echo "selected";
+									}
+
+
+
+									@endphp
+									>{{ $office->name }} </option>
 
 								@endforeach
 							</select>
