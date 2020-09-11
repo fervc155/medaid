@@ -18,18 +18,17 @@
 					</div>
 					<input type="text" class="form-control" placeholder="Buscar un chat">
 				</div>
-				@for ($i=0 ; $i<50 ; $i++) <li class="chat-item ">
-					<div class="imagen-chat">
-						<img src="{{asset('splash/img/user-default.jpg')}}">
+				@for ($i=0 ; $i<50 ; $i++) 
 
-					</div>
-					<div class="texto">
 
-						<span class="nombre">Nombre</span>
-						<span class="fecha ">12/12/1212</span>
-						<div class="mensaje">lorem ipsum dolor...</div>
-					</div>
-					</li>
+				@include('chat.card', 
+				[
+				'chatName'=>'fer',
+				'chatDate'=>'3313/13',
+				'chatMessage'=>'mensaje',
+				'chatImg'=>Auth::user()->Profileimg,
+				]
+				)
 					@endfor
 			</ul>
 
