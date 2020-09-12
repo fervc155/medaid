@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {!! Form::open(['action' => 'PrescriptionController@update', 'method' => 'POST','class'=>'actualizar-receta']) !!}
+      {!! Form::open(['action' => 'PrescriptionController@update', 'method' => 'POST','class'=>'actualizar-receta', 'files' => true, 'enctype' => 'multipart/form-data']) !!}
       <div class="modal-body">
         {{ csrf_field()}}
 
@@ -19,11 +19,24 @@
             <i class="fal fa-file-certificate"></i>
           </div>
           <div class="form-group">
-
             {{Form::textarea('content', '',['class'=>'form-control','placeholder'=>'Contenido'])}}
-
-
           </div>
+
+          <div class="form-group form-inline justify-content-center ">
+            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+              <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
+              <div>
+                <span class="btn btn-raised btn-round btn-primary btn-file">
+                  <span class="fileinput-new">Agregar archivo</span>
+                  <span class="fileinput-exists">Modificar</span>
+                  <input type="file" name="file" value="file" />
+                </span>
+                <br />
+                <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+              </div>
+            </div>
+          </div>
+
         </div>
 
 

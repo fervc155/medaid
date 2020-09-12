@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Storage;
 use App\Prescription;
 use App\Appointemt;
 use Illuminate\Http\Request;
@@ -93,15 +94,31 @@ class PrescriptionController extends Controller
 
         if (Auth::Doctor()) {
 
+            $data = request()->validate([
+                'file' => 'required',
+            ]);
+
             $prescription = Prescription::find($request->input('prescription_id'));
 
             $prescription->content = $request->input('content');
+
+            $file_path =  $data['file']->store('profile', 'public');
+
+            $prescription->file = $file_path;
 
             $prescription->save();
 
             return back()->with('success', 'Receta actualizada correctamente');
         }
         return view('admin');
+    }
+
+    public function download($id)
+    {
+        $prescription = Prescription::find($id);
+        $file_path = $prescription->file;
+
+        return Storage::disk('public')->download($file_path);
     }
 
     public function destroy(Prescription $prescription)

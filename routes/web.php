@@ -73,9 +73,9 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
     Route::get('office', 'OfficeController@index');
     
 
-    route::get('speciality','SpecialityController@index');
+    Route::get('speciality','SpecialityController@index');
 
-
+    Route::get('prescription/download/{id}', 'PrescriptionController@download');
 
 
 
@@ -96,10 +96,9 @@ Route::group(['middleware' => ['auth','doctor'] ], function () {
 
     Route::get('doctor/{id}/edit', 'DoctorController@edit');
     Route::post('prescription/store','PrescriptionController@store');
-    Route::post('prescription/update','PrescriptionController@update'
-);
+    Route::post('prescription/update','PrescriptionController@update');
     Route::get('prescription','PrescriptionController@index');
-
+    Route::get('prescription/download/{id}', 'PrescriptionController@download');
 
 });
 /*=====  End of AUTH doctor  ======*/
