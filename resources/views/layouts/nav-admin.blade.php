@@ -164,24 +164,20 @@
 					@endif
 
 
-					@admin
-
+@if(Auth::Admin())
 					<li class="nav-item <?php if ($active == 'user') {
 											echo 'active';
 										} ?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>
-					@endadmin
-
-					@admin
+ 
 					<li class="nav-item <?php if ($active == 'bills') {
 											echo 'active';
 										} ?>"><a href="{{url('/bills')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
 
-					@endadmin
-					@admin
+				 
 					<li class="nav-item <?php if ($active == 'options') {
 											echo 'active';
 										} ?>"><a href="{{url('/options')}}" class="nav-link"><i class="fal fa-cogs"></i> Opciones</a></li>
-					@endadmin
+					@endif
 
 
 				</ul>

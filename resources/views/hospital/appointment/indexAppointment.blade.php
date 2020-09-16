@@ -17,9 +17,11 @@
 
 
   @else
-
+  
 
   @include('hospital.includes.tableAppointment')
+
+
 
   @endif
 

@@ -15,14 +15,7 @@ class Office extends Model
   //Llave primaria
   public $primaryKey = 'id';
 
-  //Función para añadir Scope, que nos permite filtrar resultados
-  protected static function boot()
-  {
-    parent::boot();
-
-    static::addGlobalScope(new CountryScope);
-  }
-
+ 
   //Relación N:N con médicos, incluyendo la tabla pivote
   public function doctors()
   {

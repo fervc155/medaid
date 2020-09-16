@@ -20,13 +20,7 @@ class Patient extends Model
 
   protected $fillable = ['city', 'country'];
 
-  //Incluye el scope de países (CountryScope.php) para filtrar a pacientes y consultorios de India
-  protected static function boot()
-  {
-    parent::boot();
-
-    static::addGlobalScope(new CountryScope);
-  }
+ 
 
   //Relación N:1 con doctores
   public function doctor()
