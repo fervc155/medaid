@@ -12,6 +12,12 @@
 	<title>MedAid</title>
 
 
+	@livewireStyles
+
+	<!--  JQUERY -->
+	<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
+
+	@livewireScripts
 	<!-- Bootstrap  material kit-->
 
 	<link href="{{ asset('splash/vendor/bootstrap/css/material-kit.css') }}" rel="stylesheet">
@@ -77,8 +83,6 @@
 
 
 
-	<!--  JQUERY -->
-	<script src="{{ asset('splash/vendor/jquery/jquery.min.js') }}"></script>
 	<!-- Material kit -->
 
 	<script src="{{asset('splash/vendor/bootstrap/js/popper.min.js')}}" type="text/javascript"></script>
@@ -149,7 +153,7 @@
 
 	<script type="text/javascript">
 		let _URL = "<?php echo url('') ?>"
-	</script>'
+	</script>
 
 
 

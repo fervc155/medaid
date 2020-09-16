@@ -1240,11 +1240,24 @@ table .btn-just-icon
 
 
 .chat-individual .mensaje-entrada,
-.chat-individual .mensaje-salida
+.chat-individual .mensaje-salida,
+.chat-individual .ver-mas
 {
   margin: 2rem 1rem;
 
 }
+
+.chat-individual .ver-mas
+{
+      font-size: 12px;
+    letter-spacing: 1px;
+    color: #acc3e1;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2rem auto !important;
+    cursor: pointer;
+}
+
 
 .chat-individual .mensaje
 {

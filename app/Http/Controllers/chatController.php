@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 
-use App\Doctor;
+ use App\User;
+use App\Chat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class chatController extends Controller
 {
-    public function index()
-    {
-    	$doctors = Doctor::All();
-    	return view('chat.indexChat', compact('doctors'));
-    }
+	public function index()
+	{
+
+ 
+
+
+		return view('chat.indexChat');
+	}
 }

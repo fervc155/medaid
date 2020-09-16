@@ -100,6 +100,19 @@ Route::group(['middleware' => ['auth','doctor'] ], function () {
     Route::get('prescription','PrescriptionController@index');
     Route::get('prescription/download/{id}', 'PrescriptionController@download');
 
+
+    
+    /*----------  char  ----------*/
+    
+
+
+
+
+
+
+    route::get('chat','chatController@index');
+
+
 });
 /*=====  End of AUTH doctor  ======*/
 
@@ -170,16 +183,6 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
     route::post('options/moneda','optionController@moneda');
     route::post('options/idioma','optionController@idioma');
 
-
-    /*----------  char  ----------*/
-    
-
-
-
-
-
-
-    route::get('chat','chatController@index');
 
 
 
