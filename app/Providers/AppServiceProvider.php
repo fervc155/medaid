@@ -7,25 +7,37 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //Creación de plantilla blade para control de acceso de administradores
-        \Blade::if('admin', function () {
-            return auth()->check() && auth()->user()->isAdmin();
-        });
-    }
-
-    /**
      * Register any application services.
      *
      * @return void
      */
     public function register()
     {
+<<<<<<< HEAD
+        //Creación de plantilla blade para control de acceso de administradores
+        \Blade::if('admin', function () {
+            return auth()->check() && auth()->user()->isAdmin();
+        });
+=======
+        //
+>>>>>>> 23bcdca... Actualizado a 7
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+<<<<<<< HEAD
+    public function register()
+    {
         //
     }
+=======
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+>>>>>>> 23bcdca... Actualizado a 7
 }

@@ -17,17 +17,28 @@
 			</div>
 
 
+<<<<<<< HEAD
 
 		</section>
 	</div>
+=======
+  @else
+  
+>>>>>>> 23bcdca... Actualizado a 7
 
 	<div class="contenedor-fondo">
 		
 	</div>
 
+<<<<<<< HEAD
 	<div class="contenedor-imagen">
 		
 		<div class="container-fluid mt-0  p-0">
+=======
+
+
+  @endif
+>>>>>>> 23bcdca... Actualizado a 7
 
 			<div class="row ">
 				<div class="col ">
