@@ -101,7 +101,7 @@ Route::group(['middleware' => ['auth','doctor'] ], function () {
     Route::get('prescription/download/{id}', 'PrescriptionController@download');
 
 
-    
+
     /*----------  char  ----------*/
     
 
@@ -111,6 +111,7 @@ Route::group(['middleware' => ['auth','doctor'] ], function () {
 
 
     route::get('chat','chatController@index');
+    route::post('chat/count/','chatController@count');
 
 
 });

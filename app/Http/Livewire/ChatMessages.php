@@ -12,6 +12,7 @@ class ChatMessages extends Component
 {
 
 	public $messages;
+	public $countMessages;
 	public $userOut;
 
 	public function mount()
@@ -44,7 +45,8 @@ class ChatMessages extends Component
 	{
 		$this->userOut=User::find($idUser);
 
-		$this->messages =Messages::getMessages($this->userOut->id);
+		$this->messages =Messages::get($this->userOut->id);
+		$this->countMessages =Messages::count($this->userOut->id);
 
 
 
@@ -55,7 +57,7 @@ class ChatMessages extends Component
 	public function loadMore()
 	{
 		$count  = count($this->messages);
-		$this->messages =Messages::getMessages($this->userOut->id,$count+10);
+		$this->messages =Messages::get($this->userOut->id,$count+10);
 
 	}
 
