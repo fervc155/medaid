@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Chat;
 use App\Doctor;
 use App\Office;
 use App\Patient;
@@ -9,6 +10,7 @@ use App\Privileges;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -119,6 +121,29 @@ class User extends Authenticatable
     }
 
 
+    public function getlastChatAttribute()
+    {
+            $message = Chat::whereIn('user_in',[Auth::user()->id,$this->id])
+        ->whereIn('user_out',[Auth::user()->id,$this->id])
+        ->get()
+        ->last();
+
+
+        if(null ==$message)
+        {
+            $message = new Chat;
+
+            $message->message="Comenzar chat";
+      
+
+            return $message;
+        }
+
+
+        return $message;
+
+
+    }
     public function getPathimgAttribute()
     {
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Chat;
+use App\Messages;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -16,9 +17,11 @@ class ChatHeader extends Component
 	public function mount()
 	{
 
-		$lastChat =Chat::where('user_in',Auth::user()->id)
-		->orwhere('user_out',Auth::user()->id)
-		->get()->first();
+		$lastChat =Messages::lastest();
+
+
+		if(null == $lastChat)
+			return;
 
 
 		if($lastChat->user_in == Auth::user()->id)

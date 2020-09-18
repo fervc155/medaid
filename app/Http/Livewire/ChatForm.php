@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Chat;
+use App\Messages;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -20,11 +21,10 @@ class ChatForm extends Component
 	{
 		$this->message ='';
 
-		$lastChat =Chat::where('user_in',Auth::user()->id)
-		->orwhere('user_out',Auth::user()->id)
-		->get()->first();
+		$lastChat =Messages::lastest();
 
-
+if(null == $lastChat)
+			return;
 		if($lastChat->user_in == Auth::user()->id)
 		{
 
@@ -45,7 +45,7 @@ class ChatForm extends Component
  	}
 
 
- 	public function enviarMensaje()
+ 	public function sendMessage()
  	{
 
  		$message =new Chat;

@@ -26,6 +26,7 @@
 
 				
 			</div>
+<audio  id="chat-sound" src="{{asset('sound/chat.mp3')}}"></audio>
 
 		</div>
 	</div>

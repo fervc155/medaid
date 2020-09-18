@@ -1,13 +1,13 @@
 <div class="chat-entrada">
+
+			@if(isset($userOut))
+
 					<div class="input-mensaje">
 
-						<input type="text" class="form-control" placeholder="Mensaje" wire:model="message">
+						<input type="text" class="form-control" placeholder="Mensaje" wire:model="message" wire:keydown.enter="sendMessage">
 					</div>
-					<div class="boton-mensaje">
-						<button class="btn btn-secondary btn-sm" wire:click="enviarMensaje">
-							
-						<i class="fal fa-paper-plane"></i>
-						</button>
-					</div>
+					 
+
+					 @endif
 
 				</div>

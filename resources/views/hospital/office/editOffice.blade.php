@@ -61,7 +61,7 @@
 
             <i class="fal fa-user-md"></i>
           </div>
-          <div class="card-title">Datos del médico</div>
+          <div class="card-title">Datos del oficinista</div>
         </div>
 
         <div class="card-body">

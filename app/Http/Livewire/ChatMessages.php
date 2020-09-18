@@ -18,10 +18,9 @@ class ChatMessages extends Component
 	public function mount()
 	{
 
-		$lastChat =Chat::where('user_in',Auth::user()->id)
-		->orwhere('user_out',Auth::user()->id)
-		->get()->first();
-
+		$lastChat = Messages::lastest();
+if(null == $lastChat)
+			return;
 
 		if($lastChat->user_in == Auth::user()->id)
 		{
@@ -49,6 +48,7 @@ class ChatMessages extends Component
 		$this->countMessages =Messages::count($this->userOut->id);
 
 
+		$this->emit('scrollMessage');
 
 
 	}
@@ -69,12 +69,12 @@ class ChatMessages extends Component
 
 		$this->selectChat($this->userOut->id);
 
-		$this->emit('scrollMessage');
-	}
+ 	}
 
 	public function sendMessage($id)
 	{
 
+		$this->countMessages+=1;
 		$message = Chat::find($id);
 
 		$this->messages->push($message);

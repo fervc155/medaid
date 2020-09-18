@@ -14,16 +14,26 @@ class chatController extends Controller
 	public function index()
 	{
 
-
+	 
+	
+ 
 
 		return view('chat.indexChat');
 	}
 
-		public function count(Request $request)
+	public function count(Request $request)
 	{
 
 
 		return Messages::count($request->input('_userOut'));
+		
+	}
+
+	public function total(Request $request)
+	{
+
+
+		return Messages::total();
 		
 	}
 }

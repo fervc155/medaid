@@ -108,10 +108,12 @@ Route::group(['middleware' => ['auth','doctor'] ], function () {
 
 
 
-
+route::get('profile/image/{id}','ProfileController@image')->name('profile.image');
+    
 
     route::get('chat','chatController@index');
     route::post('chat/count/','chatController@count');
+    route::post('chat/total/','chatController@total');
 
 
 });
@@ -287,8 +289,8 @@ Route::group(['middleware' => ['auth','office'] ], function () {
     Route::get('office/{id}/edit','officeController@edit');
 
      Route::put('office/{office}', 'officeController@update')->name('office.update');
-     Route::put('office/{id}/login', 'officeController@updateLogin')->name('office.update.login');
-     Route::put('office/{id}/image', 'officeController@updateImage')->name('office.update.image');
+     Route::put('office/{office}/login', 'officeController@updateLogin')->name('office.update.login');
+     Route::put('office/{office}/image', 'officeController@updateImage')->name('office.update.image');
      
 
 
