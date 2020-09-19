@@ -3,109 +3,327 @@
 namespace App\Http\Controllers;
 
 use App\Doctor;
+use App\Office;
+use App\Options;
+use App\Crud;
+use App\Speciality;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 
 class DoctorController extends Controller
 {
-    //Lista de doctores
-    public function index()
-    {           
-        $doctors = Doctor::all(); //Para ordenar los doctores por orden alfabético
-        return view('hospital.doctor.indexDoctors', compact('doctors'));
+  //Lista de doctores
+  public function index()
+  {
+
+
+    if (Auth::Patient()) {
+
+
+      $doctors = Doctor::all();
+      return view('hospital.doctor.indexDoctors', compact('doctors'));
     }
+    return view('admin');
+  }
 
-    //Crear doctores
-    public function create()
-    {
-        return view('hospital.doctor.createDoctor');
+  //Crear doctores
+  public function create()
+  {
+    if (Auth::Office()) {
+
+      $defaultImg = new Options();
+      $defaultImg = $defaultImg->UserDefault();
+
+      $offices = Office::all();
+      $specialities = Speciality::all();
+      return view('hospital.doctor.createDoctor', compact('offices', 'specialities', 'defaultImg'));
     }
+    return view('admin');
+  }
 
-    //Almacenar doctor
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'name'=>'required',
-            'birthdate'=>'required',
-            'telephoneNumber'=>'required',
-            'turno'=>'required',
-            'sexo'=>'required',
-            'cedula'=>'required',
-            'especialidad'=>'required'
-        ]);
 
-        //Crear médico
-        $doctor = new Doctor;
-        $doctor->name = $request->input('name');
-        $doctor->birthdate = $request->input('birthdate');
-        $doctor->telephoneNumber = $request->input('telephoneNumber');
-        $doctor->turno = $request->input('turno');
-        $doctor->sexo = $request->input('sexo');
-        $doctor->cedula = $request->input('cedula');
-        $doctor->especialidad = $request->input('especialidad');
-        $doctor->save();
 
-        if($request->has(['office_id', 'inTime', 'outTime']))
-        {
-            $doctor->offices()->attach($request->input('office_id'), 
-                                        ['inTime' => $request->input('inTime'),
-                                         'outTime' => $request->input('outTime')]);
+  //Almacenar doctor
+  public function store(Request $request)
+  {
+    if (Auth::Office()) {
+
+
+      $data = request()->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'telephone' => 'required|string|max:20',
+        'sex' => 'required|string|max:1',
+        'image' => 'required',
+        'password' => 'required|string|min:6|confirmed',
+        'address' => 'required|string|max:255',
+        'birthdate' => 'required',
+        'postalCode' => 'required|string|max:7',
+        'city' => 'required|string|max:255',
+        'country' => 'required|string|max:255',
+
+        //
+        'especialidad.*' => 'required',
+        'schedule' => 'required',
+        'office_id' => 'required',
+        'inTime' => 'required',
+        'outTime' => 'required',
+
+      ]);
+
+      //Crear médico
+      $doctor = new Doctor;
+      $doctor->schedule = $data['schedule'];
+      $doctor->office_id = $data['office_id'];
+      $doctor->inTime = $data['inTime'];
+      $doctor->outTime = $data['outTime'];
+
+      //address
+      $doctor->address = $data['address'];
+      $doctor->postalCode = $data['postalCode'];
+      $doctor->city = $data['city'];
+      $doctor->country = $data['country'];
+
+      $doctor->save();
+
+
+      $especialidades = $data['especialidad'];
+
+      for ($i = 0; $i < count($especialidades); $i++) {
+        $speciality_id = $especialidades[$i];
+
+        echo $speciality_id . " ";
+        $doctor->specialities()->attach($speciality_id);
+      }
+
+
+      //imagen
+      $ruta_imagen =  $data['image']->store('patients', 'public');
+
+
+      Crud::newUser($data, 'doctor', $doctor->id, $ruta_imagen);
+
+
+
+      return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
+    }
+    return view('admin');
+  }
+  
+  public function updateLogin(Request $request,  $id)
+  {
+
+
+    if ((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office()) {
+
+
+      $data = request()->validate([
+        'email' => 'required|string|email|max:255',
+        'password' => 'required|string|min:6',
+        'newpassword' => 'required|string|min:6',
+
+      ]);
+
+
+
+
+      $doctor = Doctor::find($id);
+      $user = $doctor->user();
+
+
+
+      if (Hash::check($data['password'], $doctor->user()->password)) {
+
+        if ($data['newpassword'] == $data['password']) {
+          return  back()->with('error', 'La contraseña nueva debe ser diferente');
         }
 
-        return redirect('/doctor')->with('success', '¡El médico ha sido agregado con éxito!');
+
+
+        $user->email = $data['email'];
+        $user->password = bcrypt($data['newpassword']);
+
+
+        $user->save();
+
+        return redirect('/doctor/' . $id)->with('success', '¡El usuario ha sido actualizado con éxito!');
+      }
+
+      return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');
     }
 
-    //Mostrar información de doctor
-    public function show(Doctor $doctor)
-    {
-        return view('hospital.doctor.showDoctor', compact('doctor'))
-                ->with('patients', $doctor->patients)
-                ->with('offices', $doctor->offices)
-                ->with('appointments', $doctor->appointments);
+    return view('admin');
+  }
+
+  public function updateImage(Request $request,  $id)
+  {
+
+    if ((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office()) {
+
+
+      $data = request()->validate([
+        'image' => 'required',
+      ]);
+
+
+      $doctor = Doctor::find($id);
+
+
+      $user = $doctor->user();
+
+
+
+      $ruta_imagen =  $data['image']->store('profile', 'public');
+
+      if(null!=$user->img)
+      {
+
+        unlink($user->Pathimg);
+      }
+
+      $user = $doctor->user();
+      $user->image = $ruta_imagen;
+      $user->save();
+
+      return redirect('/doctor/' . $id)->with('success', '¡La foto ha sido actualizada con éxito!');
     }
 
-    //Actualizar doctor
-    public function edit(Doctor $doctor)
-    {
-        return view('hospital.doctor.editDoctor', compact('doctor'));
+    return view('admin');
+  }
+  //Mostrar información de doctor
+  public function show($id)
+  {
+
+    $doctor = Doctor::find($id);
+
+
+    if (Auth::Patient()) {
+
+
+
+
+
+
+
+      return view('hospital.doctor.showDoctor', compact('doctor'))
+        ->with('patients', $doctor->patients)
+        ->with('appointments', $doctor->appointments);
     }
 
-    //Método update
-    public function update(Request $request, Doctor $doctor)
-    {
-        $this->validate($request, [
-            'name'=>'required',
-            'birthdate'=>'required',
-            'telephoneNumber'=>'required',
-            'turno'=>'required',
-            'sexo'=>'required',
-            'cedula'=>'required',
-            'especialidad'=>'required'
-        ]);
+    return view('admin');
+  }
 
-        //Editar médico
-        $doctor->name = $request->input('name');
-        $doctor->birthdate = $request->input('birthdate');
-        $doctor->telephoneNumber = $request->input('telephoneNumber');
-        $doctor->turno = $request->input('turno');
-        $doctor->sexo = $request->input('sexo');
-        $doctor->cedula = $request->input('cedula');
-        $doctor->especialidad = $request->input('especialidad');
-        $doctor->save();
+  //Actualizar doctor
+  public function edit($id)
+  {
 
-        if($request->has(['office_id', 'inTime', 'outTime']))
-        {
-            $doctor->offices()->attach($request->input('office_id'), 
-                                        ['inTime' => $request->input('inTime'),
-                                         'outTime' => $request->input('outTime')]);
-        }
+    $doctor = Doctor::find($id);
 
-        return redirect('/doctor');
+
+
+
+
+
+    if (Auth::isAdmin() ||  Auth::user()->profile()->id == $id  || (Auth::isOffice() && Auth::user()->profile()->id == $doctor->office_id)) {
+
+      $offices = Office::all();
+      $specialities = Speciality::all();
+      return view('hospital.doctor.editDoctor', compact('doctor', 'specialities', 'offices'));
     }
+    return view('admin');
+  }
 
-    //Eliminar doctor
-    public function destroy(Doctor $doctor)
-    {
-        $doctor->delete();
-        return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
+  //Método update
+  public function update(Request $request, Doctor $doctor)
+  {
+
+    if (Auth::Office() || Auth::user()->profile()->id == $doctor->id) {
+
+      $data = request()->validate([
+        'name' => 'required|string|max:255',
+        'telephone' => 'required|string|max:20',
+        'sex' => 'required|string|max:1',
+        'birthdate' => 'required',
+
+        'address' => 'required|string|max:255',
+        'postalCode' => 'required|string|max:7',
+        'city' => 'required|string|max:255',
+        'country' => 'required|string|max:255',
+
+        //
+        'especialidad.*' => 'required',
+        'schedule' => 'required',
+        'office_id' => 'required',
+        'inTime' => 'required',
+        'outTime' => 'required',
+
+      ]);
+ 
+      $doctor->specialities()->detach();
+
+
+      $especialidades = $request->input('especialidad');
+      for ($i = 0; $i < count($especialidades); $i++) {
+        $speciality_id = $especialidades[$i];
+
+        echo $speciality_id . " ";
+        $doctor->specialities()->attach($speciality_id);
+      }
+
+
+
+
+      //Editar médico
+
+
+      $doctor->schedule = $data['schedule'];
+      $doctor->inTime = $data['inTime'];
+      $doctor->outTime = $data['outTime'];
+      $doctor->office_id = $data['office_id'];
+
+      $doctor->address = $data['address'];
+      $doctor->postalCode = $data['postalCode'];
+      $doctor->city = $data['city'];
+      $doctor->country = $data['country'];
+
+
+
+
+
+      $doctor->save();
+
+
+  
+
+      $user = $doctor->user();
+
+      $user->name = $data['name'];
+      $user->telephone = $data['telephone'];
+      $user->sex = strtolower($data['sex']);
+      $user->birthdate = $data['birthdate'];
+
+
+      $user->save();
+
+
+ 
+
+      return redirect('/doctor/' . $doctor->id)->with('success', '¡El médico ha sido actualizado con éxito!');
     }
+    return view('admin');
+  }
+
+  //Eliminar doctor
+  public function destroy(Doctor $doctor)
+  {
+    if (Auth::Office()) {
+
+      $doctor->delete();
+      return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
+    }
+    return view('admin');
+  }
 }

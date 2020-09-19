@@ -1,101 +1,109 @@
-@extends('layouts.nav')
+@extends('layouts.nav-admin')
 
 @section('content')
 
 
-<section class="container my-5">
-  <div class="row">
-    <div class="col">
-
-      <h1 class="text-center display-4 text-capitalize color-principal">Editar Cita</h1>
-    </div>
-  </div>
-</section>
-<!-- Se crea un formulario cuya información se envía el método "Update" del controlador,
-  utilizando el método PUT de HTTP-->
-
-  <div class="container tarjeta">
-    <div class="row justify-content-center">
 
 
-      <div class="col-12 col-md-6">
-        <!-- El contenido se enviará a 'update' con el método PUT -->
-        {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}
+<div class="container mb-5 appointmentAjax">
+  <div class="row justify-content-center">
 
-        <div class="form-group form-inline">
-         <div class="icon-form">
-          <i class="fas fa-calendar-week"></i>
-        </div>
-        {{Form::date('date', '', ['class'=>'form-control datepicker','placeholder' => 'Selecciona la Fecha'] )}}
+    <div class="col-12 ">
+      <div class="card">
 
-      </div>
+        <div class="card-encabezado">
 
-      <div class="form-group form-inline">
-        <div class="icon-form">
-          <i class="fas fa-clock"></i>
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-calendar-check"></i>
+          </div>
+          <div class="card-title">Editar cita</div>
         </div>
 
-        {{Form::time('time', '', ['class'=>'form-control timepicker','placeholder' => 'Selecciona la hora'] )}}
-      </div>
 
-      <div class="form-group form-inline">
-        <div class="icon-form">
-          <i class="fas fa-money-bill-wave"></i>
+        <div class="card-body">
+          {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}
+          <input type="hidden" name="_token" value="{{ csrf_token()}}">
+
+
+          <input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
+          <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
+
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-quote-left"></i>
+            </div>
+
+            <div class="form-group">
+
+              <label class="bmd-label-floating">Descripcion</label>
+
+              {{Form::text('description', $appointment->description, ['class'=>'form-control'] )}}
+            </div>
+          </div>
+
+
+          <select class="d-none" name="doctor_id">
+
+            <option value="{{$appointment->doctor->id}}">></option>
+          </select>
+
+
+
+
+
+
+
+
+          <div class="form-group form-inline align-items-end">
+
+            <div class="icon-form">
+              <i class="fal fa-calendar-week"></i>
+            </div>
+
+            <div class="form-group">
+
+              <label class="bmd-label-floating">Fecha</label>
+
+              {{Form::date('date', $appointment->date, ['class'=>'form-control datepicker'] )}}
+
+            </div>
+          </div>
+
+
+
+          <input type="hidden" name="my-time" value="{{$appointment->time}}">
+
+          <div class="form-group form-inline align-items-end">
+            <div class="icon-form">
+              <i class="fal fa-clock"></i>
+            </div>
+
+            <div class="form-group groupTimepickerCita">
+
+
+              <label class="bmd-label-floating">Hora</label>
+
+              {{Form::time('time', $appointment->time, ['class'=>'form-control  timepickerCita','readonly'=>'true','id'=>'select-time'] )}}
+            </div>
+            <span class="appointment-reestablecer-hora btn-link btn">Reestablecer hora</span>
+          </div>
+
+
+
+
+          {{ Form::hidden('_method','PUT')}}
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
+          </div>
         </div>
-        {{Form::number('cost', '', ['class'=>'form-control','placeholder' => 'Precio'] )}}
+
+
+
       </div>
-
-      <div class="form-group form-inline">
-       <div class="icon-form">
-        <i class="fas fa-tag"></i>
-      </div>
-      {{Form::text('description', $appointment->description, ['class'=>'form-control', 'placeholder' => 'Razón o motivo'] )}}
     </div>
-
-    <div class="form-group form-inline">
-     <div class="icon-form">
-      <i class="fas fa-user-md"></i>
-    </div>
-    {{Form::text('doctor_id', $appointment->doctor_id, ['class'=>'form-control', 'placeholder' => 'ID del médico'] )}}
-  </div>
-
-  <div class="form-group form-inline">
-   <div class="icon-form">
-    <i class="fas fa-user-injured"></i>
-  </div>
-  {{Form::text('patient_dni', $appointment->patient_dni, ['class'=>'form-control', 'placeholder' => 'ID del paciente'] )}}
-</div>
-
-<div class="form-group form-inline">
- <div class="icon-form">
-  <i class="fas fa-hospital"></i>
-</div>
-{{Form::text('office_id', $appointment->office_id, ['class'=>'form-control', 'placeholder' => 'ID del consultorio'] )}}
-</div>
-
-<div class="form-group form-inline">
- <div class="icon-form">
-  <i class="fas fa-quote-left"></i>
-</div>
-{{Form::text('comments', $appointment->comments, ['class'=>'form-control', 'placeholder' => 'Comentarios o conclusiones'] )}}
-</div>
-
-<div class="form-group form-inline">
- <div class="icon-form">
-  <i class="fas fa-check"></i>
-</div>
-{{Form::select('completed', [true => 'Sí', false => 'No'],null, ['class'=> 'form-control'])}}
-</div>
-
-{{ Form::hidden('_method','PUT')}}
-<div class="my-3">
- <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-plus"> Agregar</i></button>
-</div>      
-{!! Form::close() !!}
-</div>
-
-
-</div> <!-- Fila -->
+  </div> <!-- Fila -->
 </div> <!-- Contenedor -->
 
 @endsection

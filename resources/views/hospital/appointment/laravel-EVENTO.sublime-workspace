@@ -1,0 +1,2009 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"contaier",
+				"container-fluid"
+			],
+			[
+				"Appointment",
+				"Appointment_comment"
+			],
+			[
+				"Appo",
+				"AppointmentController〔class〕"
+			],
+			[
+				"ap",
+				"appointment"
+			],
+			[
+				"hora",
+				"horaActual〔variable〕"
+			],
+			[
+				"forma",
+				"formatDateToday〔function〕"
+			],
+			[
+				"minuti",
+				"minutoMin〔variable〕"
+			],
+			[
+				"mu",
+				"minutoMin"
+			],
+			[
+				"minuto",
+				"minutoMin〔variable〕"
+			],
+			[
+				"rem",
+				"remove〔function〕"
+			],
+			[
+				"appoint",
+				"$appointments〔variable〕"
+			],
+			[
+				"arra",
+				"array_push"
+			],
+			[
+				"condi",
+				"condition_id"
+			],
+			[
+				"appoin",
+				"$appointments〔variable〕"
+			],
+			[
+				"spe",
+				"$specialities〔variable〕"
+			],
+			[
+				"sp",
+				"speciality"
+			],
+			[
+				"speci",
+				"specialities"
+			],
+			[
+				"spec",
+				"specialityID"
+			],
+			[
+				"pad",
+				"padding\tproperty"
+			],
+			[
+				"box",
+				"box-sizing\tproperty"
+			],
+			[
+				"fle",
+				"flex-wrap\tproperty"
+			],
+			[
+				"spei",
+				"$speciality〔variable〕"
+			],
+			[
+				"array_pu",
+				"array_push〔function〕"
+			],
+			[
+				"espe",
+				"especialidades〔variable〕"
+			],
+			[
+				"border",
+				"border-radius\tproperty"
+			],
+			[
+				"marg",
+				"margin\tproperty"
+			],
+			[
+				"c",
+				"cptm\tCustom Post Type: Admin Messages"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"time",
+				"timepicker"
+			],
+			[
+				"remo",
+				"removeClass〔function〕"
+			],
+			[
+				"bgw",
+				"bg-white \tBootstrap 4 Class"
+			],
+			[
+				"special",
+				"$speciality〔variable〕"
+			],
+			[
+				"specialit",
+				"speciality"
+			],
+			[
+				"speciali",
+				"speciality_id"
+			],
+			[
+				"specia",
+				"speciality"
+			],
+			[
+				"alig",
+				"align-items\tproperty"
+			],
+			[
+				"pa",
+				"padding\tproperty"
+			],
+			[
+				"mar",
+				"margin-top\tproperty"
+			],
+			[
+				"over",
+				"overflow-y\tproperty"
+			],
+			[
+				"caja",
+				"caja-contador-icono"
+			],
+			[
+				"caja-con",
+				"caja-contador-icono"
+			],
+			[
+				"caja-conta",
+				"caja-contador-icono"
+			],
+			[
+				"ff",
+				"ff-a\tfont-family: Arial, \"Helvetica Neue\", Helvetica, sans-serif;"
+			],
+			[
+				"align-items",
+				"align-items-end \tBootstrap 4 Class"
+			],
+			[
+				"texc",
+				"text-center \tBootstrap 4 Class"
+			],
+			[
+				"doctor",
+				"doctor_id"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"fomr",
+				"form-group"
+			],
+			[
+				"app",
+				"appointment/{{$a->id"
+			],
+			[
+				"card",
+				"card-body"
+			],
+			[
+				"lh",
+				"line-height\tproperty"
+			],
+			[
+				"for",
+				"form-group"
+			],
+			[
+				"colum",
+				"flex-column \tBootstrap 4 Class"
+			],
+			[
+				"bord",
+				"border-bottom\tproperty"
+			],
+			[
+				"btn-s",
+				"btn-success \tBootstrap 4 Class"
+			],
+			[
+				"dr",
+				"dropdown \tBootstrap 4 Class"
+			],
+			[
+				"cee",
+				"ceeluu.com"
+			],
+			[
+				"rgb",
+				"rgba()\tbackground-color"
+			],
+			[
+				"h1",
+				"h-100 \tBootstrap 4 Class"
+			],
+			[
+				"u",
+				"url()\tbackground-image"
+			],
+			[
+				"z",
+				"z-index\tproperty"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"h",
+				"height\tproperty"
+			],
+			[
+				"var",
+				"var_dump〔function〕"
+			],
+			[
+				"border-r",
+				"border-r-0 \tTailwind Class"
+			],
+			[
+				"trnas",
+				"transition\tproperty"
+			],
+			[
+				"trans",
+				"translateY()\ttransform"
+			],
+			[
+				"tra",
+				"transition\tproperty"
+			],
+			[
+				"button",
+				"button-dashboard"
+			],
+			[
+				"bg-",
+				"bg-danger \tBootstrap 4 Class"
+			],
+			[
+				"bgzc",
+				"bgsz-ct\tbackground-size: contain;"
+			],
+			[
+				"form-",
+				"form-group"
+			],
+			[
+				"pr",
+				"pr-0 \tBootstrap 4 Class"
+			],
+			[
+				"min",
+				"min-width\tproperty"
+			],
+			[
+				"nav",
+				"navbar-responsive-open"
+			],
+			[
+				"co",
+				"collapse \tBootstrap 4 Class"
+			],
+			[
+				"cl",
+				"click〔function〕"
+			],
+			[
+				"tran",
+				"translateY()\ttransform"
+			],
+			[
+				"bus",
+				"busqueda"
+			],
+			[
+				"b",
+				"$busqueda〔variable〕"
+			],
+			[
+				"Car",
+				"CartDetail〔class〕"
+			],
+			[
+				"text-w",
+				"text-white \tBootstrap 4 Class"
+			],
+			[
+				"PRod",
+				"ProductImage〔class〕"
+			],
+			[
+				"acf",
+				"$acfuser〔variable〕"
+			],
+			[
+				"text",
+				"text-center \tBootstrap 4 Class"
+			],
+			[
+				"ro",
+				"rotateX()\ttransform"
+			],
+			[
+				"certificad",
+				"certificados"
+			],
+			[
+				"flex",
+				"flex-column \tBootstrap 4 Class"
+			],
+			[
+				"proto",
+				"$protocolos〔variable〕"
+			],
+			[
+				"Pro",
+				"ProductImage"
+			],
+			[
+				"pro",
+				"products"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"image",
+				"imageUrl〔function〕"
+			],
+			[
+				"le",
+				"letter-spacing\tproperty"
+			],
+			[
+				"trasn",
+				"transform\tproperty"
+			],
+			[
+				"transl",
+				"translateX()\ttransform"
+			],
+			[
+				"boxs",
+				"box-shadow\tproperty"
+			],
+			[
+				"produ",
+				"$productos〔variable〕"
+			],
+			[
+				"btn-",
+				"btn-info \tBootstrap 4 Class"
+			],
+			[
+				"Coller",
+				"Collective\\Html\\FormFacade〔class〕"
+			],
+			[
+				"Colle",
+				"Collective\\Html\\FormFacade〔class〕"
+			],
+			[
+				"_",
+				"_titulo_url"
+			],
+			[
+				"tex",
+				"text-center \tBootstrap 4 Class"
+			],
+			[
+				"bordra",
+				"border-radius\tproperty"
+			],
+			[
+				"img",
+				"img-fluid \tBootstrap 4 Class"
+			],
+			[
+				"wp_",
+				"wp_query"
+			],
+			[
+				"App",
+				"AppRoutingModule"
+			],
+			[
+				"bgz",
+				"bgsz-cv\tbackground-size: cover;"
+			],
+			[
+				"l",
+				"logo.jpg\tw:504 h:504"
+			],
+			[
+				"get_template_",
+				"get_template_directory"
+			],
+			[
+				"wp_en",
+				"wp_enqueue_style"
+			],
+			[
+				"fecha",
+				"fecha_actual"
+			],
+			[
+				"fecha_",
+				"$fecha_vigencia〔variable〕"
+			],
+			[
+				"wp_get_current",
+				"wp_get_current_user"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"que",
+				"query"
+			],
+			[
+				"certifi",
+				"certificado_posttype〔function〕"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"formt",
+				"form-control \tBootstrap 4 Class"
+			],
+			[
+				"s",
+				"scale()\ttransform"
+			],
+			[
+				"f",
+				"fondo.png\tw:1921 h:1081"
+			],
+			[
+				"p",
+				"padding\tproperty"
+			],
+			[
+				"tw",
+				"text-white \tBootstrap 4 Class"
+			],
+			[
+				"sca",
+				"scale()\ttransform"
+			],
+			[
+				"tras",
+				"transform\tproperty"
+			],
+			[
+				"re",
+				"relative\tposition"
+			],
+			[
+				"jcm",
+				"justify-content-md-start \tBootstrap 4 Class"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/routes/web.php",
+			"settings":
+			{
+				"buffer_size": 648,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/app/Http/Controllers/EstudianteController.php",
+			"settings":
+			{
+				"buffer_size": 789,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/app/Providers/EventServiceProvider.php",
+			"settings":
+			{
+				"buffer_size": 817,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/app/Event/EstudianteRegistrado.php",
+			"settings":
+			{
+				"buffer_size": 864,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/app/Mail/correoEstudiante.php",
+			"settings":
+			{
+				"buffer_size": 676,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/resources/views/plantillaCorreo.blade.php",
+			"settings":
+			{
+				"buffer_size": 232,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/app/Listeners/EstudianteListener.php",
+			"settings":
+			{
+				"buffer_size": 648,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/resources/views/registrarEstudiante.blade.php",
+			"settings":
+			{
+				"buffer_size": 1233,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/.env",
+			"settings":
+			{
+				"buffer_size": 806,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/app/Providers/AppServiceProvider.php",
+			"settings":
+			{
+				"buffer_size": 473,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/eventos/database/migrations/2019_12_29_205622_create_estudiantes_table.php",
+			"settings":
+			{
+				"buffer_size": 730,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 203.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"reint",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinte",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinten",
+				"github: set remote for integration"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"reind",
+				"ReIndent: to 2"
+			],
+			[
+				"web",
+				"Build With: sublimerepl_build_system_hack"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reindent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reinden",
+				"ReIndent: to 2"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"ReIndent: to 2"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reiden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reident",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"reide",
+				"ReIndent: to 2"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"reid",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"package control ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indn",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"ireinde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"in",
+				"ReIndent: to 4"
+			],
+			[
+				"indent",
+				"Indexing Status"
+			],
+			[
+				"emmet to",
+				"Emmet: Toggle Comment"
+			],
+			[
+				"emmet",
+				"Emmet: Balance (inward)"
+			],
+			[
+				"emet",
+				"Emmet: Toggle Comment"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: int",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: li",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/xampp/htdocs/laravel/eventos",
+		"/C/xampp/htdocs/laravel/eventos/app",
+		"/C/xampp/htdocs/laravel/eventos/app/Event",
+		"/C/xampp/htdocs/laravel/eventos/app/Exceptions",
+		"/C/xampp/htdocs/laravel/eventos/app/Listeners",
+		"/C/xampp/htdocs/laravel/eventos/app/Mail",
+		"/C/xampp/htdocs/laravel/eventos/resources",
+		"/C/xampp/htdocs/laravel/eventos/resources/views"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/laravel/hospital/vendor/symfony/event-dispatcher/DependencyInjection/RegisterListenersPass.php",
+		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers/AppointmentController.php",
+		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers/API/ApiController.php",
+		"/C/xampp/htdocs/almacenes/dashboard/css/style.css",
+		"/C/xampp/htdocs/almacenes/dashboard/index.view.php",
+		"/C/Users/DELL/Desktop/archivo 2.csv",
+		"/C/Users/DELL/Desktop/lentes.csv",
+		"/C/Users/DELL/Desktop/a12.csv",
+		"/C/xampp/htdocs/curso php/mysql/pdo.php",
+		"/C/xampp/htdocs/curso php/blog/buscar.php",
+		"/C/xampp/htdocs/curso php/blog/funciones.php",
+		"/C/Users/DELL/Desktop/almacenes/northwind-profe.sql",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/web/especialidad.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/admin/Products/create.blade.php",
+		"/C/Users/DELL/Documents/CUCEI/5to/Progra/phonegap/invernadero/www/index.html",
+		"/C/Users/DELL/Documents/CUCEI/5to/Progra/phonegap/invernadero/www/js/funciones.js",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/includes/dataTables.blade.php",
+		"/C/xampp/htdocs/laravel/hospital/public/js/app.js",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/includes/list-appointments.blade.php",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/js/bootstrap-md.min.js",
+		"/C/xampp/htdocs/laravel/app-shop/routes/web.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/admin/Products/index.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/app/Http/Controllers/ProductController.php",
+		"/C/xampp/htdocs/laravel/hospital/database/seeds/UsersTableSeeder.php",
+		"/C/xampp/htdocs/laravel/app-shop/database/factories/UserFactory.php",
+		"/C/xampp/htdocs/laravel/app-shop/database/factories/CategoryFactory.php",
+		"/C/xampp/htdocs/laravel/app-shop/database/seeds/DatabaseSeeder.php",
+		"/C/xampp/htdocs/laravel/hospital/database/seeds/d.php",
+		"/C/xampp/htdocs/laravel/app-shop/database/migrations/2014_10_12_100000_create_password_resets_table.php",
+		"/C/xampp/htdocs/laravel/app-shop/database/migrations/2019_10_03_183758_create_products_table.php",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/package.json",
+		"/C/laravel/Api/.env",
+		"/C/laravel/Api/la wea",
+		"/C/laravel/Api/Homestead.yaml",
+		"/C/Users/DELL/Desktop/hosts",
+		"/C/laravel/Api/vendor/bin/homestead",
+		"/C/xampp/htdocs/laravel/hospital/vendor/swiftmailer/swiftmailer/doc/headers.rst",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/Bill/indexDoctors.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/layouts/app.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/auth/login.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/resources/views/admin/Products/Images/index.blade.php",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/office/showOffice.blade.php",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/option/indexOptions.blade.php",
+		"/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/fontawesome/js/fontawesome.js",
+		"/C/Users/DELL/Desktop/a10.csv",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/assets/demo/demo.js",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/index.html",
+		"/C/xampp/htdocs/ceeluu.com/wp-login.php",
+		"/C/xampp/htdocs/ceeluu.com/.htaccess",
+		"/C/xampp/htdocs/ceeluu.com/wp-content/plugins/all-in-one-wp-security-and-firewall/admin/wp-security-user-login-menu.php",
+		"/C/Users/DELL/Downloads/aysel/default-form-(imported)-2019-09-24_17_55_36.csv",
+		"/C/Users/DELL/Desktop/upgrade/u515838835_ccep.sql",
+		"/C/xampp/htdocs/ceeluu.com/wp-config.php",
+		"/C/xampp/htdocs/ceeluu.com/wp-includes/functions.php",
+		"/C/xampp/htdocs/ceeluu.com/wp-settings.php",
+		"/C/xampp/mysql/data/ibdata1",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-pro-html-v2.1.1/material-kit-pro-html-v2.1.1/assets/css/material-kit.css",
+		"/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/index.html",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-master/index basic.html",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/css/material-kit.min.css",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-master/examples/login-page.html",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/js/i.html",
+		"/C/Users/DELL/Documents/Desarrollo/material-kit-master/assets/css/material-kit.css",
+		"/C/Users/DELL/Documents/Desarrollo/bootstrap 4.0/bootstrap.min.css",
+		"/C/xampp/htdocs/laravel/hospital/bootstrap/app.php",
+		"/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/template.html",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/js/material-kit.js",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/css/material-kit.css",
+		"/C/xampp/htdocs/laravel/hospital/vendor/phpunit/php-text-template/src/Template.php",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/landing-page.css",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/default.css",
+		"/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/material-kit-pro-html-v1.2.1/index.html",
+		"/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/material-kit-pro-html-v1.2.1/assets/css/bootstrap.min.css",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/css/bootstrap.css",
+		"/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/material-kit-pro-html-v1.2.1/assets/css/material-kit.css",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/bootstrap/css/bootstrap.min.css",
+		"/C/xampp/htdocs/laravel/hospital/public/splash/vendor/material kit/ISSUE_TEMPLATE.md",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/storefront-functions.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/functions 2.php",
+		"/C/Users/DELL/Desktop/tabla faltantes.csv",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/template-homepage.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/template-medicos.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/archive-protocolo.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/single-product 2.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/functions.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/style.css",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/template-fullwidth.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/single-product.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/single-producto.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/class-wc-post-types.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/woocommerce.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/content-product.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/loop.php",
+		"/C/Users/DELL/Desktop/cursos/vbootstrap/Diseño y Desarrollo Web con Bootstrap 4 Incluye 8 Proyectos/6. fiverr/css/style.css",
+		"/C/xampp/htdocs/wisenine/wp-content/themes/wisenine/style.css",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-3/single-certificado.php",
+		"/C/Users/DELL/Downloads/aysel/aysel/style.css",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/template/cabecera-autor.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/single-certificado.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-3/style.css",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-3/template-homepage.php",
+		"/C/Users/DELL/Downloads/aysel/aysel/functions.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/header-home.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/template-homepage 2.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/header.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/template/cabecera-entrada.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/footer.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/functions.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/sidebar.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/footer.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/content-homepage.php",
+		"/C/Users/DELL/AppData/Local/Temp/fz3temp-2/template-inicio.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/template/cabecera-conferencia.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/header.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/template/cabecera-inicio.php",
+		"/C/xampp/htdocs/laravel/mis-pensamientos/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/laravel/my-thoughts/app/User.php",
+		"/C/xampp/htdocs/laravel/proyectolaravel/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/AYSEL/wp-content/plugins/user-registration/includes/functions-ur-template.php",
+		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/author.php",
+		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/template-medicos.php",
+		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/footer-usuario.php",
+		"/C/xampp/htdocs/AYSEL/wp-content/themes/ayselac/style.css",
+		"/C/xampp/htdocs/AYSEL/wp-content/plugins/user-registration/includes/functions-ur-account.php",
+		"/C/xampp/htdocs/AYSEL/wp-content/plugins/user-registration/includes/functions-ur-page.php",
+		"/C/xampp/htdocs/Tema_renato/wp-content/themes/blog/front-page.php"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 133.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"->",
+			">",
+			"Nombre",
+			"nombre",
+			"Nombre",
+			"nombre",
+			"Nombre",
+			"nombre"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/xampp/htdocs/laravel/eventos/routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								565,
+								584
+							]
+						],
+						"settings":
+						{
+							"SL.137.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/xampp/htdocs/laravel/eventos/app/Http/Controllers/EstudianteController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 789,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								727,
+								727
+							]
+						],
+						"settings":
+						{
+							"SL.14.region_keys":
+							[
+							],
+							"SL.142.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 232.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/xampp/htdocs/laravel/eventos/app/Providers/EventServiceProvider.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 817,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								772,
+								772
+							]
+						],
+						"settings":
+						{
+							"SL.191.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/xampp/htdocs/laravel/eventos/app/Event/EstudianteRegistrado.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 864,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								537,
+								537
+							]
+						],
+						"settings":
+						{
+							"SL.196.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/xampp/htdocs/laravel/eventos/app/Mail/correoEstudiante.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								645,
+								650
+							]
+						],
+						"settings":
+						{
+							"SL.204.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/xampp/htdocs/laravel/eventos/resources/views/plantillaCorreo.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								232,
+								232
+							]
+						],
+						"settings":
+						{
+							"SL.206.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/xampp/htdocs/laravel/eventos/app/Listeners/EstudianteListener.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 648,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								623,
+								628
+							]
+						],
+						"settings":
+						{
+							"SL.205.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/xampp/htdocs/laravel/eventos/resources/views/registrarEstudiante.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								805,
+								805
+							]
+						],
+						"settings":
+						{
+							"SL.144.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 106.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/xampp/htdocs/laravel/eventos/.env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 806,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								560,
+								560
+							]
+						],
+						"settings":
+						{
+							"SL.165.region_keys":
+							[
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/xampp/htdocs/laravel/eventos/app/Providers/AppServiceProvider.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								473,
+								473
+							]
+						],
+						"settings":
+						{
+							"SL.169.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/xampp/htdocs/laravel/eventos/database/migrations/2019_12_29_205622_create_estudiantes_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								562,
+								562
+							]
+						],
+						"settings":
+						{
+							"SL.185.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 54.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.GitSavvy":
+	{
+		"height": 126.0
+	},
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 95.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "laravel-EVENTO.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tecon",
+				"app\\Http\\Controllers\\EstudianteController.php"
+			],
+			[
+				"tecontrol",
+				"app\\Http\\Controllers\\EstudianteController.php"
+			],
+			[
+				"",
+				"app\\Mail\\correoEstudiante.php"
+			],
+			[
+				"correoEs",
+				"app\\Mail\\correoEstudiante.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"correoE",
+				"app\\Mail\\correoEstudiante.php"
+			],
+			[
+				"correo",
+				"app\\Mail\\correoEstudiante.php"
+			],
+			[
+				"corre",
+				"app\\Mail\\correoEstudiante.php"
+			],
+			[
+				"tecontroller",
+				"app\\Http\\Controllers\\EstudianteController.php"
+			],
+			[
+				"eventSer",
+				"app\\Providers\\EventServiceProvider.php"
+			],
+			[
+				"estudiante",
+				"app\\Http\\Controllers\\EstudianteController.php"
+			],
+			[
+				"2019_",
+				"database\\migrations\\2019_12_29_205622_create_estudiantes_table.php"
+			],
+			[
+				"appservic",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"blade.php",
+				"resources\\views\\registrarEstudiante.blade.php"
+			],
+			[
+				"Estudiantecontroller",
+				"app\\Http\\Controllers\\EstudianteController.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"Estudiante",
+				"app\\Http\\Controllers\\EstudianteController.php"
+			],
+			[
+				"showA",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"commentfac",
+				"database\\factories\\Appointment_commentFactory.php"
+			],
+			[
+				"appointmentfactory",
+				"database\\factories\\AppointmentFactory.php"
+			],
+			[
+				"commentSe",
+				"database\\seeds\\Appointment_commentSeeder.php"
+			],
+			[
+				"Appointmentseeder",
+				"database\\seeds\\AppointmentsTableSeeder.php"
+			],
+			[
+				"indexa",
+				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
+			],
+			[
+				"appointment",
+				"app\\Appointment.php"
+			],
+			[
+				"commentCn",
+				"app\\Http\\Controllers\\Appointment_commentController.php"
+			],
+			[
+				"appointmentCon",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"indexA",
+				"resources\\views\\hospital\\appointment\\indexAppointment.blade.php"
+			],
+			[
+				"comment.js",
+				"public\\js\\Appointments\\appointment_comment.js"
+			],
+			[
+				"commentControl",
+				"app\\Http\\Controllers\\Appointment_commentController.php"
+			],
+			[
+				"script",
+				"public\\js\\scripts.js"
+			],
+			[
+				"index.",
+				"C:\\Users\\DELL\\Documents\\Desarrollo\\material-kit-pro-html-v2.1.1\\material-kit-pro-html-v2.1.1\\index.html"
+			],
+			[
+				"index",
+				"C:\\Users\\DELL\\Documents\\Desarrollo\\material-kit-pro-html-v2.1.1\\material-kit-pro-html-v2.1.1\\index.html"
+			],
+			[
+				"appoint",
+				"app\\Appointment.php"
+			],
+			[
+				"commentCon",
+				"app\\Http\\Controllers\\Appointment_commentController.php"
+			],
+			[
+				"commentConr",
+				"app\\Http\\Controllers\\Appointment_commentController.php"
+			],
+			[
+				"appontmentcontroller",
+				"app\\Http\\Controllers\\Appointment_commentController.php"
+			],
+			[
+				"doctores.",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"header",
+				"resources\\views\\layouts\\header.blade.php"
+			],
+			[
+				"appontm",
+				"app\\Appointment.php"
+			],
+			[
+				"home.",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"homeCon",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"index.html",
+				"C:\\Users\\DELL\\Documents\\Desarrollo\\material-kit-pro-html-v2.1.1\\material-kit-pro-html-v2.1.1\\index.html"
+			],
+			[
+				"showAppointment",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"appointmentC",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"edit",
+				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
+			],
+			[
+				"create",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"appointment.php",
+				"app\\Appointment.php"
+			],
+			[
+				"appointment_comment",
+				"app\\Http\\Controllers\\Appointment_commentController.php"
+			],
+			[
+				"Appointment_con",
+				"app\\Appointment_comment.php"
+			],
+			[
+				"doctor",
+				"app\\Doctor.php"
+			],
+			[
+				"database/2019_",
+				"database\\migrations\\2019_12_26_235849_create_appointment_comments_table.php"
+			],
+			[
+				"config/a",
+				"config\\app.php"
+			],
+			[
+				"app.php",
+				"bootstrap\\app.php"
+			],
+			[
+				"appointmentContro",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"doctores.bla",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"createA",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"appo",
+				"public\\js\\Appointments\\appointments.js"
+			],
+			[
+				"scripts",
+				"public\\js\\scripts.js"
+			],
+			[
+				"editA",
+				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
+			],
+			[
+				"api",
+				"app\\Http\\Controllers\\API\\ApiController.php"
+			],
+			[
+				"appointme",
+				"public\\js\\Appointments\\appointments.js"
+			],
+			[
+				"createAppo",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"appointment.js",
+				"public\\js\\Appointments\\appointments.js"
+			],
+			[
+				"createAppointment",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"scrip",
+				"public\\js\\scripts.js"
+			],
+			[
+				"appointminets",
+				"public\\js\\Appointments\\appointments.js"
+			],
+			[
+				"seeder/",
+				"vendor\\symfony\\event-dispatcher\\DependencyInjection\\RegisterListenersPass.php"
+			],
+			[
+				"factory",
+				"vendor\\phpunit\\php-file-iterator\\src\\Factory.php"
+			],
+			[
+				"citas",
+				"resources\\views\\web\\citas.blade.php"
+			],
+			[
+				"createa",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"doctores",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"ajax",
+				"public\\js\\AJAX.js"
+			],
+			[
+				"crea",
+				"resources\\views\\hospital\\appointment\\createAppointment.blade.php"
+			],
+			[
+				"conditions",
+				"app\\Conditions.php"
+			],
+			[
+				"show",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"appointmentCont",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"specia",
+				"app\\Http\\Controllers\\SpecialityController.php"
+			],
+			[
+				"condition",
+				"app\\Conditions.php"
+			],
+			[
+				"appointment.bl",
+				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
+			],
+			[
+				"doctorContro",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"appointm",
+				"app\\Http\\Controllers\\AppointmentController.php"
+			],
+			[
+				"citas.",
+				"resources\\views\\web\\citas.blade.php"
+			],
+			[
+				"aja",
+				"public\\js\\AJAX.js"
+			],
+			[
+				"web.blade",
+				"resources\\views\\layouts\\web.blade.php"
+			],
+			[
+				"webContro",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"doctor-card",
+				"resources\\views\\web\\includes\\doctor-card.blade.php"
+			],
+			[
+				"web",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"consultorio",
+				"resources\\views\\web\\consultorio.blade.php"
+			],
+			[
+				"especialidades",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"webCon",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"office",
+				"app\\Office.php"
+			],
+			[
+				"special",
+				"app\\Speciality.php"
+			],
+			[
+				"cons",
+				"resources\\views\\web\\consultorios.blade.php"
+			],
+			[
+				"especialidad",
+				"resources\\views\\web\\especialidad.blade.php"
+			],
+			[
+				"a",
+				"public\\js\\AJAX.js"
+			],
+			[
+				"web/doc",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"web.p",
+				"routes\\web.php"
+			],
+			[
+				"espec",
+				"resources\\views\\web\\especialidad.blade.php"
+			],
+			[
+				"especi",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"web/doctores",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"especial",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"doctor-car",
+				"resources\\views\\web\\includes\\doctor-card.blade.php"
+			],
+			[
+				"card",
+				"resources\\views\\web\\includes\\doctor-card.blade.php"
+			],
+			[
+				"espe",
+				"resources\\views\\web\\especialidad.blade.php"
+			],
+			[
+				"webC",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"spe",
+				"app\\Speciality.php"
+			],
+			[
+				"doctor.php",
+				"app\\Doctor.php"
+			],
+			[
+				"web/especialidad",
+				"resources\\views\\web\\especialidad.blade.php"
+			],
+			[
+				"apiContro",
+				"app\\Http\\Controllers\\API\\ApiController.php"
+			],
+			[
+				"web/espe",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"layout.",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\views\\layout.blade.php"
+			],
+			[
+				"web.blad",
+				"resources\\views\\layouts\\web.blade.php"
+			],
+			[
+				"route",
+				"vendor\\symfony\\routing\\Route.php"
+			],
+			[
+				"controllers",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"web/especia",
+				"resources\\views\\web\\especialidad.blade.php"
+			],
+			[
+				"web/espec",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"controllers/we",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"db.php",
+				"C:\\xampp\\htdocs\\almacenes\\dashboard\\db.php"
+			],
+			[
+				"index.view",
+				"C:\\xampp\\htdocs\\almacenes\\dashboard\\index.view.php"
+			],
+			[
+				"editD",
+				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
+			],
+			[
+				"doctorContr",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"editDo",
+				"resources\\views\\hospital\\doctor\\editDoctor.blade.php"
+			],
+			[
+				"DOCTORcONTRO",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"web.bla",
+				"resources\\views\\layouts\\web.blade.php"
+			],
+			[
+				"style",
+				"public\\css\\style.css"
+			],
+			[
+				"WEB",
+				"routes\\web.php"
+			],
+			[
+				"speciality.blade",
+				"resources\\views\\hospital\\Speciality\\showSpeciality.blade.php"
+			],
+			[
+				"welcome",
+				"resources\\views\\welcome.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 365.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

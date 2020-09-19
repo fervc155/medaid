@@ -1,86 +1,77 @@
-@extends('layouts.app')
+@extends('layouts.nav-login')
 
 @section('content')
-<section class="container tarjeta">
+
+<main class="register" style="background-image: url({{asset('splash/header/login.jpg')}});">
+
+  <secton class="container mt-5 ">
+    <div class="row  justify-content-center">
+      <div class="col-11 col-sm-8  col-lg-6   ">
 
 
-    <div class="row justify-content-center ">
-        <div class=" text-center tarjeta-titulo col-12 col-md-6  ">
-            <h2 class="h2 py-3 m-0">
-                {{__('Registro')}}
-                
-            </h2>
+
+
+
+        <div class="card card-blog sombra">
+          <div class="card-cabecera bg-info sombra-2">
+
+            <div class="card-title text-center text-uppercase text-white h2 sans-serif ">
+              {{__('Registro')}}
+            </div>
+          </div>
+
+          <div class="card-body">
+            <form method="POST" class="formulario" action="{{ route('register') }}" enctype="multipart/form-data">
+              @csrf
+
+              @include('forms.create.user')
+
+              <div class="form-group form-inline align-items-end">
+                <div class="icon-form">
+                  <i class="fal fa-id-card"></i>
+                </div>
+
+                <div class="form-group">
+                  <label class="bmd-label-floating"> CURP</label>
+
+
+                  {{Form::text('curp', old('curp'), ['class'=>'form-control'] )}}
+                </div>
+              </div>
+
+              @include('forms.create.address')
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="mb-3 text-center">
+
+                <button type="submit" onclick="" class="btn   btn-primary">
+                  {{ __('Registrarse') }}
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+
+
         </div>
+      </div>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="tarjeta-contenido col-md-6 col-12 ">
+    </section>
 
-               
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+</main>
 
-                        <div class="form-group form-inline justity-content-center ">
-                            <div class="icon-form ">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            
-                                <input id="name" type="text" class=" form-control-claro form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="{{ __('Nombre') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback lead text-light" role="alert">
-                                        <strong>{{ $errors->first('name') }} </strong>
-                                    </span>
-                                @endif
-                        </div>
-
-                        <div class="form-group form-inline justity-content-center ">
-                            <div class="icon-form ">
-                                <i class="fas fa-at"></i>
-                            </div>
-
-                                <input id="email" type="email" class=" form-control-claro form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"  placeholder="{{ __('Correo electrónico') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback lead text-light" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
-
-                        <div class="form-group form-inline justity-content-center ">
-                            <div class="icon-form ">
-                                <i class="fas fa-key"></i>
-                            </div>
-                              <input id="password" type="password" class=" form-control-claro form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Contraseña') }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback lead text-light" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                        
-                        </div>
-
-                        <div class="form-group form-inline justity-content-center ">
-                            <div class="icon-form ">
-                                <i class="fas fa-key"></i>
-                            </div>
-
-                                <input id="password-confirm" type="password" class=" form-control-claro form-control" name="password_confirmation" placeholder="{{ __('Confirmar contraseña') }}" required>
-                      
-                        </div>
-
-                        <div class="form-group form-inline justity-content-center  mt-4 mb-0">
-                  
-                                <button type="submit" class="btn w-100 btn-claro">
-                                    {{ __('Registrar') }}
-                                </button>
-                          
-                        </div>
-                    </form>
-              
-        </div>
-    </div>
-</section>
 @endsection
