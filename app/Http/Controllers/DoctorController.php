@@ -23,7 +23,7 @@ class DoctorController extends Controller
     if (Auth::Patient()) {
 
 
-      $doctors = Doctor::all();
+      $doctors = Doctor::active();
       return view('hospital.doctor.indexDoctors', compact('doctors'));
     }
     return view('admin');
@@ -37,8 +37,8 @@ class DoctorController extends Controller
       $defaultImg = new Options();
       $defaultImg = $defaultImg->UserDefault();
 
-      $offices = Office::all();
-      $specialities = Speciality::all();
+      $offices = Office::active();
+      $specialities = Speciality::active();
       return view('hospital.doctor.createDoctor', compact('offices', 'specialities', 'defaultImg'));
     }
     return view('admin');
@@ -113,86 +113,8 @@ class DoctorController extends Controller
     return view('admin');
   }
   
-  public function updateLogin(Request $request,  $id)
-  {
 
-
-    if ((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office()) {
-
-
-      $data = request()->validate([
-        'email' => 'required|string|email|max:255',
-        'password' => 'required|string|min:6',
-        'newpassword' => 'required|string|min:6',
-
-      ]);
-
-
-
-
-      $doctor = Doctor::find($id);
-      $user = $doctor->user();
-
-
-
-      if (Hash::check($data['password'], $doctor->user()->password)) {
-
-        if ($data['newpassword'] == $data['password']) {
-          return  back()->with('error', 'La contraseña nueva debe ser diferente');
-        }
-
-
-
-        $user->email = $data['email'];
-        $user->password = bcrypt($data['newpassword']);
-
-
-        $user->save();
-
-        return redirect('/doctor/' . $id)->with('success', '¡El usuario ha sido actualizado con éxito!');
-      }
-
-      return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');
-    }
-
-    return view('admin');
-  }
-
-  public function updateImage(Request $request,  $id)
-  {
-
-    if ((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office()) {
-
-
-      $data = request()->validate([
-        'image' => 'required',
-      ]);
-
-
-      $doctor = Doctor::find($id);
-
-
-      $user = $doctor->user();
-
-
-
-      $ruta_imagen =  $data['image']->store('profile', 'public');
-
-      if(null!=$user->img)
-      {
-
-        unlink($user->Pathimg);
-      }
-
-      $user = $doctor->user();
-      $user->image = $ruta_imagen;
-      $user->save();
-
-      return redirect('/doctor/' . $id)->with('success', '¡La foto ha sido actualizada con éxito!');
-    }
-
-    return view('admin');
-  }
+ 
   //Mostrar información de doctor
   public function show($id)
   {
@@ -229,7 +151,7 @@ class DoctorController extends Controller
 
     if (Auth::isAdmin() ||  Auth::user()->profile()->id == $id  || (Auth::isOffice() && Auth::user()->profile()->id == $doctor->office_id)) {
 
-      $offices = Office::all();
+      $offices = Office::active();
       $specialities = Speciality::all();
       return view('hospital.doctor.editDoctor', compact('doctor', 'specialities', 'offices'));
     }

@@ -28,6 +28,22 @@ class Crud extends Model
 		$user->save();
 	}
 
+	public static function newAdmin($data, $model_id)
+	{
+
+ 
+		$user = new User();
+		$user->name = $data['name'];
+		$user->email = $data['email'];
+		$user->telephone = $data['telephone'];
+		$user->sex = $data['sex'];
+		$user->birthdate = $data['birthdate'];
+		$user->id_privileges = Privileges::Id('admin');
+		$user->id_user = $model_id;
+		$user->password = Hash::make($data['password']);
+		$user->save();
+	}
+
 	public static function newUserSeeder($privilege, $model_id)
 	{
 
@@ -37,10 +53,9 @@ class Crud extends Model
 			'email' => $faker->email,
 			'telephone' => $faker->numerify('##########'),
 			'sex' => $faker->randomElement($array2 = array('m', 'f')),
-			'image' => 'required',
-			'birthdate' => $faker->dateTimeBetween($startDate = '-90 years', $endDate = '-18 years', $timezone = null),
+ 			'birthdate' => $faker->dateTimeBetween($startDate = '-90 years', $endDate = '-18 years', $timezone = null),
 			'password' => '123456',
-			'imagen' => 'profile/img.jpg',
+		//	'imagen' => 'profile/img.jpg',
 
 
 		);
@@ -51,7 +66,7 @@ class Crud extends Model
 		$user->telephone = $data['telephone'];
 		$user->sex = $data['sex'];
 		$user->birthdate = $data['birthdate'];
-		$user->image = $data['imagen'];
+		//$user->image = $data['imagen'];
 		$user->id_privileges = Privileges::Id($privilege);
 		$user->id_user = $model_id;
 		$user->password = Hash::make($data['password']);

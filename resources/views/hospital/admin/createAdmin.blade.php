@@ -3,53 +3,10 @@
 @section('content')
 
 
+
+
 <div class="container">
   <div class="row">
-    <div class="col-12 col-md-6">
-
-      <div class="card">
-        <div class="card-encabezado">
-
-          <div class="card-cabecera-icono bg-info sombra-2 ">
-
-            <i class="fal fa-sign-in"></i>
-          </div>
-          <div class="card-title">Login</div>
-        </div>
-
-        <div class="card-body">
-
-          @include('forms.edit.login',
-          [
-          'model'=>$doctor,
-           ]);
-
-        </div>
-
-
-
-
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="card card-profile">
-        <div class="card-body">
-
-          @include('forms.edit.image',
-          [
-           'model'=>$doctor
-
-          ]);
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container mb-5">
-  <div class="row justify-content-center">
-
     <div class="col-12">
 
       <div class="card">
@@ -57,35 +14,22 @@
 
           <div class="card-cabecera-icono bg-info sombra-2 ">
 
-            <i class="fal fa-user-md"></i>
+            <i class="fal fa-user-injured"></i>
           </div>
-          <div class="card-title">Datos del médico</div>
+          <div class="card-title">Registrar doctor</div>
         </div>
 
         <div class="card-body">
-
-          <form method="post" action="{{route('doctor.update', ['doctor'=>$doctor->id])}}">
-
- 
+          <form method="POST" class="formulario" action="{{ route('doctor.store') }}" enctype="multipart/form-data">
             @csrf
 
-            @method('put')
-
-            @include('forms.edit.user',
-            [
-            'model'=>$doctor,
-            ])
 
 
 
-            @include('forms.edit.address',
-            [
-            'model'=>$doctor,
-            ])
+            @include('forms.create.user')
 
 
-
-
+            @include('forms.create.address')
 
 
 
@@ -96,7 +40,7 @@
               </div>
               <div class="form-group">
                 <label class="bmd-label-floating">Cedula</label>
-                {{Form::text('schedule', $doctor->schedule, ['class'=>'form-control'] )}}
+                {{Form::text('schedule', old('schedule'), ['class'=>'form-control'] )}}
 
               </div>
             </div>
@@ -111,9 +55,7 @@
 
                   <?php foreach ($specialities as $speciality) : ?>
 
-                    <option value="{{ $speciality->id}}" ? <?php if ($doctor->hasSpeciality($speciality->id)) {
-                                                              echo "selected";
-                                                            } ?>>{{ $speciality->name }}</option>
+                    <option value="{{ $speciality->id}}">{{ $speciality->name }}</option>
 
                   <?php endforeach ?>
                 </select>
@@ -121,21 +63,6 @@
 
               </div>
             </div>
-
-
-
-
-            @if(count($offices)>0)
-            <div class="card-encabezado mt-5">
-
-              <div class="card-cabecera-icono bg-info sombra-2 ">
-
-                <i class="fal fa-user-md"></i>
-              </div>
-              <div class="card-title">Consultorio </div>
-            </div>
-
-
 
 
             <div class="form-group form-inline align-items-end">
@@ -149,7 +76,7 @@
 
                   <?php foreach ($offices as $office) : ?>
 
-                    <option value="{{ $office->id}}" <?php if ($doctor->id == $office->id) {
+                    <option value="{{ $office->id}}" <?php if (old('office_id') == $office->id) {
                                                         echo "selected";
                                                       } ?>>{{ $office->name }}</option>
 
@@ -169,7 +96,7 @@
 
               <div class="form-group">
                 <label class="bmd-label-floating">Horario de entrada</label>
-                {{Form::time('inTime',$doctor->inTime, ['class'=>'form-control timepicker timepickerEntrada' ] )}}
+                {{Form::time('inTime', old('inTime'), ['class'=>'form-control timepicker timepickerEntrada' ] )}}
 
               </div>
             </div>
@@ -181,34 +108,35 @@
 
               <div class="form-group">
                 <label class="bmd-label-floating">Horario de salida</label>
-                {{Form::time('outTime', $doctor->outTime, ['class'=>'form-control timepicker timepickerSalida' ] )}}
+                {{Form::time('outTime', old('outTime'), ['class'=>'form-control timepicker timepickerSalida' ] )}}
 
               </div>
             </div>
 
-            @endif
 
+            <div class="mb-3 text-center">
 
-
-            <div class="my-5 text-right text-md-center">
-
-              <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Agregar</i></button>
+              <button type="submit" onclick="" class="btn   btn-primary">
+                {{ __('Agregar') }}
+              </button>
             </div>
+
           </form>
-
-
-
         </div>
 
 
 
 
       </div>
-
     </div>
 
-  </div> <!-- Fila -->
-</div> <!-- Contenedor -->
 
+
+  </div>
+</div>
+
+
+</div> <!-- Fila -->
+</div> <!-- Contenedor -->
 
 @endsection

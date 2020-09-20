@@ -116,6 +116,14 @@ route::get('profile/image/{id}','ProfileController@image')->name('profile.image'
     route::post('chat/total/','chatController@total');
 
 
+
+
+    // admin
+
+
+    route::get('admin/{admin}','adminController@show')->name('admin.show');
+
+
 });
 /*=====  End of AUTH doctor  ======*/
 
@@ -199,9 +207,17 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
     
 
 
+// admin
 
 
-    
+    route::get('admin/{admin}/edit','adminController@edit')->name('admin.edit');
+    route::put('admin/{admin}','AdminController@update')->name('admin.update');
+     Route::put('admin/{admin}/login', 'AdminController@updateLogin')->name('admin.update.login');
+     Route::put('admin/{admin}/image', 'AdminController@updateImage')->name('admin.update.image');
+     
+    // user
+
+     Route::put('user/{user}/block', 'UserController@block')->name('user.block');
 
 });
 
@@ -255,9 +271,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => ['auth','patient'] ], function () {
    Route::get('patient/{id}','patientController@show');
    Route::get('patient/{id}/edit','patientController@edit');
-   Route::put('patient/{id}','PatientController@update')->name('patient.update');
-   Route::put('patient/{id}/login','PatientController@updateLogin')->name('patient.update.login');
-   Route::put('patient/{id}/image','PatientController@updateImage')->name('patient.update.image');
+   Route::put('patient/{patient}','PatientController@update')->name('patient.update');
+
 
    Route::get('office/{id}' ,'officeController@show')->name('office.show');
    Route::get('doctor/{id}','DoctorController@show')->name('doctor.show');
@@ -267,7 +282,8 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
 
 
-
+   Route::put('profile/{user}/login','ProfileController@updateLogin')->name('profile.update.login');
+   Route::put('profile/{user}/image','ProfileController@updateImage')->name('profile.update.image');
 
 
 });

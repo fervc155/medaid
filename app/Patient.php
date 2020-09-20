@@ -21,7 +21,15 @@ class Patient extends Model
   protected $fillable = ['city', 'country'];
 
  
+  public static function active()
+ {
+  return Patient::join('users', 'users.id_user', '=', 'patients.id')
+        ->select('patients.*')
+        ->where('users.id_privileges',Privileges::Id('patient'))
+        ->where('users.active','1')
+        ->get();
  
+ }
 
   //Relación N:1 con doctores
   public function doctor()

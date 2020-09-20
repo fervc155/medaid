@@ -7,6 +7,10 @@
 
 <div class="container mt-5">
 
+	@include('includes.block', ['model'=>$doctor])
+
+	
+
 	<div class="row">
 		@include('hospital.includes.card-profile-doctor')
 

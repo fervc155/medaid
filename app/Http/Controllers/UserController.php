@@ -18,4 +18,23 @@ class UserController extends Controller
 
 		return view('admin');
 	}
+
+
+	public function block(Request $request, User $user)
+	{
+
+		if($user->active)
+		{
+
+			$user->active =0;
+			$user->save();
+			return redirect('user')->with('success','Usuario bloqueado correctamente');
+		}
+		
+	$user->active =1;
+				$user->save();
+
+			return redirect('user')->with('success','Usuario activado correctamente');
+
+	}
 }

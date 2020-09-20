@@ -71,27 +71,7 @@
 
 		</div>
 
-		<div class="col-12">
-
-			<div class="card">
-				<div class="card-encabezado">
-
-					<div class="card-cabecera-icono bg-info sombra-2 ">
-
-						<i class="fal fa-lock"></i>
-					</div>
-					<div class="card-title">usuarios bloqueados</div>
-				</div>
-				<div class="card-body ">
-
-					<input type="" placeholder="seleccionar foto" name="">
-
-				</div>
-			</div>
-
-
-		</div>
-
+		 
 		<div class="col-12">
 
 			<div class="card">

@@ -76,8 +76,25 @@
 
 	<div id="app">
 
-
+		@if((Auth::check() && auth::user()->active)|| !Auth::check()) 
 		@yield('navegacion')
+		@else
+		<div class="container">
+			<div class="row">
+				<div class="col p-5">
+			<div class="alert alert-danger text-center">
+				Tu usuario ha sido bloqueado
+				  <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                        @csrf
+
+                                        <button class="btn primary" type="submit">Salir</button>
+                                    </form>
+			</div>
+					
+				</div>
+			</div>
+		</div>
+		@endif
 
 	</div>
 

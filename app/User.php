@@ -52,7 +52,7 @@ class User extends Authenticatable
     {
 
         if ($this->isAdmin()) {
-            return 'Admin';
+            return Admin::find($this->id_user);
         } else if ($this->isOffice()) {
             return Office::find($this->id_user);
         } else if ($this->isDoctor()) {
@@ -114,7 +114,7 @@ class User extends Authenticatable
         $img = $this->image;
 
         if ($img == '')
-            return 'splash/img/' . Options::UserDefault();
+            return url('splash/img/' . Options::UserDefault());
         else
 
             return url('/storage/' . $img);
@@ -149,8 +149,8 @@ class User extends Authenticatable
 
         $img = $this->image;
 
-        if ($img == '')
-            return 'splash/img/' . Options::UserDefault();
+        if ($img == null)
+            return url('splash/img/' . Options::UserDefault());
         else
 
             return public_path() . '/storage/' . $img;
@@ -160,14 +160,7 @@ class User extends Authenticatable
     public function getProfileUrlAttribute()
     {
 
-
-        if ($this->isAdmin()) {
-
-            return url('/home');
-        }
-
-
-
+ 
 
 
         return $this->profile()->ProfileUrl;

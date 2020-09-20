@@ -8,7 +8,9 @@
 
 
 <div class="container mt-5">
+	@include('includes.block', ['model'=>$office])
 
+	
 	<div class="row ">
 
 

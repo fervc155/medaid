@@ -98,7 +98,7 @@ class PatientController extends Controller
       $defaultImg = $defaultImg->UserDefault();
 
 
-      $doctors = Doctor::All();
+      $doctors = Doctor::active();
 
       return view('hospital.patient.createPatient', compact('doctors', 'defaultImg'));
     }
@@ -214,7 +214,7 @@ class PatientController extends Controller
       if (Auth::user()->id_user != $id) {
         return view('admin');
       }
-      $offices = Office::All();
+      $offices = Office::active();
       return view('hospital.patient.editPatient', compact('patient', 'offices'));
     }
 
@@ -225,7 +225,7 @@ class PatientController extends Controller
 
 
 
-      $offices = Office::All();
+      $offices = Office::active();
       return view('hospital.patient.editPatient', compact('patient', 'offices'));
     }
     return view('admin');
@@ -301,86 +301,8 @@ class PatientController extends Controller
     return view('admin');
   }
 
-  public function updateLogin(Request $request,  $id)
-  {
+ 
 
-    if ((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office()) {
-
-
-      $data = request()->validate([
-        'email' => 'required|string|email|max:255',
-        'password' => 'required|string|min:6',
-        'newpassword' => 'required|string|min:6',
-
-      ]);
-
-
-
-
-      $patient = Patient::find($id);
-      $user = $patient->user();
-
-
-
-      if (Hash::check($data['password'], $patient->user()->password)) {
-
-        if ($data['newpassword'] == $data['password']) {
-          return  back()->with('error', 'La contraseña nueva debe ser diferente');
-        }
-
-
-
-        $user->email = $data['email'];
-        $user->password = bcrypt($data['newpassword']);
-
-
-        $user->save();
-
-        return redirect('/patient/' . $id)->with('success', '¡El paciente ha sido actualizado con éxito!');
-      }
-
-      return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');
-    }
-
-    return view('admin');
-  }
-
-  //Método update
-  public function updateImage(Request $request,  $id)
-  {
-
-    if ((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office()) {
-
-
-      $data = request()->validate([
-        'image' => 'required',
-      ]);
-
-
-      $patient = Patient::find($id);
-
-
-      $user = $patient->user();
-
-
-
-      $ruta_imagen =  $data['image']->store('profile', 'public');
-
-       if(null!=$user->img)
-      {
-
-        unlink($user->Pathimg);
-      }
-
-      $user = $patient->user();
-      $user->image = $ruta_imagen;
-      $user->save();
-
-      return redirect('/patient/' . $id)->with('success', '¡El paciente ha sido actualizado con éxito!');
-    }
-
-    return view('admin');
-  }
   //Eliminar paciente
   public function destroy(Patient $patient)
   {

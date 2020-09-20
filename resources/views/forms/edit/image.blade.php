@@ -1,4 +1,4 @@
- <form enctype="multipart/form-data" method="post" action="{{$route}}">
+ <form enctype="multipart/form-data" method="post" action="{{route('profile.update.image', ['user'=>$model->user()->id])}}">
 
    @method('PUT')
    @csrf

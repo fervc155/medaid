@@ -16,6 +16,16 @@ class Doctor extends Model
     //Llave primaria
     public $primaryKey = 'id';
 
+
+  public static function active()
+ {
+  return Patient::join('users', 'users.id_user', '=', 'doctors.id')
+        ->select('doctors.*')
+        ->where('users.id_privileges',Privileges::Id('doctor'))
+        ->where('users.active','1')
+        ->get();
+ 
+ }
     //Relación 1:N con pacientes
     public function patients()
     {

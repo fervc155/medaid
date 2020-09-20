@@ -52,7 +52,7 @@ class AppointmentController extends Controller
     }
 
     if (Auth::Admin()) {
-      $appointments = Appointment::all();
+      $appointments = Appointment::active();
       return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
 
@@ -70,8 +70,8 @@ class AppointmentController extends Controller
 
 
 
-    $patients = Patient::all();
-    $offices = Office::all();
+    $patients = Patient::active();
+    $offices = Office::active();
 
 
     if (Auth::isDoctor()) {
@@ -238,7 +238,7 @@ class AppointmentController extends Controller
 
 
 
-      $conditions = Condition::all();
+      $conditions = Condition::active();
       return view('hospital.appointment.editAppointment', compact('appointment', 'conditions'));
     }
 

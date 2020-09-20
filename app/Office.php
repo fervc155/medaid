@@ -16,7 +16,15 @@ class Office extends Model
   public $primaryKey = 'id';
 
  
+ public static function active()
+ {
+  return Office::join('users', 'users.id_user', '=', 'offices.id')
+        ->select('offices.*')
+        ->where('users.id_privileges',Privileges::Id('office'))
+        ->where('users.active','1')
+        ->get();
  
+ }
   //Relación N:N con médicos, incluyendo la tabla pivote
   public function doctors()
   {

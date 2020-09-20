@@ -6,7 +6,9 @@
 
 <div class="container mt-5">
 
+	@include('includes.block', ['model'=>$patient])
 
+	
 
 	<div class="row">
 		<div class=" col-12 col-md-4">

@@ -1,4 +1,4 @@
- <form method="post" action="{{$route}}">
+ <form method="post" action="{{route('profile.update.login', ['user'=>$model->user()->id])}}">
 
    @method('PUT')
    @csrf

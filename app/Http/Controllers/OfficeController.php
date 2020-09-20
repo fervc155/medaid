@@ -18,8 +18,10 @@ class OfficeController extends Controller
 
     if (Auth::Patient()) {
 
-      $offices = Office::orderBy('id', 'asc')->get();
-      return view('hospital.office.indexOffice', compact('offices'));
+      $offices = Office::active();
+
+
+       return view('hospital.office.indexOffice', compact('offices'));
     }
     return view('admin');
   }
@@ -83,89 +85,8 @@ class OfficeController extends Controller
 
     return view('admin');
   }
-  public function updateLogin(Request $request,  $id)
-  {
-
-
-    if ((Auth::isDoctor() && Auth::user()->profile()->id == $id) || Auth::Office()) {
-
-
-      $data = request()->validate([
-        'email' => 'required|string|email|max:255',
-        'password' => 'required|string|min:6',
-        'newpassword' => 'required|string|min:6',
-
-      ]);
-
-
-
-
-      $office = Office::find($id);
-      $user = $office->user();
-
-
-
-      if (Hash::check($data['password'], $office->user()->password)) {
-
-        if ($data['newpassword'] == $data['password']) {
-          return  back()->with('error', 'La contraseña nueva debe ser diferente');
-        }
-
-
-
-        $user->email = $data['email'];
-        $user->password = bcrypt($data['newpassword']);
-
-
-        $user->save();
-
-        return redirect('/office/' . $id)->with('success', '¡El usuario ha sido actualizado con éxito!');
-      }
-
-      return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');
-    }
-
-    return view('admin');
-  }
-
-  public function updateImage(Request $request,  $id)
-  {
-
-
-
-    if ((Auth::isOffice() && Auth::user()->profile()->id == $id) || Auth::Office()) {
-
-      dd($id);
-
-      $data = request()->validate([
-        'image' => 'required',
-      ]);
-
-
-      $Office = Office::find($id);
-
-
-      $user = $Office->user();
-
-
-
-      $ruta_imagen =  $data['image']->store('profile', 'public');
-
-      if(null!=$user->img)
-      {
-
-        unlink($user->Pathimg);
-      }
-
-      $user = $Office->user();
-      $user->image = $ruta_imagen;
-      $user->save();
-
-      return redirect('/office/' . $id)->with('success', '¡La foto ha sido actualizada con éxito!');
-    }
-
-    return view('admin');
-  }
+ 
+ 
     //Mostrar información
   public function show($id)
   {

@@ -24,7 +24,7 @@
           @include('forms.edit.login',
           [
           'model'=>$patient,
-          'route'=> route('patient.update.login', ['patient'=>$patient->id])
+         
           ]);
 
         </div>
@@ -42,8 +42,7 @@
 
           @include('forms.edit.image',
           [
-          'route'=>route('patient.update.image', ['patient'=>$patient->id]),
-          'model'=>$patient
+           'model'=>$patient
 
           ]);
         </div>
