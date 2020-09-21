@@ -65,6 +65,29 @@ class UsersTableSeeder extends Seeder
     Crud::newAdmin($data,  $admin->id);
 
 
+  $data = [
+      'name'=>'josue',
+      'id_privileges'=>3,
+      'id_user'=>1,
+      'email'=>'josue@mail.com',
+      'telephone'=>'3313131313',
+      'birthdate'=> now(),
+
+      'sex'=>'h',
+      'password'=>bcrypt('123456'),
+    ];
+
+
+    $admin = new Admin;
+    $admin->save();
+
+
+
+    Crud::newAdmin($data,  $admin->id);
+
+
+
+
 
 
 
