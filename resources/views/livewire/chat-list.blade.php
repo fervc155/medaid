@@ -44,7 +44,8 @@
 	$(document).ready(function()
 	{
 
-		$('.chat-item')[0].classList.add('active');
+		if($('.chat-item').length>0)
+			$('.chat-item')[0].classList.add('active');
 
 
 
@@ -63,7 +64,7 @@
 		$(`#chat-${id}`).addClass('active')
 	}
 
-	let antiqueTotalChat = <?= $countMessages ?>;
+	let antiqueTotalChat =  <?= $countMessages??0 ?>;
 
 	$(document).ready(function()
 	{

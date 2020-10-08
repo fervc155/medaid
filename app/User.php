@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Collection;
 
 class User extends Authenticatable
 {
@@ -123,7 +124,7 @@ class User extends Authenticatable
 
     public function getlastChatAttribute()
     {
-            $message = Chat::whereIn('user_in',[Auth::user()->id,$this->id])
+        $message = Chat::whereIn('user_in',[Auth::user()->id,$this->id])
         ->whereIn('user_out',[Auth::user()->id,$this->id])
         ->get()
         ->last();
@@ -134,7 +135,7 @@ class User extends Authenticatable
             $message = new Chat;
 
             $message->message="Comenzar chat";
-      
+
 
             return $message;
         }
@@ -160,9 +161,99 @@ class User extends Authenticatable
     public function getProfileUrlAttribute()
     {
 
- 
+
 
 
         return $this->profile()->ProfileUrl;
     }
+
+
+
+
+
+
+
+
+
+    ///////////////////static
+
+    public static function empty()
+    {
+
+
+     return Collection::make(new User);
+
+ }
+
+ public static function search($s)
+ {
+    $s = strtolower($s);
+    $users = User::all();
+
+    if(strlen($s)<1)
+    {
+        return $users;
+    }
+
+    $col = Collection::make(new User);
+
+    $match =false;
+
+    foreach ($users as $user ) 
+    {
+
+        $stringName = strtolower($user->name);
+
+        $explode = explode(' ',$s);
+        $countExplode=0;
+
+        foreach (explode(' ',$stringName) as $string) 
+        {
+
+
+            foreach ($explode as $subSearch) 
+            {
+                if(levenshtein($string,$subSearch)<= strlen($string)/2)
+                {  
+
+                    $countExplode++;
+                    break;
+
+
+                }
+            }
+        }
+
+        if($countExplode> count($explode)/2)
+        {
+
+            $match=true;
+        }
+
+
+        if(levenshtein($stringName, $s)< strlen($string)/2)
+        {  
+            $match=true;
+
+        }
+
+
+        if(strpos($stringName,$s)!==false)
+        {  
+            $match=true;
+
+        }
+
+
+        if($match)
+        {
+         $col->push($user);
+         $match=false;
+
+     }
+ }
+
+
+ return $col;
+}
 }

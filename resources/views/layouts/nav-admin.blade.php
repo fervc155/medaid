@@ -188,11 +188,13 @@
 
 		<section class="main-admin main-admin-open">
 			<nav class="navbar navbar-default navbar-expand-lg br-0 mb-0 z-50" role="navigation-demo">
+
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-translate">
 					<button class="btn btn-link btn-round btn-fab button-dashboard-open" id="button-dashboard">
 						<i class="fas fa-chevron-right"></i>
 					</button>
+
 
 					<button class="navbar-toggler button-menu-disabled" id="button-menu" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="sr-only">Toggle navigation</span>
@@ -201,9 +203,19 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 				</div>
+
+
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav ml-auto p-0">
+
+							<li class="nav-item  nav-item-button  search-engine">
+							 
+							@livewire('search-engine')
+							@livewire('search-list')
+							 
+						</li>
+						
 						<li class="nav-item  nav-item-button ">
 							<a href="#pablo" class="nav-link text-primary btn btn-link  ">
 								Notificaciones <i class="not-notification fal fa-bell"></i>

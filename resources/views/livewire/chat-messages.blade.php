@@ -58,7 +58,7 @@
 
 	}); 
 
-	let antiqueNotifications = <?= $countMessages ?>;
+	let antiqueNotifications = <?= $countMessages??0 ?>;
 	function load_unseen_messages()
 	{
 

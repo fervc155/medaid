@@ -331,13 +331,13 @@ td.fc-today {
 
 .col-foto
 {
--webkit-background-size: cover;
-background-size: cover;
-min-height: 500px;
-height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  min-height: 500px;
+  height: 100%;
 
-padding: 0 !important;
-overflow: hidden;
+  padding: 0 !important;
+  overflow: hidden;
 }
 
 
@@ -350,10 +350,10 @@ overflow: hidden;
 @media screen and (min-width: 768px)
 {
 
-.col-foto-cambiar
-{
-  order: unset;
-}
+  .col-foto-cambiar
+  {
+    order: unset;
+  }
 
 }
 
@@ -490,12 +490,12 @@ footer.footer li:hover
 @media screen and (min-width: 992px)
 {
 
-.dropdown .dropdown-menu .dropdown-item
-{
+  .dropdown .dropdown-menu .dropdown-item
+  {
 
     color: white;
 
-}
+  }
 
 }
 .dropdown .dropdown-menu .dropdown-item:hover
@@ -508,10 +508,10 @@ footer.footer li:hover
 
 .map-page iframe
 {
-      /* width: 100% !important; */
-    width: 100vw !important;
-    border: 0;
-    height: 100vh !important;
+  /* width: 100% !important; */
+  width: 100vw !important;
+  border: 0;
+  height: 100vh !important;
 }
 /* LOGIN */
 
@@ -523,7 +523,7 @@ footer.footer li:hover
   margin: 1rem;
   position: relative;
   transform: translateY(-2rem);
-    border-radius: 6px;
+  border-radius: 6px;
 
 }
 
@@ -546,8 +546,8 @@ footer.footer li:hover
   font-weight: lighter;
   font-size: 1.2rem;
   text-transform: uppercase;
-    font-family: 'Roboto', sans-serif !important;
-    font-weight: 500;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 500;
 
 }
 .card .card-cabecera-icono
@@ -573,18 +573,18 @@ footer.footer li:hover
 @media screen and (min-width: 768px)
 {
   .card .card-cabecera-icono
-{
+  {
     width: 80px;
     height: 80px;
 
-}
-.card-cabecera-icono i
-{
+  }
+  .card-cabecera-icono i
+  {
     font-size: 40px;
     line-height: 80px;
 
 
-}
+  }
 
 
 }
@@ -625,7 +625,7 @@ footer.footer li:hover
 
 .sombra
 {
-    box-shadow: 1rem 1rem 160px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 1rem 1rem 160px 30px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -659,13 +659,13 @@ footer.footer li:hover
   background-size: cover;
   background-repeat: no-repeat;
   overflow-x: hidden;
-    overflow-y: auto;
+  overflow-y: auto;
 
 }
 
 @media screen and (min-width: 992px)
 {
-    .navbar-responsive
+  .navbar-responsive
   {
     width: 3rem;
   }
@@ -694,13 +694,13 @@ footer.footer li:hover
 }
 .navbar-responsive .elementos .nav-item.active
 {
-background-color: var(--verde);
+  background-color: var(--verde);
 }
 
 .navbar-responsive .elementos .nav-item:hover
 {
   background-color: rgba(255,255,255,0.2) !important;
-    box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
 
 }
 
@@ -719,7 +719,7 @@ background-color: var(--verde);
 
 ::-webkit-scrollbar-track
 {
-  
+
   background-color: transparent;
 }
 
@@ -762,8 +762,8 @@ background-color: var(--verde);
 
 .navbar-responsive-open .nav-item
 {
-    margin:5px 1rem !important;
-    border-radius: 6px !important;
+  margin:5px 1rem !important;
+  border-radius: 6px !important;
 
 }
 
@@ -829,16 +829,16 @@ background-color: var(--verde);
 
 @media screen and (min-width: 992px)
 {
-    .navbar-responsive
+  .navbar-responsive
   {
     width: 3rem;
   }
 
-.main-admin
-{
-  width: calc( 100% - 1rem);
+  .main-admin
+  {
+    width: calc( 100% - 1rem);
 
-}
+  }
 
 
 }
@@ -856,13 +856,13 @@ background-color: var(--verde);
 }
 @media screen and (max-width: 991px)
 {
-.navbar-collapse:after 
-{
+  .navbar-collapse:after 
+  {
     background-color: #fcfcfc !important;
     box-shadow: 0px 0px 15px 0px rgba(33,0,100,0.2);
     border-radius: 0px;
 
-}
+  }
 }
 #button-dashboard i
 {
@@ -892,9 +892,9 @@ background-color: var(--verde);
 
 .main-admin .navbar
 {
-      padding: 5px 1rem !important;
-position: relative;
-    z-index: 1000;
+  padding: 5px 1rem !important;
+  position: relative;
+  z-index: 1000;
 }
 .dropdown-perfil .dropdown-toggle:after
 {
@@ -902,15 +902,15 @@ position: relative;
 }
 @media screen and (min-width: 992px)
 {
-    .dropdown-perfil
+  .dropdown-perfil
   {
     order: 1;
     border-radius: 0.25rem !important;
   }
-      .dropdown-perfil a.dropdown-toggle
-      {
-        padding: 0 !important;
-      }
+  .dropdown-perfil a.dropdown-toggle
+  {
+    padding: 0 !important;
+  }
 
   .dropdown-perfil .profile-photo-small
   {
@@ -942,10 +942,10 @@ table .btn-just-icon
 .img-height
 {
  height: 100% !important;
-    width: auto !important;
-    background-position: center center;
-    margin-left: -10%;
-  overflow: hidden;
+ width: auto !important;
+ background-position: center center;
+ margin-left: -10%;
+ overflow: hidden;
 }
 
 .img-fluid
@@ -969,11 +969,11 @@ table .btn-just-icon
 .cabecera-inicio
 {
   height: 50vh;
- }
+}
 
 .cabecera-30h
 {
-   height: 30vh; 
+ height: 30vh; 
 }
 
 .contenedor-titulo
@@ -1035,7 +1035,7 @@ table .btn-just-icon
   background-color: var(--principal);
   text-align: center;
   border-radius: 0.2rem;
-    box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
 
 
 }
@@ -1084,8 +1084,8 @@ table .btn-just-icon
   height: 100%;
   overflow-y: auto; 
   box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.07);
-    position: relative;
-    z-index: 100;
+  position: relative;
+  z-index: 100;
 }
 
 .chat-search
@@ -1254,13 +1254,13 @@ table .btn-just-icon
 
 .chat-individual .ver-mas
 {
-      font-size: 12px;
-    letter-spacing: 1px;
-    color: #acc3e1;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 2rem auto !important;
-    cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #acc3e1;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem auto !important;
+  cursor: pointer;
 }
 
 
@@ -1271,7 +1271,7 @@ table .btn-just-icon
   border-radius: 6px;
   max-width: 200px;
   text-transform: uppercase;
-    box-shadow: 0 14px 26px -12px rgba(0, 0, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0,0, 0.2);
+  box-shadow: 0 14px 26px -12px rgba(0, 0, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0,0, 0.2);
 
 }
 
@@ -1296,8 +1296,8 @@ table .btn-just-icon
 
 .chat-individual .input-mensaje
 {
-   width: calc(100% - 5rem);
-   height:100%;
+ width: calc(100% - 5rem);
+ height:100%;
 }
 .chat-individual .input-mensaje input
 {   padding-left: 1rem;
@@ -1355,9 +1355,9 @@ table .btn-just-icon
 .comment .comment-imagen-profile
 {
   height: 50px;
-    width: 50px;
-    border-radius: 100px;
-    overflow: hidden;
+  width: 50px;
+  border-radius: 100px;
+  overflow: hidden;
 }
 
 /* header search*/
@@ -1374,12 +1374,12 @@ table .btn-just-icon
 
 .header-search input[type="text"]
 {
-    background-color: #fff;
-    border-radius:4px 0px 0px 4px; ;
-    height: 41px;
-    padding-left: 1rem;
-    font-size: 1.2rem;
-    width: calc(100% - 45px);
+  background-color: #fff;
+  border-radius:4px 0px 0px 4px; ;
+  height: 41px;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  width: calc(100% - 45px);
 
 }
 
@@ -1387,11 +1387,11 @@ table .btn-just-icon
 
 .header-search button
 {
-    background-color: #fff;
-    color: var(--principal);
-    font-size: 1.2rem;
-    margin: 0;
-    border-radius: 0px 4px 4px 0px;
+  background-color: #fff;
+  color: var(--principal);
+  font-size: 1.2rem;
+  margin: 0;
+  border-radius: 0px 4px 4px 0px;
 
 }
 
@@ -1399,11 +1399,11 @@ table .btn-just-icon
 
 .header-search button:hover
 {
-    background-color: var(--principal);
-    color: white;
-    font-size: 1.2rem;
-    margin: 0;
-    border-radius: 0px 4px 4px 0px;
+  background-color: var(--principal);
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;
+  border-radius: 0px 4px 4px 0px;
 
 }
 
@@ -1411,4 +1411,41 @@ table .btn-just-icon
 .invalid-feedback
 {
   display: block !important;
+}
+
+
+.search-engine
+{
+  padding: 1rem;
+}
+.search-list
+{
+  position: absolute;
+  background: white;
+  max-height: 90vh;
+  overflow-y: scroll;
+  box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.3);
+  /*opacity:0; */
+  /*filter:alpha(opacity=0); */
+
+  margin-top: -100vh;
+}
+
+
+.navbar:hover .search-list
+{
+  opacity:1; 
+  filter:alpha(opacity=1); 
+  margin-top: 0px !important;
+
+}
+
+@media screen and (max-width: 991px)
+{
+  .search-list
+  {
+    position: relative;
+    max-height: 200px;
+
+  }
 }

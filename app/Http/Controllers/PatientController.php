@@ -18,9 +18,7 @@ class PatientController extends Controller
   //Lista de pacientes
   public function index()
   {
-
-
-
+ 
     if (Auth::isDoctor()) {
 
       $patients1 = Doctor::find(Auth::UserId())->patients;
