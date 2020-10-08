@@ -40,9 +40,8 @@ Route::get('contacto','webController@contacto');
 
 Route::post('/visitante/search-especialidades','API\\ApiController@searchespecialidades');
 Route::post('/visitante/search-doctores/especialidad','API\\ApiController@searchDoctorEspecialidad');
-Route::post('/visitante/search-doctores','API\\ApiController@searchDoctores');
+Route::post('/visitante/search-doctores','API\\ApiController@searchDoctores')->name('api.search.doctors');
 Route::get('/get/officesdoctors/{id}','API\\ApiController@get_officesDoctors');
-
 
 
 //calendario

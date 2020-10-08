@@ -21,12 +21,12 @@
               <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
 
-              <input type="hidden" name="url" value="{{url('/visitante/search-doctores')}}">
+              <input type="hidden" name="url" value="{{route('api.search.doctors')}}">
               <input type="text" name="search" class="form-control" placeholder="Buscar" value="<?php if (isset($search)) {
-                                                                                                  if (strlen($search) > 0) {
-                                                                                                    echo $search;
-                                                                                                  }
-                                                                                                } ?>">
+                if (strlen($search) > 0) {
+                  echo $search;
+                }
+              } ?>">
 
               <button class="btn btn-doctores-ajax float-right btn-just-icon"><i class="fas fa-search"></i></button>
             </div>
