@@ -52,7 +52,7 @@ class AppointmentController extends Controller
     }
 
     if (Auth::Admin()) {
-      $appointments = Appointment::active();
+      $appointments = Appointment::all();
       return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
 

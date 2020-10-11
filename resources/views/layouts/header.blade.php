@@ -73,8 +73,7 @@
 </head>
 
 <body>
-
-	<div id="app">
+ 	<div id="app">
 
 		@if((Auth::check() && auth::user()->active)|| !Auth::check()) 
 		@yield('navegacion')

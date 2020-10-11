@@ -1,7 +1,9 @@
 @extends('layouts.header')
 
 @section('navegacion')
-<?php $active = explode('.', Request::route()->getName())[0]; ?>
+<?php $active = explode('/',Request::route()->uri)[0]; ?>
+
+
 
 <main class="dashboard">
 

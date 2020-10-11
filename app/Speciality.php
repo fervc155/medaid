@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Options;
+use App\Soft\Levenshtein;
 use Illuminate\Database\Eloquent\Model;
 
 class Speciality extends Model
@@ -50,5 +51,19 @@ class Speciality extends Model
     public function getStarsMissingAttribute()
     {
         return 5 - $this->StarsEarned;
+        
     }
+
+
+    public static function search($s )
+    {
+       
+        $specialities = Speciality::all();
+        
+
+
+        return Levenshtein::searchIn($specialities, $s);
+    }
+    
+
 }

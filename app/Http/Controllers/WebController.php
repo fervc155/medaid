@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Office;
 use App\Speciality;
+use App\User;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -112,6 +113,8 @@ class WebController extends Controller
     {
 
         $doctors = Doctor::all();
+
+
 
         return view('web.doctores', compact('doctors'));
     }

@@ -18,7 +18,7 @@
 
 
 			<a href="{{$user->profileUrl}}"><span class="nombre">{{$user['name']}}</span></a>
-			 
+			 <small class="d-block">{{$user->NamePrivilege}}</small>
 		</div>
 	</li>
       

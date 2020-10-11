@@ -5,6 +5,7 @@ use App\Crud;
 use App\User;
 use Illuminate\Database\Eloquent\Faker;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -29,7 +30,7 @@ class UsersTableSeeder extends Seeder
        'telephone'=>'3313131313',
        'birthdate'=> now(),
        'sex'=>'h',
-       'password'=>bcrypt('123456'),
+       'password'=>Hash::make('123456'),
 
 
      ];
@@ -53,7 +54,7 @@ class UsersTableSeeder extends Seeder
       'birthdate'=> now(),
 
       'sex'=>'h',
-      'password'=>bcrypt('123456'),
+       'password'=>Hash::make('123456'),
     ];
 
 

@@ -7,11 +7,12 @@ use App\Doctor;
 use App\Office;
 use App\Patient;
 use App\Privileges;
+use App\Soft\levenshtein;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Collection;
 
 class User extends Authenticatable
 {
@@ -176,84 +177,31 @@ class User extends Authenticatable
 
 
     ///////////////////static
-
-    public static function empty()
+    public static function active()
     {
+      return User::where('active','1')->get();
+
+  }
+  public static function empty()
+  {
 
 
-     return Collection::make(new User);
+       return Collection::make(new User);
 
- }
-
- public static function search($s)
- {
-    $s = strtolower($s);
-    $users = User::all();
-
-    if(strlen($s)<1)
-    {
-        return $users;
     }
 
-    $col = Collection::make(new User);
-
-    $match =false;
-
-    foreach ($users as $user ) 
+    public static function search($s,$privilege=0)
     {
 
-        $stringName = strtolower($user->name);
-
-        $explode = explode(' ',$s);
-        $countExplode=0;
-
-        foreach (explode(' ',$stringName) as $string) 
+        if($privilege<1)
+            $users = User::active();
+        else
         {
-
-
-            foreach ($explode as $subSearch) 
-            {
-                if(levenshtein($string,$subSearch)<= strlen($string)/2)
-                {  
-
-                    $countExplode++;
-                    break;
-
-
-                }
-            }
+            $users = User::where('id_privileges',$privilege)
+            ->where('active',1)->get();
         }
 
-        if($countExplode> count($explode)/2)
-        {
+        return Levenshtein::searchIn($users, $s);
+    }
 
-            $match=true;
-        }
-
-
-        if(levenshtein($stringName, $s)< strlen($string)/2)
-        {  
-            $match=true;
-
-        }
-
-
-        if(strpos($stringName,$s)!==false)
-        {  
-            $match=true;
-
-        }
-
-
-        if($match)
-        {
-         $col->push($user);
-         $match=false;
-
-     }
- }
-
-
- return $col;
-}
 }

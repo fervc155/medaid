@@ -135,6 +135,8 @@ $('#formulario-doctores-ajax input[name="search"]').on('keydown', function()
 
 				var html='';
 
+
+
 				doctores.forEach(doctor=>
 				{
 
@@ -302,12 +304,16 @@ function doctorCard(doctor)
 
 
 
-	doctor['specialities'].forEach(speciality=>
+	if(null != doctor['specialities'])
 	{
-		html+=`<span class="badge badge-pill badge-primary">${speciality['name']}</span>`;
 
-	}) 
+		doctor['specialities'].forEach(speciality=>
+		{
+			html+=`<span class="badge badge-pill badge-primary">${speciality['name']}</span>`;
 
+		}) 
+
+	}
 	html+=`	
 	</div>
 

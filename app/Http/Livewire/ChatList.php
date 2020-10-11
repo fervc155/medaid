@@ -43,11 +43,7 @@ class ChatList extends Component
 
     }
 
-    $this->users =  User::
-    where('id_privileges','>',1)
-    ->where('name','LIKE', "%{$search}%")
-    ->where('active','1')
-    ->get();
+    $this->users =  User::search($search);
 
 
     $this->users = $this->users->reject(Auth::user());
