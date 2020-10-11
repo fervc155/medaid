@@ -66,14 +66,16 @@
 				</li>
 
 				@else
-				<li class="nav-item">
-					<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fal fa-user-injured"></i> {{__('Entrar') }}</a>
-				</li>
+                 <li class="nav-item">
+                    <a class="nav-link" onclick="esperar()" href="{{ route('login') }}"><i class="fas icon fa-sign-in-alt"></i> {{__('Iniciar sesión') }}</a>
+                </li>
+                <li class="nav-item">
+                    @if (Route::has('register'))
+                    <a class="nav-link" onclick="esperar()" href="{{ route('register') }}"><i class="fas icon fa-user-plus"></i> {{__('Registrarse') }}</a>
+                    @endif
+                </li>
 
-				<li class="nav-item">
-					<a class="nav-link" href="{{ action('PatientController@index') }}"> <i class="icon fal fa-user-injured"></i> {{__('Registrarse') }}</a>
-				</li>
-
+ 
 				@endauth
 
 

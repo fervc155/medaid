@@ -9,7 +9,7 @@
 
 
             @if(!Auth::isDoctor())
-            <td> <a class="link" href="$patient->ProfileUrl"> {{ $patient->doctor->name }} </a></td>
+            <td> <a class="link" href="{{$patient->doctor->ProfileUrl}}"> {{ $patient->doctor->name }} </a></td>
 
             @endif
 

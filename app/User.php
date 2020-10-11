@@ -173,6 +173,17 @@ class User extends Authenticatable
 
 
 
+    public function activate()
+    {
+        $this->active=1;
+        $this->save();
+    }
+  public function deactivate()
+    {
+        $this->active=0;
+        $this->save();
+    }
+
 
 
 
@@ -203,5 +214,8 @@ class User extends Authenticatable
 
         return Levenshtein::searchIn($users, $s);
     }
+
+
+
 
 }

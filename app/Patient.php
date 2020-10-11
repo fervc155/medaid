@@ -23,7 +23,7 @@ class Patient extends Model
  
   public static function active()
  {
-  return Patient::join('users', 'users.id_user', '=', 'patients.id')
+  return Patient::join('users', 'users.id_user', '=', 'patients.dni')
         ->select('patients.*')
         ->where('users.id_privileges',Privileges::Id('patient'))
         ->where('users.active','1')

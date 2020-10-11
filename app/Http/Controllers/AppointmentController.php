@@ -103,12 +103,12 @@ class AppointmentController extends Controller
   public function store(Request $request)
   {
     $this->validate($request, [
-      'date' => 'required',
+      'date' => 'required|date',
       'time' => 'required',
-      'speciality_id' => 'required',
+      'speciality_id' => 'required|numeric',
       'description' => 'required',
-      'doctor_id' => 'required',
-      'patient_dni' => 'required',
+      'doctor_id' => 'required|numeric',
+      'patient_dni' => 'required|numeric',
 
     ]);
 
@@ -253,10 +253,10 @@ class AppointmentController extends Controller
     if (Auth::Patient()) {
 
       $this->validate($request, [
-        'date' => 'required',
+        'date' => 'required|date',
         'time' => 'required',
         'description' => 'required',
-        'appointment_id' => 'required'
+        'appointment_id' => 'required|numeric'
 
       ]);
 

@@ -57,11 +57,11 @@ class DoctorController extends Controller
         'email' => 'required|string|email|max:255|unique:users',
         'telephone' => 'required|string|max:20',
         'sex' => 'required|string|max:1',
-        'image' => 'required',
+        'image' => 'required|file',
         'password' => 'required|string|min:6|confirmed',
         'address' => 'required|string|max:255',
-        'birthdate' => 'required',
-        'postalCode' => 'required|string|max:7',
+        'birthdate' => 'required|date',
+        'postalCode' => 'required|integer|max:999999',
         'city' => 'required|string|max:255',
         'country' => 'required|string|max:255',
 
@@ -168,10 +168,12 @@ class DoctorController extends Controller
         'name' => 'required|string|max:255',
         'telephone' => 'required|string|max:20',
         'sex' => 'required|string|max:1',
-        'birthdate' => 'required',
+        'birthdate' => 'required|date',
+      'email' => 'required|string|email|max:255',
+
 
         'address' => 'required|string|max:255',
-        'postalCode' => 'required|string|max:7',
+        'postalCode' => 'required|integer|max:999999',
         'city' => 'required|string|max:255',
         'country' => 'required|string|max:255',
 
@@ -227,6 +229,7 @@ class DoctorController extends Controller
       $user->sex = strtolower($data['sex']);
       $user->birthdate = $data['birthdate'];
 
+      $user->email = $data['email'];
 
       $user->save();
 
@@ -243,8 +246,8 @@ class DoctorController extends Controller
   {
     if (Auth::Office()) {
 
-      $doctor->delete();
-      return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
+$doctor->user()->deactivate();
+            return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');
     }
     return view('admin');
   }

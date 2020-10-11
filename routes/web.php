@@ -134,10 +134,10 @@ route::get('profile/image/{id}','ProfileController@image')->name('profile.image'
 Route::group(['middleware' => ['auth','office'] ], function () {
 
 
-    Route::patch('patient/{patient}/destroy','PatientController@destroy');
+    Route::delete('patient/{patient}/destroy','PatientController@destroy');
     Route::get('patient/create','PatientController@create');
     Route::post('patient/store','PatientController@store')->name('patient.store');
-    Route::get('doctor/destroy/{doctor}', 'DoctorController@destroy');
+    Route::delete('doctor/destroy/{doctor}', 'DoctorController@destroy');
 
 
 //    Route::get('office/{id}/edit','officeController@edit');
@@ -306,7 +306,8 @@ Route::group(['middleware' => ['auth','office'] ], function () {
      Route::put('office/{office}', 'officeController@update')->name('office.update');
      Route::put('office/{office}/login', 'officeController@updateLogin')->name('office.update.login');
      Route::put('office/{office}/image', 'officeController@updateImage')->name('office.update.image');
-     
+    
+ 
 
 
 });

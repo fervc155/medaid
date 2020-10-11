@@ -6,7 +6,7 @@
 
 
 <div class="container mt-5">
-	@include('includes.block', ['model'=>$doctor])
+	@include('includes.block', ['model'=>$admin])
 
 	
 	<div class="row">

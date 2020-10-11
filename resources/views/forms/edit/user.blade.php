@@ -10,6 +10,20 @@
       </div>
     </div>
 
+      <div class="form-group form-inline align-items-end align-items-end">
+     <div class="icon-form">
+       <i class="fal fa-at"></i>
+     </div>
+     <div class="form-group {{ $errors->has('email') ? ' has-danger' : '' }}">
+       <label class="bmd-label-floating"> Email</label>
+       <input id="email" type="email" class="form-control " name="email" value="{{$model->user()->email}}" required autofocus>
+
+
+     </div>
+     @include('includes.errors', ['errorName'=>'email'])
+   </div>
+
+
     <div class="form-group form-inline align-items-end">
       <div class="icon-form">
         <i class="fal fa-birthday-cake"></i>

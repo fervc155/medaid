@@ -64,8 +64,9 @@ class AdminController extends Controller
         'name' => 'required|string|max:255',
         'telephone' => 'required|string|max:20',
         'sex' => 'required|string|max:1',
-        'birthdate' => 'required',
- 
+        'birthdate' => 'required|date',
+            'email' => 'required|string|email|max:255',
+
       ]);
   
  
@@ -88,6 +89,7 @@ class AdminController extends Controller
       $user->sex = strtolower($data['sex']);
       $user->birthdate = $data['birthdate'];
 
+      $user->email = $data['email'];
 
       $user->save();
 

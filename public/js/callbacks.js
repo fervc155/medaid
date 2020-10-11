@@ -125,8 +125,8 @@ function btnActualizarEspecialidad()
 
 	$('form.actualizar-especialidad input[name="id"]').val(ID);
 
-	$('form.actualizar-especialidad input[name="name"]').attr('placeholder',name);
-	$('form.actualizar-especialidad input[name="cost"]').attr('placeholder',cost);
+	$('form.actualizar-especialidad input[name="name"]').val(name);
+	$('form.actualizar-especialidad input[name="cost"]').val(cost);
 
 }
 

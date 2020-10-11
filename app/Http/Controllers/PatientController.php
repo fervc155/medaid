@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Doctor;
-use App\User;
 use App\Appointment;
+use App\Crud;
+use App\Doctor;
 use App\Office;
 use App\Options;
 use App\Patient;
-use App\Crud;
+use App\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,7 +24,9 @@ class PatientController extends Controller
 
       $patients1 = Doctor::find(Auth::UserId())->patients;
       $patients =  Patient::join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
+        ->join('users', 'users.id_user', '=', 'patients.user_id')
         ->select('patients.*', 'appointments.*')
+          ->where('users.active', 1)
         ->where('appointments.doctor_id', Auth::UserId())
         ->get();
 
@@ -43,8 +46,7 @@ class PatientController extends Controller
 
       $doctors = Doctor::where('office_id', Auth::UserId())->get();
 
-
-      $patients = collect();
+      $patients = Collection(new Patient);
 
 
       foreach ($doctors as $doctor) {
@@ -53,8 +55,12 @@ class PatientController extends Controller
         $patients1 = Doctor::find($doctor->id)->patients;
 
 
-        $patients2 =  Patient::join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
+        $patients2 =  Patient::
+        join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
+        ->join('users', 'users.id_user', '=', 'patients.user_id')
           ->select('patients.*', 'appointments.*')
+          ->where('users.active', 1)
+           ->where('users.id_privileges', 1)
           ->where('appointments.doctor_id', $doctor->id)
           ->get();
 
@@ -77,9 +83,7 @@ class PatientController extends Controller
 
     if (Auth::Admin()) {
 
-      $patients = Patient::with(['doctor' => function ($query) {
-        $query->has('patients');
-      }])->get();
+      $patients = Patient::active();
 
       return view('hospital.patient.indexPatients', compact('patients'));
     }
@@ -119,11 +123,12 @@ class PatientController extends Controller
         'email' => 'required|string|email|max:255|unique:users',
         'telephone' => 'required|string|max:20',
         'sex' => 'required|string|max:1',
-        'image' => 'required',
+        'image' => 'required|file',
+        'birthdate' => 'required|date',
         'password' => 'required|string|min:6|confirmed',
         'curp' => 'required|string|max:20',
         'address' => 'required|string|max:255',
-        'postalCode' => 'required|string|max:7',
+        'postalCode' => 'required|integer|max:999999',
         'city' => 'required|string|max:255',
         'country' => 'required|string|max:255',
 
@@ -238,12 +243,12 @@ class PatientController extends Controller
 
       $data = request()->validate([
         'name' => 'required|string|max:255',
-        //   'email' => 'required|string|email|max:255|unique:users',
+      'email' => 'required|string|email|max:255',
         'curp' => 'required|string|max:20',
-        'birthdate' => 'required',
+        'birthdate' => 'required|date',
         'telephone' => 'required|string|max:20',
         'sex' => 'required|string|max:1',
-        'postalCode' => 'required|string|max:7',
+        'postalCode' => 'required|integer|max:999999',
         'city' => 'required|string|max:255',
         'country' => 'required|string|max:255',
         'doctor_id' => 'required',
@@ -282,6 +287,7 @@ class PatientController extends Controller
       $user = $patient->user();
 
       $user->name = $data['name'];
+      $user->email = $data['email'];
       $user->telephone = $data['telephone'];
       $user->sex = strtolower($data['sex']);
       $user->birthdate = $data['birthdate'];
@@ -306,7 +312,8 @@ class PatientController extends Controller
   {
     if (Auth::Office()) {
 
-      $patient->delete();
+      $patient->user()->deactivate();
+
       return redirect('/patient')->with('success', 'El paciente ha sido eliminado con éxito.');
     }
   }

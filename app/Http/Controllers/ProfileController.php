@@ -30,7 +30,6 @@ class ProfileController extends Controller
 
 
 		$data = request()->validate([
-			'email' => 'required|string|email|max:255',
 			'password' => 'required|string|min:6',
 			'newpassword' => 'required|string|min:6',
 
@@ -51,8 +50,7 @@ class ProfileController extends Controller
 
 
 
-			$user->email = $data['email'];
-			$user->password = bcrypt($data['newpassword']);
+ 			$user->password = bcrypt($data['newpassword']);
 
 
 			$user->save();

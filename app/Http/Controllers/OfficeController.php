@@ -21,7 +21,7 @@ class OfficeController extends Controller
       $offices = Office::active();
 
 
-       return view('hospital.office.indexOffice', compact('offices'));
+      return view('hospital.office.indexOffice', compact('offices'));
     }
     return view('admin');
   }
@@ -49,17 +49,17 @@ class OfficeController extends Controller
         'email' => 'required|string|email|max:255|unique:users',
         'telephone' => 'required|string|max:20',
         'sex' => 'required|string|max:1',
-        'image' => 'required',
+        'image' => 'required|file',
         'password' => 'required|string|min:6|confirmed',
         'address' => 'required|string|max:255',
-        'birthdate' => 'required',
-        'postalCode' => 'required|string|max:7',
+        'birthdate' => 'required|date',
+        'postalCode' => 'required|integer|max:999999',
         'city' => 'required|string|max:255',
         'country' => 'required|string|max:255',
 
             //
-        'map' => 'required',
-        'name_office' => 'required',
+        'map' => 'required|string',
+        'name_office' => 'required|string',
 
       ]);
 
@@ -85,8 +85,8 @@ class OfficeController extends Controller
 
     return view('admin');
   }
- 
- 
+
+
     //Mostrar información
   public function show($id)
   {
@@ -120,62 +120,75 @@ class OfficeController extends Controller
   public function update(Request $request, Office $office)
   {
 
-     
-       $data = request()->validate([
-        'name' => 'required|string|max:255',
-         'birthdate' => 'required',
-        'telephone' => 'required|string|max:20',
-        'sex' => 'required|string|max:1',
 
-        'postalCode' => 'required|string|max:7',
-        'city' => 'required|string|max:255',
-        'country' => 'required|string|max:255',
-        'address' => 'required|string|max:255',
-        
-        'name_office' => 'required|string|max:255',
-        'map' => 'required|string|max:255',
+   $data = request()->validate([
+    'name' => 'required|string|max:255',
+    'birthdate' => 'required|date',
+    'telephone' => 'required|string|max:20',
+    'sex' => 'required|string|max:1',
+    'email' => 'required|string|email|max:255',
 
+    'postalCode' => 'required|integer|max:999999',
+    'city' => 'required|string|max:255',
+    'country' => 'required|string|max:255',
+    'address' => 'required|string|max:255',
 
-      ]);
+    'name_office' => 'required|string|max:255',
+    'map' => 'required|string|max:255',
 
 
+  ]);
+
+
+
+
+
+
+
+
+   $office->address = $data['address'];
+   $office->postalCode = $data['postalCode'];
+   $office->city = $data['city'];
+   $office->country = $data['country'];
+   $office->map = $data['map'];
+   $office->name = $data['name_office'];
+
+
+
+
+
+   $office->save();
+
+
+
+
+   $user = $office->user();
+
+   $user->name = $data['name'];
+   $user->telephone = $data['telephone'];
+   $user->sex = strtolower($data['sex']);
+   $user->birthdate = $data['birthdate'];
+
+   $user->email = $data['email'];
+
+   $user->save();
+
+
+
+
+
+   return redirect('/office/' . $office->id)->with('success', '¡El consultorio ha sido actualizado con éxito!');
+ }
+
+      //Eliminar doctor
+   public function destroy(Office $office)
+   {
  
+    if (Auth::Admin()) {
 
-
-
-
-
-       $office->address = $data['address'];
-      $office->postalCode = $data['postalCode'];
-      $office->city = $data['city'];
-      $office->country = $data['country'];
-      $office->map = $data['map'];
-      $office->name = $data['name_office'];
- 
-
-
-
-
-      $office->save();
-
-
- 
-
-      $user = $office->user();
-
-      $user->name = $data['name'];
-      $user->telephone = $data['telephone'];
-      $user->sex = strtolower($data['sex']);
-      $user->birthdate = $data['birthdate'];
-
-
-      $user->save();
-
-
-
-
-
-      return redirect('/office/' . $office->id)->with('success', '¡El consultorio ha sido actualizado con éxito!');
+      $office->user()->deactivate();
+      return redirect('/doctor')->with('success', '¡El consultorio ha sido eliminado con éxito!');
     }
+    return view('admin');
   }
- 
+}
