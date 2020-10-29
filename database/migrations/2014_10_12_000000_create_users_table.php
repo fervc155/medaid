@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
 
             $table->foreign('id_privileges')->references('id')->on('user_privileges')->onDelete('cascade')->onUpdate('cascade');
 
-            //$table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             
 
             $table->rememberToken();

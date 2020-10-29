@@ -14,7 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -48,6 +48,14 @@ class User extends Authenticatable
 
 
         return str_replace("App\\", "", get_class($this->profile()));
+    }
+
+    public function verify()
+    {
+        if(null==$this->email_verified_at)
+            return false;
+
+        return true;
     }
 
     public function profile()

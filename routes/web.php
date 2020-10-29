@@ -9,7 +9,7 @@ use App\User;
 
 
 
-
+Auth::routes(['verify'=>true]);
 
 
 Route::get('/visitante/citas','webController@citas');

@@ -1,16 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.nav-login')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
 
-                <div class="card-body">
-                    {{ __('Please confirm your password before continuing.') }}
+<main class="login" style="background-image: url({{asset('splash/header/login.jpg')}});">
+  <!-- <main class="login"> -->
 
-                    <form method="POST" action="{{ route('password.confirm') }}">
+  <secton class="container mt-5 ">
+    <div class="row  justify-content-center">
+      <div class="col-11 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+
+
+
+
+
+        <div class="card card-blog sombra">
+          <div class="card-cabecera bg-info sombra-2">
+
+            <div class="card-title text-center">
+              {{__('Por favor confirma tu contraseña antes de continuar')}}
+            </div>
+          </div>
+
+          <div class="card-body">
+       <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -41,9 +53,16 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+          </div>
+
+
+
         </div>
+      </div>
     </div>
-</div>
+
+    </section>
+
+</main>
+
 @endsection

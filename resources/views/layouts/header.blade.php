@@ -75,8 +75,16 @@
 <body>
  	<div id="app">
 
-		@if((Auth::check() && auth::user()->active)|| !Auth::check()) 
-		@yield('navegacion')
+		@if((Auth::check() && auth::user()->active) || !Auth::check()) 
+
+			@if(Auth::check() && !Auth::user()->verify())
+ 		 
+
+ 				@include('auth.verify')
+			@else
+				@yield('navegacion')
+			@endif
+
 		@else
 		<div class="container">
 			<div class="row">

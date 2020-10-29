@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse text-center bg-primary text-md-left" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav  ml-md-auto ">
-                @guest
+                @if(!Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" onclick="esperar()" href="{{ route('login') }}"><i class="fas icon fa-sign-in-alt"></i> {{__('Iniciar sesión') }}</a>
                 </li>
@@ -27,7 +27,7 @@
                     @endif
                 </li>
 
-                @endguest
+                @endif
 
             </ul>
 
@@ -38,29 +38,7 @@
     </div>
 </nav>
 
-
-<!-- 
-<nav class="navbar-responsive bg-primary ">
-<div class="navbar bg-transparent sombra-0 ">
-
-    @guest
-    <ul class="p-3">
-        
-                <li class="nav-item">
-                    <a class="nav-link" onclick="esperar()" href="{{ route('login') }}"><i class="fas icon fa-sign-in-alt"></i> {{__('Iniciar sesión') }}</a>
-                </li>
-                <li class="nav-item">
-                    @if (Route::has('register'))
-                    <a class="nav-link" onclick="esperar()" href="{{ route('register') }}"><i class="fas icon fa-user-plus"></i> {{__('Registrarse') }}</a>
-                    @endif
-                </li>
-    </ul>
-               
-            @endguest
-</div>
-</nav>
-<div class="bodyClick">click</div>
- -->
+ 
 @include('includes.messages')
 @yield('content')
 

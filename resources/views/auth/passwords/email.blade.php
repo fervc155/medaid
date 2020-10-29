@@ -24,6 +24,9 @@
           <div class="card-body">
             <form method="POST" class="formulario" action="{{ route('password.email') }}">
               @csrf
+              <p>
+                Escribe tu correo electronico para que enviemos un enlace donde podrás recuperar tu contraseña
+              </p>
 
               <div class="form-group form-inline align-items-end">
                 <div class="icon-form">
@@ -43,7 +46,7 @@
               <div class="mb-3 text-center">
 
                 <button type="submit" onclick="" class="btn   btn-primary">
-                  {{ __('Recuperar contraseña') }}
+                  {{ __('Recuperar mi contraseña') }}
                 </button>
               </div>
             </form>
