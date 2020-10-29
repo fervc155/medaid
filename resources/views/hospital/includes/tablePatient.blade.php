@@ -12,7 +12,7 @@
           <div class="card-title">Listado de pacientes</div>
         </div>
 
-        <div class="card-body table-responsives">
+        <div class="card-body table-responsive">
 
 
 

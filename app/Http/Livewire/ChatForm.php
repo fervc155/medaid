@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Chat;
 use App\Messages;
+use App\SendMail;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -58,7 +59,22 @@ if(null == $lastChat)
  		$this->message="";
 
 
-		 $this->emit('sendMessage', $message->id);
+ 			 $this->emit('sendMessage', $message->id);
+
+
+        SendMail::toUser($this->userOut, array(
+            'subject'=>"Tienes un nuevo mensaje",
+            'text'=>[
+                'El usuario '.Auth::user()->name." escribio:",
+                $message->message,
+            ],
+            'url'=> url('/chat'),
+            'btnText'=>'Ir a mis mensajes'
+        ));
+
+
+
+
 
 
  	}

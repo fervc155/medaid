@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
       $data = [
        'name'=>'nombre',
        'id_privileges'=>4,
-       'email'=>'fer@mail.com',
+       'email'=>'fervillanueva.1998@hotmail.com',
        'telephone'=>'3313131313',
        'birthdate'=> now(),
        'sex'=>'h',
@@ -44,33 +44,13 @@ class UsersTableSeeder extends Seeder
      Crud::newAdmin($data,  $admin->id);
 
 
-
-     $data = [
-      'name'=>'nombre',
-      'id_privileges'=>3,
-      'id_user'=>1,
-      'email'=>'consultorio@mail.com',
-      'telephone'=>'3313131313',
-      'birthdate'=> now(),
-
-      'sex'=>'h',
-       'password'=>Hash::make('123456'),
-    ];
-
-
-    $admin = new Admin;
-    $admin->save();
-
-
-
-    Crud::newAdmin($data,  $admin->id);
-
+ 
 
   $data = [
       'name'=>'josue',
-      'id_privileges'=>3,
+      'id_privileges'=>4,
       'id_user'=>1,
-      'email'=>'josue@mail.com',
+      'email'=>'fercarrillo.1998@yahoo.com',
       'telephone'=>'3313131313',
       'birthdate'=> now(),
 

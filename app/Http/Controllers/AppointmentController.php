@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Appointment;
 use App\Condition;
 use App\Conditions;
-use App\Speciality;
 use App\Doctor;
+use App\Notification;
 use App\Office;
 use App\Patient;
 use App\Privileges;
+use App\Speciality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,27 @@ class AppointmentController extends Controller
   //Lista de citas
   public function index()
   {
+
+
+
+
+
+
+
+        Notification::toAdmin(array(
+            'subject'=>'Notificacion nueva',
+            'text'=>"haz ingresado a las citas",
+            'url'=> url('appointment')
+        ));
+
+
+
+
+
+
+
+
+
     if (Auth::isPatient()) {
       $appointments = Appointment::where('patient_dni', '=', Auth::UserId())->get();
 

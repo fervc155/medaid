@@ -76,7 +76,10 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
     Route::get('prescription/download/{id}', 'PrescriptionController@download');
 
+///
 
+
+    Route::get('notifications/','NotificationController@index')->name('notifications.index');
 
 
 });
