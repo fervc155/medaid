@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Soft\levenshtein;
 use App\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -26,8 +29,9 @@ class HomeController extends Controller
     {
 
 
-
- 
+  
+    
+     
         return view('home');
-    }
+   }
 }

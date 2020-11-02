@@ -24,6 +24,7 @@ class Crud extends Model
 		$user->image = $ruta_imagen;
 		$user->id_privileges = Privileges::Id($privilege);
 		$user->id_user = $model_id;
+		$user->email_verified_at = now();
 		$user->password = Hash::make($data['password']);
 		$user->save();
 	}
@@ -40,6 +41,8 @@ class Crud extends Model
 		$user->birthdate = $data['birthdate'];
 		$user->id_privileges = Privileges::Id('admin');
 		$user->id_user = $model_id;
+				$user->email_verified_at = now();
+
 		$user->password = Hash::make($data['password']);
 		$user->save();
 	}
@@ -66,7 +69,7 @@ class Crud extends Model
 		$user->telephone = $data['telephone'];
 		$user->sex = $data['sex'];
 		$user->birthdate = $data['birthdate'];
-		//$user->image = $data['imagen'];
+		$user->email_verified_at = now();
 		$user->id_privileges = Privileges::Id($privilege);
 		$user->id_user = $model_id;
 		$user->password = Hash::make($data['password']);

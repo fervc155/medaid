@@ -260,7 +260,7 @@ class AppointmentController extends Controller
 
 
 
-      $conditions = Condition::active();
+      $conditions = Condition::all();
       return view('hospital.appointment.editAppointment', compact('appointment', 'conditions'));
     }
 
