@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Soft\Chatbot;
 use App\Soft\levenshtein;
+use App\Soft\math;
+use App\Soft\Nlp;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -28,10 +31,16 @@ class HomeController extends Controller
     public function index()
     {
 
+      
+ 
 
-  
-    
-     
-        return view('home');
-   }
+
+
+
+      return Chatbot::responseByTerms('que es la competencia comunicativa en linguistica');
+
+
+
+      return view('home');
+  }
 }
