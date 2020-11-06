@@ -13,8 +13,7 @@
 
 
         <a href="{{$n['url']}}"><span class="nombre">{{$n['subject']}} <small>| {{$n['date']}}</small></span>  </a>
-        <small class="d-block">{{$n['text']}}</small>
-      </div>
+       </div>
     </li>
     
     

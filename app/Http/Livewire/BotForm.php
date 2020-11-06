@@ -7,38 +7,20 @@ use Livewire\Component;
 class BotForm extends Component
 {
  
-	public $message;
-
-
+ 
+ 
  
 
-	public function mount()
-	{
-		$this->message ='';
-
-		 
-	}
-
- 
-
- 	public function sendMessage()
+ 	public function send($message)
  	{
 
  	  
- 		 
-
-
- 			 $this->emit('sendMessage', $this->message);
-
-
- 
-
- 			 $this->message="";
-
+ 			 $this->emit('sendMessage',$message);
 
 
 
  	}
+
 
     public function render()
     {    return view('livewire.bot-form');

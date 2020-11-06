@@ -1249,7 +1249,7 @@ table .btn-just-icon
   bottom: 0;
   left: 0;
   z-index: 3;
-  background-color: #fff;
+  background-color: #F5F5F5;
   width: 100%;
   height: 60px;
 
@@ -1314,8 +1314,11 @@ table .btn-just-icon
 
 .chat-individual .input-mensaje
 {
- width: calc(100% - 5rem);
- height:100%;
+      width: calc(100% - 2rem);
+    height: calc(100% - 1rem);
+    background: white;
+     border: 1px solid #D09FFF;
+     margin: 0 auto;
 }
 .chat-individual .input-mensaje input
 {   padding-left: 1rem;

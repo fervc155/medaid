@@ -4,6 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Chat;
 use App\Messages;
+use App\Notification;
+use App\SendMail;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -38,7 +40,7 @@ if(null == $lastChat)
 	}
 
 
-	protected $listeners = ['selectChat','reloadMessages','sendMessage'];
+	protected $listeners = ['selectChat','reloadMessages','sendMessage','sendNotification'];
 
 	public function selectChat($idUser)
 	{
@@ -71,16 +73,52 @@ if(null == $lastChat)
 
  	}
 
-	public function sendMessage($id)
+	public function sendMessage($messageTxt)
 	{
 
-		$this->countMessages+=1;
-		$message = Chat::find($id);
+			$message =new Chat;
 
-		$this->messages->push($message);
+ 		$message->user_out= Auth::user()->id;
+ 		$message->user_in = $this->userOut->id;
+ 		$message->message = $messageTxt;
+
+ 		$message->save();
+ 	 
+	 $this->countMessages+=1;
+		 
+
+		 $this->messages->push($message);
 
 		$this->emit('scrollMessage');
 
+
+        // SendMail::toUser($this->userOut, array(
+        //     'subject'=>"Tienes un nuevo mensaje de: ".Auth::user()->name,
+        //     'text'=>[
+                
+        //         $message->message,
+        //     ],
+        //     'url'=> url('/chat'),
+        //     'btnText'=>'Ir a mis mensajes'
+        // ));
+
+		$this->emit('sendNotification',$message->message);
+
+		
+	}
+
+
+	public function sendNotification($message)
+	{
+		Notification::toUser($this->userOut, array(
+            'subject'=>"Tienes un nuevo mensaje de: ".Auth::user()->name,
+            'text'=>[
+                
+                $message,
+            ],
+            'url'=> url('/chat'),
+            'btnText'=>'Ir a mis mensajes'
+        ));
 
 	}
 

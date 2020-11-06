@@ -29,10 +29,10 @@ class NotificationsDropdown extends Component
 
     foreach ($notifications as $notification) 
     {
+
        $data= array(
         'subject'=>$notification->data['subject']??'',
-        'text'=>$notification->data['text']??'',
-        'url'=>$notification->data['url']??'',
+         'url'=>$notification->data['url']??'',
         'read'=>$notification->read_at??false,
         'date'=>$notification->created_at->diffForHumans(),
        );

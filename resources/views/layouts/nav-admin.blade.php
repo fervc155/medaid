@@ -157,7 +157,7 @@
 
 	<li class="nav-item <?php if ($active == 'chatbot') {
 		echo 'active';
-	} ?>"><a href="{{url('/chatbot')}}" class="nav-link"><i class="far fa-comments"></i> Asistente </a></li>
+	} ?>"><a href="{{url('/chatbot')}}" class="nav-link"><i class="far fa-comment-smile"></i> Asistente </a></li>
 	@endif
 
 	@if(Auth::Doctor())

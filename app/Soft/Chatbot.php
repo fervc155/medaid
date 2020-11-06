@@ -209,8 +209,21 @@ public static function getJson()
 
     array(
       'tag'=>'respuesta_salud',
-      'preguntas'=> array('Muy bien y tu','Excelente','Bien',"Muy bien"),
+      'preguntas'=> array('Excelente','Bien',"Muy bien"),
       'respuestas'=> array('Me alegro de escuchar eso')
+
+    ),
+
+        array(
+      'tag'=>'respuesta_salud_pregunta',
+      'preguntas'=> array('Muy bien y tu',"bien y usted"),
+      'respuestas'=> array('Soy un bot, siempre estoy bien :)')
+
+    ),
+      array(
+      'tag'=>'nombre',
+      'preguntas'=> array('Como te llamas','Quien eres','Cual es tu nombre'),
+      'respuestas'=> array('Me llamo MedBot, soy un bot y tu asistente virtual')
 
     ),
         array(

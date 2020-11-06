@@ -12,16 +12,13 @@ use Livewire\Component;
 class ChatForm extends Component
 {
 
-	public $message;
-
-
+ 
 	public $userOut;
 
 
 	public function mount()
 	{
-		$this->message ='';
-
+		 
 		$lastChat =Messages::lastest();
 
 if(null == $lastChat)
@@ -46,31 +43,13 @@ if(null == $lastChat)
  	}
 
 
- 	public function sendMessage()
+ 	public function send($messageTxt)
  	{
 
- 		$message =new Chat;
-
- 		$message->user_out= Auth::user()->id;
- 		$message->user_in = $this->userOut->id;
- 		$message->message = $this->message;
-
- 		$message->save();
- 		$this->message="";
 
 
- 			 $this->emit('sendMessage', $message->id);
-
-
-        SendMail::toUser($this->userOut, array(
-            'subject'=>"Tienes un nuevo mensaje",
-            'text'=>[
-                'El usuario '.Auth::user()->name." escribio:",
-                $message->message,
-            ],
-            'url'=> url('/chat'),
-            'btnText'=>'Ir a mis mensajes'
-        ));
+ 		$this->emit('sendMessage', $messageTxt);
+ 	
 
 
 

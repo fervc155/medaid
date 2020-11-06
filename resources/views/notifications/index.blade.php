@@ -30,9 +30,16 @@
 
 										@php
 
+										$text = '';
+
+										foreach($notification->data['text'] as $string)
+										{
+											$text.=$string."\n";
+										}
+
 										$data= array(
 										'subject'=>$notification->data['subject']??'',
-										'text'=>$notification->data['text']??'',
+										'text'=> $text,
 										'url'=>$notification->data['url']??'',
 										'date'=>$notification->created_at->diffForHumans(),
 										);
