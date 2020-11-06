@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Soft\Chatbot;
-use App\Soft\levenshtein;
-use App\Soft\math;
-use App\Soft\Nlp;
-use App\User;
+use App\Soft\Tree;
+
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class HomeController extends Controller
 {
     /**
@@ -31,16 +28,8 @@ class HomeController extends Controller
     public function index()
     {
 
-      
  
-
-
-
-
-      return Chatbot::responseByTerms('que es la competencia comunicativa en linguistica');
-
-
-
-      return view('home');
+        return view('home');
+   
   }
 }

@@ -32,15 +32,32 @@ class Nlp {
 		return Stemm::stemm($string);
 	}
 
+	public static function word_tokenize($sentence)
+	{
+		$array = [];
+
+
+
+		foreach (explode(' ',$sentence) as $key => $word) {
+
+				$cleanWord =Nlp::cleanWord($word);
+
+				if(strlen($cleanWord)>0)
+					$array[] =$cleanWord;
+			
+		}
+
+		return $array;
+	}
+
 
 	public static function cleanStopwords($sentence,$stopwords)
 	{
-		$array = explode(' ',$sentence);
+		$array =  Nlp::word_tokenize(trim($sentence));
 
 		$newSentence = array();
 
 		foreach ($array as $key2=> $word)
-			if(!in_array(Nlp::cleanWord($word),$stopwords))
 				array_push($newSentence, Nlp::stemm($word));
 
 
@@ -111,7 +128,7 @@ class Nlp {
 
 	public static function stopwords()
 	{
-		$txt = file( storage_path()."/app/public/soft/stopwords.txt");
+		$txt = file( storage_path()."/app/soft/stopwords.txt");
 
 
 		foreach ($txt as $key => $line)

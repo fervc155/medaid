@@ -63,8 +63,11 @@ Route::post('/get/appointment','API\\ApiController@getAppointment');
 
 Route::group(['middleware' => ['auth','patient'] ], function () {
 
+    Route::get('chatbot','ChatController@bot')->name('chatbot');
     Route::resource('appointment', 'AppointmentController');          
-    
+  
+
+
     Route::get('appointment/create/{id_doctor}/{id_speciality}','AppointmentController@create');
 
     Route::get('appointment/create','AppointmentController@create');

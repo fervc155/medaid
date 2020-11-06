@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
  use App\User;
 use App\Chat;
 use App\Messages;
+use App\Soft\Chatbot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,5 +36,13 @@ class chatController extends Controller
 
 		return Messages::total();
 		
+	}
+
+
+	public function bot()
+	{
+
+
+		return view('chat.bot');
 	}
 }
