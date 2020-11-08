@@ -31,12 +31,7 @@ class Patient extends Model
  
  }
 
-  //Relación N:1 con doctores
-  public function doctor()
-  {
-    return $this->belongsTo('App\Doctor');
-  }
-
+ 
   //Relación 1:N con citas
   public function appointments()
   {

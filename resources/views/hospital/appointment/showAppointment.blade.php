@@ -4,7 +4,7 @@
 
 
 @if(count($appointment->prescriptions)<1 && ($appointment->condition->status == 'accepted'
-	|| $appointment->condition->status == 'completed')
+	|| ($appointment->condition->status == 'completed' || $appointment->condition->status == 'late') )
 	&& Auth::Doctor())
 
 
@@ -12,15 +12,21 @@
 		<i class="fal fa-envelope-open-text"></i>
 	</button>
 
-	@include('hospital.includes.modal.createPrescription');
+	@include('hospital.includes.modal.createPrescription')
 
 	@elseif(Auth::Doctor())
 
-	@include('hospital.includes.modal.editPrescription');
+	@include('hospital.includes.modal.editPrescription')
 
 	@endif
 
 
+						@if(($appointment->condition->status == 'completed' || $appointment->condition->status == 'late')  && null== $appointment->review && Auth::user()->isPatient())
+
+	@include('hospital.includes.modal.createReview')
+
+
+	@endif
 
 
 	<div class="container">
@@ -244,6 +250,25 @@
 						@endif
 
 
+						@if(($appointment->condition->status == 'completed' || $appointment->condition->status == 'late')  && null== $appointment->review && Auth::user()->isPatient())
+
+
+			<button type="button" data-toggle="modal" data-target="#crearReview" class="  btn  btn-primary  btn-sm btn-round
+						"  ><i class="fal fa-pen"></i> Calificar mi cita </button>						@endif
+
+
+						@if(null!= $appointment->review)
+
+	<div class="stars">
+				<?php $estrellas = round($appointment->stars);
+				$noEstrellas = 5 - $estrellas; ?>
+
+				@for($i = 0;$i<$estrellas ; $i++) <i class="fas fa-star"></i>
+					@endfor
+					@for($i = 0;$i<$noEstrellas ; $i++) <i class="fal fa-star"></i>
+						@endfor
+			</div>
+						@endif
 
 
 					</div>

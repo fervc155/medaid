@@ -28,12 +28,7 @@ class Doctor extends Model
         ->get();
  
  }
-    //Relación 1:N con pacientes
-    public function patients()
-    {
-        return $this->hasMany('App\Patient');
-    }
-
+ 
     //Relación 1:N con consultorios
     public function office()
     {
@@ -145,7 +140,7 @@ class Doctor extends Model
 
     public function myPatients()
     {
-              $patients1 = Doctor::find($this->id)->patients;
+          
       $patients =  Patient::join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
         ->join('users', 'users.id_user', 'patients.dni')
         ->select('patients.*', 'appointments.*')
@@ -154,8 +149,7 @@ class Doctor extends Model
         ->get();
 
 
-
-      $patients = $patients->merge($patients1);
+ 
       $patients = $patients->unique('dni');
 
       return $patients;

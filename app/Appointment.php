@@ -37,6 +37,11 @@ class Appointment extends Model
         return $this->belongsTo('App\Condition');
     }
 
+    public function review()
+    {
+        return $this->hasOne('App\Review');
+    }
+
 
     public function comments()
     {
@@ -70,6 +75,15 @@ class Appointment extends Model
     {
         $options = new Options();
         return $options->Moneda() . $this->cost;
+    }
+
+
+    public function getstarsAttribute()
+    {
+        if(null!=$this->review)
+            return $this->review->stars;
+
+            return null;
     }
 
 

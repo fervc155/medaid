@@ -87,6 +87,13 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
     Route::get('notifications/','NotificationController@index')->name('notifications.index');
 
 
+
+
+    //review
+
+    Route::put('review/{appointment}', 'ReviewController@store')->name('review.store');
+
+
 });
 /*=====  End of AUTH PATIENT  ======*/
 

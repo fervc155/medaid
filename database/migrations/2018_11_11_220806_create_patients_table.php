@@ -21,8 +21,7 @@ class CreatePatientsTable extends Migration
             $table->char('city', 60);
             $table->char('country', 40);
 
-            $table->integer('doctor_id')->unsigned();
-            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade')->onUpdate('cascade');
+        
         });
     }
 

@@ -85,6 +85,13 @@
 
 			</div>
 
+		<div class="form-inline mb-2">
+				<div class="color-principal">
+					<i class="fal fa-clock"></i> horario:
+				</div>
+				{{ $doctor->inTime  }} - {{ $doctor->outTime }}
+
+			</div>
 
 
 			<div class="form-inline mb-2">

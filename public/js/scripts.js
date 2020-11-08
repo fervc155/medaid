@@ -26,7 +26,7 @@ $(".btn-actualizar-receta").click(btnActualizarReceta);
 $(".btn-actualizar-especialidad").click(btnActualizarEspecialidad);
 $(".btn-edit-comment").click(btnEditComment);
 $(".btn-update-comment").click(btnUpdateComment);
- 
+
 
 
 /*=====  End of CALLBACKS  ======*/
@@ -68,24 +68,24 @@ function cerrarDashboardAliniciar()
 $(document).ready()
 
 $( window ).resize(function() {
- 
-width= $(window).width();
+
+	width= $(window).width();
 
 
 
-if(width<768)
-{
+	if(width<768)
+	{
 
 		if($('.navbar-responsive').hasClass('navbar-responsive-open'))
 		{
 			CerrarDashboard();
 
 		}
-	
-	
-}
-else
-{
+
+
+	}
+	else
+	{
 
 		if(!$('.navbar-responsive').hasClass('navbar-responsive-open'))
 		{
@@ -93,7 +93,7 @@ else
 			AbrirDashboard();
 		}
 
-}
+	}
 
 
 
@@ -106,7 +106,7 @@ else
 
 if (document.getElementsByClassName('datepicker2'))
 {
-		var Fecha = new Date();
+	var Fecha = new Date();
 
 
 
@@ -283,14 +283,42 @@ if ($('.chat-contenido').lenght>0)
 }
 
 
-//select2
 $(document).ready(function() {
 
-	$(".select2").select2({
+//select2
+$(".select2").select2({
 
-	});
+});
+/// click star
+
+
+
+
+$('.click-star').on('click',function()
+{
+
+	n =$(this).data('star');
+
+	$(`.click-star `).removeClass('fas')
+	$(`.click-star `).addClass('fal')
+
+
+	$('input[type=hidden][name=stars]').val(n);
+	for(i=1; i<=n; i++)
+	{
+		$(`.click-star[data-star=${i}]`).removeClass('fal')
+		$(`.click-star[data-star=${i}]`).addClass('fas')
+	}
 
 })
+
+
+})
+
+
+
+
+
 
 
 

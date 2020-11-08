@@ -134,17 +134,7 @@
 
 
 
-					<div class="form-inline mb-3">
-						<div class="color-principal">
-							<i class="fal fa-user-tie"></i> Doctor:
-						</div>
-
-
-
-						<a href="{{url('/doctor/'.$patient->doctor->id)}}" class="link">{{ $patient->doctor->name }}</a>
-
-
-					</div>
+				 
 					@if(Auth::Office() || (Auth::isPatient() && Auth::user()->profile()->id == $patient->dni ))
 
 

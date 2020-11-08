@@ -21,8 +21,7 @@ class CreateAppointmentsTable extends Migration
             $table->float('cost');
             $table->text('description');
 
-            $table->integer('stars')->unsigned()->nullable();
-  
+   
             $table->integer('condition_id')->unsigned()->default(1);
             $table->foreign('condition_id')->references('id')->on('conditions');
             

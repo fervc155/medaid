@@ -83,9 +83,7 @@ class RegisterController extends Controller
         $patient->postalCode = $data['postalCode'];
         $patient->city = $data['city'];
         $patient->country = $data['country'];
-        $patient->doctor_id =1;
-
-
+    
         
 
 

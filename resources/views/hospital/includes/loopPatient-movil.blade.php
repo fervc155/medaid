@@ -64,26 +64,9 @@
       </div>
 
     </div>
+ 
 
-
-    @if(!Auth::isDoctor())
-
-    <div class="form-inline mb-2">
-      <div class="icon-form">
-        <i class="fas fa-user-md"></i>
-      </div>
-
-      <div class="icon-texto">
-
-        <a href="{{$patient->doctor->ProfileUrl}}" class="link"><span class="color-principal">Medico </span> {{ $patient->doctor->name }}</a>
-      </div>
-
-    </div>
-
-    @endif
-
-
-    @if((Auth::Office() && Auth::UserId() == $patient->doctor->office_id) || Auth::Admin())
+              @if(Auth::Office() )
 
     <div class="text-center">
       <a href="{{$patient->ProfileUrl}}" class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>
