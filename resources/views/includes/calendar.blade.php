@@ -1,24 +1,24 @@
 <div class="datos-calendario">
 
 
-	<div id='id' data-id="{{$model_id}}"></div>
-	<div id='url' data-url="{{$route}}" @if($model_id==Auth::UserId() || Auth::user()->isOffice()) data-url2="{{url('/get/appointment')}}" @endif></div>
+	<div id='id' data-id="{{$user_id}}"></div>
+	<div id='url' data-url="{{$route}}" @if($user_id==Auth::user()->id || Auth::user()->isOffice()) data-url2="{{url('/get/appointment')}}" @endif></div>
 	@csrf
 	<div id='calendar'></div>
 
 </div>
 
 
-@if($model_id == Auth::UserId() || Auth::user()->isOffice())
+@if($user_id == Auth::user()->id || Auth::user()->isOffice())
 
-<button class="d-none" id="btn-show-appointment" data-toggle="modal" data-target="#AgregarEspecialidad"></button>
+<button class="d-none" id="btn-show-appointment" data-toggle="modal" data-target="#verCita"></button>
 
 <!-- Modal Crear -->
-<div class="modal fade" id="AgregarEspecialidad" tabindex="-1" role="dialog" aria-labelledby="AgregarEspecialidadLabel" aria-hidden="true">
+<div class="modal fade" id="verCita" tabindex="-1" role="dialog" aria-labelledby="verCitaLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="AgregarEspecialidadLabel"><i class="fal fa-calendar"></i> Detalles</h5>
+				<h5 class="modal-title" id="verCitaLabel"><i class="fal fa-calendar"></i> Detalles</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>

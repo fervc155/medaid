@@ -73,7 +73,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+    public static function randomPassword($length)
+    {
+        $str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+        $password = "";
+        for($i=0;$i<$length;$i++)     
+          $password .= substr($str,rand(0,62),1);
 
+      return $password;
+
+  }
 
 
 
@@ -116,6 +125,47 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return false;
     }
+
+    //Método para determinar si el usuario es de tipo administrador
+    public function admin()
+    {
+        if ($this->id_privileges >=  Privileges::Id('admin'))
+            return true;
+
+
+        return false;
+    }
+
+
+
+    public function office()
+    {
+        if ($this->id_privileges >=  Privileges::Id('office'))
+            return true;
+
+
+        return false;
+    }
+
+
+    public function doctor()
+    {
+        if ($this->id_privileges >=  Privileges::Id('doctor'))
+            return true;
+
+
+        return false;
+    }
+
+    public function patient()
+    {
+        if ($this->id_privileges >=  Privileges::Id('patient'))
+            return true;
+
+
+        return false;
+    }
+
 
 
     public function getProfileimgAttribute()

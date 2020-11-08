@@ -30,6 +30,8 @@ Route::get('acerca','webController@acerca');
 Route::get('contacto','webController@contacto');
 
 
+Route::post('/contacto','webController@contactus')->name('contact.us');
+
 /*=====  End of WEB  ======*/
 
 
@@ -45,9 +47,9 @@ Route::get('/get/officesdoctors/{id}','API\\ApiController@get_officesDoctors');
 
 
 //calendario
+Route::post('/get/appointment','API\\ApiController@getAppointment');
 Route::post('/get/appointments/patient','API\\ApiController@getAppointmentPatient');
 Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor');
-Route::post('/get/appointment','API\\ApiController@getAppointment');
 
 
 /*=====  End of API  ======*/
@@ -138,6 +140,9 @@ route::get('profile/image/{id}','ProfileController@image')->name('profile.image'
 
 
 Route::group(['middleware' => ['auth','office'] ], function () {
+
+
+route::put('profile/regenerate/{user}','ProfileController@regenerate')->name('profile.regenerate');
 
 
     Route::delete('patient/{patient}/destroy','PatientController@destroy');

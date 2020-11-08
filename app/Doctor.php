@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Doctor;
 use App\Option;
 use App\Options;
+use App\Patient;
 use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
@@ -139,6 +141,26 @@ class Doctor extends Model
         return 5 - $this->StarsEarned;
     }
 
+
+
+    public function myPatients()
+    {
+              $patients1 = Doctor::find($this->id)->patients;
+      $patients =  Patient::join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
+        ->join('users', 'users.id_user', 'patients.dni')
+        ->select('patients.*', 'appointments.*')
+          ->where('users.active', 1)
+        ->where('appointments.doctor_id', $this->id)
+        ->get();
+
+
+
+      $patients = $patients->merge($patients1);
+      $patients = $patients->unique('dni');
+
+      return $patients;
+
+    }
 
 
     ///////////////////////datos user

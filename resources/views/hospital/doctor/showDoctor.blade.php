@@ -41,7 +41,7 @@
 
 				<div class="col p-3  ">
 					@include('includes.calendar', [
-					'model_id'=>$doctor->id,
+					'user_id'=>$doctor->user()->id,
 					'route'=>url('/get/appointments/doctor')
 
 					])

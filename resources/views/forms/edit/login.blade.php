@@ -1,3 +1,5 @@
+ @if(Auth::user()->id == $model->user()->id)
+
  <form method="post" action="{{route('profile.update.login', ['user'=>$model->user()->id])}}">
 
    @method('PUT')
@@ -31,3 +33,25 @@
    <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
 
  </form>
+
+
+ @else
+
+ <p>
+  <form method="post" action="{{route('profile.regenerate', ['user'=>$model->user()->id])}}">
+
+   @method('PUT')
+   @csrf
+
+   <h4>Regenerar contraseña</h4>
+
+   <p>Si tu usuario perdió el acceso a su cuenta, enviale un correo con su nueva contraseña</p>
+ 
+   <button type="submit" class="btn btn-primary "><i class="fal fa-lock"> Regenerar</i></button>
+
+ </form>
+
+
+ </p>
+
+ @endif

@@ -302,15 +302,23 @@ class ApiController extends Controller
 
 
 
-		$search =$request->input('id');
+		$id =$request->input('id');
 
+		$user =User::find($id);
 
+		if(!$user->isPatient())
+		{
+						return array();
+
+		}
+
+		$search = $user->profile()->id;
 
 		if (strlen($search)>0)
 		{
 
 
-			$appointments= Appointment::where('patient_dni',"$search")->orderBy('date','DESC')->get();
+			$appointments= Appointment::where('patient_dni',$search)->orderBy('date','DESC')->get();
 		}
 		else
 		{
@@ -354,9 +362,19 @@ class ApiController extends Controller
 
 
 
-		$search =$request->input('id');
+	
 
+		$id =$request->input('id');
 
+		$user =User::find($id);
+
+		if(!$user->isDoctor())
+		{
+						return array();
+
+		}
+
+		$search = $user->profile()->id;
 
 		if (strlen($search)>0)
 		{

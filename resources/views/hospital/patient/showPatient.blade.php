@@ -192,7 +192,7 @@
 
 
 					@include('includes.calendar', [
-					'model_id'=>$patient->dni,
+					'user_id'=>$patient->user()->id,
 					'route'=>url('/get/appointments/patient')
 
 					])

@@ -23,4 +23,8 @@ class Options
     {
     	return Option::All()->where('name','idioma')->first()->value;
     }
+
+
+
+
 }

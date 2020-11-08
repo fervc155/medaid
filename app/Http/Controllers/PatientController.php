@@ -22,20 +22,10 @@ class PatientController extends Controller
 
 
  
+      $myProfileId=Auth::user()->profile()->id;
     if (Auth::isDoctor()) {
 
-      $patients1 = Doctor::find(Auth::UserId())->patients;
-      $patients =  Patient::join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
-        ->join('users', 'users.id_user', '=', 'patients.user_id')
-        ->select('patients.*', 'appointments.*')
-          ->where('users.active', 1)
-        ->where('appointments.doctor_id', Auth::UserId())
-        ->get();
-
-
-
-      $patients = $patients->merge($patients1);
-      $patients = $patients->unique('dni');
+      $patients = Auth::user()->profile()->myPatients();
 
 
 
@@ -46,28 +36,15 @@ class PatientController extends Controller
     if (Auth::isOffice()) {
 
 
-      $doctors = Doctor::where('office_id', Auth::UserId())->get();
+      $doctors = Doctor::where('office_id', $myProfileId)->get();
 
-      $patients = Collection(new Patient);
+      $patients = Collection::make(new Patient);
 
 
       foreach ($doctors as $doctor) {
 
 
-        $patients1 = Doctor::find($doctor->id)->patients;
-
-
-        $patients2 =  Patient::
-        join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
-        ->join('users', 'users.id_user', '=', 'patients.user_id')
-          ->select('patients.*', 'appointments.*')
-          ->where('users.active', 1)
-           ->where('users.id_privileges', 1)
-          ->where('appointments.doctor_id', $doctor->id)
-          ->get();
-
-        $patients2 = $patients2->merge($patients1);
-        $patients2 = $patients2->unique('dni');
+        $patients2 = $doctor->myPatients();
         $patients = $patients->merge($patients2);
       }
 

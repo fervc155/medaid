@@ -25,7 +25,7 @@
           [
           'model'=>$patient,
          
-          ]);
+          ])
 
         </div>
 
@@ -44,7 +44,7 @@
           [
            'model'=>$patient
 
-          ]);
+          ])
         </div>
 
       </div>

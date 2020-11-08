@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SendMail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,6 +60,44 @@ class ProfileController extends Controller
 		}
 
 		return  back()->with('error', 'La contraseña no es correcta, ingresala para editar tus datos');
+
+	}
+
+		public function regenerate(Request $request, User $user)
+	{
+
+
+ 
+
+        if(!Auth::user()->office())
+        {
+            return redirect('/home');
+
+        }
+
+        $password = User::randomPassword(10); 
+        $user->password = bcrypt($password);
+
+        $user->save();
+
+
+        SendMail::toUser($user, array(
+            'subject'=>"Tu contraseña ha sido generada",
+            'text'=>[
+                'Un administrador ha regenerado tu contraseña.',
+                'Tu nueva contraseña es: '.$password
+            ],
+            'url'=> url('login'),
+            'btnText'=>'Ingresar ahora'
+        ));
+
+
+
+
+
+
+
+        return redirect($user->profileUrl)->with('success','el usuario fue actualizado correctamente');
 
 	}
 

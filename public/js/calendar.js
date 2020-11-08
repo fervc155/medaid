@@ -109,9 +109,7 @@
 
 		self=this;
 
- 
- 
-
+  
 		$.ajax({
 
 			type:'POST',
@@ -125,7 +123,8 @@
 			},
 
 			success:function(data,success){
-			self.llenarModal(JSON.parse(data));
+
+ 			self.llenarModal(JSON.parse(data));
 				
 				
 			}

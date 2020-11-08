@@ -6,6 +6,7 @@ use App\Doctor;
 use App\Office;
 use App\Speciality;
 use App\User;
+use App\SendMail;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -147,7 +148,29 @@ class WebController extends Controller
         return view('web.contacto');
     }
 
+   public function contactus(Request $request)
+    {
 
+        $data= $request->validate([
+            'name'=>'required|string',
+            'mail'=>'required|email',
+            'message'=>'required|string'
+        ]);
+
+    SendMail::toAdmin( array(
+            'subject'=>"Quiero mas informacion",
+            'text'=>[
+                
+                'Nombre: '.$data['name'],
+                'correo: '.$data['mail'],
+                'Mensaje: '.$data['message']
+            ],
+            'url'=> url('/chat'),
+            'btnText'=>'Ir a mis mensajes'
+        ));
+
+        return back()->with('success','Mensaje enviado correctamente');
+    }
     public function visitante()
     {
 

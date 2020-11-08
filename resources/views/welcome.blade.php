@@ -1,7 +1,11 @@
 @extends('layouts.web')
 
+
+
+
 @section('content')
 
+@include('includes.messages')
 <div class="cabecera-inicio" style="background-image: url({{asset('splash/img/hospital.jpg')}});">
 
 	<div class="contenedor-titulo">
@@ -188,7 +192,9 @@
 					<h3 class="display-4  text-left text-capitalize"> Envianos un mensaje</h3>
 
 					<div class="formulario formulario-blanco">
-						<form action="">
+						<form action="{{route('contact.us')}}" method="post">
+							@csrf
+
 
 
 							<div class="form-group form-inline align-items-end">
@@ -199,7 +205,7 @@
 
 								<div class="form-group">
 									<label for="nombre" class="bmd-label-floating">Nombre</label>
-									<input type="text" class="form-control" id="nombre">
+									<input type="text" name="name" class="form-control" id="nombre">
 								</div>
 							</div>
 
@@ -209,7 +215,7 @@
 								</div>
 								<div class="form-group">
 									<label class="bmd-label-floating"> Correo</label>
-									<input type="email" class="form-control form-control-claro" name="">
+									<input type="email" class="form-control form-control-claro" name="mail">
 								</div>
 							</div>
 
@@ -219,7 +225,7 @@
 								</div>
 								<div class="form-group ">
 									<label class="bmd-label-floating"> Mensaje</label>
-									<textarea type="text" class="form-control form-control-claro" name=""></textarea>
+									<textarea type="text" class="form-control form-control-claro" name="message"></textarea>
 								</div>
 							</div>
 
