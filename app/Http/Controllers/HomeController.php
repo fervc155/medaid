@@ -33,57 +33,57 @@ class HomeController extends Controller
         {
 
 
-           return  $this->patient();
-        }
+         return  $this->patient();
+     }
 
 
 
-        if(Auth::user()->isDoctor())
-        {
+     if(Auth::user()->isDoctor())
+     {
 
 
-           return  $this->doctor();
-        }
+         return  $this->doctor();
+     }
 
 
-        if(Auth::user()->isOffice())
-        {
+     if(Auth::user()->isOffice())
+     {
 
 
-           return  $this->office();
-        }
+         return  $this->office();
+     }
 
 
-        if(Auth::user()->isAdmin())
-        {
+     if(Auth::user()->isAdmin())
+     {
 
 
-           return  $this->admin();
-        }
-   
-  }
+         return  $this->admin();
+     }
+     
+ }
 
 
-    public function patient()
-    {
-        return view('hospital.home.patient');
+ public function patient()
+ {
+    return view('hospital.home.patient');
 
-    }
+}
 
-        public function doctor()
-    {
-        return view('hospital.home.doctor');
+public function doctor()
+{
+    return view('hospital.home.doctor');
 
-    }
+}
 
-            public function office()
-    {
-        return view('hospital.home.office');
+public function office()
+{
+    return view('hospital.home.office');
 
-    }
-            public function admin()
-    {
-        return view('hospital.home.admin');
+}
+public function admin()
+{
+    return view('hospital.home.admin');
 
-    }
+}
 }
