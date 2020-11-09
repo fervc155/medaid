@@ -426,8 +426,7 @@
 							</pre>
 						</p>
 
-						<a href="{{ action('PrescriptionController@download', $prescription->id) }}" class="btn btn-round btn-just-icon btn-success float-right btn-sm"><i class="fal fa-download"></i></a>
-
+	<a href="{{ action('PrescriptionController@download', $prescription->id) }}" class="btn btn-round btn-just-icon btn-success float-right btn-sm"><i class="fal fa-download"></i></a>
 
 						@if(Auth::Doctor())
 						<button type="button" data-toggle="modal" data-target="#EditarReceta" class="float-right btn btn-actualizar-receta btn-link  btn-sm

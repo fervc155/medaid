@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Storage;
 use App\Appointment;
 use App\Condition;
 use App\Conditions;
@@ -97,12 +97,15 @@ class AppointmentController extends Controller
 
 
     if (Auth::isDoctor()) {
+         
       $id = Auth::UserId();
     }
 
 
 
     if ($id != '' && $spe != '') {
+
+
       $_doctor = Doctor::find($id);
       $_speciality_id = $spe;
 
@@ -272,6 +275,27 @@ class AppointmentController extends Controller
   public function update(Request $request, Appointment $appointment)
   {
 
+
+  if (Auth::Doctor()) {
+ 
+            $data = request()->validate([
+                'file' => 'required',
+              ]);
+
+             $prescription = Prescription::find($request->input('prescription_id'));
+ 
+             $prescription->content = $request->input('content');
+ 
+            $file_path =  $data['file']->store('profile', 'public');
+
+            $prescription->file = $file_path;
+
+             $prescription->save();
+ 
+             return back()->with('success', 'Receta actualizada correctamente');
+
+
+    }
     if (Auth::Patient()) {
 
       $this->validate($request, [
@@ -391,6 +415,16 @@ class AppointmentController extends Controller
     }
     return view('admin');
   }
+
+
+   public function download($id)
+    {
+        $prescription = Prescription::find($id);
+        $file_path = $prescription->file;
+
+        return Storage::disk('public')->download($file_path);
+    }
+
 
 
   /*==========================================
