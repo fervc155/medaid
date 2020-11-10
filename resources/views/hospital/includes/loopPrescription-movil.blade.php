@@ -11,7 +11,7 @@
   <div class="card-body">
 
 
-    @if(!Auth::isPatient())
+    @if(!Auth::user()->isPatient())
 
 
     <div class="form-inline mb-2">
@@ -29,7 +29,7 @@
     @endif
 
 
-    @if(!Auth::isDoctor())
+    @if(!Auth::user()->isDoctor())
     <div class="form-inline mb-2">
       <div class="icon-form">
         <i class="fal fa-user-md"></i>
@@ -62,7 +62,7 @@
     <div class="text-center">
 
       <a href="{{ action('PrescriptionController@download', $prescription->id) }}" class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-download"></i></a>
-      @if(Auth::Doctor())
+      @if(Auth::user()->Doctor())
       <button type="button" data-toggle="modal" data-target="#EditarReceta" class="btn btn-actualizar-receta btn-primary btn-just-icon btn-round btn-sm
         " data-id="{{$prescription->id}}" data-content='{{$prescription->content}}'><i class="fal fa-pen"></i></button>
       <!-- Modal Crear -->

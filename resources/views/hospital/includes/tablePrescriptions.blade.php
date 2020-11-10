@@ -19,11 +19,11 @@
               <tr>
                 <th>ID</th>
                 <th>Cita ID</th>
-                @if(!Auth::isDoctor())
+                @if(!Auth::user()->isDoctor())
                 <th>Doctor</th>
                 @endif
 
-                @if(!Auth::isPatient())
+                @if(!Auth::user()->isPatient())
 
                 <th>Paciente</th>
                 @endif

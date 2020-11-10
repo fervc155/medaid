@@ -47,16 +47,16 @@
 
 
 
-					@if(Auth::isPatient())
+					@if(Auth::user()->isPatient())
 
-					<input type="hidden" name="patient_dni" id="patient_dni" value="{{Auth::UserId()}}">
+					<input type="hidden" name="patient_dni" id="patient_dni" value="{{Auth::user()->id_user}}">
 
 
 					@endif
 
 
 
-					@if(Auth::Doctor())
+					@if(Auth::user()->Doctor())
 
 
 

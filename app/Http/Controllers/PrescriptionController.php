@@ -15,30 +15,30 @@ class PrescriptionController extends Controller
     public function index()
     {
 
-        if (Auth::isPatient()) {
+        if (Auth::user()->isPatient()) {
             $prescriptions =  Prescription::join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
                 ->select('prescriptions.*', 'appointments.patient_dni')
-                ->where('appointments.patient_dni', Auth::UserId())
+                ->where('appointments.patient_dni', Auth::user()->id_user)
                 ->get();
 
 
 
             return view('hospital.prescription.indexPrescription', compact('prescriptions'));
         }
-        if (Auth::isDoctor()) {
+        if (Auth::user()->isDoctor()) {
             $prescriptions =  Prescription::join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
                 ->select('prescriptions.*', 'appointments.doctor_id')
-                ->where('appointments.doctor_id', Auth::UserId())
+                ->where('appointments.doctor_id', Auth::user()->id_user)
                 ->get();
 
 
             return view('hospital.prescription.indexPrescription', compact('prescriptions'));
         }
-        if (Auth::isOffice()) {
+        if (Auth::user()->isOffice()) {
             $prescriptions =  Prescription::join('appointments', 'appointments.id', '=', 'prescriptions.appointment_id')
                 ->join('doctors', 'appointments.doctor_id', '=', 'doctors.id')
                 ->select('prescriptions.*', 'appointments.*', 'doctors.*')
-                ->where('doctors.office_id', Auth::UserId())
+                ->where('doctors.office_id', Auth::user()->id_user)
                 ->get();
 
 
@@ -47,7 +47,7 @@ class PrescriptionController extends Controller
 
 
 
-        if (Auth::isAdmin()) {
+        if (Auth::user()->isAdmin()) {
 
             $prescriptions = Prescription::all();
             return view('hospital.prescription.indexPrescription', compact('prescriptions'));
@@ -59,7 +59,7 @@ class PrescriptionController extends Controller
     public function store(Request $request)
     {
 
-        if (Auth::Doctor()) {
+        if (Auth::user()->Doctor()) {
 
 
             $prescription =  new Prescription();
@@ -92,7 +92,7 @@ class PrescriptionController extends Controller
     public function update(Request $request)
     {
 
-        if (Auth::Doctor()) {
+        if (Auth::user()->Doctor()) {
 
             $data = request()->validate([
                 'file' => 'required',

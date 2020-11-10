@@ -3,11 +3,11 @@
    <td>{{$prescription->id}}</td>
    <td><a href="{{url('appointment/'.$prescription->appointment->id)}}">{{ $prescription->appointment->id }}</a></td>
 
-   @if(!Auth::isDoctor())
+   @if(!Auth::user()->isDoctor())
    <td><a href="{{url('doctor/'.$prescription->appointment->doctor->id)}}">{{ $prescription->appointment->doctor->name }}</a></td>
    @endif
 
-   @if(!Auth::isPatient())
+   @if(!Auth::user()->isPatient())
 
 
    <td><a href="{{url('patient/'.$prescription->appointment->patient->dni)}}">{{ $prescription->appointment->patient->name }}</a></td>
@@ -17,7 +17,7 @@
 
 
    <td><a href="{{ action('PrescriptionController@download', $prescription->id) }}" class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-download"></i></a>
-     @if(Auth::Doctor())
+     @if(Auth::user()->Doctor())
      <button type="button" data-toggle="modal" data-target="#EditarReceta" class="btn btn-actualizar-receta btn-primary btn-just-icon btn-round btn-sm
         " data-id="{{$prescription->id}}" data-content='{{$prescription->content}}'><i class="fal fa-pen"></i></button>
 

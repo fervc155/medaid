@@ -38,4 +38,3 @@
 
   @endsection
 
-  @include('includes.dataTables')

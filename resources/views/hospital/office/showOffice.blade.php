@@ -94,7 +94,7 @@
 
 					</div>
 
-					@if(Auth::Admin() || (Auth::isOffice() && $office->id == Auth::UserId()) )
+					@if(Auth::user()->Admin() || (Auth::user()->isOffice() && $office->id == Auth::user()->id_user) )
 
 					<div class="text-center">
 

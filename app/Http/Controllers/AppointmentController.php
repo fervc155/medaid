@@ -41,8 +41,8 @@ class AppointmentController extends Controller
 
 
 
-    if (Auth::isPatient()) {
-      $appointments = Appointment::where('patient_dni', '=', Auth::UserId())->get();
+    if (Auth::user()->isPatient()) {
+      $appointments = Appointment::where('patient_dni', '=', Auth::user()->profile()->id)->get();
 
 
       return view('hospital.appointment.indexAppointment', compact('appointments'));
@@ -50,8 +50,8 @@ class AppointmentController extends Controller
 
 
 
-    if (Auth::isDoctor()) {
-      $appointments = Appointment::where('doctor_id', '=', Auth::UserId())->get();
+    if (Auth::user()->isDoctor()) {
+      $appointments = Appointment::where('doctor_id', '=', Auth::user()->profile()->id)->get();
 
       return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
@@ -59,12 +59,12 @@ class AppointmentController extends Controller
 
 
 
-    if (Auth::isOffice()) {
+    if (Auth::user()->isOffice()) {
 
 
       $appointments =  Appointment::join('doctors', 'appointments.doctor_id', '=', 'doctors.id')
         ->select('appointments.*')
-        ->where('doctors.office_id', Auth::UserId())
+        ->where('doctors.office_id', Auth::user()->profile()->id)
         ->get();
 
 
@@ -73,7 +73,7 @@ class AppointmentController extends Controller
       return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
 
-    if (Auth::Admin()) {
+    if (Auth::user()->Admin()) {
       $appointments = Appointment::all();
       return view('hospital.appointment.indexAppointment', compact('appointments'));
     }
@@ -96,9 +96,9 @@ class AppointmentController extends Controller
     $offices = Office::active();
 
 
-    if (Auth::isDoctor()) {
+    if (Auth::user()->isDoctor()) {
          
-      $id = Auth::UserId();
+      $id = Auth::user()->profile()->id;
     }
 
 
@@ -163,29 +163,29 @@ class AppointmentController extends Controller
 
     $appointment = Appointment::find($id);
 
-    if (Auth::isPatient()) {
-      if (Auth::UserId() == $appointment->patient_dni) {
+    if (Auth::user()->isPatient()) {
+      if (Auth::user()->profile()->id == $appointment->patient_dni) {
         return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient', $appointment->patient);
       }
     }
 
 
-    if (Auth::isOffice()) {
-      if (Auth::UserId() == $appointment->doctor->office_id) {
+    if (Auth::user()->isOffice()) {
+      if (Auth::user()->profile()->id == $appointment->doctor->office_id) {
         return view('hospital.appointment.showAppointment', compact('appointment'))->with('patient', $appointment->patient);
       }
     }
 
 
 
-    if (Auth::isDoctor()) {
+    if (Auth::user()->isDoctor()) {
 
       $patients =  Patient::join('appointments', 'appointments.patient_dni', '=', 'patients.dni')
         ->select('patients.*', 'appointments.*')
-        ->where('appointments.doctor_id', Auth::UserId())
+        ->where('appointments.doctor_id', Auth::user()->profile()->id)
         ->get();
 
-      if (Auth::UserId() == $appointment->doctor_id) {
+      if (Auth::user()->profile()->id == $appointment->doctor_id) {
         return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients', $appointment->patient);
       }
 
@@ -203,15 +203,15 @@ class AppointmentController extends Controller
 
 
 
-    if (Auth::isOffice()) {
+    if (Auth::user()->isOffice()) {
 
-      if (Auth::UserId() == $appointment->doctor->office_id) {
+      if (Auth::user()->profile()->id == $appointment->doctor->office_id) {
 
         return view('hospital.appointment.showAppointment', compact('appointment'))->with('patients', $appointment->patient);
       }
     }
 
-    if (Auth::Admin()) {
+    if (Auth::user()->Admin()) {
 
 
 
@@ -232,16 +232,16 @@ class AppointmentController extends Controller
     }
 
 
-    if (Auth::isPatient()) {
-      if (Auth::UserId() != $appointment->patient_dni) {
+    if (Auth::user()->isPatient()) {
+      if (Auth::user()->profile()->id != $appointment->patient_dni) {
         return view('admin');
       }
     }
 
 
 
-    if (Auth::isDoctor()) {
-      if (Auth::UserId() != $appointment->doctor_id) {
+    if (Auth::user()->isDoctor()) {
+      if (Auth::user()->profile()->id != $appointment->doctor_id) {
         return view('admin');
       }
     }
@@ -249,15 +249,15 @@ class AppointmentController extends Controller
 
 
 
-    if (Auth::isOffice()) {
-      if (Auth::UserId() != $appointment->doctor->office_id) {
+    if (Auth::user()->isOffice()) {
+      if (Auth::user()->profile()->id != $appointment->doctor->office_id) {
         return view('admin');
       }
     }
 
 
 
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
 
 
@@ -276,7 +276,7 @@ class AppointmentController extends Controller
   {
 
 
-  if (Auth::Doctor()) {
+  if (Auth::user()->Doctor()) {
  
             $data = request()->validate([
                 'file' => 'required',
@@ -296,7 +296,7 @@ class AppointmentController extends Controller
 
 
     }
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
       $this->validate($request, [
         'date' => 'required|date',
@@ -323,7 +323,7 @@ class AppointmentController extends Controller
   //cancelar cita
   public function destroy(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
       $appointment->condition_id = Conditions::Id('cancelled');
       $appointment->save();
@@ -336,7 +336,7 @@ class AppointmentController extends Controller
   //cancelar cita
   public function cancelled(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
       $appointment->condition_id = Conditions::Id('cancelled');
       $appointment->save();
 
@@ -349,7 +349,7 @@ class AppointmentController extends Controller
   //Atender cita
   public function complete(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
       $appointment->condition_id = Conditions::Id('completed');
       $appointment->save();
 
@@ -361,7 +361,7 @@ class AppointmentController extends Controller
   //acpetar cita
   public function accepted(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
       $appointment->condition_id = Conditions::Id('accepted');
       $appointment->save();
 
@@ -372,7 +372,7 @@ class AppointmentController extends Controller
   //rechazar cita
   public function rejected(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
       $appointment->condition_id = Conditions::Id('rejected');
       $appointment->save();
@@ -385,7 +385,7 @@ class AppointmentController extends Controller
   //pendiente cita
   public function pending(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
       $appointment->condition_id = Conditions::Id('pending');
       $appointment->save();
 
@@ -396,7 +396,7 @@ class AppointmentController extends Controller
   //tarde cita
   public function late(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
       $appointment->condition_id = Conditions::Id('late');
       $appointment->save();
 
@@ -407,7 +407,7 @@ class AppointmentController extends Controller
   //perdida cita
   public function lost(Appointment $appointment)
   {
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
       $appointment->condition_id = Conditions::Id('lost');
       $appointment->save();
 

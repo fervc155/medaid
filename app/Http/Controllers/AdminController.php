@@ -58,7 +58,7 @@ class AdminController extends Controller
   public function update(Request $request, Admin $admin)
   {
 
-    if (Auth::admin()  ) {
+    if (Auth::user()->admin()  ) {
 
       $data = request()->validate([
         'name' => 'required|string|max:255',

@@ -3,7 +3,7 @@
 @section('content')
 
 
-@if(Auth::Office())
+@if(Auth::user()->Office())
 <a href="{{route('doctor.create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fal fa-plus"></i></a>
 
 @endif
@@ -25,4 +25,4 @@
 	@endif
 	@endsection
 
-	@include('includes.dataTables')
+ 

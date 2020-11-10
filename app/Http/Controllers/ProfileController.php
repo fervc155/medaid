@@ -23,7 +23,7 @@ class ProfileController extends Controller
 	{
 
 		$user = User::find($id);
-		if (( Auth::isPatient() || Auth::isDoctor()) &&  $id!= Auth::user()->id ) 
+		if (( Auth::user()->isPatient() || Auth::user()->isDoctor()) &&  $id!= Auth::user()->id ) 
 		{
 			abort(403);
 		}
@@ -106,7 +106,7 @@ class ProfileController extends Controller
 	{
 
 		$user = User::find($id);
-		if (( Auth::isPatient() || Auth::isDoctor()) &&  $id!= Auth::user()->id ) 
+		if (( Auth::user()->isPatient() || Auth::user()->isDoctor()) &&  $id!= Auth::user()->id ) 
 		{
 			abort(403);
 		}

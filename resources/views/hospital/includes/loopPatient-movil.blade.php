@@ -66,7 +66,7 @@
     </div>
  
 
-              @if(Auth::Office() )
+              @if(Auth::user()->Office() )
 
     <div class="text-center">
       <a href="{{$patient->ProfileUrl}}" class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-user-injured"></i></a>

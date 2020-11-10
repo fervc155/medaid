@@ -4,7 +4,7 @@
 
 
 
-@if(Auth::Office())
+@if(Auth::user()->Office())
 <a href="{{ url('/patient/create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fas fa-plus"></i></a>
 
 @endif
@@ -28,4 +28,4 @@
 
   @endif
   @endsection
-  @include('includes.dataTables')
+ 

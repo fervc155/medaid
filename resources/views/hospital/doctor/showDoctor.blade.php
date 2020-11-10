@@ -25,7 +25,7 @@
 				<div class="col-12 col-lg-6">
 					@include('hospital.includes.counter.model',
 					[
-					'model'=>$patients,
+					'model'=>$doctor->myPatients(),
 					'title'=>'Pacientes',
 					'icon'=>'fa-user-injured'
 
@@ -56,7 +56,7 @@
 </div>
 
 
-@if((auth::isDoctor() && Auth::UserId()== $doctor->id) || auth::Office())
+@if((auth::user()->isDoctor() && Auth::user()->id_user == $doctor->id) || auth::user()->Office())
 
 <!-- CITAS -->
 
@@ -81,7 +81,7 @@
 	<!-- PACIENTES -->
 
 
-	@if(Auth::Office())
+	@if(Auth::user()->Office())
 
 	@if(count($patients) < 1) <div class="container p-5 sin-datos">
 		<div class="row">

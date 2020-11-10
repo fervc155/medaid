@@ -11,7 +11,7 @@ class SpecialityController extends Controller
     public function index()
     {
 
-        if (Auth::Patient()) {
+        if (Auth::user()->Patient()) {
 
 
             $specialities = Speciality::All();

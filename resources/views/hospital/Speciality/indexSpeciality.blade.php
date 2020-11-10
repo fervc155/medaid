@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if(Auth::Office())
+@if(Auth::user()->Office())
 
 <button class="btn btn-success  btn-float" data-toggle="modal" data-target="#AgregarEspecialidad">
   <i class="fal fa-plus"></i>
@@ -126,7 +126,7 @@
       <i class="fal fa-user-md"></i>
       <p class="lead ">No se encontraron especialidades.
 
-        @if(Auth::Office())<a href="{{ url('/speciality/create')}}">¡Agrega uno!</a></p>@endif
+        @if(Auth::user()->Office())<a href="{{ url('/speciality/create')}}">¡Agrega uno!</a></p>@endif
     </div>
   </div>
   </div>
@@ -177,7 +177,7 @@
 
 
 
-                    @if(Auth::Office())
+                    @if(Auth::user()->Office())
 
                     <button type="button" class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}" data-cost="{{$speciality->cost}}" data-name="{{$speciality->name}}" data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
 
@@ -262,7 +262,7 @@
 
 
 
-              @if(Auth::Office())
+              @if(Auth::user()->Office())
               <button type="button" class="btn btn-success btn-round btn-just-icon btn-sm btn-actualizar-especialidad" data-id="{{$speciality->id}}" data-name="{{$speciality->name}}" data-toggle="modal" data-target="#ActualizarEspecialidad"><i class="fal fa-pen"></i></button>
 
               @if (count($speciality->doctors)<1) <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id='speciality-{{$speciality->id}}'> <i class="fas fa-times"></i></button>
@@ -305,4 +305,4 @@
 
   @endif
   @endsection
-  @include('includes.dataTables')
+  

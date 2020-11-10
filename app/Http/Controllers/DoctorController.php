@@ -20,7 +20,7 @@ class DoctorController extends Controller
   {
 
 
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
 
       $doctors = Doctor::active();
@@ -32,7 +32,7 @@ class DoctorController extends Controller
   //Crear doctores
   public function create()
   {
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
       $defaultImg = new Options();
       $defaultImg = $defaultImg->UserDefault();
@@ -49,7 +49,7 @@ class DoctorController extends Controller
   //Almacenar doctor
   public function store(Request $request)
   {
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
 
       $data = request()->validate([
@@ -122,16 +122,16 @@ class DoctorController extends Controller
     $doctor = Doctor::find($id);
 
 
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
 
 
 
 
-
+      $myPatients = $doctor->myPatients();
 
       return view('hospital.doctor.showDoctor', compact('doctor'))
-        ->with('patients', $doctor->patients)
+        ->with('patients', $myPatients)
         ->with('appointments', $doctor->appointments);
     }
 
@@ -149,7 +149,7 @@ class DoctorController extends Controller
 
 
 
-    if (Auth::isAdmin() ||  Auth::user()->profile()->id == $id  || (Auth::isOffice() && Auth::user()->profile()->id == $doctor->office_id)) {
+    if (Auth::user()->isAdmin() ||  Auth::user()->profile()->id == $id  || (Auth::user()->isOffice() && Auth::user()->profile()->id == $doctor->office_id)) {
 
       $offices = Office::active();
       $specialities = Speciality::all();
@@ -162,7 +162,7 @@ class DoctorController extends Controller
   public function update(Request $request, Doctor $doctor)
   {
 
-    if (Auth::Office() || Auth::user()->profile()->id == $doctor->id) {
+    if (Auth::user()->Office() || Auth::user()->profile()->id == $doctor->id) {
 
       $data = request()->validate([
         'name' => 'required|string|max:255',
@@ -244,7 +244,7 @@ class DoctorController extends Controller
   //Eliminar doctor
   public function destroy(Doctor $doctor)
   {
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
 $doctor->user()->deactivate();
             return redirect('/doctor')->with('success', '¡El médico ha sido eliminado con éxito!');

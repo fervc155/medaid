@@ -5,7 +5,7 @@
 
 @if(count($appointment->prescriptions)<1 && ($appointment->condition->status == 'accepted'
 	|| ($appointment->condition->status == 'completed' || $appointment->condition->status == 'late') )
-	&& Auth::Doctor())
+	&& Auth::user()->Doctor())
 
 
 	<button class="btn btn-success  btn-float" data-toggle="modal" data-target="#AgregarReceta">
@@ -14,7 +14,7 @@
 
 	@include('hospital.includes.modal.createPrescription')
 
-	@elseif(Auth::Doctor())
+	@elseif(Auth::user()->Doctor())
 
 	@include('hospital.includes.modal.editPrescription')
 
@@ -46,7 +46,7 @@
 
 
 
-					@if(Auth::Doctor())
+					@if(Auth::user()->Doctor())
 
 					<img src="{{$appointment->patient->user()->Profileimg}}" class="img-fluid">
 
@@ -159,7 +159,7 @@
 
 						@if($appointment->status=='pending')
 
-						@if(Auth::Patient())
+						@if(Auth::user()->Patient())
 
 						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/appointment/'.$appointment->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 						@endif
@@ -171,7 +171,7 @@
 
 						@if($appointment->condition->status =='pending')
 
-						@if(Auth::Patient())
+						@if(Auth::user()->Patient())
 
 
 
@@ -186,7 +186,7 @@
 
 
 
-						@if(Auth::Doctor())
+						@if(Auth::user()->Doctor())
 
 						{!! Form::open(['action' => ['AppointmentController@accepted', $appointment->id], 'method' => 'PATCH']) !!}
 						{{ Form::hidden('_method', 'PATCH') }}
@@ -198,7 +198,7 @@
 
 
 						@if($appointment->condition->status =='accepted')
-						@if(Auth::Patient())
+						@if(Auth::user()->Patient())
 
 
 						{!! Form::open(['action' => ['AppointmentController@cancelled', $appointment->id], 'method' => 'PATCH']) !!}
@@ -207,7 +207,7 @@
 						{!! Form::close() !!}
 						@endif
 
-						@if(Auth::Doctor())
+						@if(Auth::user()->Doctor())
 
 
 
@@ -222,7 +222,7 @@
 
 
 
-						@if(Auth::Doctor())
+						@if(Auth::user()->Doctor())
 
 
 						@if($appointment->condition->status =='lost')
@@ -370,7 +370,7 @@
 
 
 
-	@if(count($appointment->prescriptions)>0 && Auth::Doctor())
+	@if(count($appointment->prescriptions)>0 && Auth::user()->Doctor())
 
 	@include('hospital.includes.modal.EditPrescription');
 
@@ -428,7 +428,7 @@
 
 	<a href="{{ action('PrescriptionController@download', $prescription->id) }}" class="btn btn-round btn-just-icon btn-success float-right btn-sm"><i class="fal fa-download"></i></a>
 
-						@if(Auth::Doctor())
+						@if(Auth::user()->Doctor())
 						<button type="button" data-toggle="modal" data-target="#EditarReceta" class="float-right btn btn-actualizar-receta btn-link  btn-sm
 						" data-id="{{$prescription->id}}" data-content='{{$prescription->content}}'><i class="fal fa-pen"></i> Editar </button>
 

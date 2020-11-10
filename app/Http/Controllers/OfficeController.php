@@ -16,7 +16,7 @@ class OfficeController extends Controller
   public function index()
   {
 
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
       $offices = Office::active();
 
@@ -29,7 +29,7 @@ class OfficeController extends Controller
     //Agregar consultorio
   public function create()
   {
-    if (Auth::Admin()) {
+    if (Auth::user()->Admin()) {
 
 
       return view('hospital.office.createOffice');
@@ -40,7 +40,7 @@ class OfficeController extends Controller
     //Almacenar consultorio
   public function store(Request $request)
   {
-    if (Auth::Admin()) {
+    if (Auth::user()->Admin()) {
 
 
 
@@ -92,7 +92,7 @@ class OfficeController extends Controller
   {
     $office = Office::find($id);
 
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
       return view('hospital.office.showOffice', compact('office'))
       ->with('doctors', $office->doctors);
@@ -103,12 +103,12 @@ class OfficeController extends Controller
     //Actualizar
   public function edit($id)
   {
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
 
 
 
-      if (Auth::isAdmin() || Auth::UserId() == $id) {
+      if (Auth::user()->isAdmin() || Auth::user()->profile()->id == $id) {
         $office = Office::find($id);
         return view('hospital.office.editOffice', compact('office'));
       }
@@ -184,7 +184,7 @@ class OfficeController extends Controller
    public function destroy(Office $office)
    {
  
-    if (Auth::Admin()) {
+    if (Auth::user()->Admin()) {
 
       $office->user()->deactivate();
       return redirect('/doctor')->with('success', '¡El consultorio ha sido eliminado con éxito!');

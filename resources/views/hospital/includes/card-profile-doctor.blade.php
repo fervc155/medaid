@@ -34,7 +34,7 @@
 
 
 
-			@if(Auth::Patient())
+			@if( Auth::check() &&  Auth::user()->Patient())
 
 
 			<div class="form-inline mb-2">
@@ -130,7 +130,7 @@
 				<?php endforeach ?>
 			</select>
 
-			@if(Auth::Doctor())
+			@if( Auth::check() && Auth::user()->Doctor())
 
 			<div class="h3 color-principal">
 				<span class=" speciality-price" id="speciality-price-minmax">
@@ -146,22 +146,22 @@
 			@endif
 
 
-			@if(Auth::Doctor())
+			@if( Auth::check() &&  Auth::user()->Doctor())
 
-			@if(($doctor->id == Auth::UserId() && Auth::isDoctor()) || Auth::Admin())
-
-
-			<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
-			@endif
-
-			@if(Auth::isOffice() && $doctor->office_id == Auth::UserId())
+			@if(($doctor->id == Auth::user()->profile()->id && Auth::user()->isDoctor()) || Auth::user()->isAdmin())
 
 
 			<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 			@endif
 
+			@if(Auth::user()->isOffice() && $doctor->office_id == Auth::user()->profile()->id)
 
-			@if(Auth::Admin() || (Auth::isOffice() && $doctor->office_id == Auth::UserId()))
+
+			<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/doctor/'.$doctor->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
+			@endif
+
+
+			@if(Auth::user()->Admin() || (Auth::user()->isOffice() && $doctor->office_id == Auth::user()->profile()->id))
 
 			<button class="btn btn-danger btn-round btn-confirm-delete" id='doctor-{{$doctor->id}}'> <i class="fal fa-trash"></i> Eliminar</button>
 
@@ -175,7 +175,7 @@
 			@endif
 
 
-			@if(Auth::isPatient())
+			@if( Auth::check() && Auth::user()->isPatient())
 
 
 

@@ -6,7 +6,7 @@
 
 
 
-@if(Auth::Admin())
+@if(Auth::user()->Admin())
 <a href="{{ url('/office/create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fas fa-plus"></i></a>
 
 @endif
@@ -198,4 +198,3 @@
   @endif
   @endsection
 
-  @include('includes.dataTables')

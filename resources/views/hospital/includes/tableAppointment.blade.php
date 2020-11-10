@@ -23,15 +23,15 @@
                 <th>Hora</th>
                 <th>Costo</th>
                 <th>Razón</th>
-                @if(!Auth::isDoctor())
+                @if(!Auth::user()->isDoctor())
 
                 <th>Médico</th>
                 @endif
 
-                @if(!Auth::isPatient())
+                @if(!Auth::user()->isPatient())
                 <th>Paciente</th>
                 @endif
-                @if(!Auth::isDoctor())
+                @if(!Auth::user()->isDoctor())
 
                 <th>Consultorio</th>
                 @endif

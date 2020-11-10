@@ -89,7 +89,7 @@ class User extends Authenticatable implements MustVerifyEmail
     //Método para determinar si el usuario es de tipo administrador
     public function isAdmin()
     {
-        if ($this->id_privileges ==  Privileges::Id('admin'))
+        if ( $this->id_privileges ==  Privileges::Id('admin'))
             return true;
 
 
@@ -100,7 +100,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isOffice()
     {
-        if ($this->id_privileges ==  Privileges::Id('office'))
+        if ( $this->id_privileges ==  Privileges::Id('office'))
             return true;
 
 
@@ -110,7 +110,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isDoctor()
     {
-        if ($this->id_privileges ==  Privileges::Id('doctor'))
+        if ( $this->id_privileges ==  Privileges::Id('doctor'))
             return true;
 
 
@@ -119,7 +119,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isPatient()
     {
-        if ($this->id_privileges ==  Privileges::Id('patient'))
+        if ( $this->id_privileges ==  Privileges::Id('patient'))
             return true;
 
 
@@ -129,7 +129,7 @@ class User extends Authenticatable implements MustVerifyEmail
     //Método para determinar si el usuario es de tipo administrador
     public function admin()
     {
-        if ($this->id_privileges >=  Privileges::Id('admin'))
+        if ( $this->id_privileges >=  Privileges::Id('admin'))
             return true;
 
 
@@ -140,7 +140,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function office()
     {
-        if ($this->id_privileges >=  Privileges::Id('office'))
+        if ( $this->id_privileges >=  Privileges::Id('office'))
             return true;
 
 
@@ -150,7 +150,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function doctor()
     {
-        if ($this->id_privileges >=  Privileges::Id('doctor'))
+        if ( $this->id_privileges >=  Privileges::Id('doctor'))
             return true;
 
 
@@ -159,7 +159,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function patient()
     {
-        if ($this->id_privileges >=  Privileges::Id('patient'))
+        if ( $this->id_privileges >=  Privileges::Id('patient'))
             return true;
 
 

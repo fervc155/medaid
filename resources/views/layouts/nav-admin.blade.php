@@ -27,7 +27,7 @@
 					} ?>"><a href="{{url('/home')}}" class="nav-link"><i class="fal fa-chart-pie"></i> Escritorio</a></li>
 
 
-					@if(Auth::Patient())
+					@if(Auth::user()->Patient())
 
 					<li class="card-collapse nav-item <?php if ($active == 'doctor') {
 						echo 'active';
@@ -42,7 +42,7 @@
 
 
 
-							@if(Auth::Office())
+							@if(Auth::user()->Office())
 
 							<li class="nav-item <?php if ($active == 'options') {
 								echo 'active';
@@ -56,7 +56,7 @@
 
 				@endif
 
-				@if(Auth::Doctor())
+				@if(Auth::user()->Doctor())
 
 
 
@@ -71,7 +71,7 @@
 							echo 'active';
 						} ?>"><a href="{{url('/patient')}}" class="nav-link"><i class="fal  fa-users"></i> Todos</a></li>
 
-						@if(Auth::Office())
+						@if(Auth::user()->Office())
 						<li class="nav-item <?php if ($active == 'options') {
 							echo 'active';
 						} ?>"><a href="{{url('/patient/create')}}" class="nav-link"><i class="fal fa-user-plus"></i> Agregar nuevo</a></li>
@@ -86,7 +86,7 @@
 			@endif
 
 
-			@if(Auth::Patient())
+			@if(Auth::user()->Patient())
 
 			<li class="card-collapse nav-item <?php if ($active == 'office') {
 				echo 'active';
@@ -113,7 +113,7 @@
 
 		@endif
 
-		@if(Auth::Patient())
+		@if(Auth::user()->Patient())
 
 		<li class="card-collapse nav-item <?php if ($active == 'appointment') {
 			echo 'active';
@@ -152,7 +152,7 @@
 	@endif
 
 
-	@if(Auth::Patient())
+	@if(Auth::user()->Patient())
 
 
 	<li class="nav-item <?php if ($active == 'chatbot') {
@@ -160,7 +160,7 @@
 	} ?>"><a href="{{url('/chatbot')}}" class="nav-link"><i class="far fa-comment-smile"></i> Asistente </a></li>
 	@endif
 
-	@if(Auth::Doctor())
+	@if(Auth::user()->Doctor())
 
 
 	<li class="nav-item <?php if ($active == 'chat') {
@@ -168,14 +168,14 @@
 	} ?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
 	@endif
 
-	@if(Auth::Office() || Auth::IsPatient())
+	@if(Auth::user()->Office() || Auth::user()->IsPatient())
 	<li class="nav-item <?php if ($active == 'speciality') {
 		echo 'active';
 	} ?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
 	@endif
 
 
-	@if(Auth::Admin())
+	@if(Auth::user()->Admin())
 	<li class="nav-item <?php if ($active == 'user') {
 		echo 'active';
 	} ?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>

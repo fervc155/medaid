@@ -47,7 +47,7 @@
 						<div class="card-body">
 
 
-							<h3>{{count($patients)}}</h3>
+							<h3>{{count($doctor->myPatients())}}</h3>
 							<p>Pacientes</p>
 						</div>
 					</div>
@@ -59,10 +59,13 @@
 
 				<div class="col p-3 datos-calendario">
 
-					<div id='id' data-id="{{$doctor->id}}"></div>
-					<div id='url' data-url="{{url('/get/appointments/doctor')}}"></div>
-					@csrf
-					<div id='calendar'></div>
+					@include('includes.calendar', [
+					'user_id'=>$doctor->user()->id,
+					'route'=>url('/get/appointments/doctor')
+
+					])
+
+
 
 				</div>
 			</div>

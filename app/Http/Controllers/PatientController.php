@@ -23,7 +23,7 @@ class PatientController extends Controller
 
  
       $myProfileId=Auth::user()->profile()->id;
-    if (Auth::isDoctor()) {
+    if (Auth::user()->isDoctor()) {
 
       $patients = Auth::user()->profile()->myPatients();
 
@@ -33,7 +33,7 @@ class PatientController extends Controller
       return view('hospital.patient.indexPatients', compact('patients'));
     }
 
-    if (Auth::isOffice()) {
+    if (Auth::user()->isOffice()) {
 
 
       $doctors = Doctor::where('office_id', $myProfileId)->get();
@@ -60,7 +60,7 @@ class PatientController extends Controller
       return view('hospital.patient.indexPatients', compact('patients'));
     }
 
-    if (Auth::Admin()) {
+    if (Auth::user()->Admin()) {
 
       $patients = Patient::active();
 
@@ -73,7 +73,7 @@ class PatientController extends Controller
   //Agregar paciente
   public function create()
   {
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
       $defaultImg = new Options();
       $defaultImg = $defaultImg->UserDefault();
@@ -93,7 +93,7 @@ class PatientController extends Controller
 
 
 
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
 
 
@@ -147,13 +147,13 @@ class PatientController extends Controller
   public function show($id)
   {
 
-    if (Auth::Patient()) {
+    if (Auth::user()->Patient()) {
 
 
       $patient = Patient::find($id);
       $appointments = $patient->appointments;
 
-      if (Auth::isPatient()) {
+      if (Auth::user()->isPatient()) {
 
         if (Auth::user()->id_user != $id) {
           return view('admin');
@@ -163,14 +163,14 @@ class PatientController extends Controller
       }
 
 
-      if (Auth::isDoctor()) {
+      if (Auth::user()->isDoctor()) {
 
 
 
-        $appointments = Appointment::where('doctor_id', '=', Auth::UserId())->where('patient_dni', '=', $patient->dni)->get();
+        $appointments = Appointment::where('doctor_id', '=', Auth::user()->id_user)->where('patient_dni', '=', $patient->dni)->get();
       }
 
-      if (Auth::Office()) {
+      if (Auth::user()->Office()) {
       }
 
       return view('hospital.patient.showPatient', compact('patient'))
@@ -191,7 +191,7 @@ class PatientController extends Controller
 
 
 
-    if (Auth::isPatient()) {
+    if (Auth::user()->isPatient()) {
 
       if (Auth::user()->id_user != $id) {
         return view('admin');
@@ -203,7 +203,7 @@ class PatientController extends Controller
 
 
 
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
 
 
@@ -217,7 +217,7 @@ class PatientController extends Controller
   public function update(Request $request,  $id)
   {
 
-    if ((Auth::isPatient() && Auth::user()->profile()->id == $id) || Auth::Office()) {
+    if ((Auth::user()->isPatient() && Auth::user()->profile()->id == $id) || Auth::user()->Office()) {
 
 
       $data = request()->validate([
@@ -289,7 +289,7 @@ class PatientController extends Controller
   //Eliminar paciente
   public function destroy(Patient $patient)
   {
-    if (Auth::Office()) {
+    if (Auth::user()->Office()) {
 
       $patient->user()->deactivate();
 

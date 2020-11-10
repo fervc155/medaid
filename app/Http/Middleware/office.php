@@ -16,7 +16,7 @@ class office
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::Office()) {
+        if (Auth::check() && Auth::user()->Office()) {
             return $next($request);
         }
 

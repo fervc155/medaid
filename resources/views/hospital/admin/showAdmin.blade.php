@@ -27,7 +27,7 @@
 				<div class="card-body">
 				 
 
-					@if(Auth::Patient())
+					@if(Auth::user()->Patient())
 
 
 					<div class="form-inline mb-2">

@@ -16,7 +16,7 @@ class patient
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::Patient()) {
+        if (Auth::check() && Auth::user()->Patient()) {
             return $next($request);
         }
 

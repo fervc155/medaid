@@ -11,7 +11,7 @@
   <div class="card-body">
 
 
-    @if(!Auth::isPatient())
+    @if(!Auth::user()->isPatient())
 
 
     <div class="form-inline mb-2">
@@ -98,7 +98,7 @@
       <a href="{{url('/appointment/'.$appointment->id)}}" class="btn btn-primary btn-round btn-just-icon btn-sm"><i class="fal fa-calendar-check"></i></a>
 
 
-      @if((Auth::isPatient() && Auth::UserId() == $appointment->patient_dni) || (Auth::isDoctor() && Auth::UserId() == $appointment->doctor_id) || (Auth::isOffice() && Auth::UserId() == $appointment->doctor->office_id) || Auth::Admin() )
+      @if((Auth::user()->isPatient() && Auth::user()->id_user == $appointment->patient_dni) || (Auth::user()->isDoctor() && Auth::user()->id_user == $appointment->doctor_id) || (Auth::user()->isOffice() && Auth::user()->id_user == $appointment->doctor->office_id) || Auth::user()->Admin() )
 
       @if($appointment->status=='pending')
       <a href="{{url('/appointment/'.$appointment->id.'/edit')}}" class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>

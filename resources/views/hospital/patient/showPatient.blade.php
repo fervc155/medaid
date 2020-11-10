@@ -135,13 +135,13 @@
 
 
 				 
-					@if(Auth::Office() || (Auth::isPatient() && Auth::user()->profile()->id == $patient->dni ))
+					@if(Auth::user()->Office() || (Auth::user()->isPatient() && Auth::user()->profile()->id == $patient->dni ))
 
 
 
 					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/patient/'.$patient->dni.'/edit')}}"> <i class="fal fa-pen"></i> Editar</a>
 
-					@if(Auth::Office() )
+					@if(Auth::user()->Office() )
 
 
 

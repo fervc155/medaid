@@ -11,7 +11,7 @@ class UserController extends Controller
 	public function index()
 	{
 
-		if (Auth::Office()) {
+		if (Auth::user()->Office()) {
 			$users = User::all();
 			return view('hospital.user.indexUser', compact('users'));
 		}

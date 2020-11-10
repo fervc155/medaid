@@ -14,7 +14,7 @@
 
 
 
-              @if(Auth::Office() )
+              @if(Auth::user()->Office() )
               <a href="{{url('/patient/'.$patient->dni).'/edit'}}" class="btn btn-success btn-round btn-just-icon btn-sm"><i class="fal fa-pen"></i></a>
 
               <button class="btn btn-danger btn-round btn-just-icon btn-sm btn-confirm-delete" id="paciente-{{$patient->dni}}"> <i class="fas fa-times"></i></button>
