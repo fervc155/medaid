@@ -11,6 +11,7 @@ use App\Office;
 use App\Privileges;
 use App\Speciality;
 use App\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -28,41 +29,43 @@ class ApiController extends Controller
 		$speciality=$request->input('speciality');
 
 
+
+
+			$doctors = Speciality::find($speciality)->doctors;
+
+			$users =  Collection::make(new User);
+
+ 				foreach ($doctors as $doctor) 
+ 				{
+ 					$users->push($doctor->user());
+ 				}
+
 		if (strlen($search)>0)
 		{
 
+ 			
+			     $users =User::search($search,2,$users);
 
-			    	
-			$doctors=Doctor::
-            join('doctor_speciality','doctor_speciality.doctor_id','=','doctors.id')
-            ->select('doctors.*')
-            ->where('doctor_speciality.speciality_id', $speciality)
-            ->where('doctors.name','like',"%$search%")
-            ->get();
-
+ 
 		}
-		else
-		{
-			$doctors = Speciality::find($speciality)->doctors;
-
-		}
+	 
 
 
 		$calculateSpeciality=array();
 
 
-		foreach ($doctors as $doctor)
+		foreach ($users as $user)
 		{
 			$new = array(
-				'id'=>$doctor->id,
+				'id'=>$user->profile()->id,
+				'Profileimg'=>$user->Profileimg,
 
-				'name'=>$doctor->name,
-				'specialities'=>$doctor->specialities,
-				'MinMaxCost'=>$doctor->MinMaxCost,
-				'Profileimg'=>asset($doctor->Profileimg),
-				'StarsEarned'=>$doctor->StarsEarned,
-				'StarsMissing'=>$doctor->StarsMissing,
-				'stars'=>$doctor->stars,
+				'name'=>$user->name,
+				'specialities'=>$user->profile()->specialities,
+				'MinMaxCost'=>$user->profile()->MinMaxCost,
+ 				'StarsEarned'=>$user->profile()->StarsEarned,
+				'StarsMissing'=>$user->profile()->StarsMissing,
+				'stars'=>$user->profile()->stars,
 
 			);
 
@@ -113,6 +116,7 @@ class ApiController extends Controller
 				'id'=>$user->id,
 
 				'name'=>$user->name,
+				'Profileimg'=>$user->profileImg,
 				'specialities'=>$user->profile()->specialities,
 				'MinMaxCost'=>$user->profile()->MinMaxCost,
 				'Profileimg'=>$user->Profileimg,

@@ -41,7 +41,7 @@ class Levenshtein
      $corpus = math::sort(levenshtein::dataset($models, $s));
 
 
-     
+    
 
 
         foreach ($corpus as $array) 

@@ -259,18 +259,29 @@ class User extends Authenticatable implements MustVerifyEmail
 
     }
 
-    public static function search($s,$privilege=0)
+    public static function search($s,$privilege=0 ,$users=null)
     {
 
-        if($privilege<1)
-            $users = User::active();
-        else
+        if(null==$users)
         {
-            $users = User::where('id_privileges',$privilege)
-            ->where('active',1)->get();
+
+
+            if($privilege<1)
+                $users = User::active();
+            else
+            {
+                $users = User::where('id_privileges',$privilege)
+                ->where('active',1)->get();
+            }
+
+            return Levenshtein::searchIn($users, $s);
         }
 
-        return Levenshtein::searchIn($users, $s);
+        else
+        {
+             return Levenshtein::searchIn($users, $s);
+        }
+         
     }
 
 
