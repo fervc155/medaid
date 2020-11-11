@@ -92,7 +92,7 @@ class RegisterController extends Controller
 
         $ruta_imagen =  $data['image']->store('patients','public');
     
-         return User::create([
+         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'telephone' => $data['telephone'],
@@ -103,6 +103,10 @@ class RegisterController extends Controller
             'id_user'=>$patient->dni,
             'password' => Hash::make($data['password']),
         ]);
+
+
+         $user->createAsStripeCustomer();
+         return $user;
 
     }
 }

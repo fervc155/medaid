@@ -65,6 +65,11 @@ Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor'
 
 Route::group(['middleware' => ['auth','patient'] ], function () {
 
+
+     Route::post('pay/{appointment}/online','PaymentController@online')->name('payment.store.online');
+    Route::post('pay/{appointment}/then','PaymentController@then')->name('payment.then');
+    //
+
     Route::get('chatbot','ChatController@bot')->name('chatbot');
     Route::resource('appointment', 'AppointmentController');          
   

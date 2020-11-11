@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Storage;
 use App\Appointment;
 use App\Condition;
 use App\Conditions;
@@ -9,11 +8,13 @@ use App\Doctor;
 use App\Notification;
 use App\Office;
 use App\Patient;
+use App\Payment;
 use App\Privileges;
 use App\Speciality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Storage;
 
 class AppointmentController extends Controller
 {
@@ -90,8 +91,6 @@ class AppointmentController extends Controller
 
 
 
-
-
     $patients = Patient::active();
     $offices = Office::active();
 
@@ -154,7 +153,16 @@ class AppointmentController extends Controller
     $appointment->save();
 
 
+    if(Auth::user()->isPatient())
+    {
+
+       $stripeCustomer = Auth::user()->createOrGetStripeCustomer();
+
+        return view('hospital.payment.createPayment')->with('intent',auth::user()->createSetupIntent())->with('appointment',$appointment)->with('price',$appointment->price);
+    
+    }
     return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');
+
   }
 
   //Información de cita
@@ -320,6 +328,8 @@ class AppointmentController extends Controller
     return view('admin');
   }
 
+
+ 
   //cancelar cita
   public function destroy(Appointment $appointment)
   {

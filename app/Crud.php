@@ -27,6 +27,13 @@ class Crud extends Model
 		$user->email_verified_at = now();
 		$user->password = Hash::make($data['password']);
 		$user->save();
+
+		
+		if($privilege==1)
+		{
+			
+         $user->createAsStripeCustomer();
+		}
 	}
 
 	public static function newAdmin($data, $model_id)
@@ -74,5 +81,12 @@ class Crud extends Model
 		$user->id_user = $model_id;
 		$user->password = Hash::make($data['password']);
 		$user->save();
+
+
+		if($privilege<2)
+		{
+
+         $user->createAsStripeCustomer();
+		}
 	}
 }

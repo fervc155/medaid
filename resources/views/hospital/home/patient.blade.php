@@ -2,6 +2,7 @@
 
 @section('content')
 
+ 
 
 <div class="container">
 	<div class="row">
@@ -20,8 +21,8 @@
         <div class="card-body table-responsive">
 
 
+ 
 
-			
 					@include('includes.calendar', [
 					'user_id'=>auth::user()->id,
 					'route'=>url('/get/appointments/patient')
@@ -33,5 +34,4 @@
 	</div>
 </div>
  
- 
-@endsection
+ @endsection

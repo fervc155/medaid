@@ -195,6 +195,7 @@
 	<script src="{{ asset('js/web.js') }}"></script>
 
 
+	@stack('js')
 </body>
 
 </html>

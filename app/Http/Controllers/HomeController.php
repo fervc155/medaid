@@ -29,6 +29,7 @@ class HomeController extends Controller
     {
 
 
+
         if(Auth::user()->isPatient())
         {
 
@@ -92,5 +93,7 @@ public function admin()
 
 /**
 
-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
+pk_test_51Hm4SrDxe4dXiGj7N2DdM2TiLJgN9LVL9tLx7H9UhrX6xz67kHacNLxMmf5IuQYGVL4aY9uyR9BCngv9g3LOMuEM00Jni03sYk
+
+sk_test_51Hm4SrDxe4dXiGj7JDxcXA8VlrCPQkR8DnWNsjjmEek6jb918YChymiB3MDJhAaKXxRtaaWrRviOsuuPQp9GhbM700n5aE9MxU
 */

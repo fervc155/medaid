@@ -71,6 +71,11 @@ class Appointment extends Model
 
 
 
+    public function getProfileUrlAttribute()
+    {
+        return url('/appointment/' . $this->id);
+    }
+    
     public function getpriceAttribute()
     {
         $options = new Options();

@@ -12,14 +12,13 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
-        "laravel/cashier": "^12.3",
+        "laravel/cashier": "^12.5",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.0",
         "laravelcollective/html": "^6.2",
         "laraveles/spanish": "^1.5",
-        "livewire/livewire": "^2.2",
-        "mpociot/botman": "^2.4"
+        "livewire/livewire": "^2.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

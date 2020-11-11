@@ -523,7 +523,7 @@
 			"file": "database/seeds/DatabaseSeeder.php",
 			"settings":
 			{
-				"buffer_size": 716,
+				"buffer_size": 730,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -704,7 +704,7 @@
 			"file": "app/Crud.php",
 			"settings":
 			{
-				"buffer_size": 2020,
+				"buffer_size": 2171,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -953,7 +953,7 @@
 			"file": "app/Http/Controllers/HomeController.php",
 			"settings":
 			{
-				"buffer_size": 1205,
+				"buffer_size": 1432,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1143,7 +1143,7 @@
 			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse App\\Chat;\nuse App\\Messages;\nuse App\\User;\nuse Illuminate\\Support\\Facades\\Auth;\nuse Livewire\\Component;\n\nclass ChatHeader extends Component\n{\n\n\tpublic $userOut;\n\n\n\tpublic function mount()\n\t{\n\n\t\t$lastChat =Messages::lastest();\n\n\n\t\tif(null == $lastChat)\n\t\t\treturn;\n\n\n\t\tif($lastChat->user_in == Auth::user()->id)\n\t\t{\n\n\t\t\t$this->userOut=User::find($lastChat->user_out);\n\t\t}\n\t\telse\n\t\t{\n\t\t\t$this->userOut=User::find($lastChat->user_in);\n\t\t}\n\t}\n\n\tprotected $listeners = ['selectChat'];\n\n \tpublic function selectChat($idUser)\n \t{\n \t\t$this->userOut = User::find($idUser);\n\n\n \t\t// $this->chat = Chat::where('user_out',$id)\n \t\t// ->where('user_in',Auth::user()->id)\n \t\t// ->get();\n \t}\n\n    public function render()\n    {\n        return view('livewire.chat-header');\n    }\n}\n",
 			"file": "app/Http/Livewire/ChatHeader.php",
 			"file_size": 857,
-			"file_write_time": 132469258541724256,
+			"file_write_time": 132494384093288268,
 			"settings":
 			{
 				"buffer_size": 803,
@@ -1541,7 +1541,7 @@
 			"file": ".env",
 			"settings":
 			{
-				"buffer_size": 857,
+				"buffer_size": 1147,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1662,22 +1662,16 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Notifications;\n\nuse Illuminate\\Bus\\Queueable;\nuse Illuminate\\Contracts\\Queue\\ShouldQueue;\nuse Illuminate\\Notifications\\Messages\\MailMessage;\nuse Illuminate\\Notifications\\Notification;\n\nclass MessageNotification extends Notification\n{\n    use Queueable;\n\n    /**\n     * Create a new notification instance.\n     *\n     * @return void\n     */\n    public function __construct($data)\n    {\n        $this->subject = $data['subject']??'';\n        $this->url = $data['url']??'';\n        $this->text = $data['text']??'';\n        $this->btnText = $data['btnText']??'Ver notificacion';\n        $this->salutation=$data['salutation']??\"MedAid\";\n\n        \n    }\n\n    /**\n     * Get the notification's delivery channels.\n     *\n     * @param  mixed  $notifiable\n     * @return array\n     */\n    public function via($notifiable)\n    {\n        return ['mail'];\n    }\n\n    /**\n     * Get the mail representation of the notification.\n     *\n     * @param  mixed  $notifiable\n     * @return \\Illuminate\\Notifications\\Messages\\MailMessage\n     */\n    public function toMail($notifiable)\n    {\n        $message= (new MailMessage)\n        ->subject($this->subject)\n        ->greeting($this->subject);\n\n        if(is_array($this->text))\n        {\n\n            foreach ($this->text as $line) \n            {\n\n                $message->line($line);\n            }\n        }\n        else\n        {\n                            $message->line($this->text);\n\n        }\n        $message->action($this->btnText, $this->url)\n        ->salutation($this->salutation);\n\n\n        return $message;\n    }\n\n \n}\n",
 			"file": "app/Notifications/MessageNotification.php",
-			"file_size": 1590,
-			"file_write_time": 132486506548129123,
 			"settings":
 			{
 				"buffer_size": 1590,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Notifications;\n\nuse Illuminate\\Bus\\Queueable;\nuse Illuminate\\Contracts\\Queue\\ShouldQueue;\nuse Illuminate\\Notifications\\Messages\\MailMessage;\nuse Illuminate\\Notifications\\Notification;\n\nclass Notifications extends Notification\n{\n    use Queueable;\n\n    /**\n     * Create a new notification instance.\n     *\n     * @return void\n     */\n  \n    public function __construct($data)\n    {\n\n\n        $this->subject = $data['subject']??'';\n        $this->url = $data['url']??'';\n        $this->text = $data['text']??'';\n        $this->btnText = $data['btnText']??'Ver notificacion';\n        $this->salutation=$data['salutation']??\"MedAid\";\n\n        \n    }\n\n\n    /**\n     * Get the notification's delivery channels.\n     *\n     * @param  mixed  $notifiable\n     * @return array\n     */\n    public function via($notifiable)\n    {\n        return ['mail','database'];\n    }\n\n    /**\n     * Get the mail representation of the notification.\n     *\n     * @param  mixed  $notifiable\n     * @return \\Illuminate\\Notifications\\Messages\\MailMessage\n     */\n    public function toMail($notifiable)\n    {\n        $message= (new MailMessage)\n        ->subject($this->subject)\n        ->greeting($this->subject);\n\n        if(is_array($this->text))\n        {\n\n            foreach ($this->text as $line) \n            {\n\n                $message->line($line);\n            }\n        }\n        else\n        {\n                            $message->line($this->text);\n\n        }\n        $message->action($this->btnText, $this->url)\n        ->salutation($this->salutation);\n\n\n        return $message;\n    }\n\n    public function toDatabase($notifiable)\n    {\n\n        return [\n            'subject'=>$this->subject,\n            'text'=>$this->text,\n            'url'=>$this->url,\n\n        ];\n\n    }\n \n}\n",
 			"file": "app/Notifications/Notifications.php",
-			"file_size": 1881,
-			"file_write_time": 132484796581719819,
 			"settings":
 			{
 				"buffer_size": 1791,
@@ -1709,10 +1703,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse Illuminate\\Support\\Facades\\Auth;\nuse Livewire\\Component;\n\nclass NotificationsDropdown extends Component\n{\n\n\tpublic $notifications;\n\n\tprotected $listeners = ['reloadCount','openNotifications'];\n\n\n\tpublic function mount()\n\t{\n\t\t$this->notifications= array();\n\t\t$this->reloadCount();\n\t}\n\tpublic function reloadCount()\n\t{\n\n\n    $notifications =    Auth::user()->notifications->sortByDesc('created_at')->take(6);\n \n    $this->notifications = array();\n\n\n    foreach ($notifications as $notification) \n    {\n\n       $data= array(\n        'subject'=>$notification->data['subject']??'',\n         'url'=>$notification->data['url']??'',\n        'read'=>$notification->read_at??false,\n        'date'=>$notification->created_at->diffForHumans(),\n       );\n\n \n       array_push( $this->notifications,$data);\n    }\n\n     \n }\n\n \tpublic function openNotifications()\n \t{\n\t\tAuth::user()->unreadNotifications->markAsRead();\n\n \t}\n\n\n    public function render()\n    {\n        return view('livewire.notifications-dropdown');\n    }\n}\n",
 			"file": "app/Http/Livewire/NotificationsDropdown.php",
-			"file_size": 1108,
-			"file_write_time": 132492675959135183,
 			"settings":
 			{
 				"buffer_size": 1050,
@@ -1721,10 +1712,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse Illuminate\\Support\\Facades\\Auth;\nuse Livewire\\Component;\n\nclass NotificationsCount extends Component\n{\n\n\n\tpublic $count;\n\tprotected $listeners = ['reloadCount','openNotifications'];\n\n\n\tpublic function mount()\n\t{\n\t\t$this->count =    Auth::user()->unreadNotifications()->count();\n\t}\n\n\n\tpublic function reloadCount()\n\t{\n\t\t$this->count = Auth::user()->unreadNotifications()->count();\n\n\t}\n\n\n\tpublic function openNotifications()\n\t{\n\t \tAuth::user()->unreadNotifications->markAsRead();\n\n\n\t}\n\n\n\tpublic function render()\n\t{\n\t\treturn view('livewire.notifications-count');\n\t}\n}\n",
 			"file": "app/Http/Livewire/NotificationsCount.php",
-			"file_size": 648,
-			"file_write_time": 132484796581659815,
 			"settings":
 			{
 				"buffer_size": 607,
@@ -1955,8 +1943,40 @@
 			"file": "app/User.php",
 			"settings":
 			{
-				"buffer_size": 5187,
+				"buffer_size": 5232,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/xampp/htdocs/laravel/regulatorio/composer.json",
+			"settings":
+			{
+				"buffer_size": 1729,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vendor/laravel/cashier/config/cashier.php",
+			"settings":
+			{
+				"buffer_size": 4545,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/laravel/cashier/src/Cashier.php",
+			"settings":
+			{
+				"buffer_size": 3518,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "composer.json",
+			"settings":
+			{
+				"buffer_size": 1766,
 				"line_ending": "Windows"
 			}
 		},
@@ -2066,13 +2086,11 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Soft\\Tree;\n\nuse App\\Soft\\Tree\\Classifier;\nuse App\\Soft\\Tree\\Decide_node;\nuse App\\Soft\\Tree\\Evaluate;\n\nclass Data {\n\n\tpublic $data_training;\n\tpublic $words;\n\n\n\tpublic  function __construct($dataset,$words)\n\t{\n\n\t\t$this->data_training=\n// \t\t[\n//     [1, 1, 0, 1, 'Infección de garganta'],\n//     [0, 0, 1, 0, 'Alergia'],\n//     [0, 0, 1, 1, 'Resfriado'],\n//     [0, 0, 1, 0, 'Alergia'],\n//     [1, 1, 1, 1, 'Infección de garganta'],\n//     [0, 0, 1, 0, 'Resfriado'],\n//     [1, 0, 1, 1, 'Resfriado'],\n//     [1, 1, 0, 1, 'Infección de garganta'],\n//     [0, 0, 1, 1, 'Resfriado'],\n// ];\n\t\t$dataset;\n\n \n\t\t$this->words =\n\t\t// [\"Fiebre\", \"Dolor de garganta\", \"Congestión\", \"Dolor de cabeza\", \"Diagnóstico\"];\n\t\t $words;\n \n\n\t}\n\n\t//dataset and number of column what you want\n\tpublic function unique_values($y)\n\t{\n\t\t$set= array();\n\n\t\tforeach($this->data_training as $row)\n\t\t{\n\t\t\tif(!in_array($row[$y],$set))\n\t\t\t\tarray_push($set,$row[$y]);\n\t\t}\n\n\t\treturn $set;\n\t}\n\n\tpublic function count_rows($rows  )\n\t{\n      $count = array();\n\n      foreach($rows as $row)\n      {\n       \n      \t$content = end($row) ;\n\n     \n\n      \tif(!isset($count[$content]))\n      \t{\n\n      \t\t$count[$content]=1;\n \n      \t}\n      \telse\n      \t{\n      \t\t$count[$content]++;\n      \t}\n\n      }\n\n\n      return $count;\n \n\t}\n\n\n\tpublic function  part($rows,Evaluate $evaluate)\n\t{\n\n\n    $rowsMatch=[];\n\n     $rowsError = [];\n\n\n     foreach ($rows as $row) \n     {\n     \tif($evaluate->compare($row))\n     \t{\n     \t\t$rowsMatch[]=$row;\n     \t}\n     \telse\n     \t{\n     \t     $rowsError[]=$row;\n\t\n     \t}\n     }\n    \n       \n    return array('match'=>$rowsMatch,'error'=>$rowsError);\n\t}\n\n\n\tpublic function incertitude($rows)\n\t{\n\t\t$counts  = $this->count_rows($rows);\n\n\t\t$impure =1;\n\n\t\tforeach($counts as $key => $count)\n\t\t{\n\t\t\t$prob_data = $counts[$key] / count($rows);\n\n\t\t\t$impure -= pow($prob_data,2);\n\t\t}\n\n\t\treturn $impure;\n\t}\n\n\n\tpublic function tracking($left, $right, $actual_incertitude)\n\t{\n\t\t$p = count($left) / (count($left) + count($right));\n\t\n\t\treturn $actual_incertitude - $p * $this->incertitude($left) - (1 -$p) * $this->incertitude($right);\n\t}\n\n\n\tpublic function best_route($rows)\n\t{\n\t \t\t\n\t\t$best_tracking =0;\n\t\t$best_evaluate = null;\n\t\t$actual_incertitude = $this->incertitude($rows);\n\t\t$nCols = count($rows[0])-1;\n\n\n\t\tfor($i=0; $i< $nCols; $i++)\n\t\t{\n\t\t\t$values = array();\n\n\t\t\tforeach ($rows as $key => $row) \n\t\t\t{\n\t\t\t\tif(!in_array($row[$i],$values))\n\t\t\t\t\tarray_push($values,$row[$i]);\n\n\t\t\t}\n\n\n\t\t \n\n\t\t\tforeach ($values as $key => $value) \n\t\t\t{\n\n\n\n\t\t\t\t $evaluate = new Evaluate($i,$value,$this->words);\n\t\t\t\t $request = $this->part($rows,$evaluate);\n\n\n\n\t\t\t \n\t\t\t\t if(count($request['match'])==0  || count($request['error'])==0)\n\t\t\t\t {\n\t\t\t\t \tcontinue;\n\t\t\t\t }\n\t\t\t\t else\n\t\t\t\t {\n\n\n\t\t\t\t\t $info = $this->tracking($request['match'],$request['error'],$actual_incertitude);\n\n\n\t\t\t\t\t if ($info >= $best_tracking)\n\t\t\t\t\t {\n\t\t\t\t\t \t$best_tracking=$info;\n\t\t\t\t\t \t$best_evaluate=$evaluate;\n\t\t\t\t\t }\n\t\t\t\t }\n\n\t\t\t}\n\n\n\t\t}\n\t\t\treturn array('best_tracking'=>$best_tracking,'best_evaluate'=>$best_evaluate);\n\n\t}\n\n\n\n\tpublic function make_tree($rows)\n\t{\n\n\t\t$request = $this->best_route($rows);\n\n\t\t$info = $request['best_tracking'];\n\t\t$evaluate =$request['best_evaluate'];\n\n\t\tif ($info ==0)\n\t\t\treturn new Classifier($this->count_rows($rows));\n\n\t\t$request = $this->part($rows,$evaluate);\n\n\t\t$correct_branch = $this->make_tree($request['match']);\n$incorrect_branch = $this->make_tree($request['error']);\n    \n \n    return new Decide_node($evaluate, $correct_branch, $incorrect_branch);\n\t}\n\n\n\tpublic function print_tree($node,$space=\"\")\n\t{\n\n\n\t\tif(strpos(get_class($node), \"Classifier\"))\n\t\t{\n\t\t\techo $space . \"Predict\".json_encode($node->prediction)    .\"<br>\";\n\t\t\treturn;\n\t\t}\n  \n\n    echo  $space . $node->evaluate->check() . \"<br>\";\n\n    echo $space . \"--> True: <br>\";\n\n\n   $this->print_tree($node->correct_branch,$space.\" \");\n\n\n   echo $space. \"--> False: <br>\";\n\n    $this->print_tree($node->incorrect_branch, $space . \"  \");\n\t}\n\n\n\tpublic function classify($row,$node)\n\t{\n\t\tif(strpos(get_class($node), \"Classifier\"))\n\t\t{\n\t\t\t \n\t\t\treturn $node->prediction;\n\t\t}\n\n\n\t\tif($node->evaluate->compare($row))\n\t\t{\n\t\t\treturn $this->classify($row,$node->correct_branch);\n\t\t}\n\t\telse\n\t\t{\n\n\n\t\treturn $this->classify($row,$node->incorrect_branch);\n\t\t}\n\t}\n\n\n\tpublic function print_classify($count)\n\t{\n\t\t$total = 0;\n\n\n\t\tforeach($count as $key => $value )\n\t\t{\n\t\t\t$total+=$value;\n\t\t}\n\n \t\t \n\n\t\t$probabilities =[];\n\n\t\tforeach ($count as $data => $value) \n\t\t{\n \n\t\t\t$probabilities[$data]= ($count[$data] * 100) / $total  . \"%\"; \n\t\t}\n\n\t\treturn $probabilities;\n\n\n\t}\n\n \n \n}\n\n\n",
 			"file": "app/Soft/Tree/Data.php",
-			"file_size": 4900,
-			"file_write_time": 132492675961985346,
 			"settings":
 			{
 				"buffer_size": 4600,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -2117,10 +2135,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Soft\\Tree;\n\nclass Classifier {\n \n\n\tpublic $prediction;\n\t\n\tpublic function __construct($rowsCount)\n\t{\n\n\t\t$this->prediction = $rowsCount;\n\t}\n\n\n \n}\n\n\n",
 			"file": "app/Soft/Tree/Classifier.php",
-			"file_size": 188,
-			"file_write_time": 132492675961535321,
 			"settings":
 			{
 				"buffer_size": 168,
@@ -2128,10 +2143,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Soft\\Tree;\n\nuse App\\Soft\\Tree\\Evaluate;\n\nclass Decide_node {\n \n\tpublic $evaluate;\n\tpublic $correct_branch;\n\tpublic $incorrect_branch;\n\t\n    public function __construct(Evaluate $evaluate, $correct_branch,$incorrect_branch)\n    {\n\n    \t$this->evaluate = $evaluate;\n    \t$this->correct_branch =$correct_branch;\n    \t$this->incorrect_branch= $incorrect_branch;\n\n\n    }\n\n \n}\n\n\n",
 			"file": "app/Soft/Tree/Decide_node.php",
-			"file_size": 420,
-			"file_write_time": 132492675962045350,
 			"settings":
 			{
 				"buffer_size": 394,
@@ -2139,10 +2151,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Soft\\Tree;\n\n\n\nclass Evaluate\n{\n\n\tpublic $column;\n\tpublic $value;\n\tpublic $tags;\n\tpublic function __construct($column,$value,$tags)\n\t{\n $this->column = $column;\n        $this->value = $value;\n        $this->tags=$tags;\n\t}\n\n\n \tpublic function compare($example)\n \t{\n \t\t$val = $example[$this->column];\n\n \t\tif(is_numeric($val))\n \t\t{\n \t\t\treturn $val >= $this->value;\n \t\t}\n \t\telse\n \t\t{\n \t\t\treturn $val == $this->value;\n \t\t}\n \t}\n\n   \n \tpublic function check()\n \t{\n \t\t$condition = \"==\";\n\n \t\tif(is_numeric($this->value))\n \t\t\t$condition = \">=\";\n \t\treturn \"Is \".$this->tags[$this->column]. \" \".$condition. \" \".$this->value;\n \t}\n   \n\n    }",
 			"file": "app/Soft/Tree/Evaluate.php",
-			"file_size": 692,
-			"file_write_time": 132492675962055350,
 			"settings":
 			{
 				"buffer_size": 647,
@@ -2203,15 +2212,12 @@
 			}
 		},
 		{
-			"contents": "<?php\n\n/*\n  version 1.3\n\n  Copyright (c) 2005-2014  Ivo Ugrina <ivo@iugrina.com>\n\n  A PHP library implementing Jaro and Jaro-Winkler\n  distance, measuring similarity between strings.\n\n  Theoretical stuff can be found in:\n  Winkler, W. E. (1999). \"The state of record linkage and current\n  research problems\". Statistics of Income Division, Internal Revenue\n  Service Publication R99/04. http://www.census.gov/srd/papers/pdf/rr99-04.pdf.\n\n\n  This program is free software; you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation; either version 3 of the License, or (at\n  your option) any later version.\n\n  This program is distributed in the hope that it will be useful, but\n  WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n  General Public License for more details.\n  \n  You should have received a copy of the GNU General Public License\n  along with this program.  If not, see <http://www.gnu.org/licenses/>.\n\n  ===\n\n  A big thanks goes out to Pierre Senellart <pierre@senellart.com>\n  for finding a small bug in the code. Also, thanks goes out to\n  Debabrata Kar <debakjr@gmail.com> for help in transition to\n  PHP 5.4+.\n\n*/\n\n\nfunction getCommonCharacters( $string1, $string2, $allowedDistance ){\n  \n  $str1_len = strlen($string1);\n  $str2_len = strlen($string2);\n  $temp_string2 = $string2;\n   \n  $commonCharacters='';\n\n  for( $i=0; $i < $str1_len; $i++){\n    \n    $noMatch = True;\n\n    // compare if char does match inside given allowedDistance\n    // and if it does add it to commonCharacters\n    for( $j= max( 0, $i-$allowedDistance ); $noMatch && $j < min( $i + $allowedDistance + 1, $str2_len ); $j++){\n      if( $temp_string2[$j] == $string1[$i] ){\n        $noMatch = False;\n\n\t$commonCharacters .= $string1[$i];\n\n      \t$temp_string2[$j] =' ' ;\n    \n      }\n    }\n  }\n\n  return $commonCharacters;\n}\n  \nfunction Jaro( $string1, $string2 ){\n    \n  $str1_len = strlen( $string1 );\n  $str2_len = strlen( $string2 );\n    \n  // theoretical distance\n  $distance = (int) floor(min( $str1_len, $str2_len ) / 2.0); \n    \n\n\n\n  // get common characters\n  $commons1 = getCommonCharacters( $string1, $string2, $distance );\n  $commons2 = getCommonCharacters( $string2, $string1, $distance );\n    \n\n \n  if( ($commons1_len = strlen( $commons1 )) == 0) return 0;\n  if( ($commons2_len = strlen( $commons2 )) == 0) return 0;\n\n  // calculate transpositions\n  $transpositions = 0;\n  $upperBound = min( $commons1_len, $commons2_len );\n  for( $i = 0; $i < $upperBound; $i++){\n    if( $commons1[$i] != $commons2[$i] ) $transpositions++;\n  }\n  $transpositions /= 2.0;\n\n  // return the Jaro distance\n  return ($commons1_len/($str1_len) + $commons2_len/($str2_len) + ($commons1_len - $transpositions)/($commons1_len)) / 3.0;\n    \n}\n \nfunction getPrefixLength( $string1, $string2, $MINPREFIXLENGTH = 4 ){\n  \n  $n = min( array( $MINPREFIXLENGTH, strlen($string1), strlen($string2) ) );\n  \n  for($i = 0; $i < $n; $i++){\n    if( $string1[$i] != $string2[$i] ){\n      // return index of first occurrence of different characters \n      return $i;\n    }\n  }\n\n  // first n characters are the same   \n  return $n;\n}\n  \nfunction JaroWinkler($string1, $string2, $PREFIXSCALE = 0.1 ){\n  \n  $JaroDistance = Jaro( $string1, $string2 );\n  \n  $prefixLength = getPrefixLength( $string1, $string2 );\n  \n  return $JaroDistance + $prefixLength * $PREFIXSCALE * (1.0 - $JaroDistance);\n}\n\n?>\n",
 			"file": "public/jaro/JaroWinkler.php",
-			"file_size": 3514,
-			"file_write_time": 132486498062973800,
 			"settings":
 			{
 				"buffer_size": 3514,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -2254,7 +2260,7 @@
 			"file": "vendor/laravel/framework/src/Illuminate/Auth/SessionGuard.php",
 			"settings":
 			{
-				"buffer_size": 23756,
+				"buffer_size": 23681,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -2488,10 +2494,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse App\\Chat;\nuse App\\Messages;\nuse App\\SendMail;\nuse App\\User;\nuse Illuminate\\Support\\Facades\\Auth;\nuse Livewire\\Component;\n\nclass ChatForm extends Component\n{\n\n \n\tpublic $userOut;\n\n\n\tpublic function mount()\n\t{\n\t\t \n\t\t$lastChat =Messages::lastest();\n\nif(null == $lastChat)\n\t\t\treturn;\n\t\tif($lastChat->user_in == Auth::user()->id)\n\t\t{\n\n\t\t\t$this->userOut=User::find($lastChat->user_out);\n\t\t}\n\t\telse\n\t\t{\n\t\t\t$this->userOut=User::find($lastChat->user_in);\n\t\t}\n\t}\n\n\tprotected $listeners = ['selectChat'];\n\n \tpublic function selectChat($idUser)\n \t{\n \t\t$this->userOut = User::find($idUser);\n\n \t}\n\n\n \tpublic function send($messageTxt)\n \t{\n\n\n\n \t\t$this->emit('sendMessage', $messageTxt);\n \t\n\n\n\n\n\n\n \t}\n\n    public function render()\n    {\n        return view('livewire.chat-form');\n    }\n}\n",
 			"file": "app/Http/Livewire/ChatForm.php",
-			"file_size": 878,
-			"file_write_time": 132492675957915114,
 			"settings":
 			{
 				"buffer_size": 813,
@@ -2500,10 +2503,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse App\\Chat;\nuse App\\Messages;\nuse App\\Notification;\nuse App\\SendMail;\nuse App\\User;\nuse Illuminate\\Support\\Facades\\Auth;\nuse Livewire\\Component;\n\nclass ChatMessages extends Component\n{\n\n\tpublic $messages;\n\tpublic $countMessages;\n\tpublic $userOut;\n\n\tpublic function mount()\n\t{\n\n\t\t$lastChat = Messages::lastest();\nif(null == $lastChat)\n\t\t\treturn;\n\n\t\tif($lastChat->user_in == Auth::user()->id)\n\t\t{\n\n\t\t\t$this->selectChat($lastChat->user_out);\n\t\t\t$this->userOut=User::find($lastChat->user_out);\n\n\t\t}\n\t\telse\n\t\t{\n\t\t\t$this->selectChat($lastChat->user_in);\n\t\t\t$this->userOut=User::find($lastChat->user_in);\n\n\t\t}\n\t}\n\n\n\tprotected $listeners = ['selectChat','reloadMessages','sendMessage','sendNotification'];\n\n\tpublic function selectChat($idUser)\n\t{\n\t\t$this->userOut=User::find($idUser);\n\n\t\t$this->messages =Messages::get($this->userOut->id);\n\t\t$this->countMessages =Messages::count($this->userOut->id);\n\n\n\t\t$this->emit('scrollMessage');\n\n\n\t}\n\n\n\tpublic function loadMore()\n\t{\n\t\t$count  = count($this->messages);\n\t\t$this->messages =Messages::get($this->userOut->id,$count+10);\n\n\t}\n\n\n\n\tpublic function reloadMessages()\n\t{\n\n\n\t\t$this->selectChat($this->userOut->id);\n\n \t}\n\n\tpublic function sendMessage($messageTxt)\n\t{\n\n\t\t\t$message =new Chat;\n\n \t\t$message->user_out= Auth::user()->id;\n \t\t$message->user_in = $this->userOut->id;\n \t\t$message->message = $messageTxt;\n\n \t\t$message->save();\n \t \n\t $this->countMessages+=1;\n\t\t \n\n\t\t $this->messages->push($message);\n\n\t\t$this->emit('scrollMessage');\n\n\n        // SendMail::toUser($this->userOut, array(\n        //     'subject'=>\"Tienes un nuevo mensaje de: \".Auth::user()->name,\n        //     'text'=>[\n                \n        //         $message->message,\n        //     ],\n        //     'url'=> url('/chat'),\n        //     'btnText'=>'Ir a mis mensajes'\n        // ));\n\n\t\t$this->emit('sendNotification',$message->message);\n\n\t\t\n\t}\n\n\n\tpublic function sendNotification($message)\n\t{\n\t\tNotification::toUser($this->userOut, array(\n            'subject'=>\"Tienes un nuevo mensaje de: \".Auth::user()->name,\n            'text'=>[\n                \n                $message,\n            ],\n            'url'=> url('/chat'),\n            'btnText'=>'Ir a mis mensajes'\n        ));\n\n\t}\n\n\tpublic function render()\n\t{\n\t\treturn view('livewire.chat-messages');\n\t}\n}\n",
 			"file": "app/Http/Livewire/ChatMessages.php",
-			"file_size": 2448,
-			"file_write_time": 132492675959105182,
 			"settings":
 			{
 				"buffer_size": 2319,
@@ -2539,7 +2539,7 @@
 			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse App\\Messages;\nuse App\\User;\nuse Illuminate\\Database\\Eloquent\\Collection;\nuse Illuminate\\Support\\Facades\\Auth;\nuse Livewire\\Component;\n\nclass ChatList extends Component\n{\n\n  public $users;\n  public $active;\n  public $notFound;\n\n  public $countMessages;\n\n  public function mount()\n  {\n\n\n\n    $this->users =Messages::senders();\n    $this->notFound=false;\n\n\n    $this->countMessages= Messages::total();\n  }\n\n  protected $listeners = ['chatList', 'sendMessage', 'reloadList'];\n\n  public function chatList($search)\n  {\n\n    if(strlen($search)<1)\n    {\n      \n            $this->notFound=false;\n      $this->users =Messages::senders();\n      return;\n\n    }\n\n    $this->users =  User::search($search);\n\n\n    $this->users = $this->users->reject(Auth::user());\n\n    if($this->users->count()<1)\n    {\n      $this->notFound=true;\n\n    }\n    else\n    {\n      $this->notFound=false;\n\n    }\n\n\n  }\n\n\n  public function searchAll()\n  {\n    \n    $this->users =  User::\n    where('id_privileges','>',1)\n    ->get();\n\n\n    $this->users = $this->users->reject(Auth::user());\n \n    $this->notFound=false;\n\n  }\n\n\n  public function sendMessage()\n  {\n    $this->users =Messages::senders();\n    $this->countMessages= Messages::total();\n\n  }\n\n  public function reloadList()\n  {\n    $this->users =Messages::senders();\n    $this->countMessages= Messages::total();\n\n\n  }\n\n  public function selectChat($id)\n  {\n    $this->active =$id;\n    $this->users =Messages::senders();\n\n    $this->emit('selectChat', $id);\n  } \n\n\n  public function render()\n  {\n    return view('livewire.chat-list');\n  }\n}\n",
 			"file": "app/Http/Livewire/ChatList.php",
 			"file_size": 1712,
-			"file_write_time": 132484796581639814,
+			"file_write_time": 132494384093698291,
 			"settings":
 			{
 				"buffer_size": 1603,
@@ -2547,10 +2547,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse Livewire\\Component;\n\nclass BotForm extends Component\n{\n \n \n \n \n\n \tpublic function send($message)\n \t{\n\n \t  \n \t\t\t $this->emit('sendMessage',$message);\n\n\n\n \t}\n\n\n    public function render()\n    {    return view('livewire.bot-form');\n    }\n}\n",
 			"file": "app/Http/Livewire/BotForm.php",
-			"file_size": 307,
-			"file_write_time": 132492675956775048,
 			"settings":
 			{
 				"buffer_size": 279,
@@ -2559,10 +2556,7 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nnamespace App\\Http\\Livewire;\n\nuse App\\Soft\\Chatbot;\nuse Livewire\\Component;\n\nclass BotMessages extends Component\n{\n\n  public $messages;\n\n   \n \n \n  public function mount()\n  {\n\n  \n\n    \n\n\n    $this->messages= [];\n\n    $this->messages[]= [\"Hola, mi nombre es MedBot soy un asistente virtual entrenado para contestar tus dudas\",'left'];\n\n\n  }\n\n\n  protected $listeners = [ 'sendMessage','getResponse'];\n\n\n  public function sendMessage($message)\n  { \n  \n  $this->messages[]=array($message,'right');\n\n\n  \t$this->emit('getResponse',$message);\n\n  }\n\n  public function getResponse($message)\n  {\n  \t\t\t$chatbot =new Chatbot;\n \n\t\t \n    if(isset($message))\n    {\n\n\n    $chatbot->listen($message);\n\n\n\n    $this->messages[]= [$chatbot->response(),'left'];\n    $this->emit('scrollMessage');\n    }\n\n  }\n\n  public function render()\n  {\n      return view('livewire.bot-messages');\n  }\n}\n",
 			"file": "app/Http/Livewire/BotMessages.php",
-			"file_size": 943,
-			"file_write_time": 132492675957535092,
 			"settings":
 			{
 				"buffer_size": 875,
@@ -2611,14 +2605,6 @@
 			"settings":
 			{
 				"buffer_size": 582,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/Middleware/TrustHosts.php",
-			"settings":
-			{
-				"buffer_size": 354,
 				"line_ending": "Windows"
 			}
 		},
@@ -2679,7 +2665,7 @@
 			"file": "app/Http/Controllers/Auth/RegisterController.php",
 			"settings":
 			{
-				"buffer_size": 2987,
+				"buffer_size": 3055,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2790,13 +2776,11 @@
 			}
 		},
 		{
-			"contents": "<?php\n/*\n\n\tStemm_es a stemming class for spanish / Un lexemador para español\n    Copyright (C) 2007  Paolo Ragone\n\n    This library is free software; you can redistribute it and/or\n    modify it under the terms of the GNU Lesser General Public\n    License as published by the Free Software Foundation; either\n    version 2.1 of the License, or (at your option) any later version.\n\n    This library is distributed in the hope that it will be useful,\n    but WITHOUT ANY WARRANTY; without even the implied warranty of\n    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n    Lesser General Public License for more details.\n\n    You should have received a copy of the GNU Lesser General Public\n    License along with this library; if not, write to the Free Software\n    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA\n\tor go to: http://www.gnu.org/licenses/lgpl.txt\n\n\tYou may contact me at pragone@gmail.com\n\n*/\n\nrequire_once 'stemm_es.php';\n\n$lines = file('stemm_test_corpus.txt');\n\n$now = time();\nforeach ($lines as $line) {\n\t$part = explode(' ', $line);\n\t$st = stemm_es::stemm($part[0]);\n\tif ($st != $part[1]) {\n\t\tprint \"Word: \" . $part[0] . \", stem: \" . $st . \", \";\n\t\tprint \"expected: \" . $part[1];\n\t\tprint \" -- BAD<HR>\";\n\t}\n}\n\nprint \"<BR>Stemmed: \" . count($lines) . \" words in \" . (time() - $now) . \" secs\";\n\n?>",
 			"file": "public/stemmer/stemm_test.php",
-			"file_size": 1404,
-			"file_write_time": 132492675969325766,
 			"settings":
 			{
 				"buffer_size": 1362,
+				"encoding": "Western (Windows 1252)",
 				"line_ending": "Windows"
 			}
 		},
@@ -3039,45 +3023,19 @@
 	[
 		"/C/xampp/htdocs/laravel/hospital",
 		"/C/xampp/htdocs/laravel/hospital/app",
-		"/C/xampp/htdocs/laravel/hospital/app/Http",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Controllers/API",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Middleware",
-		"/C/xampp/htdocs/laravel/hospital/config",
-		"/C/xampp/htdocs/laravel/hospital/public",
-		"/C/xampp/htdocs/laravel/hospital/public/js",
-		"/C/xampp/htdocs/laravel/hospital/resources",
-		"/C/xampp/htdocs/laravel/hospital/resources/views",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/auth",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/Bill",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/chat",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/forms",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/forms/create",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/forms/edit",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/admin",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/appointment",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/doctor",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/home",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/includes",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/includes/counter",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/includes/modal",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/office",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/patient",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/prescription",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/Speciality",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/user",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/includes",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/layouts",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/livewire",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/notifications",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/options",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/web",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/web/includes",
-		"/C/xampp/htdocs/laravel/hospital/storage",
-		"/C/xampp/htdocs/laravel/hospital/storage/app",
-		"/C/xampp/htdocs/laravel/hospital/storage/app/public",
-		"/C/xampp/htdocs/laravel/hospital/storage/app/soft"
+		"/C/xampp/htdocs/laravel/hospital/vendor",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/config",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/database",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/database/migrations",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/resources",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/resources/lang",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/resources/views",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/routes",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/src",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/src/Concerns",
+		"/C/xampp/htdocs/laravel/hospital/vendor/laravel/cashier/src/Events"
 	],
 	"file_history":
 	[
@@ -3226,6 +3184,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"symfo",
 			"doctor",
 			"profile",
 			"isDoctor",
@@ -3352,8 +3311,7 @@
 			"tard",
 			"com",
 			"classes",
-			"content",
-			"arrayPalabras"
+			"content"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -3371,7 +3329,7 @@
 	"groups":
 	[
 		{
-			"selected": 55,
+			"selected": 164,
 			"sheets":
 			[
 				{
@@ -3380,15 +3338,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 716,
+						"buffer_size": 730,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								730,
+								730
 							]
 						],
 						"settings":
@@ -3417,7 +3375,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 217,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -3454,7 +3412,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 243,
+					"stack_index": 246,
 					"type": "text"
 				},
 				{
@@ -3496,7 +3454,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 218,
+					"stack_index": 221,
 					"type": "text"
 				},
 				{
@@ -3543,7 +3501,7 @@
 						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
@@ -3577,7 +3535,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 251,
+					"stack_index": 254,
 					"type": "text"
 				},
 				{
@@ -3613,7 +3571,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 250,
+					"stack_index": 253,
 					"type": "text"
 				},
 				{
@@ -3629,8 +3587,8 @@
 						"selection":
 						[
 							[
-								255,
-								255
+								404,
+								404
 							]
 						],
 						"settings":
@@ -3657,7 +3615,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 140,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -3695,7 +3653,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 261,
+					"stack_index": 264,
 					"type": "text"
 				},
 				{
@@ -3742,7 +3700,7 @@
 						"translation.y": 3491.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
@@ -3773,7 +3731,7 @@
 						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -3803,7 +3761,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
@@ -3842,7 +3800,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 223,
+					"stack_index": 226,
 					"type": "text"
 				},
 				{
@@ -3885,7 +3843,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 240,
+					"stack_index": 243,
 					"type": "text"
 				},
 				{
@@ -3935,7 +3893,7 @@
 						"translation.y": 3.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 265,
+					"stack_index": 268,
 					"type": "text"
 				},
 				{
@@ -3998,7 +3956,7 @@
 						"translation.y": 1451.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -4052,7 +4010,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 112,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
@@ -4081,7 +4039,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 206,
+					"stack_index": 210,
 					"type": "text"
 				},
 				{
@@ -4134,7 +4092,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 209,
+					"stack_index": 213,
 					"type": "text"
 				},
 				{
@@ -4171,7 +4129,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 212,
+					"stack_index": 216,
 					"type": "text"
 				},
 				{
@@ -4187,8 +4145,8 @@
 						"selection":
 						[
 							[
-								693,
-								693
+								1003,
+								1003
 							]
 						],
 						"settings":
@@ -4200,10 +4158,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 160.0,
+						"translation.y": 860.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 152,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -4212,15 +4170,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2020,
+						"buffer_size": 2171,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								778,
-								778
+								1761,
+								1761
 							]
 						],
 						"settings":
@@ -4231,10 +4189,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 131.0,
+						"translation.y": 851.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -4274,7 +4232,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 214,
+					"stack_index": 218,
 					"type": "text"
 				},
 				{
@@ -4310,7 +4268,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
@@ -4339,7 +4297,7 @@
 						"translation.y": 611.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 192,
+					"stack_index": 196,
 					"type": "text"
 				},
 				{
@@ -4369,7 +4327,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 162,
+					"stack_index": 166,
 					"type": "text"
 				},
 				{
@@ -4435,7 +4393,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 136,
+					"stack_index": 143,
 					"type": "text"
 				},
 				{
@@ -4467,7 +4425,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 135,
+					"stack_index": 142,
 					"type": "text"
 				},
 				{
@@ -4506,7 +4464,7 @@
 						"translation.y": 103.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
@@ -4548,7 +4506,7 @@
 						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 222,
+					"stack_index": 225,
 					"type": "text"
 				},
 				{
@@ -4585,7 +4543,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 213,
+					"stack_index": 217,
 					"type": "text"
 				},
 				{
@@ -4627,7 +4585,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 215,
+					"stack_index": 219,
 					"type": "text"
 				},
 				{
@@ -4690,7 +4648,7 @@
 						"translation.y": 163.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 110,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
@@ -4720,7 +4678,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
@@ -4755,7 +4713,7 @@
 						"translation.y": 413.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 228,
+					"stack_index": 231,
 					"type": "text"
 				},
 				{
@@ -4803,7 +4761,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
@@ -4851,7 +4809,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 124,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
@@ -4885,7 +4843,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 245,
+					"stack_index": 248,
 					"type": "text"
 				},
 				{
@@ -4935,7 +4893,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
@@ -4977,7 +4935,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
@@ -5022,7 +4980,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
@@ -5063,7 +5021,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 130,
+					"stack_index": 138,
 					"type": "text"
 				},
 				{
@@ -5093,7 +5051,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 129,
+					"stack_index": 137,
 					"type": "text"
 				},
 				{
@@ -5122,7 +5080,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 249,
+					"stack_index": 252,
 					"type": "text"
 				},
 				{
@@ -5178,7 +5136,7 @@
 						"translation.y": 24.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 131,
+					"stack_index": 139,
 					"type": "text"
 				},
 				{
@@ -5233,7 +5191,7 @@
 						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
@@ -5273,7 +5231,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 233,
+					"stack_index": 236,
 					"type": "text"
 				},
 				{
@@ -5308,7 +5266,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
@@ -5400,7 +5358,7 @@
 						"translation.y": 325.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
@@ -5409,15 +5367,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1205,
+						"buffer_size": 1432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								909,
-								909
+								1429,
+								1429
 							]
 						],
 						"settings":
@@ -5450,10 +5408,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1600.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 120,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -5484,7 +5442,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 178,
+					"stack_index": 182,
 					"type": "text"
 				},
 				{
@@ -5513,7 +5471,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 165,
+					"stack_index": 169,
 					"type": "text"
 				},
 				{
@@ -5560,7 +5518,7 @@
 						"translation.y": 128.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
@@ -5594,7 +5552,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 259,
+					"stack_index": 262,
 					"type": "text"
 				},
 				{
@@ -5641,7 +5599,7 @@
 						"translation.y": 3604.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
@@ -5960,7 +5918,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2460.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
@@ -5979,8 +5937,8 @@
 						"selection":
 						[
 							[
-								904,
-								905
+								1611,
+								1611
 							]
 						],
 						"settings":
@@ -6007,10 +5965,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 971.0,
+						"translation.y": 1511.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -6076,7 +6034,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 123,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
@@ -6110,7 +6068,7 @@
 						"translation.y": 756.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 255,
+					"stack_index": 258,
 					"type": "text"
 				},
 				{
@@ -6148,7 +6106,7 @@
 						"translation.y": 1680.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -6182,7 +6140,7 @@
 						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 257,
+					"stack_index": 260,
 					"type": "text"
 				},
 				{
@@ -6214,7 +6172,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 256,
+					"stack_index": 259,
 					"type": "text"
 				},
 				{
@@ -6252,7 +6210,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
@@ -6307,7 +6265,7 @@
 						"translation.y": 201.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 253,
+					"stack_index": 256,
 					"type": "text"
 				},
 				{
@@ -6349,7 +6307,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 239,
+					"stack_index": 242,
 					"type": "text"
 				},
 				{
@@ -6401,7 +6359,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 195,
+					"stack_index": 199,
 					"type": "text"
 				},
 				{
@@ -6454,7 +6412,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 238,
+					"stack_index": 241,
 					"type": "text"
 				},
 				{
@@ -6470,8 +6428,8 @@
 						"selection":
 						[
 							[
-								2602,
-								2602
+								1925,
+								1925
 							]
 						],
 						"settings":
@@ -6533,10 +6491,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 431.0,
+						"translation.y": 740.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 132,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -6568,7 +6526,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 113,
+					"stack_index": 123,
 					"type": "text"
 				},
 				{
@@ -6599,7 +6557,7 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 122,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
@@ -6631,7 +6589,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
@@ -6661,7 +6619,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 160,
+					"stack_index": 164,
 					"type": "text"
 				},
 				{
@@ -6692,7 +6650,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
@@ -6729,7 +6687,7 @@
 						"translation.y": 189.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 242,
+					"stack_index": 245,
 					"type": "text"
 				},
 				{
@@ -6767,7 +6725,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
@@ -6812,7 +6770,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
@@ -6851,7 +6809,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
@@ -6893,7 +6851,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
@@ -6933,7 +6891,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
@@ -6971,7 +6929,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
@@ -7006,7 +6964,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
@@ -7040,7 +6998,7 @@
 						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 220,
+					"stack_index": 223,
 					"type": "text"
 				},
 				{
@@ -7097,7 +7055,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
@@ -7154,7 +7112,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -7192,7 +7150,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 232,
+					"stack_index": 235,
 					"type": "text"
 				},
 				{
@@ -7237,7 +7195,7 @@
 						"translation.y": 1014.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
@@ -7290,7 +7248,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
@@ -7322,7 +7280,7 @@
 						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 252,
+					"stack_index": 255,
 					"type": "text"
 				},
 				{
@@ -7351,7 +7309,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 260,
+					"stack_index": 263,
 					"type": "text"
 				},
 				{
@@ -7445,7 +7403,7 @@
 						"translation.y": 711.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
@@ -7514,7 +7472,7 @@
 						"translation.y": 8.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 254,
+					"stack_index": 257,
 					"type": "text"
 				},
 				{
@@ -7562,7 +7520,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 229,
+					"stack_index": 232,
 					"type": "text"
 				},
 				{
@@ -7635,7 +7593,7 @@
 						"translation.y": 8971.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
@@ -7670,7 +7628,7 @@
 						"translation.y": 256.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -7702,7 +7660,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
@@ -7742,7 +7700,7 @@
 						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
@@ -7790,7 +7748,7 @@
 						"translation.y": 531.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 115,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
@@ -7828,7 +7786,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
@@ -7867,7 +7825,7 @@
 						"translation.y": 520.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
@@ -7903,7 +7861,7 @@
 						"translation.y": 709.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
@@ -7943,7 +7901,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 227,
+					"stack_index": 230,
 					"type": "text"
 				},
 				{
@@ -7991,7 +7949,7 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 219,
+					"stack_index": 222,
 					"type": "text"
 				},
 				{
@@ -8024,7 +7982,7 @@
 						"translation.y": 747.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 170,
+					"stack_index": 174,
 					"type": "text"
 				},
 				{
@@ -8062,7 +8020,7 @@
 						"translation.y": 2262.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 154,
+					"stack_index": 159,
 					"type": "text"
 				},
 				{
@@ -8124,7 +8082,7 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
@@ -8180,7 +8138,7 @@
 						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
@@ -8237,7 +8195,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
@@ -8273,7 +8231,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
@@ -8322,7 +8280,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
@@ -8370,7 +8328,7 @@
 						"translation.y": 1131.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
@@ -8415,7 +8373,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
@@ -8467,7 +8425,7 @@
 						"translation.y": 1051.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
@@ -8501,7 +8459,7 @@
 						"translation.y": 2044.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 180,
+					"stack_index": 184,
 					"type": "text"
 				},
 				{
@@ -8535,7 +8493,7 @@
 						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 246,
+					"stack_index": 249,
 					"type": "text"
 				},
 				{
@@ -8595,7 +8553,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 137,
+					"stack_index": 144,
 					"type": "text"
 				},
 				{
@@ -8641,7 +8599,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 205,
+					"stack_index": 209,
 					"type": "text"
 				},
 				{
@@ -8650,15 +8608,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 857,
+						"buffer_size": 1147,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								355,
-								355
+								877,
+								877
 							]
 						],
 						"settings":
@@ -8667,10 +8625,10 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 155,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -8702,7 +8660,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 203,
+					"stack_index": 207,
 					"type": "text"
 				},
 				{
@@ -8738,7 +8696,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
@@ -8773,7 +8731,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 111,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -8804,7 +8762,7 @@
 						"translation.y": 1131.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 114,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
@@ -8835,7 +8793,7 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 138,
+					"stack_index": 145,
 					"type": "text"
 				},
 				{
@@ -8895,7 +8853,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 194,
+					"stack_index": 198,
 					"type": "text"
 				},
 				{
@@ -8959,7 +8917,7 @@
 						"translation.y": 5142.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 133,
+					"stack_index": 140,
 					"type": "text"
 				},
 				{
@@ -8991,7 +8949,7 @@
 						"translation.y": 1798.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 230,
+					"stack_index": 233,
 					"type": "text"
 				},
 				{
@@ -9046,7 +9004,7 @@
 						"translation.y": 1934.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 231,
+					"stack_index": 234,
 					"type": "text"
 				},
 				{
@@ -9081,7 +9039,7 @@
 						"translation.y": 1980.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 143,
+					"stack_index": 149,
 					"type": "text"
 				},
 				{
@@ -9127,7 +9085,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
@@ -9172,7 +9130,7 @@
 						"translation.y": 2791.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
@@ -9206,7 +9164,7 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 199,
+					"stack_index": 203,
 					"type": "text"
 				},
 				{
@@ -9238,7 +9196,7 @@
 						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 198,
+					"stack_index": 202,
 					"type": "text"
 				},
 				{
@@ -9270,7 +9228,7 @@
 						"translation.y": 320.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 196,
+					"stack_index": 200,
 					"type": "text"
 				},
 				{
@@ -9302,7 +9260,7 @@
 						"translation.y": 711.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
@@ -9332,7 +9290,7 @@
 						"translation.y": 691.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
@@ -9364,7 +9322,7 @@
 						"translation.y": 1000.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 119,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
@@ -9396,7 +9354,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 147,
+					"stack_index": 153,
 					"type": "text"
 				},
 				{
@@ -9427,7 +9385,7 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 148,
+					"stack_index": 154,
 					"type": "text"
 				},
 				{
@@ -9458,7 +9416,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
@@ -9489,7 +9447,7 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
@@ -9520,7 +9478,7 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
@@ -9562,7 +9520,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 210,
+					"stack_index": 214,
 					"type": "text"
 				},
 				{
@@ -9605,7 +9563,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
@@ -9644,7 +9602,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 221,
+					"stack_index": 224,
 					"type": "text"
 				},
 				{
@@ -9682,7 +9640,7 @@
 						"translation.y": 4939.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -9716,7 +9674,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 262,
+					"stack_index": 265,
 					"type": "text"
 				},
 				{
@@ -9756,7 +9714,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
@@ -9785,7 +9743,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 234,
+					"stack_index": 237,
 					"type": "text"
 				},
 				{
@@ -9844,7 +9802,7 @@
 						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
@@ -9887,7 +9845,7 @@
 						"translation.y": 766.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
@@ -9944,7 +9902,7 @@
 						"translation.y": 416.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
@@ -9986,7 +9944,7 @@
 						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
@@ -10028,7 +9986,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
@@ -10064,7 +10022,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
@@ -10106,7 +10064,7 @@
 						"translation.y": 1011.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
@@ -10142,7 +10100,7 @@
 						"translation.y": 1560.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
@@ -10181,7 +10139,7 @@
 						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
@@ -10223,7 +10181,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
@@ -10258,7 +10216,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
@@ -10288,7 +10246,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
@@ -10330,7 +10288,7 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
@@ -10384,10 +10342,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 215.0,
+						"translation.y": 55.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
@@ -10426,7 +10384,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 216,
+					"stack_index": 220,
 					"type": "text"
 				},
 				{
@@ -10435,15 +10393,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5187,
+						"buffer_size": 5232,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5136,
-								5136
+								554,
+								554
 							]
 						],
 						"settings":
@@ -10483,14 +10441,135 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5027.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 162,
+					"file": "/C/xampp/htdocs/laravel/regulatorio/composer.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								555,
+								555
+							]
+						],
+						"settings":
+						{
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\regulatorio",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 162,
+					"buffer": 163,
+					"file": "vendor/laravel/cashier/config/cashier.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								653,
+								653
+							]
+						],
+						"settings":
+						{
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2460.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 164,
+					"file": "vendor/laravel/cashier/src/Cashier.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 3518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 165,
+					"file": "composer.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 166,
 					"file": "app/Soft/levenshtein.php",
 					"semi_transient": false,
 					"settings":
@@ -10518,11 +10597,11 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 163,
+					"buffer": 167,
 					"file": "app/Soft/JaroWinkler.php",
 					"semi_transient": false,
 					"settings":
@@ -10551,11 +10630,11 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 193,
+					"stack_index": 197,
 					"type": "text"
 				},
 				{
-					"buffer": 164,
+					"buffer": 168,
 					"file": "app/Soft/math.php",
 					"semi_transient": false,
 					"settings":
@@ -10584,11 +10663,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 188,
+					"stack_index": 192,
 					"type": "text"
 				},
 				{
-					"buffer": 165,
+					"buffer": 169,
 					"file": "app/Soft/Chatbot.php",
 					"semi_transient": false,
 					"settings":
@@ -10617,11 +10696,11 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 145,
+					"stack_index": 151,
 					"type": "text"
 				},
 				{
-					"buffer": 166,
+					"buffer": 170,
 					"file": "storage/app/soft/dataset.txt",
 					"semi_transient": false,
 					"settings":
@@ -10646,11 +10725,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 157,
+					"stack_index": 161,
 					"type": "text"
 				},
 				{
-					"buffer": 167,
+					"buffer": 171,
 					"file": "storage/app/soft/knowledge.json",
 					"semi_transient": false,
 					"settings":
@@ -10679,11 +10758,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 166,
+					"stack_index": 170,
 					"type": "text"
 				},
 				{
-					"buffer": 168,
+					"buffer": 172,
 					"file": "vendor/fzaninotto/faker/src/Faker/Provider/Lorem.php",
 					"semi_transient": false,
 					"settings":
@@ -10710,11 +10789,11 @@
 						"translation.y": 1331.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 167,
+					"stack_index": 171,
 					"type": "text"
 				},
 				{
-					"buffer": 169,
+					"buffer": 173,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Document.php",
 					"semi_transient": false,
 					"settings":
@@ -10740,11 +10819,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 168,
+					"stack_index": 172,
 					"type": "text"
 				},
 				{
-					"buffer": 170,
+					"buffer": 174,
 					"file": "storage/app/soft/tags.txt",
 					"semi_transient": false,
 					"settings":
@@ -10769,11 +10848,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 156,
+					"stack_index": 160,
 					"type": "text"
 				},
 				{
-					"buffer": 171,
+					"buffer": 175,
 					"file": "storage/app/soft/words.txt",
 					"semi_transient": false,
 					"settings":
@@ -10798,11 +10877,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 161,
+					"stack_index": 165,
 					"type": "text"
 				},
 				{
-					"buffer": 172,
+					"buffer": 176,
 					"file": "app/Soft/nlp.php",
 					"semi_transient": false,
 					"settings":
@@ -10829,11 +10908,11 @@
 						"translation.y": 151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 163,
+					"stack_index": 167,
 					"type": "text"
 				},
 				{
-					"buffer": 173,
+					"buffer": 177,
 					"file": "app/Soft/Tree.php",
 					"semi_transient": false,
 					"settings":
@@ -10861,11 +10940,11 @@
 						"translation.y": 91.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 158,
+					"stack_index": 162,
 					"type": "text"
 				},
 				{
-					"buffer": 174,
+					"buffer": 178,
 					"file": "app/Soft/Tree/Data.php",
 					"semi_transient": false,
 					"settings":
@@ -10892,11 +10971,11 @@
 						"translation.y": 91.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 159,
+					"stack_index": 163,
 					"type": "text"
 				},
 				{
-					"buffer": 175,
+					"buffer": 179,
 					"file": "vendor/laravel/framework/src/Illuminate/View/View.php",
 					"semi_transient": false,
 					"settings":
@@ -10923,11 +11002,11 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 175,
+					"stack_index": 179,
 					"type": "text"
 				},
 				{
-					"buffer": 176,
+					"buffer": 180,
 					"file": "vendor/laravel/framework/src/Illuminate/View/Factory.php",
 					"semi_transient": false,
 					"settings":
@@ -10954,11 +11033,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 174,
+					"stack_index": 178,
 					"type": "text"
 				},
 				{
-					"buffer": 177,
+					"buffer": 181,
 					"file": "vendor/laravel/framework/src/Illuminate/View/Engines/EngineResolver.php",
 					"semi_transient": false,
 					"settings":
@@ -10985,11 +11064,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 173,
+					"stack_index": 177,
 					"type": "text"
 				},
 				{
-					"buffer": 178,
+					"buffer": 182,
 					"file": "vendor/laravel/framework/src/Illuminate/Queue/QueueServiceProvider.php",
 					"semi_transient": false,
 					"settings":
@@ -11016,11 +11095,11 @@
 						"translation.y": 1920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 172,
+					"stack_index": 176,
 					"type": "text"
 				},
 				{
-					"buffer": 179,
+					"buffer": 183,
 					"file": "vendor/symfony/polyfill-ctype/bootstrap.php",
 					"semi_transient": false,
 					"settings":
@@ -11047,11 +11126,11 @@
 						"translation.y": 260.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 171,
+					"stack_index": 175,
 					"type": "text"
 				},
 				{
-					"buffer": 180,
+					"buffer": 184,
 					"file": "app/Soft/Tree/Classifier.php",
 					"semi_transient": false,
 					"settings":
@@ -11078,11 +11157,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 169,
+					"stack_index": 173,
 					"type": "text"
 				},
 				{
-					"buffer": 181,
+					"buffer": 185,
 					"file": "app/Soft/Tree/Decide_node.php",
 					"semi_transient": false,
 					"settings":
@@ -11109,11 +11188,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 176,
+					"stack_index": 180,
 					"type": "text"
 				},
 				{
-					"buffer": 182,
+					"buffer": 186,
 					"file": "app/Soft/Tree/Evaluate.php",
 					"semi_transient": false,
 					"settings":
@@ -11140,11 +11219,11 @@
 						"translation.y": 20.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 144,
+					"stack_index": 150,
 					"type": "text"
 				},
 				{
-					"buffer": 183,
+					"buffer": 187,
 					"file": "resources/views/hospital/home/patient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11172,11 +11251,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
-					"buffer": 184,
+					"buffer": 188,
 					"file": "resources/views/hospital/home/admin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11203,11 +11282,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
-					"buffer": 185,
+					"buffer": 189,
 					"file": "resources/views/hospital/home/doctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11234,11 +11313,11 @@
 						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
-					"buffer": 186,
+					"buffer": 190,
 					"file": "resources/views/hospital/home/office.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11265,11 +11344,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
-					"buffer": 187,
+					"buffer": 191,
 					"file": "storage/app/public/soft/text.txt",
 					"semi_transient": false,
 					"settings":
@@ -11296,11 +11375,11 @@
 						"translation.y": 411.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 164,
+					"stack_index": 168,
 					"type": "text"
 				},
 				{
-					"buffer": 188,
+					"buffer": 192,
 					"file": "public/jaro/JaroWinkler.php",
 					"semi_transient": false,
 					"settings":
@@ -11328,11 +11407,11 @@
 						"translation.y": 431.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 191,
+					"stack_index": 195,
 					"type": "text"
 				},
 				{
-					"buffer": 189,
+					"buffer": 193,
 					"file": "resources/views/auth/passwords/email.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11360,11 +11439,11 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 201,
+					"stack_index": 205,
 					"type": "text"
 				},
 				{
-					"buffer": 190,
+					"buffer": 194,
 					"file": "resources/views/auth/passwords/confirm.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11392,11 +11471,11 @@
 						"translation.y": 622.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 200,
+					"stack_index": 204,
 					"type": "text"
 				},
 				{
-					"buffer": 191,
+					"buffer": 195,
 					"file": "resources/views/auth/passwords/reset.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11424,11 +11503,11 @@
 						"translation.y": 571.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 202,
+					"stack_index": 206,
 					"type": "text"
 				},
 				{
-					"buffer": 192,
+					"buffer": 196,
 					"file": "app/Privileges.php",
 					"semi_transient": false,
 					"settings":
@@ -11461,24 +11540,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
-					"buffer": 193,
+					"buffer": 197,
 					"file": "vendor/laravel/framework/src/Illuminate/Auth/SessionGuard.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23756,
+						"buffer_size": 23681,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3108,
-								3108
+								0,
+								0
 							]
 						],
 						"settings":
@@ -11510,11 +11589,11 @@
 						"translation.y": 2091.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 127,
+					"stack_index": 136,
 					"type": "text"
 				},
 				{
-					"buffer": 194,
+					"buffer": 198,
 					"file": "vendor/laravel/framework/src/Illuminate/Support/Facades/Auth.php",
 					"semi_transient": false,
 					"settings":
@@ -11541,11 +11620,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 181,
+					"stack_index": 185,
 					"type": "text"
 				},
 				{
-					"buffer": 195,
+					"buffer": 199,
 					"file": "app/Http/Controllers/Auth/LoginController.php",
 					"semi_transient": false,
 					"settings":
@@ -11576,11 +11655,11 @@
 						"translation.y": 179.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 211,
+					"stack_index": 215,
 					"type": "text"
 				},
 				{
-					"buffer": 196,
+					"buffer": 200,
 					"file": "app/Http/Kernel.php",
 					"semi_transient": false,
 					"settings":
@@ -11612,11 +11691,11 @@
 						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 248,
+					"stack_index": 251,
 					"type": "text"
 				},
 				{
-					"buffer": 197,
+					"buffer": 201,
 					"file": "app/Office.php",
 					"semi_transient": false,
 					"settings":
@@ -11660,11 +11739,11 @@
 						"translation.y": 89.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
-					"buffer": 198,
+					"buffer": 202,
 					"file": "app/Http/Controllers/PatientController.php",
 					"semi_transient": false,
 					"settings":
@@ -11723,11 +11802,11 @@
 						"translation.y": 5464.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 116,
+					"stack_index": 126,
 					"type": "text"
 				},
 				{
-					"buffer": 199,
+					"buffer": 203,
 					"file": "resources/views/forms/edit/login.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11755,11 +11834,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
-					"buffer": 200,
+					"buffer": 204,
 					"file": "resources/views/hospital/admin/indexAdmin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11786,11 +11865,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
-					"buffer": 201,
+					"buffer": 205,
 					"file": "resources/views/hospital/admin/showAdmin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11817,11 +11896,11 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
-					"buffer": 202,
+					"buffer": 206,
 					"file": "/C/xampp/htdocs/laravel/receta/routes/web.php",
 					"semi_transient": false,
 					"settings":
@@ -11845,11 +11924,11 @@
 						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 207,
+					"stack_index": 211,
 					"type": "text"
 				},
 				{
-					"buffer": 203,
+					"buffer": 207,
 					"file": "/C/xampp/htdocs/laravel/receta/app/Http/Controllers/RecetaController.php",
 					"semi_transient": false,
 					"settings":
@@ -11875,11 +11954,11 @@
 						"translation.y": 2700.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 208,
+					"stack_index": 212,
 					"type": "text"
 				},
 				{
-					"buffer": 204,
+					"buffer": 208,
 					"file": "app/Http/Controllers/DoctorController.php",
 					"semi_transient": false,
 					"settings":
@@ -11969,11 +12048,11 @@
 						"translation.y": 2211.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
-					"buffer": 205,
+					"buffer": 209,
 					"file": "resources/views/hospital/Speciality/indexSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12014,11 +12093,11 @@
 						"translation.y": 6184.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 206,
+					"buffer": 210,
 					"file": "resources/views/hospital/Speciality/showSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12065,11 +12144,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
-					"buffer": 207,
+					"buffer": 211,
 					"semi_transient": false,
 					"settings":
 					{
@@ -12094,11 +12173,11 @@
 						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 241,
+					"stack_index": 244,
 					"type": "text"
 				},
 				{
-					"buffer": 208,
+					"buffer": 212,
 					"file": "public/css/style.css",
 					"semi_transient": false,
 					"settings":
@@ -12140,11 +12219,11 @@
 						"translation.y": 29097.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 134,
+					"stack_index": 141,
 					"type": "text"
 				},
 				{
-					"buffer": 209,
+					"buffer": 213,
 					"file": "resources/views/layouts/nav-login.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12175,11 +12254,11 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
-					"buffer": 210,
+					"buffer": 214,
 					"file": "resources/views/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12215,11 +12294,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
-					"buffer": 211,
+					"buffer": 215,
 					"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12276,11 +12355,11 @@
 						"translation.y": 920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
-					"buffer": 212,
+					"buffer": 216,
 					"file": "resources/views/layouts/nav-admin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12337,11 +12416,11 @@
 						"translation.y": 3751.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
-					"buffer": 213,
+					"buffer": 217,
 					"file": "app/Http/Controllers/AdminController.php",
 					"semi_transient": false,
 					"settings":
@@ -12369,11 +12448,11 @@
 						"translation.y": 960.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 125,
+					"stack_index": 134,
 					"type": "text"
 				},
 				{
-					"buffer": 214,
+					"buffer": 218,
 					"file": "resources/views/livewire/notifications-dropdown.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12401,11 +12480,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
-					"buffer": 215,
+					"buffer": 219,
 					"file": "resources/views/livewire/notifications-count.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12432,11 +12511,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
-					"buffer": 216,
+					"buffer": 220,
 					"semi_transient": false,
 					"settings":
 					{
@@ -12463,11 +12542,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 197,
+					"stack_index": 201,
 					"type": "text"
 				},
 				{
-					"buffer": 217,
+					"buffer": 221,
 					"file": "resources/views/livewire/chat-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12493,11 +12572,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
-					"buffer": 218,
+					"buffer": 222,
 					"file": "resources/views/livewire/bot-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12523,11 +12602,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
-					"buffer": 219,
+					"buffer": 223,
 					"file": "resources/views/livewire/bot-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12553,11 +12632,11 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
-					"buffer": 220,
+					"buffer": 224,
 					"file": "app/Http/Livewire/ChatForm.php",
 					"semi_transient": false,
 					"settings":
@@ -12584,11 +12663,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 151,
+					"stack_index": 157,
 					"type": "text"
 				},
 				{
-					"buffer": 221,
+					"buffer": 225,
 					"file": "app/Http/Livewire/ChatMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -12615,11 +12694,11 @@
 						"translation.y": 2043.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 142,
+					"stack_index": 148,
 					"type": "text"
 				},
 				{
-					"buffer": 222,
+					"buffer": 226,
 					"file": "resources/views/livewire/chat-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12646,11 +12725,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
-					"buffer": 223,
+					"buffer": 227,
 					"file": "resources/views/livewire/chat-search.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12676,11 +12755,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
-					"buffer": 224,
+					"buffer": 228,
 					"file": "vendor/egulias/email-validator/src/Exception/CharNotAllowed.php",
 					"semi_transient": false,
 					"settings":
@@ -12705,11 +12784,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 150,
+					"stack_index": 156,
 					"type": "text"
 				},
 				{
-					"buffer": 225,
+					"buffer": 229,
 					"file": "app/Http/Livewire/ChatList.php",
 					"semi_transient": false,
 					"settings":
@@ -12736,11 +12815,11 @@
 						"translation.y": 1380.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 149,
+					"stack_index": 155,
 					"type": "text"
 				},
 				{
-					"buffer": 226,
+					"buffer": 230,
 					"file": "app/Http/Livewire/BotForm.php",
 					"semi_transient": false,
 					"settings":
@@ -12766,11 +12845,11 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 153,
+					"stack_index": 158,
 					"type": "text"
 				},
 				{
-					"buffer": 227,
+					"buffer": 231,
 					"file": "app/Http/Livewire/BotMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -12798,11 +12877,11 @@
 						"translation.y": 403.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 146,
+					"stack_index": 152,
 					"type": "text"
 				},
 				{
-					"buffer": 228,
+					"buffer": 232,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Http/Controllers/UserController.php",
 					"semi_transient": false,
 					"settings":
@@ -12829,11 +12908,11 @@
 						"translation.y": 6811.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 139,
+					"stack_index": 146,
 					"type": "text"
 				},
 				{
-					"buffer": 229,
+					"buffer": 233,
 					"file": "/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/index.html",
 					"semi_transient": false,
 					"settings":
@@ -12864,11 +12943,11 @@
 						"translation.y": 10819.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 244,
+					"stack_index": 247,
 					"type": "text"
 				},
 				{
-					"buffer": 230,
+					"buffer": 234,
 					"file": "vendor/symfony/console/Formatter/OutputFormatterStyleStack.php",
 					"semi_transient": false,
 					"settings":
@@ -12898,11 +12977,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 247,
+					"stack_index": 250,
 					"type": "text"
 				},
 				{
-					"buffer": 231,
+					"buffer": 235,
 					"file": "app/Http/Controllers/Controller.php",
 					"semi_transient": false,
 					"settings":
@@ -12935,11 +13014,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 121,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
-					"buffer": 232,
+					"buffer": 236,
 					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
 					"semi_transient": false,
 					"settings":
@@ -12973,42 +13052,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
-					"buffer": 233,
-					"file": "app/Http/Middleware/TrustHosts.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 354,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 234,
+					"buffer": 237,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13048,11 +13096,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
-					"buffer": 235,
+					"buffer": 238,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13086,11 +13134,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
-					"buffer": 236,
+					"buffer": 239,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -13115,11 +13163,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 263,
+					"stack_index": 266,
 					"type": "text"
 				},
 				{
-					"buffer": 237,
+					"buffer": 240,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13167,11 +13215,11 @@
 						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
-					"buffer": 238,
+					"buffer": 241,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13213,11 +13261,11 @@
 						"translation.y": 544.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
-					"buffer": 239,
+					"buffer": 242,
 					"file": "resources/views/auth/register.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13245,24 +13293,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 204,
+					"stack_index": 208,
 					"type": "text"
 				},
 				{
-					"buffer": 240,
+					"buffer": 243,
 					"file": "app/Http/Controllers/Auth/RegisterController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2987,
+						"buffer_size": 3055,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2425,
-								2425
+								663,
+								663
 							]
 						],
 						"settings":
@@ -13274,14 +13322,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1250.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 128,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 241,
+					"buffer": 244,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
@@ -13316,11 +13364,11 @@
 						"translation.y": 118.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 117,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
-					"buffer": 242,
+					"buffer": 245,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
@@ -13360,11 +13408,11 @@
 						"translation.y": 3364.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 118,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
-					"buffer": 243,
+					"buffer": 246,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13397,11 +13445,11 @@
 						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
-					"buffer": 244,
+					"buffer": 247,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13432,11 +13480,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
-					"buffer": 245,
+					"buffer": 248,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -13466,11 +13514,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 264,
+					"stack_index": 267,
 					"type": "text"
 				},
 				{
-					"buffer": 246,
+					"buffer": 249,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
@@ -13536,11 +13584,11 @@
 						"translation.y": 791.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
-					"buffer": 247,
+					"buffer": 250,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -13599,11 +13647,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 235,
+					"stack_index": 238,
 					"type": "text"
 				},
 				{
-					"buffer": 248,
+					"buffer": 251,
 					"semi_transient": false,
 					"settings":
 					{
@@ -13626,11 +13674,11 @@
 						"translation.y": 423.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 237,
+					"stack_index": 240,
 					"type": "text"
 				},
 				{
-					"buffer": 249,
+					"buffer": 252,
 					"file": "vendor/laravel/framework/src/Illuminate/Database/Seeder.php",
 					"semi_transient": false,
 					"settings":
@@ -13660,11 +13708,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 236,
+					"stack_index": 239,
 					"type": "text"
 				},
 				{
-					"buffer": 250,
+					"buffer": 253,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -13694,11 +13742,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 258,
+					"stack_index": 261,
 					"type": "text"
 				},
 				{
-					"buffer": 251,
+					"buffer": 254,
 					"file": "database/migrations/2014_10_12_000000_create_users_table.php",
 					"semi_transient": false,
 					"settings":
@@ -13736,7 +13784,7 @@
 						"translation.y": 160.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 141,
+					"stack_index": 147,
 					"type": "text"
 				},
 				{
@@ -13777,7 +13825,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 224,
+					"stack_index": 227,
 					"type": "text"
 				},
 				{
@@ -13819,7 +13867,7 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 225,
+					"stack_index": 228,
 					"type": "text"
 				},
 				{
@@ -13859,7 +13907,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 226,
+					"stack_index": 229,
 					"type": "text"
 				},
 				{
@@ -13868,7 +13916,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1205,
+						"buffer_size": 1432,
 						"regions":
 						{
 						},
@@ -13912,11 +13960,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 190,
+					"stack_index": 194,
 					"type": "text"
 				},
 				{
-					"buffer": 252,
+					"buffer": 255,
 					"file": "app/Soft/stemm.php",
 					"semi_transient": false,
 					"settings":
@@ -13943,11 +13991,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 179,
+					"stack_index": 183,
 					"type": "text"
 				},
 				{
-					"buffer": 253,
+					"buffer": 256,
 					"file": "public/stemmer/stemm_test.php",
 					"semi_transient": false,
 					"settings":
@@ -13965,6 +14013,7 @@
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
@@ -13974,11 +14023,11 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 189,
+					"stack_index": 193,
 					"type": "text"
 				},
 				{
-					"buffer": 165,
+					"buffer": 169,
 					"file": "app/Soft/Chatbot.php",
 					"semi_transient": false,
 					"settings":
@@ -14007,11 +14056,11 @@
 						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 182,
+					"stack_index": 186,
 					"type": "text"
 				},
 				{
-					"buffer": 254,
+					"buffer": 257,
 					"file": "vendor/scrivo/highlight.php/Highlight/languages/python.json",
 					"semi_transient": false,
 					"settings":
@@ -14038,11 +14087,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 184,
+					"stack_index": 188,
 					"type": "text"
 				},
 				{
-					"buffer": 255,
+					"buffer": 258,
 					"file": "/C/Users/DELL/Desktop/machine/chatbot/chatbot.py",
 					"semi_transient": false,
 					"settings":
@@ -14067,11 +14116,11 @@
 						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 183,
+					"stack_index": 187,
 					"type": "text"
 				},
 				{
-					"buffer": 172,
+					"buffer": 176,
 					"file": "app/Soft/nlp.php",
 					"semi_transient": false,
 					"settings":
@@ -14098,11 +14147,11 @@
 						"translation.y": 2311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 186,
+					"stack_index": 190,
 					"type": "text"
 				},
 				{
-					"buffer": 187,
+					"buffer": 191,
 					"file": "storage/app/public/soft/text.txt",
 					"semi_transient": false,
 					"settings":
@@ -14129,11 +14178,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 185,
+					"stack_index": 189,
 					"type": "text"
 				},
 				{
-					"buffer": 164,
+					"buffer": 168,
 					"file": "app/Soft/math.php",
 					"semi_transient": false,
 					"settings":
@@ -14162,7 +14211,7 @@
 						"translation.y": 1121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 187,
+					"stack_index": 191,
 					"type": "text"
 				},
 				{
@@ -14171,7 +14220,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1205,
+						"buffer_size": 1432,
 						"regions":
 						{
 						},
@@ -14215,11 +14264,11 @@
 						"translation.y": 1260.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 126,
+					"stack_index": 135,
 					"type": "text"
 				},
 				{
-					"buffer": 174,
+					"buffer": 178,
 					"file": "app/Soft/Tree/Data.php",
 					"semi_transient": false,
 					"settings":
@@ -14246,7 +14295,7 @@
 						"translation.y": 1371.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 177,
+					"stack_index": 181,
 					"type": "text"
 				}
 			]
@@ -14314,7 +14363,71 @@
 		[
 			[
 				"",
-				"app\\Http\\Controllers\\API\\ApiController.php"
+				"app\\User.php"
+			],
+			[
+				".en",
+				".env"
+			],
+			[
+				"User.php",
+				"app\\User.php"
+			],
+			[
+				"UserC",
+				"app\\Http\\Controllers\\UserController.php"
+			],
+			[
+				"registerC",
+				"app\\Http\\Controllers\\Auth\\RegisterController.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"webC",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"PatientsTa",
+				"database\\seeds\\PatientsTableSeeder.php"
+			],
+			[
+				"UsersTa",
+				"database\\seeds\\UsersTableSeeder.php"
+			],
+			[
+				"databaseS",
+				"database\\seeds\\DatabaseSeeder.php"
+			],
+			[
+				"compos",
+				"composer.json"
+			],
+			[
+				"User",
+				"app\\User.php"
+			],
+			[
+				"USer.",
+				"app\\User.php"
+			],
+			[
+				"PatientTa",
+				"database\\seeds\\PatientsTableSeeder.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"homeC",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"RegisterC",
+				"app\\Http\\Controllers\\Auth\\RegisterController.php"
 			],
 			[
 				"ApiC",
@@ -14339,14 +14452,6 @@
 			[
 				"espe",
 				"resources\\views\\web\\especialidad.blade.php"
-			],
-			[
-				"User",
-				"app\\User.php"
-			],
-			[
-				"webC",
-				"app\\Http\\Controllers\\WebController.php"
 			],
 			[
 				"doctorC",
@@ -14465,10 +14570,6 @@
 				"app\\Doctor.php"
 			],
 			[
-				"RegisterC",
-				"app\\Http\\Controllers\\Auth\\RegisterController.php"
-			],
-			[
 				"patientF",
 				"database\\factories\\PatientFactory.php"
 			],
@@ -14527,10 +14628,6 @@
 			[
 				"appointmetns_ta",
 				"database\\migrations\\2018_11_23_163104_create_appointments_table.php"
-			],
-			[
-				"homeC",
-				"app\\Http\\Controllers\\HomeController.php"
 			],
 			[
 				"web.",
@@ -14725,10 +14822,6 @@
 				"app\\Http\\Livewire\\BotForm.php"
 			],
 			[
-				".env",
-				".env"
-			],
-			[
 				"botF",
 				"app\\Http\\Livewire\\BotForm.php"
 			],
@@ -14779,50 +14872,6 @@
 			[
 				"nav-admin",
 				"resources\\views\\layouts\\nav-admin.blade.php"
-			],
-			[
-				"web.php",
-				"routes\\web.php"
-			],
-			[
-				"tree.",
-				"app\\Soft\\Tree.php"
-			],
-			[
-				"data",
-				"app\\Soft\\Tree\\Data.php"
-			],
-			[
-				"nlp",
-				"app\\Soft\\nlp.php"
-			],
-			[
-				"words",
-				"storage\\app\\soft\\words.txt"
-			],
-			[
-				"wor",
-				"storage\\app\\soft\\words.txt"
-			],
-			[
-				"chatbot.js",
-				"C:\\Users\\DELL\\Desktop\\machine\\chatbot\\contenido.json"
-			],
-			[
-				"bootstra",
-				"vendor\\symfony\\polyfill-ctype\\bootstrap.php"
-			],
-			[
-				"queueServ",
-				"vendor\\laravel\\framework\\src\\Illuminate\\Queue\\QueueServiceProvider.php"
-			],
-			[
-				"view/engine/engi",
-				"vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\EngineResolver.php"
-			],
-			[
-				"view/fac",
-				"vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php"
 			]
 		],
 		"width": 0.0

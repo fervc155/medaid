@@ -8,15 +8,19 @@ use App\Office;
 use App\Patient;
 use App\Privileges;
 use App\Soft\levenshtein;
+use Laravel\Cashier\Billable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
+
+ 
+
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable, Billable;
 
     //Atributos modificables
     protected $fillable = [
