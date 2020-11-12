@@ -19,8 +19,8 @@
           <table class="table " id="data_table_citas">
             <thead>
               <tr>
-                <th>Fecha</th>
-                <th>Hora</th>
+                <th>Fecha y hora</th>
+              
                 <th>Costo</th>
                 <th>Razón</th>
                 @if(!Auth::user()->isDoctor())

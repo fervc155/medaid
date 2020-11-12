@@ -1,8 +1,19 @@
   @foreach ($appointments as $a)
   <tr>
-    <td>{{ $a->date }}</td>
-    <td>{{ $a->time }}</td>
-    <td>{{ $a->price }}</td>
+    <td>{{ $a->date }} | {{ $a->time }}</td>
+ 
+    <td>{{ $a->price }} 
+      @if(null==$a->payment)
+
+      @if(Auth::user()->isPatient())
+      <a href="{{route('payment.user',['appointment'=>$a->id])}}" class="btn btn-success">Pagar ahora</a>
+      @else
+      <a href="{{route('payment.doctor',['appointment'=>$a->id])}}" class="btn btn-success">Pagar ahora</a>
+
+      @endif
+
+      @endif
+</td>
     <td>{{ $a->description }}</td>
 
     @if(!Auth::user()->isDoctor())

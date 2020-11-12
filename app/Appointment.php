@@ -42,6 +42,11 @@ class Appointment extends Model
         return $this->hasOne('App\Review');
     }
 
+        public function payment()
+    {
+        return $this->hasOne('App\payment');
+    }
+
 
     public function comments()
     {
@@ -50,7 +55,7 @@ class Appointment extends Model
 
     public function speciality()
     {
-        return $this->belongsTo('App\Speciality.php');
+        return $this->belongsTo('App\Speciality');
     }
 
 

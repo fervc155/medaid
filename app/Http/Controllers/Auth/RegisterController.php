@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'telephone' => 'required|string|max:20',
             'sex' => 'required|string|max:1',
-            'image' => 'required|file',
+            'image' => 'nullable|file',
             'password' => 'required|string|min:6|confirmed',
             'birthdate'=>'required|date',
 
@@ -89,8 +89,8 @@ class RegisterController extends Controller
 
         $patient->save();
 
-
-        $ruta_imagen =  $data['image']->store('patients','public');
+        if(isset($data['image']))
+            $ruta_imagen =  $data['image']->store('patients','public');
     
          $user = User::create([
             'name' => $data['name'],
@@ -98,7 +98,7 @@ class RegisterController extends Controller
             'telephone' => $data['telephone'],
             'sex' => strtolower($data['sex']),
             'birthdate' => $data['birthdate'],
-            'image' => $ruta_imagen,
+            'image' => $ruta_imagen??null,
             'id_privileges' => Privileges::Id('patient'),
             'id_user'=>$patient->dni,
             'password' => Hash::make($data['password']),

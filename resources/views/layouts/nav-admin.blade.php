@@ -144,6 +144,34 @@
 
 
 
+	<li class="card-collapse nav-item <?php if ($active == 'payment') {
+			echo 'active';
+		} ?>">
+		<a class="nav-link" data-toggle="collapse" href="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment"><i class="fal fa-cash-register"></i> Pagos</a>
+
+		<div id="collapsePayment" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
+			<ul class="elementos pb-1">
+				<li class="nav-item <?php if ($active == 'money') {
+					echo 'active';
+				} ?>"><a href="{{url('/payment')}}" class="nav-link"><i class="fal  fa-book"></i> Historial</a></li>
+
+
+				@if(Auth::user()->doctor())
+
+
+				<li class="nav-item <?php if ($active == 'options') {
+					echo 'active';
+				} ?>"><a href="{{url('/payment/create')}}" class="nav-link"><i class="fal fa-calendar-plus"></i> Registrar pago</a></li>
+
+				@endif
+
+			</ul>
+		</div>
+	</li>
+
+
+
+
 
 
 

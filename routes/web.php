@@ -65,9 +65,21 @@ Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor'
 
 Route::group(['middleware' => ['auth','patient'] ], function () {
 
-
+    Route::get('payment','PaymentController@index')->name('payment.index');
+    Route::get('payment/create','PaymentController@create')->name('payment.create');
+    Route::get('payment/billingPortal','PaymentController@billingPortal')->name('billingPortal');
+    Route::post('payment','PaymentController@store')->name('payment.store');
+    Route::post('payment/other','PaymentController@other')->name('payment.store.other');
+    Route::get('invoice/download/{payment}','InvoiceController@download')->name('invoice.download');
+ 
      Route::post('pay/{appointment}/online','PaymentController@online')->name('payment.store.online');
+    Route::post('pay/{appointment}/invoice','PaymentController@invoice')->name('payment.store.invoice');
+
+
     Route::post('pay/{appointment}/then','PaymentController@then')->name('payment.then');
+    Route::get('payment/{appointment}/doctor','PaymentController@doctor')->name('payment.doctor');
+    Route::get('payment/{appointment}/invoice','PaymentController@doctor')->name('payment.doctor');
+    Route::get('payment/{appointment}/user','PaymentController@user')->name('payment.user');
     //
 
     Route::get('chatbot','ChatController@bot')->name('chatbot');

@@ -197,7 +197,7 @@
 						@endif
 
 
-						@if($appointment->condition->status =='accepted')
+						@if($appointment->condition->status =='pending')
 						@if(Auth::user()->Patient())
 
 
@@ -249,8 +249,19 @@
 
 						@endif
 
+   @if(null==$appointment->payment)
+
+      @if(Auth::user()->isPatient())
+      <a href="{{route('payment.user',['appointment'=>$appointment->id])}}" class="btn btn-success">Pagar ahora</a>
+      @else
+      <a href="{{route('payment.doctor',['appointment'=>$appointment->id])}}" class="btn btn-success">Pagar ahora</a>
+
+      @endif
+
+      @endif
 
 						@if(($appointment->condition->status == 'completed' || $appointment->condition->status == 'late')  && null== $appointment->review && Auth::user()->isPatient())
+
 
 
 			<button type="button" data-toggle="modal" data-target="#crearReview" class="  btn  btn-primary  btn-sm btn-round

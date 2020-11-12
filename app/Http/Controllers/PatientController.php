@@ -230,7 +230,7 @@ class PatientController extends Controller
         'postalCode' => 'required|integer|max:999999',
         'city' => 'required|string|max:255',
         'country' => 'required|string|max:255',
-        'doctor_id' => 'required',
+       
         //     'image' => 'required',
 
         'address' => 'required|string|max:255',
@@ -251,8 +251,7 @@ class PatientController extends Controller
       $patient->postalCode = $data['postalCode'];
       $patient->city = $data['city'];
       $patient->country = $data['country'];
-      $patient->doctor_id = $data['doctor_id'];
-
+  
 
 
 

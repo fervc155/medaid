@@ -100,38 +100,6 @@
 
 
 
-            <div class="form-group form-inline align-items-end ">
-              <div class="icon-form">
-                <i class="fal fa-user-md"></i>
-              </div>
-
-
-
-              <div class="form-group ">
-
-                <select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7">
-                  <optgroup label="Selecciona un doctor">
-
-                    @foreach($offices as $office)
-                  <optgroup label="Clinica {{$office->name}}">
-
-                    <?php foreach ($office->doctors as $doctor) : ?>
-
-
-                      <option value="{{ $doctor->id}}" <?php if ($patient->doctor_id == $doctor->id) {
-                                                          echo "selected";
-                                                        } ?>>{{ $doctor->name }} </option>
-
-                    <?php endforeach ?>
-                  </optgroup>
-                  @endforeach
-                  </optgroup>
-                </select>
-
-
-              </div>
-
-
 
 
 

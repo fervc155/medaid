@@ -158,7 +158,8 @@ class AppointmentController extends Controller
 
        $stripeCustomer = Auth::user()->createOrGetStripeCustomer();
 
-        return view('hospital.payment.createPayment')->with('intent',auth::user()->createSetupIntent())->with('appointment',$appointment)->with('price',$appointment->price);
+
+        return redirect('payment/'.$appointment->id."/user")->with('newAppointment',true);
     
     }
     return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');

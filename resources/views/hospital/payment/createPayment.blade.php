@@ -2,11 +2,29 @@
 
 @section('content')
 
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      
+        
+
+      @if(isset($newAppointment))
+          <div class="alert alert-success">Cita creada correctamente</div>
+        
+        <form method="post" action="{{route('payment.then',['appointment'=>$appointment->id])}}" class="form">
+          @csrf
+          <button class="btn btn-info btn-block">Prefiero pagar en la cita</button>
+        </form>
+        @endif
+  
+    </div>
+  </div>
+</div>
 
 <div class="container">
 	<div class="row">
 
-    <div class="col">
+    <div class="col-12">
 
       <div class="card">
 
@@ -16,13 +34,12 @@
 
             <i class="fal fa-calendar-check"></i>
           </div>
-          <div class="card-title">Pagar cita</div>
+          <div class="card-title">Requiero recibo</div>
         </div>
 
 
         <div class="card-body">
 
-          <div class="alert alert-success">Cita creada correctamente</div>
           <h2 class="h3">Costo: {{$price}}</h2>
           <form action="{{route('payment.store.online',['appointment'=>$appointment->id])}}" method="post" id="payment-form">
            @csrf
@@ -43,13 +60,41 @@
           </button>
           <button type="submit" class="d-none" id="pay-button"></button>
         </form>
+        
 
-        <form method="post" action="{{route('payment.then',['appointment'=>$appointment->id])}}" class="form">
-          @csrf
-          <button class="btn btn-info btn-block">Prefiero pagar en la cita</button>
+   
+    </div>
+  </div>
+</div>
+  <div class="col">
+
+      <div class="card">
+
+        <div class="card-encabezado">
+
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-calendar-check"></i>
+          </div>
+          <div class="card-title">Requiero factura</div>
         </div>
 
-      </div></div>
+
+        <div class="card-body">
+
+         
+          <h2 class="h3">Costo: {{$price}}</h2>
+
+          <p>
+            MedAid No guarda informacion de las tarjetas de credito, Si necesitas factura, ingresa al  <a href="{{route('billingPortal')}}"   target="_blank">Portal del comprador en STRIPE dando click aqui</a> y agrega tu metodo de pago. Una vez realizado procede a hacer el pago 
+          </p>
+
+           <form action="{{route('payment.store.invoice',['appointment'=>$appointment->id])}}" method="post" id="payment-form">
+            @csrf
+            <button type="submit" class="btn btn-primary">Pagar y facturar</button>
+           </form>
+  
+   
     </div>
   </div>
 </div>
