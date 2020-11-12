@@ -17,7 +17,7 @@
   @else
 
 
-  @include('hospital.includes.tableUser-desktop')
+  @include('hospital.includes.tableUser')
 
   @endif
 

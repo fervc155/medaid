@@ -27,7 +27,6 @@ class AppointmentController extends Controller
 
 
 
-
         Notification::toAdmin(array(
             'subject'=>'Notificacion nueva',
             'text'=>"haz ingresado a las citas",

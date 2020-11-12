@@ -49,27 +49,6 @@ class optionController extends Controller
 	}
 
 
-	public    function moneda(Request $request)
-	{
-		$Option = Option::All()->where('name', 'moneda')->first();
-
-		$Option->value = $request->input('moneda');
-
-		$Option->save();
-
-
-		return back()->with('success', 'La moneda se ah actualizado correctamente');
-	}
-
-
-	public function idioma(Request $request)
-	{
-		$Option = Option::All()->where('name', 'idioma')->first();
-		$Option->value = $request->input('idioma');
-
-		$Option->save();
-
-
-		return back()->with('success', 'El idioma se ha actualizado correctamente');
-	}
+ 
+ 
 }

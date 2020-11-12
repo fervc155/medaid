@@ -14,19 +14,30 @@
           <div class="card-title">Listado de pagos</div>
         </div>
 
-        <div class="card-body table-responsives">
+               
+        <div class="card-body table-responsive">
+ @if(!isset($compact))
       <a href="{{route('billingPortal')}}" class="btn btn-primary btn-block my-4" target="_blank">Ver Portal del comprador en STRIPE</a>
-
+@endif
           <table class="table" id="data_table">
             <thead>
               <tr>
+
+                 @if(!isset($compact))
+               
                 <th>ID</th>
+               @endif
                 <th>Cita ID</th>
                 <th>Fecha de pago</th>
-                <th>Metodo de pago</th>
-                <th>Cantidad        </th>
-                <th>Descripcion</th>
+                 @if(!isset($compact))
                
+                <th>Metodo de pago</th>
+               @endif
+                <th>Cantidad        </th>
+                 @if(!isset($compact))
+               
+                <th>Descripcion</th>
+               @endif
               
               </tr>
             </thead>
@@ -34,15 +45,21 @@
                  @foreach($payments as $payment)
 
       <tr>
+         @if(!isset($compact))
+               
         <td>
           {{$payment->id}}
         </td>
+        @endif
         <td>
           <a href="{{$payment->appointment->profileUrl}}">Ver cita </a>
         </td>
         <td>
           {{$payment->created_at->diffForHumans()}}
         </td>
+
+         @if(!isset($compact))
+               
         <td>
           @if($payment->online)
           Tarjeta
@@ -50,6 +67,7 @@
           efectivo
           @endif
         </td>
+        @endif
         <td>
           {{$payment->cost}}
 
@@ -61,9 +79,13 @@
           @endif
         </td>
 
+         @if(!isset($compact))
+               
+
         <td>
           {{$payment->description}}
         </td>
+        @endif
   
 
 

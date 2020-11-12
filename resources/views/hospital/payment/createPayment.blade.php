@@ -114,7 +114,7 @@
 	{
 
 // Create a Stripe client.
-var stripe = Stripe('pk_test_51Hm4SrDxe4dXiGj7N2DdM2TiLJgN9LVL9tLx7H9UhrX6xz67kHacNLxMmf5IuQYGVL4aY9uyR9BCngv9g3LOMuEM00Jni03sYk');
+var stripe = Stripe('<?= config('cashier.key')?>');
 
 
 // Create an instance of Elements.
@@ -128,7 +128,7 @@ cardElement.mount('#card-element');
 
 // 
 
-const cardHolderName = "Fernando";
+const cardHolderName = '<?= auth::user()->name ?>';
 const cardButton = document.getElementById('card-button');
 
 cardButton.addEventListener('click', async (e) => {

@@ -12,16 +12,23 @@
           <div class="card-title">Listado de Usuarios</div>
         </div>
 
-        <div class="card-body table-responsives">
+        <div class="card-body table-responsive">
 
           <table class="table" id="data_table_pacientes">
             <thead>
               <tr>
+                @if(!isset($compact))
                 <th>ID</th>
                 <th>Nombre</th>
+                @endif
                 <th>Correo</th>
+               
                 <th>Privilegio</th>
+                @if(!isset($compact))
+               
                 <th>ID cuenta</th>
+                @endif
+               
                 <th>Acciones</th>
               </tr>
             </thead>

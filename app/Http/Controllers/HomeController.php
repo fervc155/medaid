@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Payment;
 use App\Soft\Chatbot;
 use App\Soft\Tree;
-
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,8 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-
+ 
 
         if(Auth::user()->isPatient())
         {
@@ -47,16 +47,16 @@ class HomeController extends Controller
      }
 
 
-     if(Auth::user()->isOffice())
+     if(Auth::user()->Office())
      {
 
 
-         return  $this->office();
-     }
+     //     return  $this->office();
+     // }
 
 
-     if(Auth::user()->isAdmin())
-     {
+     // if(Auth::user()->isAdmin())
+     // {
 
 
          return  $this->admin();
@@ -84,7 +84,16 @@ public function office()
 }
 public function admin()
 {
-    return view('hospital.home.admin');
+
+
+    $users = User::all();
+   $users = $users->sortByDesc('id')->take(5);
+
+   $payments = Payment::all();
+   $payments = $payments->sortByDesc('id')->take(5);
+
+
+    return view('hospital.home.admin', compact('users', 'payments'));
 
 }
 }

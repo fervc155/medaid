@@ -83,8 +83,7 @@ class Appointment extends Model
     
     public function getpriceAttribute()
     {
-        $options = new Options();
-        return $options->Moneda() . $this->cost;
+        return  strtoupper(config('cashier.currency')) . "$ ". $this->cost;
     }
 
 
