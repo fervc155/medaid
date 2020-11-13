@@ -158,81 +158,83 @@
 
 
 						@if($appointment->status=='pending')
-
-						@if(Auth::user()->Patient())
-
-						<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/appointment/'.$appointment->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
-						@endif
-
-						@endif
+										<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/appointment/'.$appointment->id)}}/edit"> <i class="fal fa-pen"></i> Editar</a>
 
 
+							@if(Auth::user()->Patient())
 
 
-						@if($appointment->condition->status =='pending')
+								{!! Form::open(['action' => ['AppointmentController@cancelled', $appointment->id], 'method' => 'PATCH']) !!}
+								{{ Form::hidden('_method', 'PATCH') }}
+								{{ Form::submit('Cancelar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
+								{!! Form::close() !!}
 
-						@if(Auth::user()->Patient())
 
-
-
-
-						{!! Form::open(['action' => ['AppointmentController@rejected', $appointment->id], 'method' => 'PATCH']) !!}
-						{{ Form::hidden('_method', 'PATCH') }}
-						{{ Form::submit('Rechazar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
-						{!! Form::close() !!}
-
-						@endif
+							 
+				
+								   
+					      <a href="{{route('payment.user',['appointment'=>$appointment->id])}}" class="btn btn-success btn-round">Pagar ahora</a>
+					    
+							@endif
+							@if(Auth::user()->Doctor())
 
 
 
-
-						@if(Auth::user()->Doctor())
-
-						{!! Form::open(['action' => ['AppointmentController@accepted', $appointment->id], 'method' => 'PATCH']) !!}
-						{{ Form::hidden('_method', 'PATCH') }}
-						{{ Form::submit('Aceptar', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
-						{!! Form::close() !!}
-						@endif
-
-						@endif
+								{!! Form::open(['action' => ['AppointmentController@attend', $appointment->id], 'method' => 'PATCH']) !!}
+								{{ Form::hidden('_method', 'PATCH') }}
+								{{ Form::submit('Atender', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
+								{!! Form::close() !!}
 
 
-						@if($appointment->condition->status =='pending')
-						@if(Auth::user()->Patient())
-
-
-						{!! Form::open(['action' => ['AppointmentController@cancelled', $appointment->id], 'method' => 'PATCH']) !!}
-						{{ Form::hidden('_method', 'PATCH') }}
-						{{ Form::submit('Cancelar', ['class' => 'btn  mt-3 btn-wait btn-danger btn-round btn-secondary']) }}
-						{!! Form::close() !!}
-						@endif
-
-						@if(Auth::user()->Doctor())
+							@endif
+					@endif
 
 
 
-						{!! Form::open(['action' => ['AppointmentController@complete', $appointment->id], 'method' => 'PATCH']) !!}
-						{{ Form::hidden('_method', 'PATCH') }}
-						{{ Form::submit('Atender', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
-						{!! Form::close() !!}
+
+					@if($appointment->condition->status =='accepted' )
+
+						 
+ 						@if(Auth::user()->Doctor())
+
+
+
+							{!! Form::open(['action' => ['AppointmentController@attend', $appointment->id], 'method' => 'PATCH']) !!}
+							{{ Form::hidden('_method', 'PATCH') }}
+							{{ Form::submit('Atender', ['class' => 'btn  mt-3 btn-wait btn-round btn-secondary']) }}
+							{!! Form::close() !!}
 
 						@endif
-
-						@endif
-
+					@endif
 
 
-						@if(Auth::user()->Doctor())
+				 
+					@if(($appointment->condition->status == 'completed' || $appointment->condition->status == 'late')  && null== $appointment->review && Auth::user()->isPatient())
 
 
-						@if($appointment->condition->status =='lost')
+
+						<button type="button" data-toggle="modal" data-target="#crearReview" class="  btn  btn-primary  btn-sm btn-round
+						"  ><i class="fal fa-pen"></i> Calificar mi cita </button>						
+
+					@endif
+
+ 
+
+ 
+
+
+				@if($appointment->condition->status =='lost')
+					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/appointment/'.$appointment->id)}}/edit"> <i class="fal fa-pen"></i> reagendar</a>
+					@if(Auth::user()->Doctor())
+
+
 
 
 						@if($appointment->IsToday)
 
 
 
-						@if($appointment->CanUpdateLate)
+						@if($appointment->CanUpdateLate && null!=$appointment->payment)
 
 
 						{!! Form::open(['action' => ['AppointmentController@late', $appointment->id], 'method' => 'PATCH']) !!}
@@ -249,36 +251,22 @@
 
 						@endif
 
-   @if(null==$appointment->payment)
+   	 
 
-      @if(Auth::user()->isPatient())
-      <a href="{{route('payment.user',['appointment'=>$appointment->id])}}" class="btn btn-success">Pagar ahora</a>
-      @else
-      <a href="{{route('payment.doctor',['appointment'=>$appointment->id])}}" class="btn btn-success">Pagar ahora</a>
-
-      @endif
-
-      @endif
-
-						@if(($appointment->condition->status == 'completed' || $appointment->condition->status == 'late')  && null== $appointment->review && Auth::user()->isPatient())
-
-
-
-			<button type="button" data-toggle="modal" data-target="#crearReview" class="  btn  btn-primary  btn-sm btn-round
-						"  ><i class="fal fa-pen"></i> Calificar mi cita </button>						@endif
+	
 
 
 						@if(null!= $appointment->review)
 
-	<div class="stars">
-				<?php $estrellas = round($appointment->stars);
-				$noEstrellas = 5 - $estrellas; ?>
+								<div class="stars">
+											<?php $estrellas = round($appointment->stars);
+											$noEstrellas = 5 - $estrellas; ?>
 
-				@for($i = 0;$i<$estrellas ; $i++) <i class="fas fa-star"></i>
-					@endfor
-					@for($i = 0;$i<$noEstrellas ; $i++) <i class="fal fa-star"></i>
-						@endfor
-			</div>
+											@for($i = 0;$i<$estrellas ; $i++) <i class="fas fa-star"></i>
+												@endfor
+												@for($i = 0;$i<$noEstrellas ; $i++) <i class="fal fa-star"></i>
+													@endfor
+										</div>
 						@endif
 
 

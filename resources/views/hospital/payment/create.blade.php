@@ -26,6 +26,12 @@
 
             @csrf
 
+ 
+            @if(isset($nextStatus))
+
+            <input type="hidden" value="{{$nextStatus}}" name="nextStatus">
+            @endif
+
 
           @if(isset($appointments))
             <div class="form-group form-inline align-items-end ">
@@ -96,73 +102,7 @@
 
       </div>
     </div>
-
-       <div class="col-12 d-none">
-
-      <div class="card">
-
-        <div class="card-encabezado">
-
-          <div class="card-cabecera-icono bg-info sombra-2 ">
-
-            <i class="fal fa-calendar-check"></i>
-          </div>
-          <div class="card-title">Registrar otro pago</div>
-        </div>
-
-        <div class="card-body">
-          
-
-          <form  method="post" action="{{route('payment.store.other')}}">
-            
-            @csrf
-
  
-
-          <div class="form-group form-inline align-items-end">
-
-            <div class="icon-form">
-              <i class="fal fa-calendar-week"></i>
-            </div>
-
-            <div class="form-group">
-
-              <label class="bmd-label-floating">Precio</label>
-
-                <input type="text" class="form-control" name="cost" value="{{old('cost')}}">
- 
-            </div>
-          </div>
-            
-
-
-            <div class="form-group form-inline align-items-end">
-
-              <div class="icon-form">
-                <i class="fal fa-calendar-week"></i>
-              </div>
-
-              <div class="form-group">
-
-                <label class="bmd-label-floating">Descripcion</label>
-
-                <input type="text" class="form-control" name="description" value="{{old('description')}}">
-                
-              </div>
-            </div>
-
-
-            <button class="btn btn-primary">Registrar pago</button>
-
-
-            
-          </form>
-        </div>
-
-
-        
-      </div>
-    </div>
   </div>
 </div>
 

@@ -8,14 +8,12 @@
       
         
 
-      @if(isset($newAppointment))
-          <div class="alert alert-success">Cita creada correctamente</div>
+          <div class="alert alert-success">Cita registrada correctamente</div>
         
         <form method="post" action="{{route('payment.then',['appointment'=>$appointment->id])}}" class="form">
           @csrf
           <button class="btn btn-info btn-block">Prefiero pagar en la cita</button>
         </form>
-        @endif
   
     </div>
   </div>
@@ -91,7 +89,7 @@
 
            <form action="{{route('payment.store.invoice',['appointment'=>$appointment->id])}}" method="post" id="payment-form">
             @csrf
-            <button type="submit" class="btn btn-primary">Pagar y facturar</button>
+            <button type="submit" class="btn btn-primary btn-block">Pagar y facturar</button>
            </form>
   
    

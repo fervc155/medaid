@@ -92,8 +92,8 @@ class Doctor extends Model
             }
         }
 
-        $moneda = Options::Moneda();
-
+        $moneda = strtoupper(config('cashier.currency')) . "$ ";
+   
         if ($min == $max) {
             return $moneda . $min;
         }

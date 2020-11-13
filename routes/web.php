@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
 
     Route::post('pay/{appointment}/then','PaymentController@then')->name('payment.then');
     Route::get('payment/{appointment}/doctor','PaymentController@doctor')->name('payment.doctor');
-    Route::get('payment/{appointment}/invoice','PaymentController@doctor')->name('payment.doctor');
+ 
     Route::get('payment/{appointment}/user','PaymentController@user')->name('payment.user');
     //
 
@@ -264,7 +264,7 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::patch('appointment/complete/{appointment}', 'AppointmentController@complete');
+    Route::patch('appointment/attend/{appointment}', 'AppointmentController@attend');
     Route::patch('appointment/rejected/{appointment}', 'AppointmentController@rejected');
     Route::patch('appointment/accepted/{appointment}', 'AppointmentController@accepted');
     Route::patch('appointment/cancelled/{appointment}', 'AppointmentController@cancelled');

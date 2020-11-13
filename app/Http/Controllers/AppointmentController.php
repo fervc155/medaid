@@ -161,7 +161,7 @@ class AppointmentController extends Controller
         return redirect('payment/'.$appointment->id."/user")->with('newAppointment',true);
     
     }
-    return redirect('/appointment')->with('success', '¡La cita ha sido creada con éxito!');
+    return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido creada con éxito!');
 
   }
 
@@ -234,11 +234,10 @@ class AppointmentController extends Controller
   public function edit(Appointment $appointment)
   {
 
-    if ($appointment->condition_id != Conditions::Id('pending')) {
+ 
+    if ($appointment->condition_id == Conditions::Id('pending') || $appointment->condition_id== Conditions::Id('lost')) {
 
-      return back()->with('error', 'Solo se pueden editar las citas pendientes');
-    }
-
+ 
 
     if (Auth::user()->isPatient()) {
       if (Auth::user()->profile()->id != $appointment->patient_dni) {
@@ -273,6 +272,10 @@ class AppointmentController extends Controller
 
       $conditions = Condition::all();
       return view('hospital.appointment.editAppointment', compact('appointment', 'conditions'));
+
+    }
+           return back()->with('error', 'Solo se pueden editar las citas pendientes o perdidas');
+
     }
 
 
@@ -282,6 +285,15 @@ class AppointmentController extends Controller
   //Método update 
   public function update(Request $request, Appointment $appointment)
   {
+
+     $data = request()->validate([
+                'date' => 'nullable',
+              ]);
+
+
+     if(!isset($data['date']))
+     {
+
 
 
   if (Auth::user()->Doctor()) {
@@ -304,6 +316,7 @@ class AppointmentController extends Controller
 
 
     }
+    }
     if (Auth::user()->Patient()) {
 
       $this->validate($request, [
@@ -320,9 +333,18 @@ class AppointmentController extends Controller
       $appointment->time = $request->input('time');
 
       $appointment->description = $request->input('description');
+
+
+      if($appointment->condition_id==Conditions::Id('lost')  && null!=$appointment->payment)
+        $appointment->condition_id = Conditions::Id('accepted');
+
+      if($appointment->condition_id==Conditions::Id('lost')  && null==$appointment->payment)
+        $appointment->condition_id = Conditions::Id('pending');
+      
+
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido actualizada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido actualizada con éxito!');
     }
 
     return view('admin');
@@ -331,17 +353,19 @@ class AppointmentController extends Controller
 
  
   //cancelar cita
-  public function destroy(Appointment $appointment)
-  {
-    if (Auth::user()->Patient()) {
+  // public function destroy(Appointment $appointment)
+  // {
+  //   if (Auth::user()->Patient()) {
 
-      $appointment->condition_id = Conditions::Id('cancelled');
-      $appointment->save();
+  //     $appointment->condition_id = Conditions::Id('cancelled');
+  //     $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido cancelada con éxito!');
-    }
-    return view('admin');
-  }
+  //     return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido cancelada con éxito!');
+  //   }
+  //   return view('admin');
+  // }
+
+
 
   //cancelar cita
   public function cancelled(Appointment $appointment)
@@ -350,11 +374,28 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('cancelled');
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido cancelada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido cancelada con éxito!');
     }
     return view('admin');
   }
 
+
+
+  //atender
+  public function attend(Appointment $appointment)
+  {
+
+    if(null==$appointment->payment)
+    {
+
+             return view('hospital.payment.create')->with('appointment',$appointment)->with('nextStatus','completed');
+
+    }
+
+      
+      return $this->complete($appointment);
+
+  }
 
   //Atender cita
   public function complete(Appointment $appointment)
@@ -363,7 +404,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('completed');
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido atendida con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido atendida con éxito!');
     }
     return view('admin');
   }
@@ -375,22 +416,22 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('accepted');
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido aceptada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido aceptada con éxito!');
     }
   }
 
-  //rechazar cita
-  public function rejected(Appointment $appointment)
-  {
-    if (Auth::user()->Patient()) {
+  // //rechazar cita
+  // public function rejected(Appointment $appointment)
+  // {
+  //   if (Auth::user()->Patient()) {
 
-      $appointment->condition_id = Conditions::Id('rejected');
-      $appointment->save();
+  //     $appointment->condition_id = Conditions::Id('rejected');
+  //     $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
-    }
-    return view('admin');
-  }
+  //     return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
+  //   }
+  //   return view('admin');
+  // }
 
   //pendiente cita
   public function pending(Appointment $appointment)
@@ -399,7 +440,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('pending');
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
     }
     return view('admin');
   }
@@ -410,7 +451,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('late');
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
     }
     return view('admin');
   }
@@ -421,7 +462,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('lost');
       $appointment->save();
 
-      return redirect('/appointment')->with('success', '¡La cita ha sido rechazada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
     }
     return view('admin');
   }
