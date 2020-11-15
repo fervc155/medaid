@@ -9,6 +9,7 @@ use App\Payment;
 use App\Speciality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notification;
 
 class PaymentController extends Controller
 {
@@ -113,6 +114,22 @@ class PaymentController extends Controller
       $appointment->save();
 
 
+      $getUsers = $appointment->getUsers();
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Tu cita ha sido pagada correctamente",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$appointment->id
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+
+
       return redirect($appointment->profileUrl)->with('success','Cita registrada correctamente');
   }
 
@@ -144,6 +161,22 @@ class PaymentController extends Controller
 
       $appointment->condition_id = Conditions::Id('accepted');
       $appointment->save();
+
+      $getUsers = $appointment->getUsers();
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Tu cita ha sido pagada correctamente",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$appointment->id
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+
 
 
       return redirect($appointment->profileUrl)->with('success','Cita registrada correctamente');
@@ -240,33 +273,26 @@ class PaymentController extends Controller
         }
 
         $payment->save();
+
+
+             $getUsers = $appointment->getUsers()/
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Se ha registrado el pago de tu cita correctamente",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$appointment->id
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+ 
         return redirect('payment')->with('success','pago registrado correctamente');
     }
 
-
-
-    // public function other(Request $request)
-    // {
-    //     $data= $request->validate([
-
-    //         'description'=>'nullable',
-    //         'cost'=>'required|numeric'
-    //     ]);
-
-
-
-    //     $payment = new Payment;
-
-    //     $payment->cost = $data['cost'];
-    //     $payment->description = $data['description']??null;
-
-    //     $payment->online=0;
-
-    //     $payment->save();
-
-
-    //     return redirect('payment')->with('success','pago registrado correctamente');
-    // }
 
 public function billingPortal()
 {

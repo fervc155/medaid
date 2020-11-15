@@ -6,6 +6,7 @@ use App\Doctor;
 use App\Office;
 use App\Options;
 use App\Crud;
+use App\Notification;
 use App\Speciality;
 
 use Illuminate\Http\Request;
@@ -105,6 +106,22 @@ class DoctorController extends Controller
 
 
       Crud::newUser($data, 'doctor', $doctor->id, $ruta_imagen);
+
+
+
+    Notification::toAdmin( array(
+            'subject'=>"Se ha creado un nuevo doctor",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                
+                
+
+            ],
+            'url'=> $doctor->profileUrl,
+            'btnText'=>'Ver medico'
+        ));
+
 
 
 

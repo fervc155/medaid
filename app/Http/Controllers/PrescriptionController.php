@@ -8,6 +8,7 @@ use App\Appointemt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Notification;
 
 class PrescriptionController extends Controller
 {
@@ -72,22 +73,28 @@ class PrescriptionController extends Controller
 
             $prescription->save();
 
+                  $getUsers = $prescrtiption->prescrtiption->appointment->getUsers();
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Una receta ha sido registrada en tu cita",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$prescrtiption->appointment->id
+                
+
+            ],
+            'url'=> $prescrtiption->appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+
+
 
             return back()->with('success', 'Se ha agregado la receta correctamente');
         }
         return view('admin');
     }
 
-
-    public function show(Prescription $prescription)
-    {
-        //
-    }
-
-    public function edit(Prescription $prescription)
-    {
-        //
-    }
 
     public function update(Request $request)
     {
@@ -121,8 +128,4 @@ class PrescriptionController extends Controller
         return Storage::disk('public')->download($file_path);
     }
 
-    public function destroy(Prescription $prescription)
-    {
-        //
-    }
 }

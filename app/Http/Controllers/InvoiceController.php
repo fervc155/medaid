@@ -6,6 +6,7 @@ use App\Invoice;
 use App\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notification;
 
 class InvoiceController extends Controller
 {

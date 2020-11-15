@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Notification;
 
 class OfficeController extends Controller
 {
@@ -79,6 +80,25 @@ class OfficeController extends Controller
       $office->save();
 
       Crud::newUser($data, 'office', $office->id, $ruta_imagen);
+
+
+    Notification::toAdmin( array(
+            'subject'=>"Se ha creado un nuevo doctor",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                
+                
+
+            ],
+            'url'=> $office->profileUrl,
+            'btnText'=>'Ver consultorio'
+        ));
+
+
+
+
+
 
       return redirect('/office')->with('success', '¡El consultorio ha sido agregado con éxito!');
     }
