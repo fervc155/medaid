@@ -56,6 +56,9 @@ Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor'
 
 
 
+Route::group(['middleware' => ['auth','admin'] ], function () {
+    route::get('admin/create','adminController@create')->name('admin.create');
+});
 
 
 /*====================================
@@ -245,6 +248,7 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
 
     route::get('admin/{admin}/edit','adminController@edit')->name('admin.edit');
+    route::post('admin','adminController@store')->name('admin.store');
     route::put('admin/{admin}','AdminController@update')->name('admin.update');
      Route::put('admin/{admin}/login', 'AdminController@updateLogin')->name('admin.update.login');
      Route::put('admin/{admin}/image', 'AdminController@updateImage')->name('admin.update.image');
@@ -346,6 +350,7 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
 
 });
+
 
 
 ////////////////////////////////////////////////////////////
