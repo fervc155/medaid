@@ -38,7 +38,7 @@ class DoctorController extends Controller
       $defaultImg = $defaultImg->UserDefault();
 
       $offices = Office::active();
-      $specialities = Speciality::active();
+      $specialities = Speciality::all();
       return view('hospital.doctor.createDoctor', compact('offices', 'specialities', 'defaultImg'));
     }
     return view('admin');
