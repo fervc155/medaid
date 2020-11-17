@@ -777,7 +777,7 @@
 			"file": "app/Appointment.php",
 			"settings":
 			{
-				"buffer_size": 2941,
+				"buffer_size": 3615,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -822,7 +822,7 @@
 			"file": "app/Http/Controllers/Appointment_commentController.php",
 			"settings":
 			{
-				"buffer_size": 1468,
+				"buffer_size": 1845,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -989,7 +989,7 @@
 			"file": "app/Http/Controllers/AppointmentController.php",
 			"settings":
 			{
-				"buffer_size": 11728,
+				"buffer_size": 13741,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1083,7 +1083,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 10874,
+				"buffer_size": 11093,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1092,7 +1092,7 @@
 			"file": "app/Http/Controllers/PaymentController.php",
 			"settings":
 			{
-				"buffer_size": 6473,
+				"buffer_size": 7328,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1136,7 +1136,7 @@
 			"file": "app/Http/Controllers/ReviewController.php",
 			"settings":
 			{
-				"buffer_size": 999,
+				"buffer_size": 1433,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1145,7 +1145,7 @@
 			"file": "app/Http/Controllers/chatController.php",
 			"settings":
 			{
-				"buffer_size": 543,
+				"buffer_size": 565,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1312,7 +1312,16 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 10874,
+				"buffer_size": 11093,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/hospital/admin/createAdmin.blade.php",
+			"settings":
+			{
+				"buffer_size": 965,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1329,7 +1338,7 @@
 			"file": "app/Http/Controllers/InvoiceController.php",
 			"settings":
 			{
-				"buffer_size": 1062,
+				"buffer_size": 1084,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1383,7 +1392,7 @@
 			"file": "app/Http/Controllers/PrescriptionController.php",
 			"settings":
 			{
-				"buffer_size": 3488,
+				"buffer_size": 3791,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1466,14 +1475,6 @@
 				"buffer_size": 9226,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config/hashing.php",
-			"settings":
-			{
-				"buffer_size": 1571,
-				"line_ending": "Unix"
 			}
 		},
 		{
@@ -1711,7 +1712,8 @@
 			"file": "app/SendMail.php",
 			"settings":
 			{
-				"buffer_size": 879,
+				"buffer_size": 918,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -1902,7 +1904,7 @@
 			"file": "resources/views/hospital/includes/tableUser.blade.php",
 			"settings":
 			{
-				"buffer_size": 1138,
+				"buffer_size": 1264,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1911,7 +1913,7 @@
 			"file": "resources/views/auth/indexUser.blade.php",
 			"settings":
 			{
-				"buffer_size": 369,
+				"buffer_size": 497,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2244,7 +2246,7 @@
 			"file": "app/Http/Controllers/PatientController.php",
 			"settings":
 			{
-				"buffer_size": 5950,
+				"buffer_size": 5972,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2296,7 +2298,7 @@
 			"file": "app/Http/Controllers/DoctorController.php",
 			"settings":
 			{
-				"buffer_size": 5810,
+				"buffer_size": 6140,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2377,7 +2379,24 @@
 			"file": "app/Http/Controllers/AdminController.php",
 			"settings":
 			{
-				"buffer_size": 2187,
+				"buffer_size": 3560,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "database/migrations/2020_09_19_201637_create_admins_table.php",
+			"settings":
+			{
+				"buffer_size": 580,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Admin.php",
+			"settings":
+			{
+				"buffer_size": 712,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2447,7 +2466,7 @@
 			"file": "app/Http/Livewire/ChatMessages.php",
 			"settings":
 			{
-				"buffer_size": 2319,
+				"buffer_size": 1990,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2596,7 +2615,8 @@
 			"file": "app/Http/Controllers/optionController.php",
 			"settings":
 			{
-				"buffer_size": 795,
+				"buffer_size": 817,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -2604,7 +2624,7 @@
 			"file": "app/Http/Controllers/OfficeController.php",
 			"settings":
 			{
-				"buffer_size": 4188,
+				"buffer_size": 4564,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2937,10 +2957,10 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/laravel/hospital",
-		"/C/xampp/htdocs/laravel/hospital/config",
 		"/C/xampp/htdocs/laravel/hospital/resources",
 		"/C/xampp/htdocs/laravel/hospital/resources/views",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/admin",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/appointment",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/home",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/includes",
@@ -3081,7 +3101,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 59.0
 	},
 	"find_in_files":
 	{
@@ -3095,6 +3115,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"  \n",
+			"admin",
+			"['auth','admin']",
+			"appointment",
+			"()/",
 			"redirect('/appointment')",
 			"store",
 			"edit",
@@ -3217,12 +3242,7 @@
 			"EditarReceta",
 			"speciality_id",
 			"stars",
-			"doctor",
-			"is",
-			"myProfileId",
-			"Auth::UserId()",
-			"patient",
-			"Notification"
+			"doctor"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -3240,7 +3260,7 @@
 	"groups":
 	[
 		{
-			"selected": 93,
+			"selected": 210,
 			"sheets":
 			[
 				{
@@ -3290,7 +3310,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
@@ -3327,7 +3347,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 245,
+					"stack_index": 247,
 					"type": "text"
 				},
 				{
@@ -3369,7 +3389,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 226,
+					"stack_index": 228,
 					"type": "text"
 				},
 				{
@@ -3416,7 +3436,7 @@
 						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 121,
+					"stack_index": 136,
 					"type": "text"
 				},
 				{
@@ -3452,7 +3472,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 249,
+					"stack_index": 251,
 					"type": "text"
 				},
 				{
@@ -3496,7 +3516,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
@@ -3543,7 +3563,7 @@
 						"translation.y": 375.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 119,
+					"stack_index": 134,
 					"type": "text"
 				},
 				{
@@ -3574,7 +3594,7 @@
 						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 115,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
@@ -3604,7 +3624,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 116,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
@@ -3643,7 +3663,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 229,
+					"stack_index": 231,
 					"type": "text"
 				},
 				{
@@ -3686,7 +3706,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 244,
+					"stack_index": 246,
 					"type": "text"
 				},
 				{
@@ -3702,8 +3722,8 @@
 						"selection":
 						[
 							[
-								2604,
-								2604
+								1133,
+								1133
 							]
 						],
 						"settings":
@@ -3746,10 +3766,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1873.0,
+						"translation.y": 694.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
@@ -3765,8 +3785,8 @@
 						"selection":
 						[
 							[
-								237,
-								237
+								1708,
+								1708
 							]
 						],
 						"settings":
@@ -3800,10 +3820,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 877.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 151,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -3832,7 +3852,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 217,
+					"stack_index": 219,
 					"type": "text"
 				},
 				{
@@ -3885,7 +3905,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
@@ -3922,7 +3942,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 222,
+					"stack_index": 224,
 					"type": "text"
 				},
 				{
@@ -3938,8 +3958,8 @@
 						"selection":
 						[
 							[
-								1003,
-								1003
+								1014,
+								1014
 							]
 						],
 						"settings":
@@ -3951,10 +3971,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 860.0,
+						"translation.y": 784.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -3970,8 +3990,8 @@
 						"selection":
 						[
 							[
-								2119,
-								2161
+								241,
+								241
 							]
 						],
 						"settings":
@@ -3982,10 +4002,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1122.0,
+						"translation.y": 118.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -4025,7 +4045,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 224,
+					"stack_index": 226,
 					"type": "text"
 				},
 				{
@@ -4061,7 +4081,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 144,
+					"stack_index": 156,
 					"type": "text"
 				},
 				{
@@ -4090,7 +4110,7 @@
 						"translation.y": 611.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 204,
+					"stack_index": 206,
 					"type": "text"
 				},
 				{
@@ -4120,7 +4140,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 184,
+					"stack_index": 186,
 					"type": "text"
 				},
 				{
@@ -4186,7 +4206,7 @@
 						"translation.y": 142.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
@@ -4218,7 +4238,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 164,
+					"stack_index": 168,
 					"type": "text"
 				},
 				{
@@ -4257,7 +4277,7 @@
 						"translation.y": 103.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
@@ -4299,7 +4319,7 @@
 						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
@@ -4336,7 +4356,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 223,
+					"stack_index": 225,
 					"type": "text"
 				},
 				{
@@ -4378,7 +4398,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
@@ -4387,15 +4407,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2941,
+						"buffer_size": 3615,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1607,
-								1479
+								2305,
+								2305
 							]
 						],
 						"settings":
@@ -4438,10 +4458,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1227.0,
+						"translation.y": 2290.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
@@ -4471,7 +4491,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
@@ -4501,7 +4521,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 142,
+					"stack_index": 154,
 					"type": "text"
 				},
 				{
@@ -4536,7 +4556,7 @@
 						"translation.y": 393.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 234,
+					"stack_index": 236,
 					"type": "text"
 				},
 				{
@@ -4584,7 +4604,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 150,
+					"stack_index": 162,
 					"type": "text"
 				},
 				{
@@ -4593,15 +4613,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1468,
+						"buffer_size": 1845,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								120,
+								98
 							]
 						],
 						"settings":
@@ -4632,7 +4652,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 158,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
@@ -4682,7 +4702,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 149,
+					"stack_index": 161,
 					"type": "text"
 				},
 				{
@@ -4724,7 +4744,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 148,
+					"stack_index": 160,
 					"type": "text"
 				},
 				{
@@ -4769,7 +4789,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 147,
+					"stack_index": 159,
 					"type": "text"
 				},
 				{
@@ -4810,7 +4830,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 161,
+					"stack_index": 165,
 					"type": "text"
 				},
 				{
@@ -4840,7 +4860,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 160,
+					"stack_index": 164,
 					"type": "text"
 				},
 				{
@@ -4869,7 +4889,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 248,
+					"stack_index": 250,
 					"type": "text"
 				},
 				{
@@ -4925,7 +4945,7 @@
 						"translation.y": 24.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 162,
+					"stack_index": 166,
 					"type": "text"
 				},
 				{
@@ -4980,7 +5000,7 @@
 						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 112,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
@@ -5015,7 +5035,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
@@ -5107,7 +5127,7 @@
 						"translation.y": 325.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
@@ -5123,8 +5143,8 @@
 						"selection":
 						[
 							[
-								584,
-								584
+								585,
+								585
 							]
 						],
 						"settings":
@@ -5157,10 +5177,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 570.0,
+						"translation.y": 494.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
@@ -5191,7 +5211,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
@@ -5221,7 +5241,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 187,
+					"stack_index": 189,
 					"type": "text"
 				},
 				{
@@ -5268,7 +5288,7 @@
 						"translation.y": 128.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
@@ -5302,7 +5322,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 255,
+					"stack_index": 257,
 					"type": "text"
 				},
 				{
@@ -5349,7 +5369,7 @@
 						"translation.y": 2236.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -5365,8 +5385,8 @@
 						"selection":
 						[
 							[
-								2772,
-								2772
+								496,
+								496
 							]
 						],
 						"settings":
@@ -5671,7 +5691,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -5718,7 +5738,7 @@
 						"translation.y": 1511.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
@@ -5727,15 +5747,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11728,
+						"buffer_size": 13741,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8107,
-								8107
+								187,
+								187
 							]
 						],
 						"settings":
@@ -5781,10 +5801,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6319.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
@@ -5816,7 +5836,7 @@
 						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
@@ -5848,7 +5868,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
@@ -5886,7 +5906,7 @@
 						"translation.y": 920.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
@@ -5920,7 +5940,7 @@
 						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 253,
+					"stack_index": 255,
 					"type": "text"
 				},
 				{
@@ -5952,7 +5972,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 252,
+					"stack_index": 254,
 					"type": "text"
 				},
 				{
@@ -5990,7 +6010,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
@@ -6045,7 +6065,7 @@
 						"translation.y": 201.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 251,
+					"stack_index": 253,
 					"type": "text"
 				},
 				{
@@ -6087,7 +6107,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 243,
+					"stack_index": 245,
 					"type": "text"
 				},
 				{
@@ -6139,7 +6159,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 207,
+					"stack_index": 209,
 					"type": "text"
 				},
 				{
@@ -6192,7 +6212,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 242,
+					"stack_index": 244,
 					"type": "text"
 				},
 				{
@@ -6201,7 +6221,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10874,
+						"buffer_size": 11093,
 						"regions":
 						{
 						},
@@ -6274,7 +6294,7 @@
 						"translation.y": 1083.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
@@ -6283,15 +6303,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6473,
+						"buffer_size": 7328,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4532,
-								4532
+								223,
+								223
 							]
 						],
 						"settings":
@@ -6303,10 +6323,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3184.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
@@ -6336,7 +6356,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
@@ -6369,7 +6389,7 @@
 						"translation.y": 1539.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
@@ -6402,7 +6422,7 @@
 						"translation.y": 11.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
@@ -6433,7 +6453,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
@@ -6442,15 +6462,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 999,
+						"buffer_size": 1433,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								604,
-								604
+								165,
+								165
 							]
 						],
 						"settings":
@@ -6462,10 +6482,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 300.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 152,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -6474,15 +6494,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 543,
+						"buffer_size": 565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								543,
-								543
+								198,
+								198
 							]
 						],
 						"settings":
@@ -6493,10 +6513,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 422.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
@@ -6528,7 +6548,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
@@ -6555,10 +6575,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 224.0,
+						"translation.y": 148.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 182,
+					"stack_index": 184,
 					"type": "text"
 				},
 				{
@@ -6589,7 +6609,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 123,
 					"type": "text"
 				},
 				{
@@ -6627,7 +6647,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
@@ -6672,7 +6692,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
@@ -6711,7 +6731,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
@@ -6753,7 +6773,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
@@ -6793,7 +6813,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
@@ -6831,7 +6851,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
@@ -6866,7 +6886,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
@@ -6923,7 +6943,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
@@ -6980,7 +7000,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
@@ -7018,7 +7038,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 238,
+					"stack_index": 240,
 					"type": "text"
 				},
 				{
@@ -7063,7 +7083,7 @@
 						"translation.y": 1014.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
@@ -7116,7 +7136,7 @@
 						"translation.y": 3705.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
@@ -7148,7 +7168,7 @@
 						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 250,
+					"stack_index": 252,
 					"type": "text"
 				},
 				{
@@ -7177,7 +7197,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 256,
+					"stack_index": 258,
 					"type": "text"
 				},
 				{
@@ -7271,7 +7291,7 @@
 						"translation.y": 209.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -7280,15 +7300,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10874,
+						"buffer_size": 11093,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2931,
-								2931
+								1860,
+								1860
 							]
 						],
 						"settings":
@@ -7337,14 +7357,46 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1227.0,
+						"translation.y": 897.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 90,
+					"file": "resources/views/hospital/admin/createAdmin.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 965,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								616,
+								616
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 323.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 91,
 					"file": "vendor/stripe/stripe-php/lib/ApiOperations/Create.php",
 					"semi_transient": false,
 					"settings":
@@ -7371,24 +7423,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
-					"buffer": 91,
+					"buffer": 92,
 					"file": "app/Http/Controllers/InvoiceController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1062,
+						"buffer_size": 1084,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								654,
-								654
+								162,
+								162
 							]
 						],
 						"settings":
@@ -7400,14 +7452,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 118.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 92,
+					"buffer": 93,
 					"file": "public/js/Appointments/appointments.js",
 					"semi_transient": false,
 					"settings":
@@ -7451,11 +7503,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 235,
+					"stack_index": 237,
 					"type": "text"
 				},
 				{
-					"buffer": 93,
+					"buffer": 94,
 					"file": "resources/views/hospital/appointment/showAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7467,8 +7519,8 @@
 						"selection":
 						[
 							[
-								5023,
-								5023
+								5168,
+								5168
 							]
 						],
 						"settings":
@@ -7524,11 +7576,11 @@
 						"translation.y": 4560.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
-					"buffer": 94,
+					"buffer": 95,
 					"file": "resources/views/hospital/includes/modal/createPrescription.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7559,11 +7611,11 @@
 						"translation.y": 256.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 133,
+					"stack_index": 148,
 					"type": "text"
 				},
 				{
-					"buffer": 95,
+					"buffer": 96,
 					"file": "resources/views/hospital/includes/modal/createReview.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7591,11 +7643,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 132,
+					"stack_index": 147,
 					"type": "text"
 				},
 				{
-					"buffer": 96,
+					"buffer": 97,
 					"file": "resources/views/hospital/includes/loopComments.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7631,24 +7683,24 @@
 						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 129,
+					"stack_index": 144,
 					"type": "text"
 				},
 				{
-					"buffer": 97,
+					"buffer": 98,
 					"file": "app/Http/Controllers/PrescriptionController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3488,
+						"buffer_size": 3791,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1761,
-								1761
+								218,
+								218
 							]
 						],
 						"settings":
@@ -7676,14 +7728,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 531.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 154,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 98,
+					"buffer": 99,
 					"file": "resources/views/hospital/prescription/indexPrescription.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7717,11 +7769,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
-					"buffer": 99,
+					"buffer": 100,
 					"file": "resources/views/hospital/payment/indexPayment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7750,11 +7802,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
-					"buffer": 100,
+					"buffer": 101,
 					"file": "resources/views/hospital/includes/modal/EditPrescription.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7789,11 +7841,11 @@
 						"translation.y": 520.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 131,
+					"stack_index": 146,
 					"type": "text"
 				},
 				{
-					"buffer": 101,
+					"buffer": 102,
 					"file": "resources/views/hospital/includes/tablePrescriptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7825,11 +7877,11 @@
 						"translation.y": 291.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
-					"buffer": 102,
+					"buffer": 103,
 					"file": "resources/views/hospital/includes/tablePayment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -7858,11 +7910,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
-					"buffer": 103,
+					"buffer": 104,
 					"file": "database/seeds/Appointment_commentSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -7898,11 +7950,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 233,
+					"stack_index": 235,
 					"type": "text"
 				},
 				{
-					"buffer": 104,
+					"buffer": 105,
 					"file": "database/migrations/2019_12_26_235849_create_appointment_comments_table.php",
 					"semi_transient": false,
 					"settings":
@@ -7946,11 +7998,11 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 227,
+					"stack_index": 229,
 					"type": "text"
 				},
 				{
-					"buffer": 105,
+					"buffer": 106,
 					"file": "bootstrap/app.php",
 					"semi_transient": false,
 					"settings":
@@ -7979,11 +8031,11 @@
 						"translation.y": 747.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 191,
+					"stack_index": 193,
 					"type": "text"
 				},
 				{
-					"buffer": 106,
+					"buffer": 107,
 					"file": "config/app.php",
 					"semi_transient": false,
 					"settings":
@@ -8017,38 +8069,7 @@
 						"translation.y": 4059.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
-					"type": "text"
-				},
-				{
-					"buffer": 107,
-					"file": "config/hashing.php",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1571,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
@@ -8110,7 +8131,7 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
@@ -8158,7 +8179,7 @@
 						"translation.y": 353.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
@@ -8215,7 +8236,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
@@ -8251,7 +8272,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
@@ -8300,7 +8321,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
@@ -8348,7 +8369,7 @@
 						"translation.y": 1131.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 128,
+					"stack_index": 143,
 					"type": "text"
 				},
 				{
@@ -8393,7 +8414,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 130,
+					"stack_index": 145,
 					"type": "text"
 				},
 				{
@@ -8445,7 +8466,7 @@
 						"translation.y": 1051.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 125,
+					"stack_index": 140,
 					"type": "text"
 				},
 				{
@@ -8505,7 +8526,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 165,
+					"stack_index": 169,
 					"type": "text"
 				},
 				{
@@ -8551,7 +8572,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 216,
+					"stack_index": 218,
 					"type": "text"
 				},
 				{
@@ -8580,7 +8601,7 @@
 						"translation.y": 456.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
@@ -8612,7 +8633,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 214,
+					"stack_index": 216,
 					"type": "text"
 				},
 				{
@@ -8648,7 +8669,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 117,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
@@ -8683,7 +8704,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -8711,10 +8732,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1131.0,
+						"translation.y": 181.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 153,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -8745,7 +8766,7 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 166,
+					"stack_index": 170,
 					"type": "text"
 				},
 				{
@@ -8805,7 +8826,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 206,
+					"stack_index": 208,
 					"type": "text"
 				},
 				{
@@ -8869,7 +8890,7 @@
 						"translation.y": 5142.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 163,
+					"stack_index": 167,
 					"type": "text"
 				},
 				{
@@ -8901,7 +8922,7 @@
 						"translation.y": 1798.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 236,
+					"stack_index": 238,
 					"type": "text"
 				},
 				{
@@ -8956,7 +8977,7 @@
 						"translation.y": 1934.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 237,
+					"stack_index": 239,
 					"type": "text"
 				},
 				{
@@ -8991,7 +9012,7 @@
 						"translation.y": 1980.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 170,
+					"stack_index": 172,
 					"type": "text"
 				},
 				{
@@ -9037,7 +9058,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
@@ -9082,7 +9103,7 @@
 						"translation.y": 2791.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
@@ -9114,7 +9135,7 @@
 						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 210,
+					"stack_index": 212,
 					"type": "text"
 				},
 				{
@@ -9146,7 +9167,7 @@
 						"translation.y": 320.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 208,
+					"stack_index": 210,
 					"type": "text"
 				},
 				{
@@ -9175,10 +9196,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 711.0,
+						"translation.y": 388.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 146,
+					"stack_index": 158,
 					"type": "text"
 				},
 				{
@@ -9187,15 +9208,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 879,
+						"buffer_size": 918,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								725,
-								731
+								238,
+								238
 							]
 						],
 						"settings":
@@ -9206,10 +9227,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 272.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 141,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
@@ -9241,7 +9262,7 @@
 						"translation.y": 1000.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 156,
+					"stack_index": 163,
 					"type": "text"
 				},
 				{
@@ -9273,7 +9294,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 173,
+					"stack_index": 175,
 					"type": "text"
 				},
 				{
@@ -9304,7 +9325,7 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 174,
+					"stack_index": 176,
 					"type": "text"
 				},
 				{
@@ -9335,7 +9356,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
@@ -9366,7 +9387,7 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
@@ -9397,7 +9418,7 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
@@ -9439,7 +9460,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 220,
+					"stack_index": 222,
 					"type": "text"
 				},
 				{
@@ -9482,7 +9503,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 140,
+					"stack_index": 153,
 					"type": "text"
 				},
 				{
@@ -9521,7 +9542,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 228,
+					"stack_index": 230,
 					"type": "text"
 				},
 				{
@@ -9559,7 +9580,7 @@
 						"translation.y": 4939.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
@@ -9599,7 +9620,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 114,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
@@ -9628,7 +9649,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 239,
+					"stack_index": 241,
 					"type": "text"
 				},
 				{
@@ -9687,7 +9708,7 @@
 						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
@@ -9730,7 +9751,7 @@
 						"translation.y": 766.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
@@ -9787,7 +9808,7 @@
 						"translation.y": 416.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
@@ -9803,8 +9824,8 @@
 						"selection":
 						[
 							[
-								533,
-								533
+								219,
+								55
 							]
 						],
 						"settings":
@@ -9829,7 +9850,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -9871,7 +9892,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 127,
+					"stack_index": 142,
 					"type": "text"
 				},
 				{
@@ -9907,7 +9928,7 @@
 						"translation.y": 193.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
@@ -9949,7 +9970,7 @@
 						"translation.y": 422.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 126,
+					"stack_index": 141,
 					"type": "text"
 				},
 				{
@@ -9985,7 +10006,7 @@
 						"translation.y": 97.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 124,
+					"stack_index": 139,
 					"type": "text"
 				},
 				{
@@ -10024,7 +10045,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
@@ -10033,15 +10054,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1138,
+						"buffer_size": 1264,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								969,
-								969
+								735,
+								735
 							]
 						],
 						"settings":
@@ -10063,10 +10084,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 513.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -10075,15 +10096,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 369,
+						"buffer_size": 497,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								340,
-								340
+								245,
+								118
 							]
 						],
 						"settings":
@@ -10101,7 +10122,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -10131,7 +10152,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
@@ -10173,7 +10194,7 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 123,
+					"stack_index": 138,
 					"type": "text"
 				},
 				{
@@ -10230,7 +10251,7 @@
 						"translation.y": 239.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
@@ -10269,7 +10290,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 225,
+					"stack_index": 227,
 					"type": "text"
 				},
 				{
@@ -10326,10 +10347,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 296.0,
+						"translation.y": 220.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
@@ -10360,7 +10381,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
@@ -10392,7 +10413,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
@@ -10408,8 +10429,8 @@
 						"selection":
 						[
 							[
-								350,
-								395
+								133,
+								48
 							]
 						],
 						"settings":
@@ -10424,7 +10445,7 @@
 						"translation.y": 44.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
@@ -10457,7 +10478,7 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 205,
+					"stack_index": 207,
 					"type": "text"
 				},
 				{
@@ -10490,7 +10511,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 200,
+					"stack_index": 202,
 					"type": "text"
 				},
 				{
@@ -10523,7 +10544,7 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 172,
+					"stack_index": 174,
 					"type": "text"
 				},
 				{
@@ -10552,7 +10573,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 179,
+					"stack_index": 181,
 					"type": "text"
 				},
 				{
@@ -10585,7 +10606,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 188,
+					"stack_index": 190,
 					"type": "text"
 				},
 				{
@@ -10615,7 +10636,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 189,
+					"stack_index": 191,
 					"type": "text"
 				},
 				{
@@ -10644,7 +10665,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 178,
+					"stack_index": 180,
 					"type": "text"
 				},
 				{
@@ -10673,7 +10694,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 183,
+					"stack_index": 185,
 					"type": "text"
 				},
 				{
@@ -10704,7 +10725,7 @@
 						"translation.y": 151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 185,
+					"stack_index": 187,
 					"type": "text"
 				},
 				{
@@ -10736,7 +10757,7 @@
 						"translation.y": 91.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 180,
+					"stack_index": 182,
 					"type": "text"
 				},
 				{
@@ -10767,7 +10788,7 @@
 						"translation.y": 91.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 181,
+					"stack_index": 183,
 					"type": "text"
 				},
 				{
@@ -10798,7 +10819,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 190,
+					"stack_index": 192,
 					"type": "text"
 				},
 				{
@@ -10831,7 +10852,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 192,
+					"stack_index": 194,
 					"type": "text"
 				},
 				{
@@ -10862,7 +10883,7 @@
 						"translation.y": 20.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 171,
+					"stack_index": 173,
 					"type": "text"
 				},
 				{
@@ -10894,7 +10915,7 @@
 						"translation.y": 285.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
@@ -10923,10 +10944,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 12456.0,
+						"translation.y": 505.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
@@ -10958,7 +10979,7 @@
 						"translation.y": 114.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
@@ -10989,7 +11010,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
@@ -11020,7 +11041,7 @@
 						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 135,
+					"stack_index": 150,
 					"type": "text"
 				},
 				{
@@ -11051,7 +11072,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 134,
+					"stack_index": 149,
 					"type": "text"
 				},
 				{
@@ -11082,7 +11103,7 @@
 						"translation.y": 411.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 186,
+					"stack_index": 188,
 					"type": "text"
 				},
 				{
@@ -11114,7 +11135,7 @@
 						"translation.y": 431.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 203,
+					"stack_index": 205,
 					"type": "text"
 				},
 				{
@@ -11146,7 +11167,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 212,
+					"stack_index": 214,
 					"type": "text"
 				},
 				{
@@ -11178,7 +11199,7 @@
 						"translation.y": 62.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 211,
+					"stack_index": 213,
 					"type": "text"
 				},
 				{
@@ -11210,7 +11231,7 @@
 						"translation.y": 571.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 213,
+					"stack_index": 215,
 					"type": "text"
 				},
 				{
@@ -11247,7 +11268,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 143,
+					"stack_index": 155,
 					"type": "text"
 				},
 				{
@@ -11282,7 +11303,7 @@
 						"translation.y": 179.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 221,
+					"stack_index": 223,
 					"type": "text"
 				},
 				{
@@ -11318,7 +11339,7 @@
 						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 247,
+					"stack_index": 249,
 					"type": "text"
 				},
 				{
@@ -11366,7 +11387,7 @@
 						"translation.y": 89.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 145,
+					"stack_index": 157,
 					"type": "text"
 				},
 				{
@@ -11375,15 +11396,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5950,
+						"buffer_size": 5972,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5186,
-								5186
+								61,
+								61
 							]
 						],
 						"settings":
@@ -11426,10 +11447,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 441.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -11461,7 +11482,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 139,
+					"stack_index": 152,
 					"type": "text"
 				},
 				{
@@ -11492,7 +11513,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 138,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -11523,7 +11544,7 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 137,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -11551,7 +11572,7 @@
 						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 218,
+					"stack_index": 220,
 					"type": "text"
 				},
 				{
@@ -11581,7 +11602,7 @@
 						"translation.y": 2700.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 219,
+					"stack_index": 221,
 					"type": "text"
 				},
 				{
@@ -11590,15 +11611,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5810,
+						"buffer_size": 6140,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2999,
-								2999
+								2521,
+								2439
 							]
 						],
 						"settings":
@@ -11672,10 +11693,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2211.0,
+						"translation.y": 1467.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -11720,7 +11741,7 @@
 						"translation.y": 6184.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
@@ -11771,7 +11792,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 118,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
@@ -11800,7 +11821,7 @@
 						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
@@ -11846,7 +11867,7 @@
 						"translation.y": 11248.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
@@ -11881,7 +11902,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 113,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
@@ -11921,7 +11942,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
@@ -11982,7 +12003,7 @@
 						"translation.y": 844.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
@@ -12040,10 +12061,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2966.0,
+						"translation.y": 230.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
@@ -12052,15 +12073,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2187,
+						"buffer_size": 3560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1219,
-								1219
+								1359,
+								1359
 							]
 						],
 						"settings":
@@ -12072,14 +12093,75 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 314.0,
+						"translation.y": 1676.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 159,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 211,
+					"file": "database/migrations/2020_09_19_201637_create_admins_table.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								463,
+								463
+							]
+						],
+						"settings":
+						{
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 212,
+					"file": "app/Admin.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 712,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 213,
 					"file": "resources/views/livewire/notifications-dropdown.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12107,11 +12189,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
-					"buffer": 212,
+					"buffer": 214,
 					"file": "resources/views/livewire/notifications-count.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12138,11 +12220,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
-					"buffer": 213,
+					"buffer": 215,
 					"semi_transient": false,
 					"settings":
 					{
@@ -12169,11 +12251,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 209,
+					"stack_index": 211,
 					"type": "text"
 				},
 				{
-					"buffer": 214,
+					"buffer": 216,
 					"file": "resources/views/livewire/chat-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12200,11 +12282,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
-					"buffer": 215,
+					"buffer": 217,
 					"file": "resources/views/livewire/bot-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12231,11 +12313,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 111,
+					"stack_index": 126,
 					"type": "text"
 				},
 				{
-					"buffer": 216,
+					"buffer": 218,
 					"file": "resources/views/livewire/bot-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12262,11 +12344,11 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 110,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
-					"buffer": 217,
+					"buffer": 219,
 					"file": "app/Http/Livewire/ChatForm.php",
 					"semi_transient": false,
 					"settings":
@@ -12293,24 +12375,24 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 176,
+					"stack_index": 178,
 					"type": "text"
 				},
 				{
-					"buffer": 218,
+					"buffer": 220,
 					"file": "app/Http/Livewire/ChatMessages.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2319,
+						"buffer_size": 1990,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2238,
-								1951
+								1990,
+								1990
 							]
 						],
 						"settings":
@@ -12321,14 +12403,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2043.0,
+						"translation.y": 1713.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 169,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 219,
+					"buffer": 221,
 					"file": "resources/views/livewire/chat-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12355,11 +12437,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
-					"buffer": 220,
+					"buffer": 222,
 					"file": "resources/views/livewire/chat-search.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12385,11 +12467,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
-					"buffer": 221,
+					"buffer": 223,
 					"file": "app/Http/Livewire/ChatList.php",
 					"semi_transient": false,
 					"settings":
@@ -12416,11 +12498,11 @@
 						"translation.y": 1380.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 175,
+					"stack_index": 177,
 					"type": "text"
 				},
 				{
-					"buffer": 222,
+					"buffer": 224,
 					"file": "app/Http/Livewire/BotForm.php",
 					"semi_transient": false,
 					"settings":
@@ -12446,11 +12528,11 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 177,
+					"stack_index": 179,
 					"type": "text"
 				},
 				{
-					"buffer": 223,
+					"buffer": 225,
 					"file": "app/Http/Livewire/BotMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -12475,14 +12557,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 513.0,
+						"translation.y": 437.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
-					"buffer": 224,
+					"buffer": 226,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Http/Controllers/UserController.php",
 					"semi_transient": false,
 					"settings":
@@ -12509,11 +12591,11 @@
 						"translation.y": 6811.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 167,
+					"stack_index": 171,
 					"type": "text"
 				},
 				{
-					"buffer": 225,
+					"buffer": 227,
 					"file": "/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/index.html",
 					"semi_transient": false,
 					"settings":
@@ -12544,11 +12626,11 @@
 						"translation.y": 10819.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 246,
+					"stack_index": 248,
 					"type": "text"
 				},
 				{
-					"buffer": 226,
+					"buffer": 228,
 					"file": "app/Http/Controllers/Controller.php",
 					"semi_transient": false,
 					"settings":
@@ -12581,11 +12663,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 157,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
-					"buffer": 227,
+					"buffer": 229,
 					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
 					"semi_transient": false,
 					"settings":
@@ -12619,11 +12701,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
-					"buffer": 228,
+					"buffer": 230,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12663,11 +12745,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
-					"buffer": 229,
+					"buffer": 231,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12701,11 +12783,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 120,
+					"stack_index": 135,
 					"type": "text"
 				},
 				{
-					"buffer": 230,
+					"buffer": 232,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -12730,11 +12812,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 257,
+					"stack_index": 259,
 					"type": "text"
 				},
 				{
-					"buffer": 231,
+					"buffer": 233,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12782,11 +12864,11 @@
 						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 136,
+					"stack_index": 151,
 					"type": "text"
 				},
 				{
-					"buffer": 232,
+					"buffer": 234,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12828,11 +12910,11 @@
 						"translation.y": 1549.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
-					"buffer": 233,
+					"buffer": 235,
 					"file": "resources/views/auth/register.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12860,11 +12942,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 215,
+					"stack_index": 217,
 					"type": "text"
 				},
 				{
-					"buffer": 234,
+					"buffer": 236,
 					"file": "app/Http/Controllers/Auth/RegisterController.php",
 					"semi_transient": false,
 					"settings":
@@ -12892,24 +12974,24 @@
 						"translation.y": 1372.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
-					"buffer": 235,
+					"buffer": 237,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 795,
+						"buffer_size": 817,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								795,
-								795
+								96,
+								96
 							]
 						],
 						"settings":
@@ -12931,24 +13013,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 236,
+					"buffer": 238,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4188,
+						"buffer_size": 4564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4002,
-								4002
+								245,
+								245
 							]
 						],
 						"settings":
@@ -12972,14 +13054,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3364.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 155,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 237,
+					"buffer": 239,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13012,11 +13094,11 @@
 						"translation.y": 419.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
-					"buffer": 238,
+					"buffer": 240,
 					"file": "vendor/mockery/mockery/library/Mockery/HigherOrderMessage.php",
 					"semi_transient": false,
 					"settings":
@@ -13043,11 +13125,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
-					"buffer": 239,
+					"buffer": 241,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13078,11 +13160,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 122,
+					"stack_index": 137,
 					"type": "text"
 				},
 				{
-					"buffer": 240,
+					"buffer": 242,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -13112,11 +13194,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 258,
+					"stack_index": 260,
 					"type": "text"
 				},
 				{
-					"buffer": 241,
+					"buffer": 243,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
@@ -13182,11 +13264,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
-					"buffer": 242,
+					"buffer": 244,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -13245,11 +13327,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 240,
+					"stack_index": 242,
 					"type": "text"
 				},
 				{
-					"buffer": 243,
+					"buffer": 245,
 					"semi_transient": false,
 					"settings":
 					{
@@ -13272,11 +13354,11 @@
 						"translation.y": 423.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 241,
+					"stack_index": 243,
 					"type": "text"
 				},
 				{
-					"buffer": 244,
+					"buffer": 246,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -13306,11 +13388,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 254,
+					"stack_index": 256,
 					"type": "text"
 				},
 				{
-					"buffer": 245,
+					"buffer": 247,
 					"file": "database/migrations/2014_10_12_000000_create_users_table.php",
 					"semi_transient": false,
 					"settings":
@@ -13322,8 +13404,8 @@
 						"selection":
 						[
 							[
-								909,
-								909
+								233,
+								233
 							]
 						],
 						"settings":
@@ -13345,10 +13427,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 160.0,
+						"translation.y": 209.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 168,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -13389,7 +13471,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 230,
+					"stack_index": 232,
 					"type": "text"
 				},
 				{
@@ -13431,7 +13513,7 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 231,
+					"stack_index": 233,
 					"type": "text"
 				},
 				{
@@ -13471,7 +13553,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 232,
+					"stack_index": 234,
 					"type": "text"
 				},
 				{
@@ -13524,11 +13606,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 202,
+					"stack_index": 204,
 					"type": "text"
 				},
 				{
-					"buffer": 246,
+					"buffer": 248,
 					"file": "app/Soft/stemm.php",
 					"semi_transient": false,
 					"settings":
@@ -13555,11 +13637,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 194,
+					"stack_index": 196,
 					"type": "text"
 				},
 				{
-					"buffer": 247,
+					"buffer": 249,
 					"file": "public/stemmer/stemm_test.php",
 					"semi_transient": false,
 					"settings":
@@ -13587,7 +13669,7 @@
 						"translation.y": 77.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 201,
+					"stack_index": 203,
 					"type": "text"
 				},
 				{
@@ -13620,11 +13702,11 @@
 						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 195,
+					"stack_index": 197,
 					"type": "text"
 				},
 				{
-					"buffer": 248,
+					"buffer": 250,
 					"file": "/C/Users/DELL/Desktop/machine/chatbot/chatbot.py",
 					"semi_transient": false,
 					"settings":
@@ -13649,7 +13731,7 @@
 						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 196,
+					"stack_index": 198,
 					"type": "text"
 				},
 				{
@@ -13680,7 +13762,7 @@
 						"translation.y": 2311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 198,
+					"stack_index": 200,
 					"type": "text"
 				},
 				{
@@ -13711,7 +13793,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 197,
+					"stack_index": 199,
 					"type": "text"
 				},
 				{
@@ -13744,7 +13826,7 @@
 						"translation.y": 1121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 199,
+					"stack_index": 201,
 					"type": "text"
 				},
 				{
@@ -13797,7 +13879,7 @@
 						"translation.y": 1162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
@@ -13828,7 +13910,7 @@
 						"translation.y": 1371.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 193,
+					"stack_index": 195,
 					"type": "text"
 				}
 			]
@@ -13895,15 +13977,83 @@
 		"selected_items":
 		[
 			[
+				"",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"admin.php",
+				"app\\Admin.php"
+			],
+			[
+				"DoctorC",
+				"app\\Http\\Controllers\\DoctorController.php"
+			],
+			[
+				"adminC",
+				"app\\Http\\Controllers\\AdminController.php"
+			],
+			[
+				"admins",
+				"database\\migrations\\2020_09_19_201637_create_admins_table.php"
+			],
+			[
+				"users_tab",
+				"database\\migrations\\2014_10_12_000000_create_users_table.php"
+			],
+			[
+				"usersT",
+				"database\\seeds\\UsersTableSeeder.php"
+			],
+			[
+				"admins_",
+				"database\\migrations\\2020_09_19_201637_create_admins_table.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"indexU",
+				"resources\\views\\auth\\indexUser.blade.php"
+			],
+			[
+				"table",
+				"resources\\views\\hospital\\includes\\tableUser.blade.php"
+			],
+			[
+				"indexPatien",
+				"resources\\views\\hospital\\patient\\indexPatients.blade.php"
+			],
+			[
+				"chatMe",
+				"app\\Http\\Livewire\\ChatMessages.php"
+			],
+			[
+				"levens",
+				"app\\Soft\\levenshtein.php"
+			],
+			[
+				"Appointment.php",
+				"app\\Appointment.php"
+			],
+			[
+				"chatM",
+				"app\\Http\\Livewire\\ChatMessages.php"
+			],
+			[
+				"botM",
+				"app\\Http\\Livewire\\BotMessages.php"
+			],
+			[
+				"sendM",
+				"app\\SendMail.php"
+			],
+			[
 				"showA",
 				"resources\\views\\hospital\\appointment\\showAppointment.blade.php"
 			],
 			[
 				"appointmentC",
-				"app\\Http\\Controllers\\AppointmentController.php"
-			],
-			[
-				"",
 				"app\\Http\\Controllers\\AppointmentController.php"
 			],
 			[
@@ -13933,10 +14083,6 @@
 			[
 				"create",
 				"vendor\\stripe\\stripe-php\\lib\\ApiOperations\\Create.php"
-			],
-			[
-				"web.php",
-				"routes\\web.php"
 			],
 			[
 				"create.bl",
@@ -14053,10 +14199,6 @@
 			[
 				"loopUser",
 				"resources\\views\\hospital\\includes\\loopUser-desktop.blade.php"
-			],
-			[
-				"indexU",
-				"resources\\views\\auth\\indexUser.blade.php"
 			],
 			[
 				"admin",
@@ -14345,66 +14487,6 @@
 			[
 				"config/a",
 				"config\\app.php"
-			],
-			[
-				"confi",
-				"bootstrap\\cache\\config.php"
-			],
-			[
-				"patientsT",
-				"database\\seeds\\PatientsTableSeeder.php"
-			],
-			[
-				"database",
-				"database\\seeds\\DatabaseSeeder.php"
-			],
-			[
-				"USer",
-				"app\\User.php"
-			],
-			[
-				".en",
-				".env"
-			],
-			[
-				"User.php",
-				"app\\User.php"
-			],
-			[
-				"UserC",
-				"app\\Http\\Controllers\\UserController.php"
-			],
-			[
-				"registerC",
-				"app\\Http\\Controllers\\Auth\\RegisterController.php"
-			],
-			[
-				"webC",
-				"app\\Http\\Controllers\\WebController.php"
-			],
-			[
-				"PatientsTa",
-				"database\\seeds\\PatientsTableSeeder.php"
-			],
-			[
-				"UsersTa",
-				"database\\seeds\\UsersTableSeeder.php"
-			],
-			[
-				"databaseS",
-				"database\\seeds\\DatabaseSeeder.php"
-			],
-			[
-				"compos",
-				"composer.json"
-			],
-			[
-				"User",
-				"app\\User.php"
-			],
-			[
-				"USer.",
-				"app\\User.php"
 			]
 		],
 		"width": 0.0
