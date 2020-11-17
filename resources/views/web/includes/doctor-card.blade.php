@@ -3,6 +3,7 @@
    <div class="card-header card-header-image">
      <!-- <img class="img img-height" src="https://lorempixel.com/640/360/people"> -->
      <img style="max-width: 100%;" class="img img-fluid" src="{{asset($doctor->user()->Profileimg)}}">
+    
    </div>
    <div class="card-body ">
      <h6 class="card-category mt-4 text-gray"><i class="fal fa-file-certificate"></i>

@@ -10,6 +10,7 @@ use App\Notification;
 
 class InvoiceController extends Controller
 {
+
  
     public function download(Payment $payment)
     {

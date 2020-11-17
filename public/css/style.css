@@ -1532,3 +1532,35 @@ min-width: 270px;
   background-color: #fefde5 !important;
 }
  
+
+
+
+ /* Plugins*/
+
+
+.like
+{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--principal);
+
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 1rem;
+}
+
+
+.like i
+{
+  font-size: 30px;
+  margin-right: 10px;
+  cursor: pointer
+}
+
+.like i.fas
+{
+   color:var(--rojo) !important;
+}
+

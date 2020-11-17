@@ -39,6 +39,13 @@ class Patient extends Model
   }
 
 
+
+    //Relación 1:N con consultorios
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+
   public function getProfileUrlAttribute()
   {
     return url('/patient/' . $this->dni);

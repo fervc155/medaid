@@ -3,8 +3,15 @@
 	<div class="card card-profile pt-0">
 		<img src="{{$doctor->user()->ProfileImg}}" class="img-fluid">
 
+
+			@if(Auth::user()->isPatient())
+				@livewire('like.heart', ['doctor_id'=>$doctor->id])
+			@endif
 		<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
+
 		<div>
+
+		
 
 			<h5 class="color-principal"><i class="fal fa-user-tie "></i> Especialidades</h5>
 
@@ -31,6 +38,8 @@
 			<div>
 				{{$doctor->stars}}
 			</div>
+
+
 
 
 
@@ -114,6 +123,18 @@
 
 
 			</div>
+
+
+			<div class="form-inline mb-2">
+				<div class="color-principal">
+					<i class="fal fa-heart"></i> {{count($doctor->likes)}} pacientes le gusta este doctor
+				</div>
+
+
+
+
+			</div>
+
 
 
 			<div class="text-center font-weight-bold color-principal">
