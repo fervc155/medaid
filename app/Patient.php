@@ -72,7 +72,7 @@ class Patient extends Model
       return 'splash/img/' . $img;
   }
 
-  public function getAgeAttribute()
+  public function getageAttribute()
   {
 
     return Carbon::parse($this->birthdate)->age;

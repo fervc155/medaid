@@ -7,7 +7,7 @@
 			@if(Auth::user()->isPatient())
 				@livewire('like.heart', ['doctor_id'=>$doctor->id])
 			@endif
-		<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
+		<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> <a href="{{$doctor->profileUrl}}">{{$doctor->name}}</a></h5>
 
 		<div>
 
@@ -16,8 +16,12 @@
 			<h5 class="color-principal"><i class="fal fa-user-tie "></i> Especialidades</h5>
 
 
+				@php
 
-			<?php foreach ($doctor->specialities as $speciality) : ?>
+					$dE = $doctor->specialities;
+				@endphp
+
+			<?php foreach ($dE as $speciality) : ?>
 
 				<a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>
 			<?php endforeach ?>
@@ -146,10 +150,16 @@
 
 				<?php foreach ($doctor->specialities as $speciality) : ?>
 
-					<option value="{{ $speciality->id}}" ?>{{ $speciality->name }}</option>
+					<option value="{{ $speciality->id}}" >{{ $speciality->name }}</option>
 
 				<?php endforeach ?>
 			</select>
+
+
+			@if(isset($wizardActive))
+
+				<a href="{{$doctor->profileUrl}}" class="btn btn-primary">Ver perfil</a>
+			@endif
 
 			@if( Auth::check() && Auth::user()->Doctor())
 

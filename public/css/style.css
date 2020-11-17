@@ -1535,7 +1535,13 @@ min-width: 270px;
 
 
 
+.card-profile h5 a
+{
+  color: white !important;
+}
+
  /* Plugins*/
+
 
 
 .like

@@ -311,6 +311,8 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
    Route::get('like','LikeController@index')->name('like.index');
 
 
+   Route::get('wizard','HomeController@wizard')->name('wizard');
+
 
    Route::get('patient/{id}','patientController@show');
    Route::get('patient/{id}/edit','patientController@edit');

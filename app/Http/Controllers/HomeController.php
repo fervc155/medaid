@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Payment;
-use App\Soft\Chatbot;
-use App\Soft\Tree;
+use App\Appointment;
+use App\Soft\Wizard;
+use App\Speciality;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,6 @@ class HomeController extends Controller
      */
     public function index()
     {
- 
 
         if(Auth::user()->isPatient())
         {
@@ -96,7 +96,17 @@ public function admin()
     return view('hospital.home.admin', compact('users', 'payments'));
 
 }
+
+
+    public function wizard()
+    {
+
+
+
+        return view('hospital.home.wizard')->with('specialities');
+    }
 }
+
 
 
 
