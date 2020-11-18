@@ -141,20 +141,20 @@
 
 
 
-<div class="form-group form-inline justify-content-center ">
+<div class="d-flex justify-content-center ">
   <div class="fileinput fileinput-new text-center" data-provides="fileinput">
     <div class="fileinput-new thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;">
-      <img src="" class="img-height">
+                  <img src="{{asset('splash/img/user-default.jpg')}}" class="img-height" >
     </div>
     <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised" style="height: 100px;width: 100px; overflow: hidden;"></div>
     <div>
       <span class="btn btn-raised btn-round btn-primary btn-file">
         <span class="fileinput-new">Agregar foto</span>
-        <span class="fileinput-exists">Change</span>
-        <input type="file" name="image" value="old('imagen')" />
+        <span class="fileinput-exists">Elegir otra</span>
+        <input type="file" name="image" value="{{old('imagen')}}" />
       </span>
       <br />
-      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+      <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> deshacer</a>
     </div>
   </div>
 </div>

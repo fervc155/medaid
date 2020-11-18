@@ -11,14 +11,15 @@
      <div>
        <span class="btn btn-raised btn-round btn-primary btn-file">
          <span class="fileinput-new">Agregar foto</span>
-         <span class="fileinput-exists">Cambiar</span>
+         <span class="fileinput-exists">Elegir otra</span>
          <input type="file" name="image" />
        </span>
        <br />
        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Deshacer</a>
+          <button type="submit" class="btn btn-primary btn-round fileinput-exists "><i class="fal fa-pen"> Guardar</i></button>
+
      </div>
    </div>
    <br>
-   <button type="submit" class="btn btn-primary "><i class="fal fa-pen"> Editar</i></button>
 
  </form>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\Payment;
 use App\Soft\Wizard;
 use App\Speciality;
 use App\User;

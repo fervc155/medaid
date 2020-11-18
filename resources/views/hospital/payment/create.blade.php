@@ -33,7 +33,7 @@
             @endif
 
 
-          @if(isset($appointments))
+            @if(isset($appointments))
             <div class="form-group form-inline align-items-end ">
               <div class="icon-form">
                 <i class="fal fa-user-md"></i>
@@ -66,10 +66,9 @@
             
             @else
 
-            <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
+              <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
 
-            <p>{{ $appointment->date }} | {{$appointment->time}} | {{$appointment->condition->status}} | {{$appointment->patient->user()->name}}  | {{$appointment->price}}</p>
-
+              <p>{{ $appointment->date }} | {{$appointment->time}} | {{$appointment->condition->status}} | {{$appointment->patient->user()->name}}  | {{$appointment->price}}</p>
 
             @endif
 

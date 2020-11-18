@@ -2,6 +2,7 @@
 
 use App\Appointment;
 use App\Payment;
+use App\Review;
 use Illuminate\Database\Seeder;
 class AppointmentsTableSeeder extends Seeder
 {
@@ -19,9 +20,10 @@ class AppointmentsTableSeeder extends Seeder
         {
 
 
-            if($appointment->condition_id==1 || 
+            if(
              $appointment->condition_id==2 ||
-             $appointment->condition_id==5)
+             $appointment->condition_id==3 ||
+             $appointment->condition_id==6)
             {
                 $payment = new Payment;
 
@@ -32,13 +34,26 @@ class AppointmentsTableSeeder extends Seeder
 
                 $payment->save();
 
+
             }
 
 
 
-            if ($appointment->condition_id == 3) 
+            if ($appointment->condition_id == 3 ||
+             $appointment->condition_id==6) 
             {
-    			# code...
+    			
+
+
+
+
+                $review = new Review;
+
+                $review->stars = rand(2,5);
+
+                $review->comment ="Review comentada automaticamente";
+                $review->appointment_id = $appointment->id;
+                $review->save();
 
 
               $appointment->prescriptions()->create(

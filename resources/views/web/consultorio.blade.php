@@ -178,7 +178,7 @@
 
     <div class="col-lg-5 col-md-6 col-sm-12">
 
-      <p class="text-capitalize"> filtrar pos especialidad
+      <p class="text-capitalize"> filtrar por especialidad
       </p> <select id="select-especialidad" class="selectpicker" data-style="select-with-transition" title="Especialidad" data-size="sd7">
         @foreach($specialities as $speciality)
 

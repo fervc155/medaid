@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Appointment;
 use App\Conditions;
 use App\Invoice;
+use App\Notification;
 use App\Payment;
 use App\Speciality;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Notification;
 
 class PaymentController extends Controller
 {
@@ -191,7 +192,22 @@ class PaymentController extends Controller
     public function create()
     {
 
-        $appointments = Auth::user()->profile()->appointments;
+        if(Auth::user()->isDoctor())
+            $appointments = Auth::user()->profile()->appointments;
+
+        else  if(Auth::user()->isOffice())
+        {
+            $appointments = Collection::make(new Appointment);
+            foreach (Auth::user()->profile()->doctors as $doctor) 
+            {
+                $appointments->push($doctor->appointments);
+            }
+            $appointments = $appointments->unique();
+        }
+        else  if(Auth::user()->admin())
+            $appointments = Appointment::all();
+
+
 
 
 

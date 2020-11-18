@@ -110,7 +110,7 @@
               <i class="fal fa-map"></i>
             </div>
             <div class="form-group">
-              <label class="bmd-label-floating">Mapa</label>
+              <label class="bmd-label-floating">Pega el link del mapa de google maps para compartir aqui</label>
 
 
               {{Form::text('map', $office->map, ['class'=>'form-control'] )}}
