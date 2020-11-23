@@ -46,7 +46,7 @@ class Appointment extends Model
 
         public function payment()
     {
-        return $this->hasOne('App\payment');
+        return $this->hasOne('App\Payment');
     }
 
 

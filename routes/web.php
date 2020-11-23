@@ -12,25 +12,25 @@ use App\User;
 Auth::routes(['verify'=>true]);
 
 
-Route::get('/visitante/citas','webController@citas');
-Route::get('/visitante/especialidades','webController@especialidades');
+Route::get('/visitante/citas','WebController@citas');
+Route::get('/visitante/especialidades','WebController@especialidades');
 
-Route::get('/visitante/especialidad/{id}','webController@especialidad');
+Route::get('/visitante/especialidad/{id}','WebController@especialidad');
 
-Route::get('/visitante/consultorios','webController@consultorios');
-Route::get('/visitante/consultorio/{id}','webController@consultorio');
-Route::get('/visitante/mapa/{id}','webController@mapa');
+Route::get('/visitante/consultorios','WebController@consultorios');
+Route::get('/visitante/consultorio/{id}','WebController@consultorio');
+Route::get('/visitante/mapa/{id}','WebController@mapa');
 
-Route::get('/visitante/doctor/{id}','webController@doctor');
-Route::get('/visitante/doctores/','webController@doctores');
-Route::get('/visitante/','webController@visitante');
-
-
-Route::get('acerca','webController@acerca');
-Route::get('contacto','webController@contacto');
+Route::get('/visitante/doctor/{id}','WebController@doctor');
+Route::get('/visitante/doctores/','WebController@doctores');
+Route::get('/visitante/','WebController@visitante');
 
 
-Route::post('/contacto','webController@contactus')->name('contact.us');
+Route::get('acerca','WebController@acerca');
+Route::get('contacto','WebController@contacto');
+
+
+Route::post('/contacto','WebController@contactus')->name('contact.us');
 
 /*=====  End of WEB  ======*/
 
@@ -57,7 +57,7 @@ Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor'
 
 
 Route::group(['middleware' => ['auth','admin'] ], function () {
-    route::get('admin/create','adminController@create')->name('admin.create');
+    route::get('admin/create','AdminController@create')->name('admin.create');
 });
 
 
@@ -155,7 +155,7 @@ route::get('profile/image/{id}','ProfileController@image')->name('profile.image'
     // admin
 
 
-    route::get('admin/{admin}','adminController@show')->name('admin.show');
+    route::get('admin/{admin}','AdminController@show')->name('admin.show');
 
 
 });
@@ -247,8 +247,8 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 // admin
 
 
-    route::get('admin/{admin}/edit','adminController@edit')->name('admin.edit');
-    route::post('admin','adminController@store')->name('admin.store');
+    route::get('admin/{admin}/edit','AdminController@edit')->name('admin.edit');
+    route::post('admin','AdminController@store')->name('admin.store');
     route::put('admin/{admin}','AdminController@update')->name('admin.update');
      Route::put('admin/{admin}/login', 'AdminController@updateLogin')->name('admin.update.login');
      Route::put('admin/{admin}/image', 'AdminController@updateImage')->name('admin.update.image');

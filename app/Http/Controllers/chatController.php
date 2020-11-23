@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Notification;
 
-class chatController extends Controller
+class ChatController extends Controller
 {
 	public function index()
 	{
