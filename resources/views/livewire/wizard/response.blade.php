@@ -13,7 +13,7 @@
 
 
 			<?php foreach ($doctors as $doctor): ?>
-		 @include('hospital.includes.card-profile-doctor',['wizardActive'=>true])
+		 @include('hospital.includes.card-profile-doctor-simple')
 				
 			<?php endforeach ?>
 

@@ -8,7 +8,7 @@
   <div class="row">
 
     @foreach($doctors as $doctor)
-      @include('hospital.includes.card-profile-doctor')
+      @include('hospital.includes.card-profile-doctor-simple')
 
     @endforeach
 
