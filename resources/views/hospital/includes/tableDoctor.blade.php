@@ -13,6 +13,10 @@
         </div>
         <div class="card-body table-responsive">
 
+@if(auth::user()->isPatient())
+      <p class="">Si quieres que te recomendemos algun médico    <a href="{{url('wizard')}}" class="btn btn-primary btn-sm btn-round" style="font-size: 10px !important;">Haz click aqui</a></p>
+      @endif
+
 
           <table class="table " id="data_table">
             <thead>

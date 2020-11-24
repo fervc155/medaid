@@ -6,6 +6,7 @@ use App\Appointment;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notification;
 
 class ReviewController extends Controller
 {
@@ -41,6 +42,22 @@ class ReviewController extends Controller
         $review->comment = $data['comment']??null;
 
         $review->save();
+
+              $getUsers = $appointment->getUsers();
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Tu cita ha sido calificada",
+            'text'=>[
+                
+                'Cita id: '.$appointment->id,
+                'Estrellas: '.$appointment->stars
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+
 
 
         return back()->with('success','Reseña escrita correctamente');

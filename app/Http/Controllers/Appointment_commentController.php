@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Appointment_comment;
 use Illuminate\Http\Request;
+use App\Notification;
 
 class Appointment_commentController extends Controller
 {
@@ -19,6 +20,16 @@ class Appointment_commentController extends Controller
 		$Acomment->comment = $comment;
 		$Acomment->appointment_id = $id_appointment;
 		$Acomment->save();
+
+
+		$getUsers  = $Acomment->appointment->getUsers(true);
+
+		Notification::toUser($getUsers, array(
+            'subject'=>"El usuario: ".Auth::user()->name." ha comentado tu cita",
+            'text'=>'Para ver los detalles ingresa a tu cita',
+            'url'=> $Acomment->appointment->profileUrl,
+            'btnText'=>'Ir a mi cita'
+        ));
 
 		return back()->with('success', 'Comentario enviado');
 	}
@@ -40,6 +51,8 @@ class Appointment_commentController extends Controller
 			$Acomment->save();
 
 			return back()->with('success', 'Comentario actualizado');
+
+			
 		}
 
 		return back()->with('error', 'Este comentario no te pertenece');

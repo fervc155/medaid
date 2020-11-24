@@ -6,6 +6,7 @@ use App\Doctor;
 use App\Office;
 use App\Options;
 use App\Crud;
+use App\Notification;
 use App\Speciality;
 
 use Illuminate\Http\Request;
@@ -52,27 +53,27 @@ class DoctorController extends Controller
     if (Auth::user()->Office()) {
 
 
-      $data = request()->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'telephone' => 'required|string|max:20',
-        'sex' => 'required|string|max:1',
-        'image' => 'required|file',
-        'password' => 'required|string|min:6|confirmed',
-        'address' => 'required|string|max:255',
-        'birthdate' => 'required|date',
-        'postalCode' => 'required|integer|max:999999',
-        'city' => 'required|string|max:255',
-        'country' => 'required|string|max:255',
+    $data = request()->validate([
+      'name' => 'required|string|max:255',
+      'email' => 'required|string|email|max:255|unique:users',
+      'telephone' => 'required|string|max:20',
+      'sex' => 'required|string|max:1',
+      'image' => 'required|file',
+      'password' => 'required|string|min:6|confirmed',
+      'address' => 'required|string|max:255',
+      'birthdate' => 'required|date',
+      'postalCode' => 'required|integer|max:999999',
+      'city' => 'required|string|max:255',
+      'country' => 'required|string|max:255',
 
-        //
-        'especialidad.*' => 'required',
-        'schedule' => 'required',
-        'office_id' => 'required',
-        'inTime' => 'required',
-        'outTime' => 'required',
+      //
+      'especialidad.*' => 'required',
+      'schedule' => 'required',
+      'office_id' => 'required',
+      'inTime' => 'required',
+      'outTime' => 'required',
 
-      ]);
+    ]);
 
       //Crear médico
       $doctor = new Doctor;
@@ -105,6 +106,22 @@ class DoctorController extends Controller
 
 
       Crud::newUser($data, 'doctor', $doctor->id, $ruta_imagen);
+
+
+
+    Notification::toAdmin( array(
+            'subject'=>"Se ha creado un nuevo doctor",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                
+                
+
+            ],
+            'url'=> $doctor->profileUrl,
+            'btnText'=>'Ver medico'
+        ));
+
 
 
 

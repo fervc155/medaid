@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Crud;
+use App\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +20,16 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        if(!Auth::user()->isAdmin())
+            return view('admin');
+
+
+
+
+        return view('hospital.admin.createAdmin');
+
     }
 
     /**
@@ -29,7 +40,53 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!auth::user()->admin())
+            return view('admin');
+
+
+
+
+      $data = request()->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'telephone' => 'required|string|max:20',
+        'sex' => 'required|string|max:1',
+        'image' => 'required|file',
+        'password' => 'required|string|min:6|confirmed',
+        'birthdate' => 'required|date',
+  
+        ]);
+
+  
+
+        $admin  = new Admin;
+        $admin->save();
+      //imagen
+        $ruta_imagen =  $data['image']->store('admins', 'public');
+
+
+        Crud::newUser($data, 'admin', $admin->id, $ruta_imagen);
+
+    Notification::toUser($admin->user(), array(
+            'subject'=>"Se ha creado tu perfil administrador",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Correo: '.$data['email'],
+                'Password: '.$data['password']
+                
+                
+
+            ],
+            'url'=> url('/login'),
+            'btnText'=>'Iniciar sesion'
+        ));
+
+
+
+        return redirect($admin->profileUrl)->with('success','Administrador creado correctamente');
+
+
     }
 
     /**

@@ -3,14 +3,25 @@
 	<div class="card card-profile pt-0">
 		<img src="{{$doctor->user()->ProfileImg}}" class="img-fluid">
 
-		<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> {{$doctor->name}}</h5>
+
+			@if(Auth::user()->isPatient())
+				@livewire('like.heart', ['doctor_id'=>$doctor->id])
+			@endif
+		<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> <a href="{{$doctor->profileUrl}}">{{$doctor->name}}</a></h5>
+
 		<div>
+
+		
 
 			<h5 class="color-principal"><i class="fal fa-user-tie "></i> Especialidades</h5>
 
 
+				@php
 
-			<?php foreach ($doctor->specialities as $speciality) : ?>
+					$dE = $doctor->specialities;
+				@endphp
+
+			<?php foreach ($dE as $speciality) : ?>
 
 				<a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>
 			<?php endforeach ?>
@@ -31,6 +42,8 @@
 			<div>
 				{{$doctor->stars}}
 			</div>
+
+
 
 
 
@@ -116,6 +129,18 @@
 			</div>
 
 
+			<div class="form-inline mb-2">
+				<div class="color-principal">
+					<i class="fal fa-heart"></i> {{count($doctor->likes)}} pacientes le gusta este doctor
+				</div>
+
+
+
+
+			</div>
+
+
+
 			<div class="text-center font-weight-bold color-principal">
 				<i class="fal fa-coins"></i> Consulta:
 			</div>
@@ -125,10 +150,16 @@
 
 				<?php foreach ($doctor->specialities as $speciality) : ?>
 
-					<option value="{{ $speciality->id}}" ?>{{ $speciality->name }}</option>
+					<option value="{{ $speciality->id}}" >{{ $speciality->name }}</option>
 
 				<?php endforeach ?>
 			</select>
+
+
+			@if(isset($wizardActive))
+
+				<a href="{{$doctor->profileUrl}}" class="btn btn-primary">Ver perfil</a>
+			@endif
 
 			@if( Auth::check() && Auth::user()->Doctor())
 

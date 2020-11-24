@@ -27,15 +27,6 @@ class AppointmentController extends Controller
 
 
 
-        Notification::toAdmin(array(
-            'subject'=>'Notificacion nueva',
-            'text'=>"haz ingresado a las citas",
-            'url'=> url('appointment')
-        ));
-
-
-
-
 
 
 
@@ -152,10 +143,35 @@ class AppointmentController extends Controller
     $appointment->save();
 
 
+    $getUsers  = $Acomment->appointment->getUsers();
+
+    Notification::toUser($getUsers, array(
+            'subject'=>"Tienes una nueva cita",
+            'text'=>[
+                
+                'Dia: '.$appointment->Date,
+                'Hora: '.$appointment->time,
+                'Usuario: '.$Appointment->patient->user()->name,
+                'Especialidad: '.$appointment->speciality->name,
+                'Precio: '.$appointment->price,
+                'Descripcion: '.$appointment->description,
+                
+                
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ir a mi cita'
+        ));
+
+
+
     if(Auth::user()->isPatient())
     {
 
        $stripeCustomer = Auth::user()->createOrGetStripeCustomer();
+
+
 
 
         return redirect('payment/'.$appointment->id."/user")->with('newAppointment',true);
@@ -344,28 +360,38 @@ class AppointmentController extends Controller
 
       $appointment->save();
 
+
+
+
+    Notification::toUser($getUsers, array(
+            'subject'=>"Tu cita ha sido actualizada",
+            'text'=>[
+                
+                'Dia: '.$appointment->Date,
+                'Hora: '.$appointment->time,
+                'Usuario: '.$Appointment->patient->user()->name,
+                'Especialidad: '.$appointment->speciality->name,
+                'Precio: '.$appointment->price,
+                'Descripcion: '.$appointment->description,
+                
+                
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ir a mi cita'
+        ));
+
+
+
+
       return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido actualizada con éxito!');
     }
 
     return view('admin');
   }
 
-
  
-  //cancelar cita
-  // public function destroy(Appointment $appointment)
-  // {
-  //   if (Auth::user()->Patient()) {
-
-  //     $appointment->condition_id = Conditions::Id('cancelled');
-  //     $appointment->save();
-
-  //     return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido cancelada con éxito!');
-  //   }
-  //   return view('admin');
-  // }
-
-
 
   //cancelar cita
   public function cancelled(Appointment $appointment)
@@ -376,6 +402,29 @@ class AppointmentController extends Controller
 
       return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido cancelada con éxito!');
     }
+
+
+    Notification::toUser($getUsers, array(
+            'subject'=>"Tu cita ha sido cancelada",
+            'text'=>[
+                
+                'Dia: '.$appointment->Date,
+                'Hora: '.$appointment->time,
+                'Usuario: '.$Appointment->patient->user()->name,
+                'Especialidad: '.$appointment->speciality->name,
+                'Precio: '.$appointment->price,
+                'Descripcion: '.$appointment->description,
+                
+                
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ir a mi cita'
+        ));
+
+
+
     return view('admin');
   }
 
@@ -416,6 +465,29 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('accepted');
       $appointment->save();
 
+
+    Notification::toUser($getUsers, array(
+            'subject'=>"Tu cita ha sido pagada correctamente",
+            'text'=>[
+                
+                'Dia: '.$appointment->Date,
+                'Hora: '.$appointment->time,
+                'Usuario: '.$Appointment->patient->user()->name,
+                'Especialidad: '.$appointment->speciality->name,
+                'Precio: '.$appointment->price,
+                'Descripcion: '.$appointment->description,
+                
+                
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ir a mi cita'
+        ));
+
+
+
+
       return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido aceptada con éxito!');
     }
   }
@@ -440,7 +512,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('pending');
       $appointment->save();
 
-      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido registrada con éxito!');
     }
     return view('admin');
   }
@@ -451,7 +523,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('late');
       $appointment->save();
 
-      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido atendida con éxito!');
     }
     return view('admin');
   }
@@ -462,7 +534,7 @@ class AppointmentController extends Controller
       $appointment->condition_id = Conditions::Id('lost');
       $appointment->save();
 
-      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido rechazada con éxito!');
+      return redirect($appointment->profileUrl)->with('success', '¡La cita ha sido perdida con éxito!');
     }
     return view('admin');
   }

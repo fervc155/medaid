@@ -20,7 +20,10 @@
 
 	@else
 
+
 	@include('hospital.includes.tableDoctor')
+
+
 
 	@endif
 	@endsection

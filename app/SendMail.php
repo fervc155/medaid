@@ -15,8 +15,10 @@ class SendMail
 
     public static function toUser($user, $data=[])
     {
-
-        $user->notify(new MessageNotification($data));
+    	if($user->active)
+    	{
+	        $user->notify(new MessageNotification($data));
+    	}
     }
 	public static function User($user, $data=[])
 	{
@@ -55,6 +57,8 @@ class SendMail
 
 			$users = $users->except(Auth::user()->id);
 		}
+
+
 
 
 		foreach ($users as $user) 

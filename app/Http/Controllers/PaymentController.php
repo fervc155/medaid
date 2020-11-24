@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Appointment;
 use App\Conditions;
 use App\Invoice;
+use App\Notification;
 use App\Payment;
 use App\Speciality;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,6 +115,22 @@ class PaymentController extends Controller
       $appointment->save();
 
 
+      $getUsers = $appointment->getUsers();
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Tu cita ha sido pagada correctamente",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$appointment->id
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+
+
       return redirect($appointment->profileUrl)->with('success','Cita registrada correctamente');
   }
 
@@ -145,6 +163,22 @@ class PaymentController extends Controller
       $appointment->condition_id = Conditions::Id('accepted');
       $appointment->save();
 
+      $getUsers = $appointment->getUsers();
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Tu cita ha sido pagada correctamente",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$appointment->id
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+
+
 
       return redirect($appointment->profileUrl)->with('success','Cita registrada correctamente');
   }
@@ -158,7 +192,22 @@ class PaymentController extends Controller
     public function create()
     {
 
-        $appointments = Auth::user()->profile()->appointments;
+        if(Auth::user()->isDoctor())
+            $appointments = Auth::user()->profile()->appointments;
+
+        else  if(Auth::user()->isOffice())
+        {
+            $appointments = Collection::make(new Appointment);
+            foreach (Auth::user()->profile()->doctors as $doctor) 
+            {
+                $appointments->push($doctor->appointments);
+            }
+            $appointments = $appointments->unique();
+        }
+        else  if(Auth::user()->admin())
+            $appointments = Appointment::all();
+
+
 
 
 
@@ -240,33 +289,26 @@ class PaymentController extends Controller
         }
 
         $payment->save();
+
+
+             $getUsers = $appointment->getUsers()/
+
+    Notification::toUsers($getUsers, array(
+            'subject'=>"Se ha registrado el pago de tu cita correctamente",
+            'text'=>[
+                
+                'Para ver sus detalles ingresa al link que hemos enviado',
+                'Cita id: '.$appointment->id
+                
+
+            ],
+            'url'=> $appointment->profileUrl,
+            'btnText'=>'Ver cita'
+        ));
+ 
         return redirect('payment')->with('success','pago registrado correctamente');
     }
 
-
-
-    // public function other(Request $request)
-    // {
-    //     $data= $request->validate([
-
-    //         'description'=>'nullable',
-    //         'cost'=>'required|numeric'
-    //     ]);
-
-
-
-    //     $payment = new Payment;
-
-    //     $payment->cost = $data['cost'];
-    //     $payment->description = $data['description']??null;
-
-    //     $payment->online=0;
-
-    //     $payment->save();
-
-
-    //     return redirect('payment')->with('success','pago registrado correctamente');
-    // }
 
 public function billingPortal()
 {

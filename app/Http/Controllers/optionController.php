@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Option;
 use App\Options;
+use App\Notification;
 
 
 use File;

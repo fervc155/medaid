@@ -1,5 +1,7 @@
 <div class="container">
 
+<a href="{{ url('/admin/create')}}" role="button" class="btn btn-wait btn-success  btn-float"><i class="fas fa-plus"></i></a>
+
   <div class="row">
     <div class="col-12 d-none d-md-block">
       <div class="card">
@@ -33,7 +35,7 @@
               </tr>
             </thead>
             <tbody>
-              @include('hospital.includes.loopUser-desktop');
+              @include('hospital.includes.loopUser-desktop')
 
             </tbody>
           </table>

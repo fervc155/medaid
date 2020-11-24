@@ -4,6 +4,8 @@ namespace App;
 
 use App\Options;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use Illuminate\Database\Eloquent\Collection;
 
 class Appointment extends Model
 {
@@ -44,7 +46,7 @@ class Appointment extends Model
 
         public function payment()
     {
-        return $this->hasOne('App\payment');
+        return $this->hasOne('App\Payment');
     }
 
 
@@ -132,6 +134,34 @@ class Appointment extends Model
 
 
         return false;
+    }
+
+
+
+    public function getUsers($comments=false)
+    {
+            $users = Collection::make(new User);
+
+            $users->push($appointment->doctor->user());
+            $users->push($appointment->doctor->patient());
+
+
+            if($comments)
+            {
+
+                $usersComments = User::join('appointment_comments','appointments.id','appointment_comments.appointment_id')
+                ->select('users.*')
+                ->unique('users.id');
+
+
+               $users = $users->merge($usersComments);
+
+               $users = $users->unique('id');
+            }
+
+
+            return $users;
+
     }
 }
 

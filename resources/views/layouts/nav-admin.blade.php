@@ -269,6 +269,13 @@
 
 				</li>
 
+				<li class="nav-item nav-item-button">
+					<a class="nav-link" href="{{route('like.index')}}">
+
+						Ver mis doctores <i class="fal fa-user-md"></i> 
+					</a>
+				</li>
+
 
 				<li class="nav-item nav-item-button">
 					<a class="nav-link" href="{{Auth::user()->ProfileUrl}}">
@@ -276,6 +283,9 @@
 						{{Auth::user()->name}}
 					</a>
 				</li>
+
+
+
 
 				<li class="nav-item dropdown dropdown-perfil">
 					<a id="navbarDropdown" class="nav-link no-wait dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

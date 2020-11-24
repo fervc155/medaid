@@ -92,16 +92,6 @@ if(null == $lastChat)
 		$this->emit('scrollMessage');
 
 
-        // SendMail::toUser($this->userOut, array(
-        //     'subject'=>"Tienes un nuevo mensaje de: ".Auth::user()->name,
-        //     'text'=>[
-                
-        //         $message->message,
-        //     ],
-        //     'url'=> url('/chat'),
-        //     'btnText'=>'Ir a mis mensajes'
-        // ));
-
 		$this->emit('sendNotification',$message->message);
 
 		
@@ -110,7 +100,7 @@ if(null == $lastChat)
 
 	public function sendNotification($message)
 	{
-		Notification::toUser($this->userOut, array(
+		SendMail::toUser($this->userOut, array(
             'subject'=>"Tienes un nuevo mensaje de: ".Auth::user()->name,
             'text'=>[
                 

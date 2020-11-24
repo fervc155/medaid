@@ -35,6 +35,27 @@ class Doctor extends Model
         return $this->belongsTo('App\Office');
     }
 
+
+    //Relación 1:N con consultorios
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+
+
+
+    public function is($speciality_name)
+    {
+        foreach ($this->specialities as $speciality) 
+        {
+
+           if(strtolower($speciality->name) == $speciality_name)
+            return true;
+        }
+
+        return false;
+    }
+
     //Relación 1:N con citas
     public function appointments()
     {
