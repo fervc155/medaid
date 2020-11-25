@@ -24,9 +24,19 @@
 
 }
 
+
+@media print
+{    
+    .navbar,
+    .btn,
+    .navbar-responsive
+    {
+        display: none !important;
+    }
+}
 body {
   background-color: var(--blanco);
-  overflow-x: hidden;
+overflow-x: hidden;
   font-family: 'Roboto', sans-serif !important;
 }
 

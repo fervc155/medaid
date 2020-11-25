@@ -5,10 +5,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12 mt-5">
+    <div class="col-12  mt-5">
       @livewire('bi.select')
     </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12  col-md-6">
       <div class="card">
         <div class="card-encabezado">
 
@@ -22,11 +22,12 @@
         <div class="card-body">
          
           @livewire('bi.total')
- 
+
+  
         </div>
       </div>
     </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 html-print col-md-6">
       <div class="card">
         <div class="card-encabezado">
 
@@ -45,7 +46,7 @@
     </div>
 
  
-       <div class="col-12">
+       <div class="col-12 html-print">
 
       <div class="card">
         <div class="card-encabezado">
@@ -64,7 +65,7 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 html-print col-md-6">
       <div class="card">
         <div class="card-encabezado">
 
@@ -81,7 +82,7 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 html-print col-md-6">
       <div class="card">
         <div class="card-encabezado">
 
@@ -100,7 +101,7 @@
       </div>
     </div>
 
-    <div class="col-12">
+    <div class="col-12 html-print">
       <div class="card">
         <div class="card-encabezado">
 

@@ -9,15 +9,13 @@
 	{
 		 
 
-		 console.log('cargado');
- 
+	 
 
 		//grafica peores  medicos
 		if ($('#grafica-ventas-mes').length>0)
 		{
 
-			console.log(dataset);
-
+		 
 
 			data=
 			{
