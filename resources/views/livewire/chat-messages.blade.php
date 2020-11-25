@@ -22,7 +22,7 @@
 
 			echo 'entrada' ;
 		} 
-		?>"><span class="mensaje">{{$message->id}} - {{$message->message}}</span></div>
+		?>"><span class="mensaje">{{$message->message}}</span></div>
 
 	<?php endforeach ?>
 

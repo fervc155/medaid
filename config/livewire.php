@@ -42,7 +42,7 @@ return [
     |
     */
 
-   'asset_url'  => '/laravel/hospital/public',
+   'asset_url'  => '/',
     /*
     |--------------------------------------------------------------------------
     | Livewire Endpoint Middleware Group

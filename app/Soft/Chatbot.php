@@ -235,9 +235,26 @@ public static function getJson()
     array(
       'tag'=>'despedida',
       'preguntas'=> array('Adios','bye','hasta luego','Nos vemos', 'Que te valla bien'),
-      'respuestas'=> array('Adios','bye','hasta luego','Nos vemos', 'Que te valla bien'),
+      'respuestas'=> array('Es un placer ayudarte'),
 
     ),
+
+        array(
+      'tag'=>'agradecimiento',
+      'preguntas'=> array('gracias','muchas gracias','te lo agradezco'),
+      'respuestas'=> array('Es un placer ayudarte'),
+
+    ),
+
+
+        array(
+      'tag'=>'facturar',
+      'preguntas'=> array('como puedo descargar mi factura','como puedo facturar','datos de facturacion'),
+      'respuestas'=> array('Dirigite a tus pagos, da click en factura y descargala desde el portal en STRIPE'),
+
+    ),
+
+
 
     array(
       'tag'=>'soy_un_bot',

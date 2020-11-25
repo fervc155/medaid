@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Appointment;
 use App\Payment;
+use App\Soft\Chatbot;
 use App\Soft\Wizard;
 use App\Speciality;
 use App\User;
@@ -30,6 +31,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
 
         if(Auth::user()->isPatient())
         {

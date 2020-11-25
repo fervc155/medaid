@@ -183,11 +183,11 @@
 
 
 	<script src="{{ asset('js/callbacks.js') }}"></script>
-	<script src="{{ asset('js/charts.js') }}"></script>
-	<script src="{{ asset('js/calendar.js') }}"></script>
+ 	<script src="{{ asset('js/calendar.js') }}"></script>
 
 	<script src="{{ asset('js/datatables.js') }}"></script>
 
+  
 	<script src="{{ asset('js/AJAX-visitantes.js') }}"></script>
 	<script src="{{ asset('js/appointments/appointments.js') }}"></script>
 	<script src="{{ asset('js/appointments/appointment_comment.js') }}"></script>
