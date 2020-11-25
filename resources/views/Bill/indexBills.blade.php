@@ -5,6 +5,23 @@
 
 <div class="container">
   <div class="row">
+      <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-encabezado">
+
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-chart-bar"></i>
+          </div>
+          <div class="card-title">Ingresos totales</div>
+        </div>
+
+        <div class="card-body">
+          $12333213
+ 
+        </div>
+      </div>
+    </div>
     <div class="col-12 col-md-6">
 
       <div class="card">
@@ -78,6 +95,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
 

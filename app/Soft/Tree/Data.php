@@ -237,7 +237,7 @@ $incorrect_branch = $this->make_tree($request['error']);
 
    echo $space. "--> False: <br>";
 
-    $this->print_tree($node->incorrect_branch, $space . "  ");
+    $this->print_tree($node->incorrect_branch, $space . "&nbsp;");
 	}
 
 
