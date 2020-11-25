@@ -2,9 +2,7 @@
 =            INIT            =
 =================================*/
 
-
-
-Grafica = new Grafica();
+ 
 $(document).ready(()=>
 {
 
