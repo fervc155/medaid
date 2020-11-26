@@ -1,4 +1,4 @@
 <div>
-	<h2>$ {{$total}}</h2>
+	<h2>MXN$ {{$total}}</h2>
 
 </div>

@@ -221,8 +221,7 @@ Route::group(['middleware' => ['auth','admin'] ], function () {
 
 
     route::get('bills','BillController@index');
-    route::post('bills/download','BillController@download')->name('bill.download');
-
+ 
     /*----------  opciones  ----------*/
 
 

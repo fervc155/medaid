@@ -16,7 +16,7 @@ $factory->define(App\Appointment::class, function (Faker $faker) {
     $Patient = Patient::all()->random();
 
 
-    $date =$faker->dateTimeBetween($startDate = '-1 months', $endDate = '+1 months', $timezone = null);
+    $date =$faker->dateTimeBetween($startDate = '-12 months', $endDate = '+1 months', $timezone = null);
 
        $data = [
         'date' =>$date,
@@ -30,9 +30,10 @@ $factory->define(App\Appointment::class, function (Faker $faker) {
 
     ];
 
+    $speciality = $Doctor->specialities->random();
 
-    $data['speciality_id'] = $Doctor->specialities[0]->id;
-    $data['cost'] = $Doctor->specialities[0]->cost;
+    $data['speciality_id'] = $speciality->id;
+    $data['cost'] = $speciality->cost;
 
 
     return $data;

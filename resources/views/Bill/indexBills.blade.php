@@ -27,7 +27,8 @@
         </div>
       </div>
     </div>
-        <div class="col-12 html-print col-md-6">
+    
+       <div class="col-12 html-print col-md-6">
       <div class="card">
         <div class="card-encabezado">
 
@@ -35,12 +36,11 @@
 
             <i class="fal fa-chart-pie-alt"></i>
           </div>
-          <div class="card-title">Relacion Citas</div>
+          <div class="card-title">Relacion especialidades</div>
         </div>
 
         <div class="card-body">
-          grafica circular, completadas, canceladas, etc
-          @livewire('bi.circle')
+           @livewire('bi.circle')
         </div>
       </div>
     </div>
@@ -109,7 +109,7 @@
 
             <i class="fal fa-chart-bar"></i>
           </div>
-          <div class="card-title">Ganancias por mes</div>
+          <div class="card-title">Ganancias de los ultimos 12 meses</div>
         </div>
 
         <div class="card-body">
@@ -123,5 +123,20 @@
   </div>
 </div>
 
+    <div class="col-12 html-print">
+      <div class="card">
+        <div class="card-encabezado">
 
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-chart-pie-alt"></i>
+          </div>
+          <div class="card-title">Regresion lineal</div>
+        </div>
+
+        <div class="card-body">
+           @livewire('bi.regression')
+        </div>
+      </div>
+    </div>
 @endsection

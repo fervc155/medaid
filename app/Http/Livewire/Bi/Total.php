@@ -20,7 +20,7 @@ class Total extends Component
 	public function bi_month($month)
 	{
 
-		$this->total  = DB::table('appointments')->whereMonth('updated_at',$month)->get()->sum('cost');
+		$this->total  = DB::table('appointments')->whereIn('condition_id',[3,6])->whereMonth('updated_at',$month)->get()->sum('cost');
 
 
 		$this->render();
@@ -30,7 +30,7 @@ class Total extends Component
 	{
 
 		
-		$this->total  = DB::table('appointments')->whereYear('updated_at',now())->get()->sum('cost');
+		$this->total  = DB::table('appointments')->whereIn('condition_id',[3,6])->whereYear('updated_at',now())->get()->sum('cost');
 
 
 		$this->render();
@@ -40,7 +40,7 @@ class Total extends Component
 	{
 
 		
-		$this->total  = DB::table('appointments')->get()->sum('cost');
+		$this->total  = DB::table('appointments')->whereIn('condition_id',[3,6])->get()->sum('cost');
 
 
 		$this->render();

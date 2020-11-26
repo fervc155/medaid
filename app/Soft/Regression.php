@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Soft;
+
 class Regression
 {
 
@@ -7,7 +9,7 @@ class Regression
     private $y_coordenadas = [];
     private $y_diferencias = [];
     private $suma_acumulada = [];
-    private $pendiente;
+    public $pendiente;
     private $interseccion;
     private $r_cuadrada;
     private $conteo_coordenadas = 0;
