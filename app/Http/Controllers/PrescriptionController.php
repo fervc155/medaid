@@ -73,18 +73,18 @@ class PrescriptionController extends Controller
 
             $prescription->save();
 
-                  $getUsers = $prescrtiption->prescrtiption->appointment->getUsers();
+                  $getUsers = $prescription->appointment->getUsers();
 
     Notification::toUsers($getUsers, array(
             'subject'=>"Una receta ha sido registrada en tu cita",
             'text'=>[
                 
                 'Para ver sus detalles ingresa al link que hemos enviado',
-                'Cita id: '.$prescrtiption->appointment->id
+                'Cita id: '.$prescription->appointment->id
                 
 
             ],
-            'url'=> $prescrtiption->appointment->profileUrl,
+            'url'=> $prescription->appointment->profileUrl,
             'btnText'=>'Ver cita'
         ));
 

@@ -140,10 +140,10 @@ class Appointment extends Model
 
     public function getUsers($comments=false)
     {
-            $users = Collection::make(new User);
+            $users = User::where('id','a')->get();
 
-            $users->push($appointment->doctor->user());
-            $users->push($appointment->doctor->patient());
+            $users->push($this->doctor->user());
+            $users->push($this->patient->user());
 
 
             if($comments)

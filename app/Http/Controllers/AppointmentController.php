@@ -143,15 +143,15 @@ class AppointmentController extends Controller
     $appointment->save();
 
 
-    $getUsers  = $Acomment->appointment->getUsers();
+    $getUsers  = $appointment->getUsers();
 
-    Notification::toUser($getUsers, array(
+    Notification::toUsers($getUsers, array(
             'subject'=>"Tienes una nueva cita",
             'text'=>[
                 
                 'Dia: '.$appointment->Date,
                 'Hora: '.$appointment->time,
-                'Usuario: '.$Appointment->patient->user()->name,
+                'Usuario: '.$appointment->patient->user()->name,
                 'Especialidad: '.$appointment->speciality->name,
                 'Precio: '.$appointment->price,
                 'Descripcion: '.$appointment->description,
