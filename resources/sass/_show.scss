@@ -1,0 +1,100 @@
+
+.caja
+{
+  &-contador
+  {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    position: relative;
+    h3
+    {
+      font-size: 2rem;
+      font-weight: lighter;
+      margin: 0;
+      color: $principal;
+
+
+    }
+    p
+    {
+      color: #666;
+    }
+
+
+
+    &-icono
+    {
+      position: relative;
+      margin-left: 1rem;
+      margin-top: -1rem;
+      display: inline;
+
+      min-width: 80px;
+      height: 80px;
+      background-color: $principal;
+      text-align: center;
+      border-radius: 0.2rem;
+      box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+
+      i
+      {
+        line-height: 80px;
+        font-size: 25px;
+        color: white !important;
+      }
+
+    } 
+
+  }
+
+}
+
+
+.sin-datos 
+{
+  i
+  {
+    font-size: 100px;
+    color: $principal;
+  }
+
+}
+
+ 
+
+.stars 
+{
+  color: $principal;
+}
+
+
+.click-star
+{
+  color: mediumseagreen;
+
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+
+.card-profile h5 a
+{
+  color: white !important;
+}
+
+
+
+
+
+ 

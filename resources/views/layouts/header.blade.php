@@ -37,7 +37,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:100,300,400,500,700,900&display=swap" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 	<!-- Data tables -->
 	<link href="{{asset('splash/vendor/datatables/datatables.css')}}" rel='stylesheet' />
@@ -66,7 +66,6 @@
 	<link href="{{asset('splash/vendor/quills/css/quill.bubble.css')}}" rel='stylesheet' />
 
 
-	<!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 	<script src="{{asset('splash/vendor/sweetalert/sweetalert.js')}}"></script>
 
 
@@ -180,20 +179,12 @@
 	</script>
 
 
+	<script src="{{ asset('js/app.js') }}" defer></script>
 
 
-	<script src="{{ asset('js/callbacks.js') }}"></script>
- 	<script src="{{ asset('js/calendar.js') }}"></script>
 
-	<script src="{{ asset('js/datatables.js') }}"></script>
 
-  
-	<script src="{{ asset('js/AJAX-visitantes.js') }}"></script>
-	<script src="{{ asset('js/appointments/appointments.js') }}"></script>
-	<script src="{{ asset('js/appointments/appointment_comment.js') }}"></script>
-	<script src="{{ asset('js/scripts.js') }}"></script>
-	<script src="{{ asset('js/web.js') }}"></script>
-
+ 
 
 	@stack('js')
 </body>

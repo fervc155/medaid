@@ -1,71 +1,4 @@
-
-/*=======================================================
-
-				WEB.JS
-
-=======================================================*/
-
-// =            SELECT ESPECIALIDAD CONSULTORIO            =
-
-
-
-function filtrarMedicoPorEspecialidad()
-{
-
-	especialidad =$(this).val();
-
-	let card_doctor =document.querySelectorAll('.card-doctor');
-
-
-	if (especialidad=="Todos")
-	{
-	
-	
-		card_doctor.forEach(doctor=>
-		{
-
-			doctor.classList.remove('d-none');
-		})
-
-		return;
-	}
-
-
-
-
-	card_doctor.forEach(doctor=>
-	{
-
-		doctor.classList.add('d-none');
-	})
-
-	let card_especialidad =document.querySelectorAll('.'+especialidad);
-
-
-	card_especialidad.forEach(especialidad=>
-	{
-
-		especialidad.classList.remove('d-none');
-
-	})
-
-
-}
-/*=====  End of SELECT ESPECIALIDAD CONSULTORIO  ======*/
-
-
-
-
-
-
-
-
-/*==================================
-=            SCRIPTS.js            =
-==================================*/
-
-
-function btnConfirmDelete()
+export function btnConfirmDelete()
 {
 
 	var ID = $(this).attr("id");
@@ -89,7 +22,7 @@ function btnConfirmDelete()
 
 }
 
-function selectSpecialityDoctor()
+export function selectSpecialityDoctor()
 {
 
 	id=$(this).val();
@@ -116,7 +49,7 @@ function selectSpecialityDoctor()
 
 ///btn borrar especialidad
 
-function btnActualizarEspecialidad()
+export function btnActualizarEspecialidad()
 {
 
 	var ID = $(this).data("id");
@@ -132,7 +65,7 @@ function btnActualizarEspecialidad()
 
 
 
-function btnActualizarReceta()
+export function btnActualizarReceta()
 {
 
 	var ID = $(this).data("id");
@@ -148,7 +81,7 @@ function btnActualizarReceta()
 
 
  
-function btnUpdateComment(){
+export function btnUpdateComment(){
 
 	var ID = $(this).data("commentid");
 
@@ -159,7 +92,7 @@ function btnUpdateComment(){
 
 
 
-function btnEditComment(){
+export function btnEditComment(){
 
 	var ID = $(this).data("commentid");
 
@@ -172,3 +105,42 @@ function btnEditComment(){
 	
 }
 /*=====  End of SCRIPTS.js  ======*/
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=================================
+=            INIT            =
+=================================*/
+
+ 
+
+/*=====  End of INIT  ======*/
+
+/*=================================
+=            CALLBACKS            =
+=================================*/
+
+$(".btn-confirm-delete").click(btnConfirmDelete);
+$(".select-speciality-doctor").on('change', selectSpecialityDoctor);
+$(".btn-actualizar-receta").click(btnActualizarReceta);
+$(".btn-actualizar-especialidad").click(btnActualizarEspecialidad);
+$(".btn-edit-comment").click(btnEditComment);
+$(".btn-update-comment").click(btnUpdateComment);
+
+
+ 

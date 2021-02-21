@@ -1,24 +1,6 @@
 
 
 
-if (document.getElementsByClassName('datepicker'))
-{
-	var Fecha = new Date();
-
-
-	$('.datepicker').pickadate({
-		today: 'Hoy',
-		clear: 'Limpiar',
-		close: 'Cerrar',
-		format: 'yyyy-mm-dd',
-		selectMonths: true,
-		min: new Date(Fecha.getFullYear(),  Fecha.getMonth(),Fecha.getDate() +1),
-
-		max: new Date( Fecha.getFullYear()+1,  Fecha.getMonth(),Fecha.getDate() )
-	});
-}
-
-
 /*============================
 =            AJAX            =
 ============================*/

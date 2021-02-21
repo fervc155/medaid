@@ -1,0 +1,57 @@
+
+
+.fc
+{
+  &-day
+  {
+    background-color: white;
+
+    &-top
+    {
+      float:  center;
+    }
+    &-header
+    {
+      background-color: white;
+    }
+  }
+
+  &-button-primary {
+    color: #fff;
+    background-color: $principalclaro !important;
+    border-color: $blanco !important;
+
+    &:focus {
+      color: #fff;
+      background-color: $principalhover !important;
+      border-color:  none!important;
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  &-left
+  {
+    h2
+    {
+      color: $principal;
+      text-transform: capitalize;
+    }
+  }
+
+  &-today {
+    background-color: rgba(0,0,255,0.02) !important;
+  }
+
+  &-event {
+    color:white !important;
+    background-color: $verde!important;
+    border: none !important;
+    padding: 0.25rem !important;
+  }
+
+}
+
+
+
+

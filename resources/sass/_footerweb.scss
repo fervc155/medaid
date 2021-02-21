@@ -1,0 +1,25 @@
+footer.footer 
+{
+  background-color: $gris;
+  a
+  {
+    color:white;
+    text-decoration:none; 
+  }
+  li
+  {
+    padding: 0.5rem; 
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+
+    &:hover
+    {
+      background-color: $principal;
+    }
+  }
+}
+
+
+
+
+

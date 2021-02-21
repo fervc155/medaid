@@ -1,0 +1,28 @@
+
+.like
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $principal;
+
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 1rem;
+
+  i
+  {
+    font-size: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &.fas
+    {
+     color:$rojo !important;
+   }
+ }
+}
+
+
+

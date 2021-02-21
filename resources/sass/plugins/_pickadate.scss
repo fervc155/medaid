@@ -1,0 +1,36 @@
+
+.picker__select--month,
+.picker__select--year {
+  height: auto !important;
+}
+
+.picker--time
+{
+	.picker__button--clear
+	{
+		&:focus, 
+		&:hover {
+			background: $verde !important;
+			border-color: none !important;
+		}
+	}
+}
+
+.picker--focused .picker__list-item--selected, 
+.picker__list-item--selected,
+.picker__list-item--selected:hover,
+.picker--focused .picker__day--selected,
+.picker__day--selected, 
+.picker__day--selected:hover 
+{
+  background-color:  $principal !important;
+}
+
+.picker__list-item
+{
+	&:hover 
+	{
+	  background-color: $principalxclaro !important;
+	}
+
+}

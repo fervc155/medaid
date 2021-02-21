@@ -1,0 +1,109 @@
+
+
+.card 
+{
+	.card
+	{
+		&-cabecera
+		{
+			text-align: center;
+			padding: 1rem;
+			margin: 1rem;
+			position: relative;
+			transform: translateY(-2rem);
+			border-radius: 6px;
+
+			&-icono
+			{
+				text-align: center;
+				margin-left: 1rem;
+				border-radius: 0.2rem;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				display: block;
+
+				@media  (min-width: map-get($size, md))
+				{
+					width: 80px;
+					height: 80px;
+				}
+
+				i{
+					font-size: 25px;
+					color: white !important;
+					line-height: 50px;
+
+					@media  (min-width: map-get($size, md))
+					{
+						font-size: 40px;
+						line-height: 80px;
+					}
+				}
+			}
+		}
+
+		&-encabezado
+		{
+
+			display: flex;
+
+			align-items: flex-end;
+			transform: translateY(-1rem);
+			position: relative;
+
+			.card-title
+			{
+				padding: 0px 1rem;
+				font-weight: lighter;
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				font-family: 'Roboto', sans-serif !important;
+				font-weight: 500;
+
+			}
+		}
+	}
+
+
+
+} 
+
+
+
+
+.login,
+.register
+{
+	-webkit-background-size: cover;
+	background-size: cover;
+	height: 100vh;
+	background-attachment: fixed;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+
+}
+
+.icon
+{
+	&-form
+	{
+		background-color: $principal;
+		width: 30px;
+		height: 30px;
+		border-radius: 0.2rem;
+		text-align: center;
+		i
+		{
+			color: white !important;
+			line-height: 30px;
+		}
+	}
+	&-texto
+	{
+		padding-left: 1rem;
+	}
+}
+

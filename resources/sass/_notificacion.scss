@@ -1,0 +1,49 @@
+
+.notification-item
+{
+  padding: 5px 10px !important;
+  h6
+  {
+    margin: 0;
+     font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.dropdown
+{
+  .dropdown-menu
+  {
+    .dropdown-item
+    {
+
+      color: $principal;
+      transition:  all 0.2s ease;
+      @media screen and (min-width: 992px)
+      {
+        color: white;
+
+      }
+
+      &:hover
+      {
+        color: white !important;
+        background-color: #1BD622;
+      }
+
+
+    }
+  }
+
+}
+
+.map-page
+{
+  iframe
+  {
+    /* width: 100% !important; */
+    width: 100vw !important;
+    border: 0;
+    height: 100vh !important;
+  }
+}

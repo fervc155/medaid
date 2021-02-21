@@ -1,0 +1,294 @@
+
+.admin-logo
+{
+  padding: 1rem 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+.navbar-responsive
+{
+
+  &-open 
+  {
+    width: 260px !important;
+    .elementos 
+    {
+      .nav-link 
+      {
+        i
+        {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .nav-item
+    {
+      margin:5px 1rem !important;
+      border-radius: 6px !important;
+
+    }
+  }
+
+  position: relative;
+  width: 0rem;
+  height: 100vh;
+  transition: $transicionMenu ;
+
+  
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  overflow-y: auto;
+  @media screen and (min-width: 992px)
+  {
+    width: 3rem;
+
+
+  }
+
+  .elementos
+  {
+    .nav-link
+    {
+      color: white !important;
+      padding-left: 1rem;
+      font-size: 12px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      transition: $transicionMenu ;
+      i
+      {
+        margin-right: 1rem;
+        font-size: 14px;
+        transition: $transicionMenu;
+      }
+    }
+    .nav-item
+    {
+      margin: 5px 0rem;
+      transition: all 0.3s ease;
+      border-radius: 0px;
+
+      &.active
+      {
+        background-color: $verde;
+      }
+
+      &:hover
+      {
+        background-color: rgba(255,255,255,0.2) !important;
+        box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+
+      }
+    }
+  }
+
+  .navbar-responsive-base
+  {
+    background-color: rgba(22,162,200,0.7);
+    width: 260px;
+    height: 100vh !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    position: relative;
+    z-index: 2;
+
+  }
+
+  ul
+  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+}
+
+
+
+
+
+
+#button-menu
+{
+  position: relative;
+  transition: $transicionMenu;
+}
+
+.button-menu-disabled
+{
+  transform: translateX(260px);
+}
+.main-admin
+{
+  &-open
+  {
+    width: calc( 100% - 260px) !important;
+  }
+
+  position: relative;
+  width: calc( 100%);
+  transition: $transicionMenu ;
+  overflow-y: scroll;
+  height: 100vh;
+
+
+  @media screen and (min-width: 992px)
+  {
+    width: calc( 100% - 1rem);
+
+  }
+  .navbar
+  {
+   padding: 5px 1rem !important;
+   position: relative;
+   z-index: 1000;
+   a{
+    &.nav-link
+    {
+      color: $principal !important;
+
+    }
+  }
+}
+
+
+}
+
+
+
+
+
+
+.nav-item
+{
+  &-button
+  {
+    border-radius: 0px;
+  }
+  &:hover,
+  .nav-item-button
+  {
+
+    a.link,
+    a.link:hover,
+    {
+      color: $principal !important;
+
+    }
+
+    &:hover
+    {
+      background-color: transparent !important;
+    }
+  }
+
+}
+
+
+.dashboard
+{
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+
+
+.dropdown-menu
+{
+  &.dropdown-menu-right 
+  {
+    i
+    {
+      margin-right: 0.3rem;
+    }
+
+    &.show
+    {
+      height: auto !important;
+      overflow-y: auto !important;
+
+    }
+  }
+}
+
+
+.navbar-collapse
+{
+  &:after 
+  {
+    @media screen and (max-width: 991px)
+    {
+
+      background-color: #fcfcfc !important;
+      box-shadow: 0px 0px 15px 0px rgba(33,0,100,0.2);
+      border-radius: 0px;
+    }
+
+  }
+
+}
+
+#button-dashboard 
+{
+  i
+  {
+    transition: $transicionMenu;
+    color: $principal !important;
+  }
+}
+
+.button-dashboard-open
+{
+  i
+  {
+    transform: rotate(180deg);
+  }
+}
+.dropdown-perfil
+{
+  order: -1;
+  border-radius: 0px !important;
+
+  @media screen and (min-width: 992px)
+  {
+    order: 1;
+    border-radius: 0.25rem !important;
+  }
+
+
+  .profile-photo-small
+  {
+    width: 100px !important;
+    height: 100px !important;
+    overflow: hidden;
+    margin:0 auto;
+
+    @media screen and (min-width: 992px)
+    {
+      width: 50px !important;
+      height: 50px !important;
+      overflow: hidden;
+    }
+    
+
+  }
+  .dropdown-toggle
+  {
+    &:after
+    {
+      display: none;
+    }
+
+    @media screen and (min-width: 992px)
+    {
+
+      padding: 0 !important;
+    }
+  }
+}
+

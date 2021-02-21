@@ -2,7 +2,6 @@
 
 /*----------  especialidad  ----------*/
 
-$= jQuery.noConflict();
 
 let timeout;
 $('#formulario-especialidades-ajax input[name="search"]').on('keydown', function()
