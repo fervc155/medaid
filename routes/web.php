@@ -146,8 +146,8 @@ route::get('profile/image/{id}','ProfileController@image')->name('profile.image'
     
 
     route::get('chat','chatController@index');
-    route::post('chat/count/','chatController@count');
-    route::post('chat/total/','chatController@total');
+    // route::post('chat/count/','chatController@count');
+    // route::post('chat/total/','chatController@total');
 
 
 

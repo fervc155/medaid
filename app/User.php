@@ -215,6 +215,20 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
     }
+
+       public function getlastChatShortAttribute()
+    {
+       
+       $message = $this->lastChat->message;
+
+       if(strlen($message)>=40)
+        $message = substr($message,0,40).'...';
+
+
+        return $message;
+
+
+    }
     public function getPathimgAttribute()
     {
 

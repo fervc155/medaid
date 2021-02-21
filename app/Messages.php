@@ -29,29 +29,21 @@ class Messages
 		$messages = Chat::whereIn('user_in',[Auth::user()->id,$idUser])
 		->whereIn('user_out',[Auth::user()->id,$idUser])
 		->orderBy('id','desc')
-		->get()
-		->take($count);
+		->get();
+
+		$json['count'] = $messages->count() ;
 
 
-		return $messages->reverse();
-
-
-	}
-
-	public static function count($idUser)
-	{
-		$messages = Chat::whereIn('user_in',[Auth::user()->id,$idUser])
-		->whereIn('user_out',[Auth::user()->id,$idUser])
- 		->get('id');
+		$json['messages'] = $messages->take($count)->reverse();
 
 
 
-
-
-		return $messages->count();
+		return $json;
 
 
 	}
+
+	 
 
 
 	public static function total()

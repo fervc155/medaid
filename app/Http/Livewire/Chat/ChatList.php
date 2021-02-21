@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Chat;
 
+use App\Chat;
 use App\Messages;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
@@ -11,30 +12,49 @@ use Livewire\Component;
 class ChatList extends Component
 {
 
+
+  
+ 
+  public $search;
   public $users;
   public $active;
   public $notFound;
+  public $messages;
+  protected $listeners = [ 'sendMessage', 'reloadList'];
 
-  public $countMessages;
-
+ 
   public function mount()
   {
 
 
+    $this->search = "";
 
     $this->users =Messages::senders();
     $this->notFound=false;
 
 
-    $this->countMessages= Messages::total();
+    $this->messages = Messages::total();
+
+
   }
 
-  protected $listeners = ['chatList', 'sendMessage', 'reloadList'];
 
-  public function chatList($search)
+
+  public function checkMessages()
+  {
+    $messages = Messages::total();
+
+    if($messages>$this->messages)
+    {
+      $this->messages =$messages;
+      $this->reloadList();
+    }
+  }
+
+  public function buscarChat()
   {
 
-    if(strlen($search)<1)
+    if(strlen($this->search)<1)
     {
       
             $this->notFound=false;
@@ -43,7 +63,7 @@ class ChatList extends Component
 
     }
 
-    $this->users =  User::search($search);
+    $this->users =  User::search($this->search);
 
 
     $this->users = $this->users->reject(Auth::user());
@@ -81,29 +101,27 @@ class ChatList extends Component
   public function sendMessage()
   {
     $this->users =Messages::senders();
-    $this->countMessages= Messages::total();
-
+ 
   }
 
   public function reloadList()
   {
     $this->users =Messages::senders();
-    $this->countMessages= Messages::total();
-
-
+    $this->emit('reloadMessages');
+ 
   }
 
   public function selectChat($id)
   {
     $this->active =$id;
+    $this->emit('selectChat', $id);
     $this->users =Messages::senders();
 
-    $this->emit('selectChat', $id);
   } 
 
 
   public function render()
   {
-    return view('livewire.chat-list');
+    return view('livewire.chat.chat-list');
   }
 }

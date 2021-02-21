@@ -349,12 +349,13 @@ table .btn-just-icon {
   font-size: 16px;
   padding: 0.5rem 1rem;
   border-radius: 6px;
-  max-width: 200px !important;
   box-shadow: 0 14px 26px -12px rgba(0, 0, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  max-width: 90%;
 }
 
 .chat-individual .mensaje-entrada {
-  margin: 2rem 1rem;
+  margin: 1rem;
 }
 
 .chat-individual .mensaje-entrada .mensaje {
@@ -363,7 +364,7 @@ table .btn-just-icon {
 }
 
 .chat-individual .mensaje-salida {
-  margin: 2rem 1rem;
+  margin: 1rem;
   text-align: right;
 }
 

@@ -11,19 +11,16 @@
 			<ul class="chat-list">
 
 			
-					@livewire('chat-search')
-
-					@livewire('chat-list')
+ 
+					@livewire('chat.chat-list')
 			</ul>
 
 		</div>
 		<div class="col-12 col-sm-8 h-100 p-0">
 			<div class="chat-individual">
 			
-				@livewire('chat-header')
-				@livewire('chat-messages')
-				@livewire('chat-form')
-
+ 				@livewire('chat.chat-messages')
+ 
 				
 			</div>
 <audio  id="chat-sound" src="{{asset('sound/chat.mp3')}}"></audio>

@@ -1,4 +1,22 @@
 <div>
+
+	<div>
+	 
+	<div class="input-group chat-search">
+	
+		<div class="input-group-prepend">
+			<span class="input-group-text">
+				<i class="fas fa-search" wire:click="buscarChat" ></i>
+			</span>
+		</div>
+		<input type="text" wire:ignore class="form-control" wire:keydown.enter="buscarChat" wire:model="search" placeholder="Buscar un chat">
+
+
+
+
+
+	</div>
+ 
 	
 	@if($notFound)
 	<li class="p-3 text-center" >
@@ -32,10 +50,15 @@
 				echo $user['lastChat']['created_at']->diffForHumans() ;
 			}
 			?></span>
-			<div class="mensaje">{{$user['lastChat']['message']}}</div>
+			<div class="mensaje">{{$user['lastChatShort']}}</div>
 		</div>
 	</li>
+
+
 	@endforeach
+
+	<button class="d-none check-messages" wire:click="checkMessages"></button>
+	</div>
 </div>
 
 
@@ -70,51 +93,16 @@
 	{
  
  
-		function reloadChatLists(view = '')
-		{
-
-			self=this;
-			$.ajax({
-				url: _URL+"/chat/total",
-				method:"POST",
-				data:
-				{
-					_token: '<?php echo csrf_token() ?>' ,
- 				},
-
-				success:function(data)
-				{
-
-
-
-
-					if(antiqueTotalChat!=data)
-					{
-
-
-						if(data>0)
-						{
-							
-							Livewire.emit('reloadList');
- 							
-
-						}
-
-
-
-						antiqueTotalChat= data;
-					}
-				}
-
-			});
-		}
-
-
-		setInterval(function(){ 
-			reloadChatLists(); 
-		}, 2000);
-
+		 
+ 
 
 	}); 
+
+
+ setInterval(function(){
+  
+  $('.check-messages').click();
+
+}, 3000);
 
 </script>
