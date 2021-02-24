@@ -86,213 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/AJAX-visitantes.js":
-/*!*****************************************!*\
-  !*** ./resources/js/AJAX-visitantes.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*----------  especialidad  ----------*/
-var timeout;
-$('#formulario-especialidades-ajax input[name="search"]').on('keydown', function () {
-  var _this = this;
-
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
-    waitSearchStart();
-    var search = $(_this).val();
-    $.ajax({
-      type: 'POST',
-      url: $('#formulario-especialidades-ajax input[name="url"]').val(),
-      data: {
-        search: $(_this).val(),
-        _token: $('#formulario-especialidades-ajax input[name="_token"]').val()
-      },
-      success: function success(data, _success) {
-        var especialidades = JSON.parse(data);
-        var html = '';
-        especialidades.forEach(function (especialidad) {
-          html += especialidadCard(especialidad);
-        });
-
-        if (especialidades.length < 1) {
-          html = "<div class=\"col\"><h2>No se encontro nada para: '".concat(search, "</h2></div>");
-        }
-
-        $('main.container .row').html(html);
-        waitSearchStop();
-      }
-    });
-    clearTimeout(timeout);
-  }, 1000);
-});
-/*----------   especialidad doctores  ----------*/
-
-$('#formulario-especialidad-doctores-ajax input[name="search"]').on('keydown', function () {
-  var _this2 = this;
-
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
-    waitSearchStart();
-    var search = $(_this2).val();
-    $.ajax({
-      type: 'POST',
-      url: $('#formulario-especialidad-doctores-ajax input[name="url"]').val(),
-      data: {
-        search: $(_this2).val(),
-        speciality: $('#formulario-especialidad-doctores-ajax input[name="speciality"]').val(),
-        _token: $('#formulario-especialidad-doctores-ajax input[name="_token"]').val()
-      },
-      success: function success(data, _success2) {
-        var doctores = JSON.parse(data);
-        var html = '';
-        doctores.forEach(function (doctor) {
-          html += doctorCard(doctor);
-        });
-
-        if (doctores.length < 1) {
-          html = "<div class=\"col\"><h2>No se encontro nada para: ".concat(search, " </h2></div>");
-        }
-
-        $('main.container .row').html(html);
-        waitSearchStop();
-      }
-    });
-    clearTimeout(timeout);
-  }, 1000);
-});
-/*----------   doctores  ----------*/
-
-$('#formulario-doctores-ajax input[name="search"]').on('keydown', function () {
-  var _this3 = this;
-
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
-    waitSearchStart();
-    var search = $(_this3).val();
-    $.ajax({
-      type: 'POST',
-      url: $('#formulario-doctores-ajax input[name="url"]').val(),
-      data: {
-        search: $(_this3).val(),
-        _token: $('#formulario-doctores-ajax input[name="_token"]').val()
-      },
-      success: function success(data, _success3) {
-        var doctores = JSON.parse(data);
-        var html = '';
-        doctores.forEach(function (doctor) {
-          html += doctorCard(doctor);
-          console.log("html", html);
-        });
-
-        if (doctores.length < 1) {
-          html = "<div class=\"col\"><h2>No se encontro nada para: ".concat(search, "</h2></div>");
-        }
-
-        $('main.container .row').html(html);
-        waitSearchStop();
-      }
-    });
-    clearTimeout(timeout);
-  }, 1000);
-});
-/*----------   citas  ----------*/
-
-$('#formulario-citas-ajax input[name="search"]').on('keydown', function () {
-  var _this4 = this;
-
-  clearTimeout(timeout);
-  timeout = setTimeout(function () {
-    waitSearchStart();
-    var search = $(_this4).val();
-    $.ajax({
-      type: 'POST',
-      url: $('#formulario-citas-ajax input[name="url"]').val(),
-      data: {
-        id: $(_this4).val(),
-        _token: $('#formulario-citas-ajax input[name="_token"]').val()
-      },
-      success: function success(data, _success4) {
-        var citas = JSON.parse(data);
-        var html = '';
-        citas.forEach(function (cita) {
-          html += "\n\t\t\t\t\t<tr>\n\t\t\t\t\t<td>".concat(cita['date'], " - ").concat(cita['time'], "  </td>\n\t\t\t\t\t<td>").concat(cita['price'], "</td>\n\t\t\t\t\t<td><a class=\"link\" href=\"").concat(_URL, "/visitante/doctor/").concat(cita['doctor_id'], "\">").concat(cita['doctor_name'], "</a></td>\n\t\t\t\t\t<td><a class=\"link\" href=\"").concat(_URL, "/visitante/consultorio/").concat(cita['office_id'], "\">").concat(cita['office'], "</a></td>\n\t\t\t\t\t<td>").concat(cita['status'], "</a></td>\n\t\t\t\t\t<td>\n\t\t\t\t\t</tr>");
-        });
-
-        if (citas.length < 1) {
-          $('#nombre-paciente').html('No se encontro nada para: ' + search);
-        } else {
-          $('#nombre-paciente').html(citas[0]['name']);
-        }
-
-        $('#body-table-citas').html(html);
-        waitSearchStop();
-      }
-    });
-    clearTimeout(timeout);
-  }, 1000);
-});
-
-waitSearchStart = function waitSearchStart() {
-  $('main.container').waitMe({
-    effect: 'bounce',
-    text: 'Cargando',
-    bg: '#F5F5F5',
-    color: 'var(--principal)',
-    maxSize: '',
-    waitTime: -1,
-    textPos: 'vertical',
-    fontSize: '',
-    source: '',
-    onClose: function onClose() {}
-  });
-};
-
-waitSearchStop = function waitSearchStop() {
-  $('main.container').waitMe("hide");
-};
-
-function doctorCard(doctor) {
-  html = "\n\t<div class=\"col-sm-6 col-md-4 \">\n\t<div class=\"card card-profile\">\n\t<div class=\"card-header card-header-image\">\n\t<img style=\"max-width: 100%;\" class=\"img img-fluid\" src=\"".concat(doctor['Profileimg'], "\">\n\t</div>\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category mt-4 text-gray\"><i class=\"fal fa-file-certificate\"></i>\n\t").concat(doctor['MinMaxCost'], "</h6>\n\t<h4 class=\"card-title\"> ").concat(doctor['name'], "</h4>\n\t<p class=\"card-description\">\n\t<div class=\"stars\">");
-
-  for (j = 0; j < doctor['StarsEarned']; j++) {
-    html += '<i class="fas fa-star"></i>';
-  }
-
-  for (j = 0; j < doctor['StarsMissing']; j++) {
-    html += '<i class="fal fa-star"></i>';
-  }
-
-  html += "\n\t</div>\n\t<div>\n\t".concat(doctor['stars'], "\n\t</div>\n\n\t<div>");
-
-  if (null != doctor['specialities']) {
-    doctor['specialities'].forEach(function (speciality) {
-      html += "<span class=\"badge badge-pill badge-primary\">".concat(speciality['name'], "</span>");
-    });
-  }
-
-  html += "\t\n\t</div>\n\n\t</p>\n\t<a href=\"".concat(_URL, "/visitante/doctor/").concat(doctor['id'], "\" class=\"btn btn-info btn-round\"><i class=\"fal fa-calendar-check\"></i> Ver Calendario</a>\n\t</div>\n\t</div>\n\t</div>\n\t");
-  return html;
-}
-
-function especialidadCard(especialidad) {
-  html = "<div class=\"col-6 col-md-4 col-xl-3\">\n\t<div class=\"card card-pricing\">\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category text-gray\">\n\t<i class=\"fal fa-user-md\"></i> ".concat(especialidad['countDoctors'], " Doctores</h6>\n\t<div class=\"icon icon-info\">\n\t<i class=\"fal fa-file-certificate\"></i>\n\t</div>\n\t<h3 class=\"card-title\">").concat(especialidad['price'], " <small>consulta</small></h3>\n\t<p class=\"card-description\">\n\t<span class=\"text-uppercase text-primary\">\n\t").concat(especialidad['name'], "\n\t</span>\n\t<div class=\"stars\">");
-
-  for (j = 0; j < especialidad['StarsEarned']; j++) {
-    html += '<i class="fas fa-star"></i>';
-  }
-
-  for (j = 0; j < especialidad['StarsMissing']; j++) {
-    html += '<i class="fal fa-star"></i>';
-  }
-
-  html += "</div>\n\t<div>\n\t".concat(especialidad['stars'], "\n\t</div>\n\t</p>\n\t<a href=\"").concat(_URL, "/visitante/especialidad/").concat(especialidad['id'], "\" class=\"btn btn-info btn-round\">Ver doctores</a>\n\t</div>\n\t</div>\n\t</div>");
-  return html;
-}
-
-/***/ }),
-
 /***/ "./resources/js/Appointments/appointment_comment.js":
 /*!**********************************************************!*\
   !*** ./resources/js/Appointments/appointment_comment.js ***!
@@ -364,7 +157,7 @@ function appointmentAjaxLlenarHorario(fecha, doctor) {
     $('.groupTimepickerCita .bmd-label-floating').html('Hora');
     $.ajax({
       type: 'POST',
-      url: $('.appointmentAjax input[name="url"]').val(),
+      url: _API + '/appointment/gettime',
       data: {
         date: fecha,
         doctor: doctor,
@@ -456,7 +249,7 @@ $('.select-office.ajax').on('change', obtenerDoctoresClinica);
 function obtenerDoctoresClinica() {
   $.ajax({
     type: 'GET',
-    url: _URL + "/get/officesdoctors/" + $('.select-office.ajax').val(),
+    url: _API + "/offices/doctors/" + $('.select-office.ajax').val(),
     success: function success(data, _success2) {
       var doctores = JSON.parse(data);
       __doctors = doctores;
@@ -546,8 +339,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _plugins_datepicker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_plugins_datepicker__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _plugins_waitme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./plugins/waitme */ "./resources/js/plugins/waitme.js");
 /* harmony import */ var _plugins_waitme__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_plugins_waitme__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _AJAX_visitantes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AJAX-visitantes */ "./resources/js/AJAX-visitantes.js");
-/* harmony import */ var _AJAX_visitantes__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_AJAX_visitantes__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _public_search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./public-search */ "./resources/js/public-search.js");
+/* harmony import */ var _public_search__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_public_search__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Appointments_appointments_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Appointments/appointments.js */ "./resources/js/Appointments/appointments.js");
 /* harmony import */ var _Appointments_appointments_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_Appointments_appointments_js__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Appointments_appointment_comment_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Appointments/appointment_comment.js */ "./resources/js/Appointments/appointment_comment.js");
@@ -818,7 +611,7 @@ var Calendario = /*#__PURE__*/function () {
       self = this;
       $.ajax({
         type: 'POST',
-        url: $('.datos-calendario #url').data('url2'),
+        url: _API + '/appointment',
         data: {
           id: idCita,
           _token: $('.datos-calendario input[name="_token"]').val()
@@ -1008,6 +801,213 @@ $('.btn-wait').on('click', function () {
   esperar();
 });
 $('.no-wait').attr("onclick", "").unbind("click");
+
+/***/ }),
+
+/***/ "./resources/js/public-search.js":
+/*!***************************************!*\
+  !*** ./resources/js/public-search.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*----------  especialidad  ----------*/
+var timeout;
+$('#formulario-especialidades-ajax input[name="search"]').on('keydown', function () {
+  var _this = this;
+
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    waitSearchStart();
+    var search = $(_this).val();
+    $.ajax({
+      type: 'POST',
+      url: _API + '/visitante/search-especialidades',
+      data: {
+        search: $(_this).val(),
+        _token: $('#formulario-especialidades-ajax input[name="_token"]').val()
+      },
+      success: function success(data, _success) {
+        var especialidades = JSON.parse(data);
+        var html = '';
+        especialidades.forEach(function (especialidad) {
+          html += especialidadCard(especialidad);
+        });
+
+        if (especialidades.length < 1) {
+          html = "<div class=\"col\"><h2>No se encontro nada para: '".concat(search, "</h2></div>");
+        }
+
+        $('main.container .row').html(html);
+        waitSearchStop();
+      }
+    });
+    clearTimeout(timeout);
+  }, 1000);
+});
+/*----------   especialidad doctores  ----------*/
+
+$('#formulario-especialidad-doctores-ajax input[name="search"]').on('keydown', function () {
+  var _this2 = this;
+
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    waitSearchStart();
+    var search = $(_this2).val();
+    $.ajax({
+      type: 'POST',
+      url: _API + '/visitante/search-doctores/especialidad',
+      data: {
+        search: $(_this2).val(),
+        speciality: $('#formulario-especialidad-doctores-ajax input[name="speciality"]').val(),
+        _token: $('#formulario-especialidad-doctores-ajax input[name="_token"]').val()
+      },
+      success: function success(data, _success2) {
+        var doctores = JSON.parse(data);
+        var html = '';
+        doctores.forEach(function (doctor) {
+          html += doctorCard(doctor);
+        });
+
+        if (doctores.length < 1) {
+          html = "<div class=\"col\"><h2>No se encontro nada para: ".concat(search, " </h2></div>");
+        }
+
+        $('main.container .row').html(html);
+        waitSearchStop();
+      }
+    });
+    clearTimeout(timeout);
+  }, 1000);
+});
+/*----------   doctores  ----------*/
+
+$('#formulario-doctores-ajax input[name="search"]').on('keydown', function () {
+  var _this3 = this;
+
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    waitSearchStart();
+    var search = $(_this3).val();
+    $.ajax({
+      type: 'POST',
+      url: _API + '/visitante/search-doctores',
+      data: {
+        search: $(_this3).val(),
+        _token: $('#formulario-doctores-ajax input[name="_token"]').val()
+      },
+      success: function success(data, _success3) {
+        var doctores = JSON.parse(data);
+        var html = '';
+        doctores.forEach(function (doctor) {
+          html += doctorCard(doctor);
+          console.log("html", html);
+        });
+
+        if (doctores.length < 1) {
+          html = "<div class=\"col\"><h2>No se encontro nada para: ".concat(search, "</h2></div>");
+        }
+
+        $('main.container .row').html(html);
+        waitSearchStop();
+      }
+    });
+    clearTimeout(timeout);
+  }, 1000);
+});
+/*----------   citas  ----------*/
+
+$('#formulario-citas-ajax input[name="search"]').on('keydown', function () {
+  var _this4 = this;
+
+  clearTimeout(timeout);
+  timeout = setTimeout(function () {
+    waitSearchStart();
+    var search = $(_this4).val();
+    $.ajax({
+      type: 'POST',
+      url: $('#formulario-citas-ajax input[name="url"]').val(),
+      data: {
+        id: $(_this4).val(),
+        _token: $('#formulario-citas-ajax input[name="_token"]').val()
+      },
+      success: function success(data, _success4) {
+        var citas = JSON.parse(data);
+        var html = '';
+        citas.forEach(function (cita) {
+          html += "\n\t\t\t\t\t<tr>\n\t\t\t\t\t<td>".concat(cita['date'], " - ").concat(cita['time'], "  </td>\n\t\t\t\t\t<td>").concat(cita['price'], "</td>\n\t\t\t\t\t<td><a class=\"link\" href=\"").concat(_URL, "/visitante/doctor/").concat(cita['doctor_id'], "\">").concat(cita['doctor_name'], "</a></td>\n\t\t\t\t\t<td><a class=\"link\" href=\"").concat(_URL, "/visitante/consultorio/").concat(cita['office_id'], "\">").concat(cita['office'], "</a></td>\n\t\t\t\t\t<td>").concat(cita['status'], "</a></td>\n\t\t\t\t\t<td>\n\t\t\t\t\t</tr>");
+        });
+
+        if (citas.length < 1) {
+          $('#nombre-paciente').html('No se encontro nada para: ' + search);
+        } else {
+          $('#nombre-paciente').html(citas[0]['name']);
+        }
+
+        $('#body-table-citas').html(html);
+        waitSearchStop();
+      }
+    });
+    clearTimeout(timeout);
+  }, 1000);
+});
+
+waitSearchStart = function waitSearchStart() {
+  $('main.container').waitMe({
+    effect: 'bounce',
+    text: 'Cargando',
+    bg: '#F5F5F5',
+    color: 'var(--principal)',
+    maxSize: '',
+    waitTime: -1,
+    textPos: 'vertical',
+    fontSize: '',
+    source: '',
+    onClose: function onClose() {}
+  });
+};
+
+waitSearchStop = function waitSearchStop() {
+  $('main.container').waitMe("hide");
+};
+
+function doctorCard(doctor) {
+  html = "\n\t<div class=\"col-sm-6 col-md-4 \">\n\t<div class=\"card card-profile\">\n\t<div class=\"card-header card-header-image\">\n\t<img style=\"max-width: 100%;\" class=\"img img-fluid\" src=\"".concat(doctor['Profileimg'], "\">\n\t</div>\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category mt-4 text-gray\"><i class=\"fal fa-file-certificate\"></i>\n\t").concat(doctor['MinMaxCost'], "</h6>\n\t<h4 class=\"card-title\"> ").concat(doctor['name'], "</h4>\n\t<p class=\"card-description\">\n\t<div class=\"stars\">");
+
+  for (j = 0; j < doctor['StarsEarned']; j++) {
+    html += '<i class="fas fa-star"></i>';
+  }
+
+  for (j = 0; j < doctor['StarsMissing']; j++) {
+    html += '<i class="fal fa-star"></i>';
+  }
+
+  html += "\n\t</div>\n\t<div>\n\t".concat(doctor['stars'], "\n\t</div>\n\n\t<div>");
+
+  if (null != doctor['specialities']) {
+    doctor['specialities'].forEach(function (speciality) {
+      html += "<span class=\"badge badge-pill badge-primary\">".concat(speciality['name'], "</span>");
+    });
+  }
+
+  html += "\t\n\t</div>\n\n\t</p>\n\t<a href=\"".concat(_URL, "/visitante/doctor/").concat(doctor['id'], "\" class=\"btn btn-info btn-round\"><i class=\"fal fa-calendar-check\"></i> Ver Calendario</a>\n\t</div>\n\t</div>\n\t</div>\n\t");
+  return html;
+}
+
+function especialidadCard(especialidad) {
+  html = "<div class=\"col-6 col-md-4 col-xl-3\">\n\t<div class=\"card card-pricing\">\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category text-gray\">\n\t<i class=\"fal fa-user-md\"></i> ".concat(especialidad['countDoctors'], " Doctores</h6>\n\t<div class=\"icon icon-info\">\n\t<i class=\"fal fa-file-certificate\"></i>\n\t</div>\n\t<h3 class=\"card-title\">").concat(especialidad['price'], " <small>consulta</small></h3>\n\t<p class=\"card-description\">\n\t<span class=\"text-uppercase text-primary\">\n\t").concat(especialidad['name'], "\n\t</span>\n\t<div class=\"stars\">");
+
+  for (j = 0; j < especialidad['StarsEarned']; j++) {
+    html += '<i class="fas fa-star"></i>';
+  }
+
+  for (j = 0; j < especialidad['StarsMissing']; j++) {
+    html += '<i class="fal fa-star"></i>';
+  }
+
+  html += "</div>\n\t<div>\n\t".concat(especialidad['stars'], "\n\t</div>\n\t</p>\n\t<a href=\"").concat(_URL, "/visitante/especialidad/").concat(especialidad['id'], "\" class=\"btn btn-info btn-round\">Ver doctores</a>\n\t</div>\n\t</div>\n\t</div>");
+  return html;
+}
 
 /***/ }),
 

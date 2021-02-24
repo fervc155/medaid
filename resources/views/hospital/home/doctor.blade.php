@@ -24,7 +24,7 @@
 			
 					@include('includes.calendar', [
 					'user_id'=>auth::user()->id,
-					'route'=>url('/get/appointments/doctor')
+					'route'=>url('/api/appointments/doctor')
 
 					])
 				</div>

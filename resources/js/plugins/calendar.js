@@ -114,7 +114,7 @@
 
 			type:'POST',
 
-			url: $('.datos-calendario #url').data('url2'),
+			url: _API+'/appointment',
 
 			data:
 			{

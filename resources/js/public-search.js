@@ -17,10 +17,10 @@ $('#formulario-especialidades-ajax input[name="search"]').on('keydown', function
 
 			type:'POST',
 
-			url:$('#formulario-especialidades-ajax input[name="url"]').val(),
+			url:_API+'/visitante/search-especialidades',
 
-			data:
-			{
+				data:
+		{
 				search: $(this).val(),
 				_token: $('#formulario-especialidades-ajax input[name="_token"]').val()
 			},
@@ -67,7 +67,7 @@ $('#formulario-especialidad-doctores-ajax input[name="search"]').on('keydown', f
 
 			type:'POST',
 
-			url:$('#formulario-especialidad-doctores-ajax input[name="url"]').val(),
+			url:_API+'/visitante/search-doctores/especialidad',
 
 			data:
 			{
@@ -121,7 +121,7 @@ $('#formulario-doctores-ajax input[name="search"]').on('keydown', function()
 
 			type:'POST',
 
-			url:$('#formulario-doctores-ajax input[name="url"]').val(),
+			url:_API+'/visitante/search-doctores',
 
 			data:
 			{

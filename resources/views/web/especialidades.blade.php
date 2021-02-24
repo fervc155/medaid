@@ -20,7 +20,7 @@
               <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
 
-              <input type="hidden" name="url" value="{{url('/visitante/search-especialidades')}}">
+               
               <input type="text" name="search" class="form-control" placeholder="Buscar" value="<?php if (isset($search)) {
                                                                                                   if (strlen($search) > 0) {
                                                                                                     echo $search;

@@ -8,15 +8,17 @@ $(document).ready(()=>
 	$(".select2").select2();
 })
 
-
  
+
+
 
 import './plugins/calendar';
 import './plugins/datatables';
 import './plugins/datepicker';
 import './plugins/waitme';
 
-import './AJAX-visitantes';
+ 
+import './public-search';
 import './Appointments/appointments.js';
 import './Appointments/appointment_comment.js';
 import './dashboard';

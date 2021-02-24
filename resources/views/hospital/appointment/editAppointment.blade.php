@@ -25,8 +25,7 @@
           {!! Form::open(['action' => ['AppointmentController@update', $appointment->id], 'method' => 'PUT']) !!}
           <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
-
-          <input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
+ 
           <input type="hidden" name="appointment_id" value="{{$appointment->id}}">
 
           <div class="form-group form-inline align-items-end">

@@ -2,7 +2,7 @@
 
 
 	<div id='id' data-id="{{$user_id}}"></div>
-	<div id='url' data-url="{{$route}}" @if(Auth::check() && ( $user_id==Auth::user()->id || Auth::user()->isOffice())) data-url2="{{url('/get/appointment')}}" @endif></div>
+	<div id='url' data-url="{{$route}}" @if(Auth::check() && ( $user_id==Auth::user()->id || Auth::user()->isOffice()))  @endif></div>
 	@csrf
 	<div id='calendar'></div>
 

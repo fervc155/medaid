@@ -145,78 +145,78 @@
 
 
 	<li class="card-collapse nav-item <?php if ($active == 'payment') {
-			echo 'active';
-		} ?>">
-		<a class="nav-link" data-toggle="collapse" href="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment"><i class="fal fa-cash-register"></i> Pagos</a>
-
-		<div id="collapsePayment" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
-			<ul class="elementos pb-1">
-				<li class="nav-item <?php if ($active == 'money') {
-					echo 'active';
-				} ?>"><a href="{{url('/payment')}}" class="nav-link"><i class="fal  fa-book"></i> Historial</a></li>
-
-
-				@if(Auth::user()->doctor())
-
-
-				<li class="nav-item <?php if ($active == 'options') {
-					echo 'active';
-				} ?>"><a href="{{url('/payment/create')}}" class="nav-link"><i class="fal fa-calendar-plus"></i> Registrar pago</a></li>
-
-				@endif
-
-			</ul>
-		</div>
-	</li>
-
-
-
-
-
-
-
-
-
-	@endif
-
-
-	@if(Auth::user()->Patient())
-
-
-	<li class="nav-item <?php if ($active == 'chatbot') {
 		echo 'active';
-	} ?>"><a href="{{url('/chatbot')}}" class="nav-link"><i class="far fa-comment-smile"></i> Asistente </a></li>
-	@endif
+	} ?>">
+	<a class="nav-link" data-toggle="collapse" href="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment"><i class="fal fa-cash-register"></i> Pagos</a>
 
-	@if(Auth::user()->Doctor())
-
-
-	<li class="nav-item <?php if ($active == 'chat') {
-		echo 'active';
-	} ?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
-	@endif
-
-	@if(Auth::user()->Office() || Auth::user()->IsPatient())
-	<li class="nav-item <?php if ($active == 'speciality') {
-		echo 'active';
-	} ?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
-	@endif
+	<div id="collapsePayment" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion-menu-responsive">
+		<ul class="elementos pb-1">
+			<li class="nav-item <?php if ($active == 'money') {
+				echo 'active';
+			} ?>"><a href="{{url('/payment')}}" class="nav-link"><i class="fal  fa-book"></i> Historial</a></li>
 
 
-	@if(Auth::user()->Admin())
-	<li class="nav-item <?php if ($active == 'user') {
-		echo 'active';
-	} ?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>
-
-	<li class="nav-item <?php if ($active == 'bills') {
-		echo 'active';
-	} ?>"><a href="{{url('/bills')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
+			@if(Auth::user()->doctor())
 
 
-	<li class="nav-item <?php if ($active == 'options') {
-		echo 'active';
-	} ?>"><a href="{{url('/options')}}" class="nav-link"><i class="fal fa-cogs"></i> Opciones</a></li>
-	@endif
+			<li class="nav-item <?php if ($active == 'options') {
+				echo 'active';
+			} ?>"><a href="{{url('/payment/create')}}" class="nav-link"><i class="fal fa-calendar-plus"></i> Registrar pago</a></li>
+
+			@endif
+
+		</ul>
+	</div>
+</li>
+
+
+
+
+
+
+
+
+
+@endif
+
+
+@if(Auth::user()->Patient())
+
+
+<li class="nav-item <?php if ($active == 'chatbot') {
+	echo 'active';
+} ?>"><a href="{{url('/chatbot')}}" class="nav-link"><i class="far fa-comment-smile"></i> Asistente </a></li>
+@endif
+
+@if(Auth::user()->Doctor())
+
+
+<li class="nav-item <?php if ($active == 'chat') {
+	echo 'active';
+} ?>"><a href="{{url('/chat')}}" class="nav-link"><i class="far fa-comments"></i> Chat</a></li>
+@endif
+
+@if(Auth::user()->Office() || Auth::user()->IsPatient())
+<li class="nav-item <?php if ($active == 'speciality') {
+	echo 'active';
+} ?>"><a href="{{url('/speciality')}}" class="nav-link"><i class="fal fa-file-certificate"></i> Especialidades</a></li>
+@endif
+
+
+@if(Auth::user()->Admin())
+<li class="nav-item <?php if ($active == 'user') {
+	echo 'active';
+} ?>"><a href="{{url('/user')}}" class="nav-link"><i class="fal fa-user"></i> Usuarios</a></li>
+
+<li class="nav-item <?php if ($active == 'bills') {
+	echo 'active';
+} ?>"><a href="{{url('/bills')}}" class="nav-link"><i class="fal  fa-chart-bar"></i> Finanzas</a></li>
+
+
+<li class="nav-item <?php if ($active == 'options') {
+	echo 'active';
+} ?>"><a href="{{url('/options')}}" class="nav-link"><i class="fal fa-cogs"></i> Opciones</a></li>
+@endif
 
 
 </ul>
@@ -255,16 +255,16 @@
 
 				</li>
 
-		 
+				
 				<li class="nav-item nav-item-button dropdown " id="plugin-notification">
-  					<a class="nav-link   overflow-y-auto" id="navbarDropdownMenuLink" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link   overflow-y-auto" id="navbarDropdownMenuLink" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
 						Notificaciones <i class="not-notification fal fa-bell"></i>
 
 						@livewire('notifications-count')
 
 
 					</a>
-										@livewire('notifications-dropdown')
+					@livewire('notifications-dropdown')
 
 
 				</li>
@@ -303,10 +303,10 @@
 						</a>
 
 
-						<a class="dropdown-item" href="{{ route('logout') }}" onclick="esperar(); event.preventDefault();
+						<a class="dropdown-item" href="{{ route('logout') }}"
+						onclick="event.preventDefault();
 						document.getElementById('logout-form').submit();">
-						<i class="fal icon fa-sign-out-alt"></i> {{__('Cerrar sesión') }}
-
+						{{ __('Logout') }}
 					</a>
 
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

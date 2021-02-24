@@ -4,7 +4,7 @@
 		<img src="{{$doctor->user()->ProfileImg}}" class="img-fluid">
 
 
-			@if(Auth::user()->isPatient())
+			@if(Auth::check() && Auth::user()->isPatient())
 				@livewire('like.heart', ['doctor_id'=>$doctor->id])
 			@endif
 		<h5 class="h4 text-light bg-secondary text-center text-capitalize mt-0 p-3"> <a href="{{$doctor->profileUrl}}">{{$doctor->name}}</a></h5>
@@ -129,9 +129,12 @@
 			</div>
 
 
+			@php 
+				$countLikes =count($doctor->likes); 
+			@endphp
 			<div class="form-inline mb-2">
 				<div class="color-principal">
-					<i class="fal fa-heart"></i> {{count($doctor->likes)}} pacientes le gusta este doctor
+					<i class="fal fa-heart"></i> A {{$countLikes}} paciente<?php if($countLikes!=1){echo 's';}?> le<?php if($countLikes!=1){echo 's';}?> gusta<?php if($countLikes!=1){echo 'n';}?> este doctor
 				</div>
 
 

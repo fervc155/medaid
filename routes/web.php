@@ -1,6 +1,5 @@
 <?php
-
-use App\Notifications\Prueba;
+ 
 use App\User;
 
 /*===========================
@@ -34,25 +33,6 @@ Route::post('/contacto','WebController@contactus')->name('contact.us');
 
 /*=====  End of WEB  ======*/
 
-
-/*===========================
-=            API            =
-===========================*/
-
-
-Route::post('/visitante/search-especialidades','API\\ApiController@searchespecialidades');
-Route::post('/visitante/search-doctores/especialidad','API\\ApiController@searchDoctorEspecialidad');
-Route::post('/visitante/search-doctores','API\\ApiController@searchDoctores')->name('api.search.doctors');
-Route::get('/get/officesdoctors/{id}','API\\ApiController@get_officesDoctors');
-
-
-//calendario
-Route::post('/get/appointment','API\\ApiController@getAppointment');
-Route::post('/get/appointments/patient','API\\ApiController@getAppointmentPatient');
-Route::post('/get/appointments/doctor','API\\ApiController@getAppointmentDoctor');
-
-
-/*=====  End of API  ======*/
 
 
 

@@ -27,9 +27,7 @@
 					<input type="hidden" name="_token" value="{{ csrf_token()}}">
 
 
-					<input type="hidden" name="url" value="{{url('/api/appointment/gettime')}}">
-
-
+			 
 					<div class="form-group form-inline align-items-end">
 						<div class="icon-form">
 							<i class="fal fa-quote-left"></i>

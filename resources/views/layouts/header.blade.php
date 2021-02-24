@@ -176,6 +176,7 @@
 
 	<script type="text/javascript">
 		let _URL = "<?php echo url('') ?>"
+		let _API = "<?php echo url('api') ?>"
 	</script>
 
 

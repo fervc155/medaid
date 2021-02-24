@@ -92,7 +92,7 @@ function appointmentAjaxLlenarHorario(fecha,doctor)
 
 			type:'POST',
 
-			url:$('.appointmentAjax input[name="url"]').val(),
+			url:_API+'/appointment/gettime',
 
 			data:
 			{
@@ -233,7 +233,7 @@ function obtenerDoctoresClinica()
 
 		type:'GET',
 
-		url:_URL+"/get/officesdoctors/"+$('.select-office.ajax').val(),
+		url:_API+"/offices/doctors/"+$('.select-office.ajax').val(),
 
 		success:function(data,success){
 			var doctores= JSON.parse(data);
