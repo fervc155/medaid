@@ -58,7 +58,7 @@ class DoctorController extends Controller
       'email' => 'required|string|email|max:255|unique:users',
       'telephone' => 'required|string|max:20',
       'sex' => 'required|string|max:1',
-      'image' => 'required|file',
+     'image' => 'required|file',
       'password' => 'required|string|min:6|confirmed',
       'address' => 'required|string|max:255',
       'birthdate' => 'required|date',
@@ -71,9 +71,11 @@ class DoctorController extends Controller
       'schedule' => 'required',
       'office_id' => 'required',
       'inTime' => 'required',
-      'outTime' => 'required',
+      'outTime' => 'required|after:inTime',
 
     ]);
+
+ 
 
       //Crear médico
       $doctor = new Doctor;
@@ -199,7 +201,7 @@ class DoctorController extends Controller
         'schedule' => 'required',
         'office_id' => 'required',
         'inTime' => 'required',
-        'outTime' => 'required',
+      'outTime' => 'required|after:inTime',
 
       ]);
  

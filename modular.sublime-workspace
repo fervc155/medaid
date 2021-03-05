@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"time",
+				"timeout〔variable〕"
+			],
+			[
 				"btn",
 				"btnConfirmDelete"
 			],
@@ -496,10 +500,6 @@
 				"str_replace"
 			],
 			[
-				"time",
-				"timepicker"
-			],
-			[
 				"remo",
 				"removeClass〔function〕"
 			],
@@ -576,7 +576,7 @@
 			"file": "resources/views/includes/calendar.blade.php",
 			"settings":
 			{
-				"buffer_size": 1766,
+				"buffer_size": 1727,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -949,7 +949,7 @@
 			"file": "resources/views/web/especialidades.blade.php",
 			"settings":
 			{
-				"buffer_size": 2953,
+				"buffer_size": 2870,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1164,13 +1164,11 @@
 			}
 		},
 		{
-			"contents": "<?php\n\nuse Illuminate\\Http\\Request;\n\n/*\n|--------------------------------------------------------------------------\n| API Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register API routes for your application. These\n| routes are loaded by the RouteServiceProvider within a group which\n| is assigned the \"api\" middleware group. Enjoy building your API!\n|\n*/\n\nRoute::middleware('auth:api')->get('/user', function (Request $request) {\n    return $request->user();\n});\n\n \n\n// Route::post('/visitante/search-especialidades','API\\\\ApiController@searchespecialidades');\n// Route::post('/visitante/search-doctores/especialidad','API\\\\ApiController@searchDoctorEspecialidad');\n// Route::post('/visitante/search-doctores','API\\\\ApiController@searchDoctores')->name('api.search.doctors');\n\nRoute::get('/offices/doctors/{id}','API\\\\ApiController@get_officesDoctors');\n\n\n// //calendario\n// Route::post('/get/appointment','API\\\\ApiController@getAppointment');\n// Route::post('/get/appointments/patient','API\\\\ApiController@getAppointmentPatient');\n// Route::post('/get/appointments/doctor','API\\\\ApiController@getAppointmentDoctor');\n\n\n\n\n \nRoute::group(['middleware' => 'auth'], function () {\n   \n\n    Route::post('appointment/gettime','API\\\\ApiController@AppointmentGetTime')->name('api.appointments.gettime');\n\n\n});",
 			"file": "routes/api.php",
-			"file_size": 1345,
-			"file_write_time": 132584261986190225,
 			"settings":
 			{
-				"buffer_size": 1366,
+				"buffer_size": 1336,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -1802,7 +1800,7 @@
 			"file": "public/js/app.js",
 			"settings":
 			{
-				"buffer_size": 38111,
+				"buffer_size": 38017,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1842,7 +1840,7 @@
 			"file": "resources/views/hospital/includes/card-profile-doctor.blade.php",
 			"settings":
 			{
-				"buffer_size": 5319,
+				"buffer_size": 5499,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2045,7 +2043,7 @@
 			"file": "resources/views/web/doctores.blade.php",
 			"settings":
 			{
-				"buffer_size": 1394,
+				"buffer_size": 1322,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2969,8 +2967,19 @@
 			"file": "resources/js/app.js",
 			"settings":
 			{
-				"buffer_size": 486,
+				"buffer_size": 487,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "let timeout;\n$('#formulario-especialidades-ajax input[name=\"search\"]').on('keydown', function()\n{\n\tclearTimeout(timeout)\n\ttimeout = setTimeout(() => {\n\t\twaitSearchStart();\n\n\t\tlet search= $(this).val();\n\n\n\t\t$.ajax({\n\n\t\t\ttype:'POST',\n\n\t\t\turl:_API+'/visitante/search-especialidades',\n\n\t\t\t\tdata:\n\t\t{\n\t\t\t\tsearch: $(this).val(),\n\t\t\t\t_token: $('#formulario-especialidades-ajax input[name=\"_token\"]').val()\n\t\t\t},\n\n\t\t\tsuccess:function(data,success){\n\t\t\t\tvar especialidades= JSON.parse(data);\n\n\t\t\t\tvar html='';\n\n\n\n\t\t\t\tespecialidades.forEach(especialidad=>\n\t\t\t\t{\n\t\t\t\t\thtml+= especialidadCard(especialidad);\n\t\t\t\t})\n\t\t\t\tif(especialidades.length<1)\n\t\t\t\t{\n\t\t\t\t\thtml=`<div class=\"col\"><h2>No se encontro nada para: '${search}</h2></div>`;\n\t\t\t\t}\t\t\t\t\n\n\t\t\t\t$('main.container .row').html(html);\n\t\t\t\twaitSearchStop();\n\n\t\t\t}\n\n\t\t});\n\t\tclearTimeout(timeout)\n\t},1000)\n});\n\n\n\n\n\n\nfunction especialidadCard(especialidad)\n{\n\thtml=\n\t`<div class=\"col-6 col-md-4 col-xl-3\">\n\t<div class=\"card card-pricing\">\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category text-gray\">\n\t<i class=\"fal fa-user-md\"></i> ${especialidad['countDoctors']} Doctores</h6>\n\t<div class=\"icon icon-info\">\n\t<i class=\"fal fa-file-certificate\"></i>\n\t</div>\n\t<h3 class=\"card-title\">${especialidad['price']} <small>consulta</small></h3>\n\t<p class=\"card-description\">\n\t<span class=\"text-uppercase text-primary\">\n\t${especialidad['name']}\n\t</span>\n\t<div class=\"stars\">`;\n\n\tfor(j=0;j<especialidad['StarsEarned'];j++)\n\t{\n\n\t\thtml+='<i class=\"fas fa-star\"></i>';\n\t}\n\tfor(j=0;j<especialidad['StarsMissing'];j++)\n\t{\n\n\t\thtml+='<i class=\"fal fa-star\"></i>';\n\t}\n\n\n\thtml+=`</div>\n\t<div>\n\t${especialidad['stars']}\n\t</div>\n\t</p>\n\t<a href=\"${_URL}/visitante/especialidad/${especialidad['id']}\" class=\"btn btn-info btn-round\">Ver doctores</a>\n\t</div>\n\t</div>\n\t</div>`;\n\n\n\treturn html;\n\n}",
+			"file": "resources/js/visitante/especialidad.js",
+			"file_size": 1903,
+			"file_write_time": 132586115210378371,
+			"settings":
+			{
+				"buffer_size": 1807,
 				"line_ending": "Windows"
 			}
 		},
@@ -3558,10 +3567,41 @@
 			}
 		},
 		{
-			"file": "resources/js/AJAX-visitantes.js",
+			"file": "resources/js/public-search.js",
 			"settings":
 			{
-				"buffer_size": 6423,
+				"buffer_size": 6360,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": " \n\n/*----------   especialidad doctores  ----------*/\nlet timeout;\n$('#formulario-especialidad-doctores-ajax input[name=\"search\"]').on('keydown', function()\n{\n\tclearTimeout(timeout)\n\ttimeout = setTimeout(() => {\n\t\twaitSearchStart();\n\n\t\tlet search= $(this).val();\n\n\t\t$.ajax({\n\n\t\t\ttype:'POST',\n\n\t\t\turl:_API+'/visitante/search-doctores/especialidad',\n\n\t\t\tdata:\n\t\t\t{\n\t\t\t\tsearch: $(this).val(),\n\t\t\t\tspeciality:$('#formulario-especialidad-doctores-ajax input[name=\"speciality\"]').val(),\n\t\t\t\t_token: $('#formulario-especialidad-doctores-ajax input[name=\"_token\"]').val()\n\t\t\t},\n\n\t\t\tsuccess:function(data,success){\n\n\t\t\t\tvar doctores= JSON.parse(data);\n\t\t\t\tvar html='';\n\n\n\t\t\t\tdoctores.forEach(doctor=>\n\t\t\t\t{\n\n\t\t\t\t\thtml += doctorCard(doctor);\n\t\t\t\t})\n\n\t\t\t\tif(doctores.length<1)\n\t\t\t\t{\n\t\t\t\t\thtml=`<div class=\"col\"><h2>No se encontro nada para: ${search} </h2></div>`;\n\t\t\t\t}\n\n\t\t\t\t$('main.container .row').html(html);\n\t\t\t\twaitSearchStop();\n\n\t\t\t}\n\n\t\t});\n\t\tclearTimeout(timeout)\n\t},1000)\n});\n\n\n\n\n\n\n\n\n\nfunction doctorCard(doctor)\n{\n\n\thtml = `\n\t<div class=\"col-sm-6 col-md-4 \">\n\t<div class=\"card card-profile\">\n\t<div class=\"card-header card-header-image\">\n\t<img style=\"max-width: 100%;\" class=\"img img-fluid\" src=\"${doctor['Profileimg']}\">\n\t</div>\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category mt-4 text-gray\"><i class=\"fal fa-file-certificate\"></i>\n\t${doctor['MinMaxCost']}</h6>\n\t<h4 class=\"card-title\"> ${doctor['name']}</h4>\n\t<p class=\"card-description\">\n\t<div class=\"stars\">`\n\n\tfor(j=0;j<doctor['StarsEarned'];j++)\n\t{\n\n\t\thtml+='<i class=\"fas fa-star\"></i>';\n\t}\n\n\tfor(j=0;j<doctor['StarsMissing'];j++)\n\t{\n\n\t\thtml+='<i class=\"fal fa-star\"></i>';\n\t}\n\n\n\thtml+=`\n\t</div>\n\t<div>\n\t${doctor['stars']}\n\t</div>\n\n\t<div>`;\n\n\n\n\tif(null != doctor['specialities'])\n\t{\n\n\t\tdoctor['specialities'].forEach(speciality=>\n\t\t{\n\t\t\thtml+=`<span class=\"badge badge-pill badge-primary\">${speciality['name']}</span>`;\n\n\t\t}) \n\n\t}\n\thtml+=`\t\n\t</div>\n\n\t</p>\n\t<a href=\"${_URL}/visitante/doctor/${doctor['id']}\" class=\"btn btn-info btn-round\"><i class=\"fal fa-calendar-check\"></i> Ver Calendario</a>\n\t</div>\n\t</div>\n\t</div>\n\t`;\n\n\treturn html;\n\n\n}\n\n\n",
+			"file": "resources/js/visitante/especialidad-doctor.js",
+			"file_size": 2230,
+			"file_write_time": 132586115078950854,
+			"settings":
+			{
+				"buffer_size": 2105,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\n/*----------   doctores  ----------*/\nlet timeout;\n$('#formulario-doctores-ajax input[name=\"search\"]').on('keydown', function()\n{\n\tclearTimeout(timeout)\n\ttimeout = setTimeout(() => {\n\t\twaitSearchStart();\n\n\t\tlet search= $(this).val();\n\n\n\t\t$.ajax({\n\n\t\t\ttype:'POST',\n\n\t\t\turl:_API+'/visitante/search-doctores',\n\n\t\t\tdata:\n\t\t\t{\n\t\t\t\tsearch: $(this).val(),\n\t\t\t\t_token: $('#formulario-doctores-ajax input[name=\"_token\"]').val()\n\t\t\t},\n\n\t\t\tsuccess: (data,success)=>{\n\t\t\t\tvar doctores= JSON.parse(data);\n\n\t\t\t\tvar html='';\n\n\n\n\t\t\t\tdoctores.forEach(doctor=>\n\t\t\t\t{\n\n\t\t\t\t\thtml+= doctorCard(doctor)\n\t\t\t\t\tconsole.log(\"html\", html);\n\n\n\t\t\t\t})\n\n\n\t\t\t\tif(doctores.length<1)\n\t\t\t\t{\n\t\t\t\t\thtml=`<div class=\"col\"><h2>No se encontro nada para: ${search}</h2></div>`;\n\t\t\t\t}\n\n\t\t\t\t$('main.container .row').html(html);\n\t\t\t\twaitSearchStop();\n\n\t\t\t}\n\n\t\t});\n\t\tclearTimeout(timeout)\n\t},1000)\n});\n\n\n\n\n\n\n\nfunction doctorCard(doctor)\n{\n\n\thtml = `\n\t<div class=\"col-sm-6 col-md-4 \">\n\t<div class=\"card card-profile\">\n\t<div class=\"card-header card-header-image\">\n\t<img style=\"max-width: 100%;\" class=\"img img-fluid\" src=\"${doctor['Profileimg']}\">\n\t</div>\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category mt-4 text-gray\"><i class=\"fal fa-file-certificate\"></i>\n\t${doctor['MinMaxCost']}</h6>\n\t<h4 class=\"card-title\"> ${doctor['name']}</h4>\n\t<p class=\"card-description\">\n\t<div class=\"stars\">`\n\n\tfor(j=0;j<doctor['StarsEarned'];j++)\n\t{\n\n\t\thtml+='<i class=\"fas fa-star\"></i>';\n\t}\n\n\tfor(j=0;j<doctor['StarsMissing'];j++)\n\t{\n\n\t\thtml+='<i class=\"fal fa-star\"></i>';\n\t}\n\n\n\thtml+=`\n\t</div>\n\t<div>\n\t${doctor['stars']}\n\t</div>\n\n\t<div>`;\n\n\n\n\tif(null != doctor['specialities'])\n\t{\n\n\t\tdoctor['specialities'].forEach(speciality=>\n\t\t{\n\t\t\thtml+=`<span class=\"badge badge-pill badge-primary\">${speciality['name']}</span>`;\n\n\t\t}) \n\n\t}\n\thtml+=`\t\n\t</div>\n\n\t</p>\n\t<a href=\"${_URL}/visitante/doctor/${doctor['id']}\" class=\"btn btn-info btn-round\"><i class=\"fal fa-calendar-check\"></i> Ver Calendario</a>\n\t</div>\n\t</div>\n\t</div>\n\t`;\n\n\treturn html;\n\n\n}\n\n\n",
+			"file": "resources/js/visitante/doctor.js",
+			"file_size": 2114,
+			"file_write_time": 132586115043778842,
+			"settings":
+			{
+				"buffer_size": 1987,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/js/plugins/calendar.js",
+			"settings":
+			{
+				"buffer_size": 2297,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -3824,6 +3864,10 @@
 		"/C/xampp/htdocs/laravel/hospital/resources",
 		"/C/xampp/htdocs/laravel/hospital/resources/js",
 		"/C/xampp/htdocs/laravel/hospital/resources/js/Appointments",
+		"/C/xampp/htdocs/laravel/hospital/resources/js/plugins",
+		"/C/xampp/htdocs/laravel/hospital/resources/views",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/home",
 		"/C/xampp/htdocs/laravel/hospital/routes"
 	],
 	"file_history":
@@ -3973,6 +4017,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"s",
+			"@endif",
+			"@if",
+			"public",
+			"url2",
 			"api",
 			"api/",
 			"_URL",
@@ -4095,12 +4144,7 @@
 			"doctor(",
 			"$data['condition_id']",
 			",",
-			"q",
-			"patient_dni",
-			"id",
-			"office",
-			"  \n",
-			"admin"
+			"q"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -4118,7 +4162,7 @@
 	"groups":
 	[
 		{
-			"selected": 279,
+			"selected": 146,
 			"sheets":
 			[
 				{
@@ -4155,7 +4199,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
@@ -4197,7 +4241,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 324,
+					"stack_index": 328,
 					"type": "text"
 				},
 				{
@@ -4244,7 +4288,7 @@
 						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 257,
+					"stack_index": 263,
 					"type": "text"
 				},
 				{
@@ -4280,7 +4324,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 340,
+					"stack_index": 344,
 					"type": "text"
 				},
 				{
@@ -4324,7 +4368,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 218,
+					"stack_index": 226,
 					"type": "text"
 				},
 				{
@@ -4371,7 +4415,7 @@
 						"translation.y": 375.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 255,
+					"stack_index": 261,
 					"type": "text"
 				},
 				{
@@ -4380,15 +4424,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1766,
+						"buffer_size": 1727,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								959,
-								959
+								91,
+								91
 							]
 						],
 						"settings":
@@ -4399,10 +4443,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 251,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -4432,7 +4476,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 252,
+					"stack_index": 258,
 					"type": "text"
 				},
 				{
@@ -4471,7 +4515,7 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
@@ -4514,7 +4558,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 336,
+					"stack_index": 340,
 					"type": "text"
 				},
 				{
@@ -4577,7 +4621,7 @@
 						"translation.y": 5.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 150,
+					"stack_index": 161,
 					"type": "text"
 				},
 				{
@@ -4631,7 +4675,7 @@
 						"translation.y": 877.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 182,
+					"stack_index": 191,
 					"type": "text"
 				},
 				{
@@ -4660,7 +4704,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 316,
+					"stack_index": 320,
 					"type": "text"
 				},
 				{
@@ -4713,7 +4757,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 212,
+					"stack_index": 221,
 					"type": "text"
 				},
 				{
@@ -4750,7 +4794,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 321,
+					"stack_index": 325,
 					"type": "text"
 				},
 				{
@@ -4782,7 +4826,7 @@
 						"translation.y": 233.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 152,
+					"stack_index": 163,
 					"type": "text"
 				},
 				{
@@ -4813,7 +4857,7 @@
 						"translation.y": 118.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 173,
+					"stack_index": 182,
 					"type": "text"
 				},
 				{
@@ -4853,7 +4897,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
@@ -4889,7 +4933,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 275,
+					"stack_index": 279,
 					"type": "text"
 				},
 				{
@@ -4918,7 +4962,7 @@
 						"translation.y": 611.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 308,
+					"stack_index": 312,
 					"type": "text"
 				},
 				{
@@ -4948,7 +4992,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 291,
+					"stack_index": 295,
 					"type": "text"
 				},
 				{
@@ -5014,7 +5058,7 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 211,
+					"stack_index": 220,
 					"type": "text"
 				},
 				{
@@ -5046,7 +5090,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 143,
+					"stack_index": 154,
 					"type": "text"
 				},
 				{
@@ -5085,7 +5129,7 @@
 						"translation.y": 103.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 198,
+					"stack_index": 207,
 					"type": "text"
 				},
 				{
@@ -5127,7 +5171,7 @@
 						"translation.y": 78.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
@@ -5159,7 +5203,7 @@
 						"translation.y": 100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 141,
+					"stack_index": 152,
 					"type": "text"
 				},
 				{
@@ -5191,7 +5235,7 @@
 						"translation.y": 2531.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 125,
+					"stack_index": 136,
 					"type": "text"
 				},
 				{
@@ -5222,7 +5266,7 @@
 						"translation.y": 651.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 140,
+					"stack_index": 151,
 					"type": "text"
 				},
 				{
@@ -5254,7 +5298,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 126,
+					"stack_index": 137,
 					"type": "text"
 				},
 				{
@@ -5291,7 +5335,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 322,
+					"stack_index": 326,
 					"type": "text"
 				},
 				{
@@ -5333,7 +5377,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 142,
+					"stack_index": 153,
 					"type": "text"
 				},
 				{
@@ -5396,7 +5440,7 @@
 						"translation.y": 2907.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
@@ -5427,7 +5471,7 @@
 						"translation.y": 408.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
@@ -5457,7 +5501,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 110,
+					"stack_index": 123,
 					"type": "text"
 				},
 				{
@@ -5487,7 +5531,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 273,
+					"stack_index": 277,
 					"type": "text"
 				},
 				{
@@ -5522,7 +5566,7 @@
 						"translation.y": 393.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 330,
+					"stack_index": 334,
 					"type": "text"
 				},
 				{
@@ -5570,7 +5614,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 281,
+					"stack_index": 285,
 					"type": "text"
 				},
 				{
@@ -5618,7 +5662,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 188,
+					"stack_index": 197,
 					"type": "text"
 				},
 				{
@@ -5668,7 +5712,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 280,
+					"stack_index": 284,
 					"type": "text"
 				},
 				{
@@ -5710,7 +5754,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 279,
+					"stack_index": 283,
 					"type": "text"
 				},
 				{
@@ -5755,7 +5799,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 278,
+					"stack_index": 282,
 					"type": "text"
 				},
 				{
@@ -5796,7 +5840,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 158,
+					"stack_index": 168,
 					"type": "text"
 				},
 				{
@@ -5827,7 +5871,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 144,
+					"stack_index": 155,
 					"type": "text"
 				},
 				{
@@ -5856,7 +5900,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 339,
+					"stack_index": 343,
 					"type": "text"
 				},
 				{
@@ -5912,7 +5956,7 @@
 						"translation.y": 19.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 169,
+					"stack_index": 178,
 					"type": "text"
 				},
 				{
@@ -5967,7 +6011,7 @@
 						"translation.y": 2484.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
@@ -6002,7 +6046,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 134,
+					"stack_index": 145,
 					"type": "text"
 				},
 				{
@@ -6011,15 +6055,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2953,
+						"buffer_size": 2870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								773,
-								773
+								649,
+								649
 							]
 						],
 						"settings":
@@ -6094,7 +6138,7 @@
 						"translation.y": 325.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 237,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -6147,7 +6191,7 @@
 						"translation.y": 345.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
@@ -6178,7 +6222,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 147,
+					"stack_index": 158,
 					"type": "text"
 				},
 				{
@@ -6208,7 +6252,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 156,
+					"stack_index": 167,
 					"type": "text"
 				},
 				{
@@ -6240,7 +6284,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 151,
+					"stack_index": 162,
 					"type": "text"
 				},
 				{
@@ -6271,7 +6315,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 202,
+					"stack_index": 211,
 					"type": "text"
 				},
 				{
@@ -6301,7 +6345,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 293,
+					"stack_index": 297,
 					"type": "text"
 				},
 				{
@@ -6348,7 +6392,7 @@
 						"translation.y": 128.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 239,
+					"stack_index": 246,
 					"type": "text"
 				},
 				{
@@ -6382,7 +6426,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 346,
+					"stack_index": 350,
 					"type": "text"
 				},
 				{
@@ -6429,7 +6473,7 @@
 						"translation.y": 2236.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 225,
+					"stack_index": 233,
 					"type": "text"
 				},
 				{
@@ -6751,7 +6795,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 180,
+					"stack_index": 189,
 					"type": "text"
 				},
 				{
@@ -6798,7 +6842,7 @@
 						"translation.y": 1511.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 221,
+					"stack_index": 229,
 					"type": "text"
 				},
 				{
@@ -6864,7 +6908,7 @@
 						"translation.y": 1339.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
@@ -6896,7 +6940,7 @@
 						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 210,
+					"stack_index": 219,
 					"type": "text"
 				},
 				{
@@ -6928,7 +6972,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 209,
+					"stack_index": 218,
 					"type": "text"
 				},
 				{
@@ -6963,10 +7007,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 920.0,
+						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 223,
+					"stack_index": 231,
 					"type": "text"
 				},
 				{
@@ -7000,7 +7044,7 @@
 						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 344,
+					"stack_index": 348,
 					"type": "text"
 				},
 				{
@@ -7032,7 +7076,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 343,
+					"stack_index": 347,
 					"type": "text"
 				},
 				{
@@ -7070,7 +7114,7 @@
 						"translation.y": 344.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 133,
+					"stack_index": 144,
 					"type": "text"
 				},
 				{
@@ -7102,7 +7146,7 @@
 						"translation.y": 470.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 132,
+					"stack_index": 143,
 					"type": "text"
 				},
 				{
@@ -7157,7 +7201,7 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 342,
+					"stack_index": 346,
 					"type": "text"
 				},
 				{
@@ -7199,7 +7243,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 335,
+					"stack_index": 339,
 					"type": "text"
 				},
 				{
@@ -7251,7 +7295,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 310,
+					"stack_index": 314,
 					"type": "text"
 				},
 				{
@@ -7304,7 +7348,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 334,
+					"stack_index": 338,
 					"type": "text"
 				},
 				{
@@ -7386,7 +7430,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
@@ -7395,15 +7439,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1366,
+						"buffer_size": 1336,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1264,
-								1283
+								636,
+								675
 							]
 						],
 						"settings":
@@ -7413,10 +7457,10 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 552.0,
+						"translation.y": 253.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -7448,7 +7492,7 @@
 						"translation.y": 356.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 111,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
@@ -7478,7 +7522,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 166,
+					"stack_index": 175,
 					"type": "text"
 				},
 				{
@@ -7511,7 +7555,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 131,
+					"stack_index": 142,
 					"type": "text"
 				},
 				{
@@ -7544,7 +7588,7 @@
 						"translation.y": 384.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 130,
+					"stack_index": 141,
 					"type": "text"
 				},
 				{
@@ -7575,7 +7619,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 215,
+					"stack_index": 224,
 					"type": "text"
 				},
 				{
@@ -7607,7 +7651,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 183,
+					"stack_index": 192,
 					"type": "text"
 				},
 				{
@@ -7638,7 +7682,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
@@ -7670,7 +7714,7 @@
 						"translation.y": 69.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
@@ -7700,7 +7744,7 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 290,
+					"stack_index": 294,
 					"type": "text"
 				},
 				{
@@ -7731,7 +7775,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 246,
+					"stack_index": 253,
 					"type": "text"
 				},
 				{
@@ -7769,7 +7813,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 236,
+					"stack_index": 244,
 					"type": "text"
 				},
 				{
@@ -7814,7 +7858,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 233,
+					"stack_index": 241,
 					"type": "text"
 				},
 				{
@@ -7853,7 +7897,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 235,
+					"stack_index": 243,
 					"type": "text"
 				},
 				{
@@ -7895,7 +7939,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 232,
+					"stack_index": 240,
 					"type": "text"
 				},
 				{
@@ -7935,7 +7979,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 231,
+					"stack_index": 239,
 					"type": "text"
 				},
 				{
@@ -7973,7 +8017,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 234,
+					"stack_index": 242,
 					"type": "text"
 				},
 				{
@@ -8008,7 +8052,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 229,
+					"stack_index": 237,
 					"type": "text"
 				},
 				{
@@ -8065,7 +8109,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 115,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
@@ -8122,7 +8166,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 161,
+					"stack_index": 171,
 					"type": "text"
 				},
 				{
@@ -8160,7 +8204,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
@@ -8205,7 +8249,7 @@
 						"translation.y": 1014.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 240,
+					"stack_index": 247,
 					"type": "text"
 				},
 				{
@@ -8258,7 +8302,7 @@
 						"translation.y": 4877.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -8288,7 +8332,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
@@ -8320,7 +8364,7 @@
 						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 341,
+					"stack_index": 345,
 					"type": "text"
 				},
 				{
@@ -8349,7 +8393,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 347,
+					"stack_index": 351,
 					"type": "text"
 				},
 				{
@@ -8443,7 +8487,7 @@
 						"translation.y": 344.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
@@ -8474,7 +8518,7 @@
 						"translation.y": 1311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
@@ -8543,7 +8587,7 @@
 						"translation.y": 5063.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -8575,7 +8619,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 159,
+					"stack_index": 169,
 					"type": "text"
 				},
 				{
@@ -8607,7 +8651,7 @@
 						"translation.y": 323.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 174,
+					"stack_index": 183,
 					"type": "text"
 				},
 				{
@@ -8638,7 +8682,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 194,
+					"stack_index": 203,
 					"type": "text"
 				},
 				{
@@ -8670,7 +8714,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 165,
+					"stack_index": 174,
 					"type": "text"
 				},
 				{
@@ -8718,7 +8762,7 @@
 						"translation.y": 4389.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
@@ -8791,7 +8835,7 @@
 						"translation.y": 819.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 127,
+					"stack_index": 138,
 					"type": "text"
 				},
 				{
@@ -8826,7 +8870,7 @@
 						"translation.y": 256.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 268,
+					"stack_index": 274,
 					"type": "text"
 				},
 				{
@@ -8858,7 +8902,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 267,
+					"stack_index": 273,
 					"type": "text"
 				},
 				{
@@ -8898,7 +8942,7 @@
 						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 264,
+					"stack_index": 270,
 					"type": "text"
 				},
 				{
@@ -8946,7 +8990,7 @@
 						"translation.y": 20438.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
@@ -8984,7 +9028,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 216,
+					"stack_index": 225,
 					"type": "text"
 				},
 				{
@@ -9017,7 +9061,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 207,
+					"stack_index": 216,
 					"type": "text"
 				},
 				{
@@ -9056,7 +9100,7 @@
 						"translation.y": 520.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 266,
+					"stack_index": 272,
 					"type": "text"
 				},
 				{
@@ -9092,7 +9136,7 @@
 						"translation.y": 347.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 129,
+					"stack_index": 140,
 					"type": "text"
 				},
 				{
@@ -9125,7 +9169,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 205,
+					"stack_index": 214,
 					"type": "text"
 				},
 				{
@@ -9165,7 +9209,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 329,
+					"stack_index": 333,
 					"type": "text"
 				},
 				{
@@ -9213,7 +9257,7 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 325,
+					"stack_index": 329,
 					"type": "text"
 				},
 				{
@@ -9246,7 +9290,7 @@
 						"translation.y": 747.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 297,
+					"stack_index": 301,
 					"type": "text"
 				},
 				{
@@ -9284,7 +9328,7 @@
 						"translation.y": 4059.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 201,
+					"stack_index": 210,
 					"type": "text"
 				},
 				{
@@ -9346,7 +9390,7 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 227,
+					"stack_index": 235,
 					"type": "text"
 				},
 				{
@@ -9394,7 +9438,7 @@
 						"translation.y": 353.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 213,
+					"stack_index": 222,
 					"type": "text"
 				},
 				{
@@ -9451,7 +9495,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 203,
+					"stack_index": 212,
 					"type": "text"
 				},
 				{
@@ -9487,7 +9531,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 128,
+					"stack_index": 139,
 					"type": "text"
 				},
 				{
@@ -9536,7 +9580,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 228,
+					"stack_index": 236,
 					"type": "text"
 				},
 				{
@@ -9584,7 +9628,7 @@
 						"translation.y": 1131.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 263,
+					"stack_index": 269,
 					"type": "text"
 				},
 				{
@@ -9629,7 +9673,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 265,
+					"stack_index": 271,
 					"type": "text"
 				},
 				{
@@ -9681,7 +9725,7 @@
 						"translation.y": 149.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 260,
+					"stack_index": 266,
 					"type": "text"
 				},
 				{
@@ -9741,7 +9785,7 @@
 						"translation.y": 36.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
@@ -9787,7 +9831,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 315,
+					"stack_index": 319,
 					"type": "text"
 				},
 				{
@@ -9816,7 +9860,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 112,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
@@ -9845,7 +9889,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 113,
+					"stack_index": 126,
 					"type": "text"
 				},
 				{
@@ -9877,7 +9921,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 124,
+					"stack_index": 135,
 					"type": "text"
 				},
 				{
@@ -9909,7 +9953,7 @@
 						"translation.y": 1121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 123,
+					"stack_index": 134,
 					"type": "text"
 				},
 				{
@@ -9941,7 +9985,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 122,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
@@ -9977,7 +10021,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 253,
+					"stack_index": 259,
 					"type": "text"
 				},
 				{
@@ -10012,7 +10056,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 181,
+					"stack_index": 190,
 					"type": "text"
 				},
 				{
@@ -10043,7 +10087,7 @@
 						"translation.y": 181.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 184,
+					"stack_index": 193,
 					"type": "text"
 				},
 				{
@@ -10074,7 +10118,7 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 282,
+					"stack_index": 286,
 					"type": "text"
 				},
 				{
@@ -10134,7 +10178,7 @@
 						"translation.y": 172.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
@@ -10166,7 +10210,7 @@
 						"translation.y": 441.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
@@ -10230,7 +10274,7 @@
 						"translation.y": 1587.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
@@ -10239,7 +10283,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 38111,
+						"buffer_size": 38017,
 						"regions":
 						{
 						},
@@ -10254,13 +10298,15 @@
 						{
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 10489.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
@@ -10292,7 +10338,7 @@
 						"translation.y": 1798.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
@@ -10327,7 +10373,7 @@
 						"translation.y": 1980.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 284,
+					"stack_index": 288,
 					"type": "text"
 				},
 				{
@@ -10373,7 +10419,7 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 160,
+					"stack_index": 170,
 					"type": "text"
 				},
 				{
@@ -10382,15 +10428,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5319,
+						"buffer_size": 5499,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								5319
+								2703,
+								2706
 							]
 						],
 						"settings":
@@ -10415,10 +10461,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 271.0,
+						"translation.y": 2829.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 121,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -10450,7 +10496,7 @@
 						"translation.y": 97.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 119,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
@@ -10480,7 +10526,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 167,
+					"stack_index": 176,
 					"type": "text"
 				},
 				{
@@ -10511,7 +10557,7 @@
 						"translation.y": 572.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 163,
+					"stack_index": 172,
 					"type": "text"
 				},
 				{
@@ -10541,7 +10587,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 164,
+					"stack_index": 173,
 					"type": "text"
 				},
 				{
@@ -10573,7 +10619,7 @@
 						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 313,
+					"stack_index": 317,
 					"type": "text"
 				},
 				{
@@ -10605,7 +10651,7 @@
 						"translation.y": 320.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 311,
+					"stack_index": 315,
 					"type": "text"
 				},
 				{
@@ -10637,7 +10683,7 @@
 						"translation.y": 65.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 277,
+					"stack_index": 281,
 					"type": "text"
 				},
 				{
@@ -10668,7 +10714,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 192,
+					"stack_index": 201,
 					"type": "text"
 				},
 				{
@@ -10700,7 +10746,7 @@
 						"translation.y": 126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 153,
+					"stack_index": 164,
 					"type": "text"
 				},
 				{
@@ -10732,7 +10778,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 286,
+					"stack_index": 290,
 					"type": "text"
 				},
 				{
@@ -10763,7 +10809,7 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 154,
+					"stack_index": 165,
 					"type": "text"
 				},
 				{
@@ -10794,7 +10840,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 242,
+					"stack_index": 249,
 					"type": "text"
 				},
 				{
@@ -10825,7 +10871,7 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 245,
+					"stack_index": 252,
 					"type": "text"
 				},
 				{
@@ -10856,7 +10902,7 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 241,
+					"stack_index": 248,
 					"type": "text"
 				},
 				{
@@ -10898,7 +10944,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 319,
+					"stack_index": 323,
 					"type": "text"
 				},
 				{
@@ -10941,7 +10987,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 272,
+					"stack_index": 276,
 					"type": "text"
 				},
 				{
@@ -10980,7 +11026,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 326,
+					"stack_index": 330,
 					"type": "text"
 				},
 				{
@@ -11018,7 +11064,7 @@
 						"translation.y": 4939.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 222,
+					"stack_index": 230,
 					"type": "text"
 				},
 				{
@@ -11058,7 +11104,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 250,
+					"stack_index": 257,
 					"type": "text"
 				},
 				{
@@ -11087,7 +11133,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 331,
+					"stack_index": 335,
 					"type": "text"
 				},
 				{
@@ -11146,7 +11192,7 @@
 						"translation.y": 140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 238,
+					"stack_index": 245,
 					"type": "text"
 				},
 				{
@@ -11189,7 +11235,7 @@
 						"translation.y": 3089.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 136,
+					"stack_index": 147,
 					"type": "text"
 				},
 				{
@@ -11198,15 +11244,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1394,
+						"buffer_size": 1322,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								633,
+								633
 							]
 						],
 						"settings":
@@ -11243,10 +11289,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 416.0,
+						"translation.y": 71.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 162,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -11279,7 +11325,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 120,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
@@ -11321,7 +11367,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 116,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
@@ -11363,7 +11409,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 262,
+					"stack_index": 268,
 					"type": "text"
 				},
 				{
@@ -11399,7 +11445,7 @@
 						"translation.y": 193.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 206,
+					"stack_index": 215,
 					"type": "text"
 				},
 				{
@@ -11441,7 +11487,7 @@
 						"translation.y": 422.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 261,
+					"stack_index": 267,
 					"type": "text"
 				},
 				{
@@ -11477,7 +11523,7 @@
 						"translation.y": 97.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 259,
+					"stack_index": 265,
 					"type": "text"
 				},
 				{
@@ -11516,7 +11562,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 208,
+					"stack_index": 217,
 					"type": "text"
 				},
 				{
@@ -11558,7 +11604,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 178,
+					"stack_index": 187,
 					"type": "text"
 				},
 				{
@@ -11593,7 +11639,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 179,
+					"stack_index": 188,
 					"type": "text"
 				},
 				{
@@ -11623,7 +11669,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 224,
+					"stack_index": 232,
 					"type": "text"
 				},
 				{
@@ -11665,7 +11711,7 @@
 						"translation.y": 62.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 114,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
@@ -11722,7 +11768,7 @@
 						"translation.y": 151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 149,
+					"stack_index": 160,
 					"type": "text"
 				},
 				{
@@ -11761,7 +11807,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 323,
+					"stack_index": 327,
 					"type": "text"
 				},
 				{
@@ -11821,7 +11867,7 @@
 						"translation.y": 5865.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
@@ -11852,7 +11898,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 220,
+					"stack_index": 228,
 					"type": "text"
 				},
 				{
@@ -11884,7 +11930,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 219,
+					"stack_index": 227,
 					"type": "text"
 				},
 				{
@@ -11916,7 +11962,7 @@
 						"translation.y": 44.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 190,
+					"stack_index": 199,
 					"type": "text"
 				},
 				{
@@ -11949,7 +11995,7 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 309,
+					"stack_index": 313,
 					"type": "text"
 				},
 				{
@@ -11982,7 +12028,7 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 305,
+					"stack_index": 309,
 					"type": "text"
 				},
 				{
@@ -12015,7 +12061,7 @@
 						"translation.y": 8.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
@@ -12047,7 +12093,7 @@
 						"translation.y": 205.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
@@ -12079,7 +12125,7 @@
 						"translation.y": 304.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
@@ -12109,7 +12155,7 @@
 						"translation.y": 359.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
@@ -12140,7 +12186,7 @@
 						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
@@ -12171,7 +12217,7 @@
 						"translation.y": 132.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
@@ -12202,7 +12248,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
@@ -12232,7 +12278,7 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
@@ -12264,7 +12310,7 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
@@ -12296,7 +12342,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
@@ -12326,7 +12372,7 @@
 						"translation.y": 201.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
@@ -12357,7 +12403,7 @@
 						"translation.y": 663.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
@@ -12388,7 +12434,7 @@
 						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
@@ -12419,7 +12465,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
@@ -12450,7 +12496,7 @@
 						"translation.y": 117.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
@@ -12489,7 +12535,7 @@
 						"translation.y": 484.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
@@ -12520,7 +12566,7 @@
 						"translation.y": 404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
@@ -12551,7 +12597,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
@@ -12582,7 +12628,7 @@
 						"translation.y": 1518.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
@@ -12612,7 +12658,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
@@ -12641,7 +12687,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
@@ -12674,7 +12720,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 294,
+					"stack_index": 298,
 					"type": "text"
 				},
 				{
@@ -12704,7 +12750,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 295,
+					"stack_index": 299,
 					"type": "text"
 				},
 				{
@@ -12733,7 +12779,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
@@ -12762,7 +12808,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
@@ -12793,7 +12839,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
@@ -12825,7 +12871,7 @@
 						"translation.y": 380.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
@@ -12856,7 +12902,7 @@
 						"translation.y": 4632.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
@@ -12887,7 +12933,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 296,
+					"stack_index": 300,
 					"type": "text"
 				},
 				{
@@ -12920,7 +12966,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 298,
+					"stack_index": 302,
 					"type": "text"
 				},
 				{
@@ -12951,7 +12997,7 @@
 						"translation.y": 20.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 285,
+					"stack_index": 289,
 					"type": "text"
 				},
 				{
@@ -12967,8 +13013,8 @@
 						"selection":
 						[
 							[
-								611,
-								611
+								596,
+								596
 							]
 						],
 						"settings":
@@ -12983,7 +13029,7 @@
 						"translation.y": 285.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 217,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -13015,7 +13061,7 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 199,
+					"stack_index": 208,
 					"type": "text"
 				},
 				{
@@ -13047,7 +13093,7 @@
 						"translation.y": 114.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 200,
+					"stack_index": 209,
 					"type": "text"
 				},
 				{
@@ -13078,7 +13124,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 157,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -13094,8 +13140,8 @@
 						"selection":
 						[
 							[
-								31,
-								31
+								192,
+								192
 							]
 						],
 						"settings":
@@ -13109,7 +13155,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 118,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -13141,7 +13187,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 148,
+					"stack_index": 159,
 					"type": "text"
 				},
 				{
@@ -13171,7 +13217,7 @@
 						"translation.y": 138.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 117,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
@@ -13203,7 +13249,7 @@
 						"translation.y": 213.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 146,
+					"stack_index": 157,
 					"type": "text"
 				},
 				{
@@ -13219,8 +13265,8 @@
 						"selection":
 						[
 							[
-								478,
-								482
+								418,
+								369
 							]
 						],
 						"settings":
@@ -13234,7 +13280,7 @@
 						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 270,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -13265,7 +13311,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 269,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -13296,7 +13342,7 @@
 						"translation.y": 411.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 292,
+					"stack_index": 296,
 					"type": "text"
 				},
 				{
@@ -13328,7 +13374,7 @@
 						"translation.y": 146.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 137,
+					"stack_index": 148,
 					"type": "text"
 				},
 				{
@@ -13360,7 +13406,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 139,
+					"stack_index": 150,
 					"type": "text"
 				},
 				{
@@ -13392,7 +13438,7 @@
 						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 138,
+					"stack_index": 149,
 					"type": "text"
 				},
 				{
@@ -13429,7 +13475,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 274,
+					"stack_index": 278,
 					"type": "text"
 				},
 				{
@@ -13464,7 +13510,7 @@
 						"translation.y": 179.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 320,
+					"stack_index": 324,
 					"type": "text"
 				},
 				{
@@ -13500,7 +13546,7 @@
 						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 338,
+					"stack_index": 342,
 					"type": "text"
 				},
 				{
@@ -13548,7 +13594,7 @@
 						"translation.y": 89.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 276,
+					"stack_index": 280,
 					"type": "text"
 				},
 				{
@@ -13611,7 +13657,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 185,
+					"stack_index": 194,
 					"type": "text"
 				},
 				{
@@ -13643,7 +13689,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 271,
+					"stack_index": 275,
 					"type": "text"
 				},
 				{
@@ -13674,7 +13720,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 177,
+					"stack_index": 186,
 					"type": "text"
 				},
 				{
@@ -13705,7 +13751,7 @@
 						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 176,
+					"stack_index": 185,
 					"type": "text"
 				},
 				{
@@ -13733,7 +13779,7 @@
 						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 317,
+					"stack_index": 321,
 					"type": "text"
 				},
 				{
@@ -13763,7 +13809,7 @@
 						"translation.y": 2700.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 318,
+					"stack_index": 322,
 					"type": "text"
 				},
 				{
@@ -13857,7 +13903,7 @@
 						"translation.y": 87.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 170,
+					"stack_index": 179,
 					"type": "text"
 				},
 				{
@@ -13902,7 +13948,7 @@
 						"translation.y": 6184.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 226,
+					"stack_index": 234,
 					"type": "text"
 				},
 				{
@@ -13953,7 +13999,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 254,
+					"stack_index": 260,
 					"type": "text"
 				},
 				{
@@ -13982,7 +14028,7 @@
 						"translation.y": 405.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
@@ -14014,7 +14060,7 @@
 						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
@@ -14046,7 +14092,7 @@
 						"translation.y": 47.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
@@ -14078,7 +14124,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
@@ -14110,7 +14156,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
@@ -14140,7 +14186,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
@@ -14172,7 +14218,7 @@
 						"translation.y": 1281.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
@@ -14204,7 +14250,7 @@
 						"translation.y": 4278.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
@@ -14235,7 +14281,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
@@ -14259,13 +14305,14 @@
 						{
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax"
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 5205.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
@@ -14297,7 +14344,7 @@
 						"translation.y": 6585.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
@@ -14329,7 +14376,7 @@
 						"translation.y": 1173.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
@@ -14361,7 +14408,7 @@
 						"translation.y": 483.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
@@ -14393,7 +14440,7 @@
 						"translation.y": 759.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
@@ -14419,13 +14466,13 @@
 							"open_with_edit": true,
 							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
@@ -14457,7 +14504,7 @@
 						"translation.y": 2484.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
@@ -14489,7 +14536,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
@@ -14513,13 +14560,14 @@
 						{
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
-							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax"
+							"syntax": "Packages/Sass/Syntaxes/SCSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 276.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
@@ -14551,7 +14599,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
@@ -14580,7 +14628,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
@@ -14610,7 +14658,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
@@ -14640,7 +14688,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -14672,7 +14720,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
@@ -14704,7 +14752,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
@@ -14713,15 +14761,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 486,
+						"buffer_size": 487,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								486,
-								486
+								436,
+								436
 							]
 						],
 						"settings":
@@ -14731,14 +14779,46 @@
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 207.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 272,
+					"file": "resources/js/visitante/especialidad.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1610,
+								1610
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1488.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 273,
 					"file": "resources/js/Appointments/appointment_comment.js",
 					"semi_transient": false,
 					"settings":
@@ -14765,11 +14845,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 273,
+					"buffer": 274,
 					"file": "resources/js/Appointments/appointments.js",
 					"semi_transient": false,
 					"settings":
@@ -14793,14 +14873,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1824.0,
+						"translation.y": 1686.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 274,
+					"buffer": 275,
 					"file": "resources/js/dashboard.js",
 					"semi_transient": false,
 					"settings":
@@ -14821,17 +14901,18 @@
 							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"open_with_edit": true,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
-					"buffer": 275,
+					"buffer": 276,
 					"file": "resources/views/layouts/app.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14858,11 +14939,11 @@
 						"translation.y": 1388.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 276,
+					"buffer": 277,
 					"file": "resources/views/layouts/nav-login.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14893,11 +14974,11 @@
 						"translation.y": 483.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 277,
+					"buffer": 278,
 					"file": "resources/views/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14933,11 +15014,11 @@
 						"translation.y": 266.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
-					"buffer": 278,
+					"buffer": 279,
 					"file": "resources/views/includes/contact.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14965,11 +15046,11 @@
 						"translation.y": 573.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 135,
+					"stack_index": 146,
 					"type": "text"
 				},
 				{
-					"buffer": 279,
+					"buffer": 280,
 					"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14981,8 +15062,8 @@
 						"selection":
 						[
 							[
-								195,
-								195
+								431,
+								431
 							]
 						],
 						"settings":
@@ -15023,14 +15104,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 200.0,
+						"translation.y": 131.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 280,
+					"buffer": 281,
 					"file": "resources/views/layouts/nav-admin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15087,11 +15168,11 @@
 						"translation.y": 8786.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 281,
+					"buffer": 282,
 					"file": "resources/views/layouts/nav-wizard.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15119,11 +15200,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
-					"buffer": 282,
+					"buffer": 283,
 					"file": "resources/views/chat/indexChat.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15150,11 +15231,11 @@
 						"translation.y": 138.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
-					"buffer": 283,
+					"buffer": 284,
 					"file": "app/Http/Livewire/Chat/ChatHeader.php",
 					"semi_transient": false,
 					"settings":
@@ -15181,11 +15262,11 @@
 						"translation.y": 138.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
-					"buffer": 284,
+					"buffer": 285,
 					"file": "app/Http/Livewire/Chat/ChatMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -15212,11 +15293,11 @@
 						"translation.y": 2023.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
-					"buffer": 285,
+					"buffer": 286,
 					"file": "app/Http/Livewire/Chat/ChatList.php",
 					"semi_transient": false,
 					"settings":
@@ -15244,11 +15325,11 @@
 						"translation.y": 1265.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
-					"buffer": 286,
+					"buffer": 287,
 					"file": "resources/views/livewire/chat/chat-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15275,11 +15356,11 @@
 						"translation.y": 1540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
-					"buffer": 287,
+					"buffer": 288,
 					"file": "app/Messages.php",
 					"semi_transient": false,
 					"settings":
@@ -15306,11 +15387,11 @@
 						"translation.y": 414.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
-					"buffer": 288,
+					"buffer": 289,
 					"file": "resources/views/livewire/chat/chat-search.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15336,11 +15417,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
-					"buffer": 289,
+					"buffer": 290,
 					"file": "resources/views/livewire/chat/chat-list.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15367,11 +15448,11 @@
 						"translation.y": 1311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
-					"buffer": 290,
+					"buffer": 291,
 					"file": "app/Http/Controllers/AdminController.php",
 					"semi_transient": false,
 					"settings":
@@ -15399,11 +15480,11 @@
 						"translation.y": 23.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 171,
+					"stack_index": 180,
 					"type": "text"
 				},
 				{
-					"buffer": 291,
+					"buffer": 292,
 					"file": "database/migrations/2020_11_17_185213_create_likes_table.php",
 					"semi_transient": false,
 					"settings":
@@ -15431,11 +15512,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 168,
+					"stack_index": 177,
 					"type": "text"
 				},
 				{
-					"buffer": 292,
+					"buffer": 293,
 					"file": "database/migrations/2020_09_19_201637_create_admins_table.php",
 					"semi_transient": false,
 					"settings":
@@ -15462,11 +15543,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 175,
+					"stack_index": 184,
 					"type": "text"
 				},
 				{
-					"buffer": 293,
+					"buffer": 294,
 					"file": "app/Admin.php",
 					"semi_transient": false,
 					"settings":
@@ -15492,11 +15573,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 172,
+					"stack_index": 181,
 					"type": "text"
 				},
 				{
-					"buffer": 294,
+					"buffer": 295,
 					"file": "resources/views/livewire/notifications-dropdown.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15524,11 +15605,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 243,
+					"stack_index": 250,
 					"type": "text"
 				},
 				{
-					"buffer": 295,
+					"buffer": 296,
 					"file": "resources/views/livewire/notifications-count.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15555,11 +15636,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 155,
+					"stack_index": 166,
 					"type": "text"
 				},
 				{
-					"buffer": 296,
+					"buffer": 297,
 					"semi_transient": false,
 					"settings":
 					{
@@ -15586,11 +15667,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 312,
+					"stack_index": 316,
 					"type": "text"
 				},
 				{
-					"buffer": 297,
+					"buffer": 298,
 					"file": "resources/views/livewire/chat-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15617,11 +15698,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 247,
+					"stack_index": 254,
 					"type": "text"
 				},
 				{
-					"buffer": 298,
+					"buffer": 299,
 					"file": "resources/views/livewire/bot-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15648,11 +15729,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 249,
+					"stack_index": 256,
 					"type": "text"
 				},
 				{
-					"buffer": 299,
+					"buffer": 300,
 					"file": "resources/views/livewire/bot-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15679,11 +15760,11 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 248,
+					"stack_index": 255,
 					"type": "text"
 				},
 				{
-					"buffer": 300,
+					"buffer": 301,
 					"file": "app/Http/Livewire/ChatForm.php",
 					"semi_transient": false,
 					"settings":
@@ -15710,11 +15791,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 288,
+					"stack_index": 292,
 					"type": "text"
 				},
 				{
-					"buffer": 301,
+					"buffer": 302,
 					"file": "app/Http/Livewire/ChatMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -15741,11 +15822,11 @@
 						"translation.y": 287.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
-					"buffer": 302,
+					"buffer": 303,
 					"file": "resources/views/livewire/chat-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15772,11 +15853,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
-					"buffer": 303,
+					"buffer": 304,
 					"file": "resources/views/livewire/chat-search.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15802,11 +15883,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 244,
+					"stack_index": 251,
 					"type": "text"
 				},
 				{
-					"buffer": 304,
+					"buffer": 305,
 					"file": "app/Http/Livewire/ChatList.php",
 					"semi_transient": false,
 					"settings":
@@ -15833,11 +15914,11 @@
 						"translation.y": 1380.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 287,
+					"stack_index": 291,
 					"type": "text"
 				},
 				{
-					"buffer": 305,
+					"buffer": 306,
 					"file": "app/Http/Livewire/BotForm.php",
 					"semi_transient": false,
 					"settings":
@@ -15863,11 +15944,11 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 289,
+					"stack_index": 293,
 					"type": "text"
 				},
 				{
-					"buffer": 306,
+					"buffer": 307,
 					"file": "app/Http/Livewire/BotMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -15895,11 +15976,11 @@
 						"translation.y": 437.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 191,
+					"stack_index": 200,
 					"type": "text"
 				},
 				{
-					"buffer": 307,
+					"buffer": 308,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Http/Controllers/UserController.php",
 					"semi_transient": false,
 					"settings":
@@ -15926,11 +16007,11 @@
 						"translation.y": 6811.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 283,
+					"stack_index": 287,
 					"type": "text"
 				},
 				{
-					"buffer": 308,
+					"buffer": 309,
 					"file": "/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/index.html",
 					"semi_transient": false,
 					"settings":
@@ -15961,11 +16042,11 @@
 						"translation.y": 10819.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 337,
+					"stack_index": 341,
 					"type": "text"
 				},
 				{
-					"buffer": 309,
+					"buffer": 310,
 					"file": "app/Http/Controllers/Controller.php",
 					"semi_transient": false,
 					"settings":
@@ -15998,11 +16079,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 189,
+					"stack_index": 198,
 					"type": "text"
 				},
 				{
-					"buffer": 310,
+					"buffer": 311,
 					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
 					"semi_transient": false,
 					"settings":
@@ -16036,11 +16117,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 230,
+					"stack_index": 238,
 					"type": "text"
 				},
 				{
-					"buffer": 311,
+					"buffer": 312,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16080,11 +16161,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 193,
+					"stack_index": 202,
 					"type": "text"
 				},
 				{
-					"buffer": 312,
+					"buffer": 313,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16118,11 +16199,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 256,
+					"stack_index": 262,
 					"type": "text"
 				},
 				{
-					"buffer": 313,
+					"buffer": 314,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -16147,11 +16228,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 348,
+					"stack_index": 352,
 					"type": "text"
 				},
 				{
-					"buffer": 314,
+					"buffer": 315,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16199,11 +16280,11 @@
 						"translation.y": 249.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
-					"buffer": 315,
+					"buffer": 316,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16245,11 +16326,11 @@
 						"translation.y": 1549.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 214,
+					"stack_index": 223,
 					"type": "text"
 				},
 				{
-					"buffer": 316,
+					"buffer": 317,
 					"file": "resources/views/auth/register.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16277,11 +16358,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 314,
+					"stack_index": 318,
 					"type": "text"
 				},
 				{
-					"buffer": 317,
+					"buffer": 318,
 					"file": "app/Http/Controllers/Auth/RegisterController.php",
 					"semi_transient": false,
 					"settings":
@@ -16309,11 +16390,11 @@
 						"translation.y": 118.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 145,
+					"stack_index": 156,
 					"type": "text"
 				},
 				{
-					"buffer": 318,
+					"buffer": 319,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
@@ -16348,11 +16429,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 186,
+					"stack_index": 195,
 					"type": "text"
 				},
 				{
-					"buffer": 319,
+					"buffer": 320,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
@@ -16392,11 +16473,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 187,
+					"stack_index": 196,
 					"type": "text"
 				},
 				{
-					"buffer": 320,
+					"buffer": 321,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16429,11 +16510,11 @@
 						"translation.y": 419.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 196,
+					"stack_index": 205,
 					"type": "text"
 				},
 				{
-					"buffer": 321,
+					"buffer": 322,
 					"file": "vendor/mockery/mockery/library/Mockery/HigherOrderMessage.php",
 					"semi_transient": false,
 					"settings":
@@ -16460,11 +16541,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 197,
+					"stack_index": 206,
 					"type": "text"
 				},
 				{
-					"buffer": 322,
+					"buffer": 323,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16495,11 +16576,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 258,
+					"stack_index": 264,
 					"type": "text"
 				},
 				{
-					"buffer": 323,
+					"buffer": 324,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -16529,11 +16610,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 349,
+					"stack_index": 353,
 					"type": "text"
 				},
 				{
-					"buffer": 324,
+					"buffer": 325,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
@@ -16599,11 +16680,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 195,
+					"stack_index": 204,
 					"type": "text"
 				},
 				{
-					"buffer": 325,
+					"buffer": 326,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -16662,11 +16743,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 332,
+					"stack_index": 336,
 					"type": "text"
 				},
 				{
-					"buffer": 326,
+					"buffer": 327,
 					"semi_transient": false,
 					"settings":
 					{
@@ -16689,11 +16770,11 @@
 						"translation.y": 423.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 333,
+					"stack_index": 337,
 					"type": "text"
 				},
 				{
-					"buffer": 327,
+					"buffer": 328,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -16723,11 +16804,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 345,
+					"stack_index": 349,
 					"type": "text"
 				},
 				{
-					"buffer": 328,
+					"buffer": 329,
 					"file": "database/migrations/2014_10_12_000000_create_users_table.php",
 					"semi_transient": false,
 					"settings":
@@ -16765,11 +16846,11 @@
 						"translation.y": 570.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
-					"buffer": 329,
+					"buffer": 330,
 					"file": "webpack.mix.js",
 					"semi_transient": false,
 					"settings":
@@ -16795,11 +16876,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
-					"buffer": 330,
+					"buffer": 331,
 					"file": "resources/js/stars.js",
 					"semi_transient": false,
 					"settings":
@@ -16826,11 +16907,11 @@
 						"translation.y": 69.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
-					"buffer": 331,
+					"buffer": 332,
 					"file": "resources/js/chat.js",
 					"semi_transient": false,
 					"settings":
@@ -16857,11 +16938,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
-					"buffer": 332,
+					"buffer": 333,
 					"file": "resources/js/plugins/waitme.js",
 					"semi_transient": false,
 					"settings":
@@ -16889,11 +16970,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
-					"buffer": 333,
+					"buffer": 334,
 					"file": "resources/js/plugins/datepicker.js",
 					"semi_transient": false,
 					"settings":
@@ -16921,11 +17002,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 334,
+					"buffer": 335,
 					"file": "resources/js/buttons.js",
 					"semi_transient": false,
 					"settings":
@@ -16953,11 +17034,11 @@
 						"translation.y": 3336.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
-					"buffer": 335,
+					"buffer": 336,
 					"file": "resources/js/web.js",
 					"semi_transient": false,
 					"settings":
@@ -16984,24 +17065,24 @@
 						"translation.y": 828.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
-					"buffer": 336,
-					"file": "resources/js/AJAX-visitantes.js",
+					"buffer": 337,
+					"file": "resources/js/public-search.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6423,
+						"buffer_size": 6360,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								465,
-								465
+								1187,
+								1187
 							]
 						],
 						"settings":
@@ -17012,10 +17093,105 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 138.0,
+						"translation.y": 1227.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 338,
+					"file": "resources/js/visitante/especialidad-doctor.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2105,
+								2105
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2155.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 339,
+					"file": "resources/js/visitante/doctor.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1987,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1987,
+								1987
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"open_with_edit": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2201.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 340,
+					"file": "resources/js/plugins/calendar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1832,
+								1832
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2415.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -17056,7 +17232,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 327,
+					"stack_index": 331,
 					"type": "text"
 				},
 				{
@@ -17098,7 +17274,7 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 328,
+					"stack_index": 332,
 					"type": "text"
 				},
 				{
@@ -17138,7 +17314,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
@@ -17191,11 +17367,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 307,
+					"stack_index": 311,
 					"type": "text"
 				},
 				{
-					"buffer": 337,
+					"buffer": 341,
 					"file": "app/Soft/stemm.php",
 					"semi_transient": false,
 					"settings":
@@ -17222,11 +17398,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
-					"buffer": 338,
+					"buffer": 342,
 					"file": "public/stemmer/stemm_test.php",
 					"semi_transient": false,
 					"settings":
@@ -17254,7 +17430,7 @@
 						"translation.y": 77.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 306,
+					"stack_index": 310,
 					"type": "text"
 				},
 				{
@@ -17287,11 +17463,11 @@
 						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 300,
+					"stack_index": 304,
 					"type": "text"
 				},
 				{
-					"buffer": 339,
+					"buffer": 343,
 					"file": "/C/Users/DELL/Desktop/machine/chatbot/chatbot.py",
 					"semi_transient": false,
 					"settings":
@@ -17316,7 +17492,7 @@
 						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 301,
+					"stack_index": 305,
 					"type": "text"
 				},
 				{
@@ -17347,7 +17523,7 @@
 						"translation.y": 2311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 303,
+					"stack_index": 307,
 					"type": "text"
 				},
 				{
@@ -17378,7 +17554,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 302,
+					"stack_index": 306,
 					"type": "text"
 				},
 				{
@@ -17411,7 +17587,7 @@
 						"translation.y": 1121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 304,
+					"stack_index": 308,
 					"type": "text"
 				},
 				{
@@ -17464,7 +17640,7 @@
 						"translation.y": 1162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 204,
+					"stack_index": 213,
 					"type": "text"
 				},
 				{
@@ -17495,7 +17671,7 @@
 						"translation.y": 1371.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 299,
+					"stack_index": 303,
 					"type": "text"
 				}
 			]
@@ -17562,16 +17738,36 @@
 		"selected_items":
 		[
 			[
+				"card",
+				"resources\\views\\hospital\\includes\\card-profile-doctor.blade.php"
+			],
+			[
+				"",
+				"resources\\js\\visitante\\especialidad.js"
+			],
+			[
+				"especialida",
+				"resources\\views\\web\\especialidades.blade.php"
+			],
+			[
+				"doctores.",
+				"resources\\views\\web\\doctores.blade.php"
+			],
+			[
+				"calendar",
+				"resources\\views\\includes\\calendar.blade.php"
+			],
+			[
+				"calendar.",
+				"resources\\views\\includes\\calendar.blade.php"
+			],
+			[
 				"editA",
 				"resources\\views\\hospital\\appointment\\editAppointment.blade.php"
 			],
 			[
 				"header",
 				"resources\\views\\layouts\\header.blade.php"
-			],
-			[
-				"",
-				"routes\\api.php"
 			],
 			[
 				"RouteService",
@@ -18052,26 +18248,6 @@
 			[
 				"conditions_ta",
 				"database\\migrations\\2017_11_01_040320_create_conditions_table.php"
-			],
-			[
-				"appointmentsT",
-				"database\\seeds\\AppointmentsTableSeeder.php"
-			],
-			[
-				"reviews_",
-				"database\\migrations\\2020_11_08_214917_create_reviews_table.php"
-			],
-			[
-				"patientF",
-				"database\\factories\\PatientFactory.php"
-			],
-			[
-				"AppointmentFa",
-				"database\\factories\\AppointmentFactory.php"
-			],
-			[
-				"registerC",
-				"app\\Http\\Controllers\\Auth\\RegisterController.php"
 			]
 		],
 		"width": 0.0

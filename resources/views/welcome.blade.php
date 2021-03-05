@@ -86,28 +86,28 @@
 			<div class="p-3 mb-5">
 				<i class="fas fa-hospital"></i>
 				<h3>Consultorios</h3>
-				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Podras administrar tus medicos y sus pacientes, asi como mantener comunicacion con el personal </p>
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-3">
 			<div class="p-3 mb-5">
 				<i class="fas fa-user-md"></i>
 				<h3>Medicos</h3>
-				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Crea citas, administra tus pacientes, chatea con tus colegas</p>
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-3">
 			<div class="p-3 mb-5">
 				<i class="fas fa-user-injured"></i>
 				<h3>Pacientes</h3>
-				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Crea una cita con tu medico, chatbot de soporte, paga online o en fisico</p>
 			</div>
 		</div>
 		<div class="col-12 col-sm-6 col-md-3">
 			<div class="p-3 mb-5">
 				<i class="fas fa-book"></i>
 				<h3>Citas</h3>
-				<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto molestias iste ducimus?</p>
+				<p class="">Crea tu cita en un listado dinamico, obten recetas y paga de manera online</p>
 			</div>
 		</div>
 	</div>
@@ -120,7 +120,7 @@
 			<div class="row justify-content-center h-100 align-items-center justify-content-md-start">
 				<div class="col-12 col-md-6 p-5 lead ">
 					<h3 class="display-4   text-left text-capitalize"> Registrate Ahora</h3>
-					<p class="text-justify">Registra tu clinica para empezar a administrar tus citas y tus medicos mas facil que nunca</p>
+					<p class="text-justify">Si eres paciente rergistrate ahora para ponerte en contacto con tus medicos</p>
 					<a class="btn btn-primary-alt d-none d-md-inline" href="/register">Registro</a>
 					<a class="btn btn-primary-alt btn-block d-block d-md-none  " href="/register">Registro</a>
 
