@@ -2053,10 +2053,13 @@
 			}
 		},
 		{
+			"contents": "@extends('layouts.nav-admin')\n\n@section('content')\n\n\n<main class=\"container py-5\">\n\n  <div class=\"row\">\n\n    @foreach($doctors as $doctor)\n      @include('hospital.includes.card-profile-doctor-simple')\n\n    @endforeach\n\n    @if(count($doctors)<1)\n\n    <div class=\"col-12\">\n      \n    <div class=\"alert alert-warning\">\n      No tienes ningun doctor agregado como favorito\n    </div>\n    </div>\n\n    @endif\n\n  </div>\n</main>\n\n\n\n\n\n\n@endsection\n\nendsection\n\n",
 			"file": "resources/views/hospital/like/indexLike.blade.php",
+			"file_size": 473,
+			"file_write_time": 132653342582102235,
 			"settings":
 			{
-				"buffer_size": 440,
+				"buffer_size": 454,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -11254,15 +11257,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 440,
+						"buffer_size": 454,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								440
+								454,
+								454
 							]
 						],
 						"settings":
@@ -11275,7 +11278,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
