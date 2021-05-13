@@ -1,6 +1,8 @@
 <?php
 
 use App\Doctor;
+use App\Speciality;
+use App\Doctor_speciality;
 use Illuminate\Database\Seeder;
 use  App\Crud;
 class DoctorsTableSeeder extends Seeder
@@ -16,9 +18,17 @@ class DoctorsTableSeeder extends Seeder
 
         Doctor::All()->each(function ($doctor) 
         {
-            $specialities = App\Speciality::all()->random(4);
-            $doctor->specialities()->saveMany($specialities);
+            $specialities = Speciality::all()->random(4);
 
+            foreach($specialities as $key=>$spe){
+
+                $d_esp = new Doctor_speciality;
+                $d_esp->doctor_id = $doctor->id;
+                $d_esp->cost ='30';
+                $d_esp->speciality_id=$spe->id;
+                $d_esp->save();
+            }
+           
 
         
             

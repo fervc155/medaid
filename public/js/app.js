@@ -995,7 +995,7 @@ function doctorCard(doctor) {
 }
 
 function especialidadCard(especialidad) {
-  html = "<div class=\"col-6 col-md-4 col-xl-3\">\n\t<div class=\"card card-pricing\">\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category text-gray\">\n\t<i class=\"fal fa-user-md\"></i> ".concat(especialidad['countDoctors'], " Doctores</h6>\n\t<div class=\"icon icon-info\">\n\t<i class=\"fal fa-file-certificate\"></i>\n\t</div>\n\t<h3 class=\"card-title\">").concat(especialidad['price'], " <small>consulta</small></h3>\n\t<p class=\"card-description\">\n\t<span class=\"text-uppercase text-primary\">\n\t").concat(especialidad['name'], "\n\t</span>\n\t<div class=\"stars\">");
+  html = "<div class=\"col-6 col-md-4 col-xl-3\">\n\t<div class=\"card card-pricing\">\n\t<div class=\"card-body \">\n\t<h6 class=\"card-category text-gray\">\n\t<i class=\"fal fa-user-md\"></i> ".concat(especialidad['countDoctors'], " Doctores</h6>\n\t<div class=\"icon icon-info\">\n\t<i class=\"fal fa-file-certificate\"></i>\n\t</div>\n\t<h3 class=\"card-title\"><small>A partir de</small> ").concat(especialidad['price'], " <small>consulta</small></h3>\n\t<p class=\"card-description\">\n\t<span class=\"text-uppercase text-primary\">\n\t").concat(especialidad['name'], "\n\t</span>\n\t<div class=\"stars\">");
 
   for (j = 0; j < especialidad['StarsEarned']; j++) {
     html += '<i class="fas fa-star"></i>';

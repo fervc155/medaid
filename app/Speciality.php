@@ -2,21 +2,45 @@
 
 namespace App;
 
+use App\Doctor;
 use App\Options;
 use App\Soft\Levenshtein;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Speciality extends Model
 {
 
-    public function doctors()
+    use SoftDeletes;
+
+    public function doctor_speciality()
     {
-        return $this->belongsToMany('App\Doctor');
+        return $this->hasMany('App\Doctor_speciality');
     }
 
+    public function getdoctorsAttribute(){
+
+        return Doctor::join('doctor_specialities','doctors.id','doctor_specialities.doctor_id')
+        ->select('doctors.*')
+        ->where('doctor_specialities.speciality_id',$this->id)
+        ->get();
+
+
+    }
     public function getpriceAttribute()
     {
         return  strtoupper(config('cashier.currency')) . "$ ". $this->cost;
+    }
+
+    public function getcostAttribute(){
+
+        $min=999999;
+        foreach($this->doctor_speciality as $de){
+            if($de->cost < $min)
+                $min=$de->cost;
+        }
+
+        return $min ==  999999 ? 0 : $min;
     }
 
     public function getstarsAttribute()
@@ -24,7 +48,8 @@ class Speciality extends Model
 
         $contador = 0;
         $sumatoria = 0;
-        foreach ($this->doctors as $doctor) {
+        foreach ($this->doctor_speciality as $relation) {
+            $doctor = $relation->doctor;
             if ($doctor->stars > 0) {
 
                 $contador++;

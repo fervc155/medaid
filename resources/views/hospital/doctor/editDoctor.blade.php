@@ -12,7 +12,7 @@
 
           <div class="card-cabecera-icono bg-info sombra-2 ">
 
-            <i class="fal fa-sign-in"></i>
+            <i class="fal fa-file-certificate"></i>
           </div>
           <div class="card-title">Login</div>
         </div>
@@ -46,6 +46,36 @@
     </div>
   </div>
 </div>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-encabezado">
+
+          <div class="card-cabecera-icono bg-info sombra-2 ">
+
+            <i class="fal fa-user-md"></i>
+          </div>
+          <div class="card-title">Especialidades</div>
+        </div>
+
+        <div class="card-body">
+          
+
+        
+      @livewire('doctor.edit.specialities', ['doctor'=>$doctor])
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div> <!-- Fila -->
+</div> <!-- Contenedor -->
+
 
 <div class="container mb-5">
   <div class="row justify-content-center">
@@ -101,27 +131,7 @@
               </div>
             </div>
 
-            <div class="form-group form-inline align-items-end">
-              <div class="icon-form">
-                <i class="fal fa-user-tie"></i>
-              </div>
-              <div class="form-group">
-
-                <select data-size="7" class="selectpicker" name="especialidad[]" id="especialidad" multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
-
-                  <?php foreach ($specialities as $speciality) : ?>
-
-                    <option value="{{ $speciality->id}}" ? <?php if ($doctor->hasSpeciality($speciality->id)) {
-                                                              echo "selected";
-                                                            } ?>>{{ $speciality->name }}</option>
-
-                  <?php endforeach ?>
-                </select>
-
-
-              </div>
-            </div>
-
+          
 
 
 

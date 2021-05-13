@@ -3,9 +3,10 @@
 @section('content')
 <div class="cabecera cabecera-30h" style="background-image: url({{asset('splash/header/speciality.jpg')}});">
 
-  <div class="contenedor-titulo header-search">
+  <div class="contenedor-titulo ">
 
-    <section class="container h-100">
+  </div>
+    <section class="container header-search h-100">
 
       <div class="row h-100 align-items-center justify-content-center">
         <div class="col-10">
@@ -37,7 +38,6 @@
 
 
     </section>
-  </div>
 
 </div>
 
@@ -58,7 +58,7 @@
           <div class="icon icon-info">
             <i class="fal fa-file-certificate"></i>
           </div>
-          <h3 class="card-title">{{$speciality->price}}/<small>consulta</small></h3>
+          <h3 class="card-title"><small>A partir de</small> {{$speciality->price}}/<small>consulta</small></h3>
           <p class="card-description">
             <span class="text-uppercase text-primary">
 

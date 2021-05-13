@@ -6,6 +6,8 @@ use App\Doctor;
 use App\Option;
 use App\Options;
 use App\Patient;
+use App\Privileges;
+use App\Speciality;
 use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
@@ -68,9 +70,18 @@ class Doctor extends Model
         $this->attributes['cedula'] = strtoupper($value);
     }
 
-    public function specialities()
+    public function getspecialitiesAttribute()
     {
-        return $this->belongsToMany('App\Speciality');
+        return Speciality::join('doctor_specialities','doctor_specialities.speciality_id','specialities.id')
+        ->select('specialities.id','specialities.name','doctor_specialities.cost')
+        ->where('doctor_specialities.doctor_id',$this->id)
+        ->get();
+        
+
+         }
+
+    public function doctor_speciality(){
+        return $this->hasMany('App\Doctor_speciality');
     }
 
 
@@ -85,7 +96,7 @@ class Doctor extends Model
 
         foreach ($this->specialities as $speciality) {
             if ($speciality->id  == $id) {
-                return true;
+                return $speciality;
             }
         }
 

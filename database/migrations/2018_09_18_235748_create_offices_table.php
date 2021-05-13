@@ -22,7 +22,7 @@ class CreateOfficesTable extends Migration
             $table->char('postalCode', 10);
             $table->char('city', 60);
             $table->char('country', 40);
-           
+ 
          });
     }
 

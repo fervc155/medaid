@@ -342,7 +342,7 @@ function especialidadCard(especialidad)
 	<div class="icon icon-info">
 	<i class="fal fa-file-certificate"></i>
 	</div>
-	<h3 class="card-title">${especialidad['price']} <small>consulta</small></h3>
+	<h3 class="card-title"><small>A partir de</small> ${especialidad['price']} <small>consulta</small></h3>
 	<p class="card-description">
 	<span class="text-uppercase text-primary">
 	${especialidad['name']}

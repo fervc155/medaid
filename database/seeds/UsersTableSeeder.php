@@ -33,6 +33,7 @@ class UsersTableSeeder extends Seeder
        'password'=>'123456',
 
 
+
      ];
 
 
@@ -46,15 +47,15 @@ class UsersTableSeeder extends Seeder
 
  
 
-   $data = [
+    $data = [
        'name'=>'josue',
        'id_privileges'=>4,
        'id_user'=>1,
        'email'=>'fercarrillo.1998@yahoo.com',
        'telephone'=>'3313131313',
        'birthdate'=> now(),
-
-       'sex'=>'h',
+ 
+        'sex'=>'h',
        'password'=>'123456',
      ];
 

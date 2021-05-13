@@ -130,11 +130,14 @@ class AppointmentController extends Controller
     $appointment = new Appointment;
 
 
+    $doctor = Doctor::find($request->input('doctor_id'));
+    $speciality = $doctor->hasSpeciality($request->input('speciality_id'));
+    
     $appointment->date = $request->input('date');
     $appointment->time = $request->input('time');
     $appointment->doctor_id = $request->input('doctor_id');
     $appointment->speciality_id = $request->input('speciality_id');
-    $appointment->cost = Speciality::find($appointment->speciality_id)->first()->cost;
+    $appointment->cost = $speciality->cost;
 
     $appointment->patient_dni = $request->input('patient_dni');
 

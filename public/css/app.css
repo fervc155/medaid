@@ -810,7 +810,7 @@ footer.footer li:hover {
   border: none;
   border-radius: 0.5rem;
   margin: 0.25rem;
-  height: 30vh;
+  min-height: 250px;
   padding: 2rem;
   transition: all 0.3s ease;
   font-size: 10px;
@@ -935,6 +935,7 @@ form .icon-form {
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0;
+  position: relative;
 }
 
 .cabecera-inicio {
@@ -942,15 +943,21 @@ form .icon-form {
 }
 
 .cabecera-30h {
-  height: 30vh;
+  min-height: 250px;
 }
 
 .contenedor-titulo {
-  position: relative;
+  position: absolute;
+  z-index: 1;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.contenedor-titulo + .container {
   color: white;
+  position: relative;
+  z-index: 3;
 }
 
 /* header search*/

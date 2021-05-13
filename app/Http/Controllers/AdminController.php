@@ -170,6 +170,12 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+ 
+    if (Auth::user()->Admin()) {
+
+      $admin->user()->deactivate();
+      return redirect('/doctor')->with('success', '¡El admin ha sido eliminado con éxito!');
+    }
+    return view('admin');
     }
 }

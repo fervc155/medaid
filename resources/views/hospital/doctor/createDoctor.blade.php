@@ -45,25 +45,7 @@
               </div>
             </div>
 
-            <div class="form-group form-inline align-items-end">
-              <div class="icon-form">
-                <i class="fal fa-user-tie"></i>
-              </div>
-              <div class="form-group">
-
-                <select data-size="7" class="selectpicker" name="especialidad[]" id="especialidad" multiple data-style="select-with-transition" title="Especialidad" data-size="sd7">
-
-                  <?php foreach ($specialities as $speciality) : ?>
-
-                    <option value="{{ $speciality->id}}">{{ $speciality->name }}</option>
-
-                  <?php endforeach ?>
-                </select>
-
-
-              </div>
-            </div>
-
+      
 
             <div class="form-group form-inline align-items-end">
               <div class="icon-form">

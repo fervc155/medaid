@@ -12,6 +12,17 @@
 
     @endforeach
 
+    @if(count($doctors)<1)
+
+    <div class="col-12">
+      
+    <div class="alert alert-warning">
+      No tienes ningun doctor agregado como favorito
+    </div>
+    </div>
+
+    @endif
+
   </div>
 </main>
 

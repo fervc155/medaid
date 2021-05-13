@@ -21,7 +21,7 @@ class CreatePatientsTable extends Migration
             $table->char('city', 60);
             $table->char('country', 40);
 
-        
+
         });
     }
 

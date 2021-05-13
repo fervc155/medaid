@@ -119,8 +119,15 @@ class Regression
 
         // Calcular R cuadrada
         // Math.pow((n*sum_xy - sum_x*sum_y)/Math.sqrt((n*sum_xx-sum_x*sum_x)*(n*sum_yy-sum_y*sum_y)),2);
-        $this->r_cuadrada = POW(($this->conteo_coordenadas * $xy_sum - $x_sum * $y_sum) / sqrt(($this->conteo_coordenadas * $xx_sum - $x_sum * $x_sum) * ($this->conteo_coordenadas * $yy_sum - $y_sum * $y_sum)),
-            2);
+
+        $sqrt =sqrt(($this->conteo_coordenadas * $xx_sum - $x_sum * $x_sum) * ($this->conteo_coordenadas * $yy_sum - $y_sum * $y_sum)) ;
+
+
+        if($sqrt>0)
+        $this->r_cuadrada = POW(($this->conteo_coordenadas * $xy_sum - $x_sum * $y_sum) / $sqrt, 2);
+
+        else
+        $this->r_cuadrada=0;
 
     }
 

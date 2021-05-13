@@ -28,9 +28,8 @@ class CreateUsersTable extends Migration
  
              $table->integer('id_privileges')->unsigned();
              $table->integer('id_user')->unsigned()->nullable(); // se refiere al id del medico o office o paciente
-             
-
-             $table->boolean('active')->default('1');
+            
+            $table->integer('active')->default(1); 
 
             $table->foreign('id_privileges')->references('id')->on('user_privileges')->onDelete('cascade')->onUpdate('cascade');
 
@@ -38,6 +37,7 @@ class CreateUsersTable extends Migration
             
 
             $table->rememberToken();
+            
             $table->timestamps();
         });
     }

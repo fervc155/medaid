@@ -27,7 +27,7 @@ class CreateDoctorsTable extends Migration
                    
             $table->integer('office_id')->unsigned();
             $table->foreign('office_id')->references('id')->on('offices');
-
+ 
             $table->time('inTime');
             $table->time('outTime');
         });

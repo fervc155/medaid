@@ -7,8 +7,9 @@
 
   background-repeat: no-repeat;
   background-position: center center;
-  margin: 0 ; 
-}
+  margin: 0 ;
+  position: relative; 
+ }
 .cabecera-inicio
 {
   height: 50vh;
@@ -16,19 +17,24 @@
 
 .cabecera-30h
 {
- height: 30vh; 
+ min-height: 250px; 
 }
 
 .contenedor-titulo
 {
-  position: relative;
+  position: absolute;
   
+  z-index: 1;
   width: 100%;
   height: 100%;
   
   background-color: rgba(0,0,0,0.3);
-  color: white;
-  
 
 }
 
+.contenedor-titulo + .container{
+  color: white;
+  
+  position: relative;
+  z-index: 3;
+}

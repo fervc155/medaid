@@ -141,22 +141,7 @@
 
 					<a role="button" class="btn btn-wait btn-round mt-3  btn-info" href="{{url('/patient/'.$patient->dni.'/edit')}}"> <i class="fal fa-pen"></i> Editar</a>
 
-					@if(Auth::user()->Office() )
-
-
-
-					<a role="button" class="btn btn-round btn-danger text-light mt-3 btn-confirm-delete" id="patient-{{$patient->dni}}"> <i class="fal fa-trash"></i> Eliminar</a>
-
-
-
-
-					{!! Form::open(['action' => ['PatientController@destroy', $patient->dni], 'method' => 'POST']) !!}
-					{{ Form::hidden('_method', 'DELETE') }}
-					{{ Form::submit('Eliminar', ['class' => 'd-none  btn-delete','id'=>'patient-'.$patient->dni]) }}
-					{!! Form::close() !!}
-
-
-					@endif
+			 
 					@endif
 
 				</div>
@@ -183,7 +168,7 @@
 
 					@include('includes.calendar', [
 					'user_id'=>$patient->user()->id,
-					'route'=>url('/get/appointments/patient')
+					'route'=>url('/api/appointments/patient')
 
 					])
 

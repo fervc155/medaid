@@ -10,6 +10,7 @@
 
 	<div class="contenedor-titulo">
 
+	</div>
 		<section class="container h-100">
 
 			<div class="row h-100 align-items-center justify-content-center">
@@ -23,7 +24,6 @@
 
 
 		</section>
-	</div>
 
 </div>
 
@@ -113,9 +113,10 @@
 	</div>
 </div>
 
-<div class="cabecera" style="height: 30vh; background-image: url({{asset('splash/img/doctor2.jpg')}});">
+<div class="cabecera" style="min-height: 250px; background-image: url({{asset('splash/img/doctor2.jpg')}});">
 	<div class="contenedor-titulo">
 
+	</div>
 		<div class="container h-100">
 			<div class="row justify-content-center h-100 align-items-center justify-content-md-start">
 				<div class="col-12 col-md-6 p-5 lead ">
@@ -127,7 +128,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
 </div>
 

@@ -25,14 +25,14 @@ $factory->define(App\Appointment::class, function (Faker $faker) {
         'condition_id' =>  $Condition->id,
         'doctor_id'=> $Doctor->id,
         'patient_dni'=>$Patient->dni,
-        'created_at'=> $date,
-        'updated_at'=> $date,
+        'created_at'=> now(),
+        'updated_at'=> now(),
 
     ];
 
     $speciality = $Doctor->specialities->random();
 
-    $data['speciality_id'] = $speciality->id;
+    $data['speciality_id'] = $speciality->speciality->id;
     $data['cost'] = $speciality->cost;
 
 

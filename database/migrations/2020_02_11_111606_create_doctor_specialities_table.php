@@ -13,10 +13,11 @@ class CreateDoctorSpecialitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_speciality', function (Blueprint $table) {
+        Schema::create('doctor_specialities', function (Blueprint $table) {
            $table->increments('id');
            
-           
+              $table->float('cost');
+         
             $table->integer('speciality_id')->unsigned();
             $table->foreign('speciality_id')->references('id')->on('specialities');
 
@@ -35,6 +36,6 @@ class CreateDoctorSpecialitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('doctor_speciality');
+        Schema::dropIfExists('doctor_specialities');
     }
 }

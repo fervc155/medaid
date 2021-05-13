@@ -61,7 +61,7 @@
 
 					@include('includes.calendar', [
 					'user_id'=>$doctor->user()->id,
-					'route'=>url('/get/appointments/doctor')
+					'route'=>url('/api/appointments/doctor')
 
 					])
 

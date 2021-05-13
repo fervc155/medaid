@@ -67,8 +67,7 @@ class DoctorController extends Controller
       'country' => 'required|string|max:255',
 
       //
-      'especialidad.*' => 'required',
-      'schedule' => 'required',
+       'schedule' => 'required',
       'office_id' => 'required',
       'inTime' => 'required',
       'outTime' => 'required|after:inTime',
@@ -93,14 +92,7 @@ class DoctorController extends Controller
       $doctor->save();
 
 
-      $especialidades = $data['especialidad'];
-
-      for ($i = 0; $i < count($especialidades); $i++) {
-        $speciality_id = $especialidades[$i];
-
-        echo $speciality_id . " ";
-        $doctor->specialities()->attach($speciality_id);
-      }
+       
 
 
       //imagen
@@ -197,26 +189,14 @@ class DoctorController extends Controller
         'country' => 'required|string|max:255',
 
         //
-        'especialidad.*' => 'required',
-        'schedule' => 'required',
+         'schedule' => 'required',
         'office_id' => 'required',
         'inTime' => 'required',
       'outTime' => 'required|after:inTime',
 
       ]);
  
-      $doctor->specialities()->detach();
-
-
-      $especialidades = $request->input('especialidad');
-      for ($i = 0; $i < count($especialidades); $i++) {
-        $speciality_id = $especialidades[$i];
-
-        echo $speciality_id . " ";
-        $doctor->specialities()->attach($speciality_id);
-      }
-
-
+      
 
 
       //Editar médico

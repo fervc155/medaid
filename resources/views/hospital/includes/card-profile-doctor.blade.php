@@ -144,19 +144,8 @@
 
 
 
-			<div class="text-center font-weight-bold color-principal">
-				<i class="fal fa-coins"></i> Consulta:
-			</div>
+			
 
-
-			<select data-size="7" class="selectpicker select-speciality-doctor" name="especialidad" id="especialidad" data-style="select-with-transition" title="Especialidad" data-size="sd7">
-
-				<?php foreach ($doctor->specialities as $speciality) : ?>
-
-					<option value="{{ $speciality->id}}" >{{ $speciality->name }}</option>
-
-				<?php endforeach ?>
-			</select>
 
 
 			@if(isset($wizardActive))
@@ -164,21 +153,7 @@
 				<a href="{{$doctor->profileUrl}}" class="btn btn-primary">Ver perfil</a>
 			@endif
 
-			@if( Auth::check() && Auth::user()->Doctor())
-
-			<div class="h3 color-principal">
-				<span class=" speciality-price" id="speciality-price-minmax">
-
-					{{$doctor->MinMaxCost}}
-				</span>
-
-				<?php foreach ($doctor->specialities as $speciality) : ?>
-					<span class="d-none speciality-price" id="speciality-price-{{$speciality->id}}">{{$speciality->price}}</span>
-				<?php endforeach ?>
-			</div>
-
-			@endif
-
+	 	
 
 			@if( Auth::check() &&  Auth::user()->Doctor())
 
@@ -195,24 +170,18 @@
 			@endif
 
 
-			@if(Auth::user()->Admin() || (Auth::user()->isOffice() && $doctor->office_id == Auth::user()->profile()->id))
-
-			<button class="btn btn-danger btn-round btn-confirm-delete" id='doctor-{{$doctor->id}}'> <i class="fal fa-trash"></i> Eliminar</button>
-
-			{!! Form::open(['action' => ['DoctorController@destroy', $doctor->id], 'method' => 'POST']) !!}
-			{{ Form::hidden('_method', 'DELETE') }}
-			{{ Form::submit('Eliminar', ['class' => 'btn-delete d-none', 'id'=>'doctor-'.$doctor->id]) }}
-			{!! Form::close() !!}
-
-
-			@endif
+	 
 			@endif
 
 
 			@if( Auth::check() && Auth::user()->isPatient())
 
 
+	<div class="text-center font-weight-bold color-principal">
+				<i class="fal fa-coins"></i> Consulta:
+			</div>
 
+			  
 
 			<div class="h3 color-principal">
 				<span class=" speciality-price" id="speciality-price-minmax">

@@ -26,14 +26,14 @@ class SpecialityController extends Controller
     {
       $data = request()->validate([
         'name' => 'required|string|max:255',
-        'cost' => 'required|numeric',
+       
         
 
     ]);
       $especialidad = new Speciality();
 
       $especialidad->name = $data['name'];
-      $especialidad->cost = $data['cost'];
+    
 
       $especialidad->save();
 
@@ -55,13 +55,13 @@ public function update(Request $request)
 {
       $data = request()->validate([
         'name' => 'required|string|max:255',
-        'cost' => 'required|numeric',
+       
         
 
     ]);
   $especialidad = Speciality::find($request->input('id'));
       $especialidad->name = $data['name'];
-      $especialidad->cost = $data['cost'];
+      
 
   $especialidad->save();
 

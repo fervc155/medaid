@@ -4,9 +4,10 @@
 
 <div class="cabecera cabecera-30h" style="background-image: url({{asset('splash/header/doctor.jpg')}});">
 
-  <div class="contenedor-titulo header-search">
+  <div class="contenedor-titulo ">
 
-    <section class="container h-100">
+  </div>
+    <section class="container header-search h-100">
 
       <div class="row h-100 align-items-center justify-content-center">
         <div class="col-10">
@@ -40,7 +41,6 @@
 
 
     </section>
-  </div>
 
 </div>
 

@@ -60,7 +60,7 @@
       <div class="icon-texto">
 
         <span class="color-principal">Especialidad: </span> <?php foreach ($doctor->specialities as $speciality) : ?>
-          <a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>
+                     <a href="{{url('speciality/'.$speciality->id)}}"><span class="badge badge-pill badge-info">{{$speciality->name}}</span></a>
         <?php endforeach ?></td>
       </div>
 
