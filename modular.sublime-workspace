@@ -823,7 +823,7 @@
 			"file": "config/livewire.php",
 			"settings":
 			{
-				"buffer_size": 3580,
+				"buffer_size": 3602,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1039,7 +1039,7 @@
 			"file": "app/Http/Controllers/WebController.php",
 			"settings":
 			{
-				"buffer_size": 3456,
+				"buffer_size": 4260,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1162,7 +1162,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 10450,
+				"buffer_size": 10535,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1425,7 +1425,7 @@
 			"file": "routes/web.php",
 			"settings":
 			{
-				"buffer_size": 10450,
+				"buffer_size": 10535,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1443,6 +1443,18 @@
 			"settings":
 			{
 				"buffer_size": 965,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "@extends('layouts.web')\n\n@section('content')\n\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-12  mt-5\">\n    </div>\n    <div class=\"col-12\">\n      <div class=\"card\">\n\n\n        <div class=\"card-body\">\n\n         <div id=\"grafica-relacion-citas\" style=\"height: 600px;\">\n\n         </div>\n\n\n       </div>\n     </div>\n   </div>\n\n </div></div>\n\n @endsection\n\n\n @push('js')\n <script>\n\n  $.ajax({\n    url:'http://localhost/laravel/hospital/public/test',\n    method:'GET',\n    success:function(data){\n\n\n\n      data = JSON.parse(data);\n\n      label = [];\n\n      for(let i=0; i<=100; i+=5){\n\n        label.push(i);\n      }\n      series=[]\n      data.forEach(function(json){\n\n        var valores = []; \n        label.forEach(function(ee){ \n\n          valores.push( json[ee]);\n        })\n\n\n        series.push(valores)\n\n      })\n\n\n\n  \n\n      dataChart=\n      {\n        labels:label,\n        series\n      }\n\n      new Chartist.Line('#grafica-relacion-citas',dataChart,{\n\n        low: 0,\n        showArea: false,\n\n        fullWidth: true\n\n      });\n    },\n    error:function(a,b,c){\n      console.log(a);\n      console.log(b);\n      console.log(c);\n\n    }\n\n  })\n\n\n</script>\n\n@endpush",
+			"file": "resources/views/chart.blade.php",
+			"file_size": 1359,
+			"file_write_time": 132665302975306196,
+			"settings":
+			{
+				"buffer_size": 1189,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1699,6 +1711,14 @@
 				"buffer_size": 1176,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/database.php",
+			"settings":
+			{
+				"buffer_size": 5054,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -2060,7 +2080,6 @@
 			"settings":
 			{
 				"buffer_size": 454,
-				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -2176,7 +2195,7 @@
 			"file": "app/User.php",
 			"settings":
 			{
-				"buffer_size": 5572,
+				"buffer_size": 5796,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -2201,7 +2220,7 @@
 			"file": "app/Soft/levenshtein.php",
 			"settings":
 			{
-				"buffer_size": 7017,
+				"buffer_size": 7064,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -3812,15 +3831,17 @@
 	[
 		"/C/xampp/htdocs/laravel/hospital",
 		"/C/xampp/htdocs/laravel/hospital/app",
-		"/C/xampp/htdocs/laravel/hospital/app/Http",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Livewire",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Livewire/Doctor",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Livewire/Doctor/Edit",
-		"/C/xampp/htdocs/laravel/hospital/app/Http/Livewire/Like",
+		"/C/xampp/htdocs/laravel/hospital/config",
 		"/C/xampp/htdocs/laravel/hospital/resources",
+		"/C/xampp/htdocs/laravel/hospital/resources/js",
 		"/C/xampp/htdocs/laravel/hospital/resources/views",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital",
-		"/C/xampp/htdocs/laravel/hospital/resources/views/hospital/like",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/bill",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/chat",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/forms",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/layouts",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/livewire",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/livewire/bi",
+		"/C/xampp/htdocs/laravel/hospital/resources/views/livewire/chat",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/notifications",
 		"/C/xampp/htdocs/laravel/hospital/resources/views/web",
 		"/C/xampp/htdocs/laravel/hospital/routes"
@@ -3958,7 +3979,7 @@
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
@@ -3973,6 +3994,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"dataset",
+			"chartist",
+			"       \n",
+			"exactitud",
+			"0.7",
+			"dataset",
 			"cabecera",
 			"$relation->s",
 			"doctor_spe",
@@ -4094,13 +4121,7 @@
 			"],[",
 			"Payment",
 			"AdminController",
-			"adminContro",
-			"accepted",
-			"AdminController",
-			"adminController",
-			"admi",
-			"webControl",
-			"appointments"
+			"adminContro"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -4118,7 +4139,7 @@
 	"groups":
 	[
 		{
-			"selected": 170,
+			"selected": 188,
 			"sheets":
 			[
 				{
@@ -4155,7 +4176,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 78,
+					"stack_index": 99,
 					"type": "text"
 				},
 				{
@@ -4197,7 +4218,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 44,
+					"stack_index": 66,
 					"type": "text"
 				},
 				{
@@ -4226,7 +4247,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 47,
 					"type": "text"
 				},
 				{
@@ -4273,7 +4294,7 @@
 						"translation.y": 1591.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 284,
+					"stack_index": 289,
 					"type": "text"
 				},
 				{
@@ -4309,7 +4330,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 347,
+					"stack_index": 349,
 					"type": "text"
 				},
 				{
@@ -4353,7 +4374,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 32,
+					"stack_index": 54,
 					"type": "text"
 				},
 				{
@@ -4400,7 +4421,7 @@
 						"translation.y": 2818.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 32,
 					"type": "text"
 				},
 				{
@@ -4431,7 +4452,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 95,
+					"stack_index": 116,
 					"type": "text"
 				},
 				{
@@ -4461,7 +4482,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 281,
+					"stack_index": 286,
 					"type": "text"
 				},
 				{
@@ -4500,7 +4521,7 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 66,
+					"stack_index": 87,
 					"type": "text"
 				},
 				{
@@ -4543,7 +4564,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 37,
+					"stack_index": 59,
 					"type": "text"
 				},
 				{
@@ -4606,7 +4627,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 30,
 					"type": "text"
 				},
 				{
@@ -4660,7 +4681,7 @@
 						"translation.y": 840.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 29,
+					"stack_index": 51,
 					"type": "text"
 				},
 				{
@@ -4713,7 +4734,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 31,
+					"stack_index": 53,
 					"type": "text"
 				},
 				{
@@ -4750,7 +4771,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 337,
+					"stack_index": 339,
 					"type": "text"
 				},
 				{
@@ -4782,7 +4803,7 @@
 						"translation.y": 200.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 35,
+					"stack_index": 57,
 					"type": "text"
 				},
 				{
@@ -4813,7 +4834,7 @@
 						"translation.y": 219.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 45,
+					"stack_index": 67,
 					"type": "text"
 				},
 				{
@@ -4854,7 +4875,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 59,
+					"stack_index": 80,
 					"type": "text"
 				},
 				{
@@ -4890,7 +4911,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 299,
+					"stack_index": 303,
 					"type": "text"
 				},
 				{
@@ -4919,7 +4940,7 @@
 						"translation.y": 611.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 327,
+					"stack_index": 329,
 					"type": "text"
 				},
 				{
@@ -4949,7 +4970,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 312,
+					"stack_index": 315,
 					"type": "text"
 				},
 				{
@@ -5015,7 +5036,7 @@
 						"translation.y": 106.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 55,
+					"stack_index": 76,
 					"type": "text"
 				},
 				{
@@ -5047,7 +5068,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 75,
+					"stack_index": 96,
 					"type": "text"
 				},
 				{
@@ -5086,7 +5107,7 @@
 						"translation.y": 103.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 241,
+					"stack_index": 247,
 					"type": "text"
 				},
 				{
@@ -5128,7 +5149,7 @@
 						"translation.y": 78.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 70,
+					"stack_index": 91,
 					"type": "text"
 				},
 				{
@@ -5157,7 +5178,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 65,
+					"stack_index": 86,
 					"type": "text"
 				},
 				{
@@ -5189,7 +5210,7 @@
 						"translation.y": 100.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 208,
+					"stack_index": 217,
 					"type": "text"
 				},
 				{
@@ -5221,7 +5242,7 @@
 						"translation.y": 2531.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 192,
+					"stack_index": 201,
 					"type": "text"
 				},
 				{
@@ -5252,7 +5273,7 @@
 						"translation.y": 651.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 207,
+					"stack_index": 216,
 					"type": "text"
 				},
 				{
@@ -5284,7 +5305,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 193,
+					"stack_index": 202,
 					"type": "text"
 				},
 				{
@@ -5321,7 +5342,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 338,
+					"stack_index": 340,
 					"type": "text"
 				},
 				{
@@ -5363,7 +5384,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 57,
+					"stack_index": 78,
 					"type": "text"
 				},
 				{
@@ -5426,7 +5447,7 @@
 						"translation.y": 67.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 48,
+					"stack_index": 70,
 					"type": "text"
 				},
 				{
@@ -5435,29 +5456,30 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3580,
+						"buffer_size": 3602,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1565,
-								1565
+								1424,
+								1424
 							]
 						],
 						"settings":
 						{
+							"auto_complete": false,
 							"git_savvy.repo_path": "C:\\xampp\\htdocs\\laravel\\hospital",
 							"syntax": "Packages/PHP/PHP.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 88.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 180,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -5487,7 +5509,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 181,
+					"stack_index": 191,
 					"type": "text"
 				},
 				{
@@ -5517,7 +5539,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 297,
+					"stack_index": 301,
 					"type": "text"
 				},
 				{
@@ -5552,7 +5574,7 @@
 						"translation.y": 393.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 341,
+					"stack_index": 343,
 					"type": "text"
 				},
 				{
@@ -5600,7 +5622,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 49,
+					"stack_index": 71,
 					"type": "text"
 				},
 				{
@@ -5648,7 +5670,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 233,
+					"stack_index": 240,
 					"type": "text"
 				},
 				{
@@ -5698,7 +5720,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 64,
+					"stack_index": 85,
 					"type": "text"
 				},
 				{
@@ -5740,7 +5762,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 302,
+					"stack_index": 306,
 					"type": "text"
 				},
 				{
@@ -5785,7 +5807,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 301,
+					"stack_index": 305,
 					"type": "text"
 				},
 				{
@@ -5826,7 +5848,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 56,
+					"stack_index": 77,
 					"type": "text"
 				},
 				{
@@ -5857,7 +5879,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 68,
+					"stack_index": 89,
 					"type": "text"
 				},
 				{
@@ -5886,7 +5908,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 346,
+					"stack_index": 348,
 					"type": "text"
 				},
 				{
@@ -5942,7 +5964,7 @@
 						"translation.y": 19.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 58,
+					"stack_index": 79,
 					"type": "text"
 				},
 				{
@@ -5958,8 +5980,8 @@
 						"selection":
 						[
 							[
-								2854,
-								2858
+								560,
+								560
 							]
 						],
 						"settings":
@@ -5994,10 +6016,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2484.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 103,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -6032,7 +6054,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 201,
+					"stack_index": 210,
 					"type": "text"
 				},
 				{
@@ -6124,7 +6146,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 38,
 					"type": "text"
 				},
 				{
@@ -6177,7 +6199,7 @@
 						"translation.y": 345.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 176,
+					"stack_index": 188,
 					"type": "text"
 				},
 				{
@@ -6208,7 +6230,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 211,
+					"stack_index": 220,
 					"type": "text"
 				},
 				{
@@ -6238,7 +6260,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 217,
+					"stack_index": 226,
 					"type": "text"
 				},
 				{
@@ -6270,7 +6292,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 213,
+					"stack_index": 222,
 					"type": "text"
 				},
 				{
@@ -6301,7 +6323,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 245,
+					"stack_index": 251,
 					"type": "text"
 				},
 				{
@@ -6348,7 +6370,7 @@
 						"translation.y": 128.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 270,
+					"stack_index": 276,
 					"type": "text"
 				},
 				{
@@ -6382,7 +6404,7 @@
 						"translation.y": 1.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 69,
+					"stack_index": 90,
 					"type": "text"
 				},
 				{
@@ -6429,7 +6451,7 @@
 						"translation.y": 2236.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 260,
+					"stack_index": 266,
 					"type": "text"
 				},
 				{
@@ -6438,15 +6460,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3456,
+						"buffer_size": 4260,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								496,
-								496
+								1199,
+								1199
 							]
 						],
 						"settings":
@@ -6748,10 +6770,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1188.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 229,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -6798,7 +6820,7 @@
 						"translation.y": 2951.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 40,
+					"stack_index": 62,
 					"type": "text"
 				},
 				{
@@ -6864,7 +6886,7 @@
 						"translation.y": 11171.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 27,
+					"stack_index": 49,
 					"type": "text"
 				},
 				{
@@ -6896,7 +6918,7 @@
 						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 74,
+					"stack_index": 95,
 					"type": "text"
 				},
 				{
@@ -6928,7 +6950,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 73,
+					"stack_index": 94,
 					"type": "text"
 				},
 				{
@@ -6966,7 +6988,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 37,
 					"type": "text"
 				},
 				{
@@ -7000,7 +7022,7 @@
 						"translation.y": 63.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 351,
+					"stack_index": 353,
 					"type": "text"
 				},
 				{
@@ -7032,7 +7054,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 350,
+					"stack_index": 352,
 					"type": "text"
 				},
 				{
@@ -7070,7 +7092,7 @@
 						"translation.y": 344.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 200,
+					"stack_index": 209,
 					"type": "text"
 				},
 				{
@@ -7102,7 +7124,7 @@
 						"translation.y": 470.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 199,
+					"stack_index": 208,
 					"type": "text"
 				},
 				{
@@ -7157,7 +7179,7 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 349,
+					"stack_index": 351,
 					"type": "text"
 				},
 				{
@@ -7199,7 +7221,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 36,
+					"stack_index": 58,
 					"type": "text"
 				},
 				{
@@ -7251,7 +7273,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 51,
+					"stack_index": 73,
 					"type": "text"
 				},
 				{
@@ -7304,7 +7326,7 @@
 						"translation.y": 400.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 33,
+					"stack_index": 55,
 					"type": "text"
 				},
 				{
@@ -7313,15 +7335,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10450,
+						"buffer_size": 10535,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7,
-								7
+								166,
+								166
 							]
 						],
 						"settings":
@@ -7383,10 +7405,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 462.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 99,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -7416,7 +7438,7 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 41,
+					"stack_index": 63,
 					"type": "text"
 				},
 				{
@@ -7448,7 +7470,7 @@
 						"translation.y": 356.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 182,
+					"stack_index": 192,
 					"type": "text"
 				},
 				{
@@ -7478,7 +7500,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 223,
+					"stack_index": 232,
 					"type": "text"
 				},
 				{
@@ -7511,7 +7533,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 198,
+					"stack_index": 207,
 					"type": "text"
 				},
 				{
@@ -7544,7 +7566,7 @@
 						"translation.y": 384.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 197,
+					"stack_index": 206,
 					"type": "text"
 				},
 				{
@@ -7575,7 +7597,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 254,
+					"stack_index": 260,
 					"type": "text"
 				},
 				{
@@ -7607,7 +7629,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 230,
+					"stack_index": 237,
 					"type": "text"
 				},
 				{
@@ -7638,7 +7660,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 114,
+					"stack_index": 130,
 					"type": "text"
 				},
 				{
@@ -7670,7 +7692,7 @@
 						"translation.y": 69.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 117,
+					"stack_index": 133,
 					"type": "text"
 				},
 				{
@@ -7700,7 +7722,7 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 311,
+					"stack_index": 314,
 					"type": "text"
 				},
 				{
@@ -7731,7 +7753,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 276,
+					"stack_index": 281,
 					"type": "text"
 				},
 				{
@@ -7769,7 +7791,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 269,
+					"stack_index": 275,
 					"type": "text"
 				},
 				{
@@ -7814,7 +7836,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 266,
+					"stack_index": 272,
 					"type": "text"
 				},
 				{
@@ -7853,7 +7875,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 268,
+					"stack_index": 274,
 					"type": "text"
 				},
 				{
@@ -7895,7 +7917,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 265,
+					"stack_index": 271,
 					"type": "text"
 				},
 				{
@@ -7935,7 +7957,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 264,
+					"stack_index": 270,
 					"type": "text"
 				},
 				{
@@ -7973,7 +7995,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 267,
+					"stack_index": 273,
 					"type": "text"
 				},
 				{
@@ -8008,7 +8030,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 262,
+					"stack_index": 268,
 					"type": "text"
 				},
 				{
@@ -8065,7 +8087,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 186,
+					"stack_index": 195,
 					"type": "text"
 				},
 				{
@@ -8122,7 +8144,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 219,
+					"stack_index": 228,
 					"type": "text"
 				},
 				{
@@ -8160,7 +8182,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 129,
+					"stack_index": 145,
 					"type": "text"
 				},
 				{
@@ -8176,8 +8198,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								248,
+								248
 							]
 						],
 						"settings":
@@ -8202,10 +8224,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1014.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 271,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -8221,8 +8243,8 @@
 						"selection":
 						[
 							[
-								6385,
-								6385
+								876,
+								876
 							]
 						],
 						"settings":
@@ -8255,10 +8277,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4877.0,
+						"translation.y": 423.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 97,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -8288,7 +8310,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 128,
+					"stack_index": 144,
 					"type": "text"
 				},
 				{
@@ -8320,7 +8342,7 @@
 						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 348,
+					"stack_index": 350,
 					"type": "text"
 				},
 				{
@@ -8349,7 +8371,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 353,
+					"stack_index": 355,
 					"type": "text"
 				},
 				{
@@ -8443,7 +8465,7 @@
 						"translation.y": 344.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 98,
+					"stack_index": 118,
 					"type": "text"
 				},
 				{
@@ -8474,7 +8496,7 @@
 						"translation.y": 1311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 100,
+					"stack_index": 119,
 					"type": "text"
 				},
 				{
@@ -8483,7 +8505,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10450,
+						"buffer_size": 10535,
 						"regions":
 						{
 						},
@@ -8540,10 +8562,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5063.0,
+						"translation.y": 399.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 155,
+					"stack_index": 169,
 					"type": "text"
 				},
 				{
@@ -8575,7 +8597,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 218,
+					"stack_index": 227,
 					"type": "text"
 				},
 				{
@@ -8607,11 +8629,41 @@
 						"translation.y": 323.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 224,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
 					"buffer": 103,
+					"file": "resources/views/chart.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								838,
+								838
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 930.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 104,
 					"file": "vendor/stripe/stripe-php/lib/ApiOperations/Create.php",
 					"semi_transient": false,
 					"settings":
@@ -8638,11 +8690,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 238,
+					"stack_index": 244,
 					"type": "text"
 				},
 				{
-					"buffer": 104,
+					"buffer": 105,
 					"file": "app/Http/Controllers/InvoiceController.php",
 					"semi_transient": false,
 					"settings":
@@ -8670,11 +8722,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 222,
+					"stack_index": 231,
 					"type": "text"
 				},
 				{
-					"buffer": 105,
+					"buffer": 106,
 					"file": "public/js/Appointments/appointments.js",
 					"semi_transient": false,
 					"settings":
@@ -8718,11 +8770,11 @@
 						"translation.y": 4389.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 158,
+					"stack_index": 172,
 					"type": "text"
 				},
 				{
-					"buffer": 106,
+					"buffer": 107,
 					"file": "resources/views/hospital/appointment/showAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8791,11 +8843,11 @@
 						"translation.y": 259.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 194,
+					"stack_index": 203,
 					"type": "text"
 				},
 				{
-					"buffer": 107,
+					"buffer": 108,
 					"file": "resources/views/hospital/includes/modal/createPrescription.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8826,11 +8878,11 @@
 						"translation.y": 256.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 294,
+					"stack_index": 299,
 					"type": "text"
 				},
 				{
-					"buffer": 108,
+					"buffer": 109,
 					"file": "resources/views/hospital/includes/modal/createReview.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8858,11 +8910,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 293,
+					"stack_index": 298,
 					"type": "text"
 				},
 				{
-					"buffer": 109,
+					"buffer": 110,
 					"file": "resources/views/hospital/includes/loopComments.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8898,11 +8950,11 @@
 						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 290,
+					"stack_index": 295,
 					"type": "text"
 				},
 				{
-					"buffer": 110,
+					"buffer": 111,
 					"file": "app/Http/Controllers/PrescriptionController.php",
 					"semi_transient": false,
 					"settings":
@@ -8946,11 +8998,11 @@
 						"translation.y": 20438.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 146,
+					"stack_index": 162,
 					"type": "text"
 				},
 				{
-					"buffer": 111,
+					"buffer": 112,
 					"file": "resources/views/hospital/prescription/indexPrescription.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -8984,11 +9036,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 255,
+					"stack_index": 261,
 					"type": "text"
 				},
 				{
-					"buffer": 112,
+					"buffer": 113,
 					"file": "resources/views/hospital/payment/indexPayment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9017,11 +9069,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 250,
+					"stack_index": 256,
 					"type": "text"
 				},
 				{
-					"buffer": 113,
+					"buffer": 114,
 					"file": "resources/views/hospital/includes/modal/EditPrescription.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9056,11 +9108,11 @@
 						"translation.y": 520.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 292,
+					"stack_index": 297,
 					"type": "text"
 				},
 				{
-					"buffer": 114,
+					"buffer": 115,
 					"file": "resources/views/hospital/includes/tablePrescriptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9092,11 +9144,11 @@
 						"translation.y": 347.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 196,
+					"stack_index": 205,
 					"type": "text"
 				},
 				{
-					"buffer": 115,
+					"buffer": 116,
 					"file": "resources/views/hospital/includes/tablePayment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9125,11 +9177,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 248,
+					"stack_index": 254,
 					"type": "text"
 				},
 				{
-					"buffer": 116,
+					"buffer": 117,
 					"file": "database/seeds/Appointment_commentSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -9165,11 +9217,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 71,
+					"stack_index": 92,
 					"type": "text"
 				},
 				{
-					"buffer": 117,
+					"buffer": 118,
 					"file": "database/migrations/2019_12_26_235849_create_appointment_comments_table.php",
 					"semi_transient": false,
 					"settings":
@@ -9213,11 +9265,11 @@
 						"translation.y": 136.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 77,
+					"stack_index": 98,
 					"type": "text"
 				},
 				{
-					"buffer": 118,
+					"buffer": 119,
 					"file": "bootstrap/app.php",
 					"semi_transient": false,
 					"settings":
@@ -9246,11 +9298,11 @@
 						"translation.y": 747.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 317,
+					"stack_index": 320,
 					"type": "text"
 				},
 				{
-					"buffer": 119,
+					"buffer": 120,
 					"file": "config/app.php",
 					"semi_transient": false,
 					"settings":
@@ -9284,11 +9336,11 @@
 						"translation.y": 4059.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 244,
+					"stack_index": 250,
 					"type": "text"
 				},
 				{
-					"buffer": 120,
+					"buffer": 121,
 					"file": "resources/views/hospital/appointment/indexAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9346,11 +9398,11 @@
 						"translation.y": 144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 261,
+					"stack_index": 267,
 					"type": "text"
 				},
 				{
-					"buffer": 121,
+					"buffer": 122,
 					"file": "resources/views/hospital/includes/tableAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9394,11 +9446,11 @@
 						"translation.y": 353.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 252,
+					"stack_index": 258,
 					"type": "text"
 				},
 				{
-					"buffer": 122,
+					"buffer": 123,
 					"file": "resources/views/hospital/includes/loopAppointment-desktop.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9451,11 +9503,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 246,
+					"stack_index": 252,
 					"type": "text"
 				},
 				{
-					"buffer": 123,
+					"buffer": 124,
 					"file": "resources/views/hospital/includes/loopPrescription-desktop.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9487,11 +9539,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 195,
+					"stack_index": 204,
 					"type": "text"
 				},
 				{
-					"buffer": 124,
+					"buffer": 125,
 					"file": "resources/views/hospital/includes/loopDoctor-desktop.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9536,11 +9588,11 @@
 						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 43,
+					"stack_index": 65,
 					"type": "text"
 				},
 				{
-					"buffer": 125,
+					"buffer": 126,
 					"file": "resources/views/hospital/includes/loopDoctor-movil.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9584,11 +9636,11 @@
 						"translation.y": 871.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 42,
+					"stack_index": 64,
 					"type": "text"
 				},
 				{
-					"buffer": 126,
+					"buffer": 127,
 					"file": "resources/views/hospital/includes/loopAppointment-movil.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9629,11 +9681,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 291,
+					"stack_index": 296,
 					"type": "text"
 				},
 				{
-					"buffer": 127,
+					"buffer": 128,
 					"file": "resources/views/hospital/includes/loopPrescription-movil.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9681,11 +9733,11 @@
 						"translation.y": 149.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 287,
+					"stack_index": 292,
 					"type": "text"
 				},
 				{
-					"buffer": 128,
+					"buffer": 129,
 					"file": "database/factories/AppointmentFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -9738,14 +9790,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 160.0,
+						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 47,
+					"stack_index": 69,
 					"type": "text"
 				},
 				{
-					"buffer": 129,
+					"buffer": 130,
 					"file": "database/factories/Appointment_commentFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -9787,11 +9839,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 333,
+					"stack_index": 335,
 					"type": "text"
 				},
 				{
-					"buffer": 130,
+					"buffer": 131,
 					"file": ".env",
 					"semi_transient": false,
 					"settings":
@@ -9803,8 +9855,8 @@
 						"selection":
 						[
 							[
-								376,
-								376
+								396,
+								396
 							]
 						],
 						"settings":
@@ -9816,11 +9868,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 183,
+					"stack_index": 22,
 					"type": "text"
 				},
 				{
-					"buffer": 131,
+					"buffer": 132,
+					"file": "config/database.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								494,
+								539
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 21,
+					"type": "text"
+				},
+				{
+					"buffer": 133,
 					"file": "Procfile",
 					"semi_transient": false,
 					"settings":
@@ -9845,11 +9925,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 184,
+					"stack_index": 193,
 					"type": "text"
 				},
 				{
-					"buffer": 132,
+					"buffer": 134,
 					"file": "resources/views/auth/verify.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9877,11 +9957,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 191,
+					"stack_index": 200,
 					"type": "text"
 				},
 				{
-					"buffer": 133,
+					"buffer": 135,
 					"file": "vendor/laravel/ui/auth-backend/SendsPasswordResetEmails.php",
 					"semi_transient": false,
 					"settings":
@@ -9909,11 +9989,11 @@
 						"translation.y": 1121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 190,
+					"stack_index": 199,
 					"type": "text"
 				},
 				{
-					"buffer": 134,
+					"buffer": 136,
 					"file": "resources/views/auth/passwords/email.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9941,11 +10021,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 189,
+					"stack_index": 198,
 					"type": "text"
 				},
 				{
-					"buffer": 135,
+					"buffer": 137,
 					"file": "resources/views/hospital/user/indexUser.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -9977,11 +10057,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 282,
+					"stack_index": 287,
 					"type": "text"
 				},
 				{
-					"buffer": 136,
+					"buffer": 138,
 					"file": "app/Http/Controllers/UserController.php",
 					"semi_transient": false,
 					"settings":
@@ -10012,11 +10092,11 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 26,
 					"type": "text"
 				},
 				{
-					"buffer": 137,
+					"buffer": 139,
 					"file": "app/Http/Controllers/ProfileController.php",
 					"semi_transient": false,
 					"settings":
@@ -10043,11 +10123,11 @@
 						"translation.y": 181.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 231,
+					"stack_index": 238,
 					"type": "text"
 				},
 				{
-					"buffer": 138,
+					"buffer": 140,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Settings.php",
 					"semi_transient": false,
 					"settings":
@@ -10074,11 +10154,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 303,
+					"stack_index": 307,
 					"type": "text"
 				},
 				{
-					"buffer": 139,
+					"buffer": 141,
 					"file": "database/seeds/AppointmentsTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -10134,11 +10214,11 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 50,
+					"stack_index": 72,
 					"type": "text"
 				},
 				{
-					"buffer": 140,
+					"buffer": 142,
 					"file": "app/Soft/Wizard.php",
 					"semi_transient": false,
 					"settings":
@@ -10166,11 +10246,11 @@
 						"translation.y": 326.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 179,
+					"stack_index": 190,
 					"type": "text"
 				},
 				{
-					"buffer": 141,
+					"buffer": 143,
 					"file": "public/js/scripts.js",
 					"semi_transient": false,
 					"settings":
@@ -10230,11 +10310,11 @@
 						"translation.y": 1587.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 130,
+					"stack_index": 146,
 					"type": "text"
 				},
 				{
-					"buffer": 142,
+					"buffer": 144,
 					"file": "public/js/app.js",
 					"semi_transient": false,
 					"settings":
@@ -10262,11 +10342,11 @@
 						"translation.y": 10489.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 127,
+					"stack_index": 143,
 					"type": "text"
 				},
 				{
-					"buffer": 143,
+					"buffer": 145,
 					"file": "public/js/callbacks.js",
 					"semi_transient": false,
 					"settings":
@@ -10294,11 +10374,11 @@
 						"translation.y": 1798.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 168,
+					"stack_index": 181,
 					"type": "text"
 				},
 				{
-					"buffer": 144,
+					"buffer": 146,
 					"file": "public/js/calendar.js",
 					"semi_transient": false,
 					"settings":
@@ -10329,11 +10409,11 @@
 						"translation.y": 1980.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 305,
+					"stack_index": 309,
 					"type": "text"
 				},
 				{
-					"buffer": 145,
+					"buffer": 147,
 					"file": "resources/views/hospital/doctor/showDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10375,11 +10455,11 @@
 						"translation.y": 389.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 80,
+					"stack_index": 101,
 					"type": "text"
 				},
 				{
-					"buffer": 146,
+					"buffer": 148,
 					"file": "resources/views/hospital/includes/card-profile-doctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10420,11 +10500,11 @@
 						"translation.y": 3264.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 33,
 					"type": "text"
 				},
 				{
-					"buffer": 147,
+					"buffer": 149,
 					"file": "resources/views/hospital/includes/card-profile-doctor-simple.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10452,11 +10532,11 @@
 						"translation.y": 1124.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 34,
 					"type": "text"
 				},
 				{
-					"buffer": 148,
+					"buffer": 150,
 					"file": "resources/views/livewire/like/heart.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10482,11 +10562,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 24,
 					"type": "text"
 				},
 				{
-					"buffer": 149,
+					"buffer": 151,
 					"file": "app/Http/Livewire/Like/Heart.php",
 					"semi_transient": false,
 					"settings":
@@ -10513,11 +10593,11 @@
 						"translation.y": 572.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 220,
+					"stack_index": 229,
 					"type": "text"
 				},
 				{
-					"buffer": 150,
+					"buffer": 152,
 					"file": "app/Like.php",
 					"semi_transient": false,
 					"settings":
@@ -10543,11 +10623,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 221,
+					"stack_index": 230,
 					"type": "text"
 				},
 				{
-					"buffer": 151,
+					"buffer": 153,
 					"file": "app/Notifications/MessageNotification.php",
 					"semi_transient": false,
 					"settings":
@@ -10575,11 +10655,11 @@
 						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 331,
+					"stack_index": 333,
 					"type": "text"
 				},
 				{
-					"buffer": 152,
+					"buffer": 154,
 					"file": "app/Notifications/Notifications.php",
 					"semi_transient": false,
 					"settings":
@@ -10607,11 +10687,11 @@
 						"translation.y": 320.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 329,
+					"stack_index": 331,
 					"type": "text"
 				},
 				{
-					"buffer": 153,
+					"buffer": 155,
 					"file": "app/Notification.php",
 					"semi_transient": false,
 					"settings":
@@ -10639,11 +10719,11 @@
 						"translation.y": 65.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 300,
+					"stack_index": 304,
 					"type": "text"
 				},
 				{
-					"buffer": 154,
+					"buffer": 156,
 					"file": "app/SendMail.php",
 					"semi_transient": false,
 					"settings":
@@ -10670,11 +10750,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 237,
+					"stack_index": 243,
 					"type": "text"
 				},
 				{
-					"buffer": 155,
+					"buffer": 157,
 					"file": "app/Http/Controllers/NotificationController.php",
 					"semi_transient": false,
 					"settings":
@@ -10702,11 +10782,11 @@
 						"translation.y": 126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 214,
+					"stack_index": 223,
 					"type": "text"
 				},
 				{
-					"buffer": 156,
+					"buffer": 158,
 					"file": "app/Http/Livewire/NotificationsDropdown.php",
 					"semi_transient": false,
 					"settings":
@@ -10734,11 +10814,11 @@
 						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 307,
+					"stack_index": 310,
 					"type": "text"
 				},
 				{
-					"buffer": 157,
+					"buffer": 159,
 					"file": "app/Http/Livewire/NotificationsCount.php",
 					"semi_transient": false,
 					"settings":
@@ -10765,11 +10845,11 @@
 						"translation.y": 40.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 215,
+					"stack_index": 224,
 					"type": "text"
 				},
 				{
-					"buffer": 158,
+					"buffer": 160,
 					"file": "resources/views/livewire/search-list.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10796,11 +10876,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 272,
+					"stack_index": 277,
 					"type": "text"
 				},
 				{
-					"buffer": 159,
+					"buffer": 161,
 					"file": "resources/views/livewire/chat-list.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10827,11 +10907,11 @@
 						"translation.y": 480.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 275,
+					"stack_index": 280,
 					"type": "text"
 				},
 				{
-					"buffer": 160,
+					"buffer": 162,
 					"file": "resources/views/notifications/index.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -10858,11 +10938,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 46,
 					"type": "text"
 				},
 				{
-					"buffer": 161,
+					"buffer": 163,
 					"file": "database/migrations/2010_01_04_001633_create_user_privileges_table.php",
 					"semi_transient": false,
 					"settings":
@@ -10900,11 +10980,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 60,
+					"stack_index": 81,
 					"type": "text"
 				},
 				{
-					"buffer": 162,
+					"buffer": 164,
 					"file": "app/User_privileges.php",
 					"semi_transient": false,
 					"settings":
@@ -10916,8 +10996,8 @@
 						"selection":
 						[
 							[
-								253,
-								253
+								251,
+								251
 							]
 						],
 						"settings":
@@ -10943,11 +11023,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 296,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 163,
+					"buffer": 165,
 					"file": "database/seeds/UserPrivielegesTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -10982,11 +11062,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 34,
+					"stack_index": 56,
 					"type": "text"
 				},
 				{
-					"buffer": 164,
+					"buffer": 166,
 					"file": "public/js/AJAX-visitantes.js",
 					"semi_transient": false,
 					"settings":
@@ -11020,11 +11100,11 @@
 						"translation.y": 4939.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 258,
+					"stack_index": 264,
 					"type": "text"
 				},
 				{
-					"buffer": 165,
+					"buffer": 167,
 					"file": "resources/views/includes/messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11060,11 +11140,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 280,
+					"stack_index": 285,
 					"type": "text"
 				},
 				{
-					"buffer": 166,
+					"buffer": 168,
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
@@ -11089,11 +11169,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 342,
+					"stack_index": 344,
 					"type": "text"
 				},
 				{
-					"buffer": 167,
+					"buffer": 169,
 					"file": "resources/views/web/doctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11148,11 +11228,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 81,
+					"stack_index": 102,
 					"type": "text"
 				},
 				{
-					"buffer": 168,
+					"buffer": 170,
 					"file": "resources/views/web/consultorio.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11191,11 +11271,11 @@
 						"translation.y": 3089.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 203,
+					"stack_index": 212,
 					"type": "text"
 				},
 				{
-					"buffer": 169,
+					"buffer": 171,
 					"file": "resources/views/web/doctores.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11248,11 +11328,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 39,
 					"type": "text"
 				},
 				{
-					"buffer": 170,
+					"buffer": 172,
 					"file": "resources/views/hospital/like/indexLike.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11281,11 +11361,11 @@
 						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 23,
 					"type": "text"
 				},
 				{
-					"buffer": 171,
+					"buffer": 173,
 					"file": "resources/views/hospital/patient/indexPatients.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11323,11 +11403,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 187,
+					"stack_index": 196,
 					"type": "text"
 				},
 				{
-					"buffer": 172,
+					"buffer": 174,
 					"file": "resources/views/hospital/includes/loopPatient-desktop.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11365,11 +11445,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 289,
+					"stack_index": 294,
 					"type": "text"
 				},
 				{
-					"buffer": 173,
+					"buffer": 175,
 					"file": "resources/views/hospital/includes/loopUser-desktop.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11401,11 +11481,11 @@
 						"translation.y": 193.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 249,
+					"stack_index": 255,
 					"type": "text"
 				},
 				{
-					"buffer": 174,
+					"buffer": 176,
 					"file": "resources/views/hospital/includes/loopPatient-movil.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11443,11 +11523,11 @@
 						"translation.y": 422.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 288,
+					"stack_index": 293,
 					"type": "text"
 				},
 				{
-					"buffer": 175,
+					"buffer": 177,
 					"file": "resources/views/hospital/includes/loopUser-movil.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11479,11 +11559,11 @@
 						"translation.y": 97.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 286,
+					"stack_index": 291,
 					"type": "text"
 				},
 				{
-					"buffer": 176,
+					"buffer": 178,
 					"file": "resources/views/hospital/includes/tablePatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11518,11 +11598,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 251,
+					"stack_index": 257,
 					"type": "text"
 				},
 				{
-					"buffer": 177,
+					"buffer": 179,
 					"file": "resources/views/hospital/includes/tableUser.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11560,11 +11640,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 227,
+					"stack_index": 235,
 					"type": "text"
 				},
 				{
-					"buffer": 178,
+					"buffer": 180,
 					"file": "resources/views/auth/indexUser.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11595,11 +11675,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 228,
+					"stack_index": 236,
 					"type": "text"
 				},
 				{
-					"buffer": 179,
+					"buffer": 181,
 					"file": "resources/views/includes/datatables.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11625,11 +11705,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 259,
+					"stack_index": 265,
 					"type": "text"
 				},
 				{
-					"buffer": 180,
+					"buffer": 182,
 					"file": "resources/views/hospital/includes/tableDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -11667,11 +11747,11 @@
 						"translation.y": 62.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 185,
+					"stack_index": 194,
 					"type": "text"
 				},
 				{
-					"buffer": 181,
+					"buffer": 183,
 					"file": "app/Patient.php",
 					"semi_transient": false,
 					"settings":
@@ -11724,11 +11804,11 @@
 						"translation.y": 75.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 62,
+					"stack_index": 83,
 					"type": "text"
 				},
 				{
-					"buffer": 182,
+					"buffer": 184,
 					"file": "database/migrations/2020_02_05_085921_create_prescriptions_table.php",
 					"semi_transient": false,
 					"settings":
@@ -11763,24 +11843,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 76,
+					"stack_index": 97,
 					"type": "text"
 				},
 				{
-					"buffer": 183,
+					"buffer": 185,
 					"file": "app/User.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5572,
+						"buffer_size": 5796,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								783,
-								783
+								5211,
+								5211
 							]
 						],
 						"settings":
@@ -11820,14 +11900,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 59.0,
+						"translation.y": 1332.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 53,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 184,
+					"buffer": 186,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/composer.json",
 					"semi_transient": false,
 					"settings":
@@ -11854,11 +11934,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 257,
+					"stack_index": 263,
 					"type": "text"
 				},
 				{
-					"buffer": 185,
+					"buffer": 187,
 					"file": "composer.json",
 					"semi_transient": false,
 					"settings":
@@ -11886,24 +11966,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 256,
+					"stack_index": 262,
 					"type": "text"
 				},
 				{
-					"buffer": 186,
+					"buffer": 188,
 					"file": "app/Soft/levenshtein.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7017,
+						"buffer_size": 7064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								133,
-								48
+								3385,
+								3385
 							]
 						],
 						"settings":
@@ -11915,14 +11995,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 44.0,
+						"translation.y": 3812.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 235,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 187,
+					"buffer": 189,
 					"file": "app/Soft/JaroWinkler.php",
 					"semi_transient": false,
 					"settings":
@@ -11951,11 +12031,11 @@
 						"translation.y": 80.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 328,
+					"stack_index": 330,
 					"type": "text"
 				},
 				{
-					"buffer": 188,
+					"buffer": 190,
 					"file": "app/Soft/math.php",
 					"semi_transient": false,
 					"settings":
@@ -11984,11 +12064,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 324,
+					"stack_index": 326,
 					"type": "text"
 				},
 				{
-					"buffer": 189,
+					"buffer": 191,
 					"file": "app/Soft/Chatbot.php",
 					"semi_transient": false,
 					"settings":
@@ -12000,8 +12080,8 @@
 						"selection":
 						[
 							[
-								5207,
-								5207
+								5681,
+								3229
 							]
 						],
 						"settings":
@@ -12014,14 +12094,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 8.0,
+						"translation.y": 366.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 170,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 190,
+					"buffer": 192,
 					"file": "resources/views/bill/indexBills.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12033,8 +12113,8 @@
 						"selection":
 						[
 							[
-								846,
-								846
+								590,
+								54
 							]
 						],
 						"settings":
@@ -12046,14 +12126,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 385.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 22,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 191,
+					"buffer": 193,
 					"file": "app/Http/Livewire/Doctor/Edit/Specialities.php",
 					"semi_transient": false,
 					"settings":
@@ -12078,11 +12158,11 @@
 						"translation.y": 840.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 36,
 					"type": "text"
 				},
 				{
-					"buffer": 192,
+					"buffer": 194,
 					"file": "resources/views/livewire/doctor/edit/specialities.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12107,11 +12187,11 @@
 						"translation.y": 1602.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 25,
 					"type": "text"
 				},
 				{
-					"buffer": 193,
+					"buffer": 195,
 					"file": "app/Soft/Regression.php",
 					"semi_transient": false,
 					"settings":
@@ -12139,11 +12219,11 @@
 						"translation.y": 2024.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 23,
+					"stack_index": 45,
 					"type": "text"
 				},
 				{
-					"buffer": 194,
+					"buffer": 196,
 					"file": "app/Http/Livewire/Bi/Appointment/Gain.php",
 					"semi_transient": false,
 					"settings":
@@ -12166,14 +12246,14 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 359.0,
+						"translation.y": 271.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 149,
+					"stack_index": 163,
 					"type": "text"
 				},
 				{
-					"buffer": 195,
+					"buffer": 197,
 					"file": "resources/views/livewire/bi/regression.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12185,8 +12265,8 @@
 						"selection":
 						[
 							[
-								611,
-								611
+								616,
+								616
 							]
 						],
 						"settings":
@@ -12197,14 +12277,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 396.0,
+						"translation.y": 418.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 147,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 196,
+					"buffer": 198,
 					"file": "resources/views/livewire/bi/doctor/worst.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12231,11 +12311,11 @@
 						"translation.y": 132.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 161,
+					"stack_index": 175,
 					"type": "text"
 				},
 				{
-					"buffer": 197,
+					"buffer": 199,
 					"file": "resources/views/livewire/bi/appointment/gain.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12247,8 +12327,8 @@
 						"selection":
 						[
 							[
-								140,
-								140
+								489,
+								489
 							]
 						],
 						"settings":
@@ -12259,14 +12339,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 330.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 148,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 198,
+					"buffer": 200,
 					"file": "resources/views/livewire/bi/download.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12292,11 +12372,11 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 156,
+					"stack_index": 170,
 					"type": "text"
 				},
 				{
-					"buffer": 199,
+					"buffer": 201,
 					"file": "app/Http/Livewire/Bi/Download.php",
 					"semi_transient": false,
 					"settings":
@@ -12324,11 +12404,11 @@
 						"translation.y": 66.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 157,
+					"stack_index": 171,
 					"type": "text"
 				},
 				{
-					"buffer": 200,
+					"buffer": 202,
 					"file": "vendor/brick/math/src/BigInteger.php",
 					"semi_transient": false,
 					"settings":
@@ -12356,11 +12436,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 159,
+					"stack_index": 173,
 					"type": "text"
 				},
 				{
-					"buffer": 201,
+					"buffer": 203,
 					"file": "app/Http/Controllers/BillController.php",
 					"semi_transient": false,
 					"settings":
@@ -12383,14 +12463,14 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 201.0,
+						"translation.y": 113.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 151,
+					"stack_index": 165,
 					"type": "text"
 				},
 				{
-					"buffer": 202,
+					"buffer": 204,
 					"file": "resources/views/livewire/bi/doctor/best.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12417,11 +12497,11 @@
 						"translation.y": 663.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 163,
+					"stack_index": 177,
 					"type": "text"
 				},
 				{
-					"buffer": 203,
+					"buffer": 205,
 					"file": "app/Http/Livewire/Bi/Doctor/Worst.php",
 					"semi_transient": false,
 					"settings":
@@ -12448,11 +12528,11 @@
 						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 164,
+					"stack_index": 178,
 					"type": "text"
 				},
 				{
-					"buffer": 204,
+					"buffer": 206,
 					"file": "resources/views/livewire/bi/circle.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12464,8 +12544,8 @@
 						"selection":
 						[
 							[
-								302,
-								302
+								231,
+								798
 							]
 						],
 						"settings":
@@ -12476,14 +12556,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 792.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 167,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 205,
+					"buffer": 207,
 					"file": "app/Http/Livewire/Bi/Circle.php",
 					"semi_transient": false,
 					"settings":
@@ -12510,11 +12590,11 @@
 						"translation.y": 117.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 166,
+					"stack_index": 180,
 					"type": "text"
 				},
 				{
-					"buffer": 206,
+					"buffer": 208,
 					"file": "app/Http/Livewire/Bi/Total.php",
 					"semi_transient": false,
 					"settings":
@@ -12549,11 +12629,11 @@
 						"translation.y": 484.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 152,
+					"stack_index": 166,
 					"type": "text"
 				},
 				{
-					"buffer": 207,
+					"buffer": 209,
 					"file": "resources/views/livewire/bi/select.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12580,11 +12660,11 @@
 						"translation.y": 404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 160,
+					"stack_index": 174,
 					"type": "text"
 				},
 				{
-					"buffer": 208,
+					"buffer": 210,
 					"file": "resources/views/livewire/bi/appointment/quantity.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12611,11 +12691,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 165,
+					"stack_index": 179,
 					"type": "text"
 				},
 				{
-					"buffer": 209,
+					"buffer": 211,
 					"file": "app/Http/Livewire/Bi/Appointment/Quantity.php",
 					"semi_transient": false,
 					"settings":
@@ -12642,11 +12722,11 @@
 						"translation.y": 1518.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 162,
+					"stack_index": 176,
 					"type": "text"
 				},
 				{
-					"buffer": 210,
+					"buffer": 212,
 					"file": "resources/views/livewire/bi/total.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -12672,11 +12752,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 150,
+					"stack_index": 164,
 					"type": "text"
 				},
 				{
-					"buffer": 211,
+					"buffer": 213,
 					"file": "storage/app/soft/dataset.txt",
 					"semi_transient": false,
 					"settings":
@@ -12701,11 +12781,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 173,
+					"stack_index": 185,
 					"type": "text"
 				},
 				{
-					"buffer": 212,
+					"buffer": 214,
 					"file": "storage/app/soft/knowledge.json",
 					"semi_transient": false,
 					"settings":
@@ -12734,11 +12814,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 314,
+					"stack_index": 317,
 					"type": "text"
 				},
 				{
-					"buffer": 213,
+					"buffer": 215,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Document.php",
 					"semi_transient": false,
 					"settings":
@@ -12764,11 +12844,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 315,
+					"stack_index": 318,
 					"type": "text"
 				},
 				{
-					"buffer": 214,
+					"buffer": 216,
 					"file": "storage/app/soft/tags.txt",
 					"semi_transient": false,
 					"settings":
@@ -12793,11 +12873,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 172,
+					"stack_index": 184,
 					"type": "text"
 				},
 				{
-					"buffer": 215,
+					"buffer": 217,
 					"file": "storage/app/soft/words.txt",
 					"semi_transient": false,
 					"settings":
@@ -12822,11 +12902,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 171,
+					"stack_index": 183,
 					"type": "text"
 				},
 				{
-					"buffer": 216,
+					"buffer": 218,
 					"file": "app/Soft/nlp.php",
 					"semi_transient": false,
 					"settings":
@@ -12853,11 +12933,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 154,
+					"stack_index": 168,
 					"type": "text"
 				},
 				{
-					"buffer": 217,
+					"buffer": 219,
 					"file": "app/Soft/Tree.php",
 					"semi_transient": false,
 					"settings":
@@ -12885,11 +12965,11 @@
 						"translation.y": 380.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 177,
+					"stack_index": 189,
 					"type": "text"
 				},
 				{
-					"buffer": 218,
+					"buffer": 220,
 					"file": "app/Soft/Tree/Data.php",
 					"semi_transient": false,
 					"settings":
@@ -12913,14 +12993,14 @@
 							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 594.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 178,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 219,
+					"buffer": 221,
 					"file": "app/Soft/Tree/Classifier.php",
 					"semi_transient": false,
 					"settings":
@@ -12947,11 +13027,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 316,
+					"stack_index": 319,
 					"type": "text"
 				},
 				{
-					"buffer": 220,
+					"buffer": 222,
 					"file": "app/Soft/Tree/Decide_node.php",
 					"semi_transient": false,
 					"settings":
@@ -12980,11 +13060,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 318,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 221,
+					"buffer": 223,
 					"file": "app/Soft/Tree/Evaluate.php",
 					"semi_transient": false,
 					"settings":
@@ -13011,11 +13091,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 306,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 222,
+					"buffer": 224,
 					"file": "resources/views/hospital/home/patient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13043,11 +13123,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 92,
+					"stack_index": 113,
 					"type": "text"
 				},
 				{
-					"buffer": 223,
+					"buffer": 225,
 					"file": "bootstrap/cache/config.php",
 					"semi_transient": false,
 					"settings":
@@ -13075,11 +13155,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 242,
+					"stack_index": 248,
 					"type": "text"
 				},
 				{
-					"buffer": 224,
+					"buffer": 226,
 					"file": "config/services.php",
 					"semi_transient": false,
 					"settings":
@@ -13107,11 +13187,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 243,
+					"stack_index": 249,
 					"type": "text"
 				},
 				{
-					"buffer": 225,
+					"buffer": 227,
 					"file": "resources/views/hospital/home/admin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13138,11 +13218,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 90,
+					"stack_index": 111,
 					"type": "text"
 				},
 				{
-					"buffer": 226,
+					"buffer": 228,
 					"file": "resources/views/hospital/home/wizard.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13169,11 +13249,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 93,
+					"stack_index": 114,
 					"type": "text"
 				},
 				{
-					"buffer": 227,
+					"buffer": 229,
 					"file": "resources/views/livewire/wizard/ask.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13201,11 +13281,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 212,
+					"stack_index": 221,
 					"type": "text"
 				},
 				{
-					"buffer": 228,
+					"buffer": 230,
 					"file": "resources/views/livewire/wizard/response.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13231,11 +13311,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 188,
+					"stack_index": 197,
 					"type": "text"
 				},
 				{
-					"buffer": 229,
+					"buffer": 231,
 					"file": "app/Http/Livewire/Wizard/Response.php",
 					"semi_transient": false,
 					"settings":
@@ -13263,11 +13343,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 210,
+					"stack_index": 219,
 					"type": "text"
 				},
 				{
-					"buffer": 230,
+					"buffer": 232,
 					"file": "resources/views/hospital/home/doctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13294,11 +13374,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 89,
+					"stack_index": 110,
 					"type": "text"
 				},
 				{
-					"buffer": 231,
+					"buffer": 233,
 					"file": "resources/views/hospital/home/office.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13325,11 +13405,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 91,
+					"stack_index": 112,
 					"type": "text"
 				},
 				{
-					"buffer": 232,
+					"buffer": 234,
 					"file": "storage/app/public/soft/text.txt",
 					"semi_transient": false,
 					"settings":
@@ -13356,11 +13436,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 313,
+					"stack_index": 316,
 					"type": "text"
 				},
 				{
-					"buffer": 233,
+					"buffer": 235,
 					"file": "public/jaro/JaroWinkler.php",
 					"semi_transient": false,
 					"settings":
@@ -13388,11 +13468,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 204,
+					"stack_index": 213,
 					"type": "text"
 				},
 				{
-					"buffer": 234,
+					"buffer": 236,
 					"file": "resources/views/auth/passwords/confirm.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13420,11 +13500,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 206,
+					"stack_index": 215,
 					"type": "text"
 				},
 				{
-					"buffer": 235,
+					"buffer": 237,
 					"file": "resources/views/auth/passwords/reset.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13452,11 +13532,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 205,
+					"stack_index": 214,
 					"type": "text"
 				},
 				{
-					"buffer": 236,
+					"buffer": 238,
 					"file": "app/Privileges.php",
 					"semi_transient": false,
 					"settings":
@@ -13489,11 +13569,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 298,
+					"stack_index": 302,
 					"type": "text"
 				},
 				{
-					"buffer": 237,
+					"buffer": 239,
 					"file": "app/Http/Controllers/Auth/LoginController.php",
 					"semi_transient": false,
 					"settings":
@@ -13524,11 +13604,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 336,
+					"stack_index": 338,
 					"type": "text"
 				},
 				{
-					"buffer": 238,
+					"buffer": 240,
 					"file": "app/Http/Kernel.php",
 					"semi_transient": false,
 					"settings":
@@ -13560,11 +13640,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 345,
+					"stack_index": 347,
 					"type": "text"
 				},
 				{
-					"buffer": 239,
+					"buffer": 241,
 					"file": "app/Office.php",
 					"semi_transient": false,
 					"settings":
@@ -13608,11 +13688,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 61,
+					"stack_index": 82,
 					"type": "text"
 				},
 				{
-					"buffer": 240,
+					"buffer": 242,
 					"file": "app/Http/Controllers/PatientController.php",
 					"semi_transient": false,
 					"settings":
@@ -13671,11 +13751,11 @@
 						"translation.y": 5384.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 29,
 					"type": "text"
 				},
 				{
-					"buffer": 241,
+					"buffer": 243,
 					"file": "resources/views/forms/edit/login.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13703,11 +13783,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 295,
+					"stack_index": 300,
 					"type": "text"
 				},
 				{
-					"buffer": 242,
+					"buffer": 244,
 					"file": "resources/views/hospital/admin/indexAdmin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13734,11 +13814,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 226,
+					"stack_index": 234,
 					"type": "text"
 				},
 				{
-					"buffer": 243,
+					"buffer": 245,
 					"file": "resources/views/hospital/admin/showAdmin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13765,11 +13845,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 225,
+					"stack_index": 233,
 					"type": "text"
 				},
 				{
-					"buffer": 244,
+					"buffer": 246,
 					"file": "/C/xampp/htdocs/laravel/receta/routes/web.php",
 					"semi_transient": false,
 					"settings":
@@ -13793,11 +13873,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 334,
+					"stack_index": 336,
 					"type": "text"
 				},
 				{
-					"buffer": 245,
+					"buffer": 247,
 					"file": "/C/xampp/htdocs/laravel/receta/app/Http/Controllers/RecetaController.php",
 					"semi_transient": false,
 					"settings":
@@ -13823,11 +13903,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 335,
+					"stack_index": 337,
 					"type": "text"
 				},
 				{
-					"buffer": 246,
+					"buffer": 248,
 					"file": "app/Http/Controllers/DoctorController.php",
 					"semi_transient": false,
 					"settings":
@@ -13917,11 +13997,11 @@
 						"translation.y": 4571.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 31,
 					"type": "text"
 				},
 				{
-					"buffer": 247,
+					"buffer": 249,
 					"file": "resources/views/hospital/Speciality/indexSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -13962,11 +14042,11 @@
 						"translation.y": 1500.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 28,
+					"stack_index": 50,
 					"type": "text"
 				},
 				{
-					"buffer": 248,
+					"buffer": 250,
 					"file": "resources/views/hospital/Speciality/showSpeciality.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14013,11 +14093,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 46,
+					"stack_index": 68,
 					"type": "text"
 				},
 				{
-					"buffer": 249,
+					"buffer": 251,
 					"semi_transient": false,
 					"settings":
 					{
@@ -14042,11 +14122,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 145,
+					"stack_index": 161,
 					"type": "text"
 				},
 				{
-					"buffer": 250,
+					"buffer": 252,
 					"file": "resources/sass/_search.scss",
 					"semi_transient": false,
 					"settings":
@@ -14074,11 +14154,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 131,
+					"stack_index": 147,
 					"type": "text"
 				},
 				{
-					"buffer": 251,
+					"buffer": 253,
 					"file": "resources/sass/_cabecera.scss",
 					"semi_transient": false,
 					"settings":
@@ -14106,11 +14186,11 @@
 						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 41,
 					"type": "text"
 				},
 				{
-					"buffer": 252,
+					"buffer": 254,
 					"file": "resources/sass/_comment.scss",
 					"semi_transient": false,
 					"settings":
@@ -14138,11 +14218,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 134,
+					"stack_index": 150,
 					"type": "text"
 				},
 				{
-					"buffer": 253,
+					"buffer": 255,
 					"file": "resources/sass/_like.scss",
 					"semi_transient": false,
 					"settings":
@@ -14170,11 +14250,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 135,
+					"stack_index": 151,
 					"type": "text"
 				},
 				{
-					"buffer": 254,
+					"buffer": 256,
 					"file": "resources/sass/plugins/_datepicker.scss",
 					"semi_transient": false,
 					"settings":
@@ -14200,11 +14280,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 140,
+					"stack_index": 156,
 					"type": "text"
 				},
 				{
-					"buffer": 255,
+					"buffer": 257,
 					"file": "resources/sass/_show.scss",
 					"semi_transient": false,
 					"settings":
@@ -14232,11 +14312,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 132,
+					"stack_index": 148,
 					"type": "text"
 				},
 				{
-					"buffer": 256,
+					"buffer": 258,
 					"file": "resources/sass/_chat.scss",
 					"semi_transient": false,
 					"settings":
@@ -14264,11 +14344,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 106,
+					"stack_index": 122,
 					"type": "text"
 				},
 				{
-					"buffer": 257,
+					"buffer": 259,
 					"file": "vendor/laravel/framework/src/Illuminate/Translation/MessageSelector.php",
 					"semi_transient": false,
 					"settings":
@@ -14295,11 +14375,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 113,
+					"stack_index": 129,
 					"type": "text"
 				},
 				{
-					"buffer": 258,
+					"buffer": 260,
 					"file": "resources/sass/_template.scss",
 					"semi_transient": false,
 					"settings":
@@ -14326,11 +14406,11 @@
 						"translation.y": 1799.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 44,
 					"type": "text"
 				},
 				{
-					"buffer": 259,
+					"buffer": 261,
 					"file": "resources/sass/_navbarresponsive.scss",
 					"semi_transient": false,
 					"settings":
@@ -14358,11 +14438,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 143,
+					"stack_index": 159,
 					"type": "text"
 				},
 				{
-					"buffer": 260,
+					"buffer": 262,
 					"file": "resources/sass/_login.scss",
 					"semi_transient": false,
 					"settings":
@@ -14390,11 +14470,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 144,
+					"stack_index": 160,
 					"type": "text"
 				},
 				{
-					"buffer": 261,
+					"buffer": 263,
 					"file": "resources/sass/_notificacion.scss",
 					"semi_transient": false,
 					"settings":
@@ -14422,11 +14502,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 142,
+					"stack_index": 158,
 					"type": "text"
 				},
 				{
-					"buffer": 262,
+					"buffer": 264,
 					"file": "resources/sass/_navegacion.scss",
 					"semi_transient": false,
 					"settings":
@@ -14454,11 +14534,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 141,
+					"stack_index": 157,
 					"type": "text"
 				},
 				{
-					"buffer": 263,
+					"buffer": 265,
 					"file": "resources/sass/_footerweb.scss",
 					"semi_transient": false,
 					"settings":
@@ -14486,11 +14566,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 126,
+					"stack_index": 142,
 					"type": "text"
 				},
 				{
-					"buffer": 264,
+					"buffer": 266,
 					"file": "resources/sass/_welcome.scss",
 					"semi_transient": false,
 					"settings":
@@ -14518,11 +14598,11 @@
 						"translation.y": 631.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 43,
 					"type": "text"
 				},
 				{
-					"buffer": 265,
+					"buffer": 267,
 					"file": "resources/sass/plugins/_fullcalendar.scss",
 					"semi_transient": false,
 					"settings":
@@ -14550,11 +14630,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 139,
+					"stack_index": 155,
 					"type": "text"
 				},
 				{
-					"buffer": 266,
+					"buffer": 268,
 					"file": "resources/sass/plugins/_pickadate.scss",
 					"semi_transient": false,
 					"settings":
@@ -14581,11 +14661,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 136,
+					"stack_index": 152,
 					"type": "text"
 				},
 				{
-					"buffer": 267,
+					"buffer": 269,
 					"file": "resources/sass/_variables.scss",
 					"semi_transient": false,
 					"settings":
@@ -14613,11 +14693,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 42,
 					"type": "text"
 				},
 				{
-					"buffer": 268,
+					"buffer": 270,
 					"file": "resources/sass/app.scss",
 					"semi_transient": false,
 					"settings":
@@ -14642,11 +14722,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 124,
+					"stack_index": 140,
 					"type": "text"
 				},
 				{
-					"buffer": 269,
+					"buffer": 271,
 					"file": "resources/sass/_plugins.scss",
 					"semi_transient": false,
 					"settings":
@@ -14672,11 +14752,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 125,
+					"stack_index": 141,
 					"type": "text"
 				},
 				{
-					"buffer": 270,
+					"buffer": 272,
 					"file": "resources/sass/plugins/_select2.scss",
 					"semi_transient": false,
 					"settings":
@@ -14702,11 +14782,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 138,
+					"stack_index": 154,
 					"type": "text"
 				},
 				{
-					"buffer": 271,
+					"buffer": 273,
 					"file": "resources/sass/_stripe.scss",
 					"semi_transient": false,
 					"settings":
@@ -14734,11 +14814,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 133,
+					"stack_index": 149,
 					"type": "text"
 				},
 				{
-					"buffer": 272,
+					"buffer": 274,
 					"file": "resources/sass/plugins/_stripe.scss",
 					"semi_transient": false,
 					"settings":
@@ -14766,11 +14846,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 137,
+					"stack_index": 153,
 					"type": "text"
 				},
 				{
-					"buffer": 273,
+					"buffer": 275,
 					"file": "resources/js/app.js",
 					"semi_transient": false,
 					"settings":
@@ -14796,11 +14876,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 82,
+					"stack_index": 103,
 					"type": "text"
 				},
 				{
-					"buffer": 274,
+					"buffer": 276,
 					"file": "resources/js/visitante/especialidad.js",
 					"semi_transient": false,
 					"settings":
@@ -14828,11 +14908,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 83,
+					"stack_index": 104,
 					"type": "text"
 				},
 				{
-					"buffer": 275,
+					"buffer": 277,
 					"file": "resources/js/Appointments/appointment_comment.js",
 					"semi_transient": false,
 					"settings":
@@ -14859,11 +14939,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 88,
+					"stack_index": 109,
 					"type": "text"
 				},
 				{
-					"buffer": 276,
+					"buffer": 278,
 					"file": "resources/js/Appointments/appointments.js",
 					"semi_transient": false,
 					"settings":
@@ -14890,11 +14970,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 87,
+					"stack_index": 108,
 					"type": "text"
 				},
 				{
-					"buffer": 277,
+					"buffer": 279,
 					"file": "resources/js/dashboard.js",
 					"semi_transient": false,
 					"settings":
@@ -14922,11 +15002,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 119,
+					"stack_index": 135,
 					"type": "text"
 				},
 				{
-					"buffer": 278,
+					"buffer": 280,
 					"file": "resources/views/layouts/app.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14938,8 +15018,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								663,
+								663
 							]
 						],
 						"settings":
@@ -14950,14 +15030,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 462.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 102,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 279,
+					"buffer": 281,
 					"file": "resources/views/layouts/nav-login.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -14988,11 +15068,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 105,
+					"stack_index": 121,
 					"type": "text"
 				},
 				{
-					"buffer": 280,
+					"buffer": 282,
 					"file": "resources/views/welcome.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15028,11 +15108,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 40,
 					"type": "text"
 				},
 				{
-					"buffer": 281,
+					"buffer": 283,
 					"file": "resources/views/includes/contact.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15060,11 +15140,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 202,
+					"stack_index": 211,
 					"type": "text"
 				},
 				{
-					"buffer": 282,
+					"buffer": 284,
 					"file": "resources/views/hospital/appointment/editAppointment.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15121,11 +15201,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 96,
+					"stack_index": 117,
 					"type": "text"
 				},
 				{
-					"buffer": 283,
+					"buffer": 285,
 					"file": "resources/views/layouts/nav-admin.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15137,8 +15217,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								6626,
+								6631
 							]
 						],
 						"settings":
@@ -15179,14 +15259,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5065.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 101,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 284,
+					"buffer": 286,
 					"file": "resources/views/layouts/nav-wizard.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15214,11 +15294,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 104,
+					"stack_index": 120,
 					"type": "text"
 				},
 				{
-					"buffer": 285,
+					"buffer": 287,
 					"file": "resources/views/chat/indexChat.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15245,11 +15325,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 112,
+					"stack_index": 128,
 					"type": "text"
 				},
 				{
-					"buffer": 286,
+					"buffer": 288,
 					"file": "app/Http/Livewire/Chat/ChatHeader.php",
 					"semi_transient": false,
 					"settings":
@@ -15276,11 +15356,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 115,
+					"stack_index": 131,
 					"type": "text"
 				},
 				{
-					"buffer": 287,
+					"buffer": 289,
 					"file": "app/Http/Livewire/Chat/ChatMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -15307,11 +15387,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 108,
+					"stack_index": 124,
 					"type": "text"
 				},
 				{
-					"buffer": 288,
+					"buffer": 290,
 					"file": "app/Http/Livewire/Chat/ChatList.php",
 					"semi_transient": false,
 					"settings":
@@ -15339,11 +15419,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 110,
+					"stack_index": 126,
 					"type": "text"
 				},
 				{
-					"buffer": 289,
+					"buffer": 291,
 					"file": "resources/views/livewire/chat/chat-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15370,11 +15450,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 107,
+					"stack_index": 123,
 					"type": "text"
 				},
 				{
-					"buffer": 290,
+					"buffer": 292,
 					"file": "app/Messages.php",
 					"semi_transient": false,
 					"settings":
@@ -15401,11 +15481,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 109,
+					"stack_index": 125,
 					"type": "text"
 				},
 				{
-					"buffer": 291,
+					"buffer": 293,
 					"file": "resources/views/livewire/chat/chat-search.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15431,11 +15511,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 116,
+					"stack_index": 132,
 					"type": "text"
 				},
 				{
-					"buffer": 292,
+					"buffer": 294,
 					"file": "resources/views/livewire/chat/chat-list.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15462,11 +15542,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 111,
+					"stack_index": 127,
 					"type": "text"
 				},
 				{
-					"buffer": 293,
+					"buffer": 295,
 					"file": "app/Http/Controllers/AdminController.php",
 					"semi_transient": false,
 					"settings":
@@ -15494,11 +15574,11 @@
 						"translation.y": 2943.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 27,
 					"type": "text"
 				},
 				{
-					"buffer": 294,
+					"buffer": 296,
 					"file": "database/migrations/2020_11_17_185213_create_likes_table.php",
 					"semi_transient": false,
 					"settings":
@@ -15526,11 +15606,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 72,
+					"stack_index": 93,
 					"type": "text"
 				},
 				{
-					"buffer": 295,
+					"buffer": 297,
 					"file": "database/migrations/2020_09_19_201637_create_admins_table.php",
 					"semi_transient": false,
 					"settings":
@@ -15558,11 +15638,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 52,
+					"stack_index": 74,
 					"type": "text"
 				},
 				{
-					"buffer": 296,
+					"buffer": 298,
 					"file": "app/Admin.php",
 					"semi_transient": false,
 					"settings":
@@ -15589,11 +15669,11 @@
 						"translation.y": 60.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 63,
+					"stack_index": 84,
 					"type": "text"
 				},
 				{
-					"buffer": 297,
+					"buffer": 299,
 					"file": "resources/views/livewire/notifications-dropdown.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15621,11 +15701,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 273,
+					"stack_index": 278,
 					"type": "text"
 				},
 				{
-					"buffer": 298,
+					"buffer": 300,
 					"file": "resources/views/livewire/notifications-count.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15652,11 +15732,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 216,
+					"stack_index": 225,
 					"type": "text"
 				},
 				{
-					"buffer": 299,
+					"buffer": 301,
 					"semi_transient": false,
 					"settings":
 					{
@@ -15683,11 +15763,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 330,
+					"stack_index": 332,
 					"type": "text"
 				},
 				{
-					"buffer": 300,
+					"buffer": 302,
 					"file": "resources/views/livewire/chat-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15714,11 +15794,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 277,
+					"stack_index": 282,
 					"type": "text"
 				},
 				{
-					"buffer": 301,
+					"buffer": 303,
 					"file": "resources/views/livewire/bot-form.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15745,11 +15825,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 279,
+					"stack_index": 284,
 					"type": "text"
 				},
 				{
-					"buffer": 302,
+					"buffer": 304,
 					"file": "resources/views/livewire/bot-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15776,11 +15856,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 278,
+					"stack_index": 283,
 					"type": "text"
 				},
 				{
-					"buffer": 303,
+					"buffer": 305,
 					"file": "app/Http/Livewire/ChatForm.php",
 					"semi_transient": false,
 					"settings":
@@ -15807,11 +15887,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 309,
+					"stack_index": 312,
 					"type": "text"
 				},
 				{
-					"buffer": 304,
+					"buffer": 306,
 					"file": "app/Http/Livewire/ChatMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -15838,11 +15918,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 174,
+					"stack_index": 186,
 					"type": "text"
 				},
 				{
-					"buffer": 305,
+					"buffer": 307,
 					"file": "resources/views/livewire/chat-messages.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15869,11 +15949,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 175,
+					"stack_index": 187,
 					"type": "text"
 				},
 				{
-					"buffer": 306,
+					"buffer": 308,
 					"file": "resources/views/livewire/chat-search.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -15899,11 +15979,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 274,
+					"stack_index": 279,
 					"type": "text"
 				},
 				{
-					"buffer": 307,
+					"buffer": 309,
 					"file": "app/Http/Livewire/ChatList.php",
 					"semi_transient": false,
 					"settings":
@@ -15930,11 +16010,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 308,
+					"stack_index": 311,
 					"type": "text"
 				},
 				{
-					"buffer": 308,
+					"buffer": 310,
 					"file": "app/Http/Livewire/BotForm.php",
 					"semi_transient": false,
 					"settings":
@@ -15960,11 +16040,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 310,
+					"stack_index": 313,
 					"type": "text"
 				},
 				{
-					"buffer": 309,
+					"buffer": 311,
 					"file": "app/Http/Livewire/BotMessages.php",
 					"semi_transient": false,
 					"settings":
@@ -15992,11 +16072,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 236,
+					"stack_index": 242,
 					"type": "text"
 				},
 				{
-					"buffer": 310,
+					"buffer": 312,
 					"file": "/C/xampp/htdocs/laravel/regulatorio/app/Http/Controllers/UserController.php",
 					"semi_transient": false,
 					"settings":
@@ -16023,11 +16103,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 304,
+					"stack_index": 308,
 					"type": "text"
 				},
 				{
-					"buffer": 311,
+					"buffer": 313,
 					"file": "/C/Users/DELL/Documents/Desarrollo/materialkitpro-121/materialkitpro-121/index.html",
 					"semi_transient": false,
 					"settings":
@@ -16058,11 +16138,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 344,
+					"stack_index": 346,
 					"type": "text"
 				},
 				{
-					"buffer": 312,
+					"buffer": 314,
 					"file": "app/Http/Controllers/Controller.php",
 					"semi_transient": false,
 					"settings":
@@ -16095,11 +16175,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 234,
+					"stack_index": 241,
 					"type": "text"
 				},
 				{
-					"buffer": 313,
+					"buffer": 315,
 					"file": "app/Http/Middleware/RedirectIfAuthenticated.php",
 					"semi_transient": false,
 					"settings":
@@ -16133,11 +16213,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 263,
+					"stack_index": 269,
 					"type": "text"
 				},
 				{
-					"buffer": 314,
+					"buffer": 316,
 					"file": "resources/views/hospital/doctor/createDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16177,11 +16257,11 @@
 						"translation.y": 280.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 48,
 					"type": "text"
 				},
 				{
-					"buffer": 315,
+					"buffer": 317,
 					"file": "resources/views/hospital/patient/createPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16215,11 +16295,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 283,
+					"stack_index": 288,
 					"type": "text"
 				},
 				{
-					"buffer": 316,
+					"buffer": 318,
 					"file": "public/splash/img/isotipo.svg",
 					"semi_transient": false,
 					"settings":
@@ -16244,11 +16324,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 354,
+					"stack_index": 356,
 					"type": "text"
 				},
 				{
-					"buffer": 317,
+					"buffer": 319,
 					"file": "resources/views/hospital/doctor/editDoctor.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16296,11 +16376,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 35,
 					"type": "text"
 				},
 				{
-					"buffer": 318,
+					"buffer": 320,
 					"file": "resources/views/hospital/patient/editPatient.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16342,11 +16422,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 253,
+					"stack_index": 259,
 					"type": "text"
 				},
 				{
-					"buffer": 319,
+					"buffer": 321,
 					"file": "resources/views/auth/register.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16374,11 +16454,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 332,
+					"stack_index": 334,
 					"type": "text"
 				},
 				{
-					"buffer": 320,
+					"buffer": 322,
 					"file": "app/Http/Controllers/Auth/RegisterController.php",
 					"semi_transient": false,
 					"settings":
@@ -16406,11 +16486,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 209,
+					"stack_index": 218,
 					"type": "text"
 				},
 				{
-					"buffer": 321,
+					"buffer": 323,
 					"file": "app/Http/Controllers/optionController.php",
 					"semi_transient": false,
 					"settings":
@@ -16445,11 +16525,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 232,
+					"stack_index": 239,
 					"type": "text"
 				},
 				{
-					"buffer": 322,
+					"buffer": 324,
 					"file": "app/Http/Controllers/OfficeController.php",
 					"semi_transient": false,
 					"settings":
@@ -16489,11 +16569,11 @@
 						"translation.y": 3644.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 28,
 					"type": "text"
 				},
 				{
-					"buffer": 323,
+					"buffer": 325,
 					"file": "resources/views/options/indexOptions.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16526,11 +16606,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 239,
+					"stack_index": 245,
 					"type": "text"
 				},
 				{
-					"buffer": 324,
+					"buffer": 326,
 					"file": "vendor/mockery/mockery/library/Mockery/HigherOrderMessage.php",
 					"semi_transient": false,
 					"settings":
@@ -16557,11 +16637,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 240,
+					"stack_index": 246,
 					"type": "text"
 				},
 				{
-					"buffer": 325,
+					"buffer": 327,
 					"file": "resources/views/hospital/office/createOffice.blade.php",
 					"semi_transient": false,
 					"settings":
@@ -16592,11 +16672,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 285,
+					"stack_index": 290,
 					"type": "text"
 				},
 				{
-					"buffer": 326,
+					"buffer": 328,
 					"file": "/C/xampp/htdocs/laravel/app-shop/database/seeds/UsersTableSeeder.php",
 					"semi_transient": false,
 					"settings":
@@ -16626,11 +16706,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 79,
+					"stack_index": 100,
 					"type": "text"
 				},
 				{
-					"buffer": 327,
+					"buffer": 329,
 					"file": "app/Speciality.php",
 					"semi_transient": false,
 					"settings":
@@ -16696,11 +16776,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 30,
+					"stack_index": 52,
 					"type": "text"
 				},
 				{
-					"buffer": 328,
+					"buffer": 330,
 					"file": "database/factories/DoctorFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -16759,11 +16839,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 67,
+					"stack_index": 88,
 					"type": "text"
 				},
 				{
-					"buffer": 329,
+					"buffer": 331,
 					"semi_transient": false,
 					"settings":
 					{
@@ -16786,11 +16866,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 343,
+					"stack_index": 345,
 					"type": "text"
 				},
 				{
-					"buffer": 330,
+					"buffer": 332,
 					"file": "database/factories/DoctorOfficeFactory.php",
 					"semi_transient": false,
 					"settings":
@@ -16820,11 +16900,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 352,
+					"stack_index": 354,
 					"type": "text"
 				},
 				{
-					"buffer": 331,
+					"buffer": 333,
 					"file": "database/migrations/2014_10_12_000000_create_users_table.php",
 					"semi_transient": false,
 					"settings":
@@ -16862,11 +16942,11 @@
 						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 54,
+					"stack_index": 75,
 					"type": "text"
 				},
 				{
-					"buffer": 332,
+					"buffer": 334,
 					"file": "webpack.mix.js",
 					"semi_transient": false,
 					"settings":
@@ -16892,11 +16972,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 123,
+					"stack_index": 139,
 					"type": "text"
 				},
 				{
-					"buffer": 333,
+					"buffer": 335,
 					"file": "resources/js/stars.js",
 					"semi_transient": false,
 					"settings":
@@ -16923,11 +17003,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 118,
+					"stack_index": 134,
 					"type": "text"
 				},
 				{
-					"buffer": 334,
+					"buffer": 336,
 					"file": "resources/js/chat.js",
 					"semi_transient": false,
 					"settings":
@@ -16954,11 +17034,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 120,
+					"stack_index": 136,
 					"type": "text"
 				},
 				{
-					"buffer": 335,
+					"buffer": 337,
 					"file": "resources/js/plugins/waitme.js",
 					"semi_transient": false,
 					"settings":
@@ -16986,11 +17066,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 122,
+					"stack_index": 138,
 					"type": "text"
 				},
 				{
-					"buffer": 336,
+					"buffer": 338,
 					"file": "resources/js/plugins/datepicker.js",
 					"semi_transient": false,
 					"settings":
@@ -17018,11 +17098,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 86,
+					"stack_index": 107,
 					"type": "text"
 				},
 				{
-					"buffer": 337,
+					"buffer": 339,
 					"file": "resources/js/buttons.js",
 					"semi_transient": false,
 					"settings":
@@ -17050,11 +17130,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 121,
+					"stack_index": 137,
 					"type": "text"
 				},
 				{
-					"buffer": 338,
+					"buffer": 340,
 					"file": "resources/js/web.js",
 					"semi_transient": false,
 					"settings":
@@ -17081,11 +17161,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 39,
+					"stack_index": 61,
 					"type": "text"
 				},
 				{
-					"buffer": 339,
+					"buffer": 341,
 					"file": "resources/js/public-search.js",
 					"semi_transient": false,
 					"settings":
@@ -17112,11 +17192,11 @@
 						"translation.y": 6720.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 38,
+					"stack_index": 60,
 					"type": "text"
 				},
 				{
-					"buffer": 340,
+					"buffer": 342,
 					"file": "resources/js/visitante/especialidad-doctor.js",
 					"semi_transient": false,
 					"settings":
@@ -17144,11 +17224,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 84,
+					"stack_index": 105,
 					"type": "text"
 				},
 				{
-					"buffer": 341,
+					"buffer": 343,
 					"file": "resources/js/visitante/doctor.js",
 					"semi_transient": false,
 					"settings":
@@ -17176,11 +17256,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 85,
+					"stack_index": 106,
 					"type": "text"
 				},
 				{
-					"buffer": 342,
+					"buffer": 344,
 					"file": "resources/js/plugins/calendar.js",
 					"semi_transient": false,
 					"settings":
@@ -17207,7 +17287,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 94,
+					"stack_index": 115,
 					"type": "text"
 				},
 				{
@@ -17248,7 +17328,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 339,
+					"stack_index": 341,
 					"type": "text"
 				},
 				{
@@ -17290,7 +17370,7 @@
 						"translation.y": 72.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 340,
+					"stack_index": 342,
 					"type": "text"
 				},
 				{
@@ -17330,7 +17410,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 169,
+					"stack_index": 182,
 					"type": "text"
 				},
 				{
@@ -17383,11 +17463,11 @@
 						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 326,
+					"stack_index": 328,
 					"type": "text"
 				},
 				{
-					"buffer": 343,
+					"buffer": 345,
 					"file": "app/Soft/stemm.php",
 					"semi_transient": false,
 					"settings":
@@ -17414,11 +17494,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 153,
+					"stack_index": 167,
 					"type": "text"
 				},
 				{
-					"buffer": 344,
+					"buffer": 346,
 					"file": "public/stemmer/stemm_test.php",
 					"semi_transient": false,
 					"settings":
@@ -17446,11 +17526,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 325,
+					"stack_index": 327,
 					"type": "text"
 				},
 				{
-					"buffer": 189,
+					"buffer": 191,
 					"file": "app/Soft/Chatbot.php",
 					"semi_transient": false,
 					"settings":
@@ -17479,11 +17559,11 @@
 						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 320,
+					"stack_index": 322,
 					"type": "text"
 				},
 				{
-					"buffer": 216,
+					"buffer": 218,
 					"file": "app/Soft/nlp.php",
 					"semi_transient": false,
 					"settings":
@@ -17510,11 +17590,11 @@
 						"translation.y": 2311.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 322,
+					"stack_index": 324,
 					"type": "text"
 				},
 				{
-					"buffer": 232,
+					"buffer": 234,
 					"file": "storage/app/public/soft/text.txt",
 					"semi_transient": false,
 					"settings":
@@ -17541,11 +17621,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 321,
+					"stack_index": 323,
 					"type": "text"
 				},
 				{
-					"buffer": 188,
+					"buffer": 190,
 					"file": "app/Soft/math.php",
 					"semi_transient": false,
 					"settings":
@@ -17574,7 +17654,7 @@
 						"translation.y": 1121.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 323,
+					"stack_index": 325,
 					"type": "text"
 				},
 				{
@@ -17627,11 +17707,11 @@
 						"translation.y": 1162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 247,
+					"stack_index": 253,
 					"type": "text"
 				},
 				{
-					"buffer": 218,
+					"buffer": 220,
 					"file": "app/Soft/Tree/Data.php",
 					"semi_transient": false,
 					"settings":
@@ -17658,7 +17738,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 319,
+					"stack_index": 321,
 					"type": "text"
 				}
 			]
@@ -17725,12 +17805,52 @@
 		"selected_items":
 		[
 			[
-				"userC",
-				"app\\Http\\Controllers\\UserController.php"
+				"Leven",
+				"app\\Soft\\levenshtein.php"
 			],
 			[
 				"",
-				"app\\Http\\Controllers\\AdminController.php"
+				"resources\\views\\chart.blade.php"
+			],
+			[
+				"web.p",
+				"routes\\web.php"
+			],
+			[
+				"chart.",
+				"resources\\views\\chart.blade.php"
+			],
+			[
+				"webCo",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"web.",
+				"routes\\web.php"
+			],
+			[
+				"chart",
+				"resources\\views\\chart.blade.php"
+			],
+			[
+				"bi/appoinment/ga",
+				"resources\\views\\livewire\\bi\\appointment\\gain.blade.php"
+			],
+			[
+				"layout",
+				"resources\\views\\layouts\\app.blade.php"
+			],
+			[
+				"web.php",
+				"routes\\web.php"
+			],
+			[
+				"webC",
+				"app\\Http\\Controllers\\WebController.php"
+			],
+			[
+				"userC",
+				"app\\Http\\Controllers\\UserController.php"
 			],
 			[
 				"AdminC",
@@ -17957,10 +18077,6 @@
 				"app\\Http\\Controllers\\ChatController.php"
 			],
 			[
-				"web.php",
-				"routes\\web.php"
-			],
-			[
 				"chatForm",
 				"app\\Http\\Livewire\\Chat\\ChatForm.php"
 			],
@@ -18121,10 +18237,6 @@
 				"resources\\views\\livewire\\bi\\doctor\\worst.blade.php"
 			],
 			[
-				"chart",
-				"public\\js\\charts.js"
-			],
-			[
 				"best.bl",
 				"resources\\views\\livewire\\bi\\doctor\\best.blade.php"
 			],
@@ -18151,10 +18263,6 @@
 			[
 				"circle.php",
 				"app\\Http\\Livewire\\Bi\\Circle.php"
-			],
-			[
-				"chart.",
-				"public\\js\\charts.js"
 			],
 			[
 				"circle",
@@ -18207,34 +18315,6 @@
 			[
 				"indexBi",
 				"resources\\views\\bill\\indexBills.blade.php"
-			],
-			[
-				"chatbot",
-				"app\\Soft\\Chatbot.php"
-			],
-			[
-				"chat-me",
-				"resources\\views\\livewire\\chat-messages.blade.php"
-			],
-			[
-				"chat",
-				"app\\Http\\Livewire\\ChatMessages.php"
-			],
-			[
-				"homeC",
-				"app\\Http\\Controllers\\HomeController.php"
-			],
-			[
-				"home",
-				"app\\Http\\Controllers\\HomeController.php"
-			],
-			[
-				"dataset",
-				"storage\\app\\soft\\dataset.txt"
-			],
-			[
-				"livew",
-				"config\\livewire.php"
 			]
 		],
 		"width": 0.0

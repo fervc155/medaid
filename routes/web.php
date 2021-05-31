@@ -10,6 +10,8 @@ use App\User;
 
 Auth::routes(['verify'=>true]);
 
+Route::get('test/','WebController@test');
+Route::get('chart','WebController@chart');
 
 Route::get('/visitante/citas','WebController@citas');
 Route::get('/visitante/especialidades','WebController@especialidades');

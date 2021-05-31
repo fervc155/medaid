@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Levenshtein  
 {
-	public static function searchIn($models, $s)
+	public static function searchIn($models, $s,$sensitive=0.7)
 	{
 
 		if(strlen($s)<1)
@@ -38,7 +38,7 @@ class Levenshtein
 
 
    //     $corpus = math::sort(levenshtein::dataset($models, $busqueda));
-     $corpus = math::sort(levenshtein::dataset($models, $s));
+     $corpus = math::sort(levenshtein::dataset($models, $s,$sensitive));
 
 
     
@@ -175,7 +175,7 @@ class Levenshtein
 	}
 
 
-	public static function dataset($models, $s)
+	public static function dataset($models, $s,$sensitive=0.7)
 	{
 
 		$s = strtolower($s);
@@ -214,7 +214,7 @@ class Levenshtein
 					$jaro =JaroWinkler::JaroWinkler($subName,$subSearch);
 					$distanciasLev= ($lev<$distanciasLev)? $lev : $distanciasLev ;
 					
-					if($jaro>= 0.70 && $lev<= max(strlen($subName),strlen($subSearch))/2)
+					if($jaro>= $sensitive && $lev<= max(strlen($subName),strlen($subSearch))/2)
 					{  
 						$distancias= ($jaro>$distancias)? $jaro : $distancias ;
 

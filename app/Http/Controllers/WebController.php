@@ -26,7 +26,56 @@ class WebController extends Controller
     }
 
 
+    public function test(){
 
+        
+
+        $doctors = User::all();
+
+
+        $array = [];
+
+        foreach ($doctors as $key => $doctor) {
+            
+            $sensitive = 0;
+
+            $encontrados = 0;
+
+            $array[$key]['doctor'] = $doctor->name;
+          
+            $data=[];
+            while($sensitive <=100)
+            {
+             
+                $encontrados =User::searchTest($doctor->name,$sensitive/100)->count();
+
+                $array[$key][$sensitive.'']=$encontrados;
+                
+                
+
+
+
+                 
+               $sensitive += 5 ;
+            }
+
+      
+
+            
+
+ 
+        }
+
+
+    $json= json_encode($array);
+ 
+     return $json;
+    }
+
+
+    public function chart($json=null ){
+         return view('chart', compact('json'));
+    }
 
     public function especialidad($id)
     {

@@ -309,6 +309,19 @@ class User extends Authenticatable implements MustVerifyEmail
          
     }
 
+    
+    
+
+    public static function searchTest($s,$sensitive=0.7)
+    {
+
+         
+                $users = User::all();
+           
+       return    Levenshtein::searchIn($users, $s,$sensitive) ;
+        
+         
+    }
 
 
 
