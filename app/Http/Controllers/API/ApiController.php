@@ -8,6 +8,7 @@ use App\Conditions;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Office;
+use App\Patient;
 use App\Privileges;
 use App\Speciality;
 use App\User;
@@ -18,7 +19,24 @@ class ApiController extends Controller
 {
 
 
+  public function doctorSpecialities(Doctor $doctor){
 
+    $array  =[];
+
+
+    foreach($doctor->specialities as $speciality){
+      $array[]=[
+        'id'=>$speciality->id,
+        'name'=>$speciality->name,
+        'cost'=>$speciality->cost,
+        'price'=>$speciality->price
+
+      ];
+    }
+
+    return json_encode($array);
+
+  }
 	public function searchDoctorEspecialidad(Request $request)
 	{
 
@@ -82,6 +100,111 @@ class ApiController extends Controller
 
 
 	}
+
+
+  public function get_patients(){
+
+
+    $patients=Patient::active();
+
+    $array=[];
+
+    foreach($patients as $patient){
+      $array[]=[
+        'id'=>$patient->dni,
+        'name'=>$patient->name
+
+      ];
+    }
+
+    return json_encode($array);
+
+
+  }
+  public function get_offices(){
+
+
+    $offices=Office::active();
+
+    $array=[];
+
+    foreach($offices as $office){
+      $array[]=[
+        'id'=>$office->id,
+        'name'=>$office->name,
+        'address' => $office->city.' '.$office->postalCode.' Direccion '.$office->address,
+        'Profileimg'=>$office->Profileimg,
+        'map'=>$office->map,
+
+
+      ];
+    }
+
+    return json_encode($array);
+
+
+  }
+
+    public function get_officesSpecialities(Office $office){
+
+
+ 
+
+
+    $array=[];
+
+    foreach($office->doctors as $doctor){
+      foreach ($doctor->specialities as $spe) {
+
+        $array[]=[
+          'id'=>$spe->id,
+          'name'=>$spe->name,
+
+        ];
+
+      }
+    }
+    $array = array_merge_recursive($array,$array);
+
+    return (array_values(array_unique($array, SORT_REGULAR)));
+
+
+  }
+
+  public function get_doctorBySpeciality( $speciality_id, $office_id){
+
+    $doctors= Doctor::join('doctor_specialities','doctors.id','doctor_specialities.doctor_id')
+    ->select('doctors.*')
+    ->where('doctors.office_id',$office_id)
+    ->where('doctor_specialities.speciality_id',$speciality_id)
+    ->get();
+
+
+    $array = [];
+
+    foreach($doctors as $doctor){
+
+
+
+      $array[]=[
+        'id'=>$doctor->id,
+        'name'=>$doctor->name,
+        'cost'=>$doctor->hasSpeciality($speciality_id)->cost,
+        'price'=>$doctor->hasSpeciality($speciality_id)->price,
+        'stars'=>$doctor->stars,
+        'Profileimg'=>$doctor->Profileimg,
+
+      ];
+    } 
+
+
+    return json_encode($array);
+
+
+
+
+  }
+
 	public function searchDoctores(Request $request)
 	{
 

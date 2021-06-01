@@ -24,7 +24,7 @@ class Appointment_commentController extends Controller
 
 		$getUsers  = $Acomment->appointment->getUsers(true);
 
-		Notification::toUser($getUsers, array(
+		Notification::toUsers($getUsers, array(
             'subject'=>"El usuario: ".Auth::user()->name." ha comentado tu cita",
             'text'=>'Para ver los detalles ingresa a tu cita',
             'url'=> $Acomment->appointment->profileUrl,

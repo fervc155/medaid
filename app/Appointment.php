@@ -156,7 +156,7 @@ class Appointment extends Model
 
                $users = $users->merge($usersComments);
 
-               $users = $users->unique('id');
+               $users = $users->unique();
             }
 
 

@@ -103,7 +103,11 @@ class Doctor extends Model
         return false;
     }
 
-
+  public function getProfileimgAttribute()
+  {
+ 
+    return $this->user()->ProfileImg;
+  }
     public function getProfileUrlAttribute()
     {
         return url('/doctor/' . $this->id);

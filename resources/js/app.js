@@ -20,6 +20,9 @@ import './plugins/waitme';
  
 import './public-search';
 import './Appointments/appointments.js';
+
+
+
 import './Appointments/appointment_comment.js';
 import './dashboard';
 import './buttons';

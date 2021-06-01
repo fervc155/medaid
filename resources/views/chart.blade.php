@@ -8,15 +8,15 @@
     </div>
     <div class="col-12">
       <div class="card">
-       
+
 
         <div class="card-body">
-         
+
          <div id="grafica-relacion-citas" style="height: 600px;">
-          
+
          </div>
 
-         
+
        </div>
      </div>
    </div>
@@ -34,7 +34,7 @@
     method:'GET',
     success:function(data){
 
-      
+
 
       data = JSON.parse(data);
 
@@ -49,7 +49,7 @@
 
         var valores = []; 
         label.forEach(function(ee){ 
-          
+
           valores.push( json[ee]);
         })
 
@@ -60,8 +60,7 @@
 
 
 
-      console.log(series);
-
+  
 
       dataChart=
       {
@@ -87,7 +86,7 @@
 
   })
 
-  
+
 </script>
 
 @endpush

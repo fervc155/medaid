@@ -120,40 +120,236 @@ $(".btn-confirm-delete-comment").click(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-/*============================
-=            AJAX            =
-============================*/
-$(window).on('load', function () {
-  if ($('.select-office.ajax').val() >= 0) {
-    obtenerDoctoresClinica();
-  }
+if ($('.paso').length > 0) {
+  /*=============================
+  =            STEPS            =
+  =============================*/
+  var nPasos = $('.paso').length;
+  var counter = 0;
+  var next = $('.btn.next');
+  var prev = $('.btn.prev');
 
-  var fecha = $('.appointmentAjax input[name="date"]').val();
-  var doctor = $('.appointmentAjax select[name="doctor_id"]').val();
-  appointmentAjaxLlenarHorario(fecha, doctor);
-});
-$('.appointmentAjax input[name="date"]').on('change', function () {
-  var fecha = $(this).val();
-  var doctor = $('.appointmentAjax select[name="doctor_id"]').val();
-  console.log("doctor id " + doctor);
-  appointmentAjaxLlenarHorario(fecha, doctor);
-});
-$('.appointmentAjax select[name="doctor_id"]').on('change', function () {
-  var doctor = $(this).val();
-  var fecha = $('.appointmentAjax input[name="date"]').val();
-  appointmentAjaxLlenarHorario(fecha, doctor);
-});
+  var showStep = function showStep() {
+    $('.paso').fadeOut();
+    setTimeout(function () {
+      return $($('.paso')[counter]).fadeIn();
+    }, 370);
+  };
 
-var __datos;
+  next.on('click', function () {
+    counter++;
+    $(".circulo[data-id=".concat(counter, "]")).addClass('completo');
+    $(".circulo[data-id=".concat(counter, "]")).html("<i class=\" fas fa-check\"></i>");
+    $('.avance')[0].style.width = "".concat(100 / (nPasos - 1) * counter, "%");
+    showStep();
 
-var desabilitado;
+    if (counter >= nPasos - 1) {
+      next.hide();
+    } else {
+      prev.show();
+    }
+  });
+  prev.on('click', function () {
+    $(".circulo[data-id=".concat(counter, "]")).removeClass('completo');
+    $(".circulo[data-id=".concat(counter, "]")).html("<i class=\" fas fa-d\">".concat(counter, "</i>"));
+    counter--;
+    $('.avance')[0].style.width = "".concat(100 / (nPasos - 1) * counter, "%");
+    showStep();
 
-function appointmentAjaxLlenarHorario(fecha, doctor) {
-  if (fecha == undefined || doctor == undefined) {
-    return;
-  }
+    if (counter <= 0) {
+      prev.hide();
+    } else {
+      next.show();
+    }
+  });
+  /*=====  End of STEPS  ======*/
 
-  if (fecha.length > 0 && doctor.length > 0) {
+  next.on('click', function () {
+    error = true;
+
+    if (counter == nPasos - 1) {
+      $('#confirm-description').html($('form [name=description]').val());
+      $('#confirm-patient').html($('form [name=patient_dni]').val() > 0 ? '<i class="fas fa-check"></i>' : "X");
+      $('#confirm-office').html($('form [name=office_id]').val() > 0 ? '<i class="fas fa-check"></i>' : "X");
+      $('#confirm-speciality').html($('form [name=speciality_id]').val() > 0 ? '<i class="fas fa-check"></i>' : "X");
+      $('#confirm-doctor').html($('form [name=doctor_id]').val() > 0 ? '<i class="fas fa-check"></i>' : "X");
+      $('#confirm-date').html($('form [name=date]').val());
+      $('#confirm-time').html($('form [name=time]').val());
+      $('#confirm-cost').html($('form [name=cost]').val());
+      if ($('form [name=description]').val().length > 0 && $('form [name=patient_dni]').val() > 0 && $('form [name=office_id]').val() > 0 && $('form [name=speciality_id]').val() > 0 && $('form [name=doctor_id]').val() > 0 && $('form [name=date]').val().length > 0 && $('form [name=cost]').val().length > 0 && $('form [name=time]').val().length > 0) error = false;
+    }
+
+    if (error) $('button[type=submit]').addClass('d-none');else $('button[type=submit]').removeClass('d-none');
+  });
+  /*=======================================
+  =            OFFICE ONCHANGE            =
+  =======================================*/
+
+  $(document).on('click', '.btn-selectOffice', function (e) {
+    var office_id = e.target.dataset.id;
+    $('[name=office_id]').val(office_id);
+    $('.card-office').removeClass('selected');
+    $(".card-office[data-office=".concat(office_id, "]")).addClass('selected');
+    exports.ajaxOffice(office_id);
+  });
+  /*=====  End of OFFICE ONCHANGE  ======*/
+
+  /*============================================
+  =            SPECIALITI oonchange            =
+  ============================================*/
+
+  $(document).on('click', '.btn-selectSpeciality', function (e) {
+    if ($('.load-my-specialities').length > 0) {
+      $('[name=cost]').val(e.target.dataset.cost);
+      $('.btn.next').click();
+      return;
+    }
+
+    var speciality_id = e.target.dataset.id;
+    var office_id = $('[name=office_id]').val();
+    $('[name=speciality_id]').val(speciality_id);
+    $(".card-speciality").removeClass('selected');
+    $(".card-speciality[data-speciality=".concat(speciality_id, "]")).addClass('selected');
+    console.log(speciality_id);
+    $.ajax({
+      method: 'get',
+      url: "".concat(_API, "/specialities/").concat(speciality_id, "/").concat(office_id, "/doctors"),
+      success: function success(data) {
+        data = JSON.parse(data);
+        $('.btn.next').click();
+        data.forEach(function (e) {
+          var text = '';
+          var i = 0;
+
+          for (i; i < Math.ceil(e.stars); i++) {
+            text += '<i class="fas fa-star"></i>';
+          }
+
+          for (i; i < 5; i++) {
+            text += '<i class="fal fa-star"></i>';
+          }
+
+          $('#doctors').append("\n        <div class=\"col-md-4\">\n        <div class=\"card card-profile  card-doctor\" data-doctor=\"".concat(e.id, "\">\n\n        <div class=\"card-header card-header-image\">\n        <img style=\"max-width: 100%;\" class=\"img img-fluid\" src=\"").concat(e.Profileimg, "\">\n\n        </div>\n        <div class=\"card-body \">\n        <h2 class=\"card-category mt-4 text-gray\"><i class=\"fal fa-file-certificate\"></i>\n        ").concat(e.price, "</h2>\n        <h4 class=\"card-title\"> ").concat(e.name, "</h4>\n        <p class=\"card-description\">\n        <div class=\"stars\">\n        ").concat(text, "\n       </div>\n       <div>\n       ").concat(e.stars, "\n       </div>\n\n\n       </p>\n       <button type=\"button\" data-id=\"").concat(e.id, "\" data-cost=\"").concat(e.price, "\" class=\"btn btn-info btn-round btn-selectDoctor\">seleccionar</a>\n       </div>\n       </div>\n       </div> \n\n       "));
+        });
+      },
+      error: function error() {
+        alert('hubo un error al descargar la informacion porfavor recargue la pagina');
+      }
+    });
+  });
+  $(document).on('click', '.btn-selectDoctor', function (e) {
+    var doctor_id = e.target.dataset.id;
+    $('[name=doctor_id]').val(doctor_id);
+    var cost = e.target.dataset.cost;
+    $('[name=cost]').val(cost);
+    $(".card-doctor").removeClass('selected');
+    $(".card-doctor[data-doctor=".concat(doctor_id, "]")).addClass('selected');
+    $('.btn.next').click();
+  });
+  /*=====  End of SPECIALITI oonchange  ======*/
+
+  /*=================================
+  =            GET DIAYS            =
+  ============================================*/
+
+  $('[name=date]').on('change', function () {
+    var doctor_id = $('[name=doctor_id]').val();
+    var fecha = $('[name=date]').val();
+    exports.obtenerHoras(fecha, doctor_id);
+  });
+  /*=====  End of GET DIAYS  ======*/
+
+  $(document).ready(function () {
+    //vars
+    //start
+    prev.hide();
+    showStep(); //load steps
+
+    var tramo = 100 / (nPasos - 1);
+
+    for (var i = 0; i < nPasos - 1; i++) {
+      $('.paso-head .content .fondo').append("<div class=\"tag\" style=\"left:".concat(tramo * i + tramo / 2, "% \">\n         <div class=\"circulo\" data-id=\"").concat(i + 1, "\"  >\n         <i class=\" fas fa-d\">").concat(i + 1, "</i>\n         </div>\n         <div class=\"titulo\">\n         <span>").concat($('.paso')[i].dataset.title, "</span>\n         </div>\n         </div>"));
+      $($('.paso ')[i]).prepend("<h2>".concat($('.paso')[i].dataset.title, "</h2>"));
+    }
+
+    $($('.paso ')[nPasos - 1]).prepend("<h2>".concat($('.paso')[nPasos - 1].dataset.title, "</h2>")); //load patients
+
+    if ($('.load-patients').length) {
+      $.ajax({
+        method: 'get',
+        url: _API + '/patients',
+        success: function success(data) {
+          data = JSON.parse(data);
+          data.forEach(function (e) {
+            $('#patient_dni optgroup').append("<option value=\"".concat(e.id, "\">").concat(e.name, "</option>"));
+          });
+        },
+        error: function error() {
+          alert('hubo un error al descargar la informacion porfavor recargue la pagina');
+        }
+      });
+    }
+
+    if ($('.load-my-specialities').length) {
+      $.ajax({
+        method: 'get',
+        url: _API + '/doctors/' + $('.load-my-specialities').data('doctor') + '/specialities',
+        success: function success(data) {
+          exports.specialityCard(JSON.parse(data));
+        },
+        error: function error() {
+          alert('hubo un error al descargar la informacion porfavor recargue la pagina');
+        }
+      });
+    }
+
+    if ($('.load-specialities').length) {
+      exports.ajaxOffice($('[name=office_id]').val());
+    }
+
+    if ($('.load-offices').length) {
+      $.ajax({
+        method: 'get',
+        url: _API + '/offices',
+        success: function success(data) {
+          data = JSON.parse(data);
+          data.forEach(function (e) {
+            $('#offices ').append("\n                <div class=\"col-md-4\">\n                <div class=\"card card-rotate card-office\" data-office=\"".concat(e.id, "\">\n                <div class=\"front front-background\" style=\"background-image: url(").concat(e.Profileimg, ")\">\n                <div class=\"card-body\">\n                <a href=\"#pablo\">\n                <h3 class=\"card-title\">").concat(e.name, "</h3>\n                </a>\n                <p class=\"card-description\">\n                ").concat(e.address, "\n                <br>\n                </p>\n                <div class=\"stats text-center\">\n                <a target=\"_blank\" href=\"").concat(e.mapa, "\" type=\"button\" name=\"button\" class=\"btn btn-danger btn-fill btn-round btn-rotate\">\n                <i class=\"fal fa-map-marker\"></i> Ver mapa\n                </a>\n\n                <button data-id=\"").concat(e.id, "\"  class=\"btn btn-primary btn-round btn-selectOffice\" type=\"button\">seleccionar</button>\n\n\n\n                </div>\n                </div>\n                </div>\n\n                </div>  </div>\n\n                "));
+          });
+        },
+        error: function error() {
+          alert('hubo un error al descargar la informacion porfavor recargue la pagina');
+        }
+      });
+    }
+  });
+  /*================================
+  =            AUTONEXT            =
+  ================================*/
+
+  $('#patient_dni').on('change', function () {
+    return $('.btn.next').click();
+  });
+  $('.datepicker').on('change', function () {
+    return $('.btn.next').click();
+  });
+  $(document).on('change', '.timepicker', function () {
+    return $('.btn.next').click();
+  });
+  /*=====  End of AUTONEXT  ======*/
+
+  /*=================================
+  =            GET HOURs            =
+  =================================*/
+
+  exports.specialityCard = function (data) {
+    data.forEach(function (e) {
+      $('#specialities').append("<div class=\"col-6 col-md-4 col-xl-3\">\n      <div class=\"card card-pricing card-speciality\" data-speciality=\"".concat(e.id, "\">\n      <div class=\"card-body \">\n      <h6 class=\"card-category text-gray\">\n\n      <div class=\"icon icon-info\">\n      <i class=\"fal fa-file-certificate\"></i>\n      </div>\n      <p class=\"card-description\">\n      <span class=\"text-uppercase text-primary\">\n\n      ").concat(e.name, "\n\n      </span>\n      <span class=\"d-block\">").concat(e.price ? e.price : '', "</span>\n\n\n      </p>\n      <button type=\"button\" data-id=\"").concat(e.id, "\" data-cost=\"").concat(e.cost ? e.cost : '', "\" class=\"btn btn-info btn-round btn-selectSpeciality\">seleccionar</a>\n      </div>\n      </div>\n\n\n\n      </div>"));
+    });
+  };
+
+  exports.obtenerHoras = function (fecha, doctor) {
+    if (fecha == undefined || doctor == undefined || fecha.length < 1 || doctor.length < 1) return false;
     $('.groupTimepickerCita .bmd-label-floating').html('Hora');
     $.ajax({
       type: 'POST',
@@ -163,7 +359,7 @@ function appointmentAjaxLlenarHorario(fecha, doctor) {
         doctor: doctor,
         _token: $('.appointmentAjax input[name="_token"]').val()
       },
-      success: function success(data, _success) {
+      success: function success(data) {
         __datos = JSON.parse(data);
         var cantidad = Object.keys(__datos).length;
 
@@ -178,36 +374,7 @@ function appointmentAjaxLlenarHorario(fecha, doctor) {
 
           horaMin = __datos['inTime'][0] + __datos['inTime'][1];
           minutoMin = __datos['inTime'][3] + __datos['inTime'][4];
-          /*let date= $('.appointmentAjax input[name=date]').val();
-          				if (date == formatDateToday())
-          {
-          				horaActual = new Date().getHours();
-          minutoActual = new Date().getMinutes();
-          		if (horaMin<=horaActual)
-          {
-          	horaMin=horaActual;
-          			if(minutoActual<30)
-          	{
-          		if(minutoMin=='00')
-          		{
-          			horaMin+=1;
-          		}
-          		else 	if(minutoActual>=30)
-          		{
-          			horaMin+=1;
-          			minutoMin='30';
-          				}
-          	}
-          		}
-          		if(horaMax>=horaActual)
-          {
-          	Alert('Ya No puedes registrar citas hoy ');
-          $('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input disabled class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
-          }
-          	}*/
-
           $('.groupTimepickerCita').html('<label class="bmd-label-floating">Hora</label><input class="form-control timepicker timepickerCita" name="time" type="time" value=""  id="select-time">');
-          fijarMiHora();
           $('.timepickerCita').pickatime({
             min: [horaMin, minutoMin],
             max: [horaMax, minutoMax],
@@ -223,102 +390,29 @@ function appointmentAjaxLlenarHorario(fecha, doctor) {
             $('[aria-label="' + __datos['hours'][t] + '"]').remove();
           }
         }
+      },
+      error: function error() {
+        alert('hubo un error al descargar la informacion porfavor recargue la pagina');
       }
     });
-  }
-}
-/*=====================================================
-=            obtener medicos de una oficia            =
-=====================================================*/
+  };
 
-
-ExisteEspecialidadEnArray = function ExisteEspecialidadEnArray(array, element) {
-  for (k = 0; k < array.length; k++) {
-    if (element['id'] == array[k]['id']) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-__specialities = new Array();
-__doctors = new Array();
-$('.select-office.ajax').on('change', obtenerDoctoresClinica);
-
-function obtenerDoctoresClinica() {
-  $.ajax({
-    type: 'GET',
-    url: _API + "/offices/doctors/" + $('.select-office.ajax').val(),
-    success: function success(data, _success2) {
-      var doctores = JSON.parse(data);
-      __doctors = doctores;
-
-      for (i = 0; i < doctores.length; i++) {
-        for (j = 0; j < doctores[i]['speciality'].length; j++) {
-          if (!ExisteEspecialidadEnArray(__specialities, doctores[i]['speciality'][j])) {
-            __specialities.push(doctores[i]['speciality'][j]);
-          }
-        }
+  exports.ajaxOffice = function (office_id) {
+    $.ajax({
+      method: 'get',
+      url: _API + '/offices/' + office_id + '/specialities',
+      success: function success(data) {
+        if ($('.load-offices').length) $('.btn.next').click();
+        exports.specialityCard(data);
+      },
+      error: function error() {
+        alert('hubo un error al descargar la informacion porfavor recargue la pagina');
       }
+    });
+  };
+  /*=====  End of GET HOURs  ======*/
 
-      html = '<option>Seleciona una especialidad</option>';
-
-      for (i = 0; i < __specialities.length; i++) {
-        html += '<option value="' + __specialities[i]['id'] + '" >' + __specialities[i]['name'] + ' ' + __specialities[i]['price'] + '</option>';
-      }
-
-      $('select[name=speciality_id]').html(html);
-    }
-  });
 }
-
-$('.select-speciality.ajax').on('change', function () {
-  var doctores = __doctors;
-  var specialityId = $('.select-speciality.ajax').val();
-  html = '<option>Selecciona un doctor</option>';
-
-  for (i = 0; i < doctores.length; i++) {
-    for (j = 0; j < doctores[i].speciality.length; j++) {
-      if (doctores[i].speciality[j].id == specialityId) {
-        html += '<option value="' + doctores[i]['id'] + '" >' + doctores[i]['name'] + '</option>';
-      }
-    }
-  }
-
-  $('select[name=doctor_id]').html(html);
-});
-/*=====  End of AJAX  ======*/
-
-fijarMiHora = function fijarMiHora() {
-  horaActual = $('.appointmentAjax input[name=my-time]').val();
-
-  if (horaActual == undefined) {
-    return;
-  }
-
-  if (horaActual.length > 0) {
-    $('.appointmentAjax input#select-time').val(horaActual);
-  }
-};
-
-$('.appointment-reestablecer-hora').click(function () {
-  fijarMiHora();
-});
-/*=================================
-=            functions            =
-=================================*/
-
-function formatDateToday() {
-  var d = new Date(),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear();
-  if (month.length < 2) month = '0' + month;
-  if (day.length < 2) day = '0' + day;
-  return [year, month, day].join('-');
-}
-/*=====  End of functions  ======*/
 
 /***/ }),
 

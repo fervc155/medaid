@@ -2,7 +2,7 @@
 
 namespace App\Soft;
 
-class stemm {
+class Stemm {
 
 	public static function is_vowel($c) {
 		return ($c == 'a' || $c == 'e' || $c == 'i' || $c == 'o' || $c == 'u' || $c == 'á' || $c == 'é' ||

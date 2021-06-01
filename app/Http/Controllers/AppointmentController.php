@@ -73,50 +73,40 @@ class AppointmentController extends Controller
 
     return view('admin');
   }
-
-  //Agregar cita
-  public function create($id = '', $spe = '')
+ //Agregar cita
+  public function createWithDoctor(Doctor $doctor,Request $request)
   {
 
 
 
 
-    $patients = Patient::active();
-    $offices = Office::active();
+  
+
+     $speciality = $doctor->hasSpeciality($request->input()['speciality_id']);
+
+      return view('hospital.appointment.createAppointment', compact('doctor','speciality'));
+   }
+  //Agregar cita
+  public function create()
+  {
+
+      $doctor=null;
+      if(Auth::user()->isDoctor())
+        $doctor = Auth::user()->profile();
+
+      $office=null;
+      if(Auth::user()->isOffice())
+        $office = Auth::user()->profile();
 
 
-    if (Auth::user()->isDoctor()) {
-         
-      $id = Auth::user()->profile()->id;
-    }
-
-
-
-    if ($id != '' && $spe != '') {
-
-
-      $_doctor = Doctor::find($id);
-      $_speciality_id = $spe;
-
-      return view('hospital.appointment.createAppointment', compact('_doctor', 'patients', 'offices', '_speciality_id'));
-    }
-
-    if ($id != '') {
-      $_doctor = Doctor::find($id);
-
-
-
-      return view('hospital.appointment.createAppointment', compact('_doctor', 'patients', 'offices'));
-    } else {
-
-      return view('hospital.appointment.createAppointment', compact('patients', 'offices'));
-    }
+      return view('hospital.appointment.createAppointment', compact('doctor','office'));
   }
 
   //Método store, para almacenar cita
   public function store(Request $request)
   {
-    $this->validate($request, [
+
+    $data =$this->validate($request, [
       'date' => 'required|date',
       'time' => 'required',
       'speciality_id' => 'required|numeric',
@@ -125,6 +115,7 @@ class AppointmentController extends Controller
       'patient_dni' => 'required|numeric',
 
     ]);
+
 
     //Crear cita
     $appointment = new Appointment;

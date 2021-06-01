@@ -23,6 +23,9 @@ class Patient extends Model
  
   public static function active()
  {
+
+ 
+
   return Patient::join('users', 'users.id_user', '=', 'patients.dni')
         ->select('patients.*')
         ->where('users.id_privileges',Privileges::Id('patient'))
@@ -55,21 +58,12 @@ class Patient extends Model
   {
     return $this->dni;
   }
+
+ 
   public function getProfileimgAttribute()
   {
  
-
-
-
-    $img = '';
-    if ($user) {
-      $img = $this->user()->image;
-    }
-
-    if ($img == '')
-      return 'splash/img/' . Options::UserDefault();
-    else
-      return 'splash/img/' . $img;
+    return $this->user()->ProfileImg;
   }
 
   public function getageAttribute()

@@ -10,6 +10,8 @@ use App\User;
 
 Auth::routes(['verify'=>true]);
 
+
+Route::get('usuarios','WebController@usuarios');
 Route::get('test/','WebController@test');
 Route::get('chart','WebController@chart');
 
@@ -70,6 +72,7 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
     Route::get('chatbot','ChatController@bot')->name('chatbot');
     Route::resource('appointment', 'AppointmentController');          
   
+    Route::post('appointment/create/{doctor}','AppointmentController@createWithDoctor');
 
 
     Route::get('appointment/create/{id_doctor}/{id_speciality}','AppointmentController@create');
@@ -160,7 +163,7 @@ route::put('profile/regenerate/{user}','ProfileController@regenerate')->name('pr
     Route::delete('doctor/destroy/{doctor}', 'DoctorController@destroy');
 
 
-//    Route::get('office/{id}/edit','officeController@edit');
+//    Route::get('office/{id}/edit','OfficeController@edit');
     Route::patch('office','OfficeController@update');
 
 
@@ -301,7 +304,7 @@ Route::group(['middleware' => ['auth','patient'] ], function () {
    Route::put('patient/{patient}','PatientController@update')->name('patient.update');
 
 
-   Route::get('office/{id}' ,'officeController@show')->name('office.show');
+   Route::get('office/{id}' ,'OfficeController@show')->name('office.show');
    Route::get('doctor/{id}','DoctorController@show')->name('doctor.show');
 
 
@@ -329,11 +332,11 @@ Route::group(['middleware' => ['auth','office'] ], function () {
 
 
 
-    Route::get('office/{id}/edit','officeController@edit');
+    Route::get('office/{id}/edit','OfficeController@edit');
 
-     Route::put('office/{office}', 'officeController@update')->name('office.update');
-     Route::put('office/{office}/login', 'officeController@updateLogin')->name('office.update.login');
-     Route::put('office/{office}/image', 'officeController@updateImage')->name('office.update.image');
+     Route::put('office/{office}', 'OfficeController@update')->name('office.update');
+     Route::put('office/{office}/login', 'OfficeController@updateLogin')->name('office.update.login');
+     Route::put('office/{office}/image', 'OfficeController@updateImage')->name('office.update.image');
     
  
 

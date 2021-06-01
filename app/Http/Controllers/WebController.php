@@ -25,6 +25,25 @@ class WebController extends Controller
         return view('web.especialidades', compact('specialities'));
     }
 
+    public function usuarios(){
+
+      $usuarios = User::active();
+
+      echo '<table><thead><tr><th>correo</th><th >Clave</th><th>nombre</th><th>Perfil</th></tr></thead><tbody>';
+      foreach($usuarios as $user){
+        echo '<tr>
+          <td>'.$user->email.'</td> 
+          <td style="width:100px">123456       </td> 
+          <td>'.$user->name.'</td> 
+          <td>'.$user->NamePrivilege.'</td> 
+        </tr>';
+
+      }
+
+      echo "</tbody></table>";
+    }
+
+
 
     public function test(){
 

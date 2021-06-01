@@ -9,7 +9,7 @@ class Appointment_comment extends Model
 {
 	public function appointment()
 	{
-		return $this->belongsTo('App\appointment');
+		return $this->belongsTo('App\Appointment');
 	}
 
 

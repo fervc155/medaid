@@ -189,17 +189,20 @@
 					{{$doctor->MinMaxCost}}
 				</span>
 
-				<?php foreach ($doctor->specialities as $speciality) : ?>
-					<span class="d-none speciality-price" id="speciality-price-{{$speciality->id}}">
-						<span class="d-block">
-							{{$speciality->price}}
 
-						</span>
+        <form method="post" action="{{url('appointment/create/'.$doctor->id)}}">
+          @csrf
+        <select class="selectpicker" name="speciality_id" data-style="select-with-transition" title="Selecciona una especialidad" required data-size="7" tabindex="-98">
+          
+        <?php foreach ($doctor->specialities as $speciality) : ?>
+           <option value="{{$speciality->id}}">{{$speciality->name}} | {{$speciality->price}}</option>
+        <?php endforeach ?>
 
+        </select>
 
-						<a class="btn btn-primary btn-round" href="{{url('appointment/create/'.$doctor->id.'/'.$speciality->id)}}">Agendar una cita</a>
-					</span>
-				<?php endforeach ?>
+        <button class="btn btn-primary btn-sm btn-round">Agendar</button>
+
+        </form>
 			</div>
 
 			@endif

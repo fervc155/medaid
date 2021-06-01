@@ -42,16 +42,15 @@ class Office extends Model
 
   public function getProfileimgAttribute()
   {
-
-    if ($this->image) {
-      return 'splash/img/office/' . $this->image;
-    }
-
-    return 'splash/img/' . Options::UserDefault();
+ 
+    return $this->user()->ProfileImg;
   }
+
 
   public function user()
   {
     return User::where('id_user', '=', $this->id)->where('id_privileges', '=', Privileges::Id('office'))->get()->first();
   }
+
+  
 }

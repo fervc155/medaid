@@ -28,7 +28,7 @@
 
 		setInterval(function(){ 
 			reloadCount(); 
-		}, 2000);
+		}, 1   * 60  *1000 );
 
 
 	});

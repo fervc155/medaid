@@ -22,222 +22,296 @@
 
 
 				<div class="card-body">
+  
+         <div class="paso-head mb-5">
 
-					{!! Form::open(['action' => 'AppointmentController@store', 'method' => 'POST']) !!}
-					<input type="hidden" name="_token" value="{{ csrf_token()}}">
+          <div class="content">
 
+     
+            <div class="fondo">
+              <div class="avance">
 
-			 
-					<div class="form-group form-inline align-items-end">
-						<div class="icon-form">
-							<i class="fal fa-quote-left"></i>
-						</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-						<div class="form-group">
+        {!! Form::open(['action' => 'AppointmentController@store', 'method' => 'POST']) !!}
+        <input type="hidden" name="_token" value="{{ csrf_token()}}">
 
-							<label class="bmd-label-floating">Descripcion</label>
 
-							{{Form::text('description', '', ['class'=>'form-control'] )}}
-						</div>
-					</div>
+        
 
+          <!--=====================================
+          =            DESCRIPCION            =
+          ======================================-->
+          <div class="paso" data-title="Motivo">
 
 
+            <div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-quote-left"></i>
+              </div>
 
+              <div class="form-group">
 
-					@if(Auth::user()->isPatient())
+                <label class="bmd-label-floating">Razón de la cita</label>
 
-					<input type="hidden" name="patient_dni" id="patient_dni" value="{{Auth::user()->id_user}}">
+                {{Form::text('description', old('description'), ['class'=>'form-control'] )}}
+              </div>
+            </div>
 
+          </div>
 
-					@endif
 
 
+          <!--====  End of DESCRIPCION  ====-->
 
-					@if(Auth::user()->Doctor())
 
+          <!--=============================
+          =            PATIENT            =
+          ==============================-->
+          
+          @if(Auth::user()->isPatient())
+          <input type="hidden" name="patient_dni" id="patient_dni" value="{{Auth::user()->id_user ?? ''}}">
 
+          @endif
 
-					<div class="form-group form-inline align-items-end">
-						<div class="icon-form">
-							<i class="fal fa-user-injured"></i>
-						</div>
 
 
-						<div class="form-group">
 
-							<select class="select2" name="patient_dni" id="patient_dni" data-style="select-with-transition" title="Selecciona un paciente" data-size="sd7">
+          @if(Auth::user()->Doctor())
+          <span class="d-none load-patients"></span>
 
-								<option>Selecciona un paciente</option>
-								<optgroup label="O prueba buscando su nombre">
+            <div class="paso" data-title="Paciente">
 
-									<?php foreach ($patients as $patient) : ?>
 
-										<option value="{{ $patient->dni}}">{{ $patient->name }}</option>
+              <div class="form-group form-inline align-items-end">
+                <div class="icon-form">
+                  <i class="fal fa-user-injured"></i>
+                </div>
 
-									<?php endforeach ?>
-							</select>
-							</optgroup>
 
+                <div class="form-group">
 
-						</div>
-					</div>
+                  <select class="select2" name="patient_dni" id="patient_dni" data-style="select-with-transition" title="Selecciona un paciente" data-size="sd7">
 
-					@endif
+                    <option>Selecciona un paciente</option>
+                    <optgroup label="O prueba buscando su nombre">
 
 
-					@if(empty($_doctor))
-					<div class="form-group form-inline align-items-end ">
-						<div class="icon-form">
-							<i class="fal fa-hospital"></i>
-						</div>
 
 
+                    </optgroup>
+                  </select>
 
-						<div class="form-group ">
 
-							<select class="select2 select-office ajax" data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7">
-								<option>Selecciona una clinica</option>
+                </div>
+              </div>
 
-								@foreach($offices as $office)
+            </div>
+          @endif
 
-								<option value="{{ $office->id}}"
-									@php
-									if(Auth::user()->isOffice() && Auth::user()->profile()->id == $office->id)
-									{
-										echo "selected";
-									}
+          
+          <!--====  End of PATIENT  ====-->
 
 
+          <!--============================
+          =            OFFICE            =
+          =============================-->
 
-									@endphp
-									>{{ $office->name }} </option>
 
-								@endforeach
-							</select>
+            <input type="text" name="office_id" value="{{old('office_id', $doctor->office_id  ?? ( $office->id ?? '' )  
 
-						</div>
-					</div>
+            )}}" class="d-none">
 
-					<div class="form-group form-inline align-items-end ">
-						<div class="icon-form">
-							<i class="fal fa-hospital"></i>
-						</div>
+            @if(isset($office))
+                          <span class="d-none load-specialities"></span>
 
+            @endif
 
+          @if(!isset($doctor) && !isset($office))
+          <div class="paso" data-title="Clinica">
+            <span class="d-none load-offices"></span>
 
-						<div class="form-group ">
 
-							<select name="speciality_id" class="select2 select-speciality ajax btn-AgregarPrecioCita" data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7">
-								<option>Selecciona una especialidad</option>
-							</select>
+            <div class="icon-form">
+              <i class="fal fa-hospital"></i>
+            </div>
+            Selecciona una oficina
 
-						</div>
-					</div>
 
+            
 
+            <div class="row"  id="offices" >
 
 
+            </div>
 
+          </div>
+          @endif
 
+          
+          <!--====  End of OFFICE  ====-->
 
+          <!--==================================
+          =            SPECIALITIES            =
+          ===================================-->
+                <input type="text" name="speciality_id" value="{{old('speciality_id',$speciality->id??'')}}" class="d-none">
+          @if(!isset($speciality))
+            @if(isset($doctor))
+            <span class="d-none load-my-specialities" data-doctor="{{$doctor->id}}"></span>
+            @endif
 
+          <div class="paso" data-title="Especialidad">
+            <div class="form-group form-inline align-items-end ">
+              <div class="icon-form">
+                <i class="fal fa-hospital"></i>
+              </div>
 
-					<div class="form-group form-inline align-items-end ">
-						<div class="icon-form">
-							<i class="fal fa-user-md"></i>
-						</div>
 
 
-						<div class="form-group ">
+ 
 
-							<select class="select2" name="doctor_id" data-style="select-with-transition" title="Selecciona un doctor" data-size="sd7">
-								<option>Selecciona un medico</option>
 
 
+                <div class="row w-100"  id="specialities" >
 
-							</select>
 
+                </div>
 
-						</div>
+ 
+            </div>
 
+          </div>
+          @endif
+          
+          <!--====  End of SPECIALITIES  ====-->
 
-					</div>
 
-					@else
+          <!--============================
+          =            DOCTOR            =
+          =============================-->
+                <input type="text" name="doctor_id" value="{{old('doctor_id', $doctor->id??'')}}" class="d-none">
+                <input type="text" name="cost" value="{{old('cost',$speciality->id??'')}}" class="d-none">
+          @if(!isset($doctor))
+          <div class="paso" data-title="Doctor">
+            <div class="form-group form-inline align-items-end ">
+              <div class="icon-form">
+                <i class="fal fa-hospital"></i>
+              </div>
 
 
-					<select class="d-none" name="doctor_id">
-						<option value="{{$_doctor->id}}"></option>
+ 
 
 
 
-					</select>
 
+                <div class="row w-100"  id="doctors" >
 
-					<div class="form-group form-inline align-items-end ">
-						<div class="icon-form">
-							<i class="fal fa-hospital"></i>
-						</div>
 
+                </div>
 
+              
 
-						<div class="form-group ">
+            </div>
 
-							<select name="speciality_id" class="select2 select-speciality " data-style="select-with-transition" title="Selecciona una clinica" data-size="sd7">
-								<option>Selecciona una especialidad</option>
 
-								<?php foreach ($_doctor->specialities as $speciality) : ?>
+          </div>
+          @endif
+          
+          <!--====  End of DOCTOR  ====-->
 
-									<option value="{{$speciality->id}}" <?php if (!empty($_speciality_id)) {
-																			if ($_speciality_id == $speciality->id) {
-																				echo "selected";
-																			}
-																		} ?>>{{$speciality->name}} - {{$speciality->price}}</option>
-								<?php endforeach ?>
-							</select>
 
-						</div>
-					</div>
-					@endif
+          <!--==================================
+          =            SELECT FECHA            =
+          ===================================-->
+          
+          <div class="paso" data-title="Dia">
+            <div class="form-group form-inline align-items-end">
 
-					<div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-calendar-week"></i>
+              </div>
 
-						<div class="icon-form">
-							<i class="fal fa-calendar-week"></i>
-						</div>
+              <div class="form-group">
 
-						<div class="form-group">
+                <label class="bmd-label-floating">Fecha</label>
 
-							<label class="bmd-label-floating">Fecha</label>
+                {{Form::date('date', '', ['class'=>'form-control datepicker'] )}}
 
-							{{Form::date('date', '', ['class'=>'form-control datepicker'] )}}
+              </div>
+            </div>
 
-						</div>
-					</div>
+          </div>
+          
+          <!--====  End of SELECT FECHA  ====-->
 
-					<div class="form-group form-inline align-items-end">
-						<div class="icon-form">
-							<i class="fal fa-clock"></i>
-						</div>
+          <!--=================================
+          =            SELECT HORA            =
+          ==================================-->
 
-						<div class="form-group groupTimepickerCita">
+          <div class="paso" data-title="Hora">
 
 
-							<label class="bmd-label-floating">Hora</label>
 
-							{{Form::time('time', '', ['class'=>'form-control timepickerCita','readonly'=>'true'] )}}
-						</div>
-					</div>
+            <div class="form-group form-inline align-items-end">
+              <div class="icon-form">
+                <i class="fal fa-clock"></i>
+              </div>
 
-					<div class="my-3">
-						<button type="submit" class="btn btn-primary btn-block"><i class="fal fa-plus"> Agregar</i></button>
-					</div>
-				</div>
+              <div class="form-group groupTimepickerCita">
 
-			</div>
-		</div>
-	</div> <!-- Fila -->
+
+                <label class="bmd-label-floating">Hora</label>
+
+                {{Form::time('time', '', ['class'=>'form-control timepickerCita'] )}}
+              </div>
+            </div>
+
+
+          </div>
+          <!--====  End of SELECT HORA  ====-->
+          
+          
+          
+          
+          
+          
+
+
+
+
+
+
+          <div class="paso" data-title="Confirmar">  
+           <div class="my-3">
+
+            <span class="d-block lead">Motivo: <span id="confirm-description"></span></span>
+            <span class="d-block lead">Paciente: <span id="confirm-patient"></span></span>
+            <span class="d-block lead">Clinica: <span id="confirm-office"></span></span>
+            <span class="d-block lead">Especialidad: <span id="confirm-speciality"></span></span>
+            <span class="d-block lead">Doctor: <span id="confirm-doctor"></span></span>
+            <span class="d-block lead">Dia: <span id="confirm-date"></span></span>
+            <span class="d-block lead">Hora: <span id="confirm-time"></span></span>
+            <span class="d-block lead">costo: <span id="confirm-cost"></span></span>
+            <button type="submit" class="btn btn-primary btn-block"><i class="fal fa-plus"> Agendar</i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+     <div class="d-flex justify-content-center mb-3">
+
+              <button class="btn  btn-secondary  btn-round btn-sm prev"><i class="fas fa-chevron-left"></i> Anterior </button>
+              
+
+              <button class="btn  btn-primary  btn-round btn-sm next">Siguiente <i class="fas fa-chevron-right"></i></button>
+            </div>
+
+
+  </div>
+</div>
+</div> <!-- Fila -->
 </div> <!-- Contenedor -->
 
 @endsection

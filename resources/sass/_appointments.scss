@@ -1,0 +1,85 @@
+.paso{
+  display: none;  
+}
+
+
+
+.select2[name="patient_dni"] + span .select2-results__options{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.select2[name="patient_dni"] + span .select2-results__options li{
+
+  width: 25%;
+}
+
+
+
+.avance{
+
+ 
+    position: absolute;
+    height: 10px;
+    width: 0%;
+    left: 0;
+    top: 0;
+    background: #00bbd3;
+    transition: all 0.3s ease;
+    /* box-shadow: 2px 2px 30px -11px rgb(0 0 0 / 50%); */
+}
+
+
+.fondo{
+  
+    width: 100%;
+    background: #f3f3f3;
+    height: 10px;
+    border-bottom: 1px solod #eaeaeb;
+    position: relative;
+    /* box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 10%); */
+
+}
+
+.fondo .circulo{
+
+    background: #f3f3f3;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    border-radius: 100px;
+    justify-content: center;
+    color: #00bbd3;
+     text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    
+}
+
+.fondo .tag{
+    top: -10px;
+  position: absolute;
+  text-align: center;
+}
+.fondo .circulo.completo{
+  background: #00bbd3;
+  color: white;
+}
+
+
+.card.selected
+{
+    border: 5px solid #a2d0ff;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+ 
+ .paso h2{    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    color: #17a2b8;}
