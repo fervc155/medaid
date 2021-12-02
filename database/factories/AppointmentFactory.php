@@ -32,7 +32,7 @@ $factory->define(App\Appointment::class, function (Faker $faker) {
 
     $speciality = $Doctor->specialities->random();
 
-    $data['speciality_id'] = $speciality->speciality->id;
+    $data['speciality_id'] = $speciality->id;
     $data['cost'] = $speciality->cost;
 
 

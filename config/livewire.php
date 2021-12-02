@@ -42,7 +42,7 @@ return [
     |
     */
 
-   'asset_url'  =>  env('URL_Livewire', '/'),
+   'asset_url'  =>  '',
     /*
     |--------------------------------------------------------------------------
     | Livewire Endpoint Middleware Group

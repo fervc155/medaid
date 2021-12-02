@@ -1,0 +1,1 @@
+["saludo","salud","respuesta_salud","respuesta_salud_pregunta","nombre","login_paciente","despedida","agradecimiento","facturar","soy_un_bot"]
